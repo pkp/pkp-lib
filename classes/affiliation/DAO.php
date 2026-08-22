@@ -22,8 +22,8 @@ use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
@@ -94,31 +94,17 @@ class DAO extends EntityDAO
             ->pluck('a.' . $this->primaryKeyColumn);
     }
 
-    /**
-     * Get a collection of affiliations matching the configured query.
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->author_affiliation_id => $this->fromRow($row);
-            }
-        });
-    }
-
     /** @copydoc EntityDAO::fromRow() */
-    public function fromRow(object $row): Affiliation
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Affiliation
     {
-        $affiliation = parent::fromRow($row);
-        if (!empty($affiliation->getRor())) {
-            $affiliation->setData('rorObject', Repo::ror()->getCollector()->filterByRor($affiliation->getRor())->getMany()->first());
-        }
+        $affiliation = parent::fromRow($row, $ids, $cache, $query);
+
+        $cache->rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($ids)
+            ->getMany()
+            ->collect()
+            ->groupBy(fn ($rorObject) => $rorObject->getRor());
+        $affiliation->setData('rorObject', $cache->rorObjects->get($row->ror)?->first());
+
         return $affiliation;
     }
 

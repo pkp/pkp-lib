@@ -20,6 +20,7 @@ namespace PKP\core\traits;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\DataObject;
+use PKP\core\interfaces\CollectorInterface;
 
 /**
  * @template T of DataObject
@@ -36,7 +37,7 @@ trait EntityWithParent
      *
      * @return T
      */
-    abstract public function fromRow(object $row): DataObject;
+    abstract public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): DataObject;
 
     /**
      * Check if an object exists.
@@ -66,6 +67,6 @@ trait EntityWithParent
             ->where($this->primaryKeyColumn, $id)
             ->when($parentId !== null, fn (Builder $query) => $query->where($this->getParentColumn(), $parentId))
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 }

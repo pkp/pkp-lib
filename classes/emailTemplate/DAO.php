@@ -18,9 +18,9 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Str;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
@@ -111,24 +111,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of Email Templates matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $this->fromRow($row);
-            }
-        });
-    }
-
-    /**
      * Get a single email template that matches the given key
      */
     public function getByKey(?int $contextId = null, string $key): ?EmailTemplate
@@ -155,10 +137,10 @@ class DAO extends EntityDAO
      *
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): EmailTemplate
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): EmailTemplate
     {
         /** @var EmailTemplate $emailTemplate */
-        $emailTemplate = parent::fromRow($row);
+        $emailTemplate = parent::fromRow($row, $ids, $cache, $query);
         $schema = $this->schemaService->get($this->schema);
         $contextDao = Application::getContextDAO();
 

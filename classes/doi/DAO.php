@@ -21,9 +21,9 @@ namespace PKP\doi;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
@@ -96,29 +96,12 @@ abstract class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of DOIs matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-            foreach ($rows as $row) {
-                yield $row->doi_id => $this->fromRow($row);
-            }
-        });
-    }
-
-    /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Doi
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Doi
     {
         /** @var Doi */
-        $doi = parent::fromRow($row);
+        $doi = parent::fromRow($row, $ids, $cache, $query);
         if (empty($doi->getData('doi'))) {
             $doi->setData('resolvingUrl', '');
         } else {

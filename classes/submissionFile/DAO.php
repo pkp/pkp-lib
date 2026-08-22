@@ -24,8 +24,8 @@ use Exception;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\db\DAORegistry;
 use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\services\PKPSchemaService;
@@ -101,7 +101,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
             ->when($submissionId !== null, fn (Builder $query) => $query->where('sf.submission_id', $submissionId))
             ->first();
 
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**
@@ -142,29 +142,11 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     }
 
     /**
-     * Get a collection of announcements matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->submission_file_id => $this->fromRow($row);
-            }
-        });
-    }
-
-    /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $primaryRow): SubmissionFile
+    public function fromRow(object $primaryRow, array $ids, object $cache, ?CollectorInterface $query = null): SubmissionFile
     {
-        $submissionFile = parent::fromRow($primaryRow);
+        $submissionFile = parent::fromRow($primaryRow, $ids, $cache, $query);
         $submissionFile->setData('submissionLocale', $primaryRow->submission_locale);
         $submissionFile->setData('path', $primaryRow->path);
         $submissionFile->setData('mimetype', $primaryRow->mimetype);

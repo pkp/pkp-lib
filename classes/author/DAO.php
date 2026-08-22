@@ -24,6 +24,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\facades\Repo;
 use PKP\services\PKPSchemaService;
 
@@ -89,7 +90,7 @@ class DAO extends EntityDAO
             ->when($publicationId !== null, fn (Builder $query) => $query->where('a.publication_id', '=', $publicationId))
             ->select(['a.*', 's.locale AS submission_locale'])
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**
@@ -130,39 +131,26 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of publications matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-            foreach ($rows as $row) {
-                yield $row->author_id => $this->fromRow($row);
-            }
-        });
-    }
-
-    /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Author
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Author
     {
-        $author = parent::fromRow($row);
+        $author = parent::fromRow($row, $ids, $cache, $query);
 
         // Set the primary locale from the submission
         $author->setData('submissionLocale', $row->submission_locale);
 
-        $author->setAffiliations(
-            Repo::affiliation()->getByAuthorId($author->getId())
-        );
+        $author->setAffiliations(LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->affiliations ??= collect(Repo::affiliation()->getByAuthorIds($ids))
+                ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
+            yield from $cache->affiliations->get($row->author_id) ?? collect();
+        }));
 
-        $author->setCreditRoles(Repo::creditContributorRole()->getCreditRolesByContributorId($author->getId()));
+        $cache->creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($ids);
+        $author->setCreditRoles($cache->creditRoles->get($row->author_id)?->toArray() ?? []);
 
-        $author->setContributorRoles(Repo::creditContributorRole()->getContributorRolesByContributorId($author->getId()));
+        $cache->contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($ids);
+        $author->setContributorRoles($cache->contributorRoles->get($row->author_id)?->all() ?? []);
 
         return $author;
     }

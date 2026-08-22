@@ -21,8 +21,8 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
@@ -107,24 +107,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of announcements matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->submission_id => $this->fromRow($row);
-            }
-        });
-    }
-
-    /**
      * Get the submission id by its url path
      */
     public function getIdByUrlPath(string $urlPath, int $contextId): ?int
@@ -204,9 +186,9 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Submission
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Submission
     {
-        $submission = parent::fromRow($row);
+        $submission = parent::fromRow($row, $ids, $cache, $query);
 
         $submission->setData(
             'publications',

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/publication/PublicationCategory.php
  *
@@ -14,8 +15,8 @@
 namespace PKP\publication;
 
 use Eloquence\Behaviours\HasCamelCasing;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class PublicationCategory extends Model
 {
@@ -32,9 +33,9 @@ class PublicationCategory extends Model
     /**
      * Scope a query to only include records with a specific publicationId
      */
-    public function scopeWithPublicationId(Builder $query, int $publicationId): Builder
+    public function scopeWithPublicationIds(Builder $query, array $publicationIds): Builder
     {
-        return $query->where('publication_id', $publicationId);
+        return $query->whereIn('publication_id', $publicationIds);
     }
 
     /**

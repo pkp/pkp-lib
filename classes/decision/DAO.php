@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/DAO.php
  *
@@ -17,8 +18,8 @@ use APP\decision\Decision;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 
 /**
@@ -94,28 +95,11 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of decisions matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-            foreach ($rows as $row) {
-                yield $row->edit_decision_id => $this->fromRow($row);
-            }
-        });
-    }
-
-    /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Decision
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Decision
     {
-        return parent::fromRow($row);
+        return parent::fromRow($row, $ids, $cache, $query);
     }
 
     /**

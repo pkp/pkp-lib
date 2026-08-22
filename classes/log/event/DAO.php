@@ -16,7 +16,6 @@ namespace PKP\log\event;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
 
@@ -95,54 +94,6 @@ class DAO extends EntityDAO
             ->getQueryBuilder()
             ->select('e.' . $this->primaryKeyColumn)
             ->pluck('e.' . $this->primaryKeyColumn);
-    }
-
-    /**
-     * Get a collection of log entries matching the configured query
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->log_id => $this->fromRow($row);
-            }
-        });
-    }
-
-    /**
-     * @copydoc EntityDAO::fromRow()
-     */
-    public function fromRow(object $row): EventLogEntry
-    {
-        $logEntry = parent::fromRow($row);
-        $schema = $this->schemaService->get($this->schema);
-
-        DB::table($this->settingsTable)
-            ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
-            ->get()
-            ->each(function ($row) use ($logEntry, $schema) {
-                if (!empty($schema->properties->{$row->setting_name})) {
-                    return;
-                }
-
-                // Retrieve custom properties
-                if (!empty($row->setting_type)) {
-                    $logEntry->setData(
-                        $row->setting_name,
-                        $this->convertFromDB(
-                            $row->setting_value,
-                            $row->setting_type
-                        ),
-                        empty($row->locale) ? null : $row->locale
-                    );
-                }
-            });
-
-        return $logEntry;
     }
 
     /**

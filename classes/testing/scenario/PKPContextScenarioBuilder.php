@@ -25,8 +25,10 @@
  *   written through PKPContextService::edit(), the same service the tab's
  *   form save runs through, with the tab's defaults-for-tests (enabled,
  *   Public Sandbox, dummy credentials). The OAuth exchange itself can never
- *   complete on the egress-firewalled fleets, so dummy credentials are
- *   exactly as good as real ones for every screen this state gates.
+ *   complete in the test env (outbound HTTP fails fast at the dead-port
+ *   `[proxy]` in config.test.inc.php, and no real ORCID account backs the
+ *   dummy sandbox credentials), so dummy credentials are exactly as good as
+ *   real ones for every screen this state gates.
  */
 
 namespace PKP\testing\scenario;

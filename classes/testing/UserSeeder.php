@@ -45,11 +45,13 @@ class UserSeeder
             throw new SpecException("{$spec->path}.roles", 'Each user needs a non-empty roles list');
         }
         // ORCID iD fixture state (U4): a connected iD is only reachable
-        // through ORCID's own OAuth sign-in, which the egress-firewalled test
-        // fleets can never complete — so the verified/unauthenticated states
-        // are seeded directly (`orcid` + `orcidIsVerified`, the same
-        // user_settings rows the OAuth landing stores, minus the token
-        // fields — deliberate deviation, parity ledger 2026-08-07).
+        // through ORCID's own OAuth sign-in, which can never complete in the
+        // test env (outbound HTTP fails fast at the dead-port `[proxy]` in
+        // config.test.inc.php, and the sandbox ORCID credentials are dummies)
+        // — so the verified/unauthenticated states are seeded directly
+        // (`orcid` + `orcidIsVerified`, the same user_settings rows the OAuth
+        // landing stores, minus the token fields — deliberate deviation,
+        // parity ledger 2026-08-07).
         $orcid = $spec->get('orcid');
         $orcidIsVerified = (bool) $spec->get('orcidIsVerified', false);
         if ($orcidIsVerified && !$orcid) {
@@ -108,7 +110,18 @@ class UserSeeder
         $assignedGroups = [];
         foreach ($plan['roles'] as $i => $roleKey) {
             $userGroup = $this->resolveUserGroup($context, (string) $roleKey, "{$plan['specPath']}.roles.{$i}");
-            Repo::userGroup()->assignUserToGroup($user->getId(), $userGroup->id);
+            // Explicit masthead = true: every admin-driven enrolment path
+            // ends with an explicit boolean, and the default is "appears on
+            // the masthead" — the users-grid edit form pre-checks every
+            // masthead checkbox and sweeps the value on save
+            // (UserForm::saveUserGroupAssignments ~188-194, verified live
+            // 2026-08-23: grid enrolment writes masthead = 1), the reviewer
+            // enrol forms pass true, and the invitation flow stores the
+            // inviter's explicit choice (reviewers forced true). NULL is only
+            // left by self-registration — not the path the roster mirrors.
+            // Whether a user actually shows on the public masthead is still
+            // gated by the GROUP's own masthead flag, exactly as in the app.
+            Repo::userGroup()->assignUserToGroup($user->getId(), $userGroup->id, null, null, true);
             $assignedGroups[] = $userGroup;
         }
 

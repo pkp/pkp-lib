@@ -29,8 +29,10 @@
  * Feature passthroughs so far (each with a parity-ledger entry):
  * - author {orcid*, orcidIsVerified?} — ORCID iD fixture state on the
  *   submitter's contributor record (U4): a connected iD is only reachable
- *   through ORCID's own OAuth sign-in, unreachable from the egress-firewalled
- *   fleets, so the unauthenticated/verified field states are seeded directly
+ *   through ORCID's own OAuth sign-in, which can never complete in the test
+ *   env (outbound HTTP fails fast at the dead-port `[proxy]` in
+ *   config.test.inc.php, and the sandbox ORCID credentials are dummies), so
+ *   the unauthenticated/verified field states are seeded directly
  *   (the same author_settings rows the OAuth landing stores, minus tokens).
  *
  * The workflow start stage comes from each app's submission schema default —
@@ -49,9 +51,13 @@ use PKP\context\Context;
 use PKP\controllers\grid\users\reviewer\form\traits\HasReviewDueDate;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use PKP\notification\Notification;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\action\EditorAction;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\ReviewerAction;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\testing\Spec;
 use PKP\testing\SpecException;
 use PKP\user\User;
@@ -338,18 +344,42 @@ abstract class PKPSubmissionScenarioBuilder
             }
 
             // Remaining declared rounds (no decision created them): build the
-            // round explicitly and seed its reviewers.
+            // round with the same shape the real decision path produces —
+            // mirrored from DecisionType::createReviewRound (DecisionType.php
+            // ~511-541): PENDING_REVIEWERS status, the latest UNPUBLISHED
+            // publication id (getLatestUnPublishedPublicationId, ~556-562),
+            // and the REVIEW_ROUND_STATUS notification row the workflow's
+            // round header runs on.
             while ($roundIndex < count($roundPlans)) {
                 $plan = $roundPlans[$roundIndex];
                 $submission = Repo::submission()->get($submissionId);
                 $lastRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submissionId, $plan['stageId']);
                 $roundNumber = $lastRound ? $lastRound->getRound() + 1 : 1;
+                $publicationId = $submission->getData('publications')
+                    ->filter(fn ($publication) => $publication->getData('status') !== \PKP\publication\PKPPublication::STATUS_PUBLISHED)
+                    ->reduce(fn ($a, $b) => $a && $a->getId() > $b->getId() ? $a : $b)
+                    ?->getId();
                 $round = $reviewRoundDao->build(
                     $submissionId,
-                    $submission->getData('currentPublicationId'),
+                    $publicationId,
                     $plan['stageId'],
-                    $roundNumber
+                    $roundNumber,
+                    ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS
                 );
+                $notificationCount = Notification::withAssoc(Application::ASSOC_TYPE_REVIEW_ROUND, $round->getId())
+                    ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS)
+                    ->withContextId($submission->getData('contextId'))
+                    ->count();
+                if ($notificationCount == 0) {
+                    $notificationMgr = new \APP\notification\NotificationManager();
+                    $notificationMgr->createNotification(
+                        null,
+                        Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS,
+                        $submission->getData('contextId'),
+                        Application::ASSOC_TYPE_REVIEW_ROUND,
+                        $round->getId()
+                    );
+                }
                 $seededAssignments = array_merge(
                     $seededAssignments,
                     $this->seedRoundReviewers($context, $submissionId, $round, $plan['reviewers'])
@@ -362,7 +392,39 @@ abstract class PKPSubmissionScenarioBuilder
                 $publication = Repo::publication()->get($submission->getData('currentPublicationId'));
                 $this->beforePublish($context, $submission, $publication, $publishOverlayPlan);
                 $publication = Repo::publication()->get($publication->getId());
-                Repo::publication()->publish($publication);
+
+                // The real publish endpoint validates before publishing
+                // (PKPSubmissionController::publishPublication ~1413-1424):
+                // a seed the UI would refuse must fail loudly, not publish
+                // an impossible state.
+                $primaryLocale = $submission->getData('locale');
+                $allowedLocales = $context->getData('supportedSubmissionLocales');
+                $errors = Repo::publication()->validatePublish($publication, $submission, (array) $allowedLocales, $primaryLocale);
+                if (!empty($errors)) {
+                    throw new SpecException('published', 'The publish endpoint would refuse this publication: ' . json_encode($errors));
+                }
+
+                // Mirrored from PKPSubmissionController::publishPublication
+                // (~1426-1445): publish without status stamping, sweep the
+                // author stage assignments to canChangeMetadata = 0
+                // (controller-only code — exists nowhere else), then
+                // re-derive submission status/current publication off a
+                // fresh fetch.
+                Repo::publication()->publish($publication, false);
+
+                $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+                    ->get();
+                foreach ($stageAssignments as $stageAssignment) {
+                    $userGroup = $stageAssignment->userGroup;
+                    if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR) {
+                        $stageAssignment->canChangeMetadata = 0;
+                        $stageAssignment->save();
+                    }
+                }
+
+                $submission = Repo::submission()->get($submission->getId());
+                Repo::submission()->updateStatus($submission);
+                Repo::submission()->updateCurrentPublication($submission);
             }
         } finally {
             Registry::set('user', $previousActingUser);
@@ -448,6 +510,26 @@ abstract class PKPSubmissionScenarioBuilder
         $reviewDueDate = date('Y-m-d', $reviewDueTimestamp);
         $responseDueDate = date('Y-m-d', $responseDueTimestamp);
 
+        // The Add Reviewer form always submits a review method: the context's
+        // defaultReviewMode with a double-anonymous fallback
+        // (ReviewerForm::initData ~206-210; schema default 2). Passing null
+        // here would let the review_assignments column default (anonymous)
+        // win — a state no UI path produces (parity fix 2026-08-23).
+        $reviewMethod = (int) $context->getData('defaultReviewMode');
+        if (!$reviewMethod) {
+            $reviewMethod = ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
+        }
+
+        // The section/series default review form, exactly as the Add Reviewer
+        // form resolves it (ReviewerForm::initData ~212-221) and validates it
+        // on save (ReviewerForm::execute ~366-369).
+        $submission = Repo::submission()->get($submissionId);
+        $sectionId = $submission->getCurrentPublication()->getData(Application::getSectionIdPropName());
+        $section = $sectionId ? Repo::section()->get($sectionId, $context->getId()) : null;
+        $reviewFormId = $section ? (int) $section->getReviewFormId() : 0;
+        $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var \PKP\reviewForm\ReviewFormDAO $reviewFormDao */
+        $reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
+
         foreach ($reviewers as $plan) {
             $reviewer = $plan['user'];
             $submission = Repo::submission()->get($submissionId);
@@ -458,7 +540,7 @@ abstract class PKPSubmissionScenarioBuilder
                 $round,
                 $reviewDueDate,
                 $responseDueDate,
-                null,
+                $reviewMethod,
                 // pass explicitly: the seeding request is site-wide, so the
                 // service must not fall back to $request->getContext()
                 (bool) $context->getData('defaultReviewPublicVisibility')
@@ -471,8 +553,14 @@ abstract class PKPSubmissionScenarioBuilder
             if (!$assignment) {
                 throw new SpecException('reviewRounds', "Review assignment for \"{$reviewer->getUsername()}\" was not created");
             }
-            // The Add Reviewer form stamps the notification date.
-            Repo::reviewAssignment()->edit($assignment, ['dateNotified' => \PKP\core\Core::getCurrentDate()]);
+            // The Add Reviewer form's post-add stamp, mirrored from
+            // ReviewerForm::execute ~371-375: notification date, the
+            // section's default review form, and considered = NEW.
+            Repo::reviewAssignment()->edit($assignment, [
+                'dateNotified' => \PKP\core\Core::getCurrentDate(),
+                'reviewFormId' => $reviewForm ? $reviewFormId : null,
+                'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_NEW,
+            ]);
 
             if ($plan['status'] !== 'invited') {
                 $assignment = Repo::reviewAssignment()->get($assignment->getId());

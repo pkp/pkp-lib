@@ -150,6 +150,11 @@ abstract class PKPBootstrapSeeder
             $category->setData('title', $value, $titleLocale);
         }
         $category->setData('parentId', $parentId);
+        // The category form always submits a sort option — its select
+        // defaults to the app's default (CategoryForm ~124-131:
+        // Repo::submission()->getDefaultSortOption()); a UI-created category
+        // never stores NULL here (parity fix 2026-08-23).
+        $category->setData('sortOption', Repo::submission()->getDefaultSortOption());
         $categoryId = Repo::category()->add($category);
 
         foreach ($plan['children'] as $childPlan) {

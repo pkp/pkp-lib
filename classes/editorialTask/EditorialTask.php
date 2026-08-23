@@ -21,6 +21,7 @@ use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Arr;
@@ -80,7 +81,7 @@ class EditorialTask extends Model
         'assocType', 'assocId', 'stageId', 'seq',
         'createdAt', 'updatedAt', 'closed', 'dateDue',
         'createdBy', 'type', 'status', 'dateStarted',
-        'dateClosed', 'title', 'startedBy'
+        'dateClosed', 'title', 'startedBy', 'editTaskTemplateId'
     ];
 
     protected $casts = [
@@ -98,6 +99,7 @@ class EditorialTask extends Model
         'dateStarted' => 'datetime',
         'dateClosed' => 'datetime',
         'title' => 'string',
+        'editTaskTemplateId' => 'int',
     ];
 
     protected static function booted(): void
@@ -187,6 +189,14 @@ class EditorialTask extends Model
     public function participants(): HasMany
     {
         return $this->hasMany(Participant::class, 'edit_task_id', 'edit_task_id');
+    }
+
+    /**
+     * Relationship to source task template if task was auto-created from one.
+     */
+    public function template(): BelongsTo
+    {
+        return $this->belongsTo(Template::class, 'edit_task_template_id', 'edit_task_template_id');
     }
 
     public function notes(): MorphMany

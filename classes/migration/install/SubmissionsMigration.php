@@ -347,6 +347,13 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->timestamps();
         });
 
+        Schema::table('edit_tasks', function (Blueprint $table) {
+            $table->foreign('edit_task_template_id')
+                ->references('edit_task_template_id')
+                ->on('edit_task_templates')
+                ->nullOnDelete();
+        });
+
         Schema::create('edit_task_template_settings', function (Blueprint $table) {
             $table->comment('includes additional and multilingual data about the editorial task templates.');
             $table->id('edit_task_template_setting_id');

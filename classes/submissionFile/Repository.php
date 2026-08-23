@@ -890,7 +890,7 @@ abstract class Repository
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
         $fileManager = new FileManager();
-        $extension = $fileManager->parseFileExtension($oldFile->path);
+        $extension = $fileManager->parseFileExtension($oldFile->path, Config::getVar('files', 'files_dir') . '/' . $oldFile->path);
 
         $submissionDir = Repo::submissionFile()
             ->getSubmissionDir(

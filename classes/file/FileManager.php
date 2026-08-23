@@ -52,6 +52,40 @@ class FileManager
     public const DOCUMENT_TYPE_URL = 'url';
 
     /**
+     * File extensions that common web server configurations (Apache/PHP,
+     * IIS/ASP, CGI handlers, etc.) may treat as executable/interpretable
+     * content rather than inert data. Files claiming these extensions are
+     * never allowed to keep them, regardless of client-supplied filename.
+     */
+    public const DANGEROUS_EXTENSIONS = [
+        'php', 'php1', 'php2', 'php3', 'php4', 'php5', 'php6', 'php7', 'php8',
+        'phtml', 'phtm', 'pht', 'phar', 'phps', 'pgif', 'inc',
+        'cgi', 'fcgi', 'pl', 'py', 'pyc', 'pyo', 'rb',
+        'sh', 'bash', 'csh', 'ksh',
+        'asp', 'aspx', 'asa', 'asax', 'ascx', 'ashx', 'asmx', 'cer', 'cfc', 'cfm', 'cfml',
+        'jsp', 'jspx', 'jsw', 'jsv', 'jhtml',
+        'htaccess', 'htpasswd',
+        'exe', 'bat', 'cmd', 'com', 'dll', 'so', 'msi', 'vbs', 'vbe', 'jse', 'wsf', 'wsh', 'ps1', 'scr',
+    ];
+
+    /**
+     * MIME types (as detected from actual file content via finfo, not the
+     * client-supplied name or Content-Type header) that indicate script or
+     * executable content. A file whose real content matches one of these,
+     * regardless of the extension the uploader claims, is not safe to store
+     * under its original extension.
+     */
+    public const DANGEROUS_MIME_TYPES = [
+        'text/x-php', 'application/x-php', 'application/x-httpd-php', 'application/x-httpd-php-source',
+        'text/x-shellscript', 'application/x-sh', 'application/x-csh',
+        'text/x-python', 'text/x-script.python',
+        'text/x-perl', 'application/x-perl',
+        'text/x-ruby',
+        'application/x-executable', 'application/x-dosexec', 'application/x-elf', 'application/x-mach-binary',
+        'application/x-msdownload', 'application/x-msdos-program',
+    ];
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -692,21 +726,33 @@ class FileManager
     }
 
     /**
-     * Parse the file extension from a filename/path.
+     * Parse the file extension from a filename/path, and, when the path to
+     * the actual uploaded content is available, verify it against the
+     * file's real (content-detected) MIME type -- not the client-supplied
+     * filename or Content-Type header, which are both trivially spoofable.
      *
-     * @param string $fileName
+     * This guards against disguised executables (e.g. a PHP webshell
+     * renamed to "manuscript.docx", or given an extension like ".phtml" or
+     * ".pht" that a naive extension blacklist would miss) ending up stored
+     * with an extension that a web server may treat as executable.
+     *
+     * @param string $fileName The client-supplied file name
+     * @param ?string $filePath Path to the actual uploaded file content, if available,
+     *   used to verify the real MIME type (like Laravel's UploadedFile::getMimeType())
      *
      * @return string
      */
-    public function parseFileExtension($fileName)
+    public function parseFileExtension($fileName, ?string $filePath = null)
     {
         $fileParts = explode('.', $fileName);
         if (is_array($fileParts) && count($fileParts) > 1) {
             $fileExtension = $fileParts[count($fileParts) - 1];
         }
 
-        // FIXME Check for evil
-        if (!isset($fileExtension) || stristr($fileExtension, 'php') || strlen($fileExtension) > 6 || !preg_match('/^\w+$/', $fileExtension)) {
+        if (!isset($fileExtension)
+                || strlen($fileExtension) > 6
+                || !preg_match('/^\w+$/', $fileExtension)
+                || in_array(strtolower($fileExtension), self::DANGEROUS_EXTENSIONS, true)) {
             $fileExtension = 'txt';
         }
 
@@ -715,7 +761,27 @@ class FileManager
             $fileExtension = substr($fileName, -6);
         }
 
+        // Verify the actual file content, when available, so a disguised
+        // executable can't slip through under an extension that isn't on
+        // the blacklist above (e.g. renamed to look like a document).
+        if ($filePath !== null && is_readable($filePath) && $this->isDangerousMimeType(PKPString::mime_content_type($filePath))) {
+            $fileExtension = 'txt';
+        }
+
         return $fileExtension;
+    }
+
+    /**
+     * Determine whether a (content-detected) MIME type indicates script or
+     * executable content that should never be trusted with its original
+     * file extension, regardless of what the uploader claims it is.
+     */
+    public function isDangerousMimeType(?string $mimeType): bool
+    {
+        if (!$mimeType) {
+            return false;
+        }
+        return in_array(strtolower($mimeType), self::DANGEROUS_MIME_TYPES, true);
     }
 
     /**

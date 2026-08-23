@@ -98,7 +98,7 @@ class TemporaryFileManager extends PrivateFileManager
     public function handleUpload($fileName, $userId)
     {
         // Get the file extension, then rename the file.
-        $fileExtension = $this->parseFileExtension($this->getUploadedFileName($fileName));
+        $fileExtension = $this->parseFileExtension($this->getUploadedFileName($fileName), $this->getUploadedFilePath($fileName));
 
         if (!$this->fileExists($this->getBasePath(), 'dir')) {
             // Try to create destination directory

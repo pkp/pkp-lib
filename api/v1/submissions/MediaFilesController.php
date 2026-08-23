@@ -255,7 +255,7 @@ class MediaFilesController extends PKPBaseController
                         throw new \Exception(__('api.404.resourceNotFound'));
                     }
 
-                    $extension = $fileManager->parseFileExtension($temporaryFile->getOriginalFileName());
+                    $extension = $fileManager->parseFileExtension($temporaryFile->getOriginalFileName(), $temporaryFile->getFilePath());
                     $fileId = app()->get('file')->add(
                         $temporaryFile->getFilePath(),
                         $submissionDir . '/' . uniqid() . '.' . $extension

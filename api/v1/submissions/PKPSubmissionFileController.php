@@ -330,7 +330,7 @@ class PKPSubmissionFileController extends PKPBaseController
         }
 
         $fileManager = new FileManager();
-        $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
+        $extension = $fileManager->parseFileExtension($_FILES['file']['name'], $_FILES['file']['tmp_name']);
 
         $submissionDir = Repo::submissionFile()
             ->getSubmissionDir(
@@ -479,7 +479,7 @@ class PKPSubmissionFileController extends PKPBaseController
             }
 
             $fileManager = new FileManager();
-            $extension = $fileManager->parseFileExtension($_FILES['file']['name']);
+            $extension = $fileManager->parseFileExtension($_FILES['file']['name'], $_FILES['file']['tmp_name']);
             $submissionDir = Repo::submissionFile()
                 ->getSubmissionDir(
                     $request->getContext()->getId(),

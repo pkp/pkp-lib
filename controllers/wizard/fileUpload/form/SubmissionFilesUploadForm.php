@@ -189,7 +189,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
 
         // Upload the file.
         $fileManager = new FileManager();
-        $extension = $fileManager->parseFileExtension($_FILES['uploadedFile']['name']);
+        $extension = $fileManager->parseFileExtension($_FILES['uploadedFile']['name'], $_FILES['uploadedFile']['tmp_name']);
 
         $submissionDir = Repo::submissionFile()->getSubmissionDir($request->getContext()->getId(), $this->getData('submissionId'));
         $fileId = app()->get('file')->add(

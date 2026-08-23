@@ -146,7 +146,7 @@ class Repository
         $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
 
         $fileManager = new FileManager();
-        $extension = $fileManager->parseFileExtension($fileName);
+        $extension = $fileManager->parseFileExtension($fileName, $fileTmpName);
 
         $submissionDir = Repo::submissionFile()
             ->getSubmissionDir(

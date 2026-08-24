@@ -110,7 +110,9 @@ class ScheduleTaskRunner
                 }
 
                 // Record the run. Frequent tasks are not seeded or caught up (their decision stays on
-                // isDue() above), but we still store their last run so every task has an entry.
+                // isDue() above), but we still store the last run of every task that actually ran.
+                // A task held back by a filter never reaches here, so it has no entry -- correct,
+                // since it has no run to record.
                 if (is_string($taskName) && $taskName !== '') {
                     $lastRunTimes[$taskName] = $now->getTimestamp();
                     $lastRunTimesChanged = true;

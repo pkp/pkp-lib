@@ -16,6 +16,7 @@ namespace PKP\scheduledTask;
 
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
+use PKP\config\Config;
 use PKP\core\PKPContainer;
 use PKP\plugins\interfaces\HasTaskScheduler;
 use PKP\plugins\PluginRegistry;
@@ -97,6 +98,7 @@ abstract class PKPScheduler
             ->call(fn () => (new ProcessQueueJobs())->execute())
             ->everyMinute()
             ->name(ProcessQueueJobs::class)
+            ->when(fn () => Config::getVar('queues', 'process_jobs_at_task_scheduler', false))
             ->withoutOverlapping();
 
         $this

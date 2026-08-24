@@ -19,9 +19,11 @@
 namespace PKP\controllers\modals\review;
 
 use APP\core\Request;
-use PKP\core\PKPApplication;
+use APP\facades\Repo;
+use PKP\components\forms\dataCitation\DataCitationEditForm;
+use PKP\components\forms\FormComponent;
 use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\AjaxModal;
+use PKP\linkAction\request\VueModal;
 
 class ReviewerViewMetadataLinkAction extends LinkAction
 {
@@ -34,21 +36,22 @@ class ReviewerViewMetadataLinkAction extends LinkAction
      */
     public function __construct($request, $submissionId, $reviewAssignmentId)
     {
-        // Instantiate the metadata modal.
-        $dispatcher = $request->getDispatcher();
-        $modal = new AjaxModal(
-            $dispatcher->url(
-                $request,
-                PKPApplication::ROUTE_COMPONENT,
-                null,
-                'modals.submission.ViewSubmissionMetadataHandler',
-                'display',
-                null,
-                ['submissionId' => $submissionId, 'reviewAssignmentId' => $reviewAssignmentId]
-            ),
-            __('reviewer.step1.viewAllDetails'),
+        $submission = Repo::submission()->get($submissionId);
+
+        $props = [
+            'submissionId' => (int) $submissionId,
+            'publicationId' => (int) $submission->getCurrentPublication()->getId(),
+        ];
+
+        // Get the data citation form for the read-only view modal
+        if ($request->getContext()->getData('dataCitations')) {
+            $props['dataCitationEditForm'] = (new DataCitationEditForm(FormComponent::ACTION_EMIT))->getConfig();
+        }
+
+        parent::__construct(
+            'viewMetadata',
+            new VueModal('ReviewerSubmissionDetailsModal', $props),
+            __('reviewer.step1.viewAllDetails')
         );
-        // Configure the link action.
-        parent::__construct('viewMetadata', $modal, __('reviewer.step1.viewAllDetails'));
     }
 }

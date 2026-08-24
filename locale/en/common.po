@@ -205,6 +205,9 @@ msgstr "This section lists past contributors."
 msgid "common.editorialHistory.page.orcidLink"
 msgstr "View {$name} ORCID profile"
 
+msgid "common.orcidProfileFor"
+msgstr "ORCID profile for {$givenName} {$familyName}"
+
 msgid "common.name"
 msgstr "Name"
 

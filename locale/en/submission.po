@@ -605,9 +605,6 @@ msgstr "Author Information"
 msgid "submission.citations.structured.header.journal"
 msgstr "Journal Information"
 
-msgid "submission.citations.structured.label.authorOrcid"
-msgstr "ORCID profile for {$givenName} {$familyName}"
-
 msgid "submission.citations.structured.label.citation"
 msgstr "Citation"
 
@@ -712,6 +709,9 @@ msgstr "Add Data Citation"
 
 msgid "submission.dataCitations.editModal.title"
 msgstr "Edit Data Citation"
+
+msgid "submission.dataCitations.viewModal.title"
+msgstr "View Data Citation"
 
 msgid "submission.dataCitations.label.title"
 msgstr "Title"

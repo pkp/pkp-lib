@@ -148,16 +148,21 @@ class ScheduleTaskRunner
                 continue;
             }
 
+            // Claim the boundary before running, not after. The store is the only thing a request
+            // arriving mid-task can see, so it has to be written before the call starts: a second
+            // runner then reads $lastRun >= $previousBoundary and skips.
+            //
+            // Stamping on attempt (not only on success) also means a transient failure retries at the
+            // next boundary instead of on every tick.
+            $lastRunTimes[$taskName] = $now->getTimestamp();
+            $lastRunTimesChanged = true;
+            ScheduledTaskHelper::saveLastRunTimes($lastRunTimes);
+
             if ($event->onOneServer) {
                 $this->runSingleServerEvent($event);
             } else {
                 $this->runEvent($event);
             }
-
-            // Stamp on attempt (not only on success) so a transient failure retries at the next
-            // boundary instead of on every tick.
-            $lastRunTimes[$taskName] = $now->getTimestamp();
-            $lastRunTimesChanged = true;
         }
 
         if ($lastRunTimesChanged) {

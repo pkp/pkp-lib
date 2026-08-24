@@ -39,6 +39,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Mockery;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\config\Config;
 use PKP\core\PKPContainer;
 use PKP\core\Registry;
 use PKP\core\ScheduleServiceProvider;
@@ -890,15 +891,217 @@ class SchedulerTest extends PKPTestCase
     }
 
     //
+    // Group H: task filters (->when()/->skip()) are honoured before the task is constructed
+    //
+    // A task can be gated on a condition of its own -- a config setting, an installed dependency --
+    // by attaching a filter at registration. Because the runner evaluates the filter before invoking
+    // the event, and the task object is built inside the event closure, a rejected task is never
+    // constructed and so never writes an execution log entry. That matters most for frequent tasks,
+    // which would otherwise leave a log file behind on every tick with nothing to show for it.
+    //
+    // These tests cover the machinery only: that registration is indifferent to a filter, and that
+    // every execution path consults it. Which task carries which filter is application policy and is
+    // deliberately not asserted here -- that would freeze a product decision rather than a contract.
+    //
+
+    /**
+     * Registration must be indifferent to a filter: a task with one is registered exactly like a task
+     * without, keeping its identity and its schedule. A filter decides whether a task runs, never
+     * whether it is known to the scheduler -- which is what keeps it visible in the scheduler listing
+     * and, for infrequent tasks, trackable in the last-run store.
+     */
+    public function testRegistrationIsUnaffectedByAFilter(): void
+    {
+        $schedule = new Schedule();
+
+        $plain = $schedule->call(fn () => null)->daily()->name('test.filter.absent');
+        $filtered = $schedule->call(fn () => null)->daily()->name('test.filter.present')->when(fn () => false);
+
+        $this->assertCount(2, $schedule->events(), 'A filtered task must still be registered.');
+        $this->assertSame(
+            ['test.filter.absent', 'test.filter.present'],
+            $this->registeredTaskNames($schedule),
+            'A filtered task must keep its own identity in the schedule.'
+        );
+        $this->assertSame(
+            $plain->getExpression(),
+            $filtered->getExpression(),
+            'A filter must not alter the task\'s schedule.'
+        );
+    }
+
+    /**
+     * The filter is consulted, not assumed: a task admitted by its filter must still run. Without
+     * this the rejection tests below would also pass on a runner that refused everything.
+     */
+    public function testTaskWithAPassingFilterStillRuns(): void
+    {
+        $this->useInMemorySiteStore();
+
+        Carbon::setTestNow(Carbon::create(2026, 1, 15, 9, 30, 0));
+
+        $ran = 0;
+        $schedule = new Schedule();
+        $schedule
+            ->call(function () use (&$ran) {
+                $ran++;
+            })
+            ->everyMinute()
+            ->name('test.filter.passes')
+            ->when(fn () => true);
+
+        $this->makeRunner($schedule)->run();
+
+        $this->assertSame(1, $ran, 'A task whose filter passes must run normally.');
+
+        Carbon::setTestNow();
+    }
+
+    /**
+     * The filter is evaluated when the runner ticks, not when the task was registered, so a condition
+     * that changes at runtime -- an admin editing config.inc.php, say -- takes effect without the
+     * schedule being rebuilt.
+     */
+    public function testFilterIsEvaluatedPerTickNotAtRegistration(): void
+    {
+        $this->useInMemorySiteStore();
+
+        $allowed = false;
+        $schedule = new Schedule();
+        $event = $schedule
+            ->call(fn () => null)
+            ->everyMinute()
+            ->name('test.filter.latebound')
+            // By reference on purpose: an arrow function would capture $allowed by value at
+            // registration, which is exactly the late binding this test is here to disprove.
+            ->when(function () use (&$allowed) {
+                return $allowed;
+            });
+
+        $container = PKPContainer::getInstance();
+
+        $this->assertFalse($event->filtersPass($container), 'The filter must reject while the condition is false.');
+
+        $allowed = true;
+
+        $this->assertTrue(
+            $event->filtersPass($container),
+            'The same event must be admitted once the condition flips, without re-registration.'
+        );
+    }
+
+    /**
+     * A frequent task whose filter rejects it must not run on the web based runner, and must not be
+     * recorded in the last-run store: there was no run to record.
+     */
+    public function testFilteredFrequentTaskDoesNotRunOrRecordLastRun(): void
+    {
+        $this->useInMemorySiteStore();
+
+        Carbon::setTestNow(Carbon::create(2026, 1, 15, 9, 30, 0));
+
+        $ran = 0;
+        $schedule = new Schedule();
+        $schedule
+            ->call(function () use (&$ran) {
+                $ran++;
+            })
+            ->everyMinute()
+            ->name('test.filtered.frequent')
+            ->when(fn () => false);
+
+        $this->makeRunner($schedule)->run();
+
+        $this->assertSame(0, $ran, 'A filtered task must not run even though it is due.');
+        $this->assertArrayNotHasKey(
+            'test.filtered.frequent',
+            ScheduledTaskHelper::getLastRunTimes(),
+            'A filtered task has no run to record, so it must not appear in the last-run store.'
+        );
+
+        Carbon::setTestNow();
+    }
+
+    /**
+     * An infrequent task whose filter rejects it must not run on catch-up either, and must not be
+     * stamped -- so it is re-evaluated at the next tick rather than silently marked as handled.
+     */
+    public function testFilteredInfrequentTaskIsNotRunOrStampedOnCatchUp(): void
+    {
+        $this->useInMemorySiteStore();
+
+        // 09:00 today, with a last run from yesterday: the 00:00 boundary was missed, so catch-up
+        // would fire were it not for the filter.
+        Carbon::setTestNow(Carbon::create(2026, 1, 15, 9, 0, 0));
+        $yesterday = Carbon::create(2026, 1, 14, 0, 0, 0)->timestamp;
+        ScheduledTaskHelper::saveLastRunTimes(['test.filtered.daily' => $yesterday]);
+
+        $ran = 0;
+        $schedule = new Schedule();
+        $schedule
+            ->call(function () use (&$ran) {
+                $ran++;
+            })
+            ->daily()
+            ->name('test.filtered.daily')
+            ->when(fn () => false);
+
+        $this->makeRunner($schedule)->run();
+
+        $this->assertSame(0, $ran, 'A filtered task must not run on catch-up.');
+        $this->assertSame(
+            $yesterday,
+            ScheduledTaskHelper::getLastRunTimes()['test.filtered.daily'] ?? null,
+            'A filtered task must keep its previous last-run, not be stamped as if it had run.'
+        );
+
+        Carbon::setTestNow();
+    }
+
+    /**
+     * The CLI path honours the same filter, so a crontab driven install gets the same behaviour.
+     */
+    public function testFilteredTaskIsAlsoSkippedOnTheCliPath(): void
+    {
+        $ran = 0;
+        $schedule = new Schedule();
+        $schedule
+            ->call(function () use (&$ran) {
+                $ran++;
+            })
+            ->everyMinute()
+            ->name('test.filtered.cli')
+            ->when(fn () => false);
+
+        app()->instance(Schedule::class, $schedule);
+
+        $input = new ArrayInput([]);
+        $output = new BufferedOutput();
+
+        $command = new ScheduleRunCommand();
+        $command->setLaravel(PKPContainer::getInstance());
+        $command->setInput($input);
+        $command->setOutput(new OutputStyle($input, $output));
+        $command->run($input, $output);
+
+        $this->assertSame(0, $ran, 'A filtered task must not run via the CLI ScheduleRunCommand.');
+    }
+
+    //
     // Helpers
     //
 
     /**
      * Rewrite [general] time_zone in the in-memory config for the duration of a test.
+     *
+     * Goes through Config::getData() rather than the registry directly: it parses config.inc.php
+     * on first access, so the override lands on top of the real config instead of replacing it
+     * with a bare array (which would leave [general] installed unset, and so put the whole
+     * application into maintenance mode for the rest of the process).
      */
     private function setConfigTimeZone(string $timeZone): void
     {
-        $configData = & Registry::get('configData', true, []);
+        $configData = & Config::getData();
         $configData['general']['time_zone'] = $timeZone;
     }
 

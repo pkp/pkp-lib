@@ -122,6 +122,8 @@ class ScheduledTaskHelper
      */
     public static function saveLastRunTimes(array $lastRunTimes): void
     {
+        $lastRunTimes = array_merge(static::getLastRunTimes(), $lastRunTimes);
+
         $records = [];
         foreach ($lastRunTimes as $taskName => $lastRun) {
             $records[] = ['taskName' => $taskName, 'lastRun' => (int) $lastRun];

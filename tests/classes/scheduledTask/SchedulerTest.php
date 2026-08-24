@@ -803,6 +803,87 @@ class SchedulerTest extends PKPTestCase
         Carbon::setTestNow();
     }
 
+    /**
+     * The last run must be recorded -- and persisted -- before the task body runs, not after it
+     * returns. Only a persisted claim is visible to a request that arrives while the task is still
+     * executing; an in-memory stamp written after the call is not.
+     */
+    public function testLastRunIsPersistedBeforeTheTaskExecutes(): void
+    {
+        $this->useInMemorySiteStore();
+
+        // 09:00 today with a last run from yesterday: the 00:00 boundary was missed, so catch-up fires.
+        Carbon::setTestNow(Carbon::create(2026, 1, 15, 9, 0, 0));
+        ScheduledTaskHelper::saveLastRunTimes(['test.claim.visible' => Carbon::create(2026, 1, 14, 0, 0, 0)->timestamp]);
+
+        $seenFromInside = null;
+        $schedule = new Schedule();
+        $schedule
+            ->call(function () use (&$seenFromInside) {
+                $seenFromInside = ScheduledTaskHelper::getLastRunTimes()['test.claim.visible'] ?? null;
+            })
+            ->daily()
+            ->name('test.claim.visible');
+
+        $this->makeRunner($schedule)->run();
+
+        $this->assertSame(
+            Carbon::create(2026, 1, 15, 9, 0, 0)->timestamp,
+            $seenFromInside,
+            'The last run must already be stored by the time the task body runs.'
+        );
+
+        Carbon::setTestNow();
+    }
+
+    /**
+     * The store, not the withoutOverlapping() mutex, is what stops a second runner picking up a task
+     * that is still executing. Simulated by running a second runner over an identically named event
+     * from inside the first task's body -- which is what a request arriving mid-task would do.
+     *
+     * Deliberately no withoutOverlapping() on these events, so the mutex cannot mask the result.
+     */
+    public function testATaskStillRunningIsNotRunAgainByAConcurrentRunner(): void
+    {
+        $this->useInMemorySiteStore();
+
+        Carbon::setTestNow(Carbon::create(2026, 1, 15, 9, 0, 0));
+        ScheduledTaskHelper::saveLastRunTimes(['test.claim.concurrent' => Carbon::create(2026, 1, 14, 0, 0, 0)->timestamp]);
+
+        $runs = 0;
+        $concurrentRuns = 0;
+
+        // The schedule the overlapping request builds: same task name, same expression.
+        $concurrentSchedule = new Schedule();
+        $concurrentSchedule
+            ->call(function () use (&$concurrentRuns) {
+                $concurrentRuns++;
+            })
+            ->daily()
+            ->name('test.claim.concurrent');
+
+        $schedule = new Schedule();
+        $schedule
+            ->call(function () use (&$runs, $concurrentSchedule) {
+                $runs++;
+                // A second request arrives while this task is still running.
+                $this->makeRunner($concurrentSchedule)->run();
+            })
+            ->daily()
+            ->name('test.claim.concurrent');
+
+        $this->makeRunner($schedule)->run();
+
+        $this->assertSame(1, $runs, 'The claiming runner must run the missed task exactly once.');
+        $this->assertSame(
+            0,
+            $concurrentRuns,
+            'A runner starting while the task is still executing must see the stored claim and skip it.'
+        );
+
+        Carbon::setTestNow();
+    }
+
     //
     // Group G: application timezone resolution
     //
@@ -892,16 +973,6 @@ class SchedulerTest extends PKPTestCase
 
     //
     // Group H: task filters (->when()/->skip()) are honoured before the task is constructed
-    //
-    // A task can be gated on a condition of its own -- a config setting, an installed dependency --
-    // by attaching a filter at registration. Because the runner evaluates the filter before invoking
-    // the event, and the task object is built inside the event closure, a rejected task is never
-    // constructed and so never writes an execution log entry. That matters most for frequent tasks,
-    // which would otherwise leave a log file behind on every tick with nothing to show for it.
-    //
-    // These tests cover the machinery only: that registration is indifferent to a filter, and that
-    // every execution path consults it. Which task carries which filter is application policy and is
-    // deliberately not asserted here -- that would freeze a product decision rather than a contract.
     //
 
     /**

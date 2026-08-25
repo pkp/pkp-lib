@@ -97,7 +97,10 @@ class Collector implements CollectorInterface
     public function getQueryBuilder(): Builder
     {
         $qb = DB::table($this->dao->table . ' as a')
-            ->select('a.*');
+            ->select(['a.*', 's.locale AS submission_locale'])
+            ->join('authors AS au', 'a.author_id', 'au.author_id')
+            ->join('publications as p', 'au.publication_id', '=', 'p.publication_id')
+            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
 
         if (!is_null($this->count)) {
             $qb->limit($this->count);

@@ -451,7 +451,7 @@ footnote.
 | [A6](#a6) | After a round is cancelled, the restored round's status box no longer mentions its unresolved revision request | ❓ | user-visible | — |
 | [A7](#a7) | Unticking a file in the review-files dialog changes nothing the editor can see, and the checkboxes do not mirror the panel | ❓ | minor | — |
 | [A8](#a8) | A past round's panels still act — a reviewer added or a file uploaded there lands in the closed round | ❓ | user-visible | — |
-| [OMP2](#omp2) | A press collects no reviewer recommendation, and the decision letter still prints "Recommendation:" with nothing after it | ❓ | user-visible | — |
+| [OMP2](#omp2) | A press collects no reviewer recommendation (intended — confirmed upstream 2026-08-25), and the decision letter still prints "Recommendation:" with nothing after it | ❓ | user-visible | rebase check (claude), 2026-08-25 — form-field half intended |
 | [OMP3](#omp3) | On a press the fresh revisions task reads "Revisions to consider in External Review.", not the journal's "Revision required." | ❓ | minor | — |
 | [OMP1](#omp1) | Presses run an additional Internal Review stage before External Review | ✅ | — | — |
 
@@ -633,6 +633,13 @@ Question: is a recommendation-free review the press's intended design? Lean:
 the missing form field reads as deliberate, but a letter printing an empty
 "Recommendation:" label is a defect either way.
 Basis: probe (2026-07-31, OMP with OJS contrast). <sup>[f-omp2](#fn-omp2)</sup>
+
+> **Upstream answer — rebase check (claude), 2026-08-25**: the form-field
+> half is intended. Upstream OMP now flips
+> `Application::hasCustomizableReviewerRecommendation()` to `false` outright
+> (commit titled "Disable customizable reviewer recommendations"), so the
+> suppression is an app-level design flag, not a template accident. The
+> letter's empty "Recommendation:" label remains the open defect half.
 
 <a id="omp3"></a>
 **OMP3 — The press's fresh revisions task is worded differently** · ❓ · minor.

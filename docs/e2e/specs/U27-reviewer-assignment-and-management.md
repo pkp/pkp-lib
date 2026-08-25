@@ -874,8 +874,10 @@ the author-facing side of that same absence is recorded with the review
 stage (its finding "No reviewer recommendation on a press").
 Basis: live probe (the searched pool split, with positive and negative
 controls on both stages; the read-review window verified without a
-recommendation control) + code (the press blanks the recommendation control
-by design and scopes reviewer groups per stage); the author-side
+recommendation control) + code (the press disables reviewer recommendations
+by design — since the 2026-08-25 rebase explicitly, via
+`Application::hasCustomizableReviewerRecommendation()` returning `false` —
+and scopes reviewer groups per stage); the author-side
 counterpart was live-probed 2026-07-31 under the review-stage feature.
 Re-driven in the claim check (2026-08-02): the search split held with
 positive and negative controls in both directions on both stages, and the
@@ -1193,7 +1195,10 @@ template override captures `reviewerRecommendations.tpl`
 `…selectRecommendation.byEditor`; AFFW-664); OJS `ReviewerGridHandler::
 reviewRead` records a changed value with log
 `log.review.reviewRecommendationSetByProxy` (GRID-086). {OMP} override
-captures an empty block (AFFW-665). Vue modal head
+captures an empty block (AFFW-665); since the 2026-08-25 rebase the
+authoritative gate is the app flag
+`hasCustomizableReviewerRecommendation() === false` (the empty override
+remains). Vue modal head
 `ReviewerManagerReadReviewModal.vue` (VUE-068; AFFW-504/657): "Download"
 menu labels `editor.review.download`, `editor.review.authorOnly` (PDF/XML),
 `editor.review.allSections` (PDF/XML) → reviews API `export-pdf`/

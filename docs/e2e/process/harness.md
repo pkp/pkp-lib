@@ -184,8 +184,8 @@ re-running.
 3. **User**: see `users.md`; `test.use({user: 'sectioneditor.ana'})` sets the
    file's default logged-in user; `asUser('reviewer.julia')` opens extra
    authenticated contexts for multi-actor flows.
-4. **Screen**: OJS has a screen map at `app-map-ojs.md` (this directory);
-   OMP/OPS have none — read the Vue/PHP sources directly.
+4. **Screen**: no screen map is kept — read the Vue/PHP sources directly
+   and confirm selectors against the running app (patterns.md).
 5. **Conventions**: `patterns.md` — locators, waits, parallel lessons, tags.
 6. **Seed via API, drive the UI only for what the test exercises**:
    `scenarios.md`.

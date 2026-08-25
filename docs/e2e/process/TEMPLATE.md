@@ -191,13 +191,13 @@ atlas-claims: [<atom IDs this spec owns>]
 <!-- Title badge only when an app LACKS the feature; omit when all three have it.
      If badged, follow the Purpose section with a one-paragraph absence note. -->
 
-## How to read this file
+> Conventions (markers, badges, footnotes): [Reading a spec](GLOSSARY.md#reading-a-spec).
 
-<!-- ~15 lines max. Define ONLY what this spec actually uses: the unmarked-claim
-     rule (one sentence), the marker forms with one example each, the badge
-     values, and the everything-is-clickable note. No format history, no policy,
-     no campaign vocabulary. If a construct needs more than a line here, the
-     construct is too complicated — simplify the construct, not the legend. -->
+<!-- That one line replaces the old per-spec "How to read this file" section
+     (maintainer ruling 2026-08-25): the legend has ONE home, the glossary's
+     "Reading a spec" section — specs link, never restate. A spec that needs a
+     construct the legend doesn't cover should simplify the construct, not
+     grow a local legend. -->
 
 ## Purpose
 
@@ -319,8 +319,12 @@ atlas-claims: [<atom IDs this spec owns>]
      <For ❓ only> Question: <the one sentence the team answers>. Lean: <the
      author's lean and why, one sentence>.
      Since: <date (age)> · Basis: probe | commit | judgment. <sup>f-a1</sup>
-     <Reviewed: name, date — confirmed | overturned (was 🐞). Only when it
-     happens; never pre-printed.>
+     <A maintainer verdict is a BLOCKQUOTE after the entry, so it stands out
+     when scanning (maintainer convention 2026-08-25):
+     > **Reviewed — name, date**: confirmed | overturned (was 🐞). Ruling: <the
+     > decision, and any adjustment it sets>.
+     Only when it happens; never pre-printed. Mirror the reviewer + date in
+     the summary table's Review column.>
 
      `Since:` only when dated (omit the line otherwise). One rationale sentence
      for a 🐞-vs-✅ call is welcome ("worked for OPS's whole life; broke in the

@@ -9,23 +9,7 @@ atlas-claims: [AFFW-502, AFFM-117, AFFM-222, AFFU-065, AFFU-066, AFFU-099, AFFU-
 
 # ORCID integration
 
-## How to read this file
-
-The block of codes above the title is a machine-readable index for the
-documentation tooling — ignore it when reading. An unmarked claim asserts the
-behavior is identical in OJS, OMP and OPS. An as-built deviation or open
-question carries a warning marker into the Findings register, like ⚠ [A1](#a1);
-an entry whose ID starts with OMP or OPS concerns only the app it names, and a
-plain marker like [OMP1](#omp1) points at an intended difference. A claim
-tagged {OJS} (or {OJS OMP}) exists only in the app(s) the tag names; a marker
-inside it may still report what the *other* apps wrongly show. Marks such as
-<sup>a</sup> link to the Footnotes tail, where code and evidence pointers live —
-you can ignore that section and lose no behavior. The spec is written in OJS
-vocabulary; reading it for OMP or OPS, substitute terms per the
-[application glossary](GLOSSARY.md) — "journal" reads as press / preprint
-server, "article" as monograph / preprint, "Journal Manager" as Press Manager /
-Preprint Server Manager, "Section Editor" as Series Editor / Moderator. All
-markers and marks are clickable.
+> Conventions (markers, badges, footnotes): [Reading a spec](GLOSSARY.md#reading-a-spec).
 
 ## Purpose
 
@@ -338,6 +322,9 @@ Verdicts are the author's judgment (claude, 2026-08-07), unreviewed unless an
 entry notes otherwise; the team settles them on spec review. Sorted 🐞 → ❓ → ✅
 in the summary; the entries below are the source. Each entry opens with the
 user-observable symptom; mechanism and evidence live in the entry's footnote.
+An entry whose ID starts with OMP or OPS concerns only the app it names; and
+because a claim tagged {OJS} (or {OJS OMP}) exists only in the app(s) the tag
+names, a marker inside it may still report what the *other* apps wrongly show.
 
 | ID | Finding (one line, symptom) | Bug? | Impact | Review |
 |----|-----------------------------|------|--------|--------|

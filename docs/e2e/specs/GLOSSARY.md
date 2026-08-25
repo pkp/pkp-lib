@@ -221,19 +221,31 @@ opportunistically (self-healing).
 - **Mail catcher** — the test install's outgoing-mail trap; "the email
   arrives" in a scenario means it lands there.
 
-## Reading a spec (format terms)
+<a id="reading-a-spec"></a>
+## Reading a spec
 
+The one legend for every spec file — specs link here instead of repeating it.
+
+- **The block of codes above the title** — a machine-readable index for the
+  documentation tooling; ignore it when reading.
+- **Unmarked claims.** A statement with no app marker asserts "verified
+  identical in every app that has the surface" — absence of a marker is
+  itself a claim, never "not yet checked".
 - **Badge** — `{OJS OMP}` on a title or scenario: which apps have the
-  surface; an unmarked claim asserts "verified identical in every app that
-  has it".
+  surface. A missing app gets a one-paragraph absence note near the top.
+- **Markers** — `⚠ [A1](#a1)` in the body means "as-built deviation here";
+  it links to the Findings-register entry. A plain `[OMP2](#omp2)` (no ⚠)
+  links to an intended divergence. Repeat mentions after the first carry the
+  bare marker.
 - **Finding / Findings register** — the spec's single home for as-built
   deviations: 🐞 defect (author's call) · ❓ needs a product ruling · ✅
-  intended divergence; ⚠ in the body marks "as-built deviation here" and
-  links to the entry. **Impact** is one plain word (user-visible / minor /
+  intended divergence. **Impact** is one plain word (user-visible / minor /
   invisible / latent).
 - **Footnote marks** (`<sup>a</sup>`) — provenance: code anchors, probe
-  dates, seeded accounts. The body never depends on them; a reader can skip
-  the footnote tail and lose no behavior.
+  dates, seeded accounts. The body never depends on them; skip the footnote
+  tail and you lose no behavior.
+- **Everything is clickable** — markers, footnote marks, and cross-spec
+  pointers are real links, resolved both ways by the lint gate.
 ---
 
 # Part II — Cross-app term map & capability names

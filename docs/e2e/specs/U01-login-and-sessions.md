@@ -9,20 +9,7 @@ atlas-claims: [AFFW-467, AFFW-470, AFFW-473, AFFW-499, AFFM-105, AFFM-191, AFFM-
 
 # Login & sessions
 
-## How to read this file
-
-The block of codes above the title is a machine-readable index for the
-documentation tooling — ignore it when reading. An unmarked claim asserts the
-behavior is identical in OJS, OMP and OPS. An as-built deviation or open
-question carries a warning marker into the Findings register, like ⚠ [A1](#a1).
-Marks such as <sup>a</sup> link to the Footnotes tail, where code and evidence
-pointers live — you can ignore that section and lose no behavior. The spec is
-written in OJS vocabulary; reading it for OMP or OPS, substitute terms per the
-[application glossary](GLOSSARY.md) — "journal" reads as press /
-preprint server, "Journal Manager" as Press Manager / Preprint Server Manager,
-"Section Editor" as Series Editor / Moderator. One surface exists only where
-review exists and is badged {OJS OMP} where it appears. All markers and marks
-are clickable.
+> Conventions (markers, badges, footnotes): [Reading a spec](GLOSSARY.md#reading-a-spec).
 
 ## Purpose
 
@@ -204,7 +191,10 @@ of a title ⚠ [A3](#a3)):
     address with the number changed. Opened for an out-of-reach user, it
     shows an error page — "Sorry, you do not have administrative rights
     over this user…" — listing the possible causes, with a link back to the
-    users list. <sup>h</sup>
+    users list. In a session the site can no longer fully resolve — one
+    that outlived a server-side reset, say — the same address answers a
+    blank server error instead of impersonating or turning the visitor
+    away ⚠ [A8](#a8). <sup>h</sup>
 15. **Returning.** "Logout as {username}" (user menu or Participants panel)
     restores the original account without asking for credentials and lands
     home — or back on the same submission when used from a workflow screen.
@@ -213,10 +203,11 @@ of a title ⚠ [A3](#a3)):
     entry, since the menu no longer offers it after — ends everything: the
     browser is signed out of both identities and lands on the Login page,
     not back in the original account. No deeper nesting is supported, yet the
-    Users & Roles list still offers Login As while an impersonation is
-    already active (to see this, impersonate a user who can themselves
-    open Users & Roles — a Journal Manager, say), and using it starts a
-    second one that replaces the first ⚠ [A4](#a4). <sup>i</sup> <sup>j</sup>
+    Users & Roles list and the workflow Participants panel still offer
+    Login As while an impersonation is already active (to see this,
+    impersonate a user who can themselves open one of those screens — a
+    Journal Manager, say), and using it starts a second one that replaces
+    the first ⚠ [A4](#a4). <sup>i</sup> <sup>j</sup>
 16. **The Confirm Access gate.** When the installation's configuration sets a
     re-authentication window (minutes), every Administration screen first
     shows the "Confirm Access" form (Fields above). The correct password
@@ -270,8 +261,8 @@ of a title ⚠ [A3](#a3)):
   the cool-down — deliberately showing the same generic answer as an
   ordinary failure, plus a delay, so the limiting itself is invisible.
   During the cool-down even the correct password answers "Invalid
-  username/email or password. Please try again." ⚠ [A6](#a6). Disabled by
-  default. <sup>n</sup>
+  username/email or password. Please try again." — intended concealment
+  [A6](#a6). Disabled by default. <sup>n</sup>
 - **Configuration file, security section** — for the system administrator,
   no screen: the reset-link lifetime (`reset_seconds`, default 2 hours); the
   "Keep me logged in" window (`remember_me_lifetime`, default 30 days);
@@ -413,13 +404,14 @@ or configuration.
 
 | ID | Finding (one line, symptom) | Bug? | Impact | Review |
 |----|-----------------------------|------|--------|--------|
-| [A1](#a1) | The password boxes stop accepting input at 32 characters, so longer passwords cannot be typed | 🐞 | user-visible | — |
-| [A2](#a2) | "Keep me logged in" arrives pre-ticked on every visit | 🐞 | minor | — |
-| [A3](#a3) | The set-a-new-password page's browser tab shows a raw internal code instead of a title | 🐞 | minor | — |
-| [A7](#a7) | Signed out, the address ending at the word "dashboard" answers a blank server error instead of the Login page | 🐞 | user-visible | — |
-| [A4](#a4) | Users & Roles still offers "Login As" mid-impersonation; a second use strands the operator — "Logout as" restores the intermediate user, not their own account | ❓ | latent | — |
-| [A5](#a5) | No users screen offers the "must change password" flag, so a forced change cannot be required on an existing account | ❓ | user-visible | — |
-| [A6](#a6) | With rate limiting on, even the correct password is refused as "Invalid username/email or password" during the cool-down | ❓ | latent | — |
+| [A1](#a1) | The password boxes stop accepting input at 32 characters, so longer passwords cannot be typed | 🐞 | user-visible | Jarda 2026-08-25 |
+| [A2](#a2) | "Keep me logged in" arrives pre-ticked on every visit | 🐞 | minor | Jarda 2026-08-25 |
+| [A3](#a3) | The set-a-new-password page's browser tab shows a raw internal code instead of a title | 🐞 | minor | Jarda 2026-08-25 |
+| [A4](#a4) | "Login As" is still offered mid-impersonation (Users & Roles and the Participants panel); a second use strands the operator — "Logout as" restores the intermediate user, not their own account | 🐞 | latent | Jarda 2026-08-25 |
+| [A7](#a7) | Signed out, the address ending at the word "dashboard" answers a blank server error instead of the Login page | 🐞 | user-visible | Jarda 2026-08-25 |
+| [A8](#a8) | Login As answers a blank server error when the browser's session can no longer be fully resolved (e.g. it outlived a server-side reset) | 🐞 | minor | Jarda 2026-08-25 |
+| [A5](#a5) | No users screen offers the "must change password" flag, so a forced change cannot be required on an existing account | ❓ | user-visible | Jarda 2026-08-25 · to triage |
+| [A6](#a6) | With rate limiting on, even the correct password is refused as "Invalid username/email or password" during the cool-down — intended concealment | ✅ | latent | Jarda 2026-08-25 |
 
 ### All apps
 
@@ -433,6 +425,11 @@ types it, the box silently keeps only the first 32, and sign-in fails with
 the generic error — with no hint why.
 Basis: code inspection + observed on a running site. <sup>[f-a1](#fn-a1)</sup>
 
+> **Reviewed — Jarda Kotěšovec, 2026-08-25**: confirmed 🐞. Ruling: raise the
+> maximum accepted password length to at least 64 characters (OWASP Password
+> Storage guidance; bcrypt reads only a password's first 72 bytes, so 64 is a
+> safe, meaningful step up from 32).
+
 <a id="a2"></a>
 **A2 — "Keep me logged in" pre-ticked** · 🐞 · minor.
 The checkbox arrives already ticked on a fresh Login page, so every user gets
@@ -441,6 +438,11 @@ opposite of the opt-in the label suggests.
 Basis: code inspection (a malformed template attribute renders the box
 ticked unconditionally) + observed on a running site. <sup>[f-a2](#fn-a2)</sup>
 
+> **Reviewed — Jarda Kotěšovec, 2026-08-25**: confirmed 🐞 — unintended
+> behaviour (the malformed attribute), and persistent sessions should be
+> opt-in per OWASP session-management guidance, not opt-out. Fix: the box
+> arrives unticked.
+
 <a id="a3"></a>
 **A3 — Raw code in the reset page's browser tab** · 🐞 · minor.
 The set-a-new-password page (the emailed reset link's destination) is headed
@@ -448,25 +450,33 @@ The set-a-new-password page (the emailed reset link's destination) is headed
 internal code shown where the page title belongs.
 Basis: observed on a running site. <sup>[f-a3](#fn-a3)</sup>
 
+> **Reviewed — Jarda Kotěšovec, 2026-08-25**: confirmed 🐞. Fix: resolve the
+> tab title to the translated "Reset Password" string.
+
 <a id="a4"></a>
-**A4 — Second Login As offered mid-impersonation** · ❓ · latent.
+**A4 — Second Login As offered mid-impersonation** · 🐞 · latent.
 While an impersonation is already active — seeing this requires
-impersonating a user who can themselves open Users & Roles, a Journal
-Manager, say — the list still offers "Login As" on other users' rows,
-and choosing it starts a second impersonation. The chain does not nest: one "Logout as" then restores the
-*intermediate* user — plainly signed in, with no impersonation banner and
-no further "Logout as" offered — so the operator's own account is
-unreachable from the screen; the only way out is the plain sign-out
-address (copied from the user menu's "Logout" entry before impersonating —
-Rule 15), which signs everything out. The end state holds fewer
-rights than the operator started with, so nothing is gained — the cost is
-a stranded, confusing session. The older users list under Administration →
-Hosted Journals → (a journal) → Users cannot be reached at all
-mid-impersonation, so no screen shows what the intended behavior is.
-Question: should Login As be offered while an impersonation is active — and
-if it is used, what should "Logout as" restore? Lean: hide it while
-impersonating.
-Basis: observed on a running site. <sup>[f-a4](#fn-a4)</sup>
+impersonating a user who can themselves open Users & Roles or a workflow
+screen, a Journal Manager or Editor, say — both the Users & Roles list and
+the workflow Participants panel still offer "Login As" on other users'
+rows, and choosing it starts a second impersonation. The chain does not
+nest: one "Logout as" then restores the *intermediate* user — plainly
+signed in, with no impersonation banner and no further "Logout as" offered
+— so the operator's own account is unreachable from the screen; the only
+way out is the plain sign-out address (copied from the user menu's "Logout"
+entry before impersonating — Rule 15), which signs everything out. The end
+state holds fewer rights than the operator started with, so nothing is
+gained — the cost is a stranded, confusing session. The application's own
+earlier screens establish the intended behavior: the previous generation of
+these lists explicitly withheld "Login As" while an impersonation was
+active, and the current screens lost that rule in their rebuild.
+Basis: observed on a running site + code inspection. <sup>[f-a4](#fn-a4)</sup>
+
+> **Reviewed — Jarda Kotěšovec, 2026-08-25**: confirmed 🐞 (upgraded from an
+> open question). The legacy grids' guard is the intended behavior; the
+> current screens must not offer "Login As" while an impersonation is
+> active. Fix recommendation: enforce it server-side in the computed
+> "can log in as" property so every screen inherits the rule at once.
 
 <a id="a5"></a>
 **A5 — No screen sets the "must change password" flag** · ❓ · user-visible.
@@ -475,25 +485,39 @@ screen offers the flag that triggers it: a user row's "Edit" opens an
 invite-style wizard with no such option. The only screen-driven path that
 flags an account is the review stage's "Create New Reviewer" {OJS OMP},
 which flags its newly created account automatically — so staff cannot
-require a password change on an existing account.
-Question: should the users screens offer the flag on existing accounts, or
-is the automatic reviewer-creation flag its only intended use? Lean:
-re-expose it — the sign-in flow supports it fully, and the control's
-absence reads as a loss in the screen rework, not a choice.
-Basis: observed on a running site. <sup>[f-a5](#fn-a5)</sup>
+require a password change on an existing account. In OJS 3.4 the users
+list's Edit User form offered exactly this checkbox on existing accounts;
+the capability was dropped when that form was replaced by the invitation
+wizard.
+Question: bring the capability back (and on which screen), or retire it
+deliberately? Lean: none recorded — the loss is verified fact, the
+restoration is a product call.
+Basis: observed on a running site + 3.4 code comparison.
+<sup>[f-a5](#fn-a5)</sup>
+
+> **Reviewed — Jarda Kotěšovec, 2026-08-25**: ❓ stands. Verified against
+> 3.4: the Edit User form carried the "must change password" checkbox for
+> existing accounts, so the capability loss is real — but whether to
+> restore it is a product decision. Disposition: **to triage** with the
+> team.
 
 <a id="a6"></a>
-**A6 — Lockout tells a correctly-authenticating user their password is wrong** · ❓ · latent.
+**A6 — Lockout tells a correctly-authenticating user their password is wrong** · ✅ · latent.
 With sign-in rate limiting enabled, exceeding the attempt limit changes
-nothing on screen but a short delay — deliberate, so the limiting stays
-invisible to attackers. But inside the cool-down even the correct password
-answers "Invalid username/email or password. Please try again." — untrue
-for that user, who may conclude their password is wrong and reset it.
-Question: should a correct sign-in during the cool-down keep the
-wrong-password message, or acknowledge the temporary lockout neutrally?
-Lean: keep the concealment toward attackers, but the current sentence
-actively misleads the account owner.
-Basis: observed on a running site. <sup>[f-a6](#fn-a6)</sup>
+nothing on screen but a short delay, and inside the cool-down even the
+correct password answers "Invalid username/email or password. Please try
+again." This is deliberate design, not an oversight: the limiting stays
+invisible so an attacker can never tell throttling from a wrong guess —
+accepting that the account's real owner, mid-cool-down, briefly gets a
+message that is untrue for them (the window self-clears within the
+cool-down, 5 minutes by default).
+Basis: observed on a running site + upstream design record.
+<sup>[f-a6](#fn-a6)</sup>
+
+> **Reviewed — Jarda Kotěšovec, 2026-08-25**: ✅ intended (was ❓). The
+> concealment is the feature's documented design — see the introducing
+> upstream issue (pkp/pkp-lib#12162, 2026-02); the brief mislead of the
+> genuine owner is the accepted cost.
 
 <a id="a7"></a>
 **A7 — The address ending at the word "dashboard" answers a blank error page when signed out** · 🐞 · user-visible.
@@ -505,6 +529,30 @@ Login page and continues to the destination after sign-in (Rule 4). Every
 deeper dashboard address behaves correctly. Nothing private is exposed —
 the page is simply empty — but the visitor is left with no way forward.
 Basis: observed on a running site. <sup>[f-a7](#fn-a7)</sup>
+
+> **Reviewed — Jarda Kotěšovec, 2026-08-25**: confirmed 🐞. Ruling: signed
+> out, the bare dashboard address must behave like every other private
+> address — redirect to the Login page (destination preserved); choosing
+> which dashboard variant to land on happens after the successful sign-in,
+> as it already does for every other route.
+
+<a id="a8"></a>
+**A8 — Login As answers a blank server error in a half-resolved session** · 🐞 · minor.
+When the browser carries a session the site can no longer fully resolve —
+observed with a session that outlived a server-side database reset; the
+pages themselves still render as signed-in — opening the Login As address
+(from a row action or directly) answers an entirely blank server error: no
+impersonation, no refusal, no way forward. A fresh sign-in makes the same
+action work normally, and a signed-out visitor is properly redirected to
+Login — only the half-resolved state crashes. Nothing private is exposed.
+Since: 2026-08-25 · Basis: observed on a running site + code inspection.
+<sup>[f-a8](#fn-a8)</sup>
+
+> **Reviewed — Jarda Kotěšovec, 2026-08-25**: confirmed 🐞 (filed on
+> review). Ruling: a session whose user cannot be resolved is treated like
+> a signed-out visitor — redirect to Login, never a crash. Same family as
+> the bare-dashboard error (A7): both are missing signed-out guards on
+> older page routes.
 
 ---
 
@@ -829,14 +877,21 @@ browser tab on the set-a-new-password form shows the raw locale key
 offers the action when `getCurrentUserId() !== user.id && user.canLoginAs`;
 the server-computed `canLoginAs`
 (`user/maps/Schema::getPropertyCanLoginAs`) checks only the note-h reach
-test and never consults the impersonation state. The legacy `UserGridRow`
-additionally requires `!Validation::loggedInAs()`, but that grid is
-unreachable mid-impersonation (note i). Live-probed 2026-07-31: the
+test and never consults the impersonation state. The legacy grids all
+guard it — `UserGridRow`, `StageParticipantGridRow.php:115` and
+`ReviewerGridRow.php:180` require `!Validation::loggedInAs()` — but none
+of them is the live surface anymore. Live-probed 2026-07-31: the
 offering appears mid-impersonation in all three apps; the second
 impersonation was driven on OJS. Non-nesting driven 2026-08-01 (OMP;
 `PKPSessionGuard::signInAs()` is shared): the second call overwrites the
 stored `signedInAs` id with the intermediate user's, so `signOutAsUser`
 restores the intermediate user and no impersonation state remains.
+Re-probed 2026-08-25 (OJS): the Vue Participants panel offers "Login As"
+on another participant's row mid-impersonation too (its action config,
+`useParticipantManagerConfig`, gates only on `participant.canLoginAs`).
+Fix per review: return false from `getPropertyCanLoginAs` when
+`Validation::loggedInAs()` is active, so every Vue consumer inherits the
+legacy rule.
 
 <a id="fn-a5"></a>
 **f-a5** — Flag `user.mustChangePassword`. Live-probed 2026-07-31 (OJS,
@@ -846,12 +901,20 @@ one. The review stage's Create New Reviewer form (`CreateReviewerForm`)
 sets the flag on the account it creates and mails a generated password
 (driven live — scenario 6's seeding path). The legacy user-details form
 (`UserDetailsForm` + `userDetails.tpl`) still carries the checkbox, but no
-current screen links to it.
+current screen links to it. 3.4 comparison (2026-08-25, review): in OJS
+3.4.0 the users grid's Edit User (`UserGridHandler::editUser` →
+`UserDetailsForm` → `common/userDetails.tpl`) rendered the checkbox for
+EXISTING accounts — `readUserVars` includes `mustChangePassword`
+unconditionally and `execute` writes it for any user; the true-by-default
+initData applies to new accounts only — establishing the regression.
 
 <a id="fn-a6"></a>
 **f-a6** — Live-probed 2026-08-01 (OJS, scratch user, site setting
 temporarily enabled at 3 attempts / 300 s): attempts beyond the limit —
-including one with the correct password — answer `user.login.loginError`
+including one with the correct password — answer `user.login. Introduced
+2026-02 by the site-security rate-limiting feature (upstream issue
+pkp/pkp-lib#12162); defaults 5 attempts / 300 s, keyed per username+IP
+(IPv6 /64), configurable in Site Settings → Security.loginError`
 verbatim, with only a 2–5-second artificial delay
 (`RateLimitingService::applyRateLimitDelay()`) distinguishing them; the
 limit is keyed per username+address.
@@ -860,7 +923,24 @@ limit is keyed per username+address.
 **f-a7** — Live-probed 2026-08-01 (OJS, OMP, OPS — identical): signed out,
 `{journal}/dashboard` with no operation after it answers HTTP 500 with an
 empty body; every `/dashboard/{op}` address redirects to Login with the
-destination held as `source` and resumes correctly after sign-in.
+destination held as `source` and resumes correctly after sign-in. Cause
+pinned 2026-08-25 (review): the bare address resolves "which dashboard is
+home" via `PKPPageRouter::getHomeUrl()`, which starts from
+`Auth::user()->getId()` with no signed-out guard — the only
+anonymous-reachable caller; every other caller runs just after sign-in.
+Fix per ruling: guard `getHomeUrl()` (no user → the login redirect), so
+variant resolution stays post-login.
+
+<a id="fn-a8"></a>
+**f-a8** — Live-probed 2026-08-25 (OJS): with an aged storage-state session
+(cookies from before a test-database reset; authenticated pages still
+render), `GET login/signInAsUser/{id}` answers HTTP 500 —
+`LoginHandler::signInAsUser` passes `$sessionGuard->getUserId()` (null in
+that state) into the int-typed second parameter of
+`Validation::getAdministrationLevel()`. Controls the same day: anonymous
+GET → 302 to Login; freshly signed-in session → impersonation proceeds
+(200 → dashboard). Fix per ruling: treat an unresolvable session user as
+signed out (redirect to Login) before the administration-level check.
 
 ## Reference — entry points & surfaces
 

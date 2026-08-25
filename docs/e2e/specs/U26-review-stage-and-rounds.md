@@ -9,22 +9,7 @@ atlas-claims: [AFFW-323, AFFW-324, AFFW-325, AFFW-327, AFFW-328, AFFW-329, AFFW-
 
 # Review stage & rounds {OJS OMP}
 
-## How to read this file
-
-The block of codes above the title is a machine-readable index for the
-documentation tooling — ignore it when reading. An unmarked claim asserts the
-behavior is identical in OJS and OMP; OPS does not have this feature (see
-Purpose). An as-built deviation or open question carries a warning marker into
-the Findings register, like ⚠ [A1](#a1); a plain marker such as [OMP1](#omp1)
-points to an intended difference. Marks such as <sup>a</sup> link to the
-Footnotes tail, where code and evidence pointers live — you can ignore that
-section and lose no behavior. The spec is written in OJS vocabulary; reading it
-for OMP, substitute terms per the [application glossary](GLOSSARY.md) —
-"journal" reads as press, "article" as monograph, "Journal Manager" as Press
-Manager, "Editor" as Press Editor, "Section Editor" as Series Editor,
-"Reviewer" as External Reviewer, and the stage named "Review" appears on a
-press as "External Review". All
-markers and marks are clickable.
+> Conventions (markers, badges, footnotes): [Reading a spec](GLOSSARY.md#reading-a-spec).
 
 ## Purpose
 

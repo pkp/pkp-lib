@@ -11,23 +11,7 @@ atlas-claims: [AFFW-286, AFFW-287, AFFW-288, AFFW-289, AFFW-290, AFFW-291, AFFW-
 
 <!-- OPS lacks the Submission stage as a reachable screen; see the absence note under Purpose. -->
 
-## How to read this file
-
-The block of codes above the title is a machine-readable index for the
-documentation tooling — ignore it when reading. OJS, OMP and OPS are the three
-applications this spec covers — OJS runs a journal, OMP a press, OPS a
-preprint server. An unmarked claim asserts the behavior is identical in OJS,
-OMP and OPS; a brace tag on a heading, rule or scenario — {OJS}, {OMP}, {OPS}
-— restricts that item to the application(s) named. An as-built deviation or open
-question carries a warning marker into the Findings register, like ⚠ [A1](#a1);
-a plain marker such as [OMP1](#omp1) points to an intended difference. Marks
-such as <sup>a</sup> link to the Footnotes tail, where code and evidence
-pointers live — you can ignore that section and lose no behavior. The spec is
-written in OJS vocabulary; reading it for OMP or OPS, substitute terms per the
-[application glossary](GLOSSARY.md) — "journal" reads as press /
-preprint server, "article" as monograph / preprint, "Journal Manager" as Press
-Manager / Preprint Server Manager, "Editor" as Press Editor, "Section Editor"
-as Series Editor / Moderator. All markers and marks are clickable.
+> Conventions (markers, badges, footnotes): [Reading a spec](GLOSSARY.md#reading-a-spec).
 
 ## Purpose
 

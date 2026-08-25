@@ -9,24 +9,7 @@ atlas-claims: [AFFM-099, AFFM-100, AFFM-101, AFFM-118, AFFM-119, AFFM-120, AFFU-
 
 # User invitations
 
-## How to read this file
-
-The block of codes above the title is a machine-readable index for the
-documentation tooling — ignore it when reading. An unmarked claim asserts the
-behavior is identical in OJS, OMP and OPS. An
-as-built deviation or open question carries a warning marker into the Findings
-register, like ⚠ [A1](#a1); a register entry whose ID starts with OMP or OPS
-concerns only the app(s) it names. Marks such as <sup>a</sup> link to the Footnotes
-tail, where code and evidence pointers live — you can ignore that section and
-lose no behavior. The spec is written in OJS vocabulary; reading it for OMP or
-OPS, substitute terms per the [application glossary](GLOSSARY.md) —
-"journal" reads as press / preprint server, "Journal Manager" as Press Manager /
-Preprint Server Manager, "Section Editor" as Series Editor / Moderator, and the
-"Journal Masthead" column reads "Press Masthead" / "Server Masthead". Quoted
-button labels containing "OJS" likewise substitute the app's own acronym — a
-press shows "Create OMP account" and "Accept And Continue to OMP", a preprint
-server "Accept And Continue to OPS". All
-markers and marks are clickable.
+> Conventions (markers, badges, footnotes): [Reading a spec](GLOSSARY.md#reading-a-spec).
 
 ## Purpose
 
@@ -59,6 +42,12 @@ own reachability rules belong to the user-management feature (see
 | **Edit the stored invitation email template** | • Journal Manager — on the Emails settings screen (owned by the emails-management feature); ⚠ [OPS1](#ops1) on a preprint server the template has no row there <sup>j</sup> |
 
 ## Fields & validation
+
+On-screen labels follow the app: on a press the "Journal Masthead" column
+reads "Press Masthead", on a preprint server "Server Masthead", and quoted
+button labels containing "OJS" likewise substitute the app's own acronym — a
+press shows "Create OMP account" and "Accept And Continue to OMP", a preprint
+server "Accept And Continue to OPS".
 
 Send wizard (fields for a **new** invitee; for an existing user the personal
 fields show read-only):
@@ -311,6 +300,7 @@ Verdicts are the author's judgment (claude, 2026-07-31), unreviewed unless an
 entry notes otherwise; the team settles them on spec review. Sorted 🐞 → ❓ → ✅
 in the summary; the entries below are the source. Each entry opens with the
 user-observable symptom; mechanism and evidence live in the entry's footnote.
+An entry whose ID starts with OMP or OPS concerns only the app(s) it names.
 
 | ID | Finding (one line, symptom) | Bug? | Impact | Review |
 |----|-----------------------------|------|--------|--------|

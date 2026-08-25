@@ -130,7 +130,7 @@ function checkRegister(doc, out) {
     // markers (TEMPLATE "Rules & state"), so ⚠ is required once per entry, not on every occurrence.
     const marked = new Set(), warned = new Set();
     for (let i = 0; i < doc.registerStart; i++) {
-        if (doc.skip[i] || /^How to read/i.test(doc.h2[i])) continue; // the legend shows marker FORMS, not markers
+        if (doc.skip[i]) continue;
         for (const m of doc.lines[i].matchAll(MARKER_RE)) {
             const [, adjacent, id, target] = m;
             if (id.toLowerCase() !== target) { out.push({ line: i + 1, check: 'register', msg: `marker [${id}] points at #${target}` }); continue; }
@@ -246,11 +246,7 @@ atlas-claims: [AFFW-001]
 
 # Sample feature {OJS OMP}
 
-## How to read this file
-
-An unmarked claim asserts the behavior is identical in OJS and OMP. \`⚠ [A1](#a1)\`
-marks an as-built deviation; a plain \`[OMP1](#omp1)\` marks an intended
-divergence. \`<sup>[a](#fn-a)</sup>\` marks link to the footnote tail.
+> Conventions (markers, badges, footnotes): [Reading a spec](GLOSSARY.md#reading-a-spec).
 
 ## Purpose
 
@@ -311,13 +307,15 @@ const CASES = [
     ['register', 'the round is open ⚠ [A1](#a1)', 'the round is open [A1](#a1)'],
     ['register', '<a id="omp1"></a>\n**OMP1', '<a id="omp2"></a>\n**OMP2'],
     ['links', 'the same screen. <sup>[a](#fn-a)</sup>', 'the same screen. <sup>[z](#fn-z)</sup>'],
-    ['links', 'marks link to the footnote tail.', 'marks link to the [footnote tail](../NOPE.md).'],
+    ['links', '[Reading a spec](GLOSSARY.md#reading-a-spec)', '[Reading a spec](../NOPE.md#reading-a-spec)'],
     ['links', '<a id="fn-omp1"></a>', '<a id="fn-a1"></a>'],
 ];
 
 function selfTest() {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lint-spec-'));
     fs.mkdirSync(path.join(dir, 'specs'));
+    // the shared legend the fixture's conventions line points at (specs/GLOSSARY.md § Reading a spec)
+    fs.writeFileSync(path.join(dir, 'specs', 'GLOSSARY.md'), '# Glossary\n\n## Reading a spec\n\nThe one legend for every spec file.\n');
     const write = (text) => { const f = path.join(dir, 'specs', 'sample.md'); fs.writeFileSync(f, text); anchorCache.clear(); return f; };
     let fails = 0;
     const good = lintFile(write(GOOD));

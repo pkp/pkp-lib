@@ -9,26 +9,7 @@ atlas-claims: [AFFW-213, AFFW-214, AFFW-215, AFFW-217, AFFW-218, AFFW-219, AFFW-
 
 # Reviewer assignment & management {OJS OMP}
 
-## How to read this file
-
-The block of codes above the title is a machine-readable index for the
-documentation tooling — ignore it when reading. This file covers two
-applications: OJS (Open Journal Systems, journals) and OMP (Open Monograph
-Press, presses); OPS (Open Preprint Systems, preprint servers) does not have
-this feature (see Purpose). A brace tag such as {OJS} or {OMP} in front of a
-sentence or scenario means it applies only in that application; an unmarked
-claim asserts the behavior is identical in OJS and OMP. An as-built deviation
-or open question carries a warning marker into the Findings register, like
-⚠ [A1](#a1); a plain marker such as [OMP1](#omp1) points to an intended
-difference — or to a retired finding, overturned on re-probe and kept in the
-register for the record. Marks such as <sup>a</sup> link to the Footnotes tail, where code
-and evidence pointers live — you can ignore that section and lose no behavior.
-The spec is written in OJS vocabulary; reading it for a press, substitute
-terms per the [application glossary](GLOSSARY.md) — "journal" reads as
-press, "Journal Manager" as Press Manager, "Editor" as Press Editor, "Section
-Editor" as Series Editor, "Reviewer" as External Reviewer (a press also has
-Internal Reviewers — see Purpose), and the stage named "Review" appears on a
-press as "External Review". All markers and marks are clickable.
+> Conventions (markers, badges, footnotes): [Reading a spec](GLOSSARY.md#reading-a-spec).
 
 ## Purpose
 

@@ -68,7 +68,11 @@ const PATCHES = {
         files_dir: filesDir,
         public_files_dir: publicFilesDir,
     },
+    security: {
+        api_key_secret: '"Api_Key_Secret_For_Testing_Purposes_Only"',
+    },
     email: {
+        default: 'smtp', // the template's sendmail binary does not exist on CI
         smtp: 'On',
         smtp_server: '127.0.0.1',
         smtp_port: '1025', // Mailpit

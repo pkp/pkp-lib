@@ -628,7 +628,8 @@ class JobRunnerTest extends PKPTestCase
 
     /**
      * The configured retry_after threshold (seconds) used to decide staleness.
-     * PKPContainer sets queue.connections.database.retry_after to 610.
+     * PKPContainer resolves queue.connections.database.retry_after from the
+     * "[queues] retry_after" setting, defaulting to 610.
      */
     protected function retryAfter(): int
     {

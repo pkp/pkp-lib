@@ -18,13 +18,20 @@ namespace PKP\tests\classes\core;
 
 use Exception;
 use Illuminate\Bus\PendingBatch;
+use Illuminate\Database\Connection;
+use Illuminate\Queue\DatabaseQueue;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Queue;
+use Mockery;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\config\Config;
+use PKP\jobs\BaseJob;
+use PKP\jobs\statistics\CompileContextMetrics;
+use PKP\jobs\statistics\RemoveDoubleClicks;
 use PKP\jobs\testJobs\TestJobFailure;
 use PKP\jobs\testJobs\TestJobSuccess;
 use PKP\tests\PKPTestCase;
+use ReflectionClass;
 
 class PKPJobTest extends PKPTestCase
 {
@@ -32,6 +39,8 @@ class PKPJobTest extends PKPTestCase
     protected string $originalErrorLog;
 
     protected $busInstance, $queueInstance;
+
+    protected ?int $originalRetryAfter = null;
 
     /**
      * @see PKPTestCase::setUp()
@@ -48,6 +57,7 @@ class PKPJobTest extends PKPTestCase
         // Store originals before any test modifies them
         $this->busInstance = Bus::getFacadeRoot();
         $this->queueInstance = Queue::getFacadeRoot();
+        $this->originalRetryAfter = config('queue.connections.database.retry_after');
     }
 
     /**
@@ -60,6 +70,7 @@ class PKPJobTest extends PKPTestCase
         // Restore originals after each test
         Bus::swap($this->busInstance);
         Queue::swap($this->queueInstance);
+        config(['queue.connections.database.retry_after' => $this->originalRetryAfter]);
 
         // Delete any job on test queue on test teardown
         PKPJobModel::query()->onQueue(PKPJobModel::TESTING_QUEUE)->delete();
@@ -177,5 +188,153 @@ class PKPJobTest extends PKPTestCase
         $this->assertTrue($result);
         $this->assertEquals(0, PKPJobModel::query()->onQueue(PKPJobModel::TESTING_QUEUE)->count());
         $this->assertEquals(1, $runner->getJobProcessedCount());
+    }
+
+    /**
+     * Covers that the configured `[queues] retry_after` reaches the queue connection,
+     * which is where Laravel reads it from to decide that a reserved job is abandoned,
+     * and that it is never resolved below the 610 second default
+     */
+    public function testConfiguredRetryAfterReachesTheQueueConnection()
+    {
+        $this->assertSame(
+            max(610, (int) Config::getVar('queues', 'retry_after', 610)),
+            (int) config('queue.connections.database.retry_after')
+        );
+    }
+
+    /**
+     * Covers the timeout a long running job derives from the connection's `retry_after`
+     */
+    public function testLongRunningJobDerivesTimeoutFromRetryAfter()
+    {
+        config(['queue.connections.database.retry_after' => 3600]);
+
+        $this->assertSame(3600 - $this->timeoutReduction(), (new LongRunningTestJob())->timeout);
+    }
+
+    /**
+     * Covers that a job which does not opt in keeps its declared timeout, however
+     * large `retry_after` is
+     */
+    public function testOrdinaryJobKeepsItsDeclaredTimeout()
+    {
+        config(['queue.connections.database.retry_after' => 3600]);
+
+        $this->assertSame(60, (new OrdinaryTestJob())->timeout);
+    }
+
+    /**
+     * Covers that the derived timeout never lowers a timeout the job declares itself,
+     * which is the case of the usage statistics jobs declaring 600 seconds
+     */
+    public function testDerivedTimeoutNeverLowersADeclaredTimeout()
+    {
+        config(['queue.connections.database.retry_after' => 300]);
+
+        $this->assertSame(600, (new DeclaredTimeoutTestJob())->timeout);
+    }
+
+    /**
+     * Covers that connections defining no `retry_after`, such as `sync`, leave the
+     * declared timeout alone rather than derive a nonsensical value from null
+     */
+    public function testMissingRetryAfterLeavesTimeoutUntouched()
+    {
+        config(['queue.connections.database.retry_after' => null]);
+
+        $this->assertSame(60, (new LongRunningTestJob())->timeout);
+    }
+
+    /**
+     * Covers that the derived timeout reaches the queued payload, which is the value
+     * Laravel actually enforces: Worker::timeoutForJob() reads $job->timeout(), the
+     * payload key stamped by Queue::createObjectPayload() at dispatch time, not the
+     * property on the unserialized object
+     */
+    public function testDerivedTimeoutReachesTheDispatchedPayload()
+    {
+        config(['queue.connections.database.retry_after' => 3600]);
+
+        $this->assertSame(
+            3600 - $this->timeoutReduction(),
+            $this->buildPayloadFor(new LongRunningTestJob())['timeout']
+        );
+
+        $this->assertSame(60, $this->buildPayloadFor(new OrdinaryTestJob())['timeout']);
+    }
+
+    /**
+     * Covers the usage statistics jobs, the reason this mechanism exists. They are
+     * dispatched as a single chain, so every member has to opt in or the chain would
+     * run under mixed timeout regimes
+     */
+    public function testUsageStatisticsJobsOptInToTheDerivedTimeout()
+    {
+        config(['queue.connections.database.retry_after' => 3600]);
+
+        $expected = 3600 - $this->timeoutReduction();
+
+        $this->assertSame($expected, (new RemoveDoubleClicks('20260824.log'))->timeout);
+        $this->assertSame($expected, (new CompileContextMetrics('20260824.log'))->timeout);
+    }
+
+    /**
+     * Build the queue payload for a job exactly as Laravel does on dispatch, without
+     * touching the database: createObjectPayload() only reads properties off the job
+     * and serializes it
+     */
+    protected function buildPayloadFor(BaseJob $job): array
+    {
+        $queue = new DatabaseQueue(Mockery::mock(Connection::class), 'jobs', 'queue');
+
+        $method = (new ReflectionClass(DatabaseQueue::class))->getMethod('createObjectPayload');
+        $method->setAccessible(true);
+
+        return $method->invoke($queue, $job, 'queue');
+    }
+
+    /**
+     * BaseJob::TIMEOUT_REDUCTION, the gap kept between a derived timeout and `retry_after`
+     */
+    protected function timeoutReduction(): int
+    {
+        return (new ReflectionClass(BaseJob::class))->getConstant('TIMEOUT_REDUCTION');
+    }
+}
+
+/**
+ * The fixtures below are named rather than anonymous classes because
+ * Queue::createObjectPayload() serializes the job, and PHP cannot serialize an
+ * instance of an anonymous class.
+ */
+
+/** A job that opts in to the long running timeout */
+class LongRunningTestJob extends BaseJob
+{
+    protected bool $isLongRunning = true;
+
+    public function handle(): void
+    {
+    }
+}
+
+/** A job that keeps the BaseJob defaults */
+class OrdinaryTestJob extends BaseJob
+{
+    public function handle(): void
+    {
+    }
+}
+
+/** A long running job that also declares a timeout of its own, as the statistics jobs do */
+class DeclaredTimeoutTestJob extends BaseJob
+{
+    public int $timeout = 600;
+
+    protected bool $isLongRunning = true;
+
+    public function handle(): void
+    {
     }
 }

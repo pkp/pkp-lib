@@ -431,7 +431,9 @@ class PKPContainer extends Container
             'driver' => 'database',
             'table' => 'jobs',
             'queue' => 'default',
-            'retry_after' => 610,
+            // Must exceed the runtime of the longest running job, otherwise a job that is
+            // still being processed becomes eligible to be picked up a second time.
+            'retry_after' => max(610, (int) Config::getVar('queues', 'retry_after', 610)),
             'after_commit' => true,
         ];
         $items['queue']['failed'] = [

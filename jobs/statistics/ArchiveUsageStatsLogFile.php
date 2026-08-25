@@ -26,6 +26,9 @@ use PKP\task\FileLoader;
 
 class ArchiveUsageStatsLogFile extends BaseJob
 {
+    /** @copydoc BaseJob::$isLongRunning */
+    protected bool $isLongRunning = true;
+
     /**
      * The load ID = usage stats log file name
      */

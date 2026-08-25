@@ -361,6 +361,14 @@ class PKPRequest
     }
 
     /**
+     * Get the CGI PATH_INFO of the current request, e.g. "/context/locale/page/op".
+     */
+    public function getPathInfo(): string
+    {
+        return $_SERVER['PATH_INFO'] ?? '';
+    }
+
+    /**
      * Get the server hostname in the request.
      *
      * @param $default Default hostname (defaults to localhost if null)

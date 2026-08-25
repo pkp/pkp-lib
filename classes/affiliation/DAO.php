@@ -82,6 +82,27 @@ class DAO extends EntityDAO
     }
 
     /**
+     * Get an affiliation.
+     *
+     * Optionally, pass the author ID to only get an affiliation
+     * if it exists and is assigned to that author.
+     */
+    public function get(int $id, ?int $authorId = null): ?Author
+    {
+        // This is overridden due to the need to include submission_locale
+        // to the fromRow function
+        $row = DB::table('author_affiliations as a')
+            ->join('authors as au', 'a.author_id', '=', 'au.author_id')
+            ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
+            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
+            ->where('a.affiliation_id', '=', $id)
+            ->when($authorId !== null, fn (Builder $query) => $query->where('a.author_id', '=', $authorId))
+            ->select(['a.*', 's.locale AS submission_locale'])
+            ->first();
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
+    }
+
+    /**
      * Get a list of ids matching the configured query
      *
      * @return Collection<int,int>
@@ -98,6 +119,9 @@ class DAO extends EntityDAO
     public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Affiliation
     {
         $affiliation = parent::fromRow($row, $ids, $cache, $query);
+
+        // Set the primary locale from the submission
+        $affiliation->setData('submissionLocale', $row->submission_locale);
 
         $cache->rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($ids)
             ->getMany()

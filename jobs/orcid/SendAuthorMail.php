@@ -34,6 +34,10 @@ class SendAuthorMail extends BaseJob implements ShouldBeUnique
         /** @var bool $updateAuthor If true, update the author fields in the database. Use only if not called from a function, which will already update the author. */
         private bool $updateAuthor = false
     ) {
+        // Convert LazyCollections to Collections for serialization
+        $author->setData('affiliations', $author->getData('affiliations')->collect());
+        $author->setContributorRoles($author->getContributorRoles()->collect());
+        $author->setCreditRoles($author->getCreditRoles()->collect());
     }
 
     /**

@@ -135,7 +135,13 @@ class Locale implements LocaleInterface
 
         $request = $this->_getRequest();
 
-        $locale = $request->getUserVar('setLocale')
+        // The setLocale request var is only honoured while sessions are disabled (install,
+        // CLI, unit tests - see PKPApplication::__construct()), where the cookie/session
+        // can't be relied on and the new locale must take effect immediately, in the same
+        // request, before it's written out. Trusting it unconditionally let a stray
+        // ?setLocale= on any ordinary URL permanently override the URL's own locale segment
+        // and loop forever against PKPPageRouter::_setLocale() (see pkp/pkp-lib#12375).
+        $locale = (PKPSessionGuard::isSessionDisable() ? $request->getUserVar('setLocale') : null)
             ?: $this->_getUrlLocale()
             ?: $request->getSession()->get('currentLocale')
             ?: $request->getCookieVar('currentLocale')

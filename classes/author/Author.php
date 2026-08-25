@@ -291,15 +291,15 @@ class Author extends Identity
     /**
      * Get contributor credit roles and degrees.
      */
-    public function getCreditRoles(): array
+    public function getCreditRoles(): iterable
     {
-        return $this->getData('creditRoles') ?? [];
+        return $this->getData('creditRoles') ?? collect();
     }
 
     /**
      * Set contributor credit roles and degrees.
      */
-    public function setCreditRoles(?array $creditRoles): void
+    public function setCreditRoles(?iterable $creditRoles): void
     {
         $this->setData('creditRoles', $creditRoles);
     }
@@ -307,9 +307,9 @@ class Author extends Identity
     /**
      * Get contributor roles as ContributorRole[].
      */
-    public function getContributorRoles(): array
+    public function getContributorRoles(): iterable
     {
-        return $this->getData('contributorRoles') ?? [];
+        return $this->getData('contributorRoles') ?? collect();
     }
 
     /**
@@ -350,7 +350,7 @@ class Author extends Identity
      *
      * @param array<ContributorRole>
      */
-    public function setContributorRoles(array $roles): void
+    public function setContributorRoles(iterable $roles): void
     {
         $this->setData('contributorRoles', $roles);
     }

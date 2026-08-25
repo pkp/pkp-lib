@@ -147,10 +147,10 @@ class DAO extends EntityDAO
         }));
 
         $cache->creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($ids);
-        $author->setCreditRoles($cache->creditRoles->get($row->author_id)?->toArray() ?? []);
+        $author->setCreditRoles($cache->creditRoles->get($row->author_id)?->toArray() ?? collect());
 
         $cache->contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($ids);
-        $author->setContributorRoles($cache->contributorRoles->get($row->author_id)?->all() ?? []);
+        $author->setContributorRoles($cache->contributorRoles->get($row->author_id)?->all() ?? collect());
 
         return $author;
     }

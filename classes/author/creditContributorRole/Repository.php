@@ -22,7 +22,7 @@ use PKP\author\creditRole\CreditRole;
 class Repository
 {
     /** Add contributor roles for a contributor */
-    public function addContributorRoles(array $contributorRoles, int $contributorId): void
+    public function addContributorRoles(iterable $contributorRoles, int $contributorId): void
     {
         $roleIds = collect($contributorRoles)
             ->map(fn (ContributorRole $role) => $role->contributorRoleId);
@@ -47,7 +47,7 @@ class Repository
     }
 
     /** Add CRediT roles for a contributor */
-    public function addCreditRoles(array $newRoles, int $contributorId): void
+    public function addCreditRoles(iterable $newRoles, int $contributorId): void
     {
         $identifiersWithIds = CreditRole::withCreditRoleIdentifiers(Arr::pluck($newRoles, 'role'))
             ->get()

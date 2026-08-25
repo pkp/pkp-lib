@@ -1,0 +1,21 @@
+{
+    "title": "Test-harness user spec",
+    "description": "A user to seed, with the role keys it is enrolled in. Role keys are the default user-group name keys without the 'default.groups.name.' prefix (manager, editor, sectionEditor, reviewer, author, copyeditor, layoutEditor, proofreader, funding, reader, ...), so the same key resolves in every app that ships that group. 'siteAdmin' is spelled the same way but names the SITE-wide administrator group rather than one of the context's groups: use it to seed a throwaway site administrator, since no screen in the application grants that role.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["roles"],
+    "properties": {
+        "username": {"type": "string", "minLength": 1, "maxLength": 32},
+        "password": {"type": "string", "minLength": 6},
+        "givenName": {"type": "string"},
+        "familyName": {"type": "string"},
+        "email": {"type": "string", "minLength": 3},
+        "country": {"type": "string"},
+        "affiliation": {"type": "string"},
+        "roles": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+        }
+    }
+}

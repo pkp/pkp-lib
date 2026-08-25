@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/integration/publicComents/PublicComments.cy.js
+ * @file cypress/tests/integration/publicComments/PublicComments.cy.js
  *
  * copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky

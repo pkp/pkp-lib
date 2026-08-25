@@ -449,9 +449,13 @@ The set-a-new-password page (the emailed reset link's destination) is headed
 "Reset Password", but the browser tab reads "user.login.resetPassword" — an
 internal code shown where the page title belongs.
 Basis: observed on a running site. <sup>[f-a3](#fn-a3)</sup>
+Tracked as
+[pkp/pkp-lib#13132](https://github.com/pkp/pkp-lib/issues/13132) (open as of
+2026-08-25; also notes the same symptom on Administration → Jobs).
 
 > **Reviewed — Jarda Kotěšovec, 2026-08-25**: confirmed 🐞. Fix: resolve the
-> tab title to the translated "Reset Password" string.
+> tab title to the translated "Reset Password" string. Already reported as
+> pkp/pkp-lib#13132.
 
 <a id="a4"></a>
 **A4 — Second Login As offered mid-impersonation** · 🐞 · latent.

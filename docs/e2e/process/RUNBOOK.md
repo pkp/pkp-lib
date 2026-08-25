@@ -105,15 +105,27 @@ presented, and typing a URL straight into the address bar (ordinary user
 behaviour: a bookmark, a stale link). Visiting a screen and reporting what it
 shows is always in scope.
 
-What this campaign does NOT do: construct a request the application's own
-screens would never send. No hand-built API calls, no altered payloads, no
-credentials carried across sessions, no client but a browser. Whether the
-server would accept what the UI never offers is a real question for a
-**separate process**: write one line on the deferred queue
-(`../e2e_ng/server-questions.md` — one line per question: screen, role,
-question; nothing in this campaign reads it back) and move on. If what was
-actually OBSERVED suggests a security weakness, it goes to the private
-security file instead ("What goes where").
+What this campaign does NOT do as its working method: explore features by
+constructing requests the application's own screens would never send. No
+hand-built API calls as exploration, no credentials carried across
+sessions, no client but a browser. But the API is not invisible — the
+browser's own traffic is part of what the screen shows. An API problem
+observed while driving a screen (a wrong status code, an error payload
+leaking through, a response carrying data the screen never asked for, a
+save that silently drops a field) is a real finding and is surfaced, not
+parked:
+
+- **No security dimension** → the feature spec's **Findings register**,
+  like any other finding (🐞 or ❓ with its evidence footnote).
+- **Possibly security-shaped** (a guard that may not hold, data a role may
+  not be entitled to) → the security routing in "What goes where":
+  verified first, and only confirmed problems stay in the private file.
+
+There is no deferred-questions queue (dropped, maintainer 2026-08-25): a
+suspicion nobody verifies is not filed anywhere. Either it earns one
+targeted verification this session, or the claim it touches gets a ❓
+register entry with a stated lean (kept generic if security-shaped), or it
+is dropped.
 
 There is no restricted vocabulary: findings are filed in whatever terms
 describe them best. ONE routing rule exists — the security routing below.
@@ -123,32 +135,44 @@ describe them best. ONE routing rule exists — the security routing below.
 > install with seeded accounts. Sign in as each role and use the screens the
 > way that role would — including typing a URL directly to reach one. Record
 > what the screen offers, what happens when it is used, and where the two
-> disagree, so the product team can fix it. Never construct a request the
-> screens themselves would not send; a question that needs that goes on the
-> deferred queue instead. A finding that could plausibly be a security
-> weakness is appended to the maintainer's private security file
-> (`../e2e_ng/security.md`), never to a spec, test, report file or commit —
-> these repos are public. Say THAT you routed something there; keep its
-> content out."
+> disagree — including any API misbehavior the browser's own traffic shows
+> along the way — so the product team can fix it. Never construct a request
+> the screens themselves would not send; if a claim can only be settled
+> that way, return it as an open question instead of probing it. A finding
+> that could plausibly be a security weakness is appended to the
+> maintainer's private security file (`../e2e_ng/security.md`) marked
+> `unverified`, never to a spec, test, report file or commit — these repos
+> are public. Say THAT you routed something there; keep its content out."
 
 Volume discipline is separate and stays: detail lives in `.reports/`, returns
 are short and outcome-shaped — context budgeting, not a wording rule.
 
 ## What goes where
 
-- **Product findings** (bugs, divergences, oddities, open questions) → the
-  feature spec's **Findings register** (TEMPLATE). The only home — never
-  `app-changes.md`, PROGRESS notes, or side documents.
+- **Product findings** (bugs, divergences, oddities, open questions —
+  including API misbehavior observed in the browser's own traffic with no
+  security dimension) → the feature spec's **Findings register** (TEMPLATE).
+  The only home — never `app-changes.md`, PROGRESS notes, or side documents.
 - **Potential security concerns** → `../e2e_ng/security.md` (maintainer-only,
-  outside every repo). Decide by substance: a role seeing or doing more than
-  it is entitled to, a guard that does not hold, data exposed to the wrong
-  audience — anything you would not publish before a fix. The repos are
-  PUBLIC: such a finding's CONTENT never appears in a spec, test, `.reports/`
-  file, PROGRESS note, or commit message; the claim it would have supported is
-  omitted or kept generic until the fix ships. The FACT of routing is never
-  silent — a return or report says "one observation routed to the security
-  file" so the maintainer knows to look. Ordinary UX defects are not security
-  concerns; they go to the register.
+  outside every repo) — **verified problems only** (maintainer 2026-08-25).
+  Decide by substance: a role seeing or doing more than it is entitled to, a
+  guard that does not hold, data exposed to the wrong audience — anything you
+  would not publish before a fix. The file is a list of ACTUAL problems, not
+  suspicions: an observation enters marked `unverified`, and before the
+  session report the orchestrator dispatches one targeted verification probe
+  on the disposable install — through the screens where possible; where only
+  a direct request can settle it, that single constructed check is permitted
+  FOR VERIFICATION, never as exploration, and its content obeys the same
+  quarantine. Confirmed → the entry stays, marked `verified` with the date
+  and what was observed. Not confirmed (or unverifiable in this environment)
+  → the entry is deleted; if the underlying claim still matters, the spec
+  gets a generic ❓ register entry. The repos are PUBLIC: such a finding's
+  CONTENT never appears in a spec, test, `.reports/` file, PROGRESS note, or
+  commit message; the claim it would have supported is omitted or kept
+  generic until the fix ships. The FACT of routing is never silent — a
+  return or report says "one observation routed to the security file, and
+  verified/dismissed" so the maintainer knows to look. Ordinary UX defects
+  are not security concerns; they go to the register.
 - **Build blockers** → `lib/pkp/docs/e2e/tracking/app-changes.md`: an app defect that
   had to be worked around or fixed to get tests green (races,
   nondeterministic UI, harness-hostile behavior), plus the record of actual
@@ -310,9 +334,10 @@ brief ALSO opens with the **Frame** paragraph, verbatim, before the task.
    the author returns with its draft (the author never probes). **Every probe
    item is phrased as screen actions and observations** — "as role R, on
    screen S, do X; record what appears". An item that cannot be phrased that
-   way is out of scope: deferred queue, and the claim it would have supported
-   gets a marker or leaves the draft. The list includes the cross-app
-   controls from rule 4.
+   way is not probed: the claim it would have supported gets a ❓ register
+   entry with a stated lean (kept generic if security-shaped), a marker, or
+   leaves the draft — there is no deferred-questions queue. The list
+   includes the cross-app controls from rule 4.
 3. **Probe** — the list is farmed to probe subagents (fresh context, tight
    scope, facts-only reports to `.reports/`). A probe answers "what does this
    role actually see and get on a running install?", through the screens. Any
@@ -414,7 +439,10 @@ brief ALSO opens with the **Frame** paragraph, verbatim, before the task.
     — no re-pin commit follows (maintainer ruling 2026-07-28); `M lib/pkp`
     in app status is normal and stays uncommitted.
 12. **Report** — what was built, register highlights, anything
-    low-confidence. Open questions stay recorded, not resolved — the team
+    low-confidence. If anything was routed to the security file this
+    session, the verification pass ("What goes where") has already run and
+    the report states the outcome as counts only (verified / dismissed).
+    Open questions stay recorded, not resolved — the team
     settles them on spec review. Then STOP: in review mode, one feature per
     fresh session; in wave mode, also flag when the wave counter reaches 7.
 

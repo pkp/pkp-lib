@@ -84,15 +84,15 @@ class OrcidController extends PKPBaseController
         }
 
         $author = $validate['author']; /** @var Author $author */
-        try {
-            $author->setData('orcidVerificationRequested', true);
-            Repo::author()->edit($author, ['orcidVerificationRequested']);
-            dispatch(new SendAuthorMail($author, $context, true));
-        } catch (\Exception $exception) {
-            return response()->json([
-                'error' => __('api.orcid.404.contextRequired'),
-            ], Response::HTTP_NOT_FOUND);
-        }
+        //        try {
+        $author->setData('orcidVerificationRequested', true);
+        Repo::author()->edit($author, ['orcidVerificationRequested']);
+        dispatch(new SendAuthorMail($author, $context, true));
+        /*        } catch (\Exception $exception) {
+                    return response()->json([
+                        'error' => __('api.orcid.404.contextRequired'),
+                    ], Response::HTTP_NOT_FOUND);
+                }*/
 
         return response()->json([], Response::HTTP_OK);
     }

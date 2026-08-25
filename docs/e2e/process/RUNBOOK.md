@@ -574,9 +574,13 @@ rules that stay here:
   on-screen strings live in its footnotes (TEMPLATE rule 4), never citations
   of report files; a shipped claim disputed later is settled by a fresh probe
   on the current build. Security rule unchanged: a potential security concern
-  never appears even in scratch. The two pre-rule evidence sets
-  (`.reports/phase0-feature-map/`, `.reports/step1-harness/`) stay committed
-  as historical record.
+  never appears even in scratch. Maintainer ruling 2026-08-25: the two
+  pre-rule evidence sets (`.reports/phase0-feature-map/`,
+  `.reports/step1-harness/`) are no longer kept on the tip either — they were
+  removed that day and remain reachable in git history; accumulated
+  per-feature scratch was deleted at the same time. Citations of those files
+  in FEATURE-MAP, UNASSIGNED, GLOSSARY and the parity ledger resolve via git
+  history.
 
 ## Definition of done
 

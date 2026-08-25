@@ -11,7 +11,8 @@ feature row, claim its listed atoms, write the spec per `TEMPLATE.md`.
   **1,972 feature-assigned · 173 out of scope · 18 parked in UNASSIGNED.md** (13 at Phase-0 close; 5 U26-derived dead author-dashboard atoms parked later).
 - **Atom IDs and modality conventions**: see `atlas/README.md`. IDs are dense per
   modality and never renumbered; ranges here (`AFFW-068..075`) are inclusive.
-- **Sources**: `.reports/phase0-feature-map/synthesis.md` §1 (feature list and
+- **Sources** (removed from the tip 2026-08-25, reachable in git history —
+  RUNBOOK ".reports/ retention"): `.reports/phase0-feature-map/synthesis.md` §1 (feature list and
   order) as amended by `.reports/phase0-feature-map/RULINGS.md` (all D-leans
   accepted; Q1–Q5 as ruled; D2 superseded; U68–U70 added), atomized by the six
   crosswalk files in `.reports/phase0-feature-map/`.

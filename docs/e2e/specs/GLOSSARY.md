@@ -379,4 +379,6 @@ the capability holds.
 
 The §1-vs-§2 relationship (spec scope vs shared-test gating) is defined in
 the header — ruling evidence:
-`../tracking/.reports/phase0-feature-map/probe-omp-series.md` (2026-07-27).
+`../tracking/.reports/phase0-feature-map/probe-omp-series.md` (2026-07-27;
+removed from the tip 2026-08-25, reachable in git history — RUNBOOK
+".reports/ retention").

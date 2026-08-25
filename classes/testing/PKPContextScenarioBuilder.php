@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/testing/scenario/PKPContextScenarioBuilder.php
+ * @file classes/testing/PKPContextScenarioBuilder.php
  *
  * Copyright (c) 2026 Simon Fraser University
  * Copyright (c) 2026 John Willinsky
@@ -31,7 +31,7 @@
  *   real ones for every screen this state gates.
  */
 
-namespace PKP\testing\scenario;
+namespace PKP\testing;
 
 use APP\core\Application;
 use PKP\context\Context;

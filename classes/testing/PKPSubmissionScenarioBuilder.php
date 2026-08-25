@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/testing/scenario/PKPSubmissionScenarioBuilder.php
+ * @file classes/testing/PKPSubmissionScenarioBuilder.php
  *
  * Copyright (c) 2026 Simon Fraser University
  * Copyright (c) 2026 John Willinsky
@@ -40,7 +40,7 @@
  * OPS submission invisible; PRINCIPLES D5).
  */
 
-namespace PKP\testing\scenario;
+namespace PKP\testing;
 
 use APP\core\Application;
 use APP\facades\Repo;

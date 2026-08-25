@@ -41,8 +41,8 @@ use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\security\authorization\PublicAccessPolicy;
 use PKP\testing\PKPBootstrapSeeder;
-use PKP\testing\scenario\PKPContextScenarioBuilder;
-use PKP\testing\scenario\PKPSubmissionScenarioBuilder;
+use PKP\testing\PKPContextScenarioBuilder;
+use PKP\testing\PKPSubmissionScenarioBuilder;
 use PKP\testing\SpecException;
 
 abstract class PKPTestController extends PKPBaseController

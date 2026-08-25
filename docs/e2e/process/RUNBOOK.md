@@ -139,10 +139,14 @@ describe them best. ONE routing rule exists — the security routing below.
 > along the way — so the product team can fix it. Never construct a request
 > the screens themselves would not send; if a claim can only be settled
 > that way, return it as an open question instead of probing it. A finding
-> that could plausibly be a security weakness is appended to the
-> maintainer's private security file (`../e2e_ng/security.md`) marked
-> `unverified`, never to a spec, test, report file or commit — these repos
-> are public. Say THAT you routed something there; keep its content out."
+> that could plausibly be a security weakness goes ONLY into the
+> maintainer's private security file (`../e2e_ng/security.md`) — never into
+> a spec, test, report file or commit; these repos are public. Writes there
+> are read-first: read the whole file, and if the problem is already
+> recorded (Open or Handled), update that entry instead of adding a new
+> one; new entries use the file's fixed entry shape, marked `unverified`.
+> Say THAT you routed something there; keep its content out of everything
+> else."
 
 Volume discipline is separate and stays: detail lives in `.reports/`, returns
 are short and outcome-shaped — context budgeting, not a wording rule.
@@ -173,6 +177,35 @@ are short and outcome-shaped — context budgeting, not a wording rule.
   return or report says "one observation routed to the security file, and
   verified/dismissed" so the maintainer knows to look. Ordinary UX defects
   are not security concerns; they go to the register.
+
+  **File hygiene** (maintainer 2026-08-25 — the file had grown repetitive
+  and hard to review): any agent may write the file — the quarantine is
+  about WHERE content goes, not who writes it — but **every write is
+  read-first**: read the whole file, and an observation matching an
+  existing entry — same guard, same screen, same root cause, even if
+  noticed on a different app or role — updates that entry (add the date
+  and the new context on its `observed` line) instead of adding a new one.
+  **One entry per distinct problem, ever.** Every entry uses this shape,
+  nothing free-form:
+
+  ```
+  ## SEC-YYYYMMDD-<slug> — one-line problem statement
+  status: unverified | verified YYYY-MM-DD
+  where: <app(s) · screen · role>
+  observed: <2–4 lines, what was actually seen>
+  verified-by: <the one check that settled it>
+  ```
+
+  The file has two sections. **Open** holds the entries above. **Handled**
+  holds one line per closed item (`SEC-id — disposition, date`: fixed /
+  accepted / dismissed) — the maintainer moves entries there on review.
+  Handled lines are tombstones: check them before filing and do not
+  re-file a handled problem unless the behavior has demonstrably changed
+  (then a new Open entry naming the old id). If the file is absent, create
+  it with the two section headings — absent or empty-Open means "no open
+  concerns", not "never checked". At session end, after the verification
+  pass, the orchestrator leaves the file tidy: dismissed entries deleted,
+  duplicates merged, every remaining Open entry distinct and `verified`.
 - **Build blockers** → `lib/pkp/docs/e2e/tracking/app-changes.md`: an app defect that
   had to be worked around or fixed to get tests green (races,
   nondeterministic UI, harness-hostile behavior), plus the record of actual

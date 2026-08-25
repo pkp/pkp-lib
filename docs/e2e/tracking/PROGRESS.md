@@ -16,7 +16,8 @@ features run one per session under the RUNBOOK loop, maintainer-picked.
 **The process contract**: Fable runs every role — no per-role model split, no
 fallback; a safeguard flag/refusal/downgrade PAUSES the feature for
 maintainer review (RUNBOOK "Model discipline"). Potential security concerns
-go to the private `../e2e_ng/security.md`, never to a public artifact — the
+go to the private `../e2e_ng/security.md`, never to a public artifact —
+writes there are read-first and deduped per the RUNBOOK hygiene rules; the
 fact of routing is always stated, the content never (RUNBOOK "What goes
 where"). The lint gate checks reference integrity only; wording is the
 writer's judgment. The critical goal: accurate QA/PO-readable specs plus

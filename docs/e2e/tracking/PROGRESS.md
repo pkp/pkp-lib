@@ -33,7 +33,7 @@ maintainer adjusts on review. Statuses: pending / in_progress / done / parked.
 
 | Row | Feature | Apps | Budget | Status | Note |
 |---|---|---|---|---|---|
-| U01 | Login & sessions | OJS OMP OPS | M | done | Spec verified; 8+setup tests per app, green ×2 + post-fold confirm (one OMP locator race fixed test-side); register 4🐞+3❓; several observations in private file; 1 readability friction left open (Rule 14 number provenance); maintainer review pending |
+| U01 | Login & sessions | OJS OMP OPS | M | done | Spec verified; 8+setup tests per app, green ×2 + post-fold confirm; several observations in private file; **maintainer review DONE 2026-08-25** — register fully triaged (now 6🐞+1❓+1✅ incl. new A8): A1–A4, A7–A8 confirmed with fix rulings, A5 to triage with the team, A6 ✅ intended (pkp/pkp-lib#12162) |
 | U02 | Registration & account validation | OJS OMP OPS | M | pending | |
 | U03 | User profile | OJS OMP OPS | M | pending | |
 | U04 | ORCID integration | OJS OMP OPS | M | paused | Suites `describe.skip`ped in all three fleets 2026-08-20 (maintainer): pending a decision on handling ORCID's external communication in tests (mock vs dead-port proxy). Spec verified; 9 tests OJS, 8 OMP, 9 OPS incl. 2 absence (+setup each), green ×2 + post-fold confirm; register 6🐞+5❓+2✅ (A5 Assistant false-success + A1 silent-close/over-offer are the headliners); claim check 40 claims 0 wrong; OAuth/deposit legs code-anchored (dead-port proxy + dummy ORCID sandbox credentials); skill rule-7 job_runner note fixed (self-healing); maintainer review pending |

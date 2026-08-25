@@ -114,7 +114,10 @@ access), and has no editor/reviewer/copyeditor/layout/proofreader accounts
 
 Each app has a **local, gitignored** `config.test.inc.php`; the app reads it
 via the `PKP_CONFIG_FILE` env var, which is the whole switch between the dev
-and test installs. It must carry, besides its own Postgres `<app>_test` DB and
+and test installs. Generate it from the app's own template —
+`node lib/pkp/playwright/make-test-config.js > config.test.inc.php` (env
+inputs documented in the script; CI uses the same generator) — or write it by
+hand. It must carry, besides its own Postgres `<app>_test` DB and
 files dir:
 
 - `allowed_hosts` pinned to `127.0.0.1` (+ the fleet's port)

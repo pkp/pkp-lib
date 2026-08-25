@@ -75,13 +75,14 @@ owned by
 
 **Add Reviewer window** (title "Add Reviewer"; opened by the panel's "Add
 Reviewer" button). Its upper half is the reviewer search (Rules 5–8); once a
-reviewer is chosen, the name is shown with a "Change" link back to the search,
+reviewer is chosen, the name and email address are shown with a "Change" link
+back to the search,
 and the lower half holds the request form shared by all three add modes:
 
 | Field (UI label) | Required? | Rules |
 |------------------|-----------|-------|
 | Reviewer selection | yes | The request form below (and its submit button) stays hidden until a reviewer is chosen — the window offers no way to submit without one <sup>d</sup> |
-| "Choose a predefined message to use, or fill out the form below." | no | Email template chooser; renders on every add, even with no alternate request templates to offer — a one-option select ("Review Request") ⚠ [A19](#a19). When alternates do exist, which of them get listed follows the wrong access check ⚠ [A5](#a5) <sup>d</sup> |
+| "Choose a predefined message to use, or fill out the form below." | no | Email template chooser; renders on every add, even with no alternate request templates to offer — a one-option select ("Review Request") ⚠ [A19](#a19). When alternates do exist, all of them are listed ([A5](#a5), retired — the access check it questioned was reverted upstream) <sup>d</sup> |
 | "Email to be sent to reviewer" | no | Rich-text request letter, prefilled from the chosen template; placeholders for name, deadlines and the review link are filled at send time. Effectively required: submitting with the letter emptied fails with no on-screen feedback of any kind, yet still creates the assignment and never sends the request email ⚠ [A18](#a18) <sup>d</sup> |
 | "Do not send email to Reviewer." | no | Checkbox; skips the request email (the assignment is still created) <sup>d</sup> |
 | "Response Due Date" / "Review Due Date" (under "Important Dates") | yes | Date pickers, prefilled per the journal's review setup (Rule 9). The permanent guidance "Review due date must be greater or equal to response due date." states the rule (the Edit window shows it too); submitting with the dates inverted is refused with no visible feedback — the window stays open and nothing is added ⚠ [A8](#a8). The pickers (shared with the Edit and Resend windows) take calendar picks or a date typed in the YYYY-MM-DD format (e.g. 2026-08-02); input in any other format looks accepted on screen while the old value is silently submitted ⚠ [A16](#a16) — and they accept dates already past without any warning ⚠ [A17](#a17) <sup>f</sup> |
@@ -278,7 +279,7 @@ under the prompt "Record the response on behalf of the reviewer"; submit
     <sup>d</sup> <sup>g</sup>
 12. **Editing notifies the reviewer.** Saving the Edit window with a changed
     due date or review type puts a "Review assignment updated." task in the
-    reviewer's own list and emails them ⚠ [A11](#a11) ⚠ [A12](#a12)
+    reviewer's own list and emails them ([A11](#a11), retired) ⚠ [A12](#a12)
     (Side effects). An edit that changes only files or visibility sends
     nothing. <sup>g</sup>
 13. <a id="reminders"></a> **Reminders.** "Send Reminder" exists only while a
@@ -387,10 +388,10 @@ under the prompt "Record the response on behalf of the reviewer"; submit
 - **Enrolling an existing user** → the user gains the chosen reviewer role
   permanently; no separate email beyond the request itself. <sup>e</sup>
 - **Editing an assignment** (date or type changed) → reviewer task "Review
-  assignment updated." plus the change-notice email — which reports the
-  deadlines as they were before the edit ⚠ [A11](#a11), and whose
-  unsubscribe link opens a page that does not offer this email type
-  ⚠ [A12](#a12). <sup>g</sup>
+  assignment updated." plus the change-notice email — reporting the
+  just-saved deadlines (it long reported the pre-edit ones — [A11](#a11),
+  retired: fixed upstream), and whose unsubscribe link opens a page that
+  does not offer this email type ⚠ [A12](#a12). <sup>g</sup>
 - **Manual reminder** → the reminder email (subject "A reminder to please
   complete your review"), a "Notification sent." notice to the editor, a
   "Reminder" date in History (erased once the reviewer responds
@@ -604,7 +605,6 @@ in an unusual situation or configuration.
 | [A7](#a7) | A "Request Sent" row never shows its "Response due:" line, though the date is set | 🐞 | minor | — |
 | [A8](#a8) | Submitting inverted due dates is refused with no message — the form just stays open | 🐞 | user-visible | — |
 | [A10](#a10) | "Review Viewed" is never produced by viewing a review — only by reverting a thanked one | 🐞 | user-visible | — |
-| [A11](#a11) | The assignment-changed email reports the pre-change deadlines, not the ones just saved | 🐞 | user-visible | — |
 | [A12](#a12) | The assignment-changed email's opt-out is offered nowhere — its own unsubscribe page omits the type | 🐞 | minor | — |
 | [A13](#a13) | Email Reviewer sends with an empty body despite the body being marked required | 🐞 | minor | — |
 | [A15](#a15) | The reviewer's response erases the dated "Reminder" milestone from the assignment's History | 🐞 | minor | claim check (claude), 2026-08-02 — settled |
@@ -613,10 +613,11 @@ in an unusual situation or configuration.
 | [A19](#a19) | The template chooser renders on every add — a one-option select even with zero alternate templates | 🐞 | minor | — |
 | [OMP2](#omp2) | {OMP} The Add Reviewer window's opening list ignores the internal/external stage split — only searching filters by stage | 🐞 | user-visible | — |
 | [A4](#a4) | Editorial Notes are one shared note per reviewer — editing them on one submission silently rewrites them everywhere | ❓ | user-visible | — |
-| [A5](#a5) | The Add Reviewer template chooser lists every alternate of the subsequent-round template whenever that template is accessible, instead of checking each alternate itself | ❓ | latent | — |
 | [A6](#a6) | Declined and cancelled rows are silently hidden from assistant-level participants — the same table shows different reviewers per role | ❓ | minor | — |
 | [A17](#a17) | The due-date pickers accept dates already past without any warning | ❓ | minor | — |
 | [OMP1](#omp1) | A press's review runs without reviewer recommendations, and with a per-stage reviewer pool (Internal vs External Reviewers) | ✅ | — | — |
+| [A11](#a11) | Retired: the change notice reported the pre-change deadlines — fixed upstream (pkp/pkp-lib#13162) | ✅ | retired | rebase check (claude), 2026-08-25 — fixed upstream |
+| [A5](#a5) | Retired: the alternate-template access check it questioned was reverted wholesale upstream (pkp/pkp-lib#10403 revert) — all alternates now listed unconditionally | ✅ | retired | rebase check (claude), 2026-08-25 — moot |
 | [A3](#a3) | Retired: a role-less Site Administrator is refused at the workflow screen — the earlier full-surface observation was of the seeded admin's silent Journal Manager enrollment | ✅ | retired | claim check (claude), 2026-08-02 — overturned |
 | [A9](#a9) | Retired: the Resend window presets each date from its own interval — the earlier collapse was a same-interval coincidence | ✅ | retired | claim check (claude), 2026-08-02 — overturned |
 | [A14](#a14) | Retired: the enroll "required" message appears only on an empty submit and clears on pick — ordinary validation | ✅ | retired | claim check (claude), 2026-08-02 — overturned |
@@ -680,7 +681,8 @@ another) + code reading (the note is stored on the user account, not the
 assignment). <sup>[f-a4](#fn-a4)</sup>
 
 <a id="a5"></a>
-**A5 — Alternate templates listed under the wrong access check** · ❓ · latent.
+**A5 — Alternate templates listed under the wrong access check** · ✅ ·
+retired.
 The Add Reviewer window's template chooser builds its list of alternates to
 the subsequent-round request template by checking, for each alternate,
 whether the *subsequent-round template itself* is accessible to the editor —
@@ -690,6 +692,12 @@ Question: is per-alternate access meant to be enforced here? Lean: yes — the
 sibling code path for the first-round template checks each alternate
 individually; the mechanism is in the footnote.
 Basis: code reading. <sup>[f-a5](#fn-a5)</sup>
+
+> **Retired — rebase check (claude), 2026-08-25**: moot upstream. The whole
+> per-user-group email-template access feature was reverted (pkp/pkp-lib#10403
+> revert), removing both loops this entry compares — every alternate is now
+> listed unconditionally, and no per-role template restriction remains to
+> enforce. [A19](#a19)'s unconditional subsequent-round append is unchanged.
 
 <a id="a6"></a>
 **A6 — Assistant-level participants see a shorter reviewers table** · ❓ ·
@@ -743,14 +751,20 @@ label misstates what happened in both directions.
 Basis: live probe. <sup>[f-a10](#fn-a10)</sup>
 
 <a id="a11"></a>
-**A11 — The change notice tells the reviewer the old deadlines** · 🐞 ·
-user-visible.
+**A11 — The change notice tells the reviewer the old deadlines** · ✅ ·
+retired.
 When an editor saves new due dates in the Edit window, the email telling
 the reviewer their assignment changed reports the dates as they were before
 the edit. The screen shows the new dates; the reviewer is told the wrong
 ones.
 Basis: live probe (both apps; on OJS twice independently, and with both
 date fields). <sup>[f-a11](#fn-a11)</sup>
+
+> **Retired — rebase check (claude), 2026-08-25**: fixed upstream by
+> pkp/pkp-lib#13162 — the notice is now composed from the assignment
+> re-fetched after the edit is saved, so it reports the just-saved dates.
+> Code-anchored, not re-probed. [A12](#a12) (the unreachable opt-out) is
+> untouched and stands.
 
 <a id="a12"></a>
 **A12 — The change notice's opt-out is unreachable** · 🐞 · minor.
@@ -1029,14 +1043,15 @@ over the round's review-file stage. Selection validation
 2026-08-02: the request form and its submit button stay hidden until a
 reviewer is chosen, so the screen cannot trip the message. Selected-reviewer
 sub-form `advancedSearchReviewerAssignmentForm.tpl` (AFFW-623/624; "Change"
-link = `manager.reviewerSearch.change`). Execute path:
+link = `manager.reviewerSearch.change`; since the 2026-08-25 rebase it also
+renders `#selectedReviewerEmail` beside the name — dev-team#178). Execute path:
 `EditorAction::addReviewer()` — duplicate-in-round and has-reviewer-role
 checks (`_isValidReviewer`), assignment stamped notified/new, ticked files
 granted per assignment (`ReviewFilesDAO::grant`), trivial notice
 `notification.addedReviewer`/`.addedReviewerNoEmail`. Template roster:
 round 1 default REVIEW_REQUEST, later rounds default
-REVIEW_REQUEST_SUBSEQUENT, both plus their accessible alternates (finding A5
-on the alternate check); the `hasCustomTemplates = count > 1` chooser gate
+REVIEW_REQUEST_SUBSEQUENT, both plus all their alternates (unconditionally
+since the 2026-08-25 rebase — finding A5, retired); the `hasCustomTemplates = count > 1` chooser gate
 is meant to hide the chooser with only one template, but the unconditional
 subsequent-template append always satisfies it, so the chooser always
 renders (finding A19, note f-a19). The empty-letter failure mode of the
@@ -1114,8 +1129,10 @@ and sends `EditReviewNotify` (MAIL-026, key REVIEW_EDIT) with
 type's emails; changing only files/visibility/form skips both. Live-probed
 2026-08-02 (OJS, two independent runs; also on OMP via a calendar-driven
 due-date edit, claim check): the sent change notice carried the
-pre-change dates — the mail is composed before the edit is applied (finding
-A11); the email type is offered neither on the profile's notification
+pre-change dates — the mail was composed before the edit was applied
+(finding A11, retired: since the 2026-08-25 rebase the mailable is built
+from a post-edit re-fetch, pkp/pkp-lib#13162); the email type is offered
+neither on the profile's notification
 settings nor on the unsubscribe page its footer links to (finding A12).
 
 <a id="fn-h"></a>
@@ -1434,7 +1451,11 @@ every `$alternateTemplate`; the base-class loop for the first-round template
 (`ReviewerForm::getEmailTemplates()`) correctly tests each alternate.
 Re-verified in the claim check (2026-08-02): both loops re-read, the wrong
 variable still in place. The chooser's always-rendering is the separate
-finding A19 (note f-a19).
+finding A19 (note f-a19). Update 2026-08-25 (rebase check): the pkp/pkp-lib
+#10403 revert deletes `isTemplateAccessibleToUser()` and both loops' access
+filtering entirely — the alternates are now appended unconditionally in
+`ReviewerForm::getEmailTemplates()` and `AdvancedSearchReviewerForm`; A5
+retired as moot.
 
 <a id="fn-a6"></a>
 **f-a6** — `Schema::getPropertyReviewAssignments()` skips rows with
@@ -1488,7 +1509,11 @@ a review-due edit (2026-09-27 → 2026-10-11) reported "Submit Review By:
 due-date edit, whose notice also carried the pre-change date. The edit
 saves the new dates on screen while the change-notice
 email carries the old ones — the message is composed before the edit is
-applied (note g).
+applied (note g). Update 2026-08-25 (rebase check): fixed upstream —
+`EditReviewForm::execute()` now sends `EditReviewNotify` after
+`Repo::reviewAssignment()->edit()`, built from a re-fetched assignment
+(pkp/pkp-lib#13162); A11 retired. The `isset($notification)` guard is
+unchanged, so a files/visibility-only edit still sends nothing.
 
 <a id="fn-a12"></a>
 **f-a12** — Live-probed 2026-08-02 (OJS; shared forms): the
@@ -1566,8 +1591,8 @@ Request") rendered on every baseline add. Mechanism:
 subsequent-round request template unconditionally on every round, so the
 count-based chooser gate (note d) always passes; the subsequent entry then
 drops out of the rendered select, leaving a single visible option. Adjacent
-to finding A5, whose per-alternate access question stands separately
-(note f-a5).
+to finding A5, retired 2026-08-25 — no alternate access check remains
+(note f-a5); the unconditional append this note describes is unchanged.
 
 <a id="fn-omp1"></a>
 **f-omp1** — Mechanism in notes b, i, o: recommendation roster passed only

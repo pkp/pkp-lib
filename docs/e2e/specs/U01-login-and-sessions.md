@@ -246,8 +246,13 @@ of a title ⚠ [A3](#a3)):
   on users-management screens). Completing a forced change or an emailed
   reset also ends the account's other sessions (Rules 9, 11). <sup>b</sup> <sup>f</sup>
 - **On impersonation** — everything done while impersonating is recorded as
-  the impersonated user: submissions, decisions, emails and log entries all
-  carry the target's name, per the confirmation dialog's warning (Rule 12).
+  the impersonated user: submissions, decisions and emails all carry the
+  target's name, per the confirmation dialog's warning (Rule 12). Submission
+  activity-log entries additionally remember who was really acting: they
+  display "{impersonator} (acting as {target})" — except to readers from
+  whom a review's anonymity already hides the entry's reviewer, who see the
+  target's name alone (the log screen itself belongs to the *Submission
+  activity log & notes* feature).
 
 ## Settings that modify behavior
 

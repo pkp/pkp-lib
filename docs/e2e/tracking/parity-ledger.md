@@ -67,3 +67,17 @@ the harness; the forcing actually lives in
 `PKPSubmissionScenarioBuilder::build` alone (`forceRequestContext`) — context
 and bootstrap builds run with the site-wide router context. The verdict
 stands; the attribution is corrected.
+
+Note appended 2026-08-25 (upstream-main rebase check): OJS `643b0521de`
+(pkp/pkp-lib#12800) adds `pmurNeedsReviewRound()` to the OJS
+`Publication\Repository::validatePublish` — a PUBLISHED_MANUSCRIPT_UNDER_REVIEW
+version with no associated review round now fails publish validation. Because
+the builder mirrors the controller's `validatePublish` gate (2026-08-23
+`published: true` row), a future seed publishing a PMUR version without a
+linked review round will 400 with `publication.required.pmurReview` — that is
+app-true behavior, not a builder defect. The endpoint's new `reviewRoundIds`
+write path has no builder counterpart yet; add one only when a spec needs it.
+No current seed is affected (all use the default version stage). Otherwise the
+rebase left every audited parity path untouched (`HasReviewDueDate`,
+`ReviewerForm::execute`, `EditorAction::addReviewer`,
+`DecisionType::createReviewRound`, the publish tail).

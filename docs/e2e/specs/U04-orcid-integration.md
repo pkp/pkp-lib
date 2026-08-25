@@ -176,7 +176,8 @@ Contributor's ORCID iD field (add/edit contributor, Contributors list):
     three carry the personal authorization link and the What-is-ORCID link,
     and are sent from the journal's principal contact. ⚠ [OPS2](#ops2) on a
     preprint server none of the three appears on the Emails settings screen;
-    ⚠ [A7](#a7) the re-authorization mail appears there in no app. <sup>l</sup>
+    the re-authorization mail, once listed nowhere, gained its journal and
+    press rows upstream ([A7](#a7), resolved 2026-08-25). <sup>l</sup>
 15. Other screens that surface ORCID follow the rules above: the invitation
     wizard's "Verify ORCID iD" step (described in
     [User invitations](U06-user-invitations.md)) appears only while ORCID is
@@ -336,7 +337,7 @@ names, a marker inside it may still report what the *other* apps wrongly show.
 | [OPS2](#ops2) | The ORCID request emails have no rows on the preprint server's Emails screen | 🐞 | user-visible | — |
 | [A3](#a3) | An iD connected while registering lands on the account unverified | ❓ | minor | — |
 | [A6](#a6) | The author-email toggle's label misdescribes when it fires | ❓ | minor | — |
-| [A7](#a7) | The re-authorization email template is not editable in any app | ❓ | latent | — |
+| [A7](#a7) | The re-authorization email template is not editable in any app — resolved upstream for journals and presses (pkp/pkp-lib#13050); the preprint-server gap is [OPS2](#ops2)'s | ❓ | latent | rebase check (claude) 2026-08-25 |
 | [A9](#a9) | The site tab's absence on single-journal installs rests on its switch-on condition, not observation | ❓ | minor | — |
 | [OPS1](#ops1) | The author-email toggle exists on a preprint server that can never trigger it | ❓ | latent | — |
 | [OMP1](#omp1) | A press requests and verifies iDs but deposits no works | ✅ | user-visible | — |
@@ -418,6 +419,12 @@ it. Its two sibling ORCID emails are listed (on journals and presses).
 Question: intended, or an omission from the emails roster?
 Lean: omission — it shares its purpose and audience with the two listed ones.
 Basis: probe + code. <sup>[f-a7](#fn-a7)</sup>
+
+> **Resolved upstream — rebase check (claude), 2026-08-25**: the lean was
+> right. pkp/pkp-lib#13050 adds the mailable to the shared map, so the
+> template's row now appears wherever its two siblings do (journals and
+> presses). A preprint server still lists none of the three — that gap
+> remains [OPS2](#ops2)'s. Code-anchored, not live-probed (suites paused).
 
 <a id="a8"></a>
 **A8 — Failure page says "journal manager" on presses and preprint servers** · 🐞 · minor.
@@ -801,7 +808,10 @@ live-confirmed identical in all three apps and trigger live-confirmed
 and the Emails screen lists templates through the mailable map. Template
 seeded in all three registries. Live-probed 2026-08-07: an "ORCID" search
 of the Emails screen returns no row for it in any app (the two request
-templates are listed on OJS and OMP).
+templates are listed on OJS and OMP). Update 2026-08-25 (rebase check):
+pkp/pkp-lib#13050 adds `OrcidRequestUpdateScope` (with two unrelated
+mailables) to the lib/pkp `Repository::map()`, which OJS and OMP merge; OPS's
+override still builds its own list without it, so the OPS absence stands.
 
 <a id="fn-a8"></a>
 **f-a8** — The closing line is the shared tail string of the verification

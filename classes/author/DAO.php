@@ -142,15 +142,20 @@ class DAO extends EntityDAO
 
         $author->setAffiliations(LazyCollection::make(function () use ($row, $ids, $cache) {
             $cache->affiliations ??= collect(Repo::affiliation()->getByAuthorIds($ids))
+                ->collect()
                 ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
-            yield from $cache->affiliations->get($row->author_id) ?? collect();
+            yield from $cache->affiliations->get($row->author_id) ?? [];
         }));
 
-        $cache->creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($ids);
-        $author->setCreditRoles($cache->creditRoles->get($row->author_id)?->toArray() ?? collect());
+        $author->setCreditRoles(LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->creditRoles ??= Repo::creditContributorRole()->getCreditRolesGroupedByContributorIds($ids);
+            yield from $cache->creditRoles->get($row->author_id) ?? [];
+        }));
 
-        $cache->contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($ids);
-        $author->setContributorRoles($cache->contributorRoles->get($row->author_id)?->all() ?? collect());
+        $author->setContributorRoles(LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->contributorRoles ??= Repo::creditContributorRole()->getContributorRolesGroupedByContributorIds($ids);
+            yield from $cache->contributorRoles->get($row->author_id) ?? [];
+        }));
 
         return $author;
     }

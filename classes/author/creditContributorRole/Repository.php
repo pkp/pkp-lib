@@ -95,6 +95,7 @@ class Repository
             ->whereIn('credit_contributor_roles.contributor_id', $contributorIds)
             ->orderBy('contributor_roles.contributor_role_id')
             ->get()
+            ->collect()
             ->groupBy('contributor_id');
     }
 
@@ -121,6 +122,7 @@ class Repository
             ->withCreditRoles()
             ->select(['credit_role_identifier as role', 'credit_degree as degree', 'contributor_id'])
             ->get()
+            ->collect()
             ->groupBy('contributor_id');
     }
 }

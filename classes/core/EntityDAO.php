@@ -144,6 +144,7 @@ abstract class EntityDAO
             $cache->settings ??= DB::table($this->settingsTable)
                 ->whereIn($this->primaryKeyColumn, $ids)
                 ->get()
+                ->collect()
                 ->groupBy($this->primaryKeyColumn);
             $cache->settings->get($row->{$this->primaryKeyColumn})
                 ?->each(function ($row) use ($object, $schema) {

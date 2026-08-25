@@ -158,7 +158,7 @@ class Locale implements LocaleInterface
      */
     private function _getUrlLocale(): ?string
     {
-        $locale = Core::getLocalization($_SERVER['PATH_INFO'] ?? '');
+        $locale = Core::getLocalization($this->_getRequest()->getPathInfo());
         return $locale !== '' && $this->isSupported($locale) ? $locale : null;
     }
 

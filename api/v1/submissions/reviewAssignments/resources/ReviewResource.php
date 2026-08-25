@@ -134,9 +134,16 @@ class ReviewResource extends JsonResource
                 'options' => $this->getReviewFormElementPossibleResponses($reviewFormElement),
             ]),
 
-            ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD,
-            ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD =>
-            new FieldText($name, $args),
+            ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD => new FieldText($name, [
+                ...$args,
+                'size' => 'normal',
+            ]),
+
+            ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD => new FieldText($name, [
+                ...$args,
+                'size' => 'large',
+            ]),
+
             default => throw new \Exception('ReviewRsource: Unexpected Form Element Type: ' . $reviewFormElement->getElementType()),
         };
     }

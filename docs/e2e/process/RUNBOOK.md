@@ -223,7 +223,7 @@ are short and outcome-shaped — context budgeting, not a wording rule.
 Artifacts the campaign itself created are LIVING (maintainer ruling
 2026-08-02) — when a session discovers one is stale or defective, it FIXES it
 that session as routine maintenance instead of parking a debt note. Covered:
-the per-app skills and the shared process docs, shared and app-side
+the per-app e2e docs (`docs/e2e/` in each app repo) and the shared process docs, shared and app-side
 POMs/fixtures/helpers, earlier feature suites, the lint gate, and the `_test`
 scenario API (a behavior change there still gets its parity entry). The gate
 travels with the fix: every suite the fix touches re-runs green before commit
@@ -257,8 +257,9 @@ maintenance never moves routed content.
   cross-app substitution), the feature's
   atoms in `atlas/` (`affordances-{workflow,management,user,reader}.md` per
   surface).
-- **When authoring tests**: `lib/pkp/docs/e2e/process/PRINCIPLES.md` + the app's
-  skill, which loads the shared harness docs (`lib/pkp/docs/e2e/process/`).
+- **When authoring tests**: `lib/pkp/docs/e2e/process/PRINCIPLES.md` + the
+  app's `docs/e2e/README.md`, which points at the shared harness docs
+  (`lib/pkp/docs/e2e/process/`).
 - Beyond the floor, read whatever helps — subject to context hygiene: a
   spec-writing agent works from the draft plus the digest (step 3b) and pulls
   a specific probe report only when its judgment needs the detail behind one
@@ -418,7 +419,8 @@ brief ALSO opens with the **Frame** paragraph, verbatim, before the task.
    identifiers a reader cannot resolve). Wording, vocabulary and the leak
    rule are the writer's judgment, never linted (maintainer 2026-07-31).
    ZERO findings before tests are written.
-6. **Write the Playwright tests** — per PRINCIPLES + the app's skill: one
+6. **Write the Playwright tests** — per PRINCIPLES + the app's
+   `docs/e2e/README.md`: one
    suite per app, derived from the spec (rules 2–3), one test per canonical
    scenario in each app that runs it. Seed via scenario endpoints,
    reuse/extend POMs, scope Mailpit by a unique throwaway recipient
@@ -459,8 +461,8 @@ brief ALSO opens with the **Frame** paragraph, verbatim, before the task.
     lines): register highlights are welcome (🐞/❓ counts, the finding a
     reviewer should read first, anything low-confidence — it drives sampling
     review); finding DETAIL stays in the register.
-11. **Commit** — single home of the commit rule (PRINCIPLES and the skills
-    point here). `lib/pkp` and app root commit **separately**; NEVER bump
+11. **Commit** — single home of the commit rule (PRINCIPLES and the per-app
+    e2e docs point here). `lib/pkp` and app root commit **separately**; NEVER bump
     submodule pointers in ANY app repo (`git restore --staged lib/pkp
     lib/ui-library plugins` before any root commit; stage files explicitly,
     never `git add -A` at an app root). Specs, campaign docs, and shared

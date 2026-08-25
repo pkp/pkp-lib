@@ -44,6 +44,10 @@ class InstallHandler extends Handler
         $this->validate(null, $request);
         $this->setupTemplate($request);
 
+        // FIXME: Likely unreachable - PKPPageRouter::route() calls _setLocale() for every
+        // page='install' request before the handler runs, and _setLocale() always redirects
+        // (and exits) whenever $_GET['setLocale'] is set - see PKPPageRouter.php:216-221 and
+        // pkp/pkp-lib#12375. Left in place pending confirmation before removal.
         if (($setLocale = $request->getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
             $request->setCookieVar('currentLocale', $setLocale);
         }
@@ -112,6 +116,7 @@ class InstallHandler extends Handler
         $this->validate(null, $request);
         $this->setupTemplate($request);
 
+        // FIXME: Likely unreachable - see the identical note in index() above.
         if (($setLocale = $request->getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
             $request->setCookieVar('currentLocale', $setLocale);
         }

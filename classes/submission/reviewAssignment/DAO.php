@@ -123,12 +123,16 @@ class DAO extends EntityDAO
     {
         $reviewAssignment = parent::fromRow($row, $ids, $cache, $query);
 
-        $cache->reviewers ??= Repo::user()->getCollector()->filterByReviewIds($ids)->filterByStatus(UserCollector::STATUS_ALL)->getMany();
+        $cache->reviewers ??= Repo::user()->getCollector()
+            ->filterByReviewIds($ids)->filterByStatus(UserCollector::STATUS_ALL)
+            ->getMany()->collect();
         $reviewer = $cache->reviewers->get($reviewAssignment->getReviewerId());
         $reviewAssignment->setData('reviewerFullName', $reviewer->getFullName());
         $reviewAssignment->setData('reviewerUserName', $reviewer->getUserName());
 
-        $cache->doiObjects ??= Repo::doi()->getCollector()->filterByReviewIds($ids)->getMany();
+        $cache->doiObjects ??= Repo::doi()->getCollector()
+            ->filterByReviewIds($ids)
+            ->getMany()->collect();
         if ($doiId = $reviewAssignment->getData('doiId')) {
             $reviewAssignment->setData('doiObject', $cache->doiObjects->get($doiId));
         }

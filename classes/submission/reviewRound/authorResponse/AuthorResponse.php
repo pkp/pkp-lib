@@ -149,7 +149,10 @@ class AuthorResponse extends Model
                     ->pluck('author_id')
                     ->all();
 
-                return array_map(fn ($authorId) => Repo::Author()->get($authorId), $authorIds);
+                return Repo::author()->getCollector()
+                    ->filterByAuthorIds($authorIds)
+                    ->getMany()
+                    ->toArray();
             }
         )->shouldCache();
     }

@@ -22,9 +22,6 @@ use PKP\jobs\BaseJob;
 
 class CompileSubmissionMetrics extends BaseJob
 {
-    /** @copydoc BaseJob::$isLongRunning */
-    protected bool $isLongRunning = true;
-
     /**
      * The load ID = usage stats log file name
      */

@@ -72,18 +72,18 @@ abstract class BaseJob implements ShouldQueue
     /**
      * Whether this job may legitimately run for a long time on large installations.
      *
-     * When true, the job derives its timeout from the connection's configured `retry_after`
-     * whenever that leaves more room than the `$timeout` above, so that raising
-     * `[queues] retry_after` in config.inc.php is enough to give the job more time to
-     * complete, with no code change.
+     * When true, the job takes its timeout from the connection's configured `retry_after`
+     * instead of the `$timeout` above, so that raising `[queues] retry_after` in
+     * config.inc.php is enough to give the job more time to complete, with no code change.
+     *
+     * The derived value replaces any `$timeout` the job declares for itself, which keeps
+     * the timeout of an opted in job below the window its reservation is held for however
+     * `retry_after` is configured. A `$timeout` declared alongside this flag therefore only
+     * applies on a connection that defines no `retry_after`, such as `sync`.
      *
      * Set this only on jobs that genuinely need it. Such jobs should be processed by a
      * worker daemon: neither the built-in job runner nor the task scheduler is able to
      * enforce a timeout on a job that is already running.
-     *
-     * A job opting in must not declare a `$timeout` of its own larger than the lowest
-     * accepted `retry_after` minus TIMEOUT_REDUCTION, or it would outlive the window in
-     * which its own reservation is held.
      */
     protected bool $isLongRunning = false;
 
@@ -101,18 +101,22 @@ abstract class BaseJob implements ShouldQueue
     /**
      * Derive the timeout of a long running job from the connection's `retry_after`.
      *
-     * The derived value never lowers a timeout the job declares for itself, and
-     * connections that define no `retry_after`, such as `sync`, leave it untouched.
+     * The derived value takes precedence over a timeout the job declares for itself, so
+     * that `retry_after` is always the ceiling. Connections defining no `retry_after`,
+     * such as `sync`, leave the declared timeout untouched.
      */
     protected function applyLongRunningTimeout(): void
     {
+        // Not long running job, keep it's defined or inherited timeout and do not alter
         if (!$this->isLongRunning) {
             return;
         }
 
         $retryAfter = (int) config("queue.connections.{$this->connection}.retry_after");
 
-        $this->timeout = max($this->timeout, $retryAfter - static::TIMEOUT_REDUCTION);
+        if ($retryAfter > 0) {
+            $this->timeout = $retryAfter - static::TIMEOUT_REDUCTION;
+        }
     }
 
     /**

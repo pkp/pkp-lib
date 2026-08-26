@@ -225,25 +225,28 @@ class PKPJobTest extends PKPTestCase
     }
 
     /**
-     * Covers that the derived timeout never lowers a timeout the job declares itself,
-     * which is the case of the usage statistics jobs declaring 600 seconds
+     * Covers that the derived timeout takes precedence over a timeout the job declares
+     * itself, which is what keeps an opted in job inside the window its reservation is
+     * held for, whatever `retry_after` is configured to
      */
-    public function testDerivedTimeoutNeverLowersADeclaredTimeout()
+    public function testDerivedTimeoutOverridesADeclaredTimeout()
     {
         config(['queue.connections.database.retry_after' => 300]);
 
-        $this->assertSame(600, (new DeclaredTimeoutTestJob())->timeout);
+        $this->assertSame(300 - $this->timeoutReduction(), (new DeclaredTimeoutTestJob())->timeout);
     }
 
     /**
      * Covers that connections defining no `retry_after`, such as `sync`, leave the
-     * declared timeout alone rather than derive a nonsensical value from null
+     * timeout alone rather than derive a negative value from null, which would cancel
+     * the worker's alarm instead of shortening it
      */
     public function testMissingRetryAfterLeavesTimeoutUntouched()
     {
         config(['queue.connections.database.retry_after' => null]);
 
         $this->assertSame(60, (new LongRunningTestJob())->timeout);
+        $this->assertSame(600, (new DeclaredTimeoutTestJob())->timeout);
     }
 
     /**
@@ -275,8 +278,12 @@ class PKPJobTest extends PKPTestCase
 
         $expected = 3600 - $this->timeoutReduction();
 
+        // Opted in: a self joining DELETE over the day's temporary records
         $this->assertSame($expected, (new RemoveDoubleClicks('20260824.log'))->timeout);
-        $this->assertSame($expected, (new CompileContextMetrics('20260824.log'))->timeout);
+
+        // Not opted in: a single pass aggregation in the same chain keeps the default,
+        // so the opt in stays a deliberate per job decision rather than a chain wide one
+        $this->assertSame(60, (new CompileContextMetrics('20260824.log'))->timeout);
     }
 
     /**

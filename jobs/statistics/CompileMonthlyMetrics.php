@@ -21,9 +21,6 @@ use PKP\site\Site;
 
 class CompileMonthlyMetrics extends BaseJob
 {
-    /** @copydoc BaseJob::$isLongRunning */
-    protected bool $isLongRunning = true;
-
     /**
      * The month the usage metrics should be aggregated by, in format YYYYMM.
      */

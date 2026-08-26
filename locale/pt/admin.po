@@ -3,13 +3,14 @@
 # Carlos Costa <carlos.costa@uc.pt>, 2023.
 # Paula Moura <paula.moura@usdb.uminho.pt>, 2023.
 # Alberto Simoes <ambs@zbr.pt>, 2026.
+# Pedro Calheno Pinto <ppinto@keep.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2026-07-06 22:22+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2026-08-18 19:13+0000\n"
+"Last-Translator: Pedro Calheno Pinto <ppinto@keep.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/pt/>\n"
 "Language: pt\n"
@@ -55,7 +56,7 @@ msgid "admin.confirmExpireSessions"
 msgstr ""
 "Tem a certeza de que quer expirar todas as sessões dos utilizadores? Todos "
 "os utilizadores que estão atualmente ligados ao sistema serão forçados a "
-"entrar novamente no sistema (incluindo você mesmo)."
+"entrar novamente no sistema (incluindo o próprio)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Conteúdo do ficheiro de configuração"
@@ -87,7 +88,7 @@ msgstr "Expirar Sessões de Utilizadores"
 msgid "admin.expireSessions.description"
 msgstr ""
 "Todos os utilizadores serão imediatamente desconectados da aplicação, "
-"incluindo você, e precisarão de fazer novamente o login."
+"incluindo o utilizador atual, e precisarão de fazer novamente o login."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -103,7 +104,7 @@ msgstr ""
 msgid "admin.languages.confirmReload"
 msgstr ""
 "Deseja realmente recarregar este idioma? A sua execução irá apagar qualquer "
-"informação de idioma específico como customização de e-mails."
+"informação de idioma específico como personalização de e-mails."
 
 msgid "admin.languages.installedLocales"
 msgstr "Idiomas Instalados"

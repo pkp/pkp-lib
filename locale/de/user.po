@@ -2,13 +2,14 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023, 2025.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2024.
+# Elisabeth Sawatzky <ejournals.ojs@uni-muenster.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2025-12-31 07:26+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2026-08-21 10:46+0000\n"
+"Last-Translator: Elisabeth Sawatzky <ejournals.ojs@uni-muenster.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/de/>"
 "\n"
 "Language: de\n"
@@ -974,3 +975,19 @@ msgstr ""
 
 msgid "user.futureRole.notification.message"
 msgstr "Ihre Rolle wird am {$roleStartDate} starten"
+
+#, fuzzy
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr ""
+"Es wurden zu viele Anfragen an die ROR-API gesendet. Bitte warten Sie einen "
+"Moment, bevor Sie die Suche fortsetzen."
+
+#, fuzzy
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"Der ROR-API-Service ist in dieser Installation veraltet. Bitte kontaktieren "
+"Sie Ihren Systemadministrator."
+
+#, fuzzy
+msgid "user.affiliations.error.rorApi"
+msgstr "ROR-API-Fehler"

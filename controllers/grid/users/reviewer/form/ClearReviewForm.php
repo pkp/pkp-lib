@@ -80,6 +80,7 @@ abstract class ClearReviewForm extends ReviewerNotifyActionForm
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CLEAR,
                 'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
+                'impersonatedUserId' => Validation::loggedInAs() ? $currentUser->getId() : null,
                 'message' => 'log.review.reviewCleared',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),

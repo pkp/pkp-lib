@@ -442,7 +442,7 @@ msgstr ""
 
 msgid "emails.reviewConfirm.subject"
 msgstr ""
-"Ebaluazioa onartua: {$reviewer Name} ebaluatzaileak ebaluazio-esleipena "
+"Ebaluazioa onartua: {$reviewerName} ebaluatzaileak ebaluazio-esleipena "
 "onartu du lan honetarako: #{$submissionId} {$authorsShort} — \""
 "{$submissionTitle}\""
 

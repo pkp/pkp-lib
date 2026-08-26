@@ -10,7 +10,7 @@
  * @class I13128_FixEmailUrlLinks
  *
  * @brief Fix several URL params into links in email templates, and fix some translation issues.
- * 
+ *
  * See pkp/pkp-lib#13128.
  */
 
@@ -61,7 +61,7 @@ class I13128_FixEmailUrlLinks extends Migration
             '',
             'lt'
         );
-        
+
         // Only sl has no opening brace.
         $this->replace(
             'COPYEDIT_REQUEST',
@@ -70,6 +70,27 @@ class I13128_FixEmailUrlLinks extends Migration
             '',
             'sl'
         );
+
+        $this->replace('ORCID_COLLECT_AUTHOR_ID', '</ a>', '</a>');
+        $this->replace('SUBMISSION_ACK', '< /a>', '</a>');
+        $this->replace('COPYEDIT_REQUEST', '</ li>', '</li>');
+        $this->replace('REVIEW_COMPLETE', '< p>', '<p>');
+        $this->replace('EDITOR_DECISION_REVISIONS', '< a href="{$authorSubmissionUrl}">', '<a href="{$authorSubmissionUrl}">');
+        $this->replace('EDITOR_DECISION_REVISIONS', '< href="{$authorSubmissionUrl}">', '<a href="{$authorSubmissionUrl}">');
+        $this->replace('EDITOR_DECISION_REVISIONS', '< um href="{$authorSubmissionUrl}">', '<a href="{$authorSubmissionUrl}">');
+
+        $this->replace('COPYEDIT_REQUEST', '{$ contextName}', '{$contextName}');
+        $this->replace('EDITORIAL_REMINDER', ' $contactName}', ' {$contactName}');
+        $this->replace('EDITORIAL_REMINDER', '>$recipientName}', '>{$recipientName}');
+        $this->replace('EDITOR_DECISION_INITIAL_DECLINE', '{ $contextName}', '{$contextName}');
+        $this->replace('EDITOR_DECISION_REVISIONS', '{$ authorName}', '{$recipientName}');
+        $this->replace('EDITOR_DECISION_SEND_TO_EXTERNAL', '{ $signature}', '{$signature}');
+        $this->replace('EDITOR_DECISION_SEND_TO_EXTERNAL', '{$ submissionTitle}', '{$submissionTitle}');
+        $this->replace('EDITOR_RECOMMENDATION', '{$nome do remetente}', '{$senderName}');
+        $this->replace('REVIEW_COMPLETE', '{$ authorsShort}', '{$authorsShort}');
+        $this->replace('REVIEW_CONFIRM', '{ $authorsShort}', '{$authorsShort}');
+        $this->replace('REVIEW_CONFIRM', '{$ reviewDueDate}', '{$reviewDueDate}');
+        $this->replace('SUBMISSION_ACK', '{ $contextSignature}', '{$contextSignature}');
     }
 
     public function down(): void

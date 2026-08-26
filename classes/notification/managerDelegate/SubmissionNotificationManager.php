@@ -62,10 +62,9 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
 
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'submission', $notification->getAssocId());
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
-                $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($notification->getContextId());
-
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
+                // Route each recipient (including authors) to a workflow view they can access
+                $submission = Repo::submission()->get($notification->getAssocId());
+                return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
             default:
                 assert(false);
         }

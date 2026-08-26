@@ -1337,7 +1337,7 @@ class PKPSubmissionController extends PKPBaseController
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (
             !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) &&
-            !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())
+            !Repo::submission()->canEditPublication($publication, $currentUser->getId())
         ) {
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
@@ -1394,7 +1394,7 @@ class PKPSubmissionController extends PKPBaseController
             /** @var ReviewRound[] $existingReviewRounds */
             $existingReviewRounds = $reviewRoundDao->getByPublicationId($publication->getId())->toArray();
 
-            // 1) Handle cases where we are removing all publication <-> review round assocations
+            // 1) Handle cases where we are removing all publication <-> review round associations
             if ($params['reviewRoundIds'] === null) {
                 foreach ($existingReviewRounds as $reviewRound) {
                     $reviewRoundDao->updatePublicationId($reviewRound->getId(), null);
@@ -1402,7 +1402,7 @@ class PKPSubmissionController extends PKPBaseController
             } else {
                 $updatedReviewRoundIds = Arr::map($params['reviewRoundIds'], fn ($item) => (int) $item);
 
-                // 2) Handle any new publication <-> review round assocations to previously unassocationed review rounds
+                // 2) Handle any new publication <-> review round associations to previously unassociated review rounds
                 foreach ($updatedReviewRoundIds as $updatedReviewRoundId) {
                     $reviewRoundDao->updatePublicationId($updatedReviewRoundId, $publication->getId());
                 }

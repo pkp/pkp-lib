@@ -21,8 +21,6 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use DateTime;
-use Illuminate\Support\Collection;
-use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
@@ -30,7 +28,6 @@ use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\relationships\UserUserGroup;
-use PKP\userGroup\UserGroup;
 
 class AboutContextHandler extends Handler
 {
@@ -62,24 +59,6 @@ class AboutContextHandler extends Handler
         $templateMgr->display('frontend/pages/about.tpl');
     }
 
-
-    private function getSortedMastheadUserGroups(Context $context): Collection
-    {
-        $mastheadUserGroups = UserGroup::withContextIds([$context->getId()])
-            ->masthead(true)
-            ->excludeRoles([Role::ROLE_ID_REVIEWER])
-            ->get();
-
-        $savedOrder = (array) $context->getData('mastheadUserGroupIds');
-
-        $sortedUserGroups = $mastheadUserGroups->sortBy(function ($userGroup) use ($savedOrder) {
-            return array_search($userGroup->id, $savedOrder);
-        });
-
-        return $sortedUserGroups;
-    }
-
-
     /**
      * Display editorial masthead page.
      *
@@ -92,8 +71,8 @@ class AboutContextHandler extends Handler
     {
         $context = $request->getContext();
 
-        // Get sorted masthead roles using the extracted method
-        $mastheadRoles = $this->getSortedMastheadUserGroups($context);
+        // Get sorted masthead roles
+        $mastheadRoles = Repo::userGroup()->getSortedMastheadUserGroups($context);
 
         // Get all user IDs grouped by user group ID for the masthead roles
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
@@ -158,8 +137,8 @@ class AboutContextHandler extends Handler
     {
         $context = $request->getContext();
 
-        // get sorted masthead roles using the extracted method
-        $mastheadRoles = $this->getSortedMastheadUserGroups($context);
+        // get sorted masthead roles
+        $mastheadRoles = Repo::userGroup()->getSortedMastheadUserGroups($context);
 
         // get all user IDs grouped by user group ID for the masthead roles with ended status
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/context/PKPAppearanceMastheadForm.php
  *
@@ -15,12 +16,10 @@
 
 namespace PKP\components\forms\context;
 
+use APP\facades\Repo;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
-use PKP\security\Role;
-use PKP\userGroup\UserGroup;
-
 
 class PKPAppearanceMastheadForm extends FormComponent
 {
@@ -39,21 +38,8 @@ class PKPAppearanceMastheadForm extends FormComponent
     {
         $this->action = $action;
         $this->locales = $locales;
-        $mastheadOptions = [];
+        $sortedAllMastheadUserGroups = Repo::userGroup()->getSortedMastheadUserGroups($context);
 
-        $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
-
-        $allMastheadUserGroups = UserGroup::withContextIds($context->getId())
-            ->masthead(true)
-            ->excludeRoleIds(Role::ROLE_ID_REVIEWER)
-            ->orderByRoleId()
-            ->get();
-    
-        // Sort the masthead user groups in their saved order
-        $sortedAllMastheadUserGroups = $allMastheadUserGroups->sortBy(function ($userGroup) use ($savedMastheadUserGroupIdsOrder) {
-            return array_search($userGroup->id, $savedMastheadUserGroupIdsOrder);
-        })->values();
-        
         $mastheadOptions = [];
         foreach ($sortedAllMastheadUserGroups as $userGroup) {
             $mastheadOptions[] = [
@@ -70,9 +56,9 @@ class PKPAppearanceMastheadForm extends FormComponent
             'options' => $mastheadOptions,
             'allowOnlySorting' => true
         ]))
-        ->addField(new FieldHTML('reviewer', [
-            'label' => __('user.role.reviewers'),
-            'description' => __('manager.setup.editorialMasthead.order.reviewers.description')
-        ]));
+            ->addField(new FieldHTML('reviewer', [
+                'label' => __('user.role.reviewers'),
+                'description' => __('manager.setup.editorialMasthead.order.reviewers.description')
+            ]));
     }
 }

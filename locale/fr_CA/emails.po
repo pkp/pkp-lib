@@ -265,7 +265,7 @@ msgstr "Tâches éditoriales en attente pour {$contextName}"
 
 msgid "emails.editorialReminder.body"
 msgstr ""
-"<p>$recipientName}, </p><p>Vous êtes présentement assigné-e à "
+"<p>{$recipientName}, </p><p>Vous êtes présentement assigné-e à "
 "{$numberOfSubmissions} soumissions dans <a href=\"{$contextUrl}\""
 ">{$journalName}</a>. Des actions sont <b>attendues de votre part pour ces "
 "soumissions</b>.</p>{$outstandingTasks}<p>Vous pouvez consulter toutes vos "

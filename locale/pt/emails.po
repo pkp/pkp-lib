@@ -195,7 +195,7 @@ msgstr ""
 "p><p>Por favor, aceda ao <a href=\"{$submissionUrl}\">fluxo de trabalho "
 "editorial</a> do artigo para implementar esta recomendação.</p><p>Sinta-se à "
 "vontade para entrar em contacto connosco caso tenha alguma "
-"dúvida.</p><p>Atenciosamente,</p><p>{$nome do remetente}</p>"
+"dúvida.</p><p>Atenciosamente,</p><p>{$senderName}</p>"
 
 msgid "emails.copyeditRequest.subject"
 msgstr ""

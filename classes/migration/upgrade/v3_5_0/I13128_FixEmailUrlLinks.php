@@ -10,7 +10,7 @@
  * @class I13128_FixEmailUrlLinks
  *
  * @brief Fix several URL params into links in email templates, and fix some translation issues.
- * 
+ *
  * See pkp/pkp-lib#13128.
  */
 
@@ -26,7 +26,7 @@ class I13128_FixEmailUrlLinks extends Migration
         $this->replace('USER_VALIDATE_CONTEXT', '{$activateUrl}', '<a href="{$activateUrl}">{$activateUrl}</a>', 'href="{$activateUrl}"');
         $this->replace('USER_VALIDATE_SITE', '{$activateUrl}', '<a href="{$activateUrl}">{$activateUrl}</a>', 'href="{$activateUrl}"');
         $this->replace('PASSWORD_RESET_CONFIRM', '{$passwordResetUrl}', '<a href="{$passwordResetUrl}">{$passwordResetUrl}</a>', 'href="{$passwordResetUrl}"');
-        
+
         // The URL must be the author's one. Fix it, then link it.
         $this->replace('SUBMISSION_ACK', '{$submissionUrl}', '{$authorSubmissionUrl}');
         // These have a second link, so match on </p> instead of the href
@@ -36,7 +36,7 @@ class I13128_FixEmailUrlLinks extends Migration
 
         // The anchor is missing the "=" of the href attribute
         $this->replace('COPYEDIT_REQUEST', '<a href"{$submissionUrl}">', '<a href="{$submissionUrl}">');
-        
+
         // Plain text in many translations.
         $this->replace('COPYEDIT_REQUEST', '{$submissionUrl}<br />', '<a href="{$submissionUrl}">{$submissionUrl}</a><br />');
         $this->replace('COPYEDIT_REQUEST', '{$submissionUrl} <br />', '<a href="{$submissionUrl}">{$submissionUrl}</a> <br />');
@@ -61,7 +61,7 @@ class I13128_FixEmailUrlLinks extends Migration
             '',
             'lt'
         );
-        
+
         // Only sl has no opening brace.
         $this->replace(
             'COPYEDIT_REQUEST',
@@ -70,6 +70,27 @@ class I13128_FixEmailUrlLinks extends Migration
             '',
             'sl'
         );
+
+        $this->replace('ORCID_COLLECT_AUTHOR_ID', '</ a>', '</a>');
+        $this->replace('SUBMISSION_ACK', '< /a>', '</a>');
+        $this->replace('COPYEDIT_REQUEST', '</ li>', '</li>');
+        $this->replace('REVIEW_COMPLETE', '< p>', '<p>');
+        $this->replace('EDITOR_DECISION_REVISIONS', '< a href="{$authorSubmissionUrl}">', '<a href="{$authorSubmissionUrl}">');
+        $this->replace('EDITOR_DECISION_REVISIONS', '< href="{$authorSubmissionUrl}">', '<a href="{$authorSubmissionUrl}">');
+        $this->replace('EDITOR_DECISION_REVISIONS', '< um href="{$authorSubmissionUrl}">', '<a href="{$authorSubmissionUrl}">');
+
+        $this->replace('COPYEDIT_REQUEST', '{$ contextName}', '{$contextName}');
+        $this->replace('EDITORIAL_REMINDER', ' $contactName}', ' {$contactName}');
+        $this->replace('EDITORIAL_REMINDER', '>$recipientName}', '>{$recipientName}');
+        $this->replace('EDITOR_DECISION_INITIAL_DECLINE', '{ $contextName}', '{$contextName}');
+        $this->replace('EDITOR_DECISION_REVISIONS', '{$ authorName}', '{$recipientName}');
+        $this->replace('EDITOR_DECISION_SEND_TO_EXTERNAL', '{ $signature}', '{$signature}');
+        $this->replace('EDITOR_DECISION_SEND_TO_EXTERNAL', '{$ submissionTitle}', '{$submissionTitle}');
+        $this->replace('EDITOR_RECOMMENDATION', '{$nome do remetente}', '{$senderName}');
+        $this->replace('REVIEW_COMPLETE', '{$ authorsShort}', '{$authorsShort}');
+        $this->replace('REVIEW_CONFIRM', '{ $authorsShort}', '{$authorsShort}');
+        $this->replace('REVIEW_CONFIRM', '{$ reviewDueDate}', '{$reviewDueDate}');
+        $this->replace('SUBMISSION_ACK', '{ $contextSignature}', '{$contextSignature}');
     }
 
     public function down(): void

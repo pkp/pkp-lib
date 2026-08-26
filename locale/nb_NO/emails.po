@@ -348,7 +348,7 @@ msgstr ""
 msgid "emails.footer.unsubscribe.discussion"
 msgstr ""
 "<br><br>—<br>Svar på denne kommentaren på <a href=\"{$submissionUrl}\""
-">#{submissionId} {authorsShort}</a> eller <a href=\"{$unsubscribeUrl}\""
+">#{$submissionId} {$authorsShort}</a> eller <a href=\"{$unsubscribeUrl}\""
 ">avslutt abonnement</a> på e-poster sendt av <a href=\"{$contextUrl}\""
 ">{$contextName}</a>."
 
@@ -356,7 +356,7 @@ msgstr ""
 msgid "emails.footer.unsubscribe.automated"
 msgstr ""
 "<br><br>—<br>Dette er en automatisk melding fra <a href=\"{$contextUrl}\""
-">{contextName}</a>. Du kan <a href=\"{unsubscribeUrl}\">avslutte "
+">{$contextName}</a>. Du kan <a href=\"{$unsubscribeUrl}\">avslutte "
 "abonnementet</a> på denne e-posten når som helst."
 
 #, fuzzy
@@ -386,8 +386,8 @@ msgstr ""
 #, fuzzy
 msgid "emails.reviewComplete.subject"
 msgstr ""
-"Fagfelleurdering fullført: {reviewerName} anbefaler {reviewRecommendation} "
-"for #{submissionId} {authorsShort} — {$submissionTitle}"
+"Fagfelleurdering fullført: {$reviewerName} anbefaler {$reviewRecommendation} "
+"for #{$submissionId} {$authorsShort} — {$submissionTitle}"
 
 #, fuzzy
 msgid "emails.reviewComplete.body"

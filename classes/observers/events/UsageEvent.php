@@ -19,6 +19,7 @@ namespace PKP\observers\events;
 use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use Exception;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -53,6 +54,8 @@ abstract class UsageEvent
 
     public ?SubmissionFile $submissionFile;
 
+    public ?Publication $publication;
+
     /** Application's complete version string */
     public string $version;
 
@@ -64,7 +67,8 @@ abstract class UsageEvent
         Context $context,
         ?Submission $submission = null,
         ?Representation $representation = null,
-        ?SubmissionFile $submissionFile = null
+        ?SubmissionFile $submissionFile = null,
+        ?Publication $publication = null
     ) {
         $this->time = Core::getCurrentDate();
         $this->assocType = $assocType;
@@ -72,6 +76,7 @@ abstract class UsageEvent
         $this->submission = $submission;
         $this->representation = $representation;
         $this->submissionFile = $submissionFile;
+        $this->publication = $publication;
         $this->version = Registry::get('appVersion');
         $this->request = Application::get()->getRequest();
         $this->canonicalUrl = $this->getCanonicalUrl();

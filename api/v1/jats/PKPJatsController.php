@@ -19,6 +19,8 @@ namespace PKP\API\v1\jats;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\observers\events\UsageEvent;
+use DOMDocument;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -330,6 +332,20 @@ class PKPJatsController extends PKPBaseController
             return response('', Response::HTTP_NOT_MODIFIED)
                 ->header('ETag', $etag)
                 ->header('Cache-Control', $cacheControl);
+        }
+
+        // Auto-generated JATS with no underlying galley to draw text from is metadata only
+        // (no <body>) — that's not "full text or content" by COUNTER's own definition of a
+        // request, and not meaningful usage of the article, so don't track it at all.
+        $jatsDom = new DOMDocument();
+        $jatsDom->loadXML($jatsContent);
+        if ($jatsDom->getElementsByTagName('body')->length > 0) {
+            event(new UsageEvent(
+                assocType: Application::ASSOC_TYPE_JATS,
+                context: Application::get()->getRequest()->getContext(),
+                submission: $submission,
+                publication: $publication,
+            ));
         }
 
         return response($jatsContent, Response::HTTP_OK)

@@ -217,6 +217,14 @@ abstract class PKPTemporaryTotalsDAO
     }
 
     /**
+     * Assoc types considered COUNTER "Item Requests" (primary full-text downloads).
+     */
+    protected function getItemRequestAssocTypes(): array
+    {
+        return [Application::ASSOC_TYPE_SUBMISSION_FILE];
+    }
+
+    /**
      * Load total COUNTER submission usage (investigations and requests)
      */
     public function compileCounterSubmissionDailyMetrics(string $loadId): void
@@ -242,11 +250,13 @@ abstract class PKPTemporaryTotalsDAO
         DB::statement($metricInvestigationsUpsertSql, [$loadId]);
 
         // construct metric_requests upsert
+        $itemRequestAssocTypes = $this->getItemRequestAssocTypes();
+        $assocTypePlaceholders = implode(',', array_fill(0, count($itemRequestAssocTypes), '?'));
         $metricRequestsUpsertSql = "
             INSERT INTO metrics_counter_submission_daily (load_id, context_id, submission_id, date, metric_investigations, metric_investigations_unique, metric_requests, metric_requests_unique)
             SELECT * FROM (SELECT load_id, context_id, submission_id, DATE(date) as date, 0 as metric_investigations, 0 as metric_investigations_unique, count(*) as metric, 0 as metric_requests_unique
                 FROM {$this->table}
-                WHERE load_id = ? AND assoc_type = ?
+                WHERE load_id = ? AND assoc_type IN ({$assocTypePlaceholders})
                 GROUP BY load_id, context_id, submission_id, DATE(date)) AS t
             ";
         if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
@@ -259,7 +269,7 @@ abstract class PKPTemporaryTotalsDAO
                 ON DUPLICATE KEY UPDATE metric_requests = metric;
             ';
         }
-        DB::statement($metricRequestsUpsertSql, [$loadId, Application::ASSOC_TYPE_SUBMISSION_FILE]);
+        DB::statement($metricRequestsUpsertSql, [$loadId, ...$itemRequestAssocTypes]);
     }
 
     /**
@@ -289,13 +299,15 @@ abstract class PKPTemporaryTotalsDAO
         }
 
         // construct metric_requests upsert
+        $itemRequestAssocTypes = $this->getItemRequestAssocTypes();
+        $assocTypePlaceholders = implode(',', array_fill(0, count($itemRequestAssocTypes), '?'));
         $metricRequestsUpsertSql = "
             INSERT INTO metrics_counter_submission_institution_daily (load_id, context_id, submission_id, date, institution_id, metric_investigations, metric_investigations_unique, metric_requests, metric_requests_unique)
             SELECT * FROM (
                 SELECT ustt.load_id, ustt.context_id, ustt.submission_id, DATE(ustt.date) as date, usit.institution_id, 0 as metric_investigations, 0 as metric_investigations_unique, count(*) as metric, 0 as metric_requests_unique
                 FROM {$this->table} ustt
                 JOIN usage_stats_institution_temporary_records usit on (usit.load_id = ustt.load_id AND usit.line_number = ustt.line_number)
-                WHERE ustt.load_id = ? AND ustt.assoc_type = ? AND usit.institution_id = ?
+                WHERE ustt.load_id = ? AND ustt.assoc_type IN ({$assocTypePlaceholders}) AND usit.institution_id = ?
                 GROUP BY ustt.load_id, ustt.context_id, ustt.submission_id, DATE(ustt.date), usit.institution_id) AS t
             ";
         if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
@@ -314,7 +326,7 @@ abstract class PKPTemporaryTotalsDAO
         $institutionIds = $temporaryInstitutionsDAO->getInstitutionIdsByLoadId($loadId);
         foreach ($institutionIds as $institutionId) {
             DB::statement($metricInvestigationsUpsertSql, [$loadId, (int) $institutionId]);
-            DB::statement($metricRequestsUpsertSql, [$loadId, Application::ASSOC_TYPE_SUBMISSION_FILE, (int) $institutionId]);
+            DB::statement($metricRequestsUpsertSql, [$loadId, ...$itemRequestAssocTypes, (int) $institutionId]);
         }
     }
 }

@@ -343,6 +343,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             'pdfViews' => $metricsByType['pdf'],
             'htmlViews' => $metricsByType['html'],
             'otherViews' => $metricsByType['other'],
+            'jatsViews' => $metricsByType['jats'] ?? 0,
             'publication' => Repo::submission()->getSchemaMap()->mapToStats($submission),
         ], Response::HTTP_OK);
     }
@@ -907,7 +908,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
     protected function getItemForCSV(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $jatsViews = 0): array
     {
         $galleyViews = $pdfViews + $htmlViews + $otherViews;
-        $totalViews = $abstractViews + $galleyViews;
+        $totalViews = $abstractViews + $galleyViews + $jatsViews;
 
         // Get submission title, authors and publication date for display
         $submission = Repo::submission()->get($submissionId);

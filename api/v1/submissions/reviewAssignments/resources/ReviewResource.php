@@ -66,7 +66,22 @@ class ReviewResource extends JsonResource
     {
         /** @var ReviewFormResponseDAO $reviewFormResponseDao */
         $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
-        return  $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+
+        $responsesRaw = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+        $responsesFinal = [];
+
+        foreach ($responsesRaw as $elementId => $value) {
+            // Array responses are for checkboxes
+            // Old submissions via Step 3 review form would have submitted each value as a string
+            // Normalize to an array of integers to keep consistent with how new /review endpoints work.
+            if (is_array($value)) {
+                $responsesFinal[$elementId] = array_map('intval', $value);
+            } else {
+                $responsesFinal[$elementId] = $value;
+            }
+        }
+
+        return $responsesFinal;
     }
 
     /**

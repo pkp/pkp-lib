@@ -1,12 +1,13 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
+# Osman Durmaz <osmandurmaz@hotmail.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2026-07-12 16:32+0000\n"
-"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"PO-Revision-Date: 2026-08-08 04:21+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/tr/"
 ">\n"
 "Language: tr\n"
@@ -802,10 +803,10 @@ msgid "user.affiliations.translationEditActionLabel"
 msgstr "Kurum adını düzenle"
 
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
-msgstr "{$language} dilinde enstitü adını yazın"
+msgstr "Kurum adını {$language} dilinde yazın"
 
 msgid "user.affiliations.translationNameInLanguage"
-msgstr "{$language} dilinde enstitü adı"
+msgstr "{$language} dilinde kurum adı"
 
 msgid "user.affiliations.deleteModal.message"
 msgstr "Bağlı kuruluş <strong>{$affiliation}</strong> silinecek."

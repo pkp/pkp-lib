@@ -1,11 +1,12 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2025.
+# Pedro Calheno Pinto <ppinto@keep.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2025-08-22 16:47+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2026-08-18 19:13+0000\n"
+"Last-Translator: Pedro Calheno Pinto <ppinto@keep.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/pt/>\n"
 "Language: pt\n"
@@ -147,10 +148,10 @@ msgid "reviewer.submission.reviewRound.info.read"
 msgstr "Ler Avaliação da Rodada {$round}"
 
 msgid "reviewer.submission.reviewRound.files.description"
-msgstr "Estes arquivos foram enviados a você para avaliação"
+msgstr "Estes ficheiros foram-lhe enviados para avaliação"
 
 msgid "reviewer.submission.reviewRound.info.modal.title"
-msgstr "Avaliação da Rodada {$round} enviada por você para"
+msgstr "Avaliação da Rodada {$round} submetida por si para"
 
 msgid "reviewer.submission.reviewRound.comments"
 msgstr "Comentários do Avaliador"
@@ -192,10 +193,10 @@ msgid "reviewer.submission.reviewRound.attachments"
 msgstr "Anexos"
 
 msgid "reviewer.submission.reviewRound.attachments.description"
-msgstr "Estes são os arquivos que você anexou junto com a sua avaliação"
+msgstr "Estes são os ficheiros que anexou juntamente com a sua avaliação"
 
 msgid "reviewer.submission.reviewRound.files"
-msgstr "Arquivos para Avaliação"
+msgstr "Ficheiros para Avaliação"
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "A avaliação não foi concluída."

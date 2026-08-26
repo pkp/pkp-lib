@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024, 2025.
+# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-01 16:51+0000\n"
+"PO-Revision-Date: 2026-08-10 15:23+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg/>\n"
@@ -3278,3 +3278,6 @@ msgstr "Рецензията е завършена на {$date}"
 
 msgid "reviewer.competingInterests"
 msgstr "Конкурентни интереси"
+
+msgid "ror.invalidRorId"
+msgstr "Моля, предоставете валиден ROR ID."

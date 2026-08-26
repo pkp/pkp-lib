@@ -46,6 +46,7 @@ enum SubmissionEmailLogEventType: int implements EmailLogEventType
     case REVIEW_REINSTATED = 0x4000000D;
     case REVIEW_RESEND = 0x4000000E;
     case REVIEW_EDIT_NOTIFY_REVIEWER = 0x4000000F;
+    case REVIEWER_UNASSIGN = 0x40000010;
 
     // Copyeditor events						0x50000000
     case COPYEDIT_NOTIFY_COPYEDITOR = 0x50000001;

@@ -39,7 +39,7 @@ class UnassignReviewerForm extends ClearReviewForm
     /**
      * @copydoc ReviewerNotifyActionForm::getMailable()
      */
-    protected function getMailable(Context $context, Submission $submission, ReviewAssignment $reviewAssignment): Mailable
+    public function getMailable(Context $context, Submission $submission, ReviewAssignment $reviewAssignment): Mailable
     {
         return new ReviewerUnassign($context, $submission, $reviewAssignment);
     }

@@ -59,6 +59,7 @@ use PKP\mail\mailables\ReviewCancel;
 use PKP\mail\mailables\ReviewerReinstate;
 use PKP\mail\mailables\ReviewerResendRequest;
 use PKP\mail\mailables\ReviewerUnassign;
+use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\traits\Sender;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\Notification;
@@ -721,10 +722,11 @@ class PKPReviewerGridHandler extends GridHandler
             $user = $request->getUser();
             $context = app()->get('context')->get($submission->getData('contextId'));
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewCancel::getEmailTemplateKey());
-            $mailable = new ReviewCancel($context, $submission, $reviewAssignment);
+            $mailable = $form->getMailable($context, $submission, $reviewAssignment);
 
             if ($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
-                Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_CANCEL, $mailable, $submission, $user);
+                $eventType = $mailable instanceof ReviewCancel ? SubmissionEmailLogEventType::REVIEW_CANCEL : SubmissionEmailLogEventType::REVIEWER_UNASSIGN;
+                Repo::emailLogEntry()->logMailable($eventType, $mailable, $submission, $user);
             }
         }
         $reviewerId = $reviewAssignment->getReviewerId();
@@ -1064,7 +1066,7 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false, __('editor.review.reminderError'));
         }
 
-        $mailable = new $mailableClass($context, $submission, $reviewAssignment); /** @var Mailable $availableTemplates */
+        $mailable = new $mailableClass($context, $submission, $reviewAssignment);
 
         // Look if the template key from the request matches any of the templates available for this form.
         // If not, return an error.

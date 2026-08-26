@@ -19,12 +19,16 @@ namespace PKP\controllers\grid\users\reviewer\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\mail\Mailable;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 abstract class ClearReviewForm extends ReviewerNotifyActionForm
 {
@@ -96,4 +100,6 @@ abstract class ClearReviewForm extends ReviewerNotifyActionForm
         }
         return false;
     }
+
+    abstract public function getMailable(Context $context, Submission $submission, ReviewAssignment $reviewAssignment): Mailable;
 }

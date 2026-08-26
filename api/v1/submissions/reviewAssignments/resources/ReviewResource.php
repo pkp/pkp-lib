@@ -91,7 +91,11 @@ class ReviewResource extends JsonResource
 
         $fields = [];
         while ($reviewFormElement = $reviewFormElements->next()) {
-            $fields[] = $this->mapReviewFormElementToFormField($reviewFormElement)->getConfig();
+            $field = $this->mapReviewFormElementToFormField($reviewFormElement);
+            $config = $field->getConfig();
+            // The UI Library field components expect a non-null value of the correct type
+            $config['value'] ??= $field->getEmptyValue();
+            $fields[] = $config;
         }
 
         return [

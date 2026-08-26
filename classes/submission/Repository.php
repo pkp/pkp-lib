@@ -545,9 +545,10 @@ abstract class Repository
     /**
      * Check if a user can edit the publication metadata of a submission
      */
-    public function canEditPublication(int $submissionId, int $userId): bool
+    public function canEditPublication(Publication $publication, int $userId): bool
     {
         // block authors can never edit a published publication even if an editor granted them canChangeMetadata
+        $submissionId = $publication->getData('submissionId');
         $assignments = StageAssignment::withSubmissionIds([$submissionId])
             ->withUserId($userId)
             ->get();

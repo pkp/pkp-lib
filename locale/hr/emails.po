@@ -274,7 +274,7 @@ msgstr ""
 "a>. Sljedeći radovi <b> čekaju Vaš odgovor</b>.</p>{$outstandingTasks}"
 "<p>Pogledajte sve svoje zadatke putem<a href=\"{$submissionsUrl}\""
 ">korisničkog sučelja</a>.</p><p>Ako imate bilo kakvih pitanja vezanih uz "
-"svoje zadatke, molimo kontaktirajte $contactName} na {$contactEmail}.</p>"
+"svoje zadatke, molimo kontaktirajte {$contactName} na {$contactEmail}.</p>"
 
 msgid "discussion.notification.description"
 msgstr ""

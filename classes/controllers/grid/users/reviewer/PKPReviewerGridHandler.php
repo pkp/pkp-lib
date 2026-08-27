@@ -64,9 +64,6 @@ use PKP\mail\traits\Sender;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\Notification;
 use PKP\notification\PKPNotificationManager;
-use PKP\reviewForm\ReviewFormDAO;
-use PKP\reviewForm\ReviewFormElementDAO;
-use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -76,7 +73,6 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
-use PKP\submission\SubmissionCommentDAO;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -903,63 +899,6 @@ class PKPReviewerGridHandler extends GridHandler
      *
      * @return JSONMessage JSON object
      */
-    public function readReview($args, $request)
-    {
-        $context = $request->getContext();
-        $templateMgr = TemplateManager::getManager($request);
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $starHtml = '<span class="fa fa-star"></span>';
-        $templateMgr->assign([
-            'submission' => $this->getSubmission(),
-            'reviewAssignment' => $reviewAssignment,
-            'reviewerRatingOptions' => [
-                0 => __('editor.review.reviewerRating.none'),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_GOOD => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_GOOD),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_GOOD => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_GOOD),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_AVERAGE => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_AVERAGE),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR),
-            ],
-            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getRecommendationOptions(
-                context: $context,
-                reviewAssignment: $reviewAssignment
-            ),
-        ]);
-
-        if ($reviewAssignment->getReviewFormId()) {
-            // Retrieve review form
-            $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
-            $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
-            $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /** @var ReviewFormResponseDAO $reviewFormResponseDao */
-            $reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
-            $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
-            $reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
-            $templateMgr->assign([
-                'reviewForm' => $reviewForm,
-                'reviewFormElements' => $reviewFormElements,
-                'reviewFormResponses' => $reviewFormResponses,
-                'disabled' => true,
-            ]);
-        } else {
-            // Retrieve reviewer comments.
-            $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
-            $templateMgr->assign([
-                'comments' => $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), null, $reviewAssignment->getId(), true),
-                'commentsPrivate' => $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), null, $reviewAssignment->getId(), false),
-            ]);
-        }
-
-        // If it's a new review assignment, mark it as viewed
-        if ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW) {
-            Repo::reviewAssignment()->edit($reviewAssignment, [
-                'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED,
-            ]);
-        }
-
-        // Render the response.
-        return $templateMgr->fetchJson('controllers/grid/users/reviewer/readReview.tpl');
-    }
-
     /**
      * Send the acknowledgement email, if desired, and trigger a row refresh action.
      *
@@ -1270,7 +1209,6 @@ class PKPReviewerGridHandler extends GridHandler
     {
         // Define operations that need a review assignment policy.
         return [
-            'readReview',
             'reviewHistory',
             'reviewRead',
             'editThankReviewer',

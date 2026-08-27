@@ -14,6 +14,7 @@
 
 namespace PKP\API\v1\submissions\reviewAssignments\resources;
 
+use APP\core\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\components\forms\Field;
@@ -23,6 +24,7 @@ use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
@@ -89,17 +91,32 @@ class ReviewResource extends JsonResource
      */
     protected function getReviewFormConfig(int $reviewFormId): array
     {
+        /** @var ReviewFormDAO $reviewFormDao */
+        $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO');
+        $context = Application::get()->getRequest()->getContext();
+        $reviewForm = $reviewFormDao->getById(
+            $reviewFormId,
+            Application::getContextAssocType(),
+            $context->getId()
+        );
+
         /** @var ReviewFormElementDAO $reviewFormElementDao */
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
         $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
 
         $fields = [];
         while ($reviewFormElement = $reviewFormElements->next()) {
-            $fields[] = $this->mapReviewFormElementToFormField($reviewFormElement)->getConfig();
+            $field = $this->mapReviewFormElementToFormField($reviewFormElement);
+            $config = $field->getConfig();
+            // The UI Library field components expect a non-null value of the correct type
+            $config['value'] ??= $field->getEmptyValue();
+            $fields[] = $config;
         }
 
         return [
             'id' => self::REVIEW_FORM_ID,
+            'title' => $reviewForm?->getLocalizedTitle(),
+            'description' => $reviewForm?->getLocalizedDescription(),
             'fields' => $fields,
         ];
     }
@@ -136,9 +153,16 @@ class ReviewResource extends JsonResource
                 'options' => $this->getReviewFormElementPossibleResponses($reviewFormElement),
             ]),
 
-            ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD,
-            ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD =>
-            new FieldText($name, $args),
+            ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD => new FieldText($name, [
+                ...$args,
+                'size' => 'normal',
+            ]),
+
+            ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD => new FieldText($name, [
+                ...$args,
+                'size' => 'large',
+            ]),
+
             default => throw new \Exception('ReviewRsource: Unexpected Form Element Type: ' . $reviewFormElement->getElementType()),
         };
     }

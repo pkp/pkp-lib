@@ -327,6 +327,12 @@ msgstr ""
 msgid "editor.review.reviewerRating.none"
 msgstr "No rating"
 
+msgid "editor.review.reviewerRating.stars"
+msgstr "{$count} out of 5 stars"
+
+msgid "editor.review.reviewerRating.saved"
+msgstr "Reviewer rating saved"
+
 msgid "editor.review.mustSelect"
 msgstr "You must select a reviewer"
 
@@ -432,6 +438,65 @@ msgstr "Review"
 
 msgid "editor.review.reviewDetails"
 msgstr "Review Details"
+
+msgid "editor.review.modifyReview"
+msgstr "Modify Review"
+
+msgid "editor.review.modifyReview.description"
+msgstr ""
+"You are modifying a submitted review. All modifications will be recorded in "
+"the activity log."
+
+msgid "editor.review.modifyReview.confirmTitle"
+msgstr "Modify this review?"
+
+msgid "editor.review.modifyReview.confirmMessage"
+msgstr ""
+"You are about to modify the review submitted by {$reviewerName}. All "
+"modifications will be recorded in the activity log."
+
+msgid "editor.review.reviewerRecommendation"
+msgstr "Reviewer Recommendation"
+
+msgid "editor.review.submittedRecommendation"
+msgstr "Submitted recommendation"
+
+msgid "editor.review.comments.openReviewWarning"
+msgstr ""
+"If this is an open peer review, this comment will also appear publicly "
+"alongside the article."
+
+msgid "editor.review.reviewLastModifiedBy"
+msgstr "Last modified by {$username}"
+
+msgid "editor.review.confirmReview.title"
+msgstr "Confirm this review?"
+
+msgid "editor.review.confirmReview.message"
+msgstr ""
+"You can still modify this review after confirming. You will have the "
+"opportunity to thank the reviewer in the next step."
+
+msgid "editor.review.confirmReview.message.publiclyVisible"
+msgstr "This review will be made publicly visible alongside the article."
+
+msgid "editor.review.confirmReview.button"
+msgstr "Confirm Review"
+
+msgid "editor.review.confirmReview.success"
+msgstr "The review has been confirmed."
+
+msgid "editor.review.confirmReview.incomplete"
+msgstr "This review is incomplete and cannot be confirmed yet."
+
+msgid "editor.review.saveChanges.title"
+msgstr "Save changes to this review?"
+
+msgid "editor.review.saveChanges.message"
+msgstr ""
+"This review is publicly visible. Saving your changes will update it "
+"immediately on the public article page. All modifications will be recorded in "
+"the activity log."
 
 msgid "editor.review.noReviewFilesUploaded"
 msgstr "No Files Uploaded"

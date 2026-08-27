@@ -21,10 +21,12 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
+use PKP\funder\Funder;
 use PKP\log\event\EventLogEntry;
 use PKP\note\Note;
 use PKP\notification\Notification;
@@ -198,6 +200,14 @@ class DAO extends EntityDAO
                 ->getMany()
                 ->remember()
         );
+
+        $submission->setData('funders', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->funders ??= Funder::withSubmissionIds($ids)
+                ->orderBySeq()
+                ->get()
+                ->groupBy(fn ($funder) => $funder->submissionId);
+            yield from $cache->funders->get($row->submission_id) ?? [];
+        }));
 
         return $submission;
     }

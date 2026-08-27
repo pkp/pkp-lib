@@ -127,7 +127,7 @@ class OpenSearchEngine extends ScoutEngine
             $funderNamesByLocale = [];
             $funderRors = [];
             $funderFilterKeys = [];
-            foreach (Funder::withSubmissionId($submission->getId())->orderBySeq()->get() as $funder) {
+            foreach ($submission->getData('funders') as $funder) {
                 $names = $funder->name;
                 if (is_array($names)) {
                     foreach ($names as $locale => $name) {

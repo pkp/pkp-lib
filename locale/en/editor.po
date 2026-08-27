@@ -489,6 +489,9 @@ msgstr "The review has been confirmed."
 msgid "editor.review.confirmReview.incomplete"
 msgstr "This review is incomplete and cannot be confirmed yet."
 
+msgid "editor.review.confirmReview.missingRecommendation"
+msgstr "A recommendation is required before this review can be confirmed."
+
 msgid "editor.review.saveChanges.title"
 msgstr "Save changes to this review?"
 

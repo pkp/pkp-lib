@@ -113,7 +113,7 @@ class DAO extends EntityDAO
     /**
      * Get a single email template that matches the given key
      */
-    public function getByKey(?int $contextId = null, string $key): ?EmailTemplate
+    public function getByKey(?int $contextId, string $key): ?EmailTemplate
     {
         $results = Repo::emailTemplate()->getCollector($contextId)
             ->filterByKeys([$key])

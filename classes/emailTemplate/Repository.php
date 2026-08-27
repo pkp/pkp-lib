@@ -51,7 +51,7 @@ class Repository
     }
 
     /** @copydoc DAO::getByKey() */
-    public function getByKey(?int $contextId = null, string $key): ?EmailTemplate
+    public function getByKey(?int $contextId, string $key): ?EmailTemplate
     {
         return $this->dao->getByKey($contextId, $key);
     }
@@ -200,7 +200,7 @@ class Repository
             ->getMany();
 
         $deletedKeys = [];
-        $results->each(function ($emailTemplate) use ($deletedKeys){
+        $results->each(function ($emailTemplate) use ($deletedKeys) {
             $deletedKeys[] = $emailTemplate->getData('key');
             $this->delete($emailTemplate);
         });

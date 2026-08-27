@@ -387,7 +387,7 @@ class Repository
                     break;
                 case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
                     $reviewFormResponse->setResponseType('object');
-                    $reviewFormResponse->setValue($reviewFormResponseValue);
+                    $reviewFormResponse->setValue(array_map('intval', $reviewFormResponseValue));
                     break;
             }
             if ($reviewFormResponse->getReviewFormElementId() != null && $reviewFormResponse->getReviewId() != null) {

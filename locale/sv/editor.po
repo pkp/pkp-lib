@@ -346,6 +346,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Bortse från den här granskningen"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "När granskningen har blivit läst, tryck på \"Bekräfta\" för att visa att "

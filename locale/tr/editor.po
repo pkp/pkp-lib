@@ -342,6 +342,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Bu Yorumu İnceleme"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Bu değerlendirmeyi okunduktan sonra, değerlendirme sürecine devam edebilmek "

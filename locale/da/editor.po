@@ -354,6 +354,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Afvis denne bedømmelse"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Klik \"Bekræft\" efter at have læst denne bedømmelse for at markere at "

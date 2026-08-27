@@ -366,6 +366,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Σήμανση ως μη ληφθείσα υπόψη"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Όταν διαβάσετε αυτή την αξιολόγηση, επιλέξτε \"Επιβεβαίωση\", προκειμένου να "

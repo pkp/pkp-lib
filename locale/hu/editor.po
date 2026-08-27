@@ -338,6 +338,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Lektori vélemény figyelmen kívül hagyása"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Amikor a lektori véleményt elolvasta, nyomja meg a \"Jóváhagy\" gombot, hogy "

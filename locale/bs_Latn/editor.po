@@ -336,6 +336,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Ne razmatrajte ovaj pregled"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Nakon što pročitate ovaj pregled, pritisnite \"Potvrdi\" da biste naznačili "

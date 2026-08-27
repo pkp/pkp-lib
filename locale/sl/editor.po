@@ -351,6 +351,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Ne upoštevaj te recenzije"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Ko pregledate recenzijo, kliknite \"Potrdi\" in s tem omogočite nadaljevanje "

@@ -333,6 +333,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "この査読を考慮しない"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "この査読結果が読まれたら、「確認」を押すことで、査読プロセスが進められること"

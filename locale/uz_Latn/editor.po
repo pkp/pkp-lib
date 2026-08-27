@@ -363,6 +363,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Ushbu sharhni e'tiborsiz qoldirmang"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Ushbu sharhni o'qib bo'lgach, ko'rib chiqish jarayoni davom etishi "

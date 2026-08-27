@@ -341,6 +341,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Рецензияны қаралмаған деп белгілеңіз"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Рецензияны оқығаннан кейін қарап шығу процесінің жалғасуы мүмкін екенін "

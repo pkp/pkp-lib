@@ -347,6 +347,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Հաշվի չառնել այս գրախոսականը"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Այս գրախոսումը կարդալուց հետո սեղմեք «Հաստատել», որպեսզի ցույց տաք, որ "

@@ -327,6 +327,7 @@ msgstr "您是否希望将此审阅标记为未考虑？审阅历史将被保留
 msgid "editor.review.unconsiderReview"
 msgstr "不考虑此审阅"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "阅读完该评论后，请按“确认”以表示该审阅过程可以继续进行。如果审稿人已经在其他"

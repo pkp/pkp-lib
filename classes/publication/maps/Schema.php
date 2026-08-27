@@ -184,7 +184,7 @@ class Schema extends \PKP\core\maps\Schema
                     $data = [];
 
                     if (!$anonymizeAuthors) {
-                        foreach ($publication->getData('funders') as $funder) {
+                        foreach ($this->submission->getData('funders') as $funder) {
                             $data[] = Repo::funder()->getSchemaMap()->map($funder);
                         }
                     }

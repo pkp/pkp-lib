@@ -29,7 +29,6 @@ use PKP\core\EntityDAO;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 use PKP\dataCitation\DataCitation;
-use PKP\funder\Funder;
 use PKP\notification\Notification;
 use PKP\services\PKPSchemaService;
 
@@ -169,8 +168,6 @@ class DAO extends EntityDAO
 
         $publicationVersionString = Repo::publication()->getVersionString($publication);
         $publication->setData('versionString', $publicationVersionString);
-
-        $this->setFunders($publication);
 
         $publication->setData('citationsRaw', new class ($publication->getId()) implements \Stringable {
             public function __construct(public int $publicationId)
@@ -472,20 +469,6 @@ class DAO extends EntityDAO
     protected function deleteDataCitations(int $publicationId): void
     {
         DataCitation::where('publication_id', $publicationId)->delete();
-    }
-
-    /**
-     * Set a publication's Funders
-     */
-    protected function setFunders(Publication $publication): void
-    {
-        $publication->setData(
-            'funders',
-            Funder::withSubmissionId($publication->getData('submissionId'))
-                ->orderBySeq()
-                ->lazy()
-                ->remember()
-        );
     }
 
     /**

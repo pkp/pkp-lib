@@ -62,11 +62,11 @@ class Funder extends Model
     }
 
     /**
-     * Filter by submission ID
+     * Filter by submission IDs
      */
-    protected function scopeWithSubmissionId(EloquentBuilder $builder, int $submissionId): EloquentBuilder
+    protected function scopeWithSubmissionIds(EloquentBuilder $builder, array $submissionIds): EloquentBuilder
     {
-        return $builder->where('submission_id', $submissionId);
+        return $builder->whereIn('submission_id', $submissionIds);
     }
 
     /**

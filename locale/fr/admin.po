@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2026-03-20 19:09+0000\n"
+"PO-Revision-Date: 2026-08-27 14:59+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/fr/"
 ">\n"
@@ -999,3 +999,191 @@ msgstr ""
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "Mettre à jour le cache du registre ROR"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Lancez le planificateur."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Les tâches planifiées ne peuvent pas être exécutées car le mode « sandbox » "
+"de l'application est activé."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Impossible de vérifier la somme de contrôle pour le téléchargement des "
+"données compressées du registre ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"Impossible de vérifier le fichier compressé des données du registre ROR : "
+"algorithme de somme de contrôle non pris en charge. Seuls les algorithmes "
+"MD5 et SHA256 sont pris en charge."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr "Impossible de télécharger les données compressées du registre ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"Il manque un ou plusieurs champs obligatoires (id, noms, statut) dans "
+"l'enregistrement \"{$id}\" du registre ROR. Cette entrée a été ignorée."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"L'entrée « {$id} » du registre ROR comporte un champ avec les types "
+"[{$types}] pour laquelle une \"valeur\" obligatoire est manquant ; elle a "
+"donc été ignorée."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Lancer une tâche pour supprimer automatiquement les invitations périmées"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"Impossible d'ouvrir le fichier compressé des données du registre ROR. Code "
+"d'erreur : {$code}."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Impossible de définir la variable `app_key` dans le fichier de "
+"configuration. Veuillez mettre à jour la section « général » du fichier de "
+"configuration et ajouter la ligne `app_key = `."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Vouliez-vous dire l'une des options suivantes ?"
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Aucune tâche planifiée correspondante n'a été trouvée."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Impossible de mettre à jour le registre ROR en raison d'une divergence entre "
+"les sommes de contrôle. Somme de contrôle attendue : {$expected}. Somme de "
+"contrôle réelle : {$actual}."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Une clé d'application valide définie dans le fichier de configuration"
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Les tâches planifiées ne peuvent pas être exécutées car le mode de "
+"maintenance de l'application est activé."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Exécution de tâches planifiées toutes les minutes."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"Impossible de récupérer les données du registre ROR. Erreur HTTP inattendue :"
+" {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Impossible de récupérer les données du registre ROR. Aucun fichier à "
+"télécharger trouvé dans la réponse de l'API."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "Impossible d'extraire le fichier compressé données du registre ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Impossible de trouver le fichier JSON avec la version du schéma {$version} "
+"dans les données extraites du registre ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Impossible de lire la version du schéma à partir du fichier JSON {$file} du "
+"registre ROR. Erreur : {$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"Aucun enregistrement du registre ROR n'a été traité. Il se peut que le jeu "
+"de données soit vide ou que tous les enregistrements aient échoué à la "
+"validation."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr ""
+"L'entrée « {$id} » du registre ROR ne comporte pas de nom valide et a été "
+"ignorée."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Afficher les paramètres d'utilisation de l'AppKey"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Vérifier l'AppKey actuelle si elle figure dans le fichier de configuration"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr ""
+"Ajoutez la variable de configuration « app_key » dans le fichier config.inc."
+"php."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Générez une nouvelle AppKey et remplacez-la dans le fichier de "
+"configuration. Utilisez l'option --show pour afficher uniquement la clé ou "
+"l'option --force pour écraser une clé d'application valide existante."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Vouliez-vous dire l'une des options suivantes ?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Clé d'application générée : {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Aucune variable nommée `app_key` n'est définie dans la section `general` du "
+"fichier de configuration. Veuillez mettre à jour la section « general » du "
+"fichier de configuration et ajouter la ligne `app_key = ` ou exécuter la "
+"commande `php lib/pkp/tools/appKey.php configure` pour la définir."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"La variable `app_key` existe déjà dans la section `general` du fichier de "
+"configuration. Exécutez la commande `php lib/pkp/tools/appKey.php generate` "
+"pour définir une nouvelle clé d'application."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Aucune App Key définie dans le fichier de configuration."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Clé d'application non valide, algorithme de chiffrement non pris en charge "
+"ou longueur de clé incorrecte. Les algorithmes de chiffrement pris en charge "
+"sont : {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Une App Key valide est déjà définie dans le fichier de configuration. Pour "
+"la remplacer, utilisez l'option --force avec la commande."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr ""
+"La clé d'application a été correctement définie dans le fichier de "
+"configuration."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"La clé d'application a été définie avec succès dans le fichier de "
+"configuration. Exécutez la commande `php lib/pkp/tools/appKey.php generate` "
+"pour définir une nouvelle clé d'application."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Afficher toutes les tâches planifiées."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Lancez le processus de planification."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Lancez une tâche planifiée spécifique à partir de la liste ou utilisez "
+"l'option --name pour en lancer une en particulier. Activez l'option --no-"
+"scroll pour afficher la liste complète sans avoir à faire défiler l'écran."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Afficher les paramètres d'utilisation du planificateur."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Aucune tâche planifiée n'a été enregistrée."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Quelle commande souhaitez-vous exécuter ?"

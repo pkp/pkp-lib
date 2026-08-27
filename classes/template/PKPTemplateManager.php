@@ -1785,6 +1785,50 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
+     * Render the named fields of a form read-only.
+     */
+    public function setFieldsReadonly(string $formClass, string ...$fieldIds): void
+    {
+        $this->flagFields(FormBuilderVocabulary::TPL_VAR_FIELD_READONLY, $formClass, $fieldIds);
+    }
+
+    /**
+     * Render the named fields disabled.
+     */
+    public function setFieldsDisabled(string $formClass, string ...$fieldIds): void
+    {
+        $this->flagFields(FormBuilderVocabulary::TPL_VAR_FIELD_DISABLED, $formClass, $fieldIds);
+    }
+
+    /**
+     * Hide the named fields from the form. Pass FormBuilderVocabulary::FIELD_FORM_BUTTONS for
+     * the form button section.
+     */
+    public function hideFields(string $formClass, string ...$fieldIds): void
+    {
+        $this->flagFields(FormBuilderVocabulary::TPL_VAR_FIELD_HIDDEN, $formClass, $fieldIds);
+    }
+
+    /**
+     * Merges the already flagged fields
+     */
+    private function flagFields(string $tplVar, string $formClass, array $fieldIds): void
+    {
+        $map = $this->getTemplateVars($tplVar);
+        $map = is_array($map) ? $map : [];
+
+        if (!isset($map[$formClass]) || !is_array($map[$formClass])) {
+            $map[$formClass] = [];
+        }
+
+        foreach ($fieldIds as $fieldId) {
+            $map[$formClass][$fieldId] = true;
+        }
+
+        $this->assign($tplVar, $map);
+    }
+
+    /**
      * Display the sidebar
      *
      * @param array $args [

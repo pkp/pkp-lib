@@ -62,6 +62,18 @@ use Exception;
 
 class FormBuilderVocabulary
 {
+    /** @var string Readonly fields per form class */
+    public const TPL_VAR_FIELD_READONLY = 'fbvFieldReadonly';
+
+    /** @var string Disabled fields per form class */
+    public const TPL_VAR_FIELD_DISABLED = 'fbvFieldDisabled';
+
+    /** @var string Hidden fields per form class */
+    public const TPL_VAR_FIELD_HIDDEN = 'fbvFieldHidden';
+
+    /** @var string Field name representing a form's button section, with no id */
+    public const FIELD_FORM_BUTTONS = 'formButtons';
+
     /** @var Form associated with this object, if any.  Will inform smarty which forms to label as required */
     public $_form;
 
@@ -106,6 +118,28 @@ class FormBuilderVocabulary
     public function getForm()
     {
         return $this->_form;
+    }
+
+    /** Whether a field is flagged for the form currently being fetched. */
+    private function isFieldFlagged(object $smarty, string $tplVar, string $fieldId): bool
+    {
+        $form = $this->getForm();
+        if (!$form) {
+            return false;
+        }
+
+        $map = $smarty->getTemplateVars($tplVar);
+        if (!is_array($map)) {
+            return false;
+        }
+
+        foreach ($map as $formClass => $fields) {
+            if (is_string($formClass) && is_array($fields) && !empty($fields[$fieldId]) && $form instanceof $formClass) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -229,6 +263,10 @@ class FormBuilderVocabulary
      */
     public function smartyFBVFormButtons($params, $smarty)
     {
+        if ($this->isFieldFlagged($smarty, self::TPL_VAR_FIELD_HIDDEN, self::FIELD_FORM_BUTTONS)) {
+            return '';
+        }
+
         $smarty->assign([
             'FBV_submitText' => $params['submitText'] ?? 'common.ok',
             'FBV_submitDisabled' => isset($params['submitDisabled']) ? (bool)$params['submitDisabled'] : false,
@@ -259,6 +297,18 @@ class FormBuilderVocabulary
         }
         if (!isset($params['id'])) {
             throw new Exception('FBV: Element ID not set');
+        }
+
+        if ($this->isFieldFlagged($smarty, self::TPL_VAR_FIELD_HIDDEN, $params['id'])) {
+            return '';
+        }
+
+        if ($this->isFieldFlagged($smarty, self::TPL_VAR_FIELD_READONLY, $params['id'])) {
+            $params['readonly'] = true;
+        }
+
+        if ($this->isFieldFlagged($smarty, self::TPL_VAR_FIELD_DISABLED, $params['id'])) {
+            $params['disabled'] = true;
         }
 
         // Set up the element template

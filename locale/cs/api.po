@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-07-26 09:10+0000\n"
+"PO-Revision-Date: 2026-08-27 08:17+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs/>\n"
 "Language: cs\n"
@@ -79,8 +79,8 @@ msgstr "Vámi požadovaný příspěvek nebyl nalezen."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
-"Nezveřejněné položky nelze exportovat/odložit. Zrušte prosím výběr "
-"nepublikovaných položek a zkuste to znovu."
+"Položky, u kterých bylo zrušeno zveřejnění, nelze exportovat ani archivovat. "
+"Zrušte, prosím, výběr položek se zrušeným zveřejněním a zkuste to znovu."
 
 msgid "api.dois.400.creationFailed"
 msgstr "Došlo k chybě a objekt DOI nelze vytvořit."
@@ -154,20 +154,19 @@ msgid "api.publication.403.alreadyPublished"
 msgstr "Publikace, kterou chcete publikovat již byla publikována."
 
 msgid "api.publication.403.alreadyUnpublished"
-msgstr "Publikace, u které chcete zrušit publikování, nebyla publikována."
+msgstr "Publikace, u které chcete zrušit zveřejnění, nebyla zveřejněna."
 
 msgid "api.publication.403.cantEditPublished"
 msgstr "Tuto publikaci nejde editovat, protože již byla publikována."
 
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
-"Status nejde změni přímo pomocí API. Místo toho použijte funkce /publish a /"
-"unpublish."
+"Status nejde změnit přímo pomocí API. Místo toho použijte koncové body /"
+"publish a /unpublish."
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr ""
-"Nejprve je třeba zrušit publikování této publikace, než ji budete moci "
-"smazat."
+"Nejprve je třeba zrušit zveřejnění této publikace, než ji budete moci smazat."
 
 msgid "api.publicFiles.400.extensionNotSupported"
 msgstr "Můžete nahrávat pouze soubory následujících typů: {$fileTypes}."

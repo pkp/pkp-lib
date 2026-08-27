@@ -30,6 +30,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPSessionGuard;
 use PKP\core\traits\LocalizedData;
 use PKP\db\DAORegistry;
+use PKP\security\Validation;
 
 define('LESS_FILENAME_SUFFIX', '.less');
 define('THEME_OPTION_PREFIX', 'themeOption_');
@@ -1022,7 +1023,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     public function downloadStatsCacheMiss(int $submissionId): array
     {
         $request = Application::get()->getRequest();
-        $submission = Repo::submission()->get($submissionId);
+        $submission = Repo::submission()->get($submissionId, null, Config::getVar('cache', 'object_cache') && !Validation::isLoggedIn());
         $params = [
             'contextIds' => [$request->getContext()->getId()],
             'submissionIds' => [$submissionId],

@@ -842,7 +842,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      */
     protected function _getSubmissionReportColumnNames(): array
     {
-        return [
+        $columns = [
             __('common.id'),
             __('common.title'),
             __('submission.authors'),
@@ -852,8 +852,12 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             __('stats.fileViews'),
             __('stats.pdf'),
             __('stats.html'),
-            __('common.other')
+            __('common.other'),
         ];
+        if (app()->get('publicationStats')->isJatsPluginAvailable()) {
+            $columns[] = __('stats.jats');
+        }
+        return $columns;
     }
 
     /**
@@ -917,7 +921,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $authorsString = $currentPublication->getShortAuthorString() ?? '';
         $datePublished = $currentPublication->getData('datePublished') ?? '';
 
-        return [
+        $row = [
             $submissionId,
             $submissionTitle,
             $authorsString,
@@ -927,8 +931,12 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             $galleyViews,
             $pdfViews,
             $htmlViews,
-            $otherViews
+            $otherViews,
         ];
+        if (app()->get('publicationStats')->isJatsPluginAvailable()) {
+            $row[] = $jatsViews;
+        }
+        return $row;
     }
 
     /**
@@ -942,7 +950,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $submission = Repo::submission()->get($submissionId);
         $submissionProps = Repo::submission()->getSchemaMap()->mapToStats($submission);
 
-        return [
+        $data = [
             'abstractViews' => $abstractViews,
             'galleyViews' => $galleyViews,
             'pdfViews' => $pdfViews,
@@ -950,6 +958,11 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             'otherViews' => $otherViews,
             'publication' => $submissionProps,
         ];
+        if (app()->get('publicationStats')->isJatsPluginAvailable()) {
+            $data['jatsViews'] = $jatsViews;
+        }
+
+        return $data;
     }
 
     /**

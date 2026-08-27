@@ -16,7 +16,7 @@
 
 namespace PKP\components\forms;
 
-use APP\facades\Repo;;
+use APP\facades\Repo;
 use PKP\author\creditRole\CreditRoleDegree;
 
 class FieldCreditRoles extends Field
@@ -30,9 +30,16 @@ class FieldCreditRoles extends Field
     public function getConfig()
     {
         $config = parent::getConfig();
-        $config['value'] = $this->value ?? [];
         $config['options'] = $this->mapCreditRoles();
         return $config;
+    }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     */
+    public function getEmptyValue()
+    {
+        return [];
     }
 
     /**

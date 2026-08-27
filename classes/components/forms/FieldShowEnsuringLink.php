@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FieldShowEnsuringLink.php
  *
@@ -35,5 +36,15 @@ class FieldShowEnsuringLink extends FieldOptions
         $config['modalTitle'] = __('review.anonymousPeerReview.title');
 
         return $config;
+    }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     *
+     * This field is a single-checkbox boolean toggle.
+     */
+    public function getEmptyValue()
+    {
+        return false;
     }
 }

@@ -45,8 +45,15 @@ class FieldFunderGrants extends Field
     public function getConfig()
     {
         $config = parent::getConfig();
-        $config['value'] = $this->value ?? $this->default ?? null;
         $config['addButtonLabel'] = $this->addButtonLabel;
         return $config;
+    }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     */
+    public function getEmptyValue()
+    {
+        return [];
     }
 }

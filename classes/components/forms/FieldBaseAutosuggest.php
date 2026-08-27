@@ -80,4 +80,12 @@ abstract class FieldBaseAutosuggest extends Field
 
         return $config;
     }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     */
+    public function getEmptyValue()
+    {
+        return [];
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FormComponent.php
  *
@@ -335,10 +336,10 @@ class FormComponent
     {
         $config = $field->getConfig();
 
-        // Add a value property if the field does not include one
-        if (!array_key_exists('value', $config)) {
-            $config['value'] = $field->isMultilingual ? [] : $field->getEmptyValue();
-        }
+        // Add a value property if the field does not include one. Field::getConfig()
+        // already falls back to Field::getEmptyValue(), so this only catches
+        // subclasses that assign their own null value in getConfig().
+        $config['value'] ??= $field->isMultilingual ? [] : $field->getEmptyValue();
         if ($field->isMultilingual) {
             if (!is_array($config['value'])) {
                 $config['value'] = [];

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FieldOptions.php
  *
@@ -46,5 +47,25 @@ class FieldOptions extends Field
         $config['options'] = $this->options;
 
         return $config;
+    }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     *
+     * The value's runtime type is what selects the input mode client-side, so
+     * the empty value must match the mode the field was written for. A single
+     * checkbox whose option value is a boolean is a boolean on/off toggle, so
+     * its empty value is `false`; any other checkbox is a multi-select group,
+     * so its empty value is `[]`. For this detection to work, a boolean
+     * toggle's option must declare a real boolean value, e.g.
+     * `'options' => [['value' => true, 'label' => ...]]`.
+     */
+    public function getEmptyValue()
+    {
+        if ($this->type === 'radio') {
+            return '';
+        }
+        $option = count($this->options) === 1 ? reset($this->options) : null;
+        return is_bool($option['value'] ?? null) ? false : [];
     }
 }

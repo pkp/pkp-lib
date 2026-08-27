@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FieldUploadImage.php
  *
@@ -48,13 +49,5 @@ class FieldUploadImage extends FieldUpload
         $config['altTextDescription'] = __('common.altTextInstructions');
 
         return $config;
-    }
-
-    /**
-     * @copydoc Field::getEmptyValue()
-     */
-    public function getEmptyValue()
-    {
-        return null;
     }
 }

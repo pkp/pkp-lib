@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FieldSlider.php
  *
@@ -78,4 +79,11 @@ class FieldSlider extends Field
         return $config;
     }
 
+    /**
+     * @copydoc Field::getEmptyValue()
+     */
+    public function getEmptyValue()
+    {
+        return $this->min;
+    }
 }

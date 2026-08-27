@@ -37,7 +37,7 @@ class ReviewerUnassign extends Mailable
 
     protected static ?string $name = 'mailable.reviewerUnassign.name';
     protected static ?string $description = 'mailable.reviewerUnassign.description';
-    protected static ?string $emailTemplateKey = 'REVIEW_CANCEL';
+    protected static ?string $emailTemplateKey = 'REVIEWER_UNASSIGN';
     protected static bool $supportsTemplates = true;
     protected static array $groupIds = [self::GROUP_REVIEW];
     protected static bool $canDisable = true;

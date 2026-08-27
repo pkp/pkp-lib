@@ -1,20 +1,21 @@
 {**
- * templates/controllers/grid/user/reviewer/form/reinstateReviewerForm.tpl
+ * templates/controllers/grid/users/reviewer/form/reviewCancelForm.tpl
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Enroll existing user and assignment reviewer form.
+ * Cancel review form.
  *
  *}
 
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#reinstateReviewerForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.ReviewerActionFormHandler',
+		$('#cancelReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.ReviewerActionFormHandler',
 			{ldelim}
-				templateUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT
+				templateUrl: {url|json_encode
+					router=PKP\core\PKPApplication::ROUTE_COMPONENT
 					component='grid.users.reviewer.ReviewerGridHandler'
 					op='fetchReviewerActionTemplateBody'
 					stageId=$stageId
@@ -28,7 +29,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="reinstateReviewerForm" method="post" action="{url op="updateReinstateReviewer"}" >
+<form class="pkp_form" id="cancelReviewForm" method="post" action="{url op="updateCancelReview"}" >
 	{csrf}
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignmentId|escape}" />
 	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
@@ -36,7 +37,6 @@
 	<input type="hidden" name="stageId" value="{$stageId|escape}" />
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 
-	<!--  Message to reviewer textarea -->
 	{fbvFormArea id="notifyFormArea"}
 		{fbvFormSection title="stageParticipants.notify.chooseMessage" for="template" size=$fbvStyles.size.medium}
 			{fbvElement type="select" from=$templates translate=false id="template" selected=$defaultTemplateKey}
@@ -48,11 +48,9 @@
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 	{/fbvFormArea}
 
-	<!-- Skip email checkbox -->
 	{fbvFormSection for="skipEmail" size=$fbvStyles.size.MEDIUM list=true}
 		{fbvElement type="checkbox" id="skipEmail" name="skipEmail" label="editor.review.skipEmail"}
 	{/fbvFormSection}
 
-	{fbvFormButtons submitText="editor.review.reinstateReviewer"}
+	{fbvFormButtons submitText="editor.review.cancelReviewer"}
 </form>
-

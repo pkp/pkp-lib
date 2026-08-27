@@ -11,9 +11,17 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		$('#sendReminderForm').pkpHandler(
-			'$.pkp.controllers.grid.users.reviewer.form.ReviewReminderFormHandler',
+			'$.pkp.controllers.grid.users.reviewer.form.ReviewerActionFormHandler',
 			{ldelim}
-				templateUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component='grid.users.reviewer.ReviewerGridHandler' op='fetchReviewReminderTemplateBody' stageId=$stageId submissionId=$submissionId reviewAssignmentId=$reviewAssignmentId escape=false}
+				templateUrl: {url|json_encode
+					router=PKP\core\PKPApplication::ROUTE_COMPONENT
+					component='grid.users.reviewer.ReviewerGridHandler'
+					op='fetchReviewerActionTemplateBody'
+					stageId=$stageId
+					submissionId=$submissionId
+					reviewAssignmentId=$reviewAssignmentId
+					defaultTemplate=$defaultTemplateKey
+					escape=false}
 			{rdelim}
 		);
 	{rdelim});
@@ -32,7 +40,7 @@
 
 		{if count($templates)}
 			{fbvFormSection title="stageParticipants.notify.chooseMessage" for="templateKey" size=$fbvStyles.size.medium}
-				{fbvElement type="select" from=$templates translate=false id="template" selected=$defaultTemplateKey defaultValue="" defaultLabel=""}
+				{fbvElement type="select" from=$templates translate=false id="template" selected=$defaultTemplateKey}
 			{/fbvFormSection}
 		{/if}
 

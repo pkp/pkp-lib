@@ -172,7 +172,7 @@ class PKPMetadataSettingsForm extends FormComponent
                 'label' => __('manager.setup.competingInterests'),
                 'options' => [
                     [
-                        'value' => 'true',
+                        'value' => true,
                         'label' => __('manager.setup.competingInterests.requireAuthors'),
                     ],
                 ],
@@ -195,7 +195,7 @@ class PKPMetadataSettingsForm extends FormComponent
                 'label' => __('submission.citations.structured.citationsMetadataLookup'),
                 'options' => [
                     [
-                        'value' => 'true',
+                        'value' => true,
                         'label' => __('manager.setup.metadata.citationsMetadataLookup.enable')
                     ]
                 ],
@@ -234,7 +234,7 @@ class PKPMetadataSettingsForm extends FormComponent
                 'description' => __('manager.setup.metadata.funders.funderGrantValidation.description'),
                 'options' => [
                     [
-                        'value' => 'true',
+                        'value' => true,
                         'label' => __('manager.setup.metadata.funders.funderGrantValidation.enable')
                     ]
                 ],

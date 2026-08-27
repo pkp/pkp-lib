@@ -50,8 +50,15 @@ class FieldAffiliations extends Field
         $config = parent::getConfig();
 
         $config['authorId'] = $this->authorId;
-        $config['value'] = $this->value ?? $this->default ?? null;
 
         return $config;
+    }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     */
+    public function getEmptyValue()
+    {
+        return [];
     }
 }

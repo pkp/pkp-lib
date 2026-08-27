@@ -93,4 +93,15 @@ class FieldUpload extends Field
 
         return $config;
     }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     *
+     * `null` is meaningful for uploads: the save handlers delete the stored
+     * file when the value is null (see `_saveFileParam()` implementations).
+     */
+    public function getEmptyValue()
+    {
+        return null;
+    }
 }

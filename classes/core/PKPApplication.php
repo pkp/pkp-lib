@@ -122,7 +122,9 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
         Hook::addUnsupportedHooks('TemplateResource::getFilename'); // pkp/pkp-lib#12088 Replaced with View::resolveName
 
         // QueuedPayment instances may be serialized
-        class_alias(\PKP\payment\QueuedPayment::class, '\QueuedPayment');
+        if (!class_exists('\QueuedPayment')) {
+            class_alias(\PKP\payment\QueuedPayment::class, '\QueuedPayment');
+        }
 
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
 

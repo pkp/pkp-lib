@@ -264,7 +264,7 @@ class Repository
     /**
      * Insert/cpopy citations as they are for a publication. Used at publication versioning.
      */
-    public function copyCitations(array $citations, int $publicationId): void
+    public function copyCitations(iterable $citations, int $publicationId): void
     {
         foreach ($citations as $citation) {
             /** @var Citation $citation */

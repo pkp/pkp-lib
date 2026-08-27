@@ -211,7 +211,7 @@ class ValidatorFactory
                         }
                     }
                 } else {
-                    if (is_null($object) && self::isEmpty($props[$requiredProp]) ||
+                    if (is_null($object) && self::isEmpty($props[$requiredProp] ?? null) ||
                             ($object && array_key_exists($requiredProp, $props) && self::isEmpty($props[$requiredProp]))) {
                         $validator->errors()->add($requiredProp, __('validator.required'));
                     }

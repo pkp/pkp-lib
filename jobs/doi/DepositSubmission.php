@@ -67,7 +67,7 @@ class DepositSubmission extends BaseJob
 
         // Deposit Submission's associated Peer Review if Peer Review DOIs are enabled in Context and Agency, and the Submission was successfully deposited.
         if (
-            !$submissionDepositResults['hasErrors'] &&
+            empty($submissionDepositResults['hasErrors']) &&
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $this->agency->getAllowedDoiTypes()) &&
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $this->context->getData(Context::SETTING_ENABLED_DOI_TYPES))
         ) {

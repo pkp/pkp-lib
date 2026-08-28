@@ -192,14 +192,15 @@ class DAO extends EntityDAO
     {
         $submission = parent::fromRow($row, $ids, $cache, $query);
 
-        $submission->setData(
-            'publications',
-            Repo::publication()->getCollector()
-                ->filterBySubmissionIds([$submission->getId()])
+        $submission->setData('publications', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->publications ??= Repo::publication()->getCollector()
+                ->filterBySubmissionIds($ids)
                 ->orderByVersion()
                 ->getMany()
-                ->remember()
-        );
+                ->collect()
+                ->groupBy(fn ($publication) => $publication->getData('submissionId'));
+            yield from $cache->publications->get($row->submission_id) ?? [];
+        }));
 
         $submission->setData('funders', LazyCollection::make(function () use ($row, $ids, $cache) {
             $cache->funders ??= Funder::withSubmissionIds($ids)

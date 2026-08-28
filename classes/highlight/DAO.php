@@ -65,7 +65,7 @@ class DAO extends EntityDAO
             ->where($this->primaryKeyColumn, $id)
             ->where(DB::raw("COALESCE({$this->parentKeyColumn}, 0)"), (int) $contextId)
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**

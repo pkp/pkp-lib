@@ -19,7 +19,6 @@ use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Queue\Events\Looping;
 use PKP\context\Context;
 use PKP\core\traits\ModelWithSettings;
 use PKP\i18n\LocaleConversion;
@@ -38,12 +37,6 @@ class Funder extends Model
     protected string $settingsTable = 'funder_settings';
 
     protected $guarded = ['funderId', 'id'];
-
-    /** Per-request caches keyed by id — shared across all Funder instances. */
-    private static array $submissionCache = [];
-    private static array $contextCache = [];
-    private static array $rorCache = [];
-    private static array $localesCache = [];
 
     /**
      * @inheritDoc
@@ -85,13 +78,7 @@ class Funder extends Model
         return Attribute::make(
             get: function (): ?PKPSubmission {
                 $id = (int) $this->getRawOriginal('submission_id');
-                if (!$id) {
-                    return null;
-                }
-                if (!array_key_exists($id, self::$submissionCache)) {
-                    self::$submissionCache[$id] = Repo::submission()->get($id);
-                }
-                return self::$submissionCache[$id];
+                return $id ? Repo::submission()->get($id) : null;
             },
         )->shouldCache();
     }
@@ -103,18 +90,8 @@ class Funder extends Model
     {
         return Attribute::make(
             get: function (): ?Context {
-                $submission = $this->submission;
-                if (!$submission) {
-                    return null;
-                }
-                $contextId = (int) $submission->getData('contextId');
-                if (!$contextId) {
-                    return null;
-                }
-                if (!array_key_exists($contextId, self::$contextCache)) {
-                    self::$contextCache[$contextId] = Application::getContextDAO()->getById($contextId);
-                }
-                return self::$contextCache[$contextId];
+                $contextId = (int) $this->submission?->getData('contextId');
+                return $contextId ? Application::getContextDAO()->getById($contextId) : null;
             },
         )->shouldCache();
     }
@@ -130,14 +107,11 @@ class Funder extends Model
                 if (empty($ror)) {
                     return null;
                 }
-                if (!array_key_exists($ror, self::$rorCache)) {
-                    self::$rorCache[$ror] = Repo::ror()
-                        ->getCollector()
-                        ->filterByRor($ror)
-                        ->getMany()
-                        ->first();
-                }
-                return self::$rorCache[$ror];
+                return Repo::ror()
+                    ->getCollector()
+                    ->filterByRor($ror)
+                    ->getMany()
+                    ->first();
             },
         )->shouldCache();
     }
@@ -184,56 +158,27 @@ class Funder extends Model
     }
 
     /**
-     * Compute the full locale set for this funder's submission, memoized.
+     * Compute the full locale set for this funder's submission.
      *
      * @return string[]
      */
     private function resolvedPublicationLanguages(): array
     {
-        $submissionId = (int) $this->getRawOriginal('submission_id');
-        if (!$submissionId) {
-            return [];
-        }
-        if (isset(self::$localesCache[$submissionId])) {
-            return self::$localesCache[$submissionId];
-        }
         $submission = $this->submission;
         $context = $this->context;
         if (!$submission || !$context) {
-            return self::$localesCache[$submissionId] = [];
+            return [];
         }
-        return self::$localesCache[$submissionId] = $submission->getPublicationLanguages(
+        return $submission->getPublicationLanguages(
             $context->getSupportedSubmissionMetadataLocales() ?? []
         );
     }
 
     /**
-     * Reset per-process caches.
-     */
-    public static function clearResolverCaches(): void
-    {
-        self::$submissionCache = [];
-        self::$contextCache = [];
-        self::$rorCache = [];
-        self::$localesCache = [];
-    }
-
-    /**
-     * Between each worker loop iteration (CLI mode only), flush the per-request
-     * static caches so data from the previous job can't bleed into the next one.
+     * Invalidate the funder facet cache when a funder is saved or deleted.
      */
     protected static function booted(): void
     {
-        app('events')->listen(
-            Looping::class,
-            function (Looping $event): void {
-                if (!app()->runningInConsole() || app()->runningUnitTests()) {
-                    return;
-                }
-                self::clearResolverCaches();
-            }
-        );
-
         static::saved(function (Funder $funder): void {
             if ($contextId = $funder->context?->getId()) {
                 Repo::funder()->forgetFunderFacetCache($contextId);

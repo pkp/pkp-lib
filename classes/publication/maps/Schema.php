@@ -180,17 +180,6 @@ class Schema extends \PKP\core\maps\Schema
                     }
                     $output[$prop] = $retVal;
                     break;
-                case 'funders':
-                    $data = [];
-
-                    if (!$anonymizeAuthors) {
-                        foreach ($this->submission->getData('funders') as $funder) {
-                            $data[] = Repo::funder()->getSchemaMap()->map($funder);
-                        }
-                    }
-
-                    $output[$prop] = $data;
-                    break;
                 case 'fundingStatement':
                     $output[$prop] = $anonymizeAuthors ? null : $publication->getData('fundingStatement');
                     break;

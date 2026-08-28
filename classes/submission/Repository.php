@@ -426,6 +426,13 @@ abstract class Repository
             }
         }
 
+        // Required funders
+        if ($context->getData('funders') == $context::METADATA_REQUIRE) {
+            if ($submission->getData('funders')->isEmpty()) {
+                $errors['funders'] = [$submission->getData('locale') => __('submission.funders.required')];
+            }
+        }
+
         // Required metadata
         $publicationSchema = $this->schemaService->get(PKPSchemaService::SCHEMA_PUBLICATION);
         foreach ($context->getRequiredMetadata() as $metadata) {
@@ -436,6 +443,9 @@ abstract class Repository
             // The `supportingAgencies` metadata is called `agencies` on the context
             if ($metadata === 'agencies') {
                 $metadata = 'supportingAgencies';
+            }
+            if ($metadata === 'funders') {
+                continue; // Handled above
             }
             $schema = $publicationSchema->properties?->{$metadata};
             if (!$schema) {

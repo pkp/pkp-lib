@@ -119,7 +119,7 @@
 
                         {assign var=isRequired value=($currentContext->getData('funders') === $currentContext::METADATA_REQUIRE)|json_encode}
 
-                        <notification v-if="publication.funders && !publication.funders.length && {$isRequired}" type="warning" class="submissionWizard__fundersEmptyWarning">
+                        <notification v-if="submission.funders && !submission.funders.length && {$isRequired}" type="warning" class="submissionWizard__fundersEmptyWarning">
                             <icon icon="Error" class="h-5 w-5" :inline="true"></icon>
                             {translate key="submission.funders.required"}
                         </notification>
@@ -129,13 +129,13 @@
                         </h4>
 
                         <div class="submissionWizard__reviewPanel__item__value">
-                            <template v-if="!publication.funders?.length">
+                            <template v-if="!submission.funders?.length">
                                 {translate key="common.noneProvided"}
                             </template>
 
                             <div
                                 v-else
-                                v-for="(funder, i) in publication.funders"
+                                v-for="(funder, i) in submission.funders"
                                 :key="i"
                                 class="submissionWizard__reviewPanel__funder"
                             >

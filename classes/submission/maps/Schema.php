@@ -574,6 +574,17 @@ class Schema extends \PKP\core\maps\Schema
                 case 'reviewerSuggestions':
                     $output[$prop] = $this->reviewerSuggestions ? $this->getPropertyReviewerSuggestions($this->reviewerSuggestions) : [];
                     break;
+                case 'funders':
+                    $data = [];
+
+                    if (!$shouldAnonymizeAuthors) {
+                        foreach ($submission->getData('funders') as $funder) {
+                            $data[] = Repo::funder()->getSchemaMap()->map($funder);
+                        }
+                    }
+
+                    $output[$prop] = $data;
+                    break;
                 default:
                     $output[$prop] = $submission->getData($prop);
                     break;

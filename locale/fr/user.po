@@ -2,7 +2,7 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # COUSSY-LACROIX Hélène <helene.coussy-lacroix@u-bordeaux.fr>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025, 2026.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 # Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne.fr>, 2026.
 msgid ""
@@ -10,11 +10,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2026-02-27 16:32+0000\n"
-"Last-Translator: Stéphanie Louison <stephanie.louison@u-bordeaux-montaigne."
-"fr>\n"
-"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/fr/"
-">\n"
+"PO-Revision-Date: 2026-08-28 12:25+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -980,12 +979,38 @@ msgstr ""
 "identifiant ORCID non vérifié et demander directement à l'utilisateur/auteur "
 "de le faire vérifier."
 
-#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
-"Êtes-vous sûr de vouloir supprimer définitivement ce rôle ? Cette action "
-"révoquera l'accès de l'utilisateur à toutes les informations et "
-"autorisations associées à ce rôle."
+"Voulez-vous vraiment supprimer ce rôle ? Cette action révoquera l'accès de l'"
+"utilisateur/ice à toutes les informations et autorisations associées à ce "
+"rôle."
 
 msgid "user.login.activate.description"
 msgstr "Confirmez et activez votre compte"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"L'API de ROR est momentanément indisponible. Veuillez actualiser la page ou "
+"réessayer plus tard."
+
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr ""
+"Un nombre trop élevé de requêtes a été envoyé à l'API ROR. Veuillez "
+"patienter un instant avant de poursuivre votre recherche."
+
+msgid "user.masthead.update.title"
+msgstr "Confirmez le changement de visibilité de l'équipe éditoriale"
+
+msgid "user.masthead.update.message"
+msgstr ""
+"Cette action mettra à jour l'affichage ou non de cette personne dans la page "
+"de l'équipe éditorial de la revue pour le rôle sélectionné. Elle sera "
+"informée de cette modification."
+
+msgid "user.affiliations.error.rorApi"
+msgstr "Erreur de l'API ROR"
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"L'API de ROR de cette installation est obsolète. Veuillez contacter votre "
+"administrateur système."

@@ -117,6 +117,14 @@
 				"$ref": "#/definitions/Publication"
 			}
 		},
+		"funders": {
+			"type": "array",
+			"description": "Optional metadata that contains an array of funders for this submission.",
+			"readOnly": true,
+			"items": {
+				"$ref": "#/definitions/Funder"
+			}
+		},
 		"recommendationsIn": {
 			"type": "boolean",
 			"description": "Whether all recommending editors have submitted a recommendation.",

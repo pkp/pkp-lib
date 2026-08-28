@@ -316,6 +316,9 @@ msgstr "Request Resent"
 msgid "editor.review.reviewerComments"
 msgstr "Reviewer Comments"
 
+msgid "editor.review.reviewerForm.description.default"
+msgstr "The questions this journal asks reviewers to answer."
+
 msgid "editor.review.rateReviewer"
 msgstr "Reviewer rating"
 

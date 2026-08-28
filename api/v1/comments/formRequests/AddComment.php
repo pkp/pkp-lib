@@ -30,10 +30,10 @@ class AddComment extends FormRequest
     public function rules(): array
     {
         return [
-            'publicationId' => [
+            'submissionId' => [
                 'required',
                 'integer',
-                Rule::exists('publications', 'publication_id'),
+                Rule::exists('submissions', 'submission_id'),
             ],
             'commentText' => [
                 'required',
@@ -56,19 +56,12 @@ class AddComment extends FormRequest
             function (Validator $validator) {
                 // Only run this validation if all initial checks in `rules` passed
                 if (!$validator->errors()->count()) {
-                    $publicationId = (int)$this->input('publicationId');
-                    $publication = Repo::publication()->get($publicationId);
-                    $submissionId = $publication->getData('submissionId');
-                    $context = Application::get()->getRequest()->getContext();
-                    $submission = Repo::submission()->get((int)$submissionId, $context->getId());
+                    $submissionId = (int) $this->input('submissionId');
+                    $submission = Repo::submission()->get($submissionId);
+                    $publication = $submission?->getCurrentPublication();
 
-                    if (!$submission) {
-                        $validator->errors()->add('publicationId', __('api.404.resourceNotFound'));
-                        return;
-                    }
-
-                    if ($submission->getCurrentPublication()->getId() !== $publicationId || $publication->getData('status') !== PKPPublication::STATUS_PUBLISHED) {
-                        $validator->errors()->add('publicationId', __('api.userComments.400.cannotCommentOnPublicationVersion'));
+                    if (!$submission || !$publication) {
+                        $validator->errors()->add('publicationId', __('api.userComments.400.cannotCommentOnUnpublishedSubmission'));
                     }
                 }
             },
@@ -81,6 +74,9 @@ class AddComment extends FormRequest
     public function messages(): array
     {
         return [
+            'submissionId.required' => __('api.userComments.form.400.required.submissionId'),
+            'submissionId.integer' => __('api.userComments.400.invalidSubmissionId', ['submissionId' => $this->input('submissionId')]),
+            'submissionId.exists' => __('api.404.resourceNotFound'),
             'publicationId.required' => __('api.userComments.form.400.required.publicationId'),
             'publicationId.integer' => __('api.userComments.400.invalidPublicationId', ['publicationId' => $this->input('publicationId')]),
             'publicationId.exists' => __('api.404.resourceNotFound'),

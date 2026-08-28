@@ -248,11 +248,13 @@ class PKPNavigationMenuController extends PKPBaseController
         if (isset($params['title'])) {
             $navigationMenu->setTitle($params['title']);
         }
+        $oldAreaName = null;
         if (array_key_exists('areaName', $params)) {
+            $oldAreaName = $navigationMenu->getAreaName();
             $navigationMenu->setAreaName($params['areaName'] ?? '');
         }
 
-        $navigationMenuDao->updateObject($navigationMenu);
+        $navigationMenuDao->updateObject($navigationMenu, $oldAreaName);
 
         // Save menu tree assignments if provided
         if (isset($params['menuTree'])) {

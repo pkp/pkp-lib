@@ -144,10 +144,12 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Update an existing NavigationMenu
      */
-    public function updateObject(NavigationMenu $navigationMenu): bool
+    public function updateObject(NavigationMenu $navigationMenu, ?string $oldAreaName = null): bool
     {
         Cache::forget("navigationMenu-{$navigationMenu->getId()}");
-        Cache::forget('navMenusByArea-' . (int) $navigationMenu->getContextId() . '-' . $navigationMenu->getAreaName());
+        if ($oldAreaName !== null) {
+            Cache::forget('navMenusByArea-' . (int) $navigationMenu->getContextId() . '-' . $oldAreaName);
+        }
         return (bool) $this->update(
             'UPDATE	navigation_menus
 			SET	title = ?,

@@ -85,7 +85,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             ->where('publication_id', $publication->getId())
             ->where('url_path', $urlPath)
             ->first();
-        return $row ? $this->fromRow($row, [$row->publication_id], (object) []) : null;
+        return $row ? $this->fromRow($row, [$row->galley_id], (object) []) : null;
     }
 
     /**

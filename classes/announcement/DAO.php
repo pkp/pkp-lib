@@ -73,7 +73,7 @@ class DAO extends EntityDAO
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**

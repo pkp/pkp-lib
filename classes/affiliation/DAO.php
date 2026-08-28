@@ -93,7 +93,7 @@ class DAO extends EntityDAO
         // to the fromRow function
         $row = DB::table('author_affiliations as a')
             ->join('authors as au', 'a.author_id', '=', 'au.author_id')
-            ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
+            ->join('publications as p', 'au.publication_id', '=', 'p.publication_id')
             ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
             ->where('a.affiliation_id', '=', $id)
             ->when($authorId !== null, fn (Builder $query) => $query->where('a.author_id', '=', $authorId))

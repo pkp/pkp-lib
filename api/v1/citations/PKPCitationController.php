@@ -163,7 +163,7 @@ class PKPCitationController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
         $collector = Repo::citation()->getCollector()
-            ->filterByPublicationId($publication->getId())
+            ->filterByPublicationIds([$publication->getId()])
             ->limit(self::DEFAULT_COUNT)
             ->offset(0);
 

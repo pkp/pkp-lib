@@ -214,7 +214,7 @@ msgid "openReview.sortByReviewRound"
 msgstr "Review Round"
 
 msgid "openReview.sortByReviewerName"
-msgstr "Reviewer Name"
+msgstr "Reviewer"
 
 msgid "openReview.reviewCount"
 msgstr "{$count} Reviews"
@@ -229,7 +229,7 @@ msgid "openReview.citeReviewReport"
 msgstr "Cite this peer review report:"
 
 msgid "openReview.readReview"
-msgstr "Read Review"
+msgstr "View Review"
 
 msgid "openReview.hideReview"
 msgstr "Hide Review"
@@ -244,7 +244,13 @@ msgid "openReview.statusInProgress"
 msgstr "In progress since {$date}"
 
 msgid "openReview.statusCompleted"
-msgstr "Completed on {$date}"
+msgstr "Completed on {$date}."
+
+msgid "openReview.peerReviewNotComplete"
+msgstr "Peer review has not been completed yet."
+
+msgid "openReview.peerReviewViewFull"
+msgstr "View the full <a href='{$url}'>peer review record</a>."
 
 msgid "openReview.roundStatusCompleted"
 msgstr "Completed"
@@ -259,7 +265,7 @@ msgid "openReview.reviewDate"
 msgstr "Review Date: {$date}"
 
 msgid "openReview.dataNotAvailable"
-msgstr "Peer review data is not available"
+msgstr "Peer review data is not yet available."
 
 msgid "openReview.inProgressTitle"
 msgstr "Peer review is in progress"
@@ -304,10 +310,13 @@ msgid "openReview.seeFullRecord"
 msgstr "See full peer review record"
 
 msgid "openReview.readResponse"
-msgstr "Read Response"
+msgstr "View Response"
 
 msgid "openReview.hideResponse"
 msgstr "Hide Response"
+
+msgid "openReview.citeDoi"
+msgstr "Cite this peer review: <a href='{$doi}' target='_blank'>{$doi}</a>"
 
 msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
 msgstr "Some required fields are not filled in. Please complete them before submitting your review."

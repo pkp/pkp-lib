@@ -36,7 +36,7 @@ class ReviewRoundAuthorResponseResource extends JsonResource
         return [
             'id' => $response->id,
             'reviewRoundId' => $response->reviewRoundId,
-            'response' => $response->authorResponse,
+            'response' => $response->getLocalizedData('authorResponse'),
             'associatedAuthors' => array_map(fn (Author $author) => [
                 'id' => $author->getId(),
                 'fullName' => $author->getFullName(),

@@ -266,7 +266,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
             );
         }
 
-        if (!$author->getContributorRoles()) {
+        if ($author->getContributorRoles()->isEmpty()) {
             $deployment->addError(
                 Application::ASSOC_TYPE_AUTHOR,
                 $publication->getId(),

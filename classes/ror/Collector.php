@@ -143,7 +143,8 @@ class Collector implements CollectorInterface
         $collector = $this;
         $qb = DB::table($this->dao->table . ' as r')
             ->select('r.*')
-            ->when($this->searchPhrase !== null, function ($q) use ($collector) {
+            ->distinct()
+            ->when($this->searchPhrase !== null, function ($qb) use ($collector) {
                 foreach (explode(' ', $collector->searchPhrase) as $word) {
                     $qb->where('r.search_phrase', 'like', '%' . addcslashes($word, '%_') . '%');
                 }

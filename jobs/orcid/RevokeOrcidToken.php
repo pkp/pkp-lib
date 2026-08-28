@@ -18,6 +18,7 @@ namespace PKP\jobs\orcid;
 
 use APP\core\Application;
 use GuzzleHttp\Exception\ClientException;
+use PKP\author\Author;
 use PKP\context\Context;
 use PKP\identity\Identity;
 use PKP\jobs\BaseJob;
@@ -30,6 +31,12 @@ class RevokeOrcidToken extends BaseJob
         private readonly Context  $context,
         private readonly Identity $identity
     ) {
+        if ($identity instanceof Author) {
+            $identity->setData('affiliations', $identity->getData('affiliations')->collect());
+            $identity->setContributorRoles($identity->getContributorRoles()->collect());
+            $identity->setCreditRoles($identity->getCreditRoles()->collect());
+        }
+
         parent::__construct();
     }
 

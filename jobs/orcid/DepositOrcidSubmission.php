@@ -36,6 +36,10 @@ class DepositOrcidSubmission extends BaseJob implements ShouldBeUnique
         private string $authorOrcid
     ) {
         parent::__construct();
+
+        $author->setData('affiliations', $author->getData('affiliations')->collect());
+        $author->setContributorRoles($author->getContributorRoles()->collect());
+        $author->setCreditRoles($author->getCreditRoles()->collect());
     }
 
     /**

@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\SoftDeleteTrait;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
@@ -101,16 +102,18 @@ class DAO extends EntityDAO
      */
     public function getSoftDeleted(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->includeSoftDeletes(true)
-            ->getQueryBuilder()
-            ->whereNotNull('deleted_at')
-            ->select(['i.*'])
-            ->get();
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->includeSoftDeletes(true)
+                ->getQueryBuilder()
+                ->whereNotNull('deleted_at')
+                ->select(['i.*'])
+                ->get();
+            $ids = $rows->pluck('institution_id')->all();
+            $cache = (object) [];
 
-        return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
-                yield $row->institution_id => $this->fromRow($row);
+                yield $row->institution_id => $this->fromRow($row, $ids, $cache, $query);
             }
         });
     }
@@ -118,10 +121,10 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row, array $ids, object $cache): Institution
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Institution
     {
         /** @var Institution */
-        $institution = parent::fromRow($row, $ids, $cache);
+        $institution = parent::fromRow($row, $ids, $cache, $query);
 
         $ipRanges = DB::table('institution_ip')
             ->where($this->primaryKeyColumn, '=', $institution->getId())

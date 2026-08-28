@@ -18,6 +18,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Str;
 use PKP\core\EntityDAO;
 use PKP\core\interfaces\CollectorInterface;
@@ -108,6 +109,27 @@ class DAO extends EntityDAO
     public function delete(EmailTemplate $emailTemplate)
     {
         parent::_delete($emailTemplate);
+    }
+
+    /**
+     * Get a collection of EmailTemplate instances matching the configured query.
+     * Overrides the parent implementation, which yields by key -- not all email
+     * templates have keys!
+     *
+     * @return LazyCollection<T>
+     */
+    public function getMany(CollectorInterface $query): LazyCollection
+    {
+        return LazyCollection::make(function () use ($query) {
+            $queryBuilder = $query->getQueryBuilder();
+            $rows = $queryBuilder->get();
+            $ids = $rows->pluck($this->primaryKeyColumn)->all();
+            $cache = (object) [];
+
+            foreach ($rows as $row) {
+                yield $this->fromRow($row, $ids, $cache, $query);
+            }
+        });
     }
 
     /**

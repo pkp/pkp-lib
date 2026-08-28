@@ -87,7 +87,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 ReviewRequestSubsequent::getEmailTemplateKey()
             ])
             ->getMany()
-            ->mapWithKeys(function (EmailTemplate $item, ?int $key) use ($mailable) {
+            ->mapWithKeys(function (EmailTemplate $item, int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
             });
 

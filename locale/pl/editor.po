@@ -353,6 +353,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Cofnij rozpatrzenie recenzji"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Po przeczytaniu recenzji kliknij \"Potwierdź\", aby oznaczyć, że proces "

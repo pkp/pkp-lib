@@ -346,6 +346,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Neapsvērt šo recenziju"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Kad šī recenzija ir izlasīta, nospiediet \"Apstiprināt\", lai norādītu, ka "

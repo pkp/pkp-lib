@@ -377,6 +377,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Ne pas considérer cet examen"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Une fois l'évaluation consultée, cliquer sur « Confirmer » pour indiquer que "

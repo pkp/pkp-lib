@@ -362,6 +362,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Descartar esta revisión"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Una vez que esta revisión haya sido leída, pulsa \"Confirmar\" para indicar "

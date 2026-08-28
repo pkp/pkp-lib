@@ -320,6 +320,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr ""
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 

@@ -344,6 +344,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Không xem xét đánh giá này"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Khi đánh giá này đã được đọc, nhấn \"Xác nhận\" để chỉ ra rằng quy trình "

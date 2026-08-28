@@ -343,6 +343,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Ritrýni ekki tekin til athugunar"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Eftir lestur ritrýninnar, smelltu þá á \"Staðfesta\" til að halda áfram með "

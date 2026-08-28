@@ -378,6 +378,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Dieses Gutachten nicht berücksichtigen"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Nachdem dieses Gutachten gelesen worden ist, drücken Sie bitte \"Bestätigen"

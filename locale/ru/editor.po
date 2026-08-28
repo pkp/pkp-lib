@@ -362,6 +362,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Отметить рецензию как не рассмотренную"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Прочитав рецензию, нажмите «Подтвердить», чтобы показать, что процесс "

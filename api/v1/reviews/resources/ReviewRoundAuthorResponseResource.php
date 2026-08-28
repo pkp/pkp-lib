@@ -45,7 +45,7 @@ class ReviewRoundAuthorResponseResource extends JsonResource
                 'preferredPublicName' => $author->getPreferredPublicName(Locale::getLocale()),
                 'orcid' => $author->getOrcid(),
                 'hasVerifiedOrcid' => (bool) $author->hasVerifiedOrcid(),
-            ], $associatedAuthors),
+            ], array_values($associatedAuthors)),
             'submittedByUser' => [
                 'id' => $user->getId(),
                 'fullName' => $user->getFullName(),

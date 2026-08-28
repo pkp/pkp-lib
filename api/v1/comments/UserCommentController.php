@@ -127,27 +127,32 @@ class UserCommentController extends PKPBaseController
     /**
      * Gets the publicly accessible comments for a publication.
      * Accepts the following query parameters:
-     * publicationIds(required, array) publication IDs to fetch comments for.
+     * submissionIds(required, array) publication IDs to fetch comments for.
      * page(integer) - The pagination page to retrieve records from.
      */
     public function getManyPublicComments(Request $illuminateRequest): JsonResponse
     {
-        $publicationIdsRaw = paramToArray($illuminateRequest->query('publicationIds') ?? []);
+        $submissionIdsRaw = paramToArray($illuminateRequest->query('submissionIds') ?? []);
 
-        if (empty($publicationIdsRaw)) {
+        if (empty($submissionIdsRaw)) {
             return response()->json(['error' => __('api.userComments.400.missingPublicationParam')], Response::HTTP_BAD_REQUEST);
         }
 
-        $publicationIds = [];
-        foreach ($publicationIdsRaw as $id) {
+        $submissionIds = [];
+        foreach ($submissionIdsRaw as $id) {
             if (!filter_var($id, FILTER_VALIDATE_INT)) {
                 return response()->json([
-                    'error' => __('api.userComments.400.invalidPublicationId', ['publicationId' => $id])
+                    'error' => __('api.userComments.400.invalidSubmissionId', ['submissionId' => $id])
                 ], Response::HTTP_BAD_REQUEST);
             }
 
-            $publicationIds[] = (int)$id;
+            $submissionIds[] = (int)$id;
         }
+
+        $publicationIds = Repo::publication()
+            ->getCollector()
+            ->filterBySubmissionIds($submissionIds)
+            ->getIds();
 
         $query = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
             ->withIsApproved(true);
@@ -163,7 +168,7 @@ class UserCommentController extends PKPBaseController
             });
         }
 
-        $query->withPublicationIds($publicationIds);
+        $query->withPublicationIds($publicationIds->toArray());
         $paginatedInfo = Repo::userComment()
             ->setPage($illuminateRequest->query('page') ?? 1)
             ->getPaginatedData($query);
@@ -273,14 +278,29 @@ class UserCommentController extends PKPBaseController
         $currentUser = $request->getUser();
         $requestBody = $illuminateRequest->validated();
 
-        $publicationId = (int)$requestBody['publicationId'];
+        if (!$context) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $submissionId = (int)$requestBody['submissionId'];
         $commentText = $requestBody['commentText'];
+
+        $submission = Repo::submission()->get($submissionId, $context->getId());
+        $publication = $submission?->getCurrentPublication();
+
+        if (!$submission || !$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         $createdComment = UserComment::query()->create(
             [
                 'userId' => $currentUser->getId(),
                 'contextId' => $context->getId(),
-                'publicationId' => $publicationId,
+                'publicationId' => $publication->getId(),
                 'commentText' => $commentText,
                 'isApproved' => false,
             ]

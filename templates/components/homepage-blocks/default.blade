@@ -1,0 +1,7 @@
+@props([
+    'slug' => 'default',
+])
+
+<section {{ $attributes->merge(['class' => 'homepage-block homepage-block-' . $slug]) }}>
+    {!! $slot !!}
+</section>

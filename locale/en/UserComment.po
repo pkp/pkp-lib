@@ -13,50 +13,71 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "userComment.discussionClosed"
-msgstr "Discussion is closed on this version, please comment on the latest version above."
-
 msgid "userComment.awaitingApprovalNotice"
-msgstr "Your comment will be visible when the editor approves it"
+msgstr "Your comment will be visible to everyone once a moderator approves it."
 
 msgid "userComment.report.reason"
 msgstr "Please tell us why you want to report this comment"
 
 msgid "userComment.reportCommentBy"
-msgstr "Report the following comment by {$userName}"
+msgstr "Please tell us why you think this comment from <strong>{$name}</strong> is inappropriate. Our moderators will review your message."
 
 msgid "userComment.reportCommentByUserWithAffiliation"
-msgstr "Report the following comment by {$userName} ({$affiliation})"
-
-msgid "userComment.report"
-msgstr "Report"
-
-msgid "userComment.showMore"
-msgstr "Show more ({$count})"
-
-msgid "userComment.login"
-msgstr "Log in to comment"
-
-msgid "userComment.commentsOnThisPublication"
-msgstr "Comments on this publication"
-
-msgid "userComment.allComments"
-msgstr "All Comments ({$commentCount})"
-
-msgid "userComment.versionWithCount"
-msgstr "{$versionLabel} ({$versionCommentsCount})"
-
-msgid "userComment.deleteComment"
-msgstr "Delete Comment"
-
-msgid "userComment.deleteCommentConfirmation"
-msgstr "Are you sure you want to delete the following comment? <br/><br/> <strong>{$comment}</strong>"
-
-msgid "userComment.comments"
-msgstr "Comments"
+msgstr "Please tell us why you think this comment from <strong>{$name}, {$affiliation}</strong> is inappropriate. Our moderators will review your message."
 
 msgid "userComment.reportComment"
 msgstr "Report Comment"
 
-msgid "userComment.addYourComment"
-msgstr "What do you think about this publication? Type your comments here."
+msgid "userComment.reportButton"
+msgstr "<button>Report this comment</button> for inappropriate content."
+
+msgid "userComment.reportSubmitted"
+msgstr "Thank you for submitting your report. Our moderators will review your concerns."
+
+msgid "userComment.showMore"
+msgstr "Show {$count} more comments"
+
+msgid "userComment.commentedOn"
+msgstr "Commented <time datetime=\"{$dateTime}\" title=\"{$dateTime}\">{$date}</time> on <a href=\"{$versionUrl}\">{$versionLabel}</a>:"
+
+msgid "userComment.noComments"
+msgstr "There are no comments on this publication yet."
+
+msgid "userComment.noCommentsLatestVersion"
+msgstr "There are no comments on the latest version yet."
+
+msgid "userComment.previousVersion"
+msgstr "Previous Version"
+
+msgid "userComment.previousVersion.desc"
+msgstr "The comments below respond to earlier versions of this article."
+
+msgid "userComment.login"
+msgstr "Sign in to leave a comment"
+
+msgid "userComment.commentsOnThisPublication"
+msgstr "Comments on this publication"
+
+msgid "userComment.addCommentPrompt"
+msgstr "Do you want to contribute to the scholarly discussion of this publication?"
+
+msgid "userComment.addComment"
+msgstr "Add a comment"
+
+msgid "userComment.addComment.desc"
+msgstr "Scholars, researchers and practitioners are invited to leave questions and comments which respond to the research and analysis presented in this publication. All comments are moderated by our editorial team."
+
+msgid "userComment.addComment.prompt"
+msgstr "Enter your questions and comments..."
+
+msgid "userComment.addComment.submit"
+msgstr "Submit comment"
+
+msgid "userComment.deleteCommentConfirmation"
+msgstr "Are you sure you want to delete your comment?"
+
+msgid "userComment.deleteComment"
+msgstr "Delete Comment"
+
+msgid "userComment.deleteButton"
+msgstr "<button>Delete your comment</button> to remove it from this page."

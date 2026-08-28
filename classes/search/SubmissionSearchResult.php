@@ -94,9 +94,16 @@ class SubmissionSearchResult
         Hook::call('SubmissionSearchResult::newCollection', [$models, &$itemDecorators]);
 
         $collection = LazyCollection::make(function () use ($models, &$contextCache, &$sectionCache) {
+            $submissionIds = array_map(fn ($data) => is_scalar($data) ? (int) $data : (int) $data->submissionId, $models);
+            $submissions = Repo::submission()->getCollector()
+                ->filterBySubmissionIds($submissionIds)
+                ->filterByContextIds([Application::SITE_CONTEXT_ID_ALL])
+                ->getMany()
+                ->collect();
+
             foreach ($models as $data) {
                 $submissionId = is_scalar($data) ? (int) $data : (int) $data->submissionId;
-                $submission = Repo::submission()->get($submissionId);
+                $submission = $submissions->get($submissionId);
                 if (!$submission) {
                     continue;
                 }

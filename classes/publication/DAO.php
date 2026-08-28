@@ -219,6 +219,7 @@ class DAO extends EntityDAO
 
         $publication->setData('dataCitations', LazyCollection::make(function () use ($row, $ids, $cache) {
             $cache->dataCitations ??= DataCitation::withPublicationIds($ids)
+                ->orderBySeq()
                 ->get()
                 ->collect()
                 ->groupBy(fn ($dataCitation) => $dataCitation->publicationId, true);

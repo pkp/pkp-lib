@@ -198,7 +198,7 @@ class DAO extends EntityDAO
                 ->orderByVersion()
                 ->getMany()
                 ->collect()
-                ->groupBy(fn ($publication) => $publication->getData('submissionId'));
+                ->groupBy(fn ($publication) => $publication->getData('submissionId'), true);
             yield from $cache->publications->get($row->submission_id) ?? [];
         }));
 
@@ -206,7 +206,7 @@ class DAO extends EntityDAO
             $cache->funders ??= Funder::withSubmissionIds($ids)
                 ->orderBySeq()
                 ->get()
-                ->groupBy(fn ($funder) => $funder->submissionId);
+                ->groupBy(fn ($funder) => $funder->submissionId, true);
             yield from $cache->funders->get($row->submission_id) ?? [];
         }));
 

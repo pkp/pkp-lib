@@ -183,7 +183,7 @@ class DAO extends EntityDAO
             $cache->authors ??= Repo::author()->getCollector()->filterByPublicationIds($ids)
                 ->getMany()
                 ->collect()
-                ->groupBy(fn ($author) => $author->getData('publicationId'));
+                ->groupBy(fn ($author) => $author->getData('publicationId'), true);
             yield from $cache->authors->get($row->publication_id) ?? [];
         })->remember());
 
@@ -199,9 +199,9 @@ class DAO extends EntityDAO
             ->withWhereHas('controlledVocab', fn ($query) => $query->withSymbolics([ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY])->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $ids))
             ->get()
             ->collect()
-            ->groupBy(fn ($cve) => $cve->controlledVocab->assocId);
+            ->groupBy(fn ($cve) => $cve->controlledVocab->assocId, true);
         $publicationControlledVocabs = $cache->controlledVocabs->get($row->publication_id) ?? collect();
-        $symbolicControlledVocabs = $publicationControlledVocabs->groupBy(fn ($cve) => $cve->controlledVocab->symbolic);
+        $symbolicControlledVocabs = $publicationControlledVocabs->groupBy(fn ($cve) => $cve->controlledVocab->symbolic, true);
         foreach ([
             'keywords' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
             'subjects' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
@@ -221,14 +221,14 @@ class DAO extends EntityDAO
             $cache->dataCitations ??= DataCitation::withPublicationIds($ids)
                 ->get()
                 ->collect()
-                ->groupBy(fn ($dataCitation) => $dataCitation->publicationId);
+                ->groupBy(fn ($dataCitation) => $dataCitation->publicationId, true);
             yield from $cache->dataCitations->get($row->publication_id) ?? [];
         }));
 
         $publication->setData('citations', LazyCollection::make(function () use ($row, $ids, $cache) {
             $cache->citations ??= Repo::citation()->getByPublicationIds($ids)
                 ->collect()
-                ->groupBy(fn ($citation) => $citation->getData('publicationId'));
+                ->groupBy(fn ($citation) => $citation->getData('publicationId'), true);
             yield from $cache->citations->get($row->publication_id) ?? [];
         }));
 

@@ -126,7 +126,7 @@ class DAO extends EntityDAO
         $cache->rorObjects ??= Repo::ror()->getCollector()->filterByAuthorAffiliationIds($ids)
             ->getMany()
             ->collect()
-            ->groupBy(fn ($rorObject) => $rorObject->getRor());
+            ->groupBy(fn ($rorObject) => $rorObject->getRor(), true);
         $affiliation->setData('rorObject', $cache->rorObjects->get($row->ror)?->first());
 
         return $affiliation;

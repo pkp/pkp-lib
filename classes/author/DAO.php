@@ -143,7 +143,7 @@ class DAO extends EntityDAO
         $author->setAffiliations(LazyCollection::make(function () use ($row, $ids, $cache) {
             $cache->affiliations ??= collect(Repo::affiliation()->getByAuthorIds($ids))
                 ->collect()
-                ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'));
+                ->groupBy(fn ($affiliation) => $affiliation->getData('authorId'), true);
             yield from $cache->affiliations->get($row->author_id) ?? [];
         }));
 

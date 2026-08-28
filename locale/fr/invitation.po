@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 19:09+0000\n"
-"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
+"PO-Revision-Date: 2026-08-28 12:25+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
 "Language: fr\n"
@@ -436,3 +436,12 @@ msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProper
 msgstr ""
 "Des propriétés inattendues ont été détectées dans l'élément à l'index "
 "{$attribute} : {$properties}."
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"Cette invitation n'est plus disponible. Elle a peut-être déjà été acceptée, "
+"refusée ou a expiré. Veuillez contacter le/la responsable de la revue pour "
+"obtenir de l'aide."
+
+msgid "invitation.unavailable.title"
+msgstr "Invitation indisponible"

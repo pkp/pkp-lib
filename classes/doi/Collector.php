@@ -40,7 +40,7 @@ class Collector implements CollectorInterface
 
     public ?string $identifier = null;
 
-    public ?array $reviewAssignments = null;
+    public ?array $reviewIds = null;
 
     public function __construct(DAO $dao)
     {

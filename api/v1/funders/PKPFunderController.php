@@ -12,7 +12,7 @@
  * @ingroup api_v1_funders
  *
  * @brief Controller class to handle API requests for funder operations.
- * 
+ *
  */
 
 namespace pkp\api\v1\funders;
@@ -23,9 +23,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\funder\Funder;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\funder\Funder;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
@@ -151,7 +151,7 @@ class PKPFunderController extends PKPBaseController
     public function getMany(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $funders = Funder::withSubmissionId($submission->getId())->orderBySeq();
+        $funders = Funder::withSubmissionIds([$submission->getId()])->orderBySeq();
 
         Hook::run('API::funders::params', [$funders, $illuminateRequest]);
 
@@ -173,12 +173,12 @@ class PKPFunderController extends PKPBaseController
         $params = [
             'ror' => $ror,
             'name' => $ror ? [] : ($input['funder']['name'] ?? []),
-            'grants' => array_values(array_filter(                                                                                                                                                                                          
-                $input['grants'] ?? [],                                                                                                                                                                                                     
-                fn($g) => !empty($g['grantNumber']) || !empty($g['grantDoi']) || !empty($g['grantName'])                                                                                                                                    
+            'grants' => array_values(array_filter(
+                $input['grants'] ?? [],
+                fn ($g) => !empty($g['grantNumber']) || !empty($g['grantDoi']) || !empty($g['grantName'])
             )),
             'seq' => 0,
-        ];    
+        ];
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_FUNDER, $params);
         $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_FUNDER, $params);
@@ -226,9 +226,9 @@ class PKPFunderController extends PKPBaseController
         $params = [
             'ror' => $ror,
             'name' => $ror ? [] : ($input['funder']['name'] ?? []),
-            'grants' => array_values(array_filter(                                                                                                                                                                                          
-                $input['grants'] ?? [],                                                                                                                                                                                                     
-                fn($g) => !empty($g['grantNumber']) || !empty($g['grantDoi']) || !empty($g['grantName'])                                                                                                                                    
+            'grants' => array_values(array_filter(
+                $input['grants'] ?? [],
+                fn ($g) => !empty($g['grantNumber']) || !empty($g['grantDoi']) || !empty($g['grantName'])
             )),
         ];
 
@@ -251,7 +251,8 @@ class PKPFunderController extends PKPBaseController
         $funder = Funder::find($funder->id);
 
         return response()->json(
-            Repo::funder()->getSchemaMap()->map($funder), Response::HTTP_OK
+            Repo::funder()->getSchemaMap()->map($funder),
+            Response::HTTP_OK
         );
     }
 
@@ -279,7 +280,8 @@ class PKPFunderController extends PKPBaseController
         $funder->delete();
 
         return response()->json(
-            Repo::funder()->getSchemaMap()->map($funder), Response::HTTP_OK
+            Repo::funder()->getSchemaMap()->map($funder),
+            Response::HTTP_OK
         );
     }
 

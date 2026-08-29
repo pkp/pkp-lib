@@ -3,8 +3,8 @@
 /**
  * @file classes/mailable/Repository.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2000-2022 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -203,9 +203,15 @@ class Repository
             mailables\DecisionResubmitNotifyAuthor::class,
             mailables\DecisionRevertDeclineNotifyAuthor::class,
             mailables\DecisionRevertInitialDeclineNotifyAuthor::class,
+            mailables\DecisionRevertWithdrawNotifyAuthor::class,
             mailables\DecisionSendExternalReviewNotifyAuthor::class,
             mailables\DecisionSendToProductionNotifyAuthor::class,
             mailables\DecisionSkipExternalReviewNotifyAuthor::class,
+            mailables\DecisionWithdrawNotifyAuthor::class,
+            mailables\DiscussionCopyediting::class,
+            mailables\DiscussionProduction::class,
+            mailables\DiscussionReview::class,
+            mailables\DiscussionSubmission::class,
             mailables\EditorAssigned::class,
             mailables\EditReviewNotify::class,
             mailables\EditorialReminder::class,

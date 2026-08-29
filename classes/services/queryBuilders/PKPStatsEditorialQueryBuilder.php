@@ -3,8 +3,8 @@
 /**
  * @file classes/services/QueryBuilders/PKPStatsEditorialQueryBuilder.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsEditorialQueryBuilder
@@ -155,19 +155,7 @@ abstract class PKPStatsEditorialQueryBuilder
             }
         }
 
-        // Ensure that the decisions being counted have not been
-        // reversed. For example, a submission may have been accepted
-        // and then later declined. We check the current status to
-        // exclude submissions where the status doesn't match the
-        // decisions we are looking for.
-        $declineDecisions = array_map(function (DecisionType $decisionType) {
-            return $decisionType->getDecision();
-        }, Repo::decision()->getDeclineDecisionTypes());
-        if (count(array_intersect($declineDecisions, $decisions))) {
-            $q->where('s.status', '=', PKPSubmission::STATUS_DECLINED);
-        } else {
-            $q->where('s.status', '!=', PKPSubmission::STATUS_DECLINED);
-        }
+        $this->restrictToCurrentDecisionStatus($q, $decisions);
 
         $q->select(DB::raw('COUNT(DISTINCT s.submission_id) as count'));
 
@@ -313,21 +301,39 @@ abstract class PKPStatsEditorialQueryBuilder
         $q->leftJoin('edit_decisions as ed', 's.submission_id', '=', 'ed.submission_id')
             ->whereIn('ed.decision', $decisions);
 
-        // Ensure that the decisions being counted have not been
-        // reversed. For example, a submission may have been accepted
-        // and then later declined. We check the current status to
-        // exclude submissions where the status doesn't match the
-        // decisions we are looking for.
+        $this->restrictToCurrentDecisionStatus($q, $decisions);
+
+        return [$q->min('ed.date_decided'), $q->max('ed.date_decided')];
+    }
+
+    /**
+     * Restrict a query to submissions whose current status still matches
+     * the decisions being queried
+     *
+     * A submission's decisions can be reversed. For example, a submission
+     * may have been accepted and then later declined, or withdrawn and
+     * later reverted. We check the current status to exclude submissions
+     * where the status doesn't match the decisions we are looking for.
+     *
+     * @param array $decisions One or more Decision::*
+     */
+    protected function restrictToCurrentDecisionStatus(Builder $q, array $decisions): void
+    {
         $declineDecisions = array_map(function (DecisionType $decisionType) {
             return $decisionType->getDecision();
         }, Repo::decision()->getDeclineDecisionTypes());
+        $withdrawnDecisions = array_map(function (DecisionType $decisionType) {
+            return $decisionType->getDecision();
+        }, Repo::decision()->getWithdrawnDecisionTypes());
+
         if (count(array_intersect($declineDecisions, $decisions))) {
             $q->where('s.status', '=', PKPSubmission::STATUS_DECLINED);
+        } elseif (count(array_intersect($withdrawnDecisions, $decisions))) {
+            $q->where('s.status', '=', PKPSubmission::STATUS_WITHDRAWN);
         } else {
-            $q->where('s.status', '!=', PKPSubmission::STATUS_DECLINED);
+            $q->where('s.status', '!=', PKPSubmission::STATUS_DECLINED)
+                ->where('s.status', '!=', PKPSubmission::STATUS_WITHDRAWN);
         }
-
-        return [$q->min('ed.date_decided'), $q->max('ed.date_decided')];
     }
 
     /**

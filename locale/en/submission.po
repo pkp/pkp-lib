@@ -2271,6 +2271,12 @@ msgstr "Submission declined."
 msgid "notification.type.editorDecisionRevertDecline"
 msgstr "Declined submission reactivated."
 
+msgid "notification.type.editorDecisionWithdraw"
+msgstr "Submission withdrawn."
+
+msgid "notification.type.editorDecisionRevertWithdraw"
+msgstr "Withdrawn submission reactivated."
+
 msgid "notification.uploadedResponse"
 msgstr "Response uploaded."
 

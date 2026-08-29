@@ -28,6 +28,8 @@ class InstallEmailTemplates extends Migration
     {
         return [
             'AUTHOR_PUBLICATION_PUBLISHED',
+            'EDITOR_DECISION_WITHDRAW',
+            'EDITOR_DECISION_REVERT_WITHDRAW',
         ];
     }
 

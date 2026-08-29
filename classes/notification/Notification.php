@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/Notification.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2024-2026 Simon Fraser University
+ * Copyright (c) 2024-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Notification
@@ -66,6 +66,8 @@ class Notification extends Model
     public const NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE = 0x1000012;
     public const NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION = 0x1000013;
     public const NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE = 0x1000020;
+    public const NOTIFICATION_TYPE_EDITOR_DECISION_WITHDRAW = 0x1000031;
+    public const NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_WITHDRAW = 0x1000032;
     public const NOTIFICATION_TYPE_REVIEW_ROUND_STATUS = 0x1000014;
     public const NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS = 0x1000015;
     public const NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS = 0x1000016;

@@ -210,7 +210,6 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                             ContributorRole::withContextId($context->getId())
                                 ->withRoleIds($contributorRoleIds)
                                 ->get()
-                                ->all()
                         );
                         break;
                 }

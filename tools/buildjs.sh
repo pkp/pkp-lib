@@ -145,8 +145,10 @@ for JS_FILE in $LINT_FILES; do
 		# - Multiple var statements in one function are allowed to reduce variable span.
 		# - We allow code without the 'use strict' pragma as we need the callee property
 		#   for our class framework implementation.
+		# - We allow unused parameters as event callback signatures often require
+		#   declaring parameters that precede the ones actually used.
 		java -jar "$TOOL_PATH/jslint4java.jar" --white --forin --nomen --plusplus --continue \
-			--eqeq --sloppy --browser --predef pkp,jQuery,alert,tinyMCE,confirm,plupload,Promise \
+			--eqeq --sloppy --browser --unparam --predef pkp,jQuery,alert,tinyMCE,confirm,plupload,Promise \
 			--regexp "$JS_FILE" | sed "s/^/${TAB}/"
 		echo "...processed!" >&2
 

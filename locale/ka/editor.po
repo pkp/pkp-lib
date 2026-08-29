@@ -343,6 +343,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "განიხილავს ამ მიმოხილვას"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "ამ მიმოხილვის წაკითხვის შემდეგ, დააჭირეთ ღილაკს \"დადასტურება\", რომ "

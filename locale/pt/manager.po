@@ -4,13 +4,14 @@
 # Mickael Gomes da Silva <mickael.silva@uc.pt>, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 # Alberto Simoes <ambs@zbr.pt>, 2026.
+# Pedro Calheno Pinto <ppinto@keep.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2026-02-25 08:43+0000\n"
-"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"PO-Revision-Date: 2026-08-18 19:13+0000\n"
+"Last-Translator: Pedro Calheno Pinto <ppinto@keep.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/pt/>\n"
 "Language: pt\n"
@@ -835,7 +836,7 @@ msgstr ""
 "O sistema gera relatórios que registam os detalhes associados com os "
 "procedimentos da submissão, da perspectiva de submissões, editores, "
 "revisores e secções, num dado período. Relatórios são gerados no formato "
-"CSV, que exigem um aplicativo para serem visualizados."
+"CSV, que exigem uma aplicação para serem visualizados."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Usar o formato AAAAMM."
@@ -1165,7 +1166,7 @@ msgstr "Contacto Principal"
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""
-"Insira os detalhes de contato, geralmente informação sobre o Director, "
+"Insira os detalhes de contacto, geralmente informação sobre o Director, "
 "Editor principal, Corpo Editorial e equipa administrativa, que pode ser "
 "exibido no site acessível ao público."
 

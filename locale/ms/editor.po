@@ -332,6 +332,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Tidak mengambil kira Ulasan ini"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Setelah ulasan ini telah dibaca, tekan \"Sahkan\" untuk menunjukkan bahawa "

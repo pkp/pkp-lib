@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-06-25 09:54+0000\n"
+"PO-Revision-Date: 2026-07-27 07:33+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -2042,6 +2042,7 @@ msgstr ""
 "Editor {$editorName} potvrdil recenzi pro {$round}. recenzní kolo příspěvku "
 "{$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} dokončil recenzi pro {$round}. recenzní kolo příspěvku "
@@ -3253,3 +3254,6 @@ msgstr "Recenze byla dokončena dne {$date}"
 
 msgid "reviewer.competingInterests"
 msgstr "Střet zájmů"
+
+msgid "ror.invalidRorId"
+msgstr "Zadejte prosím platné ID ROR."

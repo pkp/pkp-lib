@@ -16,14 +16,10 @@
 
 namespace PKP\components\forms\emailTemplate;
 
-use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldPreparedContent;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
-use PKP\emailTemplate\EmailTemplate;
-use PKP\security\Role;
-use PKP\userGroup\UserGroup;
 
 class EmailTemplateForm extends FormComponent
 {
@@ -35,18 +31,6 @@ class EmailTemplateForm extends FormComponent
         $this->action = $action;
         $this->method = 'POST';
         $this->locales = $locales;
-        $userGroups = collect();
-
-        UserGroup::withContextIds([$context->getId()])
-            ->each(function (UserGroup $group) use ($userGroups) {
-                if ($group->roleId !== Role::ROLE_ID_SITE_ADMIN) {
-                    $userGroups->add([
-                        'value' => $group->id,
-                        'label' => $group->getLocalizedData('name', null)
-                    ]);
-                }
-            });
-
         $this->addField(new FieldText('name', [
             'label' => __('common.name'),
             'description' => __('manager.emailTemplate.name.description'),
@@ -63,25 +47,6 @@ class EmailTemplateForm extends FormComponent
                 'isMultilingual' => true,
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
                 'plugins' => ['link','lists'],
-            ]))
-            ->addField(new FieldOptions('isUnrestricted', [
-                'label' => __('admin.workflow.email.userGroup.assign.unrestricted'),
-                'groupId' => 'isUnrestricted',
-                'description' => __('admin.workflow.email.userGroup.unrestricted.template.note'),
-                'type' => 'radio',
-                'options' => [
-                    ['value' => (bool)EmailTemplate::ACCESS_MODE_UNRESTRICTED, 'label' => __('admin.workflow.email.userGroup.assign.unrestricted')],
-                    ['value' => (bool)EmailTemplate::ACCESS_MODE_RESTRICTED, 'label' => __('admin.workflow.email.userGroup.limitAccess')],
-                ],
-                'value' => (bool)EmailTemplate::ACCESS_MODE_UNRESTRICTED,
-            ]))
-            ->addField(new FieldOptions('assignedUserGroupIds', [
-                'label' => __('admin.workflow.email.userGroup.limitAccess'),
-                'description' => __('admin.workflow.email.userGroup.limitAccess.template.note'),
-                'type' => 'checkbox',
-                'value' => [],
-                'options' => $userGroups,
-                'showWhen' => ['isUnrestricted', (bool)EmailTemplate::ACCESS_MODE_RESTRICTED],
             ]));
     }
 }

@@ -21,9 +21,11 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\eventLog\linkAction\EmailLinkAction;
+use PKP\controllers\grid\eventLog\linkAction\ReviewChangeLinkAction;
 use PKP\controllers\grid\GridRow;
 use PKP\log\EmailLogEntry;
 use PKP\log\event\EventLogEntry;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
@@ -94,6 +96,23 @@ class EventLogGridRow extends GridRow
                                 $this->addAction(new DownloadFileLinkAction($request, $submissionFile, $workflowStageId, __('common.download'), $fileId, $filename));
                             }
                         }
+                    }
+                    break;
+                case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMMENTS_MODIFIED:
+                case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED:
+                case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_FORM_RESPONSE_MODIFIED:
+                    if (!$this->_isCurrentUserAssignedAuthor) {
+                        $this->addAction(
+                            new ReviewChangeLinkAction(
+                                $request,
+                                __('common.viewChanges'),
+                                __('submission.event.viewReview'),
+                                [
+                                    'submissionId' => $this->_submission->getId(),
+                                    'logEntryId' => $logEntry->getId(),
+                                ]
+                            )
+                        );
                     }
                     break;
             }

@@ -189,14 +189,14 @@ class Repository
     }
 
     /**
-     * Get all affiliations for a given author.
+     * Get all affiliations for the given author IDs.
      *
      * @return array<Affiliation>
      */
-    public function getByAuthorId(int $authorId): array
+    public function getByAuthorIds(array $authorIds): array
     {
         return $this->getCollector()
-            ->filterByAuthorId($authorId)
+            ->filterByAuthorIds($authorIds)
             ->getMany()
             ->all();
     }
@@ -217,7 +217,7 @@ class Repository
 
         // deleted affiliations not in param $affiliations
         // do this before insert/update, otherwise inserted will be deleted
-        $currentAffiliations = $this->getByAuthorId($authorId);
+        $currentAffiliations = $this->getByAuthorIds([$authorId]);
         foreach ($currentAffiliations as $currentAffiliation) {
             $rowFound = false;
             $currentAffiliationId = $currentAffiliation->getId();

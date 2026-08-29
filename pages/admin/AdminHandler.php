@@ -53,6 +53,8 @@ use PKP\job\resources\HttpFailedJobResource;
 use PKP\notification\Notification;
 use PKP\plugins\PluginHelper;
 use PKP\scheduledTask\ScheduledTaskHelper;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\Role;
@@ -60,6 +62,7 @@ use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
 use PKP\user\form\ConfirmPasswordForm;
 use PKP\userGroup\UserGroup;
+use Psr\Log\LogLevel;
 
 class AdminHandler extends Handler
 {
@@ -120,6 +123,8 @@ class AdminHandler extends Handler
 
     /**
      * @copydoc PKPHandler::initialize()
+     *
+     * @param null|mixed $args
      */
     public function initialize($request, $args = null)
     {
@@ -452,6 +457,9 @@ class AdminHandler extends Handler
         }
 
         Application::get()->getRequest()->getSessionGuard()->removeAllSession();
+
+        AuditLog::log(AuditEvent::ADMIN_SESSIONS_EXPIRE, LogLevel::NOTICE);
+
         $request->redirect(null, 'login');
     }
 
@@ -470,6 +478,9 @@ class AdminHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->clearTemplateCache();
         $templateMgr->clearCssCache();
+
+        AuditLog::log(AuditEvent::ADMIN_CACHE_TEMPLATE_CLEAR, LogLevel::NOTICE);
+
         $request->redirect(null, 'admin');
     }
 
@@ -488,6 +499,8 @@ class AdminHandler extends Handler
         // Clear Laravel caches
         $cacheManager = PKPContainer::getInstance()['cache'];
         $cacheManager->store()->flush();
+
+        AuditLog::log(AuditEvent::ADMIN_CACHE_DATA_CLEAR, LogLevel::NOTICE);
 
         $request->redirect(null, 'admin');
     }
@@ -518,6 +531,8 @@ class AdminHandler extends Handler
 
         ScheduledTaskHelper::clearExecutionLogs();
 
+        AuditLog::log(AuditEvent::ADMIN_SCHEDULED_LOGS_CLEAR, LogLevel::NOTICE);
+
         $request->redirect(null, 'admin');
     }
 
@@ -544,7 +559,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
-            'pageTitle' => 'navigation.tools.jobs',
+            'pageTitle' => __('navigation.tools.jobs'),
         ]);
 
         $templateMgr->display('admin/jobs.tpl');
@@ -612,7 +627,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
-            'pageTitle' => 'navigation.tools.jobs.failed',
+            'pageTitle' => __('navigation.tools.jobs.failed'),
         ]);
 
         $templateMgr->display('admin/failedJobs.tpl');
@@ -721,7 +736,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
-            'pageTitle' => 'navigation.tools.jobs.failed.details',
+            'pageTitle' => __('navigation.tools.jobs.failed.details'),
         ]);
 
         $templateMgr->display('admin/failedJobDetails.tpl');
@@ -887,6 +902,8 @@ class AdminHandler extends Handler
 
 
             Application::get()->getRequest()->getSessionGuard()->startElevatedSession();
+
+            AuditLog::log(AuditEvent::SESSION_REAUTH_SUCCESS, LogLevel::NOTICE);
             /** @var PKPPageRouter $pkpPageRouter */
             $pkpPageRouter = $request->getRouter();
 
@@ -910,6 +927,8 @@ class AdminHandler extends Handler
             } else {
                 $pkpPageRouter->redirectHome($request);
             }
+        } else {
+            AuditLog::log(AuditEvent::SESSION_REAUTH_FAILED, LogLevel::WARNING);
         }
 
         $this->setupTemplate($request);

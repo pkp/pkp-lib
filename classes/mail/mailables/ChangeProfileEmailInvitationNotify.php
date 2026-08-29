@@ -43,13 +43,4 @@ class ChangeProfileEmailInvitationNotify extends Mailable
         Role::ROLE_ID_REVIEWER,
         Role::ROLE_ID_SUBSCRIPTION_MANAGER,
     ];
-
-    /**
-     * @copydoc Mailable::getDataDescriptions()
-     */
-    public static function getDataDescriptions(): array
-    {
-        $variables = parent::getDataDescriptions();
-        return static::addPasswordVariable($variables);
-    }
 }

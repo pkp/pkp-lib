@@ -248,11 +248,13 @@ class PKPNavigationMenuController extends PKPBaseController
         if (isset($params['title'])) {
             $navigationMenu->setTitle($params['title']);
         }
+        $oldAreaName = null;
         if (array_key_exists('areaName', $params)) {
+            $oldAreaName = $navigationMenu->getAreaName();
             $navigationMenu->setAreaName($params['areaName'] ?? '');
         }
 
-        $navigationMenuDao->updateObject($navigationMenu);
+        $navigationMenuDao->updateObject($navigationMenu, $oldAreaName);
 
         // Save menu tree assignments if provided
         if (isset($params['menuTree'])) {
@@ -272,6 +274,7 @@ class PKPNavigationMenuController extends PKPBaseController
      * @param array $params The parameters to validate
      * @param bool $requireTitle Whether title is required (true for create, false for update)
      * @param int|null $excludeMenuId Menu ID to exclude from area check (for updates)
+     *
      * @return array Validation errors, empty if valid
      */
     protected function validateNavigationMenu(array $params, bool $requireTitle = true, ?int $excludeMenuId = null): array
@@ -302,7 +305,7 @@ class PKPNavigationMenuController extends PKPBaseController
 
         // Area assignment validation - check if another menu is already assigned to this area
         if (!empty($params['areaName'])) {
-            $existingMenus = $navigationMenuDao->getByArea($contextId, $params['areaName'])->toArray();
+            $existingMenus = $navigationMenuDao->getByArea($contextId, $params['areaName']);
             $existingMenu = $existingMenus[0] ?? null;
 
             if ($existingMenu && $existingMenu->getId() !== $excludeMenuId) {

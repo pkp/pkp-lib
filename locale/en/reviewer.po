@@ -38,6 +38,9 @@ msgstr "View All Submission Details"
 msgid "reviewer.submission.reviewerFiles"
 msgstr "Reviewer Files"
 
+msgid "reviewer.submission.reviewerFiles.description"
+msgstr "Any supporting files the reviewer chose to upload."
+
 msgid "reviewer.submission.declineReview"
 msgstr "Decline Review Request"
 
@@ -221,6 +224,9 @@ msgstr "Full Review"
 
 msgid "openReview.noCommentsAvailable"
 msgstr "No review comments available."
+
+msgid "openReview.citeReviewReport"
+msgstr "Cite this peer review report:"
 
 msgid "openReview.readReview"
 msgstr "Read Review"

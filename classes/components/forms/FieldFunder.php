@@ -37,8 +37,15 @@ class FieldFunder extends Field
         $config = parent::getConfig();
 
         $config['submissionId'] = $this->submissionId;
-        $config['value'] = $this->value ?? $this->default ?? null;
 
         return $config;
+    }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     */
+    public function getEmptyValue()
+    {
+        return [];
     }
 }

@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
@@ -30,6 +31,18 @@ use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\UserGroup;
 
+/**
+ * @mixin Builder
+ *
+ * @method Builder|static withContextId(int $contextId)
+ * @method Builder|static withStageId(int $stageId)
+ * @method Builder|static withInclude(bool $include)
+ * @method Builder|static withType(int $type)
+ * @method Builder|static withTitleLike(string $title)
+ * @method Builder|static withSearch(string $phrase)
+ * @method Builder|static withUserGroupsAccess(?array $userGroupIds)
+ * @method Builder|static withEmailKeys(array $emailKeys, int $contextId)
+ */
 class Template extends Model
 {
     use ModelWithSettings;
@@ -49,16 +62,17 @@ class Template extends Model
         'type',
         'dueInterval',
         'description',
-        'restrictToUserGroups'
+        'restrictToUserGroups',
+        'key',
     ];
 
     protected $casts = [
         'stage_id' => 'int',
         'context_id' => 'int',
         'include' => 'bool',
-        'title' => 'string',
         'type' => 'int',
         'restrictToUserGroups' => 'bool',
+        'key' => 'string',
     ];
 
     /**
@@ -77,6 +91,14 @@ class Template extends Model
         return null;
     }
 
+    public function getSettings(): array
+    {
+        return array_merge(
+            $this->settings,
+            ['title', 'description'],
+        );
+    }
+
     /**
      * Add Model-level defined multilingual properties
      */
@@ -84,7 +106,7 @@ class Template extends Model
     {
         return array_merge(
             $this->multilingualProps,
-            []
+            ['title', 'description']
         );
     }
 
@@ -115,7 +137,7 @@ class Template extends Model
     /**
      * Scope: filter by context_id
      */
-    public function scopeByContextId($query, int $contextId)
+    public function scopeWithContextId($query, int $contextId)
     {
         return $query->where('context_id', $contextId);
     }
@@ -131,7 +153,7 @@ class Template extends Model
     /**
      * Scope: filter by stage_id
      */
-    public function scopeFilterByStageId(Builder $query, int $stageId): Builder
+    public function scopeWithStageId(Builder $query, int $stageId): Builder
     {
         return $query->where('stage_id', $stageId);
     }
@@ -139,9 +161,28 @@ class Template extends Model
     /**
      * Scope: filter by include flag
      */
-    public function scopeFilterByInclude(Builder $query, bool $include): Builder
+    public function scopeWithInclude(Builder $query, bool $include): Builder
     {
         return $query->where('include', $include);
+    }
+
+    /**
+     * Identify which user groups have access to the template
+     */
+    public function scopeWithUserGroupsAccess(Builder $query, array $userGroupIds): Builder
+    {
+        return $query->when(
+            !empty($userGroupIds),
+            fn (Builder $query) =>
+            $query->where(
+                fn (Builder $query) =>
+                $query->whereHas(
+                    'userGroups',
+                    fn (Builder $subQuery) =>
+                    $subQuery->whereIn('edit_task_template_user_groups.user_group_id', $userGroupIds)
+                )->orWhere($this->table . '.restrict_to_user_groups', false)
+            )
+        );
     }
 
     /**
@@ -161,8 +202,8 @@ class Template extends Model
 
         $task = new Task([
             'type' => $this->type,
-            'title' => $this->title,
-            EditorialTask::ATTRIBUTE_HEADNOTE => $this->description,
+            'title' => $this->getLocalizedData('title'),
+            EditorialTask::ATTRIBUTE_HEADNOTE => $this->getLocalizedData('description'),
             EditorialTask::ATTRIBUTE_PARTICIPANTS => $participantIds,
             'stageId' => $this->stageId,
             'dateDue' => $this->dueInterval ? now()->add(new DateInterval($this->dueInterval)) : null,
@@ -178,7 +219,7 @@ class Template extends Model
     /**
      * Scope: filter by  type
      */
-    public function scopeFilterByType(Builder $q, int $type): Builder
+    public function scopeWithType(Builder $q, int $type): Builder
     {
         return $q->where('type', $type);
     }
@@ -186,7 +227,7 @@ class Template extends Model
     /**
      * Scope: filter by title LIKE
      */
-    public function scopeFilterByTitleLike(Builder $query, string $title): Builder
+    public function scopeWithTitleLike(Builder $query, string $title): Builder
     {
         $title = trim($title);
         if ($title === '') {
@@ -206,7 +247,7 @@ class Template extends Model
      * - name, description (settings)
      * Also supports "task" / "discussion" keyword to constrain by type.
      */
-    public function scopeFilterBySearch(Builder $query, string $phrase): Builder
+    public function scopeWithSearch(Builder $query, string $phrase): Builder
     {
         $phrase = trim($phrase);
         if ($phrase === '') {
@@ -254,17 +295,14 @@ class Template extends Model
                 foreach ($keywords as $tok) {
                     $like = '%' . addcslashes($tok, '%_') . '%';
 
-                    $outer->where(function (Builder $q) use ($like, $settingsTable, $pk, $selfTable) {
-                        $q->whereRaw('LOWER(title) LIKE LOWER(?)', [$like])
-                            ->orWhereRaw('LOWER(description) LIKE LOWER(?)', [$like])
-                            ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
-                                $sub->select(DB::raw(1))
-                                    ->from($settingsTable . ' as ets')
-                                    ->whereColumn("ets.{$pk}", "{$selfTable}.{$pk}")
-                                    ->whereIn('ets.setting_name', ['name', 'description'])
-                                    ->whereRaw('LOWER(ets.setting_value) LIKE LOWER(?)', [$like]);
-                            });
-                    });
+                    $outer->whereExists(
+                        fn (QueryBuilder $q) => $q
+                            ->select(DB::raw(1))
+                            ->from($settingsTable . ' as ets')
+                            ->whereColumn("ets.{$pk}", "{$selfTable}.{$pk}")
+                            ->whereIn('ets.setting_name', ['title', 'description'])
+                            ->whereRaw('LOWER(ets.setting_value) LIKE LOWER(?)', [$like])
+                    );
                 }
             });
         }
@@ -272,12 +310,11 @@ class Template extends Model
     }
 
     /**
-     * Scope a query to filter by user group IDs.
+     * Filter query by (email) keys belonging to the default discussion templates migrated from email templates
      */
-    protected function scopeWithUserGroupIds(Builder $builder, array $userGroupIds): Builder
+    protected function scopeWithKeys(Builder $builder, array $keys, int $contextId): Builder
     {
-        $ug = (new UserGroup())->getTable();
-        return $builder->where('restrict_to_user_groups', false)
-            ->orWhereHas('userGroups', fn (Builder $query) => $query->whereIn($ug . '.user_group_id', $userGroupIds));
+        return $builder->where('context_id', $contextId)->whereIn('key', $keys);
+
     }
 }

@@ -605,9 +605,6 @@ msgstr "Author Information"
 msgid "submission.citations.structured.header.journal"
 msgstr "Journal Information"
 
-msgid "submission.citations.structured.label.authorOrcid"
-msgstr "ORCID profile for {$givenName} {$familyName}"
-
 msgid "submission.citations.structured.label.citation"
 msgstr "Citation"
 
@@ -712,6 +709,9 @@ msgstr "Add Data Citation"
 
 msgid "submission.dataCitations.editModal.title"
 msgstr "Edit Data Citation"
+
+msgid "submission.dataCitations.viewModal.title"
+msgstr "View Data Citation"
 
 msgid "submission.dataCitations.label.title"
 msgstr "Title"
@@ -2220,6 +2220,9 @@ msgstr "Task reassigned from {$taskOwnerOldUsername} to {$taskOwnerNewUsername} 
 msgid "submission.event.task.assigned"
 msgstr "Task assigned to {$taskOwnerNewUsername} by {$username} on {$dateLogged}"
 
+msgid "submission.event.impersonation.userLabel"
+msgstr "{$userName} (acting as {$impersonatedName})"
+
 msgid "submission.overview"
 msgstr "Submission Overview"
 
@@ -2314,7 +2317,7 @@ msgid "log.review.reviewConfirmed"
 msgstr "Editor {$editorName} has confirmed a review for the round {$round} review for submission {$submissionId}."
 
 msgid "log.review.reviewReady"
-msgstr "{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}."
+msgstr "The round {$round} review assigned to {$reviewerName} for submission {$submissionId} has been completed."
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "Waiting for a response from the reviewer."
@@ -3585,6 +3588,21 @@ msgstr "Retraction"
 msgid "publication.updateType.withdrawal"
 msgstr "Withdrawal"
 
+msgid "publication.reviewRound.field.label"
+msgstr "Associated review round"
+
+msgid "publication.reviewRound.field.description"
+msgstr "Link this version to the review round whose findings it reflects. Leave blank if not applicable."
+
+msgid "publication.reviewRound.field.placeholder"
+msgstr "Select a review round"
+
+msgid "publication.reviewRound.option"
+msgstr "Round {$round} — opened {$date}"
+
+msgid "publication.reviewRound.optionNoDate"
+msgstr "Round {$round}"
+
 msgid "submission.submit.creditRoles.degrees.lead"
 msgstr "Lead"
 
@@ -3913,3 +3931,33 @@ msgstr "The following issues were found, but will not prevent publishing"
 
 msgid "reviewer.competingInterests"
 msgstr "Competing Interests"
+
+msgid "submission.event.review.field.modified.comments"
+msgstr "The following was modified in this review: Comments. Select \"View changes\" to see a detailed summary of all modifications."
+
+msgid "submission.event.review.field.modified.reviewerRecommendation"
+msgstr "The following was modified in this review: Reviewer Recommendation. Select \"View changes\" to see a detailed summary of all modifications."
+
+msgid "submission.event.review.field.modified.formResponse"
+msgstr "The following was modified in this review: Review Form. Select \"View changes\" to see a detailed summary of all modifications."
+
+msgid "submission.event.review.updatedFormResponses"
+msgstr "Updated Form Responses"
+
+msgid "submission.event.review.previousFormResponses"
+msgstr "Previous Form Responses"
+
+msgid "submission.event.review.updatedReviewerRecommendation"
+msgstr "Updated Reviewer Recommendation"
+
+msgid "submission.event.review.previousReviewerRecommendation"
+msgstr "Previous Reviewer Recommendation"
+
+msgid "submission.event.review.updatedComments"
+msgstr "Updated Comments"
+
+msgid "submission.event.review.previousComments"
+msgstr "Previous Comments"
+
+msgid "submission.event.viewReview"
+msgstr "View Review"

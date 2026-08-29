@@ -2037,6 +2037,7 @@ msgstr ""
 "Editor {$editorName} telah mengonfirmasi review untuk tahap {$round} review "
 "untuk naskah {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} telah merampungkan review untuk tahap {$round} review untuk "

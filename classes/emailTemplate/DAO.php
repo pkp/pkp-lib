@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Str;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
@@ -111,19 +112,22 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of Email Templates matching the configured query
+     * Get a collection of EmailTemplate instances matching the configured query.
+     * Overrides the parent implementation, which yields by key -- not all email
+     * templates have keys!
      *
-     * @return LazyCollection<int,T>
+     * @return LazyCollection<T>
      */
-    public function getMany(Collector $query): LazyCollection
+    public function getMany(CollectorInterface $query): LazyCollection
     {
         return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+            $queryBuilder = $query->getQueryBuilder();
+            $rows = $queryBuilder->get();
+            $ids = $rows->pluck($this->primaryKeyColumn)->all();
+            $cache = (object) [];
 
             foreach ($rows as $row) {
-                yield $this->fromRow($row);
+                yield $this->fromRow($row, $ids, $cache, $query);
             }
         });
     }
@@ -131,7 +135,7 @@ class DAO extends EntityDAO
     /**
      * Get a single email template that matches the given key
      */
-    public function getByKey(?int $contextId = null, string $key): ?EmailTemplate
+    public function getByKey(?int $contextId, string $key): ?EmailTemplate
     {
         $results = Repo::emailTemplate()->getCollector($contextId)
             ->filterByKeys([$key])
@@ -155,10 +159,10 @@ class DAO extends EntityDAO
      *
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): EmailTemplate
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): EmailTemplate
     {
         /** @var EmailTemplate $emailTemplate */
-        $emailTemplate = parent::fromRow($row);
+        $emailTemplate = parent::fromRow($row, $ids, $cache, $query);
         $schema = $this->schemaService->get($this->schema);
         $contextDao = Application::getContextDAO();
 
@@ -236,9 +240,6 @@ class DAO extends EntityDAO
      * skipping others
      * @param bool $skipExisting If true, do not install email templates
      * that already exist in the database
-     * @param bool $recordTemplateGroupAccess - If true, records the templates as unrestricted. For versions 3.6 or higher, this value should be set to true when calling `installEmailTemplates`.
-     * By default, it is set to false to ensure compatibility with older processes (e.g., migrations)
-     * where the `email_template_user_group_access` table may not exist at the time of execution.
      *
      */
     public function installEmailTemplates(
@@ -246,7 +247,6 @@ class DAO extends EntityDAO
         array $locales = [],
         ?string $emailKey = null,
         bool $skipExisting = false,
-        bool $recordTemplateGroupAccess = false
     ): bool {
         $xmlDao = new XMLDAO();
         $data = $xmlDao->parseStruct($templatesFile, ['email']);
@@ -284,20 +284,6 @@ class DAO extends EntityDAO
                 $contextIds = app()->get('context')->getIds();
                 foreach ($contextIds as $contextId) {
                     $this->installAlternateEmailTemplates($contextId, $attrs['key']);
-                }
-            }
-
-            if ($recordTemplateGroupAccess) {
-                // Default to true if `isUnrestricted` is not set.
-                $isUnrestricted = $attrs['isUnrestricted'] ?? '1';
-
-                if ($isUnrestricted !== '1' && $isUnrestricted !== '0') {
-                    throw new Exception('Invalid value given for the `isUnrestricted` attribute on the ' . $attrs['key'] . ' template.');
-                }
-
-                $contextIds = app()->get('context')->getIds();
-                foreach ($contextIds as $contextId) {
-                    Repo::emailTemplate()->markTemplateAsUnrestricted($attrs['key'], (bool)$isUnrestricted, $contextId);
                 }
             }
         }
@@ -400,7 +386,7 @@ class DAO extends EntityDAO
                     'Tried to install email template as an alternate to `' . $alternateTo . '`, but no default template exists with this key. Installing ' . $alternateTo . ' email template first',
                     E_USER_WARNING
                 );
-                $this->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), [], $alternateTo, false, true);
+                $this->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), [], $alternateTo);
             }
 
             DB::table($this->table)->insert([
@@ -466,38 +452,5 @@ class DAO extends EntityDAO
         }
 
         return $key;
-    }
-
-
-    /**
-     * Sets email template's unrestricted status to their defaults
-     */
-    public function setTemplateDefaultUnrestirctedSetting(int $contextId, ?array $emailKeys = null)
-    {
-        $xmlDao = new XMLDAO();
-        $data = $xmlDao->parseStruct($this->getMainEmailTemplatesFilename(), ['email']);
-
-        if (!isset($data['email'])) {
-            return false;
-        }
-
-        foreach ($data['email'] as $entry) {
-            $attrs = $entry['attributes'];
-
-            if ($emailKeys !== null && !in_array($attrs['key'], $emailKeys)) {
-                continue;
-            }
-
-            // Default to true if `isUnrestricted` is not set.
-            $isUnrestricted = $attrs['isUnrestricted'] ?? '1';
-
-            if ($isUnrestricted !== '1' && $isUnrestricted !== '0') {
-                throw new Exception('Invalid value given for the `isUnrestricted` attribute on the ' . $attrs['key'] . ' template.');
-            }
-
-            Repo::emailTemplate()->markTemplateAsUnrestricted($attrs['key'], (bool)$isUnrestricted, $contextId);
-        }
-
-        return true;
     }
 }

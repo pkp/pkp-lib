@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2026-06-16 07:20+0000\n"
+"PO-Revision-Date: 2026-08-07 08:28+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da/>\n"
@@ -2078,6 +2078,7 @@ msgstr ""
 "Redaktør {$editorName} har valideret runde {$round}-bedømmelsen i forbindelse "
 "med indsendelse {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} har afsluttet bedømmelsen under runde {$round}-bedømmelsen i "
@@ -3253,3 +3254,6 @@ msgstr "Bedømmelsen blev færdiggjort d. {$date}"
 
 msgid "reviewer.competingInterests"
 msgstr "Konkurrerende interesser"
+
+msgid "ror.invalidRorId"
+msgstr "Angiv venligst et gyldigt ROR ID."

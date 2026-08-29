@@ -32,9 +32,6 @@ class Collector implements CollectorInterface
     /** @var string The default orderBy value for authors collector */
     public $orderBy = self::ORDERBY_SEQUENCE;
 
-    /** @var DAO */
-    public $dao;
-
     /** @var int[]|null */
     public $contextIds = null;
 
@@ -56,9 +53,10 @@ class Collector implements CollectorInterface
 
     public ?bool $includeInBrowse = null;
 
-    public function __construct(DAO $dao)
+    public ?array $authorIds = null;
+
+    public function __construct(public DAO $dao)
     {
-        $this->dao = $dao;
     }
 
     public function getCount(): int
@@ -99,6 +97,15 @@ class Collector implements CollectorInterface
     public function filterByPublicationIds(?array $publicationIds): self
     {
         $this->publicationIds = $publicationIds;
+        return $this;
+    }
+
+    /**
+     * Filter by author IDs
+     */
+    public function filterByAuthorIds(?array $authorIds): self
+    {
+        $this->authorIds = $authorIds;
         return $this;
     }
 
@@ -173,54 +180,37 @@ class Collector implements CollectorInterface
         $q = DB::table('authors as a')
             ->select(['a.*', 's.locale AS submission_locale'])
             ->join('publications as p', 'a.publication_id', '=', 'p.publication_id')
-            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
-
-        if (isset($this->contextIds)) {
-            $q->whereIn('s.context_id', $this->contextIds);
-        }
-
-        $q->when($this->familyName !== null, function (Builder $q) {
-            $q->whereIn('a.author_id', function (Builder $q) {
-                $q->select('author_id')
-                    ->from($this->dao->settingsTable)
-                    ->where('setting_name', '=', 'familyName')
-                    ->where('setting_value', $this->familyName);
-            });
-        });
-
-        $q->when($this->givenName !== null, function (Builder $q) {
-            $q->whereIn('a.author_id', function (Builder $q) {
-                $q->select('author_id')
-                    ->from($this->dao->settingsTable)
-                    ->where('setting_name', '=', 'givenName')
-                    ->where('setting_value', $this->givenName);
-            });
-        });
-
-        if (isset($this->publicationIds)) {
-            $q->whereIn('a.publication_id', $this->publicationIds);
-        }
-
-        $q->when($this->country !== null, function (Builder $q) {
-            $q->whereIn('a.author_id', function (Builder $q) {
-                $q->select('author_id')
-                    ->from($this->dao->settingsTable)
-                    ->where('setting_name', '=', 'country')
-                    ->where('setting_value', $this->country);
-            });
-        });
-
-        if ($this->includeInBrowse) {
-            $q->where('a.include_in_browse', $this->includeInBrowse);
-        }
-
-        if (isset($this->count)) {
-            $q->limit($this->count);
-        }
-
-        if (isset($this->offset)) {
-            $q->offset($this->offset);
-        }
+            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
+            ->when($this->contextIds !== null, fn (Builder $q) => $q->whereIn('s.context_id', $this->contextIds))
+            ->when($this->familyName !== null, function (Builder $q) {
+                $q->whereIn('a.author_id', function (Builder $q) {
+                    $q->select('author_id')
+                        ->from($this->dao->settingsTable)
+                        ->where('setting_name', '=', 'familyName')
+                        ->where('setting_value', $this->familyName);
+                });
+            })
+            ->when($this->givenName !== null, function (Builder $q) {
+                $q->whereIn('a.author_id', function (Builder $q) {
+                    $q->select('author_id')
+                        ->from($this->dao->settingsTable)
+                        ->where('setting_name', '=', 'givenName')
+                        ->where('setting_value', $this->givenName);
+                });
+            })
+            ->when($this->publicationIds !== null, fn (Builder $q) => $q->whereIn('a.publication_id', $this->publicationIds))
+            ->when($this->authorIds !== null, fn (Builder $q) => $q->whereIn('a.author_id', $this->authorIds))
+            ->when($this->country !== null, function (Builder $q) {
+                $q->whereIn('a.author_id', function (Builder $q) {
+                    $q->select('author_id')
+                        ->from($this->dao->settingsTable)
+                        ->where('setting_name', '=', 'country')
+                        ->where('setting_value', $this->country);
+                });
+            })
+            ->when($this->includeInBrowse !== null, fn (Builder $q) => $q->where('a.include_in_browse', $this->includeInBrowse))
+            ->when($this->count !== null, fn (Builder $q) => $q->limit($this->count))
+            ->when($this->offset !== null, fn (Builder $q) => $q->offset($this->offset));
 
         switch ($this->orderBy) {
             case self::ORDERBY_SEQUENCE:

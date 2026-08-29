@@ -24,8 +24,8 @@ namespace PKP\config;
 use Exception;
 use PKP\core\Registry;
 
-/** The path to the default configuration file */
-define('CONFIG_FILE', \PKP\core\Core::getBaseDir() . '/config.inc.php');
+/** The path to the default configuration file (PKP_CONFIG_FILE selects an alternative, e.g. a test install's config) */
+define('CONFIG_FILE', getenv('PKP_CONFIG_FILE') ?: \PKP\core\Core::getBaseDir() . '/config.inc.php');
 
 class Config
 {

@@ -569,6 +569,7 @@ msgstr "Рецензиялоо кызыкчылыктары"
 msgid "editor.review.logResponse.for"
 msgstr "Жоопту жазуу:"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Бул рецензия окулгандан кийин \"Ырастоо\" баскычын басыңыз, рецензия "

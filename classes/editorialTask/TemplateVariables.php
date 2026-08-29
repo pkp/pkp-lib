@@ -19,6 +19,7 @@ namespace PKP\editorialTask;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Discussion;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 
@@ -26,6 +27,7 @@ class TemplateVariables extends Mailable
 {
     use Sender;
     use Recipient;
+    use Discussion;
 
     protected EditorialTask $editorialTask;
     protected Submission $submission;

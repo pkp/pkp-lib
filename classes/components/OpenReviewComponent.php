@@ -48,6 +48,7 @@ class OpenReviewComponent
             'openReview.noCommentsAvailable',
             'reviewer.submission.competingInterests',
             'reviewer.submission.competingInterests.declaredNone',
+            'openReview.citeReviewReport',
             'openReview.readReview',
             'openReview.hideReview',
             'openReview.readResponse',

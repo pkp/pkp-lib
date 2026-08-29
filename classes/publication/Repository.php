@@ -247,6 +247,27 @@ abstract class Repository
             $user?->getId()
         );
 
+        // Ensure this publication can be associated with included review round IDs
+        $validator->after(function ($validator) use ($props, $publication) {
+            if (array_key_exists('reviewRoundIds', $props) && $props['reviewRoundIds'] !== null) {
+                /** @var ReviewRoundDAO $reviewRoundDao */
+                $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+                $submissionReviewRoundsById = $reviewRoundDao
+                    ->getBySubmissionId($publication->getData('submissionId'))
+                    ->toAssociativeArray();
+                $nonSubmissionReviewRounds = array_diff($props['reviewRoundIds'], array_keys($submissionReviewRoundsById));
+
+                if (!empty($nonSubmissionReviewRounds)) {
+                    $validator->errors()->add(
+                        'reviewRoundIds',
+                        __('editor.submission.workflowDecision.invalidReviewRoundSubmission')
+                    );
+                }
+            }
+        });
+
+
         if ($validator->fails()) {
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
@@ -414,7 +435,7 @@ abstract class Repository
         $newPublication->setData('citationsRaw', null);
         $newId = $this->add($newPublication, $submissionStatus);
         // insert citations as they are for the new publication
-        Repo::citation()->copyCitations($citations, $newId);
+        Repo::citation()->copyCitations($citations->toArray(), $newId);
 
         $newPublication = Repo::publication()->get($newId);
 
@@ -495,6 +516,7 @@ abstract class Repository
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_CREATE_VERSION,
             'userId' => Validation::loggedInAs() ?? $request->getUser()?->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $request->getUser()?->getId() : null,
             'message' => 'publication.event.versionCreated',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
@@ -543,6 +565,7 @@ abstract class Repository
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE,
             'userId' => Validation::loggedInAs() ?? $userId,
+            'impersonatedUserId' => Validation::loggedInAs() ? $userId : null,
             'message' => 'submission.event.general.metadataUpdated',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
@@ -651,6 +674,7 @@ abstract class Repository
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH,
             'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $this->request->getUser()?->getId() : null,
             'message' => $msg,
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()
@@ -814,6 +838,7 @@ abstract class Repository
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UNPUBLISH,
             'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $this->request->getUser()?->getId() : null,
             'message' => $msg,
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()

@@ -351,6 +351,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Тази рецензия няма да бъде взета под внимание"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "След като тази рецензия бъде прочетена, натиснете \"Потвърди\", за да "

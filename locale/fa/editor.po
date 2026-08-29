@@ -331,6 +331,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "نادیده گرفتن این داوری"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "هنگامی که این داوری خواندن شد، «تأیید» را فشار دهید تا نشان دهید که روند "

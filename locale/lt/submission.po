@@ -2123,6 +2123,7 @@ msgstr ""
 "Redaktorius {$editorName} patvirtino pateikto darbo {$submissionId} peržiūrą "
 "{$round} peržiūros etape."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} baigė {$round} peržiūros etapo pateiktą darbą "

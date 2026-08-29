@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FieldMetadataSetting.php
  *
@@ -46,5 +47,15 @@ class FieldMetadataSetting extends FieldOptions
         $config['submissionOptions'] = $this->submissionOptions;
 
         return $config;
+    }
+
+    /**
+     * @copydoc Field::getEmptyValue()
+     *
+     * This field holds a scalar tri-state setting, not a checkbox array.
+     */
+    public function getEmptyValue()
+    {
+        return $this->disabledValue;
     }
 }

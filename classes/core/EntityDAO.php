@@ -16,6 +16,8 @@ namespace PKP\core;
 
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityUpdate;
 use PKP\db\DAO;
 use PKP\services\PKPSchemaService;
@@ -95,11 +97,30 @@ abstract class EntityDAO
     }
 
     /**
+     * Get a collection of DataObject instances matching the configured query
+     *
+     * @return LazyCollection<int,T>
+     */
+    public function getMany(CollectorInterface $query): LazyCollection
+    {
+        return LazyCollection::make(function () use ($query) {
+            $queryBuilder = $query->getQueryBuilder();
+            $rows = $queryBuilder->get();
+            $ids = $rows->pluck($this->primaryKeyColumn)->all();
+            $cache = (object) [];
+
+            foreach ($rows as $row) {
+                yield $row->{$this->primaryKeyColumn} => $this->fromRow($row, $ids, $cache, $query);
+            }
+        });
+    }
+
+    /**
      * Convert a row from the database query into a DataObject
      *
      * @return T
      */
-    public function fromRow(object $row): DataObject
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): DataObject
     {
         $schema = $this->schemaService->get($this->schema);
 
@@ -120,23 +141,25 @@ abstract class EntityDAO
         }
 
         if ($this->settingsTable) {
-            $rows = DB::table($this->settingsTable)
-                ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
-                ->get();
-
-            $rows->each(function ($row) use ($object, $schema) {
-                if (!empty($schema->properties->{$row->setting_name})) {
-                    $object->setData(
-                        $row->setting_name,
-                        $this->convertFromDB(
-                            value: $row->setting_value,
-                            type: $schema->properties->{$row->setting_name}->type,
-                            decrypt: $schema->properties->{$row->setting_name}->encrypt ?? false
-                        ),
-                        empty($row->locale) ? null : $row->locale
-                    );
-                }
-            });
+            $cache->settings ??= DB::table($this->settingsTable)
+                ->whereIn($this->primaryKeyColumn, $ids)
+                ->get()
+                ->collect()
+                ->groupBy($this->primaryKeyColumn);
+            $cache->settings->get($row->{$this->primaryKeyColumn})
+                ?->each(function ($row) use ($object, $schema) {
+                    if (!empty($schema->properties->{$row->setting_name})) {
+                        $object->setData(
+                            $row->setting_name,
+                            $this->convertFromDB(
+                                value: $row->setting_value,
+                                type: $schema->properties->{$row->setting_name}->type,
+                                decrypt: $schema->properties->{$row->setting_name}->encrypt ?? false
+                            ),
+                            empty($row->locale) ? null : $row->locale
+                        );
+                    }
+                });
         }
 
         return $object;

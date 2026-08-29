@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/forms/context/PKPContextStatisticsForm.php
  *
@@ -79,7 +80,7 @@ class PKPContextStatisticsForm extends FormComponent
                         'label' => __('manager.settings.statistics.institutionUsageStats.enable'),
                     ],
                 ],
-                'value' => $context->getData('enableInstitutionUsageStats') !== null ? $context->getData('enableInstitutionUsageStats') : $site->getData('enableInstitutionUsageStats'),
+                'value' => $context->getData('enableInstitutionUsageStats') ?? $site->getData('enableInstitutionUsageStats'),
             ]));
         }
         if ($site->getData('isSushiApiPublic') !== null && $site->getData('isSushiApiPublic')) {
@@ -92,7 +93,7 @@ class PKPContextStatisticsForm extends FormComponent
                         'label' => __('manager.settings.statistics.publicSushiApi.public'),
                     ],
                 ],
-                'value' => $context->getData('isSushiApiPublic') !== null ? $context->getData('isSushiApiPublic') : $site->getData('isSushiApiPublic'),
+                'value' => $context->getData('isSushiApiPublic') ?? $site->getData('isSushiApiPublic'),
             ]));
         }
     }

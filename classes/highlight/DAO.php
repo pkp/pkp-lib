@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/highlight/DAO.php
  *
@@ -15,7 +16,6 @@ namespace PKP\highlight;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 
 /**
@@ -65,7 +65,7 @@ class DAO extends EntityDAO
             ->where($this->primaryKeyColumn, $id)
             ->where(DB::raw("COALESCE({$this->parentKeyColumn}, 0)"), (int) $contextId)
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**
@@ -91,24 +91,6 @@ class DAO extends EntityDAO
             ->pluck('a.' . $this->primaryKeyColumn);
     }
 
-    /**
-     * Get a collection of highlights matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->highlight_id => $this->fromRow($row);
-            }
-        });
-    }
-
     public function insert(Highlight $highlight): int
     {
         return parent::_insert($highlight);
@@ -130,7 +112,7 @@ class DAO extends EntityDAO
     public function getLastSequence(?int $contextId = null): ?int
     {
         return DB::table($this->table)
-            ->where(DB::raw("COALESCE(context_id, 0)"), (int) $contextId)
+            ->where(DB::raw('COALESCE(context_id, 0)'), (int) $contextId)
             ->orderBy('sequence', 'desc')
             ->first('sequence')
             ?->sequence;

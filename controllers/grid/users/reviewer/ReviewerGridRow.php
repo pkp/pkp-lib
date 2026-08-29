@@ -81,21 +81,6 @@ class ReviewerGridRow extends GridRow
                 'round' => $round
             ];
 
-            // read or upload a review
-            $submission = Repo::submission()->get($submissionId);
-            if (!$reviewAssignment->getCancelled()) {
-                $this->addAction(
-                    new LinkAction(
-                        'readReview',
-                        new AjaxModal(
-                            $router->url($request, null, null, 'readReview', null, $actionArgs),
-                            __('editor.review.reviewDetails') . ': ' . $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
-                        ),
-                        __('editor.review.reviewDetails'),
-                        'more_info'
-                    )
-                );
-            }
 
             $this->addAction(
                 new LinkAction(

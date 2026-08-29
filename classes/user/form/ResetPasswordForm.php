@@ -16,14 +16,16 @@
 
 namespace PKP\user\form;
 
-use APP\facades\Repo;
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Auth;
 use PKP\form\Form;
-use PKP\form\validation\FormValidatorPassword;
 use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPassword;
 use PKP\form\validation\FormValidatorPost;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\security\Validation;
 
 class ResetPasswordForm extends Form
@@ -112,10 +114,14 @@ class ResetPasswordForm extends Form
         $user->setMustChangePassword(0);
 
         Application::get()->getRequest()->getSessionGuard()->updateUser($user);
-        
-        $user = Auth::logoutOtherDevices($this->getData('password'));
+
+        $user = Auth::logoutOtherDevices($this->getData('password')); /** @var \PKP\user\User $user */
 
         Repo::user()->edit($user);
+
+        AuditLog::log(AuditEvent::AUTH_PASSWORD_RESET_COMPLETE, \Psr\Log\LogLevel::NOTICE, [
+            'userId' => $user->getId(),
+        ]);
 
         parent::execute(...$functionArgs);
 
@@ -146,6 +152,7 @@ class ResetPasswordForm extends Form
         $templateMgr = TemplateManager::getManager($request);
 
         $templateMgr->assign([
+            'pageTitle' => 'user.login.resetPassword',
             'errorMsg' => 'user.login.lostPassword.invalidHash',
             'backLink' => $request->url(null, null, 'lostPassword'),
             'backLinkLabel' => 'user.login.resetPassword',

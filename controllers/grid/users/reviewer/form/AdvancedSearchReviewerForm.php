@@ -34,9 +34,9 @@ use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
-use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
 {
@@ -86,16 +86,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 ReviewRequest::getEmailTemplateKey(),
                 ReviewRequestSubsequent::getEmailTemplateKey()
             ])
-            ->getMany();
-
-        $accessibleTemplates = Repo::emailTemplate()
-            ->filterTemplatesByUserAccess($templates, $request->getUser(), $context->getId())
+            ->getMany()
             ->mapWithKeys(function (EmailTemplate $item, int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
             });
 
         $this->setData('personalMessage', '');
-        $this->setData('reviewerMessages', $accessibleTemplates->toArray());
+        $this->setData('reviewerMessages', $templates->toArray());
 
         if ($this->reviewerSuggestion?->hasExistingReviewerRole) {
             $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
@@ -233,6 +230,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         if ($this->reviewerSuggestion?->hasExistingReviewerRole) {
             $templateMgr->assign('reviewerName', $this->reviewerSuggestion->existingUser->getFullName());
+            $templateMgr->assign('reviewerEmail', $this->reviewerSuggestion->existingUser->getEmail());
         }
 
         $selectReviewerListPanel->set([
@@ -282,24 +280,22 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
     protected function getEmailTemplates(): array
     {
-        $contextId = Application::get()->getRequest()->getContext()->getId();
-        $subsequentTemplate = Repo::emailTemplate()->getByKey($contextId, ReviewRequestSubsequent::getEmailTemplateKey());
+        $subsequentTemplate = Repo::emailTemplate()->getByKey(
+            Application::get()->getRequest()->getContext()->getId(),
+            ReviewRequestSubsequent::getEmailTemplateKey()
+        );
 
         $alternateTemplates = Repo::emailTemplate()->getCollector(Application::get()->getRequest()->getContext()->getId())
             ->alternateTo([ReviewRequestSubsequent::getEmailTemplateKey()])
             ->getMany();
 
-        $templateKeys = parent::getEmailTemplates();
-        $user = Application::get()->getRequest()->getUser();
-
-        if(Repo::emailTemplate()->isTemplateAccessibleToUser($user, $subsequentTemplate, $contextId)) {
-            $templateKeys[ReviewRequestSubsequent::getEmailTemplateKey()] = $subsequentTemplate->getLocalizedData('name');
-        }
+        $templateKeys = array_merge(
+            parent::getEmailTemplates(),
+            [ReviewRequestSubsequent::getEmailTemplateKey() => $subsequentTemplate->getLocalizedData('name')]
+        );
 
         foreach ($alternateTemplates as $alternateTemplate) {
-            if (Repo::emailTemplate()->isTemplateAccessibleToUser($user, $subsequentTemplate, $contextId)) {
-                $templateKeys[$alternateTemplate->getData('key')] = $alternateTemplate->getLocalizedData('name');
-            }
+            $templateKeys[$alternateTemplate->getData('key')] = $alternateTemplate->getLocalizedData('name');
         }
 
         return $templateKeys;

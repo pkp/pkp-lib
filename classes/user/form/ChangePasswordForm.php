@@ -20,14 +20,17 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Auth;
+use PKP\form\Form;
 use PKP\form\validation\FormValidatorCSRF;
-use PKP\form\validation\FormValidatorPost;
 use PKP\form\validation\FormValidatorCustom;
 use PKP\form\validation\FormValidatorPassword;
-use PKP\form\Form;
+use PKP\form\validation\FormValidatorPost;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\security\Validation;
 use PKP\site\Site;
 use PKP\user\User;
+use Psr\Log\LogLevel;
 
 class ChangePasswordForm extends Form
 {
@@ -120,5 +123,7 @@ class ChangePasswordForm extends Form
         $user = Auth::logoutOtherDevices($this->getData('password'));
 
         Repo::user()->edit($user);
+
+        AuditLog::log(AuditEvent::PROFILE_PASSWORD_CHANGE, LogLevel::NOTICE);
     }
 }

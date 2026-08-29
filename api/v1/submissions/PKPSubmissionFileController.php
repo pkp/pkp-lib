@@ -23,12 +23,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
+use PKP\security\authorization\ReviewAssignmentFileAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -93,6 +95,22 @@ class PKPSubmissionFileController extends PKPBaseController
 
         Route::middleware([
             self::roleAuthorizer([
+                Role::ROLE_ID_REVIEWER,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+            ]),
+        ])->group(function () {
+
+            Route::get('review/{reviewId}', $this->getFilesByReviewId(...))
+                ->name('submission.files.review')
+                ->whereNumber('reviewId');
+
+        })->whereNumber('submissionId');
+
+        Route::middleware([
+            self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_SUB_EDITOR,
@@ -134,6 +152,14 @@ class PKPSubmissionFileController extends PKPBaseController
             // Anyone passing SubmissionAccessPolicy is allowed to access getMany,
             // but the endpoint will return different files depending on the user's
             // stage assignments.
+        } elseif ($actionName === 'getFilesByReviewId') {
+            // Reviewers assigned to the submission have access to their review files and attachments
+            $this->addPolicy(
+                new ReviewAssignmentFileAccessPolicy(
+                    $request,
+                    (int) static::getRequestedRoute()->parameter('reviewId')
+                )
+            );
         } else {
             $accessMode = $illuminateRequest->method() === 'GET'
                 ? SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ
@@ -571,6 +597,86 @@ class PKPSubmissionFileController extends PKPBaseController
             ->map($submissionFile);
 
         Repo::submissionFile()->delete($submissionFile);
+
+        return response()->json($data, Response::HTTP_OK);
+    }
+
+    /**
+     * Get files associated with a review assignment
+     */
+    public function getFilesByReviewId(Request $illuminateRequest): JsonResponse
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($reviewAssignment->getSubmissionId() !== $submission->getId()) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $allowedFileStages = [
+            SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+            SubmissionFile::SUBMISSION_FILE_REVIEW_FILE
+        ];
+
+        $params = [];
+        foreach ($illuminateRequest->query() as $param => $val) {
+            switch ($param) {
+                case 'fileStages':
+                    $params[$param] = array_map(intval(...), paramToArray($val));
+                    break;
+            }
+        }
+
+        $fileStages = empty($params['fileStages'])
+            ? $allowedFileStages
+            : $params['fileStages'];
+        foreach ($fileStages as $fileStage) {
+            if (!in_array($fileStage, $allowedFileStages)) {
+                return response()->json([
+                    'error' => __('api.submissionFiles.403.unauthorizedFileStageId'),
+                ], Response::HTTP_FORBIDDEN);
+            }
+        }
+
+        // Get review files reviewer has access to
+        $files = collect();
+        if (in_array(SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, $fileStages)) {
+            $files = $files->merge(
+                Repo::submissionFile()->getCollector()
+                    ->filterBySubmissionIds([$submission->getId()])
+                    ->filterByReviewIds([$reviewAssignment->getId()])
+                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE])
+                    ->getMany()
+            );
+        }
+
+        // Get review attachment files upload by the reviewer
+        if (in_array(SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT, $fileStages)) {
+            $files = $files->merge(
+                Repo::submissionFile()->getCollector()
+                    ->filterBySubmissionIds([$submission->getId()])
+                    ->filterByAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, [$reviewAssignment->getId()])
+                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])
+                    ->getMany()
+            );
+        }
+
+        $items = Repo::submissionFile()
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->summarizeMany($files);
+
+        $data = [
+            'itemsMax' => $files->count(),
+            'items' => $items->values(),
+        ];
 
         return response()->json($data, Response::HTTP_OK);
     }

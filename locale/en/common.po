@@ -205,6 +205,9 @@ msgstr "This section lists past contributors."
 msgid "common.editorialHistory.page.orcidLink"
 msgstr "View {$name} ORCID profile"
 
+msgid "common.orcidProfileFor"
+msgstr "ORCID profile for {$givenName} {$familyName}"
+
 msgid "common.name"
 msgstr "Name"
 
@@ -345,6 +348,9 @@ msgstr "Completed: {$dateCompleted}"
 
 msgid "common.confirm"
 msgstr "Confirm"
+
+msgid "common.confirmed"
+msgstr "Confirmed"
 
 msgid "common.confirmed.date"
 msgstr "Confirmed: {$dateConfirmed}"
@@ -850,6 +856,9 @@ msgstr "Related"
 msgid "common.reminder"
 msgstr "Reminder"
 
+msgid "common.reminded"
+msgstr "Reminded"
+
 msgid "common.reminded.date"
 msgstr "Reminded: {$dateReminded}"
 
@@ -897,6 +906,9 @@ msgstr "Save and email"
 
 msgid "common.save"
 msgstr "Save"
+
+msgid "common.saveChanges"
+msgstr "Save Changes"
 
 msgid "common.saving"
 msgstr "Saving"
@@ -2432,9 +2444,6 @@ msgstr "Refreshing data"
 msgid "common.viewMoreDetails"
 msgstr "View more details"
 
-msgid "workflow.userGroup.allowed"
-msgstr "Allowed User Groups"
-
 msgid "common.saveOrdering"
 msgstr "Save Order"
 
@@ -2443,3 +2452,6 @@ msgstr "Order"
 
 msgid "common.openLinkNewTab"
 msgstr "Open link in a new tab."
+
+msgid "common.viewChanges"
+msgstr "View changes"

@@ -2011,6 +2011,7 @@ msgstr ""
 "რედაქტორმა {$editorName} დაადასტურა მიმოხილვა მიმოხილვაზე მრგვალი {$round} "
 "მიმოხილვა წარდგენისთვის {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName}-მა დაასრულა მიმოხილვა {$round} მიმოხილვის წარსადგენად "

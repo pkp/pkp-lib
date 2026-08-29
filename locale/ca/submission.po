@@ -2040,6 +2040,7 @@ msgstr ""
 "L'editor/a {$editorName} ha confirmat una revisió per a la ronda {$round} de "
 "revisió de la tramesa {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} ha completat la revisió per a la ronda {$round} de revisió "

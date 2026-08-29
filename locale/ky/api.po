@@ -2,7 +2,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 04:38+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ky/>"
 "\n"
@@ -412,3 +412,23 @@ msgid "api.publications.403.noEnabledIdentifiers"
 msgstr ""
 "Жарыялануу идентификаторлору формасы жеткиликтүү эмес, анткени "
 "идентификаторлор иштетилген эмес."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr "Рецензент ролдору үчүн masthead көрүнүшүн өзгөртүүгө болбойт."
+
+msgid "api.rors.429.tooManyRequests"
+msgstr ""
+"ROR издөө суроолору өтө көп. Сураныч, бир аз күтүп, кайра аракет кылыңыз."
+
+msgid "api.rors.429.globalRateLimited"
+msgstr ""
+"Азыр ROR издөө суроолору өтө көп иштетилүүдө. Сураныч, бир аз күтүп, кайра "
+"аракет кылыңыз."
+
+msgid "api.400.invalidMastheadParameter"
+msgstr "Жараксыз masthead параметри."
+
+msgid "api.rors.429.rorApiRateLimited"
+msgstr ""
+"ROR реестри (ror.org) азыр биздин суроолорубузду чектеп жатат. Сураныч, бир "
+"нече мүнөт күтүп, кайра аракет кылыңыз."

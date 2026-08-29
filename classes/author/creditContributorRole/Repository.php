@@ -15,13 +15,14 @@
 namespace PKP\author\creditContributorRole;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use PKP\author\contributorRole\ContributorRole;
 use PKP\author\creditRole\CreditRole;
 
 class Repository
 {
     /** Add contributor roles for a contributor */
-    public function addContributorRoles(array $contributorRoles, int $contributorId): void
+    public function addContributorRoles(iterable $contributorRoles, int $contributorId): void
     {
         $roleIds = collect($contributorRoles)
             ->map(fn (ContributorRole $role) => $role->contributorRoleId);
@@ -46,7 +47,7 @@ class Repository
     }
 
     /** Add CRediT roles for a contributor */
-    public function addCreditRoles(array $newRoles, int $contributorId): void
+    public function addCreditRoles(iterable $newRoles, int $contributorId): void
     {
         $identifiersWithIds = CreditRole::withCreditRoleIdentifiers(Arr::pluck($newRoles, 'role'))
             ->get()
@@ -85,6 +86,20 @@ class Repository
     }
 
     /**
+     * Get all contributor's contributor roles as objects.
+     */
+    public function getContributorRolesGroupedByContributorIds(array $contributorIds): Collection
+    {
+        return ContributorRole::query()
+            ->join('credit_contributor_roles', 'contributor_roles.contributor_role_id', 'credit_contributor_roles.contributor_role_id')
+            ->whereIn('credit_contributor_roles.contributor_id', $contributorIds)
+            ->orderBy('contributor_roles.contributor_role_id')
+            ->get()
+            ->collect()
+            ->groupBy('contributor_id');
+    }
+
+    /**
      * Get all contributor's credit roles.
      */
     public function getCreditRolesByContributorId(int $contributorId): array
@@ -95,5 +110,19 @@ class Repository
             ->select(['credit_role_identifier as role', 'credit_degree as degree'])
             ->get()
             ->toArray();
+    }
+
+    /**
+     * Get all contributor's credit roles.
+     */
+    public function getCreditRolesGroupedByContributorIds(array $contributorIds): Collection
+    {
+        return CreditContributorRole::query()
+            ->whereIn('contributor_id', $contributorIds)
+            ->withCreditRoles()
+            ->select(['credit_role_identifier as role', 'credit_degree as degree', 'contributor_id'])
+            ->get()
+            ->collect()
+            ->groupBy('contributor_id');
     }
 }

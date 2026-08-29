@@ -384,6 +384,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Nesvarstyti šios recenzijos"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Kai recenzija bus perskaityta, spauskite „Patvirtinti“. Taip patvirtinsite, "

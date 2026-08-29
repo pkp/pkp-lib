@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-18 21:18+0000\n"
+"PO-Revision-Date: 2026-08-26 11:35+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg/>\n"
@@ -4037,3 +4037,11 @@ msgstr ""
 "Файловете с изображението на корицата и миниатюрите не можаха да бъдат "
 "намерени. Възможно е вече да са били изтрити. Опитайте да презаредите "
 "страницата."
+
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "Изисква се модел на суфикс DOI."
+
+msgid "mailable.changeProfileEmailInvitationNotify.description"
+msgstr ""
+"Потребителите, които поискат промяна на имейл адреса си в потребителския си "
+"профил, ще получат тази заявка за потвърждение."

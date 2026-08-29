@@ -2226,6 +2226,7 @@ msgstr ""
 "Ir atsākta {$round}. kārtas recenzija, ko materiālam {$submissionId} veic "
 "{$reviewerName}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} ir pabeidzis recenziju par materiālu {$submissionId} {$round}"

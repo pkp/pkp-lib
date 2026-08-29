@@ -1,15 +1,16 @@
-# Carla Marques <carla.marques@usdb.uminho.pt>, 2022, 2023.
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2022, 2023, 2026.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
 # Carlos Costa <carlos.costa@uc.pt>, 2023.
 # Paula Moura <paula.moura@usdb.uminho.pt>, 2023.
 # Alberto Simoes <ambs@zbr.pt>, 2026.
+# Pedro Calheno Pinto <ppinto@keep.pt>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2026-02-24 19:15+0000\n"
-"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"PO-Revision-Date: 2026-08-18 19:13+0000\n"
+"Last-Translator: Pedro Calheno Pinto <ppinto@keep.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/pt/>\n"
 "Language: pt\n"
@@ -55,7 +56,7 @@ msgid "admin.confirmExpireSessions"
 msgstr ""
 "Tem a certeza de que quer expirar todas as sessões dos utilizadores? Todos "
 "os utilizadores que estão atualmente ligados ao sistema serão forçados a "
-"entrar novamente no sistema (incluindo você mesmo)."
+"entrar novamente no sistema (incluindo o próprio)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Conteúdo do ficheiro de configuração"
@@ -87,7 +88,7 @@ msgstr "Expirar Sessões de Utilizadores"
 msgid "admin.expireSessions.description"
 msgstr ""
 "Todos os utilizadores serão imediatamente desconectados da aplicação, "
-"incluindo você, e precisarão de fazer novamente o login."
+"incluindo o utilizador atual, e precisarão de fazer novamente o login."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -103,7 +104,7 @@ msgstr ""
 msgid "admin.languages.confirmReload"
 msgstr ""
 "Deseja realmente recarregar este idioma? A sua execução irá apagar qualquer "
-"informação de idioma específico como customização de e-mails."
+"informação de idioma específico como personalização de e-mails."
 
 msgid "admin.languages.installedLocales"
 msgstr "Idiomas Instalados"
@@ -1085,3 +1086,40 @@ msgstr ""
 "Executar uma tarefa escalonada específica a partir da lista ou utilize o "
 "parâmetro --name para executar uma tarefa específica. Defina o parâmetro "
 "--no-scroll para visualizar a lista completa sem ter de fazer scroll no ecrã."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Não foi possível atualizar o conjunto de dados do Registo ROR devido a uma "
+"divergência na checksum. Checksum esperada: {$expected}. Checksum atual: "
+"{$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Não foi possível verificar a integridade do ficheiro ZIP descarregado do "
+"conjunto de dados do Registo ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"Não foi possível verificar o ficheiro ZIP do conjunto de dados do Registo "
+"ROR: o algoritmo de verificação informado não é compatível. Apenas MD5 e "
+"SHA256 são suportados."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr ""
+"Não foi possível fazer o download do ficheiro ZIP do conjunto de dados do "
+"Registo ROR."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"Não foi possível aceder ao ficheiro ZIP do conjunto de dados do Registo ROR. "
+"Código de erro: {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"Não foi possível obter os metadados do conjunto de dados do Registo ROR. "
+"Código de estado HTTP inesperado: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Não foi possível obter os metadados do conjunto de dados do Registo ROR. "
+"Nenhum ficheiro de download foi encontrado na resposta da API."

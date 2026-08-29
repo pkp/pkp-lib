@@ -24,10 +24,11 @@ use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\controlledVocab\ControlledVocab;
+use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
 use PKP\dataCitation\DataCitation;
-use PKP\funder\Funder;
 use PKP\notification\Notification;
 use PKP\services\PKPSchemaService;
 
@@ -92,20 +93,22 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of publications matching the configured query
+     * Get a publication.
      *
-     * @return LazyCollection<int,T>
+     * Optionally, pass the submission ID to only get a publication
+     * if it exists and is assigned to that submission.
      */
-    public function getMany(Collector $query): LazyCollection
+    public function get(int $id, ?int $submissionId = null): ?Publication
     {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-            foreach ($rows as $row) {
-                yield $row->publication_id => $this->fromRow($row);
-            }
-        });
+        // This is overridden due to the need to include submission_locale
+        // to the fromRow function
+        $row = DB::table('publications as p')
+            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
+            ->where('p.publication_id', '=', $id)
+            ->when($submissionId !== null, fn (Builder $query) => $query->where('s.submission_id', '=', $submissionId))
+            ->select(['p.*', 's.locale AS submission_locale'])
+            ->first();
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**
@@ -153,21 +156,19 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::fromRow()
      */
-    public function fromRow(object $row): Publication
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): Publication
     {
         /** @var Publication $publication */
-        $publication = parent::fromRow($row);
+        $publication = parent::fromRow($row, $ids, $cache, $query);
 
         $this->setDoiObject($publication);
 
         // Set the primary locale from the submission
-        $locale = DB::table('submissions as s')
-            ->where('s.submission_id', '=', $publication->getData('submissionId'))
-            ->value('locale');
-        $publication->setData('locale', $locale);
+        $publication->setData('locale', $row->submission_locale);
 
-        $citations = Repo::citation()->getByPublicationId($publication->getId());
-        $publication->setData('citations', $citations);
+        $publicationVersionString = Repo::publication()->getVersionString($publication);
+        $publication->setData('versionString', $publicationVersionString);
+
         $publication->setData('citationsRaw', new class ($publication->getId()) implements \Stringable {
             public function __construct(public int $publicationId)
             {
@@ -178,14 +179,59 @@ class DAO extends EntityDAO
             }
         });
 
-        $publicationVersionString = Repo::publication()->getVersionString($publication);
-        $publication->setData('versionString', $publicationVersionString);
+        $publication->setData('authors', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->authors ??= Repo::author()->getCollector()->filterByPublicationIds($ids)
+                ->getMany()
+                ->collect()
+                ->groupBy(fn ($author) => $author->getData('publicationId'), true);
+            yield from $cache->authors->get($row->publication_id) ?? [];
+        })->remember());
 
-        $this->setAuthors($publication);
-        $this->setCategories($publication);
-        $this->setControlledVocab($publication);
-        $this->setDataCitations($publication);
-        $this->setFunders($publication);
+        $publication->setData('categoryIds', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->categoryIds ??= PublicationCategory::withPublicationIds($ids)
+                ->get()
+                ->collect()
+                ->mapToGroups(fn ($publicationCategory, $key) => [$publicationCategory->publicationId => $publicationCategory->categoryId]);
+            yield from $cache->categoryIds->get($row->publication_id) ?? [];
+        })->remember());
+
+        $cache->controlledVocabs ??= ControlledVocabEntry::query()
+            ->withWhereHas('controlledVocab', fn ($query) => $query->withSymbolics([ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY])->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $ids))
+            ->get()
+            ->collect()
+            ->groupBy(fn ($cve) => $cve->controlledVocab->assocId, true);
+        $publicationControlledVocabs = $cache->controlledVocabs->get($row->publication_id) ?? collect();
+        $symbolicControlledVocabs = $publicationControlledVocabs->groupBy(fn ($cve) => $cve->controlledVocab->symbolic, true);
+        foreach ([
+            'keywords' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            'subjects' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+            'disciplines' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+            'supportingAgencies' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+        ] as $dataName => $symbolicName) {
+            $entries = [];
+            foreach ($symbolicControlledVocabs->get($symbolicName) ?? [] as $entry) {
+                foreach ($entry->name as $locale => $value) {
+                    $entries[$locale][] = $entry->getEntryData($locale);
+                }
+            }
+            $publication->setData($dataName, $entries);
+        }
+
+        $publication->setData('dataCitations', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->dataCitations ??= DataCitation::withPublicationIds($ids)
+                ->orderBySeq()
+                ->get()
+                ->collect()
+                ->groupBy(fn ($dataCitation) => $dataCitation->publicationId, true);
+            yield from $cache->dataCitations->get($row->publication_id) ?? [];
+        }));
+
+        $publication->setData('citations', LazyCollection::make(function () use ($row, $ids, $cache) {
+            $cache->citations ??= Repo::citation()->getByPublicationIds($ids)
+                ->collect()
+                ->groupBy(fn ($citation) => $citation->getData('publicationId'), true);
+            yield from $cache->citations->get($row->publication_id) ?? [];
+        }));
 
         return $publication;
     }
@@ -327,22 +373,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Set a publication's author properties
-     */
-    protected function setAuthors(Publication $publication)
-    {
-        $publication->setData(
-            'authors',
-            Repo::author()
-                ->getCollector()
-                ->filterByPublicationIds([$publication->getId()])
-                ->orderBy(\PKP\author\Collector::ORDERBY_SEQUENCE)
-                ->getMany()
-                ->remember()
-        );
-    }
-
-    /**
      * Delete a publication's authors
      */
     protected function deleteAuthors(int $publicationId)
@@ -362,41 +392,6 @@ class DAO extends EntityDAO
      */
     protected function setControlledVocab(Publication $publication)
     {
-        $publication->setData(
-            'keywords',
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            )
-        );
-
-        $publication->setData(
-            'subjects',
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            )
-        );
-
-        $publication->setData(
-            'disciplines',
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            )
-        );
-
-        $publication->setData(
-            'supportingAgencies',
-            Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
-                Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId()
-            )
-        );
     }
 
     /**
@@ -453,20 +448,11 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Set a publication's category property
-     */
-    protected function setCategories(Publication $publication): void
-    {
-        $categoryIds = PublicationCategory::withPublicationId($publication->getId())->pluck('category_id')->toArray();
-        $publication->setData('categoryIds', $categoryIds);
-    }
-
-    /**
      * Save the assigned categories
      */
     protected function saveCategories(Publication $publication): void
     {
-        $categoryIds = (array) $publication->getData('categoryIds');
+        $categoryIds = iterator_to_array($publication->getData('categoryIds') ?? []);
         Repo::publication()->assignCategoriesToPublication($publication->getId(), $categoryIds);
     }
 
@@ -479,37 +465,11 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Set a publication's Data Citations
-     */
-    protected function setDataCitations(Publication $publication): void
-    {
-        $dataCitations = DataCitation::withPublicationId($publication->getId())
-            ->orderBySeq()
-            ->get()
-            ->values()
-            ->all();
-        $publication->setData('dataCitations', $dataCitations);
-    }
-
-    /**
      * Delete a publication's Data Citations
      */
     protected function deleteDataCitations(int $publicationId): void
     {
         DataCitation::where('publication_id', $publicationId)->delete();
-    }
-
-    /**
-     * Set a publication's Funders
-     */
-    protected function setFunders(Publication $publication): void
-    {
-        $funders = Funder::withSubmissionId($publication->getData('submissionId'))
-            ->orderBySeq()
-            ->get()
-            ->values()
-            ->all();
-        $publication->setData('funders', $funders);
     }
 
     /**

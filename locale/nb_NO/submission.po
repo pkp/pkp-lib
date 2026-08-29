@@ -1980,6 +1980,7 @@ msgstr ""
 "Redaktøren {$editorName} har validert en {$round} runde for innlevering "
 "{$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} har fullført vurderingen under {$round} runde for "

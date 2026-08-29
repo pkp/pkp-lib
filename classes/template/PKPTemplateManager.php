@@ -964,6 +964,7 @@ class PKPTemplateManager extends Smarty
             'WORKFLOW_STAGE_ID_PRODUCTION' => WORKFLOW_STAGE_ID_PRODUCTION,
             'WORKFLOW_STAGE_ID_DONE' => WORKFLOW_STAGE_ID_DONE,
             'INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+            'ASSOC_TYPE_REVIEW_ASSIGNMENT' => Application::ASSOC_TYPE_REVIEW_ASSIGNMENT,
             'ROLE_ID_MANAGER' => Role::ROLE_ID_MANAGER,
             'ROLE_ID_SITE_ADMIN' => Role::ROLE_ID_SITE_ADMIN,
             'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR,
@@ -2608,7 +2609,7 @@ class PKPTemplateManager extends Smarty
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /** @var NavigationMenuDAO $navigationMenuDao */
 
         $output = '';
-        $navigationMenus = $navigationMenuDao->getByArea($contextId, $areaName)->toArray();
+        $navigationMenus = $navigationMenuDao->getByArea($contextId, $areaName, !Validation::isLoggedIn());
         if (isset($navigationMenus[0])) {
             $navigationMenu = $navigationMenus[0];
             app()->get('navigationMenu')->getMenuTree($navigationMenu);

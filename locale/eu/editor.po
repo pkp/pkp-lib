@@ -360,6 +360,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Kontuan ez hartu berrikuspen hau"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Behin berrikuspen hori irakurri ondoren, sakatu \"Berretsi\", berrikuspen-"

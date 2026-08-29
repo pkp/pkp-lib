@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/services/PKPSiteService.php
  *
@@ -24,11 +25,14 @@ use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\validation\ValidatorFactory;
+use Psr\Log\LogLevel;
 
 class PKPSiteService implements EntityPropertyInterface
 {
@@ -225,6 +229,19 @@ class PKPSiteService implements EntityPropertyInterface
         Hook::call('Site::edit', [&$newSite, $site, $params, $request]);
 
         $siteDao->updateObject($newSite);
+
+        $securityKeys = [
+            'minPasswordLength',
+            'passwordUncompromisedEnabled',
+            'rateLimitEnabled',
+            'rateLimitMaxAttempts',
+            'rateLimitDecaySeconds'
+        ];
+        $changedKeys = array_values(array_filter($securityKeys, fn ($key) => array_key_exists($key, $params) && $site->getData($key) != $params[$key]));
+        if ($changedKeys) {
+            AuditLog::log(AuditEvent::SITE_SECURITY_UPDATE, LogLevel::NOTICE, ['changedKeys' => $changedKeys]);
+        }
+
         $newSite = $siteDao->getSite();
 
         return $newSite;

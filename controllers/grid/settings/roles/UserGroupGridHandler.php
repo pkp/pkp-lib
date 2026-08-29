@@ -30,6 +30,8 @@ use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
@@ -38,6 +40,7 @@ use PKP\security\RoleDAO;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
+use Psr\Log\LogLevel;
 
 class UserGroupGridHandler extends GridHandler
 {
@@ -370,6 +373,11 @@ class UserGroupGridHandler extends GridHandler
                 // We can delete, no user assigned yet.
                 $userGroup->delete();
 
+                AuditLog::log(AuditEvent::USER_GROUP_DELETED, LogLevel::NOTICE, [
+                    'userGroupId' => $userGroup->id,
+                    'roleId' => $userGroup->roleId,
+                ]);
+
                 $notificationMgr->createTrivialNotification(
                     $user->getId(),
                     Notification::NOTIFICATION_TYPE_SUCCESS,
@@ -449,6 +457,11 @@ class UserGroupGridHandler extends GridHandler
                     'stageId' => $stageId
                 ]);
 
+                AuditLog::log(AuditEvent::USER_GROUP_STAGE_ASSIGNED, LogLevel::NOTICE, [
+                    'userGroupId' => $userGroup->id,
+                    'stageId' => $stageId,
+                ]);
+
                 $messageKey = 'grid.userGroup.assignedStage';
                 break;
             case 'unassignStage':
@@ -457,6 +470,12 @@ class UserGroupGridHandler extends GridHandler
                     ->withUserGroupId($userGroup->id)
                     ->withStageId($stageId)
                     ->delete();
+
+                AuditLog::log(AuditEvent::USER_GROUP_STAGE_UNASSIGNED, LogLevel::NOTICE, [
+                    'userGroupId' => $userGroup->id,
+                    'stageId' => $stageId,
+                ]);
+
                 $messageKey = 'grid.userGroup.unassignedStage';
                 break;
         }

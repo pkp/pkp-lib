@@ -505,7 +505,7 @@ class PKPContainer extends Container
         $logFormatter = ($logFormatter && class_exists($logFormatter)) ? $logFormatter : null;
 
         $items['logging'] = [
-            'default' => Config::getVar('logs', 'log_channel', 'daily'),
+            'default' => Config::getVar('logs', 'log_channel', 'errorlog'),
             'channels' => [
                 'stack' => [
                     'driver' => 'stack',
@@ -664,6 +664,7 @@ class PKPContainer extends Container
 
     /**
      * Get the path to the storage directory
+     *
      * @see \Illuminate\Foundation\Application::storagePath()
      */
     public function storagePath(string $path = ''): string

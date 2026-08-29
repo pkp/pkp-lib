@@ -340,6 +340,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "هذا التحكيم غير معتبر"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "بمجرد قراءة هذا التحكيم، إضغط \"تأكيد التحكيم\" للإشارة إلى أن عملية التحكيم "

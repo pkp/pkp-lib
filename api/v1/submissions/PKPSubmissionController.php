@@ -81,7 +81,8 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
-use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
 
@@ -466,7 +467,8 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissions = $collector->getMany();
 
-        $anonymizeReviews = $this->anonymizeReviews($submissions);
+        $reviewsToAnonymize = $this->reviewsToAnonymize($submissions);
+        $submissionsToAnonymizeByAuthor = $this->submissionsToAnonymizeByAuthor($submissions);
 
         $userGroups = UserGroup::withContextIds($context->getId())->cursor();
 
@@ -476,7 +478,15 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres, $anonymizeReviews)->values(),
+            'items' => Repo::submission()
+                ->getSchemaMap()
+                ->summarizeMany(
+                    $submissions,
+                    $userGroups,
+                    $genres,
+                    $reviewsToAnonymize,
+                    $submissionsToAnonymizeByAuthor,
+                )->values(),
         ], Response::HTTP_OK);
     }
 
@@ -582,7 +592,8 @@ class PKPSubmissionController extends PKPBaseController
         // Anonymize sensitive review assignment data if user is a reviewer or author assigned to the article and review isn't open
         $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->remember();
 
-        $anonymizeReviews = $this->anonymizeReviews($submission, $reviewAssignments);
+        $reviewsToAnonymize = $this->reviewsToAnonymize($submission, $reviewAssignments);
+        $submissionsToAnonymizeByAuthor = $this->submissionsToAnonymizeByAuthor($submission, $reviewAssignments);
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -596,7 +607,10 @@ class PKPSubmissionController extends PKPBaseController
             $reviewAssignments,
             null,
             null,
-            !$anonymizeReviews || $anonymizeReviews->isEmpty() ? false : $anonymizeReviews
+            $reviewsToAnonymize,
+            null,
+            null,
+            $submissionsToAnonymizeByAuthor,
         ), Response::HTTP_OK);
     }
 
@@ -897,6 +911,7 @@ class PKPSubmissionController extends PKPBaseController
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_COPYRIGHT_AGREED,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
                 'message' => 'submission.event.copyrightAgreed',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
@@ -1165,13 +1180,8 @@ class PKPSubmissionController extends PKPBaseController
 
         $publications = $collector->getMany();
 
-        $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
-            ->filterBySubmissionIds([$submission->getId()])
-            ->filterByReviewerIds([$request->getUser()->getId()], true)
-            ->getMany()
-            ->first();
-
-        $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
+        $submissionsToAnonymizeByAuthor = $this->submissionsToAnonymizeByAuthor($submission);
+        $anonymizeAuthors = !empty($submissionsToAnonymizeByAuthor);
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1179,7 +1189,12 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::publication()->getSchemaMap($submission, $genres)->summarizeMany($publications, $anonymize)->values(),
+            'items' => Repo::publication()->getSchemaMap($submission, $genres)
+                ->summarizeMany(
+                    $publications,
+                    $anonymizeAuthors,
+                )
+                ->values(),
         ], Response::HTTP_OK);
     }
 
@@ -1204,12 +1219,19 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        $submissionsToAnonymizeByAuthor = $this->submissionsToAnonymizeByAuthor($submission);
+        $anonymizeAuthors = !empty($submissionsToAnonymizeByAuthor);
+
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres)
+                ->map(
+                    $publication,
+                    $anonymizeAuthors,
+                ),
             Response::HTTP_OK
         );
     }
@@ -1361,6 +1383,37 @@ class PKPSubmissionController extends PKPBaseController
             // or if the given version stage information is different from what already assigned
             if (!$publication->getData('versionStage') || $publication->getData('versionStage') !== $versionStage->value) {
                 $publication = Repo::publication()->updateVersion($publication, $versionStage, $versionIsMinor);
+            }
+        }
+
+        // Update reviewRoundIds associated with publication
+        if (array_key_exists('reviewRoundIds', $params)) {
+            /** @var ReviewRoundDAO $reviewRoundDao */
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+            /** @var ReviewRound[] $existingReviewRounds */
+            $existingReviewRounds = $reviewRoundDao->getByPublicationId($publication->getId())->toArray();
+
+            // 1) Handle cases where we are removing all publication <-> review round assocations
+            if ($params['reviewRoundIds'] === null) {
+                foreach ($existingReviewRounds as $reviewRound) {
+                    $reviewRoundDao->updatePublicationId($reviewRound->getId(), null);
+                }
+            } else {
+                $updatedReviewRoundIds = Arr::map($params['reviewRoundIds'], fn ($item) => (int) $item);
+
+                // 2) Handle any new publication <-> review round assocations to previously unassocationed review rounds
+                foreach ($updatedReviewRoundIds as $updatedReviewRoundId) {
+                    $reviewRoundDao->updatePublicationId($updatedReviewRoundId, $publication->getId());
+                }
+
+                // 3) Handle updating existing publication <-> review round associations
+                foreach ($existingReviewRounds as $reviewRound) {
+                    // If review round ID was not included with request, it should be assumed unselected, i.e. null
+                    if (!in_array($reviewRound->getId(), $updatedReviewRoundIds)) {
+                        $reviewRoundDao->updatePublicationId($reviewRound->getId(), null);
+                    }
+                }
             }
         }
 
@@ -1569,6 +1622,11 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $submissionsToAnonymizeByAuthor = $this->submissionsToAnonymizeByAuthor($submission);
+        if (in_array($submission->getId(), $submissionsToAnonymizeByAuthor)) {
+            return response()->json(['error' => __('api.403.unauthorized')], Response::HTTP_FORBIDDEN);
+        }
+
         return response()->json(
             Repo::author()->getSchemaMap($submission)->map($author),
             Response::HTTP_OK
@@ -1593,6 +1651,14 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json([
                 'error' => __('api.publications.403.submissionsDidNotMatch'),
             ], Response::HTTP_FORBIDDEN);
+        }
+
+        $submissionsToAnonymizeByAuthor = $this->submissionsToAnonymizeByAuthor($submission);
+        if (in_array($submission->getId(), $submissionsToAnonymizeByAuthor)) {
+            return response()->json([
+                'itemsMax' => 0,
+                'items' => [],
+            ], Response::HTTP_OK);
         }
 
         $collector = Repo::author()->getCollector()

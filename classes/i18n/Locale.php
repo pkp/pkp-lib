@@ -44,6 +44,7 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RecursiveRegexIterator;
 use RegexIterator;
+use ResourceBundle;
 use Sokil\IsoCodes\Database\Countries;
 use Sokil\IsoCodes\Database\Currencies;
 use Sokil\IsoCodes\Database\LanguagesInterface;
@@ -182,8 +183,13 @@ class Locale implements LocaleInterface
 
         $this->locale = $locale;
         setlocale(LC_ALL, 'C.utf8', 'C');
-        $locales = array_keys($this->getWeblateLocaleNames());
-        \Locale::setDefault(\Locale::lookup($locales, $locale, true));
+        // ICU's own list (not Weblate's) avoids "und" and similar tags breaking Locale::lookup(). Falls
+        // back to DEFAULT_LOCALE (not $locale) when ICU has no data at all for $locale (e.g. a real OJS
+        // locale like "cnr") - never passes an ICU-unrecognized locale to setDefault(), which would
+        // silently stick as the process-wide default until something using it without an explicit
+        // locale (e.g. NumberFormatter) crashes. Kept as a backup for any future/third-party code
+        // relying on this implicit default - nothing in the codebase currently reads Locale::getDefault().
+        \Locale::setDefault(\Locale::lookup(ResourceBundle::getLocales(''), $locale, true) ?: LocaleInterface::DEFAULT_LOCALE);
     }
 
     /**

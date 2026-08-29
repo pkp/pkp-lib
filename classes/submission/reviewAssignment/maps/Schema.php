@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/reviewAssignment/maps/Schema.php
  *
@@ -127,6 +128,29 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case '_href':
                     $output[$prop] = $this->getApiUrl('_submissions/reviewAssignments/' . $item->getId());
+                    break;
+                case 'reviewerRecommendation':
+                    $recommendationId = $item->getData('reviewerRecommendationId');
+                    if ($recommendationId && $recommendation = ReviewerRecommendation::find($recommendationId)) {
+                        $output[$prop] = [
+                            'id' => $recommendation->id,
+                            'type' => $recommendation->type,
+                            'label' => $recommendation->title,
+                        ];
+                    } else {
+                        $output[$prop] = null;
+                    }
+                    break;
+                case 'lastModifiedBy':
+                    $output[$prop] = null;
+                    $lastModifiedByUserId = $item->getData('lastModifiedById');
+
+                    if ($lastModifiedByUserId && $user = Repo::user()->get($lastModifiedByUserId)) {
+                        $output[$prop] = [
+                            'id' => $user->getId(),
+                            'userFullName' => $user->getFullName(),
+                        ];
+                    }
                     break;
                 default:
                     $output[$prop] = $item->getData($prop);

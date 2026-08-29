@@ -19,7 +19,6 @@ namespace PKP\citation;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
@@ -77,23 +76,6 @@ class DAO extends EntityDAO
         return $query
             ->getQueryBuilder()
             ->getCountForPagination();
-    }
-
-    /**
-     * Get a collection of citations matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-            foreach ($rows as $row) {
-                yield $row->citation_id => $this->fromRow($row);
-            }
-        });
     }
 
     /** @copydoc EntityDAO::insert() */

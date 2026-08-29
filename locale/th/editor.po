@@ -346,6 +346,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "ยกเลิกการพิจารณาการทบทวนนี้"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "เมื่อการทบทวนนี้ถูกอ่านแล้ว กรุณากด \"ยืนยัน\" "

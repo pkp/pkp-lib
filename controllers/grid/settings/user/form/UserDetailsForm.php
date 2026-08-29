@@ -31,8 +31,11 @@ use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\mail\mailables\UserCreated;
 use PKP\notification\Notification;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\security\Validation;
 use PKP\user\User;
+use Psr\Log\LogLevel;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class UserDetailsForm extends UserForm
@@ -313,6 +316,10 @@ class UserDetailsForm extends UserForm
         $this->user->setPreferredPublicName($this->getData('preferredPublicName'), null); // Localized
         $this->user->setAffiliation($this->getData('affiliation'), null); // Localized
         $this->user->setSignature($this->getData('signature'), null); // Localized
+
+        // Detect an admin-initiated email change on an existing account (before the value is overwritten).
+        $emailChanged = $this->user->getId() != null && $this->user->getEmail() !== $this->getData('email');
+
         $this->user->setEmail($this->getData('email'));
         $this->user->setUrl($this->getData('userUrl'));
         $this->user->setPhone($this->getData('phone'));
@@ -346,12 +353,23 @@ class UserDetailsForm extends UserForm
                 if ((int) $this->user->getId() === (int) $request->getUser()->getId()) {
                     Application::get()->getRequest()->getSessionGuard()->updateUser($this->user);
                     $this->user = Auth::logoutOtherDevices($this->getData('password'));
+                    
+                    // Administrator changing their own password
+                    AuditLog::log(AuditEvent::PROFILE_PASSWORD_CHANGE, LogLevel::NOTICE);
                 } else {
                     $request->getSessionGuard()->invalidateOtherSessions($this->user->getId());
+                    
+                    // Administrator setting another user's password
+                    AuditLog::log(AuditEvent::USER_PASSWORD_RESET, LogLevel::NOTICE, ['targetUserId' => $this->user->getId()]);
                 }
             }
 
             Repo::user()->edit($this->user);
+
+            // Administrator changed the account's email address
+            if ($emailChanged) {
+                AuditLog::log(AuditEvent::USER_EMAIL_CHANGED, LogLevel::NOTICE, ['targetUserId' => $this->user->getId()]);
+            }
         } else {
             $this->user->setUsername($this->getData('username'));
             if ($this->getData('generatePassword')) {

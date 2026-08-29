@@ -1926,6 +1926,7 @@ msgstr ""
 "O editor/a {$editorName} confirmou unha revisión da rolda de revisión {$round} "
 "do envío {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} rematou a revisión da rolda de revisión {$round} do envío "

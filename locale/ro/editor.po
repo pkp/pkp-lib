@@ -331,6 +331,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Această revizie nu se ia în considerare"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "După citirea acestei revizii, apăsați „Confirmare” pentru a indica faptul că "

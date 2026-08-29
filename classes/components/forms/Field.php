@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/Field.php
  *
@@ -123,7 +124,7 @@ abstract class Field
             $config['isInert'] = $this->isInert;
         }
 
-        $config['value'] = $this->value ?? $this->default ?? null;
+        $config['value'] = $this->value ?? $this->default ?? $this->getEmptyValue();
 
         return $config;
     }
@@ -148,13 +149,20 @@ abstract class Field
     /**
      * Get a default empty value for this field type
      *
-     * The UI Library expects to receive a value property for each field. If it's
-     * a multilingual field, it expects the value property to contain keys for
-     * each locale in the form.
+     * The UI Library expects to receive a value property for each field, with a
+     * type matching what the field's component operates on (e.g. an array for
+     * multi-select fields). If it's a multilingual field, it expects the value
+     * property to contain keys for each locale in the form.
      *
      * This function will provide a default empty value so that a form can fill
      * in the empty values automatically.
      *
+     * Note: serializing `''`/`[]` instead of `null` for unset values is safe on
+     * the save path only because the API converts them back to `null` before
+     * anything is persisted (see the `ConvertEmptyStringsToNull` middleware in
+     * `PKPRoutingProvider` and `PKPBaseController::convertStringsToSchema()`).
+     * A raw `''` reaching `EntityUpdate::updateSettings()` would store an empty
+     * settings row where `null` deletes it.
      */
     public function getEmptyValue()
     {

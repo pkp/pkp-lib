@@ -18,10 +18,9 @@
 
 namespace PKP\author;
 
-use APP\facades\Repo;
+use PKP\affiliation\Affiliation;
 use PKP\author\contributorRole\ContributorRole;
 use PKP\author\contributorRole\ContributorType;
-use PKP\affiliation\Affiliation;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 
@@ -222,12 +221,10 @@ class Author extends Identity
 
     /**
      * Get affiliations (position, institution, etc.).
-     *
-     * @return array<Affiliation>
      */
-    public function getAffiliations(): array
+    public function getAffiliations(): iterable
     {
-        return $this->getData('affiliations') ?? [];
+        return $this->getData('affiliations') ?? collect();
     }
 
     /**
@@ -235,7 +232,7 @@ class Author extends Identity
      *
      * @param array<Affiliation>
      */
-    public function setAffiliations(?array $affiliations): void
+    public function setAffiliations(?iterable $affiliations): void
     {
         $this->setData('affiliations', $affiliations);
     }
@@ -245,7 +242,7 @@ class Author extends Identity
      */
     public function addAffiliation(Affiliation $affiliation): void
     {
-        $this->setAffiliations(array_merge($this->getAffiliations(), [$affiliation]));
+        $this->getAffiliations()->push($affiliation);
     }
 
     /**
@@ -253,7 +250,7 @@ class Author extends Identity
      */
     public function getLocalizedAffiliationNames(?string $preferredLocale = null): array
     {
-        return array_map(fn ($affiliation) => $affiliation->getLocalizedName($preferredLocale), $this->getAffiliations());
+        return array_map(fn ($affiliation) => $affiliation->getLocalizedName($preferredLocale), iterator_to_array($this->getAffiliations()));
     }
 
     /**
@@ -294,15 +291,15 @@ class Author extends Identity
     /**
      * Get contributor credit roles and degrees.
      */
-    public function getCreditRoles(): array
+    public function getCreditRoles(): iterable
     {
-        return $this->getData('creditRoles') ?? [];
+        return $this->getData('creditRoles') ?? collect();
     }
 
     /**
      * Set contributor credit roles and degrees.
      */
-    public function setCreditRoles(?array $creditRoles): void
+    public function setCreditRoles(?iterable $creditRoles): void
     {
         $this->setData('creditRoles', $creditRoles);
     }
@@ -310,9 +307,9 @@ class Author extends Identity
     /**
      * Get contributor roles as ContributorRole[].
      */
-    public function getContributorRoles(): array
+    public function getContributorRoles(): iterable
     {
-        return $this->getData('contributorRoles') ?? [];
+        return $this->getData('contributorRoles') ?? collect();
     }
 
     /**
@@ -350,9 +347,10 @@ class Author extends Identity
 
     /**
      * Set contributor roles using ContributorRole-objects.
+     *
      * @param array<ContributorRole>
      */
-    public function setContributorRoles(array $roles): void
+    public function setContributorRoles(iterable $roles): void
     {
         $this->setData('contributorRoles', $roles);
     }

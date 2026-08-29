@@ -19,8 +19,10 @@ use APP\publication\Publication;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\interfaces\CollectorInterface;
+use PKP\core\traits\EntityWithParent;
+use PKP\user\Collector as UserCollector;
 
 /**
  * @template T of ReviewAssignment
@@ -29,6 +31,8 @@ use PKP\core\EntityDAO;
  */
 class DAO extends EntityDAO
 {
+    use EntityWithParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = \PKP\services\PKPSchemaService::SCHEMA_REVIEW_ASSIGNMENT;
 
@@ -72,40 +76,24 @@ class DAO extends EntityDAO
         'dateConsidered' => 'date_considered',
         'requestResent' => 'request_resent',
         'isReviewPubliclyVisible' => 'is_review_publicly_visible',
+        'lastModifiedById' => 'last_modified_by_id',
     ];
 
     /** @copydoc EntityDAO::$settingsTable */
     public $settingsTable = 'review_assignment_settings';
+
+    public function getParentColumn(): string
+    {
+        return 'submission_id';
+    }
+
+
     /**
      * Instantiate a new DataObject
      */
     public function newDataObject(): ReviewAssignment
     {
         return app(ReviewAssignment::class);
-    }
-
-    /**
-     * Check if a review assignment exists
-     */
-    public function exists(int $id, ?int $submissionId): bool
-    {
-        return DB::table($this->table)
-            ->where($this->primaryKeyColumn, $id)
-            ->when($submissionId !== null, fn (Builder $query) => $query->where('submission_id', $submissionId))
-            ->exists();
-    }
-
-    /**
-     * Get a review assignment
-     */
-    public function get(int $id, ?int $submissionId = null): ?ReviewAssignment
-    {
-        $row = DB::table($this->table)
-            ->where($this->primaryKeyColumn, $id)
-            ->when($submissionId !== null, fn (Builder $query) => $query->where('submission_id', $submissionId))
-            ->first();
-
-        return $row ? $this->fromRow($row) : null;
     }
 
     /**
@@ -131,45 +119,22 @@ class DAO extends EntityDAO
             ->pluck('ra.' . $this->primaryKeyColumn);
     }
 
-    /**
-     * Get a collection of review assignments matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
+    public function fromRow(object $row, array $ids, object $cache, ?CollectorInterface $query = null): ReviewAssignment
     {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+        $reviewAssignment = parent::fromRow($row, $ids, $cache, $query);
 
-            foreach ($rows as $row) {
-                yield $row->review_id => $this->fromRow($row);
-            }
-        });
-    }
+        $cache->reviewers ??= Repo::user()->getCollector()
+            ->filterByReviewIds($ids)->filterByStatus(UserCollector::STATUS_ALL)
+            ->getMany()->collect();
+        $reviewer = $cache->reviewers->get($reviewAssignment->getReviewerId());
+        $reviewAssignment->setData('reviewerFullName', $reviewer->getFullName());
+        $reviewAssignment->setData('reviewerUserName', $reviewer->getUserName());
 
-    /**
-     * @copydoc EntityDAO::fromRow()
-     */
-    public function fromRow(object $row): ReviewAssignment
-    {
-        $reviewAssignment = parent::fromRow($row);
-        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
-        $reviewAssignment->setData(
-            'reviewerFullName',
-            $reviewer->getFullName()
-        );
-        $reviewAssignment->setData(
-            'reviewerUserName',
-            $reviewer->getUserName()
-        );
-
-        if (!empty($reviewAssignment->getData('doiId'))) {
-            $reviewAssignment->setData(
-                'doiObject',
-                Repo::doi()->get($reviewAssignment->getData('doiId'))
-            );
+        $cache->doiObjects ??= Repo::doi()->getCollector()
+            ->filterByReviewIds($ids)
+            ->getMany()->collect();
+        if ($doiId = $reviewAssignment->getData('doiId')) {
+            $reviewAssignment->setData('doiObject', $cache->doiObjects->get($doiId));
         }
 
         return $reviewAssignment;
@@ -224,16 +189,15 @@ class DAO extends EntityDAO
      * If the same DOI is used for all publication versions: the current publication of the submission the review was assigned to needs to have a DOI and is published.
      * If different DOIs are used for different publication versions, the publication the review is linked to must have a DOI and is published.
      * Additionally, a review must be publicly visible and completed to be eligible for DOI export.
-     * @param int $contextId
+     *
      * @param bool $doiVersioning - whether different doi is used per publication version.
      * @param array|null $submissionIds - Optional submission IDs to limit the results to.
-     * @return array
      */
     public function getExportableDOIsPeerReviewIds(int $contextId, bool $doiVersioning, ?array $submissionIds = null): array
     {
         return DB::table($this->table)
             ->join('submissions', 'submissions.submission_id', '=', 'review_assignments.submission_id')
-            ->when($submissionIds, fn(Builder $q) => $q->whereIn('submissions.submission_id', $submissionIds))
+            ->when($submissionIds, fn (Builder $q) => $q->whereIn('submissions.submission_id', $submissionIds))
             ->whereNotNull('review_assignments.doi_id')
             ->whereNotNull('review_assignments.date_completed')
             ->where('submissions.context_id', $contextId)
@@ -242,11 +206,11 @@ class DAO extends EntityDAO
                 // When single DOI is used for all publication versions then ensure the current version is published and has a DOI.
                 // When depositing the review, it will be linked to that DOI that is used for all versions instead of a version-specific DOI.
                 !$doiVersioning,
-                fn(Builder $q) => $q
+                fn (Builder $q) => $q
                     ->join('publications', 'publications.publication_id', '=', 'submissions.current_publication_id')
                     ->whereNotNull('publications.doi_id'),
                 // When not using single DOI for all publication versions, ensure that the publication that the review is linked with has been published
-                fn(Builder $q) => $q->whereNotNull('publications.doi_id')
+                fn (Builder $q) => $q->whereNotNull('publications.doi_id')
                     ->join('review_rounds', 'review_rounds.review_round_id', '=', 'review_assignments.review_round_id')
                     ->join('publications', 'publications.publication_id', '=', 'review_rounds.publication_id')
             )

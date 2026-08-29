@@ -2062,6 +2062,7 @@ msgstr ""
 "L'Editor {$editorName} ha confermato una revisione per il {$round} ciclo per "
 "il manoscritto {$submissionId}."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} ha completato la revisione per il {$round} ciclo per il "

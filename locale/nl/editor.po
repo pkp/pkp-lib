@@ -361,6 +361,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Houd geen rekening met deze review"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Klik na het lezen van deze review op \"Bevestig\" om aan te duiden dat het "

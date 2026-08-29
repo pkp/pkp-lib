@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/announcement/DAO.php
  *
@@ -15,7 +16,6 @@ namespace PKP\announcement;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 
 /**
@@ -73,7 +73,7 @@ class DAO extends EntityDAO
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**
@@ -96,23 +96,6 @@ class DAO extends EntityDAO
         return $query
             ->getQueryBuilder()
             ->pluck('a.' . $this->primaryKeyColumn);
-    }
-
-    /**
-     * Get a collection of announcements matching the configured query
-     *
-     * @return LazyCollection<int,T>
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-            foreach ($rows as $row) {
-                yield $row->announcement_id => $this->fromRow($row);
-            }
-        });
     }
 
     /**

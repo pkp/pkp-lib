@@ -39,6 +39,8 @@ class Collector implements CollectorInterface
     /** Get rors with given ROR */
     public ?string $ror = null;
 
+    public ?array $authorAffiliationIds = null;
+
     public ?int $count = null;
 
     public ?int $offset = null;
@@ -92,6 +94,12 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    public function filterByAuthorAffiliationIds(?array $authorAffiliationIds): self
+    {
+        $this->authorAffiliationIds = $authorAffiliationIds;
+        return $this;
+    }
+
     /**
      * Filter rors by those matching given ror
      */
@@ -132,42 +140,30 @@ class Collector implements CollectorInterface
     /**@copydoc CollectorInterface::getQueryBuilder() */
     public function getQueryBuilder(): Builder
     {
-        $qb = DB::table($this->dao->table . ' as r')->select('r.*')->distinct();
-
-        if ($this->searchPhrase !== null) {
-            $words = explode(' ', $this->searchPhrase);
-            if (count($words)) {
-                foreach ($words as $word) {
-                    $word = addcslashes($word, '%_');
-                    $qb->where('r.search_phrase', 'like', '%' . $word . '%');
+        $collector = $this;
+        $qb = DB::table($this->dao->table . ' as r')
+            ->select('r.*')
+            ->distinct()
+            ->when($this->searchPhrase !== null, function ($qb) use ($collector) {
+                foreach (explode(' ', $collector->searchPhrase) as $word) {
+                    $qb->where('r.search_phrase', 'like', '%' . addcslashes($word, '%_') . '%');
                 }
-            }
-        }
-
-        $qb->when($this->name !== null, function (Builder $qb) {
-            $qb->whereIn('r.ror_id', function (Builder $qb) {
-                $qb->select('rs.ror_id')
-                    ->from($this->dao->settingsTable . ' as rs')
-                    ->where('rs.setting_name', '=', 'name')
-                    ->where('rs.setting_value', '=', $this->name);
-            });
-        });
-
-        if ($this->isActive !== null) {
-            $qb->where('r.is_active', '=', $this->isActive);
-        }
-
-        if ($this->ror !== null) {
-            $qb->where('r.ror', $this->ror);
-        }
-
-        if (!is_null($this->count)) {
-            $qb->limit($this->count);
-        }
-
-        if (!is_null($this->offset)) {
-            $qb->offset($this->offset);
-        }
+            })
+            ->when($this->name !== null, function (Builder $qb) {
+                $qb->whereIn('r.ror_id', function (Builder $qb) {
+                    $qb->select('rs.ror_id')
+                        ->from($this->dao->settingsTable . ' as rs')
+                        ->where('rs.setting_name', '=', 'name')
+                        ->where('rs.setting_value', '=', $this->name);
+                });
+            })
+            ->when($this->authorAffiliationIds !== null, function ($q) {
+                $q->whereIn('r.ror', DB::table('author_affiliations')->select(['ror'])->whereIn('author_affiliation_id', $this->authorAffiliationIds));
+            })
+            ->when($this->isActive !== null, fn ($q) => $q->where('r.is_active', $this->isActive))
+            ->when($this->ror !== null, fn ($q) => $q->where('r.ror', $this->ror))
+            ->when(!is_null($this->count), fn ($q) => $q->limit($this->count))
+            ->when(!is_null($this->offset), fn ($q) => $q->offset($this->offset));
 
         return $qb;
     }

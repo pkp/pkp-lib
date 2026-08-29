@@ -358,6 +358,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Ikke ta med fagfellevurderingen"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Klikk «Bekreft» etter at du har lest fagfellevurderingen slik at prosessen "

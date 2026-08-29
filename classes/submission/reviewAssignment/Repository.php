@@ -19,18 +19,24 @@ use APP\core\Request;
 use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use PKP\context\Context;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\invitation\models\InvitationModel;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
+use PKP\reviewForm\ReviewFormElement;
+use PKP\reviewForm\ReviewFormElementDAO;
+use PKP\reviewForm\ReviewFormResponse;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
 use PKP\submission\ReviewFilesDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\SubmissionComment;
+use PKP\submission\SubmissionCommentDAO;
 use PKP\validation\ValidatorFactory;
 
 class Repository
@@ -145,6 +151,24 @@ class Repository
                     $isReviewer = $roleDao->userHasRole($context->getId(), $reviewer->getId(), Role::ROLE_ID_REVIEWER);
                     if (!$isReviewer) {
                         $validator->errors()->add('reviewerId', __('api.reviews.assignments.invalidReviewer'));
+                    }
+                }
+            });
+        }
+
+        // Check that the rating is valid
+        if (isset($props['quality'])) {
+            $validator->after(function ($validator) use ($props) {
+                if (!$validator->errors()->get('quality')) {
+                    $quality = $props['quality'];
+                    // Zero signifies no rating
+                    $hasRating = $quality !== 0;
+
+                    $isValidRating = $hasRating && $quality >= ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR &&
+                        $quality <= ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_GOOD;
+
+                    if (!$isValidRating) {
+                        $validator->errors()->add('quality', __('api.reviews.assignments.invalidQualityRating'));
                     }
                 }
             });
@@ -324,5 +348,151 @@ class Repository
     public function getExportableDOIsPeerReviewIds(int $contextId, bool $doiVersioning, ?array $submissionIds = null): array
     {
         return $this->dao->getExportableDOIsPeerReviewIds($contextId, $doiVersioning, $submissionIds);
+    }
+
+    /**
+     * Save a review form response for a review assignment.
+     *
+     * @param $reviewFormElementId - The ID of the review form element the response is being submitted for.
+     * @param $reviewFormResponseValue - The submitted response value.
+     */
+    public function saveReviewFormResponse(ReviewAssignment $reviewAssignment, int $reviewFormElementId, mixed $reviewFormResponseValue): void
+    {
+        /** @var ReviewFormResponseDAO $reviewFormResponseDao */
+        $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+
+        $reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewAssignment->getId(), $reviewFormElementId);
+        if (!isset($reviewFormResponse)) {
+            $reviewFormResponse = new ReviewFormResponse();
+        }
+
+        /** @var ReviewFormElementDAO $reviewFormElementDao */
+        $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+        $reviewFormElement = $reviewFormElementDao->getById($reviewFormElementId);
+
+        if ($reviewFormElement) {
+            $elementType = $reviewFormElement->getElementType();
+
+            switch ($elementType) {
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD:
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD:
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA:
+                    $reviewFormResponse->setResponseType('string');
+                    $reviewFormResponse->setValue($reviewFormResponseValue);
+                    break;
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
+                    $reviewFormResponse->setResponseType('int');
+                    $reviewFormResponse->setValue($reviewFormResponseValue);
+                    break;
+                case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
+                    $reviewFormResponse->setResponseType('object');
+                    $reviewFormResponse->setValue(array_map('intval', $reviewFormResponseValue));
+                    break;
+            }
+            if ($reviewFormResponse->getReviewFormElementId() != null && $reviewFormResponse->getReviewId() != null) {
+                $reviewFormResponseDao->updateObject($reviewFormResponse);
+            } else {
+                $reviewFormResponse->setReviewFormElementId($reviewFormElementId);
+                $reviewFormResponse->setReviewId($reviewAssignment->getId());
+                $reviewFormResponseDao->insertObject($reviewFormResponse);
+            }
+        }
+    }
+
+    /**
+     * Formats a review form element's response for logging purposes.
+     *
+     * @param mixed $response - The responses submitted for the review form element.
+     *
+     * @return array - An assoc array containing the formatted response data:
+     * [
+     *     '<elementID>' => [
+     *         'question' => '<string>',
+     *         'answer' => '<int|string|array>',
+     *         'elementType' => <int>,
+     *         'possibleResponses' => [<string>], // optional
+     *         'selectedResponses' => [<int>], // optional
+     *     ],
+     *  ]
+     */
+    public function formatReviewFormElementResponseForLogEntry(ReviewFormElement $reviewFormElement, mixed $response): array
+    {
+        $elementType = $reviewFormElement->getElementType();
+
+        $entry = [
+            'question' => $reviewFormElement->getLocalizedQuestion(),
+            'elementType' => $elementType,
+        ];
+
+        switch ($reviewFormElement->getElementType()) {
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS:
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX:
+                $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                $entry['answer'] = $possibleResponses[(int)$response] ?? null;
+                break;
+            case ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES:
+                $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                $labels = [];
+                foreach ((array)$response as $index) {
+                    if (isset($possibleResponses[(int)$index])) {
+                        $labels[] = $possibleResponses[(int)$index];
+                    }
+                }
+                $entry['answer'] = implode(', ', $labels);
+                break;
+            default:
+                $entry['answer'] = (string)$response;
+        }
+
+        if (in_array($elementType, $reviewFormElement->getMultipleResponsesElementTypes())) {
+            $entry['possibleResponses'] = $reviewFormElement->getLocalizedPossibleResponses() ?? [];
+            $entry['selectedResponses'] = array_map('intval', (array)$response);
+        }
+
+        return $entry;
+    }
+
+    /**
+     * Save or update a review comment for a review assignment.
+     */
+    public function saveReviewComment(ReviewAssignment $reviewAssignment, string $comments, bool $viewable): SubmissionComment
+    {
+        $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
+        /** @var SubmissionCommentDAO $submissionCommentDao */
+        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId(
+            $reviewAssignment->getSubmissionId(),
+            $reviewAssignment->getReviewerId(),
+            $reviewAssignment->getId(),
+            $viewable
+        );
+
+        /** @var ?SubmissionComment $comment */
+        $comment = $submissionComments->next();
+
+        if (!isset($comment)) {
+            $comment = $submissionCommentDao->newDataObject();
+        }
+
+        $comment->setCommentType(SubmissionComment::COMMENT_TYPE_PEER_REVIEW);
+        $comment->setRoleId(Role::ROLE_ID_REVIEWER);
+        $comment->setAssocId($reviewAssignment->getId());
+        $comment->setSubmissionId($reviewAssignment->getSubmissionId());
+        $comment->setAuthorId($reviewAssignment->getReviewerId());
+        $comment->setComments($comments);
+        $comment->setCommentTitle('');
+        $comment->setViewable($viewable);
+
+        $commentId = $comment->getId();
+        // Save or update
+        if ($comment->getId() != null) {
+            $comment->setDateModified(Core::getCurrentDate());
+            $submissionCommentDao->updateObject($comment);
+        } else {
+            $comment->setDatePosted(Core::getCurrentDate());
+            $commentId = $submissionCommentDao->insertObject($comment);
+        }
+
+        return $submissionCommentDao->getById($commentId);
     }
 }

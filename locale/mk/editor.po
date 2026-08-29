@@ -348,6 +348,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Откажи ја ова рецензија"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Откако ќе се прочита оваа рецензија, притиснете \"Потврди\" за да означите "

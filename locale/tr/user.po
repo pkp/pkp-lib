@@ -1,12 +1,13 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
+# Osman Durmaz <osmandurmaz@hotmail.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2026-01-28 01:29+0000\n"
-"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"PO-Revision-Date: 2026-08-08 04:21+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/tr/"
 ">\n"
 "Language: tr\n"
@@ -771,7 +772,6 @@ msgstr "Geçersiz istemci kimliği"
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Tamamlanmamış gönderim için iş akışı erişimi kısıtlanmıştır."
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Aşağıya kurumunuzun tam adını girin, kısaltmalardan kaçının. Açılır menüden "
@@ -802,18 +802,15 @@ msgstr "Kurum"
 msgid "user.affiliations.translationEditActionLabel"
 msgstr "Kurum adını düzenle"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
-msgstr "{$language} dilinde enstitü adını yazın"
+msgstr "Kurum adını {$language} dilinde yazın"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
-msgstr "{$language} dilinde enstitü adı"
+msgstr "{$language} dilinde kurum adı"
 
 msgid "user.affiliations.deleteModal.message"
 msgstr "Bağlı kuruluş <strong>{$affiliation}</strong> silinecek."
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Kurum adını {$language} alanına yazın"
 
@@ -882,7 +879,6 @@ msgstr ""
 msgid "user.disabledModal.description"
 msgstr "Mevcut Rolleriniz : {$roles}"
 
-#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Bu rolü kalıcı olarak kaldırmak istediğinizden emin misiniz? Bu eylem, "
@@ -964,3 +960,29 @@ msgstr "Yazar oluşturulduktan sonra e-posta gönderilecektir."
 
 msgid "user.login.activate.description"
 msgstr "Hesabı onayla ve aktif et"
+
+msgid "user.masthead.update.title"
+msgstr "Künye görünürlüğü değişikliğini onaylayın"
+
+msgid "user.affiliations.error.rorApi"
+msgstr "ROR API Hatası"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"ROR API hizmeti şu anda kullanılamıyor. Lütfen sayfayı yenileyin veya daha "
+"sonra tekrar deneyin."
+
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr ""
+"ROR API'ye çok fazla istek gönderildi. Aramaya devam etmeden önce lütfen bir "
+"süre bekleyin."
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"Bu kurulumdaki ROR API hizmeti kullanımdan kaldırılmıştır. Lütfen sistem "
+"yöneticinizle iletişime geçin."
+
+msgid "user.masthead.update.message"
+msgstr ""
+"Bu, seçili rol için bu kullanıcının dergi künyesinde görünüp görünmeyeceğini "
+"günceller. Kullanıcı bu değişiklik hakkında bilgilendirilecektir."

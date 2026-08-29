@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2026-02-12 05:54+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ru/"
 ">\n"
@@ -784,7 +784,6 @@ msgstr "Дополнительная информация"
 msgid "user.affiliations.translationDeleteActionLabel"
 msgstr "Удалить учреждение"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Введите название учреждения на {$language}"
 
@@ -811,7 +810,6 @@ msgstr "Все переводы доступны"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} из {$total} языков завершено"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Название института на {$language}"
 
@@ -821,7 +819,6 @@ msgstr "Вы уверены?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Аффилиация <strong>{$affiliation}</strong> будет удалена."
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Введите название института на {$language}"
 
@@ -831,12 +828,11 @@ msgstr "Основной язык {$primaryLocale} обязателен"
 msgid "user.affiliations.institution"
 msgstr "Учреждение"
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
 "Введите полное название учреждения ниже, избегая аббревиатур. Выберите "
 "название из выпадающего списка и нажмите «Добавить», чтобы включить "
-"аффилиацию в свой профиль. (например, «Simon Fraser University»)"
+"аффилиацию в свой профиль. (например: «Simon Fraser University»)"
 
 msgid "user.login.activate.description"
 msgstr "Подтвердите и активируйте свою учётную запись"
@@ -881,7 +877,6 @@ msgstr ""
 "Этот ORCID не был подтверждён. Пожалуйста, удалите непроверенный ORCID и "
 "запросите подтверждение напрямую у пользователя/автора."
 
-#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Вы уверены, что хотите навсегда удалить эту роль? Это действие лишит "
@@ -940,3 +935,29 @@ msgstr ""
 
 msgid "orcid.field.authorEmailModal.message.noAuthor"
 msgstr "Электронное письмо будет отправлено после того, как автор будет создан."
+
+msgid "user.masthead.update.title"
+msgstr "Подтвердите изменение отображения в выходных данных"
+
+msgid "user.affiliations.error.rorApi"
+msgstr "Ошибка ROR API"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"Служба ROR API в настоящее время недоступна. Пожалуйста, обновите страницу "
+"или повторите попытку позже."
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"Служба ROR API в этой установке устарела. Пожалуйста, обратитесь к "
+"системному администратору."
+
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr ""
+"В ROR API отправлено слишком много запросов. Пожалуйста, подождите немного, "
+"прежде чем продолжить поиск."
+
+msgid "user.masthead.update.message"
+msgstr ""
+"Это обновит, будет ли данный пользователь отображаться в выходных данных "
+"журнала для выбранной роли. Пользователь будет уведомлён об этом изменении."

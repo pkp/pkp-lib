@@ -16,7 +16,6 @@ namespace PKP\log\event;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
 
@@ -40,6 +39,7 @@ class DAO extends EntityDAO
         'assocType' => 'assoc_type',
         'assocId' => 'assoc_id',
         'userId' => 'user_id',
+        'impersonatedUserId' => 'impersonated_user_id',
         'dateLogged' => 'date_logged',
         'eventType' => 'event_type',
         'message' => 'message',
@@ -72,7 +72,7 @@ class DAO extends EntityDAO
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
             ->first();
-        return $row ? $this->fromRow($row) : null;
+        return $row ? $this->fromRow($row, [$id], (object) []) : null;
     }
 
     /**
@@ -97,54 +97,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of log entries matching the configured query
-     */
-    public function getMany(Collector $query): LazyCollection
-    {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
-
-            foreach ($rows as $row) {
-                yield $row->log_id => $this->fromRow($row);
-            }
-        });
-    }
-
-    /**
-     * @copydoc EntityDAO::fromRow()
-     */
-    public function fromRow(object $row): EventLogEntry
-    {
-        $logEntry = parent::fromRow($row);
-        $schema = $this->schemaService->get($this->schema);
-
-        DB::table($this->settingsTable)
-            ->where($this->primaryKeyColumn, '=', $row->{$this->primaryKeyColumn})
-            ->get()
-            ->each(function ($row) use ($logEntry, $schema) {
-                if (!empty($schema->properties->{$row->setting_name})) {
-                    return;
-                }
-
-                // Retrieve custom properties
-                if (!empty($row->setting_type)) {
-                    $logEntry->setData(
-                        $row->setting_name,
-                        $this->convertFromDB(
-                            $row->setting_value,
-                            $row->setting_type
-                        ),
-                        empty($row->locale) ? null : $row->locale
-                    );
-                }
-            });
-
-        return $logEntry;
-    }
-
-    /**
      * @copydoc EntityDAO::insert()
      */
     public function insert(EventLogEntry $eventLog): int
@@ -166,5 +118,6 @@ class DAO extends EntityDAO
     public function changeUser(int $oldUserId, int $newUserId)
     {
         DB::table($this->table)->where('user_id', $oldUserId)->update(['user_id' => $newUserId]);
+        DB::table($this->table)->where('impersonated_user_id', $oldUserId)->update(['impersonated_user_id' => $newUserId]);
     }
 }

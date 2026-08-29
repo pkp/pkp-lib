@@ -3365,6 +3365,12 @@ msgstr "Reviewer Unassign"
 msgid "mailable.reviewerUnassign.description"
 msgstr "This email is sent when an editor unassigns a reviewer."
 
+msgid "mailable.reviewCancel.name"
+msgstr "Review Cancel"
+
+msgid "mailable.reviewCancel.description"
+msgstr "This email is sent when an editor cancels a review assignment."
+
 msgid "mailable.validateEmailSite.name"
 msgstr "Validate Email (Site)"
 
@@ -3880,6 +3886,9 @@ msgstr "Please provide the editorial history, including the full name, affiliati
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Change Email Address Invitation"
+
+msgid "mailable.changeProfileEmailInvitationNotify.description"
+msgstr "Users who request a change to their email address in their user profile will receive this request to confirm."
 
 msgid "plugins.importexport.common.validation"
 msgstr "Validate XML before the export and registration."

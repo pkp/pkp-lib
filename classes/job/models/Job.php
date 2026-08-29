@@ -28,8 +28,6 @@ class Job extends Model
     use Attributes;
     use InteractsWithTime;
 
-    protected const DEFAULT_MAX_ATTEMPTS = 3;
-
     public const TESTING_QUEUE = 'queuedTestJob';
 
     /**
@@ -38,13 +36,6 @@ class Job extends Model
      * @var string
      */
     protected $defaultQueue;
-
-    /**
-     * Max Attempts
-     *
-     * @var int
-     */
-    protected $maxAttempts;
 
     /**
      * Model's database table
@@ -96,7 +87,6 @@ class Job extends Model
         parent::__construct($attributes);
 
         $this->setDefaultQueue(Config::getVar('queues', 'default_queue', 'queue'));
-        $this->setMaxAttempts(self::DEFAULT_MAX_ATTEMPTS);
     }
 
     /**
@@ -115,32 +105,6 @@ class Job extends Model
     public function getQueue(?string $queue): string
     {
         return $queue ?: $this->defaultQueue;
-    }
-
-    /**
-     * Set the Job's max attempts
-     */
-    public function setMaxAttempts(int $maxAttempts): self
-    {
-        $this->maxAttempts = $maxAttempts;
-
-        return $this;
-    }
-
-    /**
-     * Get the Job's max attempts
-     */
-    public function getMaxAttempts(): int
-    {
-        return $this->maxAttempts;
-    }
-
-    /**
-     * Add a local scope for not exceeded attempts
-     */
-    public function scopeNotExceededAttempts(Builder $query): Builder
-    {
-        return $query->where('attempts', '<', $this->getMaxAttempts());
     }
 
     /**

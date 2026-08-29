@@ -22,10 +22,13 @@ use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
+use PKP\security\AuditEvent;
+use PKP\security\AuditLog;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\site\SiteDAO;
@@ -35,6 +38,7 @@ use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\validation\ValidatorFactory;
 use PKP\xml\PKPXMLParser;
+use Psr\Log\LogLevel;
 use stdClass;
 
 class Repository
@@ -332,13 +336,20 @@ class Repository
             self::forgetEditorialCache($userGroup->contextId);
         }
 
-        return UserUserGroup::create([
+        $userUserGroup = UserUserGroup::create([
             'userId' => $userId,
             'userGroupId' => $userGroupId,
             'dateStart' => $dateStart,
             'dateEnd' => $endDate,
             'masthead' => $masthead,
         ]);
+
+        AuditLog::log(AuditEvent::USER_ROLE_ASSIGNED, LogLevel::NOTICE, [
+            'targetUserId' => $userId,
+            'userGroupId' => $userGroupId,
+        ]);
+
+        return $userUserGroup;
     }
 
     /**
@@ -394,6 +405,12 @@ class Repository
         }
 
         $query->update(['date_end' => $dateEnd]);
+
+        AuditLog::log(AuditEvent::USER_ROLE_REMOVED, LogLevel::NOTICE, [
+            'targetUserId' => $userId,
+            'userGroupId' => $userGroupId,
+            'contextId' => $contextId,
+        ]);
     }
 
     /**
@@ -418,6 +435,29 @@ class Repository
         }
 
         return $query->get();
+    }
+
+    /**
+     * Get the non-reviewer masthead user groups for a context, sorted in the
+     * order saved in the context's mastheadUserGroupIds setting.
+     * New/unordered groups sort last, after those with a saved position, secondarily ordered by role ID.
+     *
+     * @return Collection<int, UserGroup>
+     */
+    public function getSortedMastheadUserGroups(Context $context): Collection
+    {
+        $savedOrder = (array) $context->getData('mastheadUserGroupIds');
+
+        return UserGroup::withContextIds([$context->getId()])
+            ->masthead(true)
+            ->excludeRoleIds([Role::ROLE_ID_REVIEWER])
+            ->orderByRoleId()
+            ->get()
+            ->sortBy(function (UserGroup $userGroup) use ($savedOrder) {
+                $position = array_search($userGroup->id, $savedOrder);
+                return $position === false ? PHP_INT_MAX : $position;
+            })
+            ->keyBy('id');
     }
 
     /**

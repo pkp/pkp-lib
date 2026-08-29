@@ -354,6 +354,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Não considerar esta revisão"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Assim que esta revisão seja lida, pressione \"Confirmar\" para indicar que o "

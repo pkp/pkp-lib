@@ -1,18 +1,19 @@
+# Theodoros Theodoropoulos <bujam1@yahoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2020-07-30 09:39+0000\n"
-"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
+"PO-Revision-Date: 2026-07-02 12:45+0000\n"
+"Last-Translator: Theodoros Theodoropoulos <bujam1@yahoo.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
-"el_GR/>\n"
-"Language: el_GR\n"
+"el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Αίτημα"
@@ -99,7 +100,7 @@ msgstr ""
 "αρχείων αξιολόγησης)."
 
 msgid "reviewer.complete"
-msgstr "Η αξιολόγηση καταχωρήθηκε."
+msgstr "Η αξιολόγηση Υποβλήθηκε"
 
 msgid "reviewer.confirmSubmit"
 msgstr "Επιβεβαιώνετε την υποβολή της αξιολόγησης;"
@@ -126,10 +127,81 @@ msgstr "Μόνο για Επιμελητές"
 
 msgid "submission.comments.sendCopyToReviewers"
 msgstr ""
+"Στείλτε ένα αντίγραφο αυτής της email ειδοποίησης με κρυφή κοινοποίηση (BCC) "
+"στους ακόλουθους αξιολογητές."
 
 msgid "submission.comments.sendToReviewers"
-msgstr ""
+msgstr "Αποστολή σε Αξιολογητές"
 
 msgid "user.authorization.submissionReviewer"
 msgstr ""
 "Ο Χρήστης δεν έχει επιλεγεί ως Αξιολογητής για τη συγκεκριμένη εργασία."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Προηγούμενες Αξιολογήσεις"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Για επιμελητές και συγγραφείς"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Αξιολόγηση του γύρου {$round} που υποβλήθηκε στις {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr ""
+"Δεν δόθηκε καμία αιτιολόγηση για την απόρριψη της πρόσκλησης για αξιολόγηση."
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Αυτά τα αρχεία σας αποστάλθηκαν για αξιολόγηση"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Ανάγνωση Αξιολόγησης του Γύρου {$round}"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Υποβάλλατε αξιολόγηση για τον γύρο {$round} για το"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Σχόλια Αξιολογητή"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Για επιμελητές μόνο"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Σχόλιο {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Ο λόγος απόρριψης απεστάλη με email"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Ημερομηνία Απόρριψης"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Μεταδεδομένα Άρθρου"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Τύπος"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Περίληψη"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Λέξεις-κλειδιά"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Γενικές Πληροφορίες"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Συνημμένα"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Αυτά είναι τα αρχεία που επισυνάψατε μαζί με την κριτική σας"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Αρχεία Για Αξιολόγηση"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Η αξιολόγηση δεν ολοκληρώθηκε."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Ορισμένα υποχρεωτικά πεδία δεν έχουν συμπληρωθεί. Παρακαλούμε συμπληρώστε τα "
+"πριν υποβάλετε την αξιολόγησή σας."

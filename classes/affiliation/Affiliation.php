@@ -18,7 +18,6 @@
 
 namespace PKP\affiliation;
 
-use APP\facades\Repo;
 use PKP\core\DataObject;
 use PKP\i18n\LocaleConversion;
 use PKP\ror\Ror;
@@ -31,7 +30,7 @@ class Affiliation extends DataObject
      */
     public function getDefaultLocale(): ?string
     {
-        return Repo::author()->get($this->getAuthorId())->getDefaultLocale();
+        return $this->getData('submissionLocale');
     }
 
     /**

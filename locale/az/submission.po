@@ -2116,6 +2116,7 @@ msgstr ""
 "incələməsi üçün bir dəyərləndirmə təsdiqləndi için bir değerlendirme "
 "doğruladı."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} {$submissionId} nömrəli bildirişi üçün {$round}. tur "

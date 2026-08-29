@@ -32,7 +32,7 @@ class Collector implements CollectorInterface
 
     public ?int $offset = null;
 
-    public ?int $authorId = null;
+    public ?array $authorIds = null;
 
     public function __construct(DAO $dao)
     {
@@ -68,9 +68,9 @@ class Collector implements CollectorInterface
     /**
      * Filter by single author
      */
-    public function filterByAuthorId(?int $authorId): self
+    public function filterByAuthorIds(?array $authorIds): self
     {
-        $this->authorId = $authorId;
+        $this->authorIds = $authorIds;
         return $this;
     }
 
@@ -97,7 +97,10 @@ class Collector implements CollectorInterface
     public function getQueryBuilder(): Builder
     {
         $qb = DB::table($this->dao->table . ' as a')
-            ->select('a.*');
+            ->select(['a.*', 's.locale AS submission_locale'])
+            ->join('authors AS au', 'a.author_id', 'au.author_id')
+            ->join('publications as p', 'au.publication_id', '=', 'p.publication_id')
+            ->join('submissions as s', 'p.submission_id', '=', 's.submission_id');
 
         if (!is_null($this->count)) {
             $qb->limit($this->count);
@@ -107,8 +110,8 @@ class Collector implements CollectorInterface
             $qb->offset($this->offset);
         }
 
-        if (!is_null($this->authorId)) {
-            $qb->where('a.author_id', '=', $this->authorId);
+        if (!is_null($this->authorIds)) {
+            $qb->whereIn('a.author_id', $this->authorIds);
         }
 
         // Add app-specific query statements

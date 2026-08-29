@@ -352,6 +352,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Позначте,що цю рецензію розглянуто"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Після того, як прочитаєте цю рецензію, натисніть \"Підтвердити\", щоб "

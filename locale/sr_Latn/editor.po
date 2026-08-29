@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2026-05-26 16:34+0000\n"
+"PO-Revision-Date: 2026-08-03 00:37+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sr_Latn/>\n"
@@ -186,9 +186,8 @@ msgstr "Otvorena"
 msgid "editor.submissionReview.anonymous"
 msgstr "Anonimni recenzent / Otkriven autor"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Dvostruka slepa"
+msgstr "Anonimni recenzent / Anonimni autor"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Fajlovi za recenziranje"
@@ -347,6 +346,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Označi recenziju kao neuvaženu"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Kada ste pročitali ovu recenziju pritisnite \"Potvrdi\" kako bi naznačili da "

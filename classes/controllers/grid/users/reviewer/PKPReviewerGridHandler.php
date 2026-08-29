@@ -29,6 +29,8 @@ use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\users\reviewer\form\AdvancedSearchReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\CancelReviewForm;
+use PKP\controllers\grid\users\reviewer\form\ClearReviewForm;
 use PKP\controllers\grid\users\reviewer\form\CreateReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\EditReviewForm;
 use PKP\controllers\grid\users\reviewer\form\EmailReviewerForm;
@@ -53,6 +55,7 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\Mailable;
+use PKP\mail\mailables\ReviewCancel;
 use PKP\mail\mailables\ReviewerReinstate;
 use PKP\mail\mailables\ReviewerResendRequest;
 use PKP\mail\mailables\ReviewerUnassign;
@@ -61,9 +64,6 @@ use PKP\mail\traits\Sender;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\Notification;
 use PKP\notification\PKPNotificationManager;
-use PKP\reviewForm\ReviewFormDAO;
-use PKP\reviewForm\ReviewFormElementDAO;
-use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -73,7 +73,6 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
-use PKP\submission\SubmissionCommentDAO;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -530,6 +529,26 @@ class PKPReviewerGridHandler extends GridHandler
     }
 
     /**
+     * Cancel a review
+     *
+     * @param array $args
+     * @param PKPRequest $request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function cancelReview($args, $request)
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewRound = $this->getReviewRound();
+        $submission = $this->getSubmission();
+
+        $cancelReviewForm = new CancelReviewForm($reviewAssignment, $reviewRound, $submission);
+        $cancelReviewForm->initData();
+
+        return new JSONMessage(true, $cancelReviewForm->fetch($request));
+    }
+
+    /**
      * Reinstate a reviewer
      *
      * @param array $args
@@ -661,23 +680,49 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         $unassignReviewerForm = new UnassignReviewerForm($reviewAssignment, $reviewRound, $submission);
-        $unassignReviewerForm->readInputData();
+        return $this->updateClearReview($unassignReviewerForm, $request, $reviewAssignment, $submission);
+    }
 
-        // Unassign the reviewer and return status message
-        if (!$unassignReviewerForm->validate()) {
+    /**
+     * Save the review cancellation
+     *
+     * @param PKPRequest $request
+     *
+     * @return JSONMessage JSON object
+     */
+    public function updateCancelReview($args, $request)
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewRound = $this->getReviewRound();
+        $submission = $this->getSubmission();
+
+        $cancelReviewForm = new CancelReviewForm($reviewAssignment, $reviewRound, $submission);
+        return $this->updateClearReview($cancelReviewForm, $request, $reviewAssignment, $submission);
+    }
+
+    /**
+     * Generic method to save review assignment removal.
+     */
+    protected function updateClearReview(ClearReviewForm $form, PKPRequest $request, ReviewAssignment $reviewAssignment, Submission $submission): JSONMessage
+    {
+        $form->readInputData();
+
+        // Cancel the review and return status message
+        if (!$form->validate()) {
             return new JSONMessage(false, __('editor.review.errorDeletingReviewer'));
         }
 
         // Create mailable and send email
-        if ($unassignReviewerForm->execute() && !$request->getUserVar('skipEmail')) {
+        if ($form->execute() && !$request->getUserVar('skipEmail')) {
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $user = $request->getUser();
             $context = app()->get('context')->get($submission->getData('contextId'));
-            $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerUnassign::getEmailTemplateKey());
-            $mailable = new ReviewerUnassign($context, $submission, $reviewAssignment);
+            $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewCancel::getEmailTemplateKey());
+            $mailable = $form->getMailable($context, $submission, $reviewAssignment);
 
             if ($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
-                Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_CANCEL, $mailable, $submission, $user);
+                $eventType = $mailable instanceof ReviewCancel ? SubmissionEmailLogEventType::REVIEW_CANCEL : SubmissionEmailLogEventType::REVIEWER_UNASSIGN;
+                Repo::emailLogEntry()->logMailable($eventType, $mailable, $submission, $user);
             }
         }
         $reviewerId = $reviewAssignment->getReviewerId();
@@ -733,6 +778,7 @@ class PKPReviewerGridHandler extends GridHandler
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_UNCONSIDERED,
             'userId' => Validation::loggedInAs() ?? $user->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
             'message' => 'log.review.reviewUnconsidered',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
@@ -799,6 +845,7 @@ class PKPReviewerGridHandler extends GridHandler
                 'assocId' => $submission->getId(),
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
                 'message' => 'log.review.reviewConfirmed',
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
@@ -852,63 +899,6 @@ class PKPReviewerGridHandler extends GridHandler
      *
      * @return JSONMessage JSON object
      */
-    public function readReview($args, $request)
-    {
-        $context = $request->getContext();
-        $templateMgr = TemplateManager::getManager($request);
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $starHtml = '<span class="fa fa-star"></span>';
-        $templateMgr->assign([
-            'submission' => $this->getSubmission(),
-            'reviewAssignment' => $reviewAssignment,
-            'reviewerRatingOptions' => [
-                0 => __('editor.review.reviewerRating.none'),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_GOOD => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_GOOD),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_GOOD => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_GOOD),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_AVERAGE => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_AVERAGE),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR),
-                ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR),
-            ],
-            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getRecommendationOptions(
-                context: $context,
-                reviewAssignment: $reviewAssignment
-            ),
-        ]);
-
-        if ($reviewAssignment->getReviewFormId()) {
-            // Retrieve review form
-            $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
-            $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
-            $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /** @var ReviewFormResponseDAO $reviewFormResponseDao */
-            $reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
-            $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
-            $reviewForm = $reviewFormDao->getById($reviewAssignment->getReviewFormId(), Application::getContextAssocType(), $context->getId());
-            $templateMgr->assign([
-                'reviewForm' => $reviewForm,
-                'reviewFormElements' => $reviewFormElements,
-                'reviewFormResponses' => $reviewFormResponses,
-                'disabled' => true,
-            ]);
-        } else {
-            // Retrieve reviewer comments.
-            $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
-            $templateMgr->assign([
-                'comments' => $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), null, $reviewAssignment->getId(), true),
-                'commentsPrivate' => $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), null, $reviewAssignment->getId(), false),
-            ]);
-        }
-
-        // If it's a new review assignment, mark it as viewed
-        if ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW) {
-            Repo::reviewAssignment()->edit($reviewAssignment, [
-                'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED,
-            ]);
-        }
-
-        // Render the response.
-        return $templateMgr->fetchJson('controllers/grid/users/reviewer/readReview.tpl');
-    }
-
     /**
      * Send the acknowledgement email, if desired, and trigger a row refresh action.
      *
@@ -991,10 +981,11 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Fetch the compiled body for a review reminder template (AJAX).
      */
-    public function fetchReviewReminderTemplateBody(array $args, PKPRequest $request): JSONMessage
+    public function fetchReviewerActionTemplateBody(array $args, PKPRequest $request): JSONMessage
     {
         $templateKey = $request->getUserVar('template');
         $context = $request->getContext();
+        $submission = $this->getSubmission();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $templateKey);
 
         if (!$template) {
@@ -1002,23 +993,40 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $reviewReminderForm = new ReviewReminderForm($reviewAssignment);
-        $templates = $reviewReminderForm->getEmailTemplates();
+        $defaultTemplateKey = $request->getUserVar('defaultTemplate');
+        $mailableClass = Repo::mailable()->get($defaultTemplateKey, $context);
+
+        if (!$mailableClass) {
+            return new JSONMessage(false, __('editor.review.reminderError'));
+        }
+
+        // Ensure that the default templates points to supported mailables
+        if (!in_array($mailableClass, [ReviewerReinstate::class, ReviewerUnassign::class, ReviewCancel::class, ReviewRemind::class])) {
+            return new JSONMessage(false, __('editor.review.reminderError'));
+        }
+
+        $mailable = new $mailableClass($context, $submission, $reviewAssignment);
 
         // Look if the template key from the request matches any of the templates available for this form.
         // If not, return an error.
-        if (!isset($templates[$templateKey])) {
+        $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $defaultTemplateKey);
+        $availableTemplates = Repo::emailTemplate()->getCollector($context->getId())
+            ->alternateTo([$mailable->getEmailTemplateKey()])
+            ->getMany()
+            ->keyBy(fn ($template) => $template->getData('key'))
+            ->collect();
+        $templates = $availableTemplates->put($mailable->getEmailTemplateKey(), $defaultTemplate);
+
+        if (!$templates->has($templateKey)) {
             return new JSONMessage(false, __('editor.review.reminderError'));
         }
 
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         $sender = $request->getUser();
-        $mailable = $reviewReminderForm->getReviewRemindMailable($context);
         $mailable->sender($sender)->recipients([$reviewer]);
         $data = $mailable->getData(Locale::getLocale());
         // Don't expose the reviewer's one-click access URL to editors
         $data[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] = '{$' . ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL . '}';
-
         return new JSONMessage(true, [
             'body' => Mail::compileParams($template->getLocalizedData('body'), $data),
             'variables' => [
@@ -1138,7 +1146,7 @@ class PKPReviewerGridHandler extends GridHandler
         };
         $template = Repo::emailTemplate()->getByKey($context->getId(), $request->getUserVar('template'));
 
-        if (!$template || !Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $template, $context->getId())) {
+        if (!$template) {
             return null;
         }
 
@@ -1201,14 +1209,15 @@ class PKPReviewerGridHandler extends GridHandler
     {
         // Define operations that need a review assignment policy.
         return [
-            'readReview',
             'reviewHistory',
             'reviewRead',
             'editThankReviewer',
             'thankReviewer',
             'editReminder',
             'sendReminder',
-            'fetchReviewReminderTemplateBody',
+            'fetchReviewerActionTemplateBody',
+            'cancelReview',
+            'updateCancelReview',
             'unassignReviewer',
             'updateUnassignReviewer',
             'reinstateReviewer',
@@ -1259,6 +1268,7 @@ class PKPReviewerGridHandler extends GridHandler
             'thankReviewer',
             'editReminder',
             'sendReminder',
+            'cancelReview', 'updateCancelReview',
             'unassignReviewer', 'updateUnassignReviewer',
             'reinstateReviewer', 'updateReinstateReviewer',
             'resendRequestReviewer', 'updateResendRequestReviewer',

@@ -1,7 +1,7 @@
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-27 07:06+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "ky/>\n"
@@ -196,3 +196,8 @@ msgstr "Редакторлор үчүн гана"
 
 msgid "reviewer.submission.reviewRound.comments.prefix"
 msgstr "Комментарий {$index}: "
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Кээ бир милдеттүү талаалар толтурулган эмес. Рецензияңызды жөнөтүүдөн мурун "
+"аларды толтуруңуз."

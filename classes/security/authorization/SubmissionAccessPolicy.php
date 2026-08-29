@@ -12,7 +12,7 @@
  * @ingroup security_authorization
  *
  * @brief Base class to control (write) access to submissions and (read) access to
- * submission details in OMP.
+ * submission details.
  */
 
 namespace PKP\security\authorization;

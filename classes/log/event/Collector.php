@@ -29,6 +29,7 @@ class Collector implements CollectorInterface
     protected ?array $userIds = null;
     public ?int $count = null;
     public ?int $offset = null;
+    protected ?int $eventType = null;
 
     public function __construct(DAO $dao)
     {
@@ -68,6 +69,17 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    /**
+     * Filter by event type
+     *
+     * @param int|null $eventType One of the PKPSubmissionEventLogEntry::SUBMISSION_LOG_* constants
+     */
+    public function filterByEventType(?int $eventType): self
+    {
+        $this->eventType = $eventType;
+        return $this;
+    }
+
     public function limit(?int $count): self
     {
         $this->count = $count;
@@ -97,6 +109,9 @@ class Collector implements CollectorInterface
             })
             ->when(!is_null($this->userIds), function (Builder $q) {
                 return $q->whereIn('user_id', $this->userIds);
+            })
+            ->when(!is_null($this->eventType), function (Builder $q) {
+                return $q->where('event_type', $this->eventType);
             })
             ->orderBy('date_logged', 'desc')
             ->when(!is_null($this->count), function (Builder $q) {

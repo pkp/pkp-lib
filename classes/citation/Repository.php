@@ -23,6 +23,7 @@ use APP\publication\Publication;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\LazyCollection;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\filter\CitationListTokenizerFilter;
 use PKP\jobs\citation\CrossrefJob;
@@ -175,17 +176,16 @@ class Repository
     }
 
     /**
-     * Get all citations for a given publication.
+     * Get all citations for the given publication IDs.
      *
      * @return array<Citation>
      */
-    public function getByPublicationId(int $publicationId): array
+    public function getByPublicationIds(array $publicationIds): LazyCollection
     {
         return $this->getCollector()
-            ->filterByPublicationId($publicationId)
+            ->filterByPublicationIds($publicationIds)
             ->getMany()
-            ->values()
-            ->all();
+            ->remember();
     }
 
     /**
@@ -220,15 +220,17 @@ class Repository
         $citationsMetadataLookup = $context->getData('citationsMetadataLookup');
         $publicationId = $publication->getId();
 
-        $existingCitations = $this->getByPublicationId($publicationId);
+        $existingCitations = $this->getByPublicationIds([$publicationId]);
         Hook::call('Citation::importCitations::before', [$publicationId, $existingCitations, $rawCitationList]);
 
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
 
-        $existingRawCitations = array_map(fn (Citation $citation) => $citation->getRawCitation(), $existingCitations);
+        $existingRawCitations = $existingCitations->map(fn (Citation $citation) => $citation->getRawCitation())->toArray();
 
-        if ($existingRawCitations !== $citationStrings) {
+        // Compare by value only: $existingRawCitations is keyed by citation ID, $citationStrings
+        // is sequential, so a raw !== comparison would false-mismatch even when nothing changed.
+        if (array_values($existingRawCitations) !== array_values($citationStrings)) {
             $importedCitations = [];
             $this->deleteByPublicationId($publicationId);
             if (is_array($citationStrings) && !empty($citationStrings)) {

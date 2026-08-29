@@ -2009,6 +2009,7 @@ msgstr ""
 "{$editorName} редакторы \"{$submissionId}\" материалы үшін {$round} шолу "
 "кезеңінде шолуды мақұлдады."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "{$reviewerName} рецензенті \"{$submissionId}\" материал үшін  шолуын "

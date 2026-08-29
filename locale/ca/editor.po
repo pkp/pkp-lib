@@ -360,6 +360,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Rebutjar aquesta revisió"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Un cop us hagueu llegit aquesta revisió, premeu «Confirma» per indicar que "

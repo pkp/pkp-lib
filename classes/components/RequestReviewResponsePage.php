@@ -159,11 +159,10 @@ class RequestReviewResponsePage
     public function getEmailTemplates(Mailable $mailable): array
     {
         $emailTemplates = collect();
-        $request = Application::get()->getRequest();
 
         if ($mailable::getEmailTemplateKey()) {
             $emailTemplate = Repo::emailTemplate()->getByKey($this->context->getId(), $mailable::getEmailTemplateKey());
-            if ($emailTemplate && Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $emailTemplate, $this->context->getId())) {
+            if ($emailTemplate) {
                 $emailTemplates->add($emailTemplate);
             }
 
@@ -171,11 +170,7 @@ class RequestReviewResponsePage
                 ->getCollector($this->context->getId())
                 ->alternateTo([$mailable::getEmailTemplateKey()])
                 ->getMany()
-                ->each(function (EmailTemplate $template) use ($request, $emailTemplates) {
-                    if (Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $template, $this->context->getId())) {
-                        $emailTemplates->add($template);
-                    }
-                });
+                ->each(fn (EmailTemplate $template) => $emailTemplates->add($template));
         }
 
         return Repo::emailTemplate()->getSchemaMap()->mapMany($emailTemplates)->all();
@@ -185,13 +180,14 @@ class RequestReviewResponsePage
      */
     private function getLocales(): array
     {
-        return array_map(
+        // Re-index so the locales encode as a JSON array, not an object
+        return array_values(array_map(
             fn ($locale) => [
                 'locale' => $locale,
                 'name' => Locale::getMetadata($locale)->getDisplayName(),
             ],
             $this->locales,
-        );
+        ));
     }
 
 

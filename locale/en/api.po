@@ -419,9 +419,6 @@ msgstr "The ROR registry (ror.org) is currently rate limiting our requests. Plea
 msgid "api.409.resourceActionConflict"
 msgstr "Unable to complete the intended action on resource."
 
-msgid "api.emailTemplates.404.userGroupIds"
-msgstr "One or more of the provided user groups does not exist."
-
 msgid "api.categories.400.invalidContext"
 msgstr "Cannot create or update categories in the context provided."
 
@@ -496,3 +493,51 @@ msgstr "This review round has review assignments that needs to be completed befo
 
 msgid "api.dois.reviews.422.cannotAssignDoi"
 msgstr "Cannot assign a DOI to review that is not publicly visible."
+
+msgid "api.reviews.assignments.invalidQualityRating"
+msgstr "The submitted quality rating for this review assignment is invalid. Valid ratings ranges from 0 to 5, with 0 being \"no rating\" and 5 being the highest."
+
+msgid "api.422.missingRequiredField"
+msgstr "The \"{$field}\" field is required."
+
+msgid "api.submissions.reviews.422.uneditableFields"
+msgstr "Your request included fields that are not editable through this endpoint."
+
+msgid "api.reviews.assignments.alreadyConsidered"
+msgstr "The review assignment has already been considered and cannot be considered again."
+
+msgid "api.reviews.assignments.422.missingOrInvalidConsideredValue"
+msgstr "The `considered` field is missing or contains an invalid value."
+
+msgid "api.submissions.reviews.422.invalidRecommendation"
+msgstr "The submitted reviewer recommendation ID is not a valid for this Context."
+
+msgid "api.submissions.reviews.422.invalidReviewFormSubmitted"
+msgstr "The submitted review form must be an object or a valid JSON string."
+
+msgid "api.submissions.reviews.422.reviewFormQuestionResponseRequired"
+msgstr "An answer is required for the review question with element ID {$elementId}."
+
+msgid "api.submissions.reviews.422.invalidReviewFormResponse"
+msgstr "The response submitted for the review question with element ID {$elementId} is not valid."
+
+msgid "api.submissions.reviews.422.commentsNotAllowed"
+msgstr "Comments are not allowed for this review."
+
+msgid "api.submissions.reviews.422.formSubmissionNotAllowed"
+msgstr "Form submissions are not allowed for this review."
+
+msgid "api.submissions.reviews.422.reviewNotEditable.declined"
+msgstr "This review not editable because it was declined."
+
+msgid "api.submissions.reviews.422.reviewNotEditable.cancelled"
+msgstr "This review not editable because it was cancelled."
+
+msgid "api.submissions.reviews.422.reviewerRecommendation.notEditable"
+msgstr "Editing reviewer recommendation for reviews is not supported."
+
+msgid "api.submissions.reviews.422.invalidReviewFormElementSubmitted"
+msgstr "The form element with ID {$elementId} is not a part of this review assignment's review form"
+
+msgid "api.submissions.reviews.422.invalidComments"
+msgstr "The submitted comments are not valid."

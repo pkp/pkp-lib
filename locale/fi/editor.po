@@ -344,6 +344,7 @@ msgstr ""
 msgid "editor.review.unconsiderReview"
 msgstr "Merkitse tämä arviointi käsittelemättömäksi"
 
+#, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Kun tämä arviointi on luettu, paina \"Vahvista\" osoittaaksesi, että "

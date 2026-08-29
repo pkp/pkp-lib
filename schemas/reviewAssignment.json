@@ -208,6 +208,26 @@
 				"nullable"
 			]
 		},
+		"reviewerRecommendation": {
+			"type": "object",
+			"description": "An object representing the reviewer's recommendation, including its id, type, and human-readable label.",
+			"apiSummary": true,
+			"readOnly": true,
+			"validation": [
+				"nullable"
+			],
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"type": {
+					"type": "integer"
+				},
+				"label": {
+					"type": "string"
+				}
+			}
+		},
 		"requestResent": {
 			"type": "boolean",
 			"description": "Whether the review request was resent to the reviewer",
@@ -314,6 +334,22 @@
 			"type": "boolean",
 			"description": "Boolean indicating whether the review is publicly visible or not.",
 			"apiSummary": true
+		},
+		"lastModifiedById": {
+			"type": "integer",
+			"description": "The ID of the user who last made modifications to the submitted review.",
+			"apiSummary": false,
+			"validation": ["nullable"]
+		},
+		"lastModifiedBy": {
+			"type": "object",
+			"description": "The user who last made modifications to the submitted review.",
+			"apiSummary": true,
+			"readOnly": true,
+			"properties": {
+				"id": {"type": "integer"},
+				"userFullName": {"type": "string"}
+			}
 		}
 	}
 }

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2026-02-12 05:54+0000\n"
+"PO-Revision-Date: 2026-07-12 16:32+0000\n"
 "Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ru/>\n"
@@ -2076,6 +2076,7 @@ msgstr ""
 "Редактор {$editorName} подтвердил рецензию на раунде {$round} рецензирования "
 "для материала «{$submissionId}»."
 
+#, fuzzy
 msgid "log.review.reviewReady"
 msgstr ""
 "Рецензент {$reviewerName} завершил рецензию на раунде {$round} "
@@ -3256,3 +3257,6 @@ msgstr "Запрос отклонён {$date}"
 
 msgid "reviewer.competingInterests"
 msgstr "Конфликт интересов"
+
+msgid "ror.invalidRorId"
+msgstr "Пожалуйста, укажите действительный ROR ID."

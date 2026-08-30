@@ -290,6 +290,24 @@ class GalleryPlugin extends \PKP\core\DataObject
     }
 
     /**
+     * Get the supported locales for this plugin release.
+     * Returns null when no <locales> element was declared in the plugin XML.
+     */
+    public function getReleaseLocales(): ?array
+    {
+        return $this->getData('releaseLocales');
+    }
+
+    /**
+     * Set the supported locales for this plugin release.
+     * Pass null when no <locales> element was present in the plugin XML.
+     */
+    public function setReleaseLocales(?array $locales): void
+    {
+        $this->setData('releaseLocales', $locales);
+    }
+
+    /**
      * Get the package URL for this plugin release
      */
     public function getReleasePackage(): string

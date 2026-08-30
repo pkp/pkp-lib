@@ -50,6 +50,19 @@
 		// grids will not refresh correctly.
 		$.ajaxSetup({cache: false});
 
+		// Replace any X-Csrf-Token header on outgoing $.ajax requests with
+		// the live token from pkp.getCsrfToken() (cookie -> meta -> global).
+		// Covers legacy $.ajax callers that hardcode a stale render-time
+		// snapshot in their headers without requiring any call-site changes.
+		$.ajaxPrefilter(function (options) {
+			if (typeof pkp !== 'undefined'
+					&& typeof pkp.getCsrfToken === 'function'
+					&& options.headers
+					&& 'X-Csrf-Token' in options.headers) {
+				options.headers['X-Csrf-Token'] = pkp.getCsrfToken();
+			}
+		});
+
 		// Check if we have notifications to show.
 		if (options.hasSystemNotifications) {
 			this.trigger('notifyUser');

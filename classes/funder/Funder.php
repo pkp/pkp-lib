@@ -19,6 +19,7 @@ use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use PKP\context\Context;
 use PKP\core\traits\ModelWithSettings;
 use PKP\i18n\LocaleConversion;
@@ -160,18 +161,61 @@ class Funder extends Model
     /**
      * Compute the full locale set for this funder's submission.
      *
+     * Union of the
+     *  - submission's primary locale
+     *  - data-locales of every multilingual publication/author setting
+     *  - context's supported submission metadata locales
+     * into one single query load.
+     *
+     * Each publication's own `locale` is a readOnly property derived from (and
+     * equal to) the submission's primary locale, so `submissions.locale` covers it.
+     * The `locale <> ''` filter isolates the per-locale (multilingual-stored)
+     * settings rows as where, non-multilingual rows store an empty locale.
+     *
      * @return string[]
      */
     private function resolvedPublicationLanguages(): array
     {
-        $submission = $this->submission;
-        $context = $this->context;
-        if (!$submission || !$context) {
+        $submissionId = (int) $this->getRawOriginal('submission_id');
+        if (!$submissionId) {
             return [];
         }
-        return $submission->getPublicationLanguages(
-            $context->getSupportedSubmissionMetadataLocales() ?? []
-        );
+
+        $contextDao = Application::getContextDAO();
+        $rows = DB::table('submissions as s')
+            ->leftJoin(
+                $contextDao->settingsTableName . ' as cs',
+                fn ($join) => $join
+                    ->on('cs.' . $contextDao->primaryKeyColumn, '=', 's.context_id')
+                    ->where('cs.setting_name', '=', 'supportedSubmissionMetadataLocales')
+            )
+            ->where('s.submission_id', $submissionId)
+            ->select('s.locale', 'cs.setting_value as supported_json')
+            ->union(
+                DB::table('publication_settings as ps')
+                    ->join('publications as p', 'p.publication_id', '=', 'ps.publication_id')
+                    ->where('p.submission_id', $submissionId)
+                    ->where('ps.locale', '<>', '')
+                    ->select('ps.locale', DB::raw('null as supported_json'))
+            )
+            ->union(
+                DB::table('author_settings as aus')
+                    ->join('authors as au', 'au.author_id', '=', 'aus.author_id')
+                    ->join('publications as p2', 'p2.publication_id', '=', 'au.publication_id')
+                    ->where('p2.submission_id', $submissionId)
+                    ->where('aus.locale', '<>', '')
+                    ->select('aus.locale', DB::raw('null as supported_json'))
+            )
+            ->get();
+
+        $locales = $rows->pluck('locale')->all();
+        $supportedJson = $rows->pluck('supported_json')->filter()->first();
+        $supported = $supportedJson ? json_decode($supportedJson, true) : [];
+
+        return array_values(array_unique(array_filter(array_merge(
+            $locales,
+            is_array($supported) ? $supported : []
+        ))));
     }
 
     /**

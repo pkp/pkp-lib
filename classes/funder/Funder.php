@@ -16,6 +16,8 @@ namespace PKP\funder;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use Illuminate\Cache\ArrayStore;
+use Illuminate\Cache\Repository as CacheRepository;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -38,6 +40,12 @@ class Funder extends Model
     protected string $settingsTable = 'funder_settings';
 
     protected $guarded = ['funderId', 'id'];
+
+    /**
+     * Container binding key for the request-scoped, in-memory store that memoizes
+     * each submission's resolved locale set.
+     */
+    private const RESOLVED_LOCALE_CACHE = 'funder.resolvedPublicationLocales';
 
     /**
      * @inheritDoc
@@ -159,7 +167,37 @@ class Funder extends Model
     }
 
     /**
-     * Compute the full locale set for this funder's submission.
+     * The submission's full locale set, memoized per submission for one web request
+     * so the several funders of a submission resolve their shared set once, not once
+     * a piece (article page with N ROR funders: N identical queries → 1). Bypassed in
+     * CLI, where a long-lived process would accumulate/serve stale entries.
+     *
+     * @return string[]
+     */
+    private function resolvedPublicationLanguages(): array
+    {
+        $submissionId = (int) $this->getRawOriginal('submission_id');
+        if (!$submissionId) {
+            return [];
+        }
+
+        if (app()->runningInConsole()) {
+            return $this->computeResolvedPublicationLanguages($submissionId);
+        }
+
+        app()->scopedIf(
+            self::RESOLVED_LOCALE_CACHE,
+            fn (): CacheRepository => new CacheRepository(new ArrayStore())
+        );
+
+        return app(self::RESOLVED_LOCALE_CACHE)->rememberForever(
+            "submission-{$submissionId}",
+            fn (): array => $this->computeResolvedPublicationLanguages($submissionId)
+        );
+    }
+
+    /**
+     * Build the submission's locale set with a single union query.
      *
      * Union of the
      *  - submission's primary locale
@@ -172,15 +210,13 @@ class Funder extends Model
      * The `locale <> ''` filter isolates the per-locale (multilingual-stored)
      * settings rows as where, non-multilingual rows store an empty locale.
      *
+     * See {@see resolvedPublicationLanguages()} for the request-scoped memoization
+     * that wraps this.
+     *
      * @return string[]
      */
-    private function resolvedPublicationLanguages(): array
+    private function computeResolvedPublicationLanguages(int $submissionId): array
     {
-        $submissionId = (int) $this->getRawOriginal('submission_id');
-        if (!$submissionId) {
-            return [];
-        }
-
         $contextDao = Application::getContextDAO();
         $rows = DB::table('submissions as s')
             ->leftJoin(

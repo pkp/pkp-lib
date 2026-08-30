@@ -482,10 +482,26 @@ abstract class Repository
     /**
      * Check if a user can edit the publication metadata of a submission
      */
-    public function canEditPublication(int $submissionId, int $userId): bool
+    public function canEditPublication(Submission $submission, int $userId): bool
     {
+        $contextId = $submission->getData('contextId');
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null)->toArray();
+        $stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, null)->toArray();
+        $userIsAuthor = !empty($stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR, null, $userId)->toArray());
+        if ($submission->getData('status') == Submission::STATUS_DECLINED && $userIsAuthor) {
+            $userIsOnlyAuthorOrReader = true;
+            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+            $roles = $roleDao->getByUserId($userId, $contextId);
+            foreach ($roles as $role) {
+                if ($role->getRoleId() != Role::ROLE_ID_AUTHOR && $role->getRoleId() != Role::ROLE_ID_READER) {
+                    $userIsOnlyAuthorOrReader = false;
+                    break;
+                }
+            }
+            if ($userIsOnlyAuthorOrReader) {
+                return false;
+            }
+        }
         // Check for permission from stage assignments
         foreach ($stageAssignments as $stageAssignment) {
             if ($stageAssignment->getCanChangeMetadata()) {
@@ -493,8 +509,7 @@ abstract class Repository
             }
         }
         // If user has no stage assigments, check if user can edit anyway ie. is manager
-        $context = Application::get()->getRequest()->getContext();
-        if (count($stageAssignments) == 0 && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
+        if (count($stageAssignments) == 0 && $this->_canUserAccessUnassignedSubmissions($contextId, $userId)) {
             return true;
         }
         // Else deny access

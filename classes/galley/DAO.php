@@ -347,7 +347,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     /**
      * DEPRECATED: Remove me once getExportable is refactored/removed
      */
-    public function fromRowDeprecated($row): Galley
+    public function fromRowDeprecated(object $row): Galley
     {
         return $this->fromRow($row, [$row->galley_id], (object) []);
     }

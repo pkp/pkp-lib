@@ -184,7 +184,7 @@ class UserDetailsForm extends UserForm
             $data = [
                 'givenName' => $author->getGivenName(null), // Localized
                 'familyName' => $author->getFamilyName(null), // Localized
-                'affiliation' => $this->getFormFieldFromAffiliation(current($author->getAffiliations())), // this case is only used by the QuickSubmitPlugin, and the author has only one affiliation
+                'affiliation' => $this->getFormFieldFromAffiliation($author->getAffiliations()->first()), // this case is only used by the QuickSubmitPlugin, and the author has only one affiliation
                 'preferredPublicName' => $author->getPreferredPublicName(null), // Localized
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),
@@ -353,12 +353,12 @@ class UserDetailsForm extends UserForm
                 if ((int) $this->user->getId() === (int) $request->getUser()->getId()) {
                     Application::get()->getRequest()->getSessionGuard()->updateUser($this->user);
                     $this->user = Auth::logoutOtherDevices($this->getData('password'));
-                    
+
                     // Administrator changing their own password
                     AuditLog::log(AuditEvent::PROFILE_PASSWORD_CHANGE, LogLevel::NOTICE);
                 } else {
                     $request->getSessionGuard()->invalidateOtherSessions($this->user->getId());
-                    
+
                     // Administrator setting another user's password
                     AuditLog::log(AuditEvent::USER_PASSWORD_RESET, LogLevel::NOTICE, ['targetUserId' => $this->user->getId()]);
                 }

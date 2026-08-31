@@ -132,7 +132,7 @@ class PKPAuthorForm extends Form
                 'givenName' => $author->getGivenName(null),
                 'familyName' => $author->getFamilyName(null),
                 'preferredPublicName' => $author->getPreferredPublicName(null),
-                'affiliation' => $this->getFormFieldFromAffiliation(current($author->getAffiliations())), // in this form only used by the QuickSubmitPlugin author has only one affiliation
+                'affiliation' => $this->getFormFieldFromAffiliation($author->getAffiliations()->first()), // in this form only used by the QuickSubmitPlugin author has only one affiliation
                 'country' => $author->getCountry(),
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),

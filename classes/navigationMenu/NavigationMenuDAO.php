@@ -137,6 +137,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
             'INSERT INTO navigation_menus (title, area_name, context_id) VALUES (?, ?, ?)',
             [$navigationMenu->getTitle(), $navigationMenu->getAreaName(), $navigationMenu->getContextId()]
         );
+        Cache::forget('navMenusByArea-' . (int) $navigationMenu->getContextId() . '-' . $navigationMenu->getAreaName());
         $navigationMenu->setId($this->getInsertId());
         return $navigationMenu->getId();
     }
@@ -147,6 +148,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     public function updateObject(NavigationMenu $navigationMenu, ?string $oldAreaName = null): bool
     {
         Cache::forget("navigationMenu-{$navigationMenu->getId()}");
+        Cache::forget('navMenusByArea-' . (int) $navigationMenu->getContextId() . '-' . $navigationMenu->getAreaName());
         if ($oldAreaName !== null) {
             Cache::forget('navMenusByArea-' . (int) $navigationMenu->getContextId() . '-' . $oldAreaName);
         }

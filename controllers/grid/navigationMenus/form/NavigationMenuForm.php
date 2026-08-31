@@ -132,8 +132,10 @@ class NavigationMenuForm extends Form
             $navigationMenu = $navigationMenusDao->getById($this->_navigationMenuId);
         }
 
+        $oldAreaName = null;
         if (!isset($navigationMenu)) {
             $navigationMenu = $navigationMenusDao->newDataObject();
+            $oldAreaName = $navigationMenu->getAreaName();
         }
 
         $navigationMenu->setContextId($this->_contextId);
@@ -142,7 +144,7 @@ class NavigationMenuForm extends Form
 
         // Update or insert NavigationMenu
         if ($navigationMenu->getId() != null) {
-            $navigationMenusDao->updateObject($navigationMenu);
+            $navigationMenusDao->updateObject($navigationMenu, $oldAreaName);
         } else {
             $this->_navigationMenuId = $navigationMenusDao->insertObject($navigationMenu);
         }

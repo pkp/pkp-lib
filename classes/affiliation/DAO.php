@@ -19,6 +19,7 @@
 namespace PKP\affiliation;
 
 use APP\facades\Repo;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -87,7 +88,7 @@ class DAO extends EntityDAO
      * Optionally, pass the author ID to only get an affiliation
      * if it exists and is assigned to that author.
      */
-    public function get(int $id, ?int $authorId = null): ?Author
+    public function get(int $id, ?int $authorId = null): ?Affiliation
     {
         // This is overridden due to the need to include submission_locale
         // to the fromRow function
@@ -95,7 +96,7 @@ class DAO extends EntityDAO
             ->join('authors as au', 'a.author_id', '=', 'au.author_id')
             ->join('publications as p', 'au.publication_id', '=', 'p.publication_id')
             ->join('submissions as s', 'p.submission_id', '=', 's.submission_id')
-            ->where('a.affiliation_id', '=', $id)
+            ->where('a.author_affiliation_id', '=', $id)
             ->when($authorId !== null, fn (Builder $query) => $query->where('a.author_id', '=', $authorId))
             ->select(['a.*', 's.locale AS submission_locale'])
             ->first();

@@ -776,6 +776,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
         $request = Application::get()->getRequest();
         $templateManager = TemplateManager::getManager($request);
         $templateManager->addTemplateDir($this->_getBaseDir('templates'));
+
+        $this->_registerTemplateResource();
     }
 
     /**

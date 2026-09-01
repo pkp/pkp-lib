@@ -367,9 +367,6 @@ abstract class Repository
 
         $this->dao->update($newSubmissionFile);
 
-        // Get the updated submission file after saving to ensure all data is up to date
-        $newSubmissionFile = $this->get($newSubmissionFile->getId());
-
         $newFileUploaded = !empty($params['fileId']) && $params['fileId'] !== $submissionFile->getData('fileId');
 
         $logData = $this->getSubmissionFileLogData($newSubmissionFile);
@@ -377,7 +374,7 @@ abstract class Repository
             $logData,
             [
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
-                'assocId' => $submissionFile->getId(),
+                'assocId' => $newSubmissionFile->getId(),
                 'eventType' => $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
                 'message' => $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
                 'isTranslated' => false,
@@ -395,7 +392,7 @@ abstract class Repository
                 'assocId' => $submission->getId(),
                 'eventType' => $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
                 'message' => $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
-                'isTranslate' => false,
+                'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
             ]
         ));

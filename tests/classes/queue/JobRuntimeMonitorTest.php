@@ -120,14 +120,22 @@ class JobRuntimeMonitorTest extends PKPTestCase
 
     public function testARuntimeApproachingRetryAfterIsReported()
     {
-        // 80% of the limit is the point at which the warning becomes useful, while
-        // there is still headroom to act
-        $this->assertNull($this->message(79.0, 100));
+        // The warning becomes useful once the runtime reaches the threshold, while
+        // there is still headroom to act. Derived from the constant rather than
+        // written out, so moving the threshold cannot leave the test asserting the
+        // boundary it used to have.
+        $retryAfter = 100;
+        $threshold = $retryAfter * JobRuntimeMonitor::WARNING_THRESHOLD;
 
-        $message = $this->message(80.0, 100);
+        $this->assertNull($this->message($threshold - 1, $retryAfter));
+
+        $message = $this->message($threshold, $retryAfter);
         $this->assertNotNull($message);
         $this->assertStringContainsString('TestJob', $message);
-        $this->assertStringContainsString('80% of the configured [queues] retry_after of 100 seconds', $message);
+        $this->assertStringContainsString(
+            (int) round($threshold / $retryAfter * 100) . '% of the configured [queues] retry_after of ' . $retryAfter . ' seconds',
+            $message
+        );
         $this->assertStringNotContainsString('exceeding', $message);
     }
 

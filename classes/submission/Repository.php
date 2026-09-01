@@ -160,8 +160,11 @@ abstract class Repository
      * The returned URL will point to the correct workflow page based on whether
      * the user should be treated as an author, reviewer or editor/assistant for
      * this submission.
+     *
+     * @param array $params Additional query params to add to the dashboard
+     *   URLs, e.g. a `workflowMenuKey` to select an item in the workflow menu.
      */
-    public function getWorkflowUrlByUserRoles(Submission $submission, ?int $userId = null): string
+    public function getWorkflowUrlByUserRoles(Submission $submission, ?int $userId = null, array $params = []): string
     {
         $request = Application::get()->getRequest();
 
@@ -229,7 +232,7 @@ abstract class Repository
                 'dashboard',
                 'mySubmissions',
                 null,
-                ['workflowSubmissionId' => $submission->getId()]
+                array_merge(['workflowSubmissionId' => $submission->getId()], $params)
             );
         }
 
@@ -260,7 +263,7 @@ abstract class Repository
             'dashboard',
             'editorial',
             null,
-            ['workflowSubmissionId' => $submission->getId()]
+            array_merge(['workflowSubmissionId' => $submission->getId()], $params)
         );
     }
 

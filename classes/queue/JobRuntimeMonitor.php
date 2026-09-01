@@ -11,14 +11,6 @@
  *
  * @brief Measures how long queue jobs actually run and reports when a runtime
  *        approaches or exceeds the connection's configured retry_after.
- *
- * A job that runs longer than retry_after has its queue row become eligible for
- * re-reservation while it is still working, so a second worker or web request can
- * start the same job concurrently. For jobs that are not idempotent this silently
- * corrupts data rather than raising an error, which makes the condition very hard
- * to attribute after the fact. This monitor turns that into a log line naming the
- * job, its measured runtime, and the value retry_after would need in order to
- * cover it.
  */
 
 namespace PKP\queue;
@@ -39,7 +31,7 @@ class JobRuntimeMonitor
      * Reporting only once the limit has been passed means the first notice arrives
      * after the damage. This gives the warning while there is still headroom.
      */
-    public const WARNING_THRESHOLD = 0.8;
+    public const WARNING_THRESHOLD = 0.9;
 
     /**
      * Headroom applied to a measured runtime when suggesting a new retry_after.
@@ -50,7 +42,7 @@ class JobRuntimeMonitor
      * Prefix applied to every reported line, so the reports can be grepped out of a
      * busy error log.
      */
-    public const LOG_PREFIX = '[PKP job runtime]';
+    public const LOG_PREFIX = '[JOB RUNTIME]';
 
     /**
      * Start times of the jobs currently being processed, keyed by queue job id.
@@ -65,10 +57,6 @@ class JobRuntimeMonitor
 
     /**
      * Register the queue event listeners.
-     *
-     * Every OJS execution mode (web job runner, scheduled task, jobs.php run and
-     * jobs.php work) raises these events through Illuminate\Queue\Worker, so this
-     * single registration covers all of them.
      */
     public function register(): void
     {

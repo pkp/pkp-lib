@@ -25,7 +25,7 @@ use PKP\jobs\BaseJob;
 use PKP\orcid\OrcidManager;
 use PKP\user\User;
 
-class RevokeOrcidToken extends BaseJob
+class RevokeOrcidToken extends BaseJob implements \PKP\queue\ContextAwareJob
 {
     public function __construct(
         private readonly Context  $context,
@@ -39,6 +39,14 @@ class RevokeOrcidToken extends BaseJob
             $identity->setContributorRoles($identity->getContributorRoles()->collect());
             $identity->setCreditRoles($identity->getCreditRoles()->collect());
         }
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->context->getId();
     }
 
     /**

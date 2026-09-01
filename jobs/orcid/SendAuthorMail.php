@@ -26,7 +26,7 @@ use PKP\mail\mailables\OrcidCollectAuthorId;
 use PKP\mail\mailables\OrcidRequestAuthorAuthorization;
 use PKP\orcid\OrcidManager;
 
-class SendAuthorMail extends BaseJob implements ShouldBeUnique
+class SendAuthorMail extends BaseJob implements ShouldBeUnique, \PKP\queue\ContextAwareJob
 {
     public function __construct(
         private Author $author,
@@ -38,6 +38,14 @@ class SendAuthorMail extends BaseJob implements ShouldBeUnique
         $author->setData('affiliations', $author->getData('affiliations')->collect());
         $author->setContributorRoles($author->getContributorRoles()->collect());
         $author->setCreditRoles($author->getCreditRoles()->collect());
+    }
+
+    /**
+     * Get the context ID for this job.
+     */
+    public function getContextId(): int
+    {
+        return $this->context->getId();
     }
 
     /**

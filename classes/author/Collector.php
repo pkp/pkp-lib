@@ -214,7 +214,9 @@ class Collector implements CollectorInterface
 
         switch ($this->orderBy) {
             case self::ORDERBY_SEQUENCE:
-                $q->orderBy('a.seq', 'asc');
+                // Break ties, which may be present before 3.6 (surfaced by and fixed in pkp/pkp-lib#13003), using insertion order
+                $q->orderBy('a.seq', 'asc')
+                    ->orderBy('a.author_id', 'asc');
                 break;
             case self::ORDERBY_ID:
             default:

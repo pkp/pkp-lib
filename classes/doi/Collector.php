@@ -42,6 +42,8 @@ class Collector implements CollectorInterface
 
     public ?array $reviewIds = null;
 
+    public ?array $reviewIds = null;
+
     public function __construct(DAO $dao)
     {
         $this->dao = $dao;

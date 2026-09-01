@@ -19,7 +19,6 @@
 namespace PKP\controllers\grid\users\author;
 
 use APP\controllers\grid\users\author\form\AuthorForm;
-use PKP\publication\PKPPublication;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
@@ -35,7 +34,6 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\PKPSubmission;
 use PKP\user\User;
 
 class AuthorGridHandler extends GridHandler
@@ -77,10 +75,8 @@ class AuthorGridHandler extends GridHandler
 
     /**
      * Get the publication associated with this author grid.
-     *
-     * @return Submission
      */
-    public function getPublication()
+    public function getPublication(): Publication
     {
         return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
     }
@@ -287,7 +283,7 @@ class AuthorGridHandler extends GridHandler
         }
 
         // The user may not be allowed to edit the metadata
-        if (Repo::submission()->canEditPublication($submission->getId(), $user->getId())) {
+        if (Repo::submission()->canEditPublication($publication, $user)) {
             return true;
         }
 

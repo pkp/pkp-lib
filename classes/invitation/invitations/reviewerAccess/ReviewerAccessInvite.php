@@ -17,6 +17,7 @@ namespace PKP\invitation\invitations\reviewerAccess;
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Mail\Mailable;
 use PKP\invitation\core\contracts\IBackofficeHandleable;
 use PKP\invitation\core\contracts\IMailableUrlUpdateable;
@@ -86,6 +87,21 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
     public function getNotAccessibleAfterInvite(): array
     {
         return array_merge(parent::getNotAccessibleAfterInvite(), $this->notAccessibleAfterInvite);
+    }
+
+    /**
+     * Only the invitations for the same assignment are replaced.
+     */
+    protected function getInvitationsToDelete(): Collection
+    {
+        $reviewAssignmentId = $this->getPayload()->reviewAssignmentId;
+
+        if (!isset($reviewAssignmentId)) {
+            return new Collection();
+        }
+
+        return parent::getInvitationsToDelete()
+            ->where('payload.reviewAssignmentId', $reviewAssignmentId);
     }
 
     public function updateMailableWithUrl(Mailable $mailable): void

@@ -596,6 +596,8 @@ class Schema extends \PKP\core\maps\Schema
 
     /**
      * Determine whether current user is able to change metadata
+     *
+     * @deprecated should be determined per publication level, see pkp/pkp-lib#13109
      */
     protected function canChangeMetadata(?Enumerable $stageAssignments): bool
     {

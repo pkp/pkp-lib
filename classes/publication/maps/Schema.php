@@ -202,6 +202,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'versionString':
                     $output[$prop] = Repo::publication()->getVersionString($publication);
                     break;
+                case 'canCurrentUserChangeMetadata':
+                    $output[$prop] = Repo::submission()->canEditPublication($publication);
+                    break;
                 default:
                     $output[$prop] = $publication->getData($prop);
                     break;

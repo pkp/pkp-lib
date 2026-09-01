@@ -27,8 +27,6 @@ use PKP\identity\Identity;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\publication\PKPPublication;
-use PKP\submission\PKPSubmission;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
@@ -266,20 +264,21 @@ class Repository
             $author->setGivenName($user->getGivenName($user->getDefaultLocale()), $submissionLocale);
         }
 
-        $migratedAffiliations = Repo::affiliation()->migrateUserAffiliation($user, $submission, $context);
-        $author->setAffiliations($migratedAffiliations ? [$migratedAffiliations] : null);
+        $migratedAffiliation = Repo::affiliation()->migrateUserAffiliation($user, $submission, $context);
+        $author->setAffiliations($migratedAffiliation ? collect([$migratedAffiliation]) : collect());
         $author->setCountry($user->getCountry());
         $author->setEmail($user->getEmail());
         $author->setUrl($user->getUrl());
         $author->setIncludeInBrowse(1);
         $author->setVerifiedOrcidOAuthData($author->getAllData());
         $author->setData('contributorType', ContributorType::PERSON->getName());
-        $author->setContributorRoles(ContributorRole::query()
-            ->withContextId($context->getId())
-            ->withIdentifier(ContributorRoleIdentifier::AUTHOR->getName())
-            ->limit(1)
-            ->get()
-            ->all()
+        $author->setContributorRoles(
+            ContributorRole::query()
+                ->withContextId($context->getId())
+                ->withIdentifier(ContributorRoleIdentifier::AUTHOR->getName())
+                ->limit(1)
+                ->get()
+                ->all()
         );
 
         Hook::call('Author::newAuthorFromUser', [$author, $user]);
@@ -314,7 +313,7 @@ class Repository
                     // copy only the given name with the old locale to the new locale, because the given name is required
                     $author->setGivenName($author->getGivenName($oldLocale), $newLocale);
                 }
-            } else if ($contributorType === ContributorType::ORGANIZATION->getName() && !$author->getOrganizationName($newLocale)) {
+            } elseif ($contributorType === ContributorType::ORGANIZATION->getName() && !$author->getOrganizationName($newLocale)) {
                 $author->setOrganizationName($author->getOrganizationName($oldLocale), $newLocale);
             }
 

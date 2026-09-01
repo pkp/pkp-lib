@@ -224,18 +224,13 @@ class Author extends Identity
      */
     public function getAffiliations(): iterable
     {
-        if (!$this->hasData('affiliations')) {
-            $this->setAffiliations(collect());
-        }
-        return $this->getData('affiliations');
+        return $this->getData('affiliations') ?? collect();
     }
 
     /**
      * Set affiliations.
-     *
-     * @param array<Affiliation>
      */
-    public function setAffiliations(?iterable $affiliations): void
+    public function setAffiliations(iterable $affiliations): void
     {
         $this->setData('affiliations', $affiliations);
     }

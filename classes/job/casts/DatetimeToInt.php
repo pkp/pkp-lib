@@ -32,6 +32,9 @@ class DatetimeToInt implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
+        if(is_numeric($value)) {
+            return Carbon::parse( intval($value) );
+        }
         return Carbon::parse($value);
     }
 

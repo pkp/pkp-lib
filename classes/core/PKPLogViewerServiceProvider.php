@@ -120,9 +120,9 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
             return;
         }
 
-        // Vendor boot tasks (skip route registration — done lazily)
+        // Vendor boot tasks (skip route registration — done lazily, and skip
+        // defineAssetPublishing() — see the note on assets_path in configureLogViewer())
         $this->registerResources();
-        $this->defineAssetPublishing();
         $this->defineDefaultGates();
         $this->remapLaravelLocaleKeys();
 
@@ -151,6 +151,10 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
             // Route path includes 'index' (site context) for SetupContextBasedOnRequestUrl middleware
             'route_path' => 'index/admin/log-viewer',
             'route_domain' => null,
+            // The viewer inlines its own CSS/JS (a single self-contained bundle with no
+            // relative asset references), so nothing is published into public/. This path is
+            // still probed on every render: drop the package's public/ directory here by hand
+            // and the viewer will link to it instead of inlining.
             'assets_path' => 'vendor/log-viewer',
 
             // UI settings

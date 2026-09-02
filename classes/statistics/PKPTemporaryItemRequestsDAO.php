@@ -16,7 +16,7 @@
 
 namespace PKP\statistics;
 
-use APP\core\Application;
+use APP\statistics\StatisticsHelper;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -69,14 +69,6 @@ class PKPTemporaryItemRequestsDAO
     public function deleteByLoadId(string $loadId): void
     {
         DB::table($this->table)->where('load_id', '=', $loadId)->delete();
-    }
-
-    /**
-     * Assoc types considered COUNTER "Item Requests" (primary full-text downloads).
-     */
-    protected function getItemRequestAssocTypes(): array
-    {
-        return [Application::ASSOC_TYPE_SUBMISSION_FILE];
     }
 
     /**
@@ -133,7 +125,7 @@ class PKPTemporaryItemRequestsDAO
     public function compileCounterSubmissionDailyMetrics(string $loadId): void
     {
         // construct metric_requests_unique upsert
-        $itemRequestAssocTypes = $this->getItemRequestAssocTypes();
+        $itemRequestAssocTypes = StatisticsHelper::getItemRequestAssocTypes();
         $assocTypePlaceholders = implode(',', array_fill(0, count($itemRequestAssocTypes), '?'));
         $metricRequestsUniqueUpsertSql = "
             INSERT INTO metrics_counter_submission_daily (load_id, context_id, submission_id, date, metric_investigations, metric_investigations_unique, metric_requests, metric_requests_unique)
@@ -161,7 +153,7 @@ class PKPTemporaryItemRequestsDAO
     public function compileCounterSubmissionInstitutionDailyMetrics(string $loadId): void
     {
         // construct metric_requests_unique upsert
-        $itemRequestAssocTypes = $this->getItemRequestAssocTypes();
+        $itemRequestAssocTypes = StatisticsHelper::getItemRequestAssocTypes();
         $assocTypePlaceholders = implode(',', array_fill(0, count($itemRequestAssocTypes), '?'));
         $metricRequestsUniqueUpsertSql = "
             INSERT INTO metrics_counter_submission_institution_daily (load_id, context_id, submission_id, date, institution_id, metric_investigations, metric_investigations_unique, metric_requests, metric_requests_unique)

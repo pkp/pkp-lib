@@ -23,6 +23,7 @@
 namespace PKP\statistics;
 
 use APP\core\Application;
+use APP\statistics\StatisticsHelper;
 use DateTimeImmutable;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
@@ -217,14 +218,6 @@ abstract class PKPTemporaryTotalsDAO
     }
 
     /**
-     * Assoc types considered COUNTER "Item Requests" (primary full-text downloads).
-     */
-    protected function getItemRequestAssocTypes(): array
-    {
-        return [Application::ASSOC_TYPE_SUBMISSION_FILE];
-    }
-
-    /**
      * Load total COUNTER submission usage (investigations and requests)
      */
     public function compileCounterSubmissionDailyMetrics(string $loadId): void
@@ -250,7 +243,7 @@ abstract class PKPTemporaryTotalsDAO
         DB::statement($metricInvestigationsUpsertSql, [$loadId]);
 
         // construct metric_requests upsert
-        $itemRequestAssocTypes = $this->getItemRequestAssocTypes();
+        $itemRequestAssocTypes = StatisticsHelper::getItemRequestAssocTypes();
         $assocTypePlaceholders = implode(',', array_fill(0, count($itemRequestAssocTypes), '?'));
         $metricRequestsUpsertSql = "
             INSERT INTO metrics_counter_submission_daily (load_id, context_id, submission_id, date, metric_investigations, metric_investigations_unique, metric_requests, metric_requests_unique)
@@ -299,7 +292,7 @@ abstract class PKPTemporaryTotalsDAO
         }
 
         // construct metric_requests upsert
-        $itemRequestAssocTypes = $this->getItemRequestAssocTypes();
+        $itemRequestAssocTypes = StatisticsHelper::getItemRequestAssocTypes();
         $assocTypePlaceholders = implode(',', array_fill(0, count($itemRequestAssocTypes), '?'));
         $metricRequestsUpsertSql = "
             INSERT INTO metrics_counter_submission_institution_daily (load_id, context_id, submission_id, date, institution_id, metric_investigations, metric_investigations_unique, metric_requests, metric_requests_unique)

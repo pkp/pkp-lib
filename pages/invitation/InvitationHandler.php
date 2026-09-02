@@ -23,6 +23,7 @@ use APP\handler\Handler;
 use APP\template\TemplateManager;
 use Illuminate\Http\Response;
 use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\exceptions\SignedInAsDifferentUserException;
 use PKP\invitation\core\Invitation;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
@@ -43,8 +44,13 @@ class InvitationHandler extends Handler
         $this->setupTemplate($request);
         $invitation = $this->getInvitationByKey($request);
         $invitationHandler = $invitation->getInvitationActionRedirectController();
-        $invitationHandler->preRedirectActions(InvitationAction::ACCEPT);
-        $invitationHandler->acceptHandle($request);
+
+        try {
+            $invitationHandler->preRedirectActions(InvitationAction::ACCEPT);
+            $invitationHandler->acceptHandle($request);
+        } catch (SignedInAsDifferentUserException $e) {
+            $this->displaySignedInAsDifferentUserPage($request);
+        }
     }
 
     /**
@@ -165,6 +171,39 @@ class InvitationHandler extends Handler
         ]);
 
         $templateMgr->display('invitation/invitationUnavailable.tpl');
+        exit;
+    }
+
+    /**
+     * Display a landing page when someone other than the invited user is signed in,
+     * providing the choice to sign out and return to the invitation.
+     */
+    private function displaySignedInAsDifferentUserPage(Request $request): never
+    {
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
+
+        $contextPath = $request->getContext()?->getData('urlPath');
+
+        // Return to this same invitation after signing out.
+        $source = ltrim($_SERVER['REQUEST_URI'] ?? '', '/');
+
+        $signOutUrl = Application::get()->getDispatcher()->url(
+            $request,
+            Application::ROUTE_PAGE,
+            $contextPath,
+            'login',
+            'signOut',
+            null,
+            ['source' => $source]
+        );
+
+        $templateMgr->assign([
+            'signOutUrl' => $signOutUrl,
+            'pageComponent' => 'Page',
+        ]);
+
+        $templateMgr->display('invitation/invitationSignedInAsDifferentUser.tpl');
         exit;
     }
 }

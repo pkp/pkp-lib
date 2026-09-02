@@ -9,52 +9,26 @@
  *
  * @class PublishPackageAssetsMigration
  *
- * @brief Publish vendor package assets (e.g., log-viewer) to the public directory.
+ * @brief Publish vendor package assets (e.g. log-viewer) to the public directory.
  *
- *   This migration iterates the canonical PublishablePackageRegistry and
- *   delegates copy/remove operations to PackageAssetPublisher. The package
- *   list is intentionally not stored on this class — see
- *   PKP\core\publishablePackage\PublishablePackageRegistry.
  */
 
 namespace PKP\migration\install;
 
-use PKP\core\publishablePackage\PackageAssetPublisher;
-use PKP\core\publishablePackage\PublishablePackageRegistry;
+use PKP\dev\ComposerScript;
 use PKP\migration\Migration;
 
 class PublishPackageAssetsMigration extends Migration
 {
-    /**
-     * Publish all registered package assets to the public directory.
-     */
     public function up(): void
     {
-        $basePath = base_path();
-        $publicPath = $basePath . '/public';
-
-        if (!is_writable($publicPath)) {
-            error_log("PublishPackageAssetsMigration: public/ directory is not writable. Run 'php lib/pkp/tools/publishPackageAssets.php publish' manually.");
-            return;
-        }
-
-        foreach (PublishablePackageRegistry::all() as $package) {
-            $result = PackageAssetPublisher::publish($package, $basePath, $publicPath);
-            if ($result['reason'] !== null) {
-                error_log("PublishPackageAssetsMigration: skipped '{$package->name}' ({$result['reason']}: {$result['source']})");
-            }
-        }
+        ComposerScript::publishPackageAssets();
     }
 
-    /**
-     * Remove published assets on downgrade.
-     */
     public function down(): void
     {
-        $publicPath = base_path() . '/public';
-
-        foreach (PublishablePackageRegistry::all() as $package) {
-            PackageAssetPublisher::unpublish($package, $publicPath);
-        }
+        // No-op. Published assets are regenerable build artefacts rather than data, so there is
+        // nothing to roll back; leaving them in place costs nothing and avoids a recursive delete
+        // under public/.
     }
 }

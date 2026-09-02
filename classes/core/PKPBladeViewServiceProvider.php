@@ -250,8 +250,8 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         $resolver->register(
             'blade',
             fn () => new CompilerEngine(
-                $this->app['blade.compiler'],
-                $this->app['files']
+                $this->app->get('blade.compiler'),
+                $this->app->get('files')
             )
         );
     }

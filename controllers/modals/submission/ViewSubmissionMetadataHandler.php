@@ -67,18 +67,23 @@ class ViewSubmissionMetadataHandler extends handler
 
         $templateMgr->assign('publication', $publication);
 
+        $controlledVocabs = [
+            'keywords' => 'common.keywords',
+            'subjects' => 'common.subjects',
+            'disciplines' => 'common.discipline',
+            'supportingAgencies' => 'submission.agencies',
+        ];
+
         $additionalMetadata = [];
-        if ($publication->getLocalizedData('keywords')) {
-            $additionalMetadata[] = [__('common.keywords'), implode(', ', $publication->getLocalizedData('keywords'))];
-        }
-        if ($publication->getLocalizedData('subjects')) {
-            $additionalMetadata[] = [__('common.subjects'), implode(', ', $publication->getLocalizedData('subjects'))];
-        }
-        if ($publication->getLocalizedData('disciplines')) {
-            $additionalMetadata[] = [__('common.discipline'), implode(', ', $publication->getLocalizedData('disciplines'))];
-        }
-        if ($publication->getLocalizedData('agencies')) {
-            $additionalMetadata[] = [__('submission.agencies'), implode(', ', $publication->getLocalizedData('agencies'))];
+        foreach ($controlledVocabs as $prop => $localeKey) {
+            $names = collect($publication->getLocalizedData($prop) ?? [])
+                ->pluck('name')
+                ->filter()
+                ->all();
+
+            if (!empty($names)) {
+                $additionalMetadata[] = [__($localeKey), implode(__('common.commaListSeparator'), $names)];
+            }
         }
 
         $templateMgr->assign('additionalMetadata', $additionalMetadata);

@@ -35,8 +35,6 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
-        $context = $request->getContext();
-
         $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getPayload()->reviewAssignmentId);
 
         if (!$reviewAssignment) {
@@ -46,7 +44,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            $context->getData('urlPath'),
+            $this->invitation->getContextPath(),
             'reviewer',
             'submission',
             null,
@@ -68,21 +66,15 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
      */
     public function confirmDecline(Request $request): void
     {
-        if ($this->invitation->getStatus() !== InvitationStatus::DECLINED) {
+        if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
-
-        $context = $request->getContext();
 
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            $context->getData('urlPath'),
-            'user',
-            'login',
-            null,
-            [
-            ]
+            $this->invitation->getContextPath(),
+            'login'
         );
 
         $this->getInvitation()->decline();

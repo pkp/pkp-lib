@@ -45,13 +45,13 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
         $this->getInvitation()->changeInvitationUserIdUsingUserEmail();
 
         $templateMgr->assign('invitation', $this->getInvitation());
-        $context = $request->getContext();
+        $context = $this->getInvitation()->getContext();
         $steps = new AcceptInvitationStep();
         $invitationModel = $this->getInvitation()->invitationModel->toArray();
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId']) : null;
         $templateMgr->setState([
             'steps' => $steps->getSteps($this->getInvitation(), $context, $user),
-            'primaryLocale' => $context->getData('primaryLocale'),
+            'primaryLocale' => $this->getInvitation()->getUsedLocale(),
             'pageTitle' => __('invitation.wizard.pageTitle'),
             'invitationId' => (int)$request->getUserVar('id') ?: null,
             'invitationKey' => $request->getUserVar('key') ?: null,
@@ -76,17 +76,11 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
 
         $this->getInvitation()->changeInvitationUserIdUsingUserEmail();
 
-        $context = $request->getContext();
-
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            $context->getData('urlPath'),
-            'login',
-            null,
-            null,
-            [
-            ]
+            $this->invitation->getContextPath(),
+            'login'
         );
 
         $this->getInvitation()->decline();

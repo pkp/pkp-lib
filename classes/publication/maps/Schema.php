@@ -20,6 +20,7 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
+use PKP\core\PKPApplication;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 
@@ -203,7 +204,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = Repo::publication()->getVersionString($publication);
                     break;
                 case 'canCurrentUserChangeMetadata':
-                    $output[$prop] = Repo::submission()->canEditPublication($publication);
+                    $output[$prop] = Repo::submission()->canEditPublication($publication, PKPApplication::get()->getRequest()->getUser());
                     break;
                 default:
                     $output[$prop] = $publication->getData($prop);

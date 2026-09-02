@@ -29,11 +29,13 @@ use Illuminate\Http\Response;
 use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Opcodes\LogViewer\Events\LogFileDeleted;
 use Opcodes\LogViewer\Facades\LogViewer;
 use Opcodes\LogViewer\LogFile;
+use Opcodes\LogViewer\LogFolder;
 use Opcodes\LogViewer\LogTypeRegistrar;
 use Opcodes\LogViewer\LogViewerService;
 use Opcodes\LogViewer\LogViewerServiceProvider;
@@ -45,6 +47,7 @@ use PKP\logParser\PKPUsageEventLog;
 use PKP\middleware\SiteAdminAuthorizer;
 use PKP\plugins\Hook;
 use PKP\scheduledTask\ScheduledTaskHelper;
+use PKP\statistics\PKPStatisticsHelper;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -228,6 +231,49 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
             'exclude_ip_from_identifiers' => false,
             'root_folder_prefix' => 'root',
         ]);
+    }
+
+    /**
+     * Define the Log Viewer authorization gates
+     *
+     * The vendor's defaults grant download and delete on everything, which is wrong for the
+     * usage statistics logs: those are the *source data* the statistics pipeline consumes,
+     * not diagnostics.
+     * 
+     * The parent only defines a gate when Gate::has() is false, so these must be registered
+     * before delegating to it.
+     */
+    protected function defineDefaultGates(): void
+    {
+        Gate::define(
+            'deleteLogFile',
+            fn (mixed $user, LogFile $file): bool => !static::isProtectedFromDeletion($file->path)
+        );
+
+        Gate::define(
+            'deleteLogFolder',
+            fn (mixed $user, LogFolder $folder): bool => !static::isProtectedFromDeletion($folder->path)
+        );
+
+        // Lets the vendor supply the two download gates it still has no opinion from us on
+        parent::defineDefaultGates();
+    }
+
+    /**
+     * Whether a log file or folder holds data the application still needs
+     *
+     * Both sides are resolved through realpath() so that a symlinked or non-canonical
+     * files_dir cannot walk past the check; an unresolvable path falls back to its raw
+     * form, which is the value the viewer listed it under.
+     */
+    protected static function isProtectedFromDeletion(string $path): bool
+    {
+        $path = realpath($path) ?: $path;
+        $protectedPath = PKPStatisticsHelper::getUsageStatsDirPath();
+        $protectedPath = realpath($protectedPath) ?: $protectedPath;
+
+        return $path === $protectedPath
+            || str_starts_with($path, rtrim($protectedPath, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
     }
 
     /**

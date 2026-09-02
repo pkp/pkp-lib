@@ -10,17 +10,6 @@
  * @class PKPAuthManager
  *
  * @brief Register session guard and appropriate user provider to handle authentication
- *
- * NOTE: this class deliberately does NOT override __construct(). The parent constructor
- * initialises \Illuminate\Auth\AuthManager::$userResolver, and
- * \Illuminate\Auth\AuthServiceProvider::registerAccessGate() builds the authorization Gate as
- * new Gate($app, fn () => call_user_func($app['auth']->userResolver())). An override that only
- * assigns $this->app leaves the resolver null, so every Gate ability check fatals with
- * "call_user_func(): Argument #1 ($callback) must be a valid callback".
- *
- * The inherited resolver delegates to PKPSessionGuard::user() -> PKPUserProvider::retrieveById(),
- * the same single source of truth used by Auth::user() and PKPRequest::getUser(); it must not be
- * replaced with a bespoke lookup (see pkp/pkp-lib#12780).
  */
 
 namespace PKP\core;

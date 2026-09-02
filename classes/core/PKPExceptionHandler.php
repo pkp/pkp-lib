@@ -17,10 +17,12 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use PKP\config\Config;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Throwable;
 
 class PKPExceptionHandler implements ExceptionHandler
@@ -74,6 +76,23 @@ class PKPExceptionHandler implements ExceptionHandler
                     ? $exception->getCode()
                     : Response::HTTP_INTERNAL_SERVER_ERROR
             );
+        }
+
+        // Laravel routes are also dispatched outside the API router (the Log Viewer runs off
+        // the page router via PKPLogViewerServiceProvider). Illuminate\Routing\Pipeline hands
+        // every exception raised inside a route to this method, and a null return is turned
+        // into an empty HTTP 200 — so a refused request would read as a successful one.
+        // Only exceptions that carry an HTTP meaning are rendered; anything else keeps the
+        // previous behaviour.
+        if ($exception instanceof AuthorizationException || $exception instanceof HttpExceptionInterface) {
+            $statusCode = $exception instanceof HttpExceptionInterface
+                ? $exception->getStatusCode()
+                : Response::HTTP_FORBIDDEN;
+            $message = $exception->getMessage() ?: (Response::$statusTexts[$statusCode] ?? 'Error');
+
+            return $request->expectsJson() || $request->isJson()
+                ? response()->json(['error' => $message], $statusCode)
+                : response($message, $statusCode);
         }
 
         return null;

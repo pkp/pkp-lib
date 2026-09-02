@@ -16,7 +16,7 @@
 
 namespace PKP\statistics;
 
-use APP\core\Application;
+use APP\statistics\StatisticsHelper;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -125,12 +125,13 @@ class PKPTemporaryItemRequestsDAO
     public function compileCounterSubmissionDailyMetrics(string $loadId): void
     {
         // construct metric_requests_unique upsert
-        // assoc_type should always be Application::ASSOC_TYPE_SUBMISSION_FILE, but include the condition however
+        $itemRequestAssocTypes = StatisticsHelper::getItemRequestAssocTypes();
+        $assocTypePlaceholders = implode(',', array_fill(0, count($itemRequestAssocTypes), '?'));
         $metricRequestsUniqueUpsertSql = "
             INSERT INTO metrics_counter_submission_daily (load_id, context_id, submission_id, date, metric_investigations, metric_investigations_unique, metric_requests, metric_requests_unique)
             SELECT * FROM (SELECT load_id, context_id, submission_id, DATE(date) as date, 0 as metric_investigations, 0 as metric_investigations_unique, 0 as metric_requests, count(*) as metric
                 FROM {$this->table}
-                WHERE load_id = ? AND assoc_type = ?
+                WHERE load_id = ? AND assoc_type IN ({$assocTypePlaceholders})
                 GROUP BY load_id, context_id, submission_id, DATE(date)) AS t
             ";
         if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
@@ -143,7 +144,7 @@ class PKPTemporaryItemRequestsDAO
                 ON DUPLICATE KEY UPDATE metric_requests_unique = metric;
                 ';
         }
-        DB::statement($metricRequestsUniqueUpsertSql, [$loadId, Application::ASSOC_TYPE_SUBMISSION_FILE]);
+        DB::statement($metricRequestsUniqueUpsertSql, [$loadId, ...$itemRequestAssocTypes]);
     }
 
     /**
@@ -152,14 +153,15 @@ class PKPTemporaryItemRequestsDAO
     public function compileCounterSubmissionInstitutionDailyMetrics(string $loadId): void
     {
         // construct metric_requests_unique upsert
-        // assoc_type should always be Application::ASSOC_TYPE_SUBMISSION_FILE, but include the condition however
+        $itemRequestAssocTypes = StatisticsHelper::getItemRequestAssocTypes();
+        $assocTypePlaceholders = implode(',', array_fill(0, count($itemRequestAssocTypes), '?'));
         $metricRequestsUniqueUpsertSql = "
             INSERT INTO metrics_counter_submission_institution_daily (load_id, context_id, submission_id, date, institution_id, metric_investigations, metric_investigations_unique, metric_requests, metric_requests_unique)
                 SELECT * FROM (
                     SELECT usur.load_id, usur.context_id, usur.submission_id, DATE(usur.date) as date, usi.institution_id, 0 as metric_investigations, 0 as metric_investigations_unique, 0 as metric_requests, count(*) as metric
                     FROM {$this->table} usur
                     JOIN usage_stats_institution_temporary_records usi on (usi.load_id = usur.load_id AND usi.line_number = usur.line_number)
-                    WHERE usur.load_id = ? AND usur.assoc_type = ? AND usi.institution_id = ?
+                    WHERE usur.load_id = ? AND usur.assoc_type IN ({$assocTypePlaceholders}) AND usi.institution_id = ?
                     GROUP BY usur.load_id, usur.context_id, usur.submission_id, DATE(usur.date), usi.institution_id) AS t
             ";
         if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
@@ -177,7 +179,7 @@ class PKPTemporaryItemRequestsDAO
         $temporaryInstitutionsDAO = DAORegistry::getDAO('TemporaryInstitutionsDAO');
         $institutionIds = $temporaryInstitutionsDAO->getInstitutionIdsByLoadId($loadId);
         foreach ($institutionIds as $institutionId) {
-            DB::statement($metricRequestsUniqueUpsertSql, [$loadId, Application::ASSOC_TYPE_SUBMISSION_FILE, (int) $institutionId]);
+            DB::statement($metricRequestsUniqueUpsertSql, [$loadId, ...$itemRequestAssocTypes, (int) $institutionId]);
         }
     }
 }

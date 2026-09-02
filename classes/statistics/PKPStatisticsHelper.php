@@ -17,6 +17,7 @@
 
 namespace PKP\statistics;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use GeoIp2\Database\Reader;
 use InvalidArgumentException;
@@ -126,6 +127,16 @@ abstract class PKPStatisticsHelper
             default:
                 return self::STATISTICS_FILE_TYPE_OTHER;
         }
+    }
+
+    /**
+     * Get the assoc types counted as COUNTER "Item Requests" (primary full-text downloads).
+     *
+     * Shared by the log processing and metrics compilation steps so both apply the same set.
+     */
+    public static function getItemRequestAssocTypes(): array
+    {
+        return [Application::ASSOC_TYPE_SUBMISSION_FILE];
     }
 
     /**

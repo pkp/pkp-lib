@@ -343,6 +343,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             'pdfViews' => $metricsByType['pdf'],
             'htmlViews' => $metricsByType['html'],
             'otherViews' => $metricsByType['other'],
+            'jatsViews' => $metricsByType['jats'] ?? 0,
             'publication' => Repo::submission()->getSchemaMap()->mapToStats($submission),
         ], Response::HTTP_OK);
     }
@@ -841,7 +842,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      */
     protected function _getSubmissionReportColumnNames(): array
     {
-        return [
+        $columns = [
             __('common.id'),
             __('common.title'),
             __('submission.authors'),
@@ -851,8 +852,12 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             __('stats.fileViews'),
             __('stats.pdf'),
             __('stats.html'),
-            __('common.other')
+            __('common.other'),
         ];
+        if (app()->get('publicationStats')->isJatsPluginAvailable()) {
+            $columns[] = __('stats.jats');
+        }
+        return $columns;
     }
 
     /**
@@ -907,7 +912,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
     protected function getItemForCSV(int $submissionId, int $abstractViews, int $pdfViews, int $htmlViews, int $otherViews, int $jatsViews = 0): array
     {
         $galleyViews = $pdfViews + $htmlViews + $otherViews;
-        $totalViews = $abstractViews + $galleyViews;
+        $totalViews = $abstractViews + $galleyViews + $jatsViews;
 
         // Get submission title, authors and publication date for display
         $submission = Repo::submission()->get($submissionId);
@@ -916,7 +921,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $authorsString = $currentPublication->getShortAuthorString() ?? '';
         $datePublished = $currentPublication->getData('datePublished') ?? '';
 
-        return [
+        $row = [
             $submissionId,
             $submissionTitle,
             $authorsString,
@@ -926,8 +931,12 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             $galleyViews,
             $pdfViews,
             $htmlViews,
-            $otherViews
+            $otherViews,
         ];
+        if (app()->get('publicationStats')->isJatsPluginAvailable()) {
+            $row[] = $jatsViews;
+        }
+        return $row;
     }
 
     /**
@@ -941,7 +950,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $submission = Repo::submission()->get($submissionId);
         $submissionProps = Repo::submission()->getSchemaMap()->mapToStats($submission);
 
-        return [
+        $data = [
             'abstractViews' => $abstractViews,
             'galleyViews' => $galleyViews,
             'pdfViews' => $pdfViews,
@@ -949,6 +958,11 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             'otherViews' => $otherViews,
             'publication' => $submissionProps,
         ];
+        if (app()->get('publicationStats')->isJatsPluginAvailable()) {
+            $data['jatsViews'] = $jatsViews;
+        }
+
+        return $data;
     }
 
     /**

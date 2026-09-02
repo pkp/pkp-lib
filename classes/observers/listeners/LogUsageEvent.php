@@ -19,10 +19,10 @@ namespace PKP\observers\listeners;
 use APP\core\Application;
 use APP\observers\events\UsageEvent;
 use APP\statistics\StatisticsHelper;
-use APP\submission\Submission;
 use Illuminate\Events\Dispatcher;
 use PKP\file\PrivateFileManager;
 use PKP\plugins\Hook;
+use PKP\publication\PKPPublication;
 
 class LogUsageEvent
 {
@@ -66,7 +66,7 @@ class LogUsageEvent
             Application::ASSOC_TYPE_SUBMISSION,
             Application::ASSOC_TYPE_SUBMISSION_FILE,
             Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER,
-        ]) && $usageEvent->submission->getData('status') != Submission::STATUS_PUBLISHED) {
+        ]) && $usageEvent->publication?->getData('status') != PKPPublication::STATUS_PUBLISHED) {
             return false;
         }
 
@@ -75,9 +75,13 @@ class LogUsageEvent
                 !$usageEvent->issue->getPublished()) {
                 return false;
             }
+            if ($usageEvent->assocType == Application::ASSOC_TYPE_JATS &&
+                $usageEvent->publication?->getData('status') != PKPPublication::STATUS_PUBLISHED) {
+                return false;
+            }
         } elseif (Application::get()->getName() == 'omp') {
-            if (in_array($usageEvent->assocType, [Application::ASSOC_TYPE_CHAPTER]) &&
-                $usageEvent->submission->getData('status') != Submission::STATUS_PUBLISHED) {
+            if ($usageEvent->assocType == Application::ASSOC_TYPE_CHAPTER &&
+                $usageEvent->publication?->getData('status') != PKPPublication::STATUS_PUBLISHED) {
                 return false;
             }
         }

@@ -30,7 +30,7 @@ abstract class PKPStatsPublicationService
      * Check if JATS Template plugin is available and enabled
      * JATS statistics are only supported when the jatsTemplate plugin is installed and enabled
      */
-    protected function isJatsPluginAvailable(): bool
+    public function isJatsPluginAvailable(): bool
     {
         $plugin = PluginRegistry::getPlugin('generic', 'jatstemplateplugin');
         return $plugin && $plugin->getEnabled();
@@ -88,9 +88,6 @@ abstract class PKPStatsPublicationService
      */
     public function filterRecordJATS(object $record): bool
     {
-        if (!$this->isJatsPluginAvailable()) {
-            return false;
-        }
         return $record->assoc_type == Application::ASSOC_TYPE_JATS;
     }
 

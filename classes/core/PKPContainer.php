@@ -151,7 +151,6 @@ class PKPContainer extends Container
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
         $this->instance('path.storage', $this->storagePath());
-        $this->instance('path.public', $this->publicPath());
         $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
         $this->singleton(ExceptionHandler::class, PKPExceptionHandler::class);
 
@@ -410,9 +409,6 @@ class PKPContainer extends Container
             'cipher' => PKPAppKey::getCipher(),
             'timezone' => Config::getVar('general', 'timezone', 'UTC'),
             'env' => Config::getVar('general', 'app_env', 'production'),
-            // Asset URL points to the public directory so Laravel packages
-            // (e.g. Log Viewer) can resolve their published assets
-            'asset_url' => $_request->getBaseUrl() . '/public',
         ];
 
         // Database connection
@@ -687,6 +683,10 @@ class PKPContainer extends Container
 
     /**
      * Get the path to the public directory
+     *
+     * Required by Laravel's public_path() helper, which third-party packages call directly
+     * (e.g. Log Viewer probes public_path() on every render to decide whether to link or
+     * inline its assets).
      *
      * @see \Illuminate\Foundation\Application::publicPath()
      */

@@ -1265,6 +1265,22 @@ abstract class Repository
                         $canAccessUnassignedSubmission ? null : 'assigned',
                         ['status' => [PKPSubmission::STATUS_DECLINED], 'assignedWithRoles' => $assignedWithRoles]
                     );
+                case DashboardView::TYPE_WITHDRAWN:
+                    $assignedWithRoles = $canAccessUnassignedSubmission ? null : $selectedRoleIds;
+
+                    $collector = Repo::submission()->getCollector()
+                        ->filterByContextIds([$context->getId()])
+                        ->filterByStatus([PKPSubmission::STATUS_WITHDRAWN]);
+                    return new DashboardView(
+                        $key,
+                        __('submission.dashboard.view.withdrawn'),
+                        [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR],
+                        $canAccessUnassignedSubmission
+                            ? $collector
+                            : $collector->assignedTo([$user->getId()], $assignedWithRoles),
+                        $canAccessUnassignedSubmission ? null : 'assigned',
+                        ['status' => [PKPSubmission::STATUS_WITHDRAWN], 'assignedWithRoles' => $assignedWithRoles]
+                    );
                 case DashboardView::TYPE_REVISIONS_REQUESTED:
                     return new DashboardView(
                         $key,
@@ -1474,6 +1490,11 @@ abstract class Repository
         // Declined submissions should remain declined regardless of their publications' statuses
         if ($submission->getData('status') == Submission::STATUS_DECLINED) {
             return Submission::STATUS_DECLINED;
+        }
+
+        // Withdrawn submissions should remain withdrawn regardless of their publications' statuses
+        if ($submission->getData('status') == Submission::STATUS_WITHDRAWN) {
+            return Submission::STATUS_WITHDRAWN;
         }
 
         // If there are no publications, we are probably in the process of deleting a submission.

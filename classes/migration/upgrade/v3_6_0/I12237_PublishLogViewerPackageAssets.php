@@ -9,58 +9,25 @@
  *
  * @class I12237_PublishLogViewerPackageAssets
  *
- * @brief Publish log-viewer package assets during upgrade to v3.6.0.
- *
- *   This migration looks up the log-viewer package from PublishablePackageRegistry
- *   and delegates publish/unpublish to PackageAssetPublisher. If the package is
- *   ever removed from the registry in a future release, this migration becomes
- *   a no-op — which is correct, since there is nothing to publish.
- *
- *   Note: this is a deliberate relaxation of the strict frozen-snapshot pattern
- *   typically used for upgrade migrations. For asset publishing the practical
- *   risk is low (file copy only, no data mutation), so we accept the small
- *   reduction in historical reproducibility in exchange for not duplicating
- *   the package definition.
+ * @brief Publish the log-viewer package assets when upgrading to v3.6.0.
  */
 
 namespace PKP\migration\upgrade\v3_6_0;
 
-use PKP\core\publishablePackage\PackageAssetPublisher;
-use PKP\core\publishablePackage\PublishablePackageRegistry;
+use PKP\dev\ComposerScript;
 use PKP\migration\Migration;
 
 class I12237_PublishLogViewerPackageAssets extends Migration
 {
-    private const PACKAGE_NAME = 'log-viewer';
-
     public function up(): void
     {
-        $package = PublishablePackageRegistry::get(self::PACKAGE_NAME);
-        if ($package === null) {
-            return;
-        }
-
-        $basePath = base_path();
-        $publicPath = $basePath . '/public';
-
-        if (!is_writable($publicPath)) {
-            error_log("I12237_PublishLogViewerPackageAssets: public/ directory is not writable. Run 'php lib/pkp/tools/publishPackageAssets.php publish' manually.");
-            return;
-        }
-
-        $result = PackageAssetPublisher::publish($package, $basePath, $publicPath);
-        if ($result['reason'] !== null) {
-            error_log("I12237_PublishLogViewerPackageAssets: skipped log-viewer ({$result['reason']}: {$result['source']})");
-        }
+        ComposerScript::publishPackageAssets();
     }
 
     public function down(): void
     {
-        $package = PublishablePackageRegistry::get(self::PACKAGE_NAME);
-        if ($package === null) {
-            return;
-        }
-
-        PackageAssetPublisher::unpublish($package, base_path() . '/public');
+        // No-op. Published assets are regenerable build artefacts rather than data, so there is
+        // nothing to roll back; leaving them in place costs nothing and avoids a recursive delete
+        // under public/.
     }
 }

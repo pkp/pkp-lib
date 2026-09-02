@@ -20,12 +20,6 @@
  *
  *   {"message":"...","context":{},"level":400,"level_name":"ERROR","channel":"production", ...}
  *
- * Log Viewer picks a single parser per file, and a file routinely holds both shapes because
- * changing log_formatter does not start a new file. A parser that understood only one shape
- * would not merely hide the other: the reader appends non-matching lines to the preceding
- * entry, or drops them entirely when no entry is open yet, so those records would silently
- * vanish along with their severity and timestamp. This parser therefore accepts either shape
- * and dispatches per entry; line-format entries are handed to the parent untouched.
  */
 
 namespace PKP\logParser;

@@ -95,10 +95,10 @@ class InvitationHandler extends Handler
         // Check if invitation exists but is no longer actionable (already used or expired).
         // If so, display a friendly landing page instead of a 404 to avoid confusion
         if ($id && $key) {
-            $expiredInvitation = Repo::invitation()->getById($id)?->invitationModel;
+            $expiredInvitation = Repo::invitation()->getById($id);
 
-            if ($expiredInvitation && password_verify($key, $expiredInvitation->keyHash)) {
-                $this->displayInvitationNotAvailablePage($request);
+            if ($expiredInvitation && password_verify($key, $expiredInvitation->invitationModel->keyHash)) {
+                $this->displayInvitationNotAvailablePage($request, $expiredInvitation);
             }
         }
 
@@ -115,33 +115,34 @@ class InvitationHandler extends Handler
         }
 
         $request = Application::get()->getRequest();
-        $contextPath = $request->getContext() ? $request->getContext()->getPath() : null;
 
         return $request->getDispatcher()
             ->url(
                 $request,
                 Application::ROUTE_PAGE,
-                $contextPath,
+                $invitation->getContextPath(),
                 static::REPLY_PAGE,
                 $action->value,
                 null,
                 [
                     'id' => $invitationId,
                     'key' => $invitationKey,
-                ]
+                ],
+                null,
+                false,
+                ''
             );
     }
 
     /**
      * Display a friendly landing page when an invitation is no longer actionable.
      */
-    private function displayInvitationNotAvailablePage(Request $request): never
+    private function displayInvitationNotAvailablePage(Request $request, Invitation $invitation): never
     {
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
-        $context = $request->getContext();
-        $contextPath = $context?->getData('urlPath');
+        $contextPath = $invitation->getContextPath();
 
         $loginUrl = Application::get()->getDispatcher()->url(
             $request,

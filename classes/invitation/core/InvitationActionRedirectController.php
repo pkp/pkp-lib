@@ -45,13 +45,11 @@ abstract class InvitationActionRedirectController extends Controller
             throw new \Symfony\Component\HttpKernel\Exception\GoneHttpException();
         }
 
-        $context = $request->getContext();
-
         $templateMgr = TemplateManager::getManager($request);
         $declineUrl = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            $context->getData('urlPath'),
+            $this->invitation->getContextPath(),
             'invitation',
             'confirmDecline',
             null,

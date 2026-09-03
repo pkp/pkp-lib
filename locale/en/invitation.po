@@ -394,3 +394,11 @@ msgstr "Invitation Unavailable"
 msgid "invitation.unavailable.description"
 msgstr "This invitation is no longer available. It may have already been accepted, declined, or expired. Please contact the journal manager for further assistance."
 
+msgid "invitation.signedInAsDifferentUser.title"
+msgstr "You are signed in as a different user"
+
+msgid "invitation.signedInAsDifferentUser.description"
+msgstr "This invitation was sent to a different account than the one you are currently signed in with. Sign out and continue to accept the invitation with the correct account."
+
+msgid "invitation.signedInAsDifferentUser.signOutAndContinue"
+msgstr "Sign out and continue"

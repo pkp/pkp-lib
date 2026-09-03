@@ -15,13 +15,13 @@
 namespace PKP\orcid;
 
 use APP\author\Author;
-use PKP\author\contributorRole\ContributorRoleIdentifier;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\plugins\PubIdPlugin;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Carbon\Carbon;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\context\Context;
 use PKP\i18n\LocaleConversion;
 use PKP\plugins\PluginRegistry;
@@ -79,7 +79,7 @@ abstract class PKPOrcidWork
                 ]
             ],
             'journal-title' => [
-                'value' => $this->context->getName($publicationLocale) ?? $this->context->getName($this->context->getPrimaryLocale()),
+                'value' => $this->publication->getData('contextName', $publicationLocale) ?: $this->publication->getPrimaryContextName($this->context),
             ],
             'short-description' => trim(strip_tags($this->publication->getLocalizedData('abstract', $publicationLocale))) ?? '',
 
@@ -215,10 +215,10 @@ abstract class PKPOrcidWork
         }
 
         // Add journal online ISSN, if it exists
-        if ($context->getData('onlineIssn')) {
+        if ($onlineIssn = $publication->getOnlineIssn($context)) {
             $externalIds[] = [
                 'external-id-type' => 'issn',
-                'external-id-value' => $context->getData('onlineIssn'),
+                'external-id-value' => $onlineIssn,
                 'external-id-relationship' => 'part-of'
             ];
         }
@@ -303,7 +303,7 @@ abstract class PKPOrcidWork
             ContributorRoleIdentifier::AUTHOR->getName() => 'AUTHOR',
             ContributorRoleIdentifier::EDITOR->getName() => 'EDITOR',
             ContributorRoleIdentifier::CHAIR->getName(),
-                ContributorRoleIdentifier::TRANSLATOR->getName() => 'CHAIR_OR_TRANSLATOR',
+            ContributorRoleIdentifier::TRANSLATOR->getName() => 'CHAIR_OR_TRANSLATOR',
             default => null
         };
     }

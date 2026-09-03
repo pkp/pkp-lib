@@ -16,6 +16,7 @@ namespace PKP\scheduledTask;
 
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
+use PKP\config\Config;
 use PKP\core\PKPContainer;
 use PKP\plugins\interfaces\HasTaskScheduler;
 use PKP\plugins\PluginRegistry;
@@ -56,8 +57,14 @@ abstract class PKPScheduler
 
         // Here we don't want to re-register the schedule task if it's already registered
         // otherwise the same task might run multiple times at the same time
+        //
+        // The event is named after the task's class so that it always has a stable identity,
+        // matching how registerSchedules() names its own events. Callers remain free to set a
+        // different name afterwards -- this is only the default when they don't.
         return $scheduleTasks[$scheduleTaskClass]
-            ?? $this->schedule->call(fn () => $scheduleTask->execute());
+            ?? $this->schedule
+                ->call(fn () => $scheduleTask->execute())
+                ->name($scheduleTaskClass);
     }
 
     /**
@@ -91,6 +98,7 @@ abstract class PKPScheduler
             ->call(fn () => (new ProcessQueueJobs())->execute())
             ->everyMinute()
             ->name(ProcessQueueJobs::class)
+            ->when(fn () => Config::getVar('queues', 'process_jobs_at_task_scheduler', false))
             ->withoutOverlapping();
 
         $this

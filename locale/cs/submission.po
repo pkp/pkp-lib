@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-08-27 08:17+0000\n"
+"PO-Revision-Date: 2026-09-03 07:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -84,11 +84,11 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Rozšířená metadata"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Registrační email pro Crossref"
+msgstr "Registrační e-mail pro Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Zadejte platný registrační email pro Crossref. Svůj email můžete bezplatně "
+"Zadejte platný registrační e-mail pro Crossref. Svůj e-mail můžete bezplatně "
 "zaregistrovat na webových stránkách Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
@@ -100,10 +100,10 @@ msgstr ""
 "ISBNdb zdarma vyžádat."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
-msgstr "Registrační email PubMed"
+msgstr "Registrační e-mail PubMed"
 
 msgid "metadata.filters.pubmed.settings.email.validationMessage"
-msgstr "Zadejte, prosím, platný registrační email pro PubMed, pokud ho máte."
+msgstr "Zadejte, prosím, platný registrační e-mail pro PubMed, pokud ho máte."
 
 msgid "metadata.filters.worldcat.settings.apiKey.displayName"
 msgstr "WorldCat API klíč"
@@ -502,7 +502,7 @@ msgid "submission.comments.importPeerReviews"
 msgstr "Importovat recenzní posudky"
 
 msgid "submission.comments.addReviews"
-msgstr "Přidat do emailu recenze"
+msgstr "Přidat do e-mailu recenze"
 
 msgid "submission.comments.importPeerReviews.reviewerLetter"
 msgstr "Recenzent {$reviewerLetter}:"
@@ -565,19 +565,19 @@ msgid "submission.editorial"
 msgstr "Jazyková redakce"
 
 msgid "submission.email.backToEmailLog"
-msgstr "Zpět k protokolu emailů"
+msgstr "Zpět k protokolu e-mailů"
 
 msgid "submission.email.confirmClearLog"
-msgstr "Jste si jisti, že chcete smazat protokol emailů pro tento příspěvek?"
+msgstr "Jste si jisti, že chcete smazat protokol e-mailů pro tento příspěvek?"
 
 msgid "submission.email.confirmDeleteLogEntry"
-msgstr "Jste si jisti, že chcete smazat tento záznam protokolu emailů?"
+msgstr "Jste si jisti, že chcete smazat tento záznam protokolu e-mailů?"
 
 msgid "submission.email.deleteLogEntry"
 msgstr "Smazat záznam protokolu"
 
 msgid "submission.emailLog"
-msgstr "Log emailů"
+msgstr "Log e-mailů"
 
 msgid "submission.event.participantAdded"
 msgstr ""
@@ -673,7 +673,7 @@ msgid "submission.event.subjectPrefix"
 msgstr "Email byl odeslán:"
 
 msgid "submission.event.viewEmail"
-msgstr "Zobrazit email"
+msgstr "Zobrazit e-mail"
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
@@ -715,7 +715,7 @@ msgid "submission.history.recentLogEntries"
 msgstr "Nedávné záznamy"
 
 msgid "submission.history.submissionEmailLog"
-msgstr "Protokol emailů"
+msgstr "Protokol e-mailů"
 
 msgid "submission.history.submissionEventLog"
 msgstr "Protokol událostí"
@@ -798,7 +798,7 @@ msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Jste si jisti, že chcete odstranit tento obrázek ze sazebnice?"
 
 msgid "submission.layout.deleteGalleyStylesheet"
-msgstr "Smazat tento stylesheet."
+msgstr "Smazat tento stylopis."
 
 msgid "submission.layout.editGalley"
 msgstr "Editovat sazebnici"
@@ -842,7 +842,7 @@ msgid "submission.layout.galleys"
 msgstr "Sazebnice"
 
 msgid "submission.layout.galleyStylesheet"
-msgstr "Stylesheet sazebnice"
+msgstr "Stylopis sazebnice"
 
 msgid "submission.layout.galleyStyle"
 msgstr "Styl"
@@ -863,7 +863,7 @@ msgid "submission.layout.newGalley"
 msgstr "Vytvořit novou sazebnici"
 
 msgid "submission.layout.noStyleFile"
-msgstr "K této sazebnici nebyl přidán žádný stylesheet."
+msgstr "K této sazebnici nebyl přidán žádný stylopis."
 
 msgid "submission.layout.viewingGalley"
 msgstr "Prohlížení sazebnice příspěvků"

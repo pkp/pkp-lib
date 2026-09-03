@@ -15,6 +15,7 @@
 
 namespace PKP\API\v1\reviewers\suggestions;
 
+use APP\core\Application;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -30,7 +31,6 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
-use APP\core\Application;
 
 class ReviewerSuggestionController extends PKPBaseController
 {
@@ -55,6 +55,7 @@ class ReviewerSuggestionController extends PKPBaseController
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_AUTHOR,
+                Role::ROLE_ID_ASSISTANT
             ]),
         ];
     }

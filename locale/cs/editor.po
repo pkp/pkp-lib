@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2026-08-20 10:05+0000\n"
-"Last-Translator: Michal Jelínek <jelinek@synetix.cz>\n"
+"PO-Revision-Date: 2026-09-03 07:59+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/cs/"
 ">\n"
 "Language: cs\n"
@@ -117,7 +117,7 @@ msgid "editor.submission.fileAuditor.form.messageRequired"
 msgstr "Musíte zahrnout osobní zprávu."
 
 msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "Neposílat email auditorovi"
+msgstr "Neposílat e-mail auditorovi"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "Musíte vybrat uživatele, kterého chcete přiřadit."
@@ -179,13 +179,13 @@ msgid "editor.submissionReview.reviewType"
 msgstr "Typ recenze"
 
 msgid "editor.submissionReview.sendEmail"
-msgstr "Odeslání emailového upozornění autorovi/autorům: {$authorName}"
+msgstr "Odeslání e-mailového upozornění autorovi/autorům: {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Odeslání emailového upozornění redaktorovi/redaktorům: {$editorNames}"
+msgstr "Odeslání e-mailového upozornění redaktorovi/redaktorům: {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
-msgstr "Neposílat emailové upozornění"
+msgstr "Neposílat e-mailové upozornění"
 
 msgid "editor.submissionReview.open"
 msgstr "Otevřený"
@@ -255,7 +255,7 @@ msgid "editor.review.thankReviewerError"
 msgstr "Chyba při odesílání poděkování recenzentovi"
 
 msgid "editor.review.skipEmail"
-msgstr "Neposílat email recenzentovi."
+msgstr "Neposílat e-mail recenzentovi."
 
 msgid "editor.review.sendReminder"
 msgstr "Odeslat připomenutí"
@@ -445,7 +445,7 @@ msgid "editor.submissionReview.recordRecommendation.notifyEditors"
 msgstr "Upozornit editory"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Neposílat email editorům."
+msgstr "Neposílat e-mail editorům."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
 msgstr "Vytvořit diskusi recenzentů o tomto doporučení."
@@ -610,7 +610,7 @@ msgid "editor.decision.recordDecision"
 msgstr "Nahrát rozhodnutí"
 
 msgid "editor.decision.skipEmail"
-msgstr "Přeskočit tento email"
+msgstr "Přeskočit tento e-mail"
 
 msgid "editor.decision.stepError"
 msgstr "V kroku {$stepName} došlo k problému."

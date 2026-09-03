@@ -16,7 +16,6 @@
 namespace PKP\components\forms\context;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
@@ -42,9 +41,12 @@ class PKPNotifyUsersForm extends FormComponent
     {
         $this->action = $action;
 
-        $userGroups = UserGroup::withContextIds($context->getId())
-            ->withCount(['userUserGroups as userCount'])
-            ->get();
+        $userGroups = UserGroup::withContextIds($context->getId())->get();
+
+        // Counts are gathered in a separate query via UserGroup::withActiveUserCount() which
+        // excludes disabled users, expired and not-yet-started role assignments.
+        $userCounts = UserGroup::withActiveUserCount($context->getId())
+            ->pluck('count', 'user_group_id');
 
         $userGroupOptions = [];
         foreach ($userGroups as $userGroup) {
@@ -56,7 +58,8 @@ class PKPNotifyUsersForm extends FormComponent
                 'value' => $userGroupId,
                 'label' => $userGroup->getLocalizedData('name'),
             ];
-            $this->userGroupCounts[$userGroupId] = $userGroup->userCount ?? 0;
+
+            $this->userGroupCounts[$userGroupId] = (int) $userCounts->get($userGroupId, 0);
         }
 
         $currentUser = Application::get()->getRequest()->getUser();

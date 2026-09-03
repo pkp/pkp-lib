@@ -34,21 +34,21 @@ import PkpButton from '@/frontend/components/PkpButton/PkpButton.vue';
 import PkpTextarea from '@/frontend/components/PkpTextarea/PkpTextarea.vue';
 import PkpDropdownMenu from '@/frontend/components/PkpDropdownMenu/PkpDropdownMenu.vue';
 import PkpIcon from '@/frontend/components/PkpIcon/PkpIcon.vue';
-import PkpScrollToComments from '@/frontend/components/PkpComments/PkpScrollToComments.vue';
 import PkpComments from '@/frontend/components/PkpComments/PkpComments.vue';
-import PkpCommentReportDialog from '@/frontend/components/PkpComments/PkpCommentReportDialog.vue';
-import PkpOpenReview from '@/frontend/components/PkpOpenReview/PkpOpenReview.vue';
-import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenReviewSummary.vue';
+import PkpOpenReviews from '@/frontend/components/PkpOpenReviews/PkpOpenReviews.vue';
+import PkpOpenReviewsSummary from '@/frontend/components/PkpOpenReviews/PkpOpenReviewsSummary.vue';
 import PkpCombobox from '@/frontend/components/PkpCombobox/PkpCombobox.vue';
+import PkpCopyToClipboard from '@/frontend/components/PkpCopyToClipboard/PkpCopyToClipboard.vue';
 import PkpCiteBody from '@/frontend/components/PkpCite/PkpCiteBody.vue';
 import PkpCrossmarkButton from '@/frontend/components/PkpCrossmarkButton/PkpCrossmarkButton.vue';
 import PkpUsageChart from '@/frontend/components/PkpUsageChart/PkpUsageChart.vue';
+import PkpSpinner from '@/frontend/components/PkpSpinner/PkpSpinner.vue';
 
 // Pinia stores
 import {usePkpModalStore} from '@/frontend/stores/pkpModalStore';
 import {usePageStore} from '@/frontend/stores/pkpPageStore';
 import {usePkpCommentsStore} from '@/frontend/components/PkpComments/usePkpCommentsStore';
-import {usePkpOpenReviewStore} from '@/frontend/components/PkpOpenReview/usePkpOpenReviewStore';
+import {usePkpOpenReviewsStore} from '@/frontend/components/PkpOpenReviews/usePkpOpenReviewsStore';
 import {usePkpCiteStore} from '@/frontend/components/PkpCite/usePkpCiteStore';
 import {usePkpUsageChartStore} from '@/frontend/components/PkpUsageChart/usePkpUsageChartStore';
 
@@ -66,17 +66,36 @@ import PkpAccordionContent from '@/frontend/components/PkpAccordion/PkpAccordion
 
 // PkpComments sub-components (for use in slot overrides)
 import PkpCommentsShowMore from '@/frontend/components/PkpComments/PkpCommentsShowMore.vue';
-import PkpCommentsLogInto from '@/frontend/components/PkpComments/PkpCommentsLogInto.vue';
-import PkpCommentsMessageActions from '@/frontend/components/PkpComments/PkpCommentsMessageActions.vue';
-import PkpCommentsNew from '@/frontend/components/PkpComments/PkpCommentsNew.vue';
-import PkpCommentsNewInput from '@/frontend/components/PkpComments/PkpCommentsNewInput.vue';
-import PkpCommentsNewSubmit from '@/frontend/components/PkpComments/PkpCommentsNewSubmit.vue';
-import PkpCommentsNotificationMessageNeedsApproval from '@/frontend/components/PkpComments/PkpCommentsNotificationMessageNeedsApproval.vue';
-import PkpCommentsNotificationNotLatest from '@/frontend/components/PkpComments/PkpCommentsNotificationNotLatest.vue';
-import PkpScrollToCommentsAllComments from '@/frontend/components/PkpComments/PkpScrollToCommentsAllComments.vue';
-import PkpScrollToCommentsLogInto from '@/frontend/components/PkpComments/PkpScrollToCommentsLogInto.vue';
-import PkpCommentReportDialogAuthor from '@/frontend/components/PkpComments/PkpCommentReportDialogAuthor.vue';
-import PkpCommentReportDialogReasonInput from '@/frontend/components/PkpComments/PkpCommentReportDialogReasonInput.vue';
+
+// Reka components
+import {
+	AccordionContent,
+	AccordionHeader,
+	AccordionItem,
+	AccordionRoot,
+	AccordionTrigger,
+	PopoverAnchor,
+	PopoverArrow,
+	PopoverClose,
+	PopoverContent,
+	PopoverPortal,
+	PopoverRoot,
+	PopoverTrigger,
+	NavigationMenuContent,
+	NavigationMenuIndicator,
+	NavigationMenuItem,
+	NavigationMenuLink,
+	NavigationMenuList,
+	NavigationMenuRoot,
+	NavigationMenuSub,
+	NavigationMenuTrigger,
+	NavigationMenuViewport,
+	TabsContent,
+	TabsIndicator,
+	TabsList,
+	TabsRoot,
+	TabsTrigger,
+} from 'reka-ui'
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
@@ -87,7 +106,7 @@ VueRegistry.registerDirective('strip-unsafe-html', stripUnsafeHtml);
 VueRegistry.registerStore('pkpModal', usePkpModalStore);
 VueRegistry.registerStore('pkpPage', usePageStore);
 VueRegistry.registerStore('pkpComments', usePkpCommentsStore);
-VueRegistry.registerStore('pkpOpenReview', usePkpOpenReviewStore);
+VueRegistry.registerStore('PkpOpenReviews', usePkpOpenReviewsStore);
 VueRegistry.registerStore('pkpCite', usePkpCiteStore);
 VueRegistry.registerStore('pkpUsageChart', usePkpUsageChartStore);
 
@@ -97,15 +116,15 @@ VueRegistry.registerComponent('PkpModalManager', PkpModalManager);
 VueRegistry.registerComponent('PkpTextarea', PkpTextarea);
 VueRegistry.registerComponent('PkpDropdownMenu', PkpDropdownMenu);
 VueRegistry.registerComponent('PkpIcon', PkpIcon);
-VueRegistry.registerComponent('PkpScrollToComments', PkpScrollToComments);
 VueRegistry.registerComponent('PkpComments', PkpComments);
-VueRegistry.registerComponent('PkpCommentReportDialog', PkpCommentReportDialog);
-VueRegistry.registerComponent('PkpOpenReview', PkpOpenReview);
-VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);
+VueRegistry.registerComponent('PkpOpenReviews', PkpOpenReviews);
+VueRegistry.registerComponent('PkpOpenReviewsSummary', PkpOpenReviewsSummary);
 VueRegistry.registerComponent('PkpCombobox', PkpCombobox);
+VueRegistry.registerComponent('PkpCopyToClipboard', PkpCopyToClipboard);
 VueRegistry.registerComponent('PkpCiteBody', PkpCiteBody);
 VueRegistry.registerComponent('PkpCrossmarkButton', PkpCrossmarkButton);
 VueRegistry.registerComponent('PkpUsageChart', PkpUsageChart);
+VueRegistry.registerComponent('PkpSpinner', PkpSpinner);
 
 // Register PkpTab Components
 VueRegistry.registerComponent('PkpTabRoot', PkpTabRoot);
@@ -120,39 +139,35 @@ VueRegistry.registerComponent('PkpAccordionHeader', PkpAccordionHeader);
 VueRegistry.registerComponent('PkpAccordionContent', PkpAccordionContent);
 
 // Register PkpComments sub-components so theme plugins can use them in slot overrides
-VueRegistry.registerComponent('PkpCommentsLogInto', PkpCommentsLogInto);
-VueRegistry.registerComponent(
-	'PkpCommentsMessageActions',
-	PkpCommentsMessageActions,
-);
-VueRegistry.registerComponent('PkpCommentsNew', PkpCommentsNew);
-VueRegistry.registerComponent('PkpCommentsNewInput', PkpCommentsNewInput);
-VueRegistry.registerComponent('PkpCommentsNewSubmit', PkpCommentsNewSubmit);
-VueRegistry.registerComponent(
-	'PkpCommentsNotificationMessageNeedsApproval',
-	PkpCommentsNotificationMessageNeedsApproval,
-);
-VueRegistry.registerComponent(
-	'PkpCommentsNotificationNotLatest',
-	PkpCommentsNotificationNotLatest,
-);
-VueRegistry.registerComponent(
-	'PkpScrollToCommentsAllComments',
-	PkpScrollToCommentsAllComments,
-);
-VueRegistry.registerComponent(
-	'PkpScrollToCommentsLogInto',
-	PkpScrollToCommentsLogInto,
-);
-VueRegistry.registerComponent(
-	'PkpCommentReportDialogAuthor',
-	PkpCommentReportDialogAuthor,
-);
-VueRegistry.registerComponent(
-	'PkpCommentReportDialogReasonInput',
-	PkpCommentReportDialogReasonInput,
-);
 VueRegistry.registerComponent('PkpCommentsShowMore', PkpCommentsShowMore);
+
+// Register Reka UI components
+VueRegistry.registerComponent('AccordionContent', AccordionContent);
+VueRegistry.registerComponent('AccordionHeader', AccordionHeader);
+VueRegistry.registerComponent('AccordionItem', AccordionItem);
+VueRegistry.registerComponent('AccordionRoot', AccordionRoot);
+VueRegistry.registerComponent('AccordionTrigger', AccordionTrigger);
+VueRegistry.registerComponent('PopoverAnchor', PopoverAnchor);
+VueRegistry.registerComponent('PopoverArrow', PopoverArrow);
+VueRegistry.registerComponent('PopoverClose', PopoverClose);
+VueRegistry.registerComponent('PopoverContent', PopoverContent);
+VueRegistry.registerComponent('PopoverPortal', PopoverPortal);
+VueRegistry.registerComponent('PopoverRoot', PopoverRoot);
+VueRegistry.registerComponent('PopoverTrigger', PopoverTrigger);
+VueRegistry.registerComponent('NavigationMenuContent', NavigationMenuContent);
+VueRegistry.registerComponent('NavigationMenuIndicator', NavigationMenuIndicator);
+VueRegistry.registerComponent('NavigationMenuItem', NavigationMenuItem);
+VueRegistry.registerComponent('NavigationMenuLink', NavigationMenuLink);
+VueRegistry.registerComponent('NavigationMenuList', NavigationMenuList);
+VueRegistry.registerComponent('NavigationMenuRoot', NavigationMenuRoot);
+VueRegistry.registerComponent('NavigationMenuSub', NavigationMenuSub);
+VueRegistry.registerComponent('NavigationMenuTrigger', NavigationMenuTrigger);
+VueRegistry.registerComponent('NavigationMenuViewport', NavigationMenuViewport);
+VueRegistry.registerComponent('TabsContent', TabsContent);
+VueRegistry.registerComponent('TabsIndicator', TabsIndicator);
+VueRegistry.registerComponent('TabsList', TabsList);
+VueRegistry.registerComponent('TabsRoot', TabsRoot);
+VueRegistry.registerComponent('TabsTrigger', TabsTrigger);
 
 const pinia = createPinia();
 

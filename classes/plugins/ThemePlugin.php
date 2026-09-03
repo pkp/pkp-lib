@@ -92,7 +92,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *
      * @var ThemePlugin $parent
      */
-    public bool $isVueRuntimeRequired = false;
+    protected bool $_isVueRuntimeRequired = false;
 
     /**
      * @copydoc Plugin::register
@@ -160,7 +160,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
 
         $this->_registerTemplates();
 
-        if ($this->isVueRuntimeRequired) {
+        if ($this->isVueRuntimeRequired()) {
 
             $request = Application::get()->getRequest();
             $templateManager = TemplateManager::getManager($request);
@@ -762,6 +762,20 @@ abstract class ThemePlugin extends LazyLoadPlugin
     }
 
     /**
+     * Get the root theme
+     *
+     * Gets the parent theme or any ancestor theme until
+     * it finds the root theme in the stack of child themes.
+     */
+    public function getRootTheme(): ThemePlugin
+    {
+        if (!isset($this->parent)) {
+            return $this;
+        }
+        return $this->parent->getRootTheme();
+    }
+
+    /**
      * Register directories to search for template files
      *
      */
@@ -776,6 +790,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
         $request = Application::get()->getRequest();
         $templateManager = TemplateManager::getManager($request);
         $templateManager->addTemplateDir($this->_getBaseDir('templates'));
+
+        $this->_registerTemplateResource();
     }
 
     /**
@@ -907,8 +923,12 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function getUsageStatsChartData(int $submissionId): array
     {
+        $chartType = $this->getOption('displayStats');
+        if ($chartType === false) {
+            $chartType = 'line';
+        }
         return [
-            'chartType' => $this->getOption('displayStats'),
+            'chartType' => $chartType,
             'statsData' => $this->getAllDownloadsStats($submissionId),
             'monthLabels' => explode(' ', __('plugins.themes.default.displayStats.monthInitials')),
             'noStatsMessage' => __('plugins.themes.default.displayStats.noStats'),
@@ -1071,6 +1091,20 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     protected function requiresVueRuntime()
     {
-        $this->isVueRuntimeRequired = true;
+        $this->_isVueRuntimeRequired = true;
+    }
+
+    /**
+     * Check if this theme or any parent them requires the Vue runtime
+     */
+    public function isVueRuntimeRequired() : bool
+    {
+        if ($this->_isVueRuntimeRequired) {
+            return $this->_isVueRuntimeRequired;
+        }
+        if ($this->parent) {
+            return $this->parent->isVueRuntimeRequired();
+        }
+        return false;
     }
 }

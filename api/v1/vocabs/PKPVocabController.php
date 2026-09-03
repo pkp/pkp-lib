@@ -86,6 +86,7 @@ class PKPVocabController extends PKPBaseController
      * Get the controlled vocab entries available in this context
      *
      * @hook API::vocabs::getMany [[$vocab, &$entries, $illuminateRequest, response(), $request]]
+     * @hook API::vocabs::external [$vocab, $term, $locale, &$data, &$entries, $illuminateRequest, response(), $request]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
@@ -108,7 +109,7 @@ class PKPVocabController extends PKPBaseController
             isset($requestParams['submissionId'])
                 ? (Repo::submission()->get((int) $requestParams['submissionId'])?->getPublicationLanguages() ?? [])
                 : []
-            );
+        );
 
         if (!in_array($locale, $locales)) {
             return response()->json([
@@ -135,11 +136,13 @@ class PKPVocabController extends PKPBaseController
 
         $data = collect($entries)
             ->map(fn (ControlledVocabEntry $entry): array => $entry->getEntryData($locale))
-            ->unique(fn (array $entryData): string => 
+            ->unique(
+                fn (array $entryData): string =>
                 ($entryData[ControlledVocabEntry::CONTROLLED_VOCAB_ENTRY_IDENTIFIER] ?? '') .
                 ($entryData[ControlledVocabEntry::CONTROLLED_VOCAB_ENTRY_SOURCE] ?? '') .
                 $entryData['name']
             )
+            ->splice(0, 200) // Limit the results to something the browser can handle; DOES NOT limit query on server side!
             ->values()
             ->toArray();
 

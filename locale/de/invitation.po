@@ -19,10 +19,6 @@ msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr ""
 "Es muss mindestens eine Benutzer/innengruppe zum Hinzufügen definiert sein"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr ""
-"Die Benutzer/innengruppe ist dem/der eingeladenen Benutzer/in zugewiesen"
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "Die Einladung kann nicht verschickt werden, da Sie keine Änderungen von "

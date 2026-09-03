@@ -78,12 +78,6 @@ class PKPExceptionHandler implements ExceptionHandler
             );
         }
 
-        // Laravel routes are also dispatched outside the API router (the Log Viewer runs off
-        // the page router via PKPLogViewerServiceProvider). Illuminate\Routing\Pipeline hands
-        // every exception raised inside a route to this method, and a null return is turned
-        // into an empty HTTP 200 — so a refused request would read as a successful one.
-        // Only exceptions that carry an HTTP meaning are rendered; anything else keeps the
-        // previous behaviour.
         if ($exception instanceof AuthorizationException || $exception instanceof HttpExceptionInterface) {
             $statusCode = $exception instanceof HttpExceptionInterface
                 ? $exception->getStatusCode()

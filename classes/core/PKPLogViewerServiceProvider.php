@@ -14,7 +14,7 @@
  * This extends the opcodesio/log-viewer service provider with PKP-specific
  * configuration, routing, authorization, and custom log parsers.
  *
- * Key differences from standard Laravel:
+ * Key overrides:
  * - register() skips mergeConfigFrom() — all config is set explicitly
  * - Routes are NOT registered during boot() — registered lazily via LoadHandler hook
  * - LoadHandler hook intercepts site-level requests matching log-viewer paths
@@ -236,10 +236,6 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
     /**
      * Define the Log Viewer authorization gates
      *
-     * The vendor's defaults grant download and delete on everything, which is wrong for the
-     * usage statistics logs: those are the *source data* the statistics pipeline consumes,
-     * not diagnostics.
-     * 
      * The parent only defines a gate when Gate::has() is false, so these must be registered
      * before delegating to it.
      */
@@ -261,10 +257,6 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
 
     /**
      * Whether a log file or folder holds data the application still needs
-     *
-     * Both sides are resolved through realpath() so that a symlinked or non-canonical
-     * files_dir cannot walk past the check; an unresolvable path falls back to its raw
-     * form, which is the value the viewer listed it under.
      */
     protected static function isProtectedFromDeletion(string $path): bool
     {
@@ -415,7 +407,7 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
     }
 
     /**
-     * Remap Laravel locale keys to PKP equivalents
+     * Remap Laravel locale keys to APP's equivalents
      *
      * Laravel packages (e.g., pagination) use keys like 'pagination.next' which don't exist
      * in PKP's locale system. PKP has them as 'common.pagination.next' etc.

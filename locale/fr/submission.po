@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2026-09-03 07:59+0000\n"
+"PO-Revision-Date: 2026-09-03 15:04+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr/>\n"
@@ -643,7 +643,8 @@ msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"La révision « {$filename} » a été téléversée pour le fichier {$submissionFileId}."
+"Une révision « {$filename} » a été téléversée pour le fichier "
+"{$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Métadonnées de la soumission mises à jour"
@@ -2925,10 +2926,10 @@ msgid "submission.dashboard.view.assigned"
 msgstr "Ma file d'attente"
 
 msgid "submission.dashboard.view.reviewAll"
-msgstr "Étape d'évaluation et révision par les auteur/ices"
+msgstr "En évaluation"
 
 msgid "submission.dashboard.view.production"
-msgstr "Étape de production"
+msgstr "En production"
 
 msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
 msgstr "Merci d'accepter ou de refuser la demande d'évaluation avant le {$date}"
@@ -3074,13 +3075,13 @@ msgid "submission.list.completeSubmission"
 msgstr "Finaliser la soumission"
 
 msgid "submission.dashboard.view.active"
-msgstr "Contributions en cours"
+msgstr "Soumissions en cours"
 
 msgid "submission.dashboard.view.needsEditor"
 msgstr "Assigner des responsables"
 
 msgid "submission.dashboard.view.submissionStageAll"
-msgstr "Étape de soumission"
+msgstr "En soumission"
 
 msgid "submission.dashboard.view.reviewExternal"
 msgstr "Tout en phase d'évaluation par les pairs"
@@ -3098,7 +3099,7 @@ msgid "submission.dashboard.view.reviewsOverdue"
 msgstr "Évaluations en retard"
 
 msgid "submission.dashboard.view.copyediting"
-msgstr "Étape d'édition"
+msgstr "En édition"
 
 msgid "submission.dashboard.view.published"
 msgstr "Publiées"
@@ -3110,7 +3111,7 @@ msgid "submission.dashboard.view.revisionsRequested"
 msgstr "Révisions demandées"
 
 msgid "submission.dashboard.view.revisionsSubmitted"
-msgstr "Versions révisées par les auteur/ices à consulter"
+msgstr "Révisions par les auteur/ices"
 
 msgid "submission.dashboard.view.incompleteSubmissions"
 msgstr "Soumissions incomplètes"

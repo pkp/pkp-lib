@@ -19,7 +19,6 @@ namespace PKP\jobs\citation;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\RateLimiter;
 use PKP\citation\Citation;
 use PKP\citation\enum\CitationProcessingStatus;
@@ -29,8 +28,8 @@ use PKP\jobs\BaseJob;
 
 class OrcidJob extends BaseJob
 {
-    /** Name of the shared rate limiter throttling all ORCID lookups below ORCID's documented 12 requests/second sustained limit. */
-    protected const RATE_LIMITER_NAME = 'orcid-lookups';
+    /** Cache-key prefix for the per-second and per-day limiters that throttle all ORCID lookups below ORCID's documented limits. */
+    protected const RATE_LIMIT_KEY_PREFIX = 'orcid-lookups';
 
     protected const PER_SECOND_LIMIT = 11;
 
@@ -40,8 +39,14 @@ class OrcidJob extends BaseJob
      */
     protected const DAILY_LIMIT = 24500;
 
-    /** Rate-limit releases count as attempts too, so retry indefinitely; $maxExceptions still catches real failures. */
-    public $tries = 0;
+    /**
+     * Calls a rate-limited external API and self-releases on 429/503, each release spending
+     * an attempt — hence far above BaseJob's default. $maxExceptions still bounds real errors.
+     */
+    public $tries = 500;
+
+    /** Retries here wait on an external service, so pace them wider than BaseJob's default. */
+    public int $backoff = 300;
 
     /** Sized for several sequential per-author ORCID requests, not just one. */
     public int $timeout = 300;
@@ -83,12 +88,8 @@ class OrcidJob extends BaseJob
         $context = Application::getContextDAO()->getById($this->contextId);
         $service = new Inbound($this->contactEmail, $context);
 
-        RateLimiter::for(self::RATE_LIMITER_NAME, fn () => [
-            Limit::perSecond(self::PER_SECOND_LIMIT),
-            Limit::perDay(self::DAILY_LIMIT),
-        ]);
-
         $authorsChanged = [];
+        $performedLookup = false;
 
         foreach ($authors as $author) {
             if (empty($author['orcid']) || !empty($author['orcidLookedUp'])) {
@@ -96,7 +97,9 @@ class OrcidJob extends BaseJob
                 continue;
             }
 
-            // One ORCID request per author, unlike Crossref/OpenAlex's one per job, so hit the limiter per author.
+            $performedLookup = true;
+
+            // One ORCID request per author, so hit the limiter per author.
             $waitSeconds = $this->reserveRateLimitSlot();
             if ($waitSeconds !== null) {
                 $this->releasePartialProgress($citation, $authors, $authorsChanged, $waitSeconds + 3);
@@ -111,7 +114,10 @@ class OrcidJob extends BaseJob
                         $author['orcid'] = '';
                         break;
                     case 408:
+                    case 500:
+                    case 502:
                     case 504:
+                        // Service is unwell or unreachable: fail fast and visibly, then bulk-retry once it recovers.
                         throw new JobException(__('admin.job.failed.connection.externalService', [
                             'statusCode' => $service->statusCode]));
                     case 429:
@@ -127,6 +133,12 @@ class OrcidJob extends BaseJob
 
             $authorChanged['orcidLookedUp'] = true;
             $authorsChanged[] = $authorChanged;
+        }
+
+        // No ORCIDs to resolve (or all resolved on a prior run): leave the citation untouched;
+        // IsProcessedJob still finalizes the chain.
+        if (!$performedLookup) {
+            return;
         }
 
         $citation->setData('authors', $authorsChanged);
@@ -155,10 +167,24 @@ class OrcidJob extends BaseJob
         $this->release($delay);
     }
 
+    /**
+     * The ORCID rate limits this job holds itself under. Each has an explicit, namespaced
+     * cache key so the per-second and per-day counters stay independent.
+     *
+     * @return list<Limit>
+     */
+    protected function rateLimits(): array
+    {
+        return [
+            Limit::perSecond(self::PER_SECOND_LIMIT)->by(self::RATE_LIMIT_KEY_PREFIX . ':per-second'),
+            Limit::perDay(self::DAILY_LIMIT)->by(self::RATE_LIMIT_KEY_PREFIX . ':per-day'),
+        ];
+    }
+
     /** @return int|null Null if a slot was reserved, otherwise the number of seconds to wait before retrying. */
     protected function reserveRateLimitSlot(): ?int
     {
-        foreach (Collection::wrap(RateLimiter::limiter(self::RATE_LIMITER_NAME)()) as $limit) {
+        foreach ($this->rateLimits() as $limit) {
             if (RateLimiter::tooManyAttempts($limit->key, $limit->maxAttempts)) {
                 return RateLimiter::availableIn($limit->key);
             }

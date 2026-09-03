@@ -63,14 +63,15 @@ class Inbound
 
         $orcidId = urlencode(Orcid::removePrefix($author['orcid']));
         $url = $this->url . $orcidId;
-        $options = ['headers' => ['mailto' => $this->contactEmail]];
+        // Without an explicit Accept the API defaults to XML; request the plain JSON record Mapping expects.
+        $options = ['headers' => ['Accept' => 'application/json']];
 
         // A sandbox-registered app's token wouldn't be honored by the production API these (real) citation authors live on.
         if ($this->context !== null && OrcidManager::isEnabled($this->context) && !OrcidManager::isSandbox($this->context)) {
             $accessToken = $this->getAccessToken();
             if ($accessToken !== null) {
                 $url = OrcidManager::getApiPath($this->context) . OrcidManager::ORCID_API_VERSION_URL . $orcidId;
-                $options = ['headers' => ['Authorization' => 'Bearer ' . $accessToken]];
+                $options['headers']['Authorization'] = 'Bearer ' . $accessToken;
             }
         }
 

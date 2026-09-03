@@ -24,8 +24,14 @@ use PKP\jobs\BaseJob;
 
 class OpenAlexJob extends BaseJob
 {
-    /** Rate-limit releases count as attempts too, so retry indefinitely; $maxExceptions still catches real failures. */
-    public $tries = 0;
+    /**
+     * Calls a rate-limited external API and self-releases on 429/503, each release spending
+     * an attempt — hence far above BaseJob's default. $maxExceptions still bounds real errors.
+     */
+    public $tries = 500;
+
+    /** Retries here wait on an external service, so pace them wider than BaseJob's default. */
+    public int $backoff = 300;
 
     protected int $contextId;
     protected int $citationId;
@@ -63,11 +69,15 @@ class OpenAlexJob extends BaseJob
         if (empty($citationChanged)) {
             switch ($service->statusCode) {
                 case 408:
+                case 500:
+                case 502:
                 case 504:
+                    // Service is unwell or unreachable: fail fast and visibly, then bulk-retry once it recovers.
                     throw new JobException(__('admin.job.failed.connection.externalService', [
                         'statusCode' => $service->statusCode]));
                 case 429:
                 case 503:
+                    // OpenAlex returns 429 when the rate limit is exceeded; 503 handled defensively.
                     $this->release($service->retryAfter !== null ? $service->retryAfter + 3 : 60);
                     return;
                 case 404:

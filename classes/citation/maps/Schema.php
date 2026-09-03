@@ -120,8 +120,12 @@ class Schema extends \PKP\core\maps\Schema
         $schemaService = new PKPSchemaService();
         $schema = $schemaService->get($this->schema);
         $authorModel = [];
-        foreach (array_keys((array)$schema->properties->authors->items->properties) as $property) {
-            $authorModel[$property] = '';
+        foreach ($schema->properties->authors->items->properties as $property => $propSchema) {
+            $authorModel[$property] = match ($propSchema->type ?? 'string') {
+                'boolean' => false,
+                'array', 'object' => [],
+                default => '',
+            };
         }
         return $authorModel;
     }

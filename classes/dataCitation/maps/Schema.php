@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/dataCitation/maps/Schema.php
  *
@@ -9,7 +10,7 @@
  * @class Schema
  *
  * @brief Map Data Citations to the properties defined in the Data Citation schema.
- * 
+ *
  */
 
 namespace PKP\dataCitation\maps;
@@ -20,7 +21,7 @@ use PKP\services\PKPSchemaService;
 
 class Schema extends \PKP\core\maps\Schema
 {
-     /** @copydoc \PKP\core\maps\Schema::$collection */
+    /** @copydoc \PKP\core\maps\Schema::$collection */
     public Enumerable $collection;
 
     /** @copydoc \PKP\core\maps\Schema::$schema */
@@ -105,8 +106,12 @@ class Schema extends \PKP\core\maps\Schema
         $schemaService = new PKPSchemaService();
         $schema = $schemaService->get($this->schema);
         $authorModel = [];
-        foreach (array_keys((array)$schema->properties->authors->items->properties) as $property) {
-            $authorModel[$property] = '';
+        foreach ($schema->properties->authors->items->properties as $property => $propSchema) {
+            $authorModel[$property] = match ($propSchema->type ?? 'string') {
+                'boolean' => false,
+                'array', 'object' => [],
+                default => '',
+            };
         }
         return $authorModel;
     }

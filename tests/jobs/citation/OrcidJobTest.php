@@ -16,7 +16,6 @@ use Illuminate\Cache\ArrayStore;
 use Illuminate\Cache\RateLimiter as CacheRateLimiter;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Cache\Repository;
-use Illuminate\Support\Facades\RateLimiter;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PKP\jobs\citation\OrcidJob;
@@ -43,13 +42,6 @@ class OrcidJobTest extends PKPTestCase
         // configured (file-based) default, so this test doesn't depend on filesystem locking.
         $this->arrayStore = new ArrayStore();
         app()->instance(CacheRateLimiter::class, new CacheRateLimiter(new Repository($this->arrayStore)));
-
-        // OrcidJob registers this itself in handle(), which isn't exercised directly by these
-        // tests (they call reserveRateLimitSlot() in isolation), so register it here too.
-        RateLimiter::for('orcid-lookups', fn () => [
-            Limit::perSecond(self::CONFIGURED_PER_SECOND_LIMIT),
-            Limit::perDay(self::CONFIGURED_DAILY_LIMIT),
-        ]);
     }
 
     /**
@@ -97,28 +89,32 @@ class OrcidJobTest extends PKPTestCase
     }
 
     /**
-     * The job also registers a daily cap alongside the per-second one (see
-     * OrcidJob::handle() and its DAILY_LIMIT constant). Actually driving
-     * 24,500+ calls through the limiter to exercise it end-to-end isn't practical in a fast
-     * unit test, so this instead verifies the daily limit is genuinely configured as its own,
-     * independent limit: resolving the named limiter should yield two distinct Limit objects
-     * (per-second and per-day), not just the per-second one alone, and not colliding on cache
-     * key (both default to an empty Limit::$key, which Laravel's RateLimiter::limiter()
-     * automatically disambiguates via fallbackKey() when it detects duplicates in the
-     * returned array).
+     * The job holds itself under a daily cap alongside the per-second one (see its DAILY_LIMIT
+     * constant). Driving 24,500+ calls through the limiter to exercise it end-to-end isn't
+     * practical in a fast unit test, so this instead verifies the daily limit is configured as
+     * its own independent limit: two Limit objects (per-second and per-day) with the expected
+     * caps, on explicit, distinct, namespaced cache keys so their counters can't collide.
      */
     public function testDailyLimitIsConfiguredAlongsidePerSecondLimit(): void
     {
-        $resolvedLimits = RateLimiter::limiter('orcid-lookups')();
+        $method = new ReflectionMethod(OrcidJob::class, 'rateLimits');
+        $method->setAccessible(true);
 
-        $this->assertCount(2, $resolvedLimits);
+        /** @var Limit[] $limits */
+        $limits = $method->invoke(new OrcidJob(1, 1, 'test@example.org'));
+
+        $this->assertCount(2, $limits);
 
         $maxAttemptsByDecay = [];
-        foreach ($resolvedLimits as $limit) {
+        foreach ($limits as $limit) {
             $maxAttemptsByDecay[$limit->decaySeconds] = $limit->maxAttempts;
+            $this->assertNotEmpty($limit->key);
+            $this->assertStringStartsWith('orcid-lookups:', $limit->key);
         }
 
         $this->assertSame(self::CONFIGURED_PER_SECOND_LIMIT, $maxAttemptsByDecay[1] ?? null);
         $this->assertSame(self::CONFIGURED_DAILY_LIMIT, $maxAttemptsByDecay[60 * 60 * 24] ?? null);
+
+        $this->assertCount(2, array_unique(array_map(fn (Limit $limit) => $limit->key, $limits)));
     }
 }

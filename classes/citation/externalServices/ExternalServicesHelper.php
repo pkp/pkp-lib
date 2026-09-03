@@ -82,7 +82,7 @@ class ExternalServicesHelper
 
             if (!$response) {
                 error_log(__METHOD__ . ' ' . $e->getMessage());
-                return null;
+                return 504;
             }
 
             if ($response->hasHeader('Retry-After')) {
@@ -92,10 +92,11 @@ class ExternalServicesHelper
             return $response->getStatusCode();
 
         } catch (GuzzleException|Exception $e) {
+            // Connection failure, timeout, DNS error, etc.: report it as a gateway timeout so the
+            // caller retries/fails loudly instead of mistaking it for an empty (but successful) response.
             error_log(__METHOD__ . ' ' . $e->getMessage());
+            return 504;
         }
-
-        return null;
     }
 
     /**

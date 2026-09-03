@@ -46,11 +46,12 @@ class Inbound
      */
     public function getWork(Citation $citation): ?Citation
     {
-        $response = ExternalServicesHelper::apiRequest(
-            $this->url . '/works/?query.bibliographic=' . urlencode(strip_tags($citation->getData('rawCitation'))) . '&mailto=' . urlencode($this->contactEmail),
-            [],
-            $this->retryAfter
-        );
+        $url = $this->url . '/works/?query.bibliographic=' . urlencode(strip_tags($citation->getData('rawCitation')));
+        if ($this->contactEmail !== '') {
+            $url .= '&mailto=' . urlencode($this->contactEmail);
+        }
+
+        $response = ExternalServicesHelper::apiRequest($url, [], $this->retryAfter);
 
         if (is_int($response)) {
             $this->statusCode = $response;

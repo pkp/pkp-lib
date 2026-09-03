@@ -29,7 +29,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="givenName" autocomplete="given-name" id="givenName" value="{$givenName|default:""|escape}" maxlength="255" required aria-required="true">
+				<input type="text" name="givenName" autocomplete="given-name" id="givenName" value="{$givenName|default:""|escape}" maxlength="255" required aria-required="true"{if isset($errors.givenName)} aria-invalid="true" aria-describedby="formError-givenName"{/if}>
 			</label>
 		</div>
 		<div class="family_name">
@@ -61,7 +61,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<select name="country" id="country" autocomplete="country-name" required aria-required="true">
+				<select name="country" id="country" autocomplete="country-name" required aria-required="true"{if isset($errors.country)} aria-invalid="true" aria-describedby="formError-country"{/if}>
 					<option></option>
 					{html_options options=$countries selected=$country}
 				</select>
@@ -84,7 +84,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="email" name="email" id="email" value="{$email|default:""|escape}" maxlength="90" required aria-required="true" autocomplete="email">
+				<input type="email" name="email" id="email" value="{$email|default:""|escape}" maxlength="90" required aria-required="true" autocomplete="email"{if isset($errors.email)} aria-invalid="true" aria-describedby="formError-email"{/if}>
 			</label>
 		</div>
 		<div class="username">
@@ -96,7 +96,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="text" name="username" id="username" value="{$username|default:""|escape}" maxlength="32" required aria-required="true" autocomplete="username">
+				<input type="text" name="username" id="username" value="{$username|default:""|escape}" maxlength="32" required aria-required="true" autocomplete="username"{if isset($errors.username)} aria-invalid="true" aria-describedby="formError-username"{/if}>
 			</label>
 		</div>
 		<div class="password">
@@ -108,7 +108,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password" id="password" password="true" maxlength="32" required aria-required="true" autocomplete="new-password">
+				<input type="password" name="password" id="password" password="true" maxlength="32" required aria-required="true" autocomplete="new-password"{if isset($errors.password)} aria-invalid="true" aria-describedby="formError-password"{/if}>
 			</label>
 		</div>
 		<div class="password">
@@ -120,7 +120,7 @@
 						{translate key="common.required"}
 					</span>
 				</span>
-				<input type="password" name="password2" id="password2" password="true" maxlength="32" required aria-required="true" autocomplete="new-password">
+				<input type="password" name="password2" id="password2" password="true" maxlength="32" required aria-required="true" autocomplete="new-password"{if isset($errors.password2)} aria-invalid="true" aria-describedby="formError-password2"{/if}>
 			</label>
 		</div>
 	</div>

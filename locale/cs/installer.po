@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-02 09:11+0000\n"
+"PO-Revision-Date: 2026-09-03 07:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/installer/"
 "cs/>\n"
@@ -89,7 +89,7 @@ msgid "installer.form.databaseNameRequired"
 msgstr "Je vyžadován název databáze."
 
 msgid "installer.form.emailRequired"
-msgstr "Je vyžadována platná emailová adresa pro účet administrátora."
+msgstr "Je vyžadována platná e-mailová adresa pro účet administrátora."
 
 msgid "installer.form.filesDirRequired"
 msgstr "Je vyžadován adresář pro ukládání nahraných souborů."
@@ -145,7 +145,7 @@ msgstr ""
 "Výjimka byla {$message}."
 
 msgid "installer.installParseEmailTemplatesFileError"
-msgstr "Chyba při parsování souboru šablony emailu <tt>{$file}</tt>."
+msgstr "Chyba při parsování souboru šablony e-mailu <tt>{$file}</tt>."
 
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Chyba při parsování filtru konfiguračního souboru <tt>{$file}</tt>."

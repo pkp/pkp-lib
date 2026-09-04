@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2026-09-03 07:59+0000\n"
+"PO-Revision-Date: 2026-09-04 12:25+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/cs/"
 ">\n"
@@ -54,8 +54,8 @@ msgstr "K zápisu tohoto rozhodnutí k tomuto příspěvku nemáte oprávnění.
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
-"Editor nebyl rozpoznán a nemusí mít oprávnění zaznamenat rozhodnutí o tomto "
-"příspěvku."
+"Redaktor nebyl rozpoznán a nemusí mít oprávnění zaznamenat rozhodnutí o "
+"tomto příspěvku."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr "Následujícím příjemcům nelze odeslat e-mail: {$names}."
@@ -73,8 +73,8 @@ msgstr "Toto kolo recenzí není součástí tohoto příspěvku."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
-"Příspěvek se nenachází ve vhodné fázi pracovního postupu, aby bylo možné "
-"toto rozhodnutí přijmout."
+"Příspěvek se nachází ve fázi redakčního procesu, která není vhodná pro "
+"přijetí tohoto rozhodnutí."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
@@ -149,7 +149,7 @@ msgid "editor.submission.findAndSelectUser"
 msgstr "Vyhledat uživatele"
 
 msgid "editor.submission.fileList.includeAllStages"
-msgstr "Ukázat soubory ze všech přístupných etap workflow."
+msgstr "Ukázat soubory ze všech přístupných etap redakčního procesu."
 
 msgid "editor.submission.review.currentFiles"
 msgstr "Současné soubory k recenzi pro {$round}. kolo"
@@ -285,7 +285,7 @@ msgid "editor.review.requestDeclined.tooltip"
 msgstr "Recenzent tuto žádost o recenzi odmítl."
 
 msgid "editor.review.requestCancelled.tooltip"
-msgstr "Editor žádost o recenzi zrušil."
+msgstr "Redaktor žádost o recenzi zrušil."
 
 msgid "editor.review.revertDecision"
 msgstr "Vrátit rozhodnutí"
@@ -436,16 +436,16 @@ msgid "editor.submission.newRound"
 msgstr "Nové kolo recenzí"
 
 msgid "editor.submissionReview.recordDecision"
-msgstr "Nahrát rozhodnutí editora"
+msgstr "Nahrát rozhodnutí redaktora"
 
 msgid "editor.submissionReview.recordRecommendation"
 msgstr "Záznam doporučení redakce"
 
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "Upozornit editory"
+msgstr "Upozornit redaktory"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Neposílat e-mail editorům."
+msgstr "Neposílat e-mail redaktorům."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
 msgstr "Vytvořit diskusi recenzentů o tomto doporučení."

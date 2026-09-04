@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-09-03 07:59+0000\n"
+"PO-Revision-Date: 2026-09-04 12:25+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/user/cs/>"
 "\n"
@@ -60,14 +60,14 @@ msgstr "Musíte zvolit platnou uživatelskou skupinu pro přístup k této opera
 
 msgid "user.authorization.managerRequired"
 msgstr ""
-"Uživatel s úlohou Manažera (např. Produkční Editor) musí být přiřazen k této "
-"fázi, než bude moci pokračovat."
+"Uživatel s úlohou Manažera (např. produkční redaktor) musí být přiřazen k "
+"této fázi, než bude moci pokračovat."
 
 msgid "user.authorization.accessibleWorkflowStage"
-msgstr "V současnosti nemáte přístup do této etapy workflow."
+msgstr "V současnosti nemáte přístup do této etapy redakčního procesu."
 
 msgid "user.authorization.workflowStageRequired"
-msgstr "Etapa workflow není specifikována."
+msgstr "Etapa redakčního procesu není specifikována."
 
 msgid "user.authorization.pluginRequired"
 msgstr "Plugin nebyl specifikován a je vyžadován."
@@ -387,7 +387,7 @@ msgid "user.role.authors"
 msgstr "Autoři"
 
 msgid "user.role.editor"
-msgstr "Editor"
+msgstr "Redaktor"
 
 msgid "user.role.editors"
 msgstr "Editoři"
@@ -423,7 +423,7 @@ msgid "user.role.proofreaders"
 msgstr "Korektoři"
 
 msgid "user.role.layoutEditor"
-msgstr "Editor sazby"
+msgstr "Redaktor sazby"
 
 msgid "user.role.layoutEditors"
 msgstr "Editoři sazby"
@@ -550,7 +550,7 @@ msgid "user.usernameOrEmail"
 msgstr "Uživatelské jméno nebo e-mail"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
-msgstr "Přístup k pracovním postupům pro neúplná podání je omezen."
+msgstr "Přístup k redakčnímu procesu je u neúplných příspěvků omezen."
 
 msgid "orcid.displayName"
 msgstr "Plugin pro profil ORCID"

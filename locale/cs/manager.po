@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-09-03 07:59+0000\n"
+"PO-Revision-Date: 2026-09-04 12:25+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
@@ -1076,7 +1076,7 @@ msgstr "Odeslání e-mailového oznámení všem autorům příspěvku."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
-"Odeslat e-mail pouze autorům přiřazeným k pracovnímu postupu příspěvku. "
+"Odeslat e-mail pouze autorům přiřazeným k redakčního procesu příspěvku. "
 "Obvykle se jedná o předkládajícího autora."
 
 msgid "manager.setup.submissionsNotifications"
@@ -1878,10 +1878,10 @@ msgid "manager.website.title"
 msgstr "Nastavení webových stránek"
 
 msgid "manager.workflow"
-msgstr "Pracovní postup"
+msgstr "Redakční proces"
 
 msgid "manager.workflow.title"
-msgstr "Nastavení workflow"
+msgstr "Nastavení redakčního procesu"
 
 msgid "manager.distribution"
 msgstr "Distribuce"
@@ -2483,7 +2483,7 @@ msgstr "Odkaz na stránku zobrazující prohlášení o soukromí."
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
 "Tento odkaz se zobrazí pouze pokud jste vložili prohlášení o soukromí v "
-"Nastavení > Workflow > Příspěvek."
+"Nastavení > Redakční proces > Příspěvek."
 
 msgid "grid.category.add"
 msgstr "Přidat kategorii"
@@ -2832,8 +2832,7 @@ msgid "emailTemplate.variable.decision.description"
 msgstr "Popis přijatého rozhodnutí"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
-"Fáze redakčního pracovního postupu, ve které bylo toto rozhodnutí přijato"
+msgstr "Fáze redakčního procesu, ve které bylo toto rozhodnutí přijato"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
@@ -2959,7 +2958,7 @@ msgstr "Adresa URL pro odeslání v průvodci odesláním"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
-"Jména autorů přiřazených k pracovnímu postupu příspěvku. Obvykle se jedná o "
+"Jména autorů přiřazených k redakčnímu procesu příspěvku. Obvykle se jedná o "
 "předkládajícího autora"
 
 msgid "emailTemplate.variable.passwordResetUrl"
@@ -3023,18 +3022,20 @@ msgstr "Odkaz na stránku s redakčními aktivitami"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
-"Tento e-mail je odeslán, když editor znovu přiřadí nepřiřazeného recenzenta."
+"Tento e-mail je odeslán, když redaktor znovu přiřadí nepřiřazeného "
+"recenzenta."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
-"Tento e-mail zasílá editor recenzentovi, který odmítl žádost o recenzi, "
-"pokud si editor přeje žádost znovu zaslat."
+"Tento e-mail zasílá redaktor recenzentovi, který odmítl žádost o recenzi, "
+"pokud si redaktor přeje žádost znovu zaslat."
 
 msgid "mailable.reviewerUnassign.name"
 msgstr "Bylo zrušeno přiřazení recenzenta"
 
 msgid "mailable.reviewerUnassign.description"
-msgstr "Tento e-mail je poslán v případě, že editor zruší přiřazení recenzenta."
+msgstr ""
+"Tento e-mail je poslán v případě, že redaktor zruší přiřazení recenzenta."
 
 msgid "mailable.validateEmailSite.name"
 msgstr "Validace e-mailu (stránky)"
@@ -3061,7 +3062,7 @@ msgstr "Oznámení rozhodnutí recenzentům"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
-"Tento e-mail zasílá editor recenzentovi, aby mu oznámil, že bylo přijato "
+"Tento e-mail zasílá redaktor recenzentovi, aby mu oznámil, že bylo přijato "
 "rozhodnutí týkající se příspěvku, který recenzoval."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
@@ -3192,7 +3193,7 @@ msgstr ""
 "jazykových úprav a nebude podroben recenznímu řízení."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr "Vypracováno doporučení"
+msgstr "Vydané doporučení"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
@@ -3237,7 +3238,7 @@ msgstr "Poděkování za recenzi"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"Tento e-mail zasílá editor recenzentovi, aby mu potvrdil, že jeho recenzi "
+"Tento e-mail zasílá redaktor recenzentovi, aby mu potvrdil, že jeho recenzi "
 "obdržel, a poděkoval mu za jeho práci."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
@@ -3253,7 +3254,7 @@ msgstr "Požadavek na recenzi"
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Tento e-mail od editora sekce recenzentovi žádá, aby recenzent přijal nebo "
+"Tento e-mail od redaktora sekce recenzentovi žádá, aby recenzent přijal nebo "
 "odmítl úkol posoudit předložený příspěvek. "
 
 msgid "mailable.reviewRequestSubsequent.name"
@@ -3367,7 +3368,7 @@ msgstr "Oznámení revidované verze"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
-"Tento e-mail je automaticky odeslán příslušnému editorovi článku, pokud "
+"Tento e-mail je automaticky odeslán příslušnému redaktorovi článku, pokud "
 "autor odešle revidovanou verzi článku."
 
 msgid "mailable.announcementNotify.name"

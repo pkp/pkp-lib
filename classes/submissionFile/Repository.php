@@ -369,12 +369,12 @@ abstract class Repository
 
         $newFileUploaded = !empty($params['fileId']) && $params['fileId'] !== $submissionFile->getData('fileId');
 
-        $logData = $this->getSubmissionFileLogData($submissionFile);
+        $logData = $this->getSubmissionFileLogData($newSubmissionFile);
         $logEntry = Repo::eventLog()->newDataObject(array_merge(
             $logData,
             [
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
-                'assocId' => $submissionFile->getId(),
+                'assocId' => $newSubmissionFile->getId(),
                 'eventType' => $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
                 'message' => $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
                 'isTranslated' => false,
@@ -385,17 +385,18 @@ abstract class Repository
 
         $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
 
-        Repo::eventLog()->newDataObject(array_merge(
+        $submissionLogEntry = Repo::eventLog()->newDataObject(array_merge(
             $logData,
             [
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
                 'assocId' => $submission->getId(),
                 'eventType' => $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
                 'message' => $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
-                'isTranslate' => false,
+                'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
             ]
         ));
+        Repo::eventLog()->add($submissionLogEntry);
     }
 
     /**

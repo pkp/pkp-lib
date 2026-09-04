@@ -503,6 +503,11 @@
 			"description": "The calculated display string of the version of this publication",
 			"apiSummary": true,
 			"readOnly": true
+		},
+		"canCurrentUserChangeMetadata": {
+			"type": "boolean",
+			"description": "Whether the current user can change the metadata of this publication.",
+			"apiSummary": true
 		}
 	}
 }

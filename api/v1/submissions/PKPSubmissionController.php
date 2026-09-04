@@ -79,7 +79,6 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -1337,7 +1336,7 @@ class PKPSubmissionController extends PKPBaseController
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (
             !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) &&
-            !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())
+            !Repo::submission()->canEditPublication($publication, $currentUser)
         ) {
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
@@ -1394,7 +1393,7 @@ class PKPSubmissionController extends PKPBaseController
             /** @var ReviewRound[] $existingReviewRounds */
             $existingReviewRounds = $reviewRoundDao->getByPublicationId($publication->getId())->toArray();
 
-            // 1) Handle cases where we are removing all publication <-> review round assocations
+            // 1) Handle cases where we are removing all publication <-> review round associations
             if ($params['reviewRoundIds'] === null) {
                 foreach ($existingReviewRounds as $reviewRound) {
                     $reviewRoundDao->updatePublicationId($reviewRound->getId(), null);
@@ -1402,7 +1401,7 @@ class PKPSubmissionController extends PKPBaseController
             } else {
                 $updatedReviewRoundIds = Arr::map($params['reviewRoundIds'], fn ($item) => (int) $item);
 
-                // 2) Handle any new publication <-> review round assocations to previously unassocationed review rounds
+                // 2) Handle any new publication <-> review round associations to previously unassociated review rounds
                 foreach ($updatedReviewRoundIds as $updatedReviewRoundId) {
                     $reviewRoundDao->updatePublicationId($updatedReviewRoundId, $publication->getId());
                 }
@@ -1477,17 +1476,6 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         Repo::publication()->publish($publication, false);
-
-        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
-            ->get();
-
-        foreach ($stageAssignments as $stageAssignment) {
-            $userGroup = $stageAssignment->userGroup;
-            if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR) {
-                $stageAssignment->canChangeMetadata = 0;
-                $stageAssignment->save();
-            }
-        }
 
         $publication = Repo::publication()->get($publication->getId());
 
@@ -1699,7 +1687,7 @@ class PKPSubmissionController extends PKPBaseController
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (
             !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)
-            && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())
+            && !Repo::submission()->canEditPublication($publication, $currentUser)
         ) {
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
@@ -1876,7 +1864,7 @@ class PKPSubmissionController extends PKPBaseController
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($publication, $currentUser)) {
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
             ], Response::HTTP_FORBIDDEN);

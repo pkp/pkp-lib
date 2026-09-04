@@ -545,14 +545,14 @@ abstract class Repository
     /**
      * Check if a user can edit the publication metadata of a submission
      */
-    public function canEditPublication(int $submissionId, int $userId): bool
+    public function canEditPublication(Publication $publication, User $user): bool
     {
         // block authors can never edit a published publication even if an editor granted them canChangeMetadata
+        $userId = $user->getId();
+        $submissionId = $publication->getData('submissionId');
         $assignments = StageAssignment::withSubmissionIds([$submissionId])
             ->withUserId($userId)
             ->get();
-
-        $submission = $this->get($submissionId);
 
         // if user has no stage assigments, check if user can edit anyway ie. is manager
         $context = Application::get()->getRequest()->getContext();
@@ -560,17 +560,9 @@ abstract class Repository
             return true;
         }
 
-        // any published or scheduled then probe
-        $hasLockedPublication = $submission?->getData('publications')
-            ->contains(
-                fn (Publication $p) =>
-                    in_array(
-                        $p->getData('status'),
-                        [PKPPublication::STATUS_PUBLISHED, PKPPublication::STATUS_SCHEDULED]
-                    )
-            );
+        $lockedPublication = in_array($publication->getData('status'), [PKPPublication::STATUS_PUBLISHED, PKPPublication::STATUS_SCHEDULED]);
 
-        if ($hasLockedPublication && !$assignments->contains(fn (StageAssignment $sa) => $sa->userGroup && $sa->userGroup->roleId != Role::ROLE_ID_AUTHOR)) {
+        if ($lockedPublication && !$assignments->contains(fn (StageAssignment $sa) => $sa->userGroup && $sa->userGroup->roleId != Role::ROLE_ID_AUTHOR)) {
             return false;
         }
 

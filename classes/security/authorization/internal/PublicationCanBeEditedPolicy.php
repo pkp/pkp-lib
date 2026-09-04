@@ -20,7 +20,7 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\submission\Submission;
+use APP\publication\Publication;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 
@@ -42,11 +42,11 @@ class PublicationCanBeEditedPolicy extends AuthorizationPolicy
      */
     public function effect(): int
     {
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION); /** @var Publication $publication */
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) || Repo::submission()->canEditPublication($submission->getId(), $this->_currentUser->getId())) {
+        if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) || Repo::submission()->canEditPublication($publication, $this->_currentUser)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 

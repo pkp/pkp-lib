@@ -276,8 +276,12 @@ class Repository
         if ($affiliation->getRor()) {
             $affiliation->setName(null);
         } else {
-            if (!array_key_exists($submissionLocale, $affiliation->getName())) {
-                $affiliation->setName($user->getData('name', $user->getDefaultLocale()), $submissionLocale);
+            $names = $affiliation->getName() ?? [];
+            if (($names[$submissionLocale] ?? '') === '') {
+                $fallback = $user->getLocalizedData('affiliation', $user->getDefaultLocale());
+                if ((string) $fallback !== '') {
+                    $affiliation->setName($fallback, $submissionLocale);
+                }
             }
         }
         return ($affiliation->getRor() || $affiliation->getName()) ? $affiliation : null;

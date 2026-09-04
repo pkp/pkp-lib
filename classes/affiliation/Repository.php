@@ -21,7 +21,6 @@ use APP\submission\Submission;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
 use PKP\plugins\Hook;
-use PKP\ror\Ror;
 use PKP\services\PKPSchemaService;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
@@ -250,36 +249,34 @@ class Repository
     }
 
     /**
-     * Migrates user affiliation.
-     */
+     * Build a submission author affiliation from the submitting user's account affiliation.
+      */
     public function migrateUserAffiliation(User $user, Submission $submission, Context $context): ?Affiliation
     {
         $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
         $submissionLocale = $submission->getData('locale');
 
-        $affiliation = $this->newDataObject();
         $userAffiliations = $user->getAffiliation(null);
-        if (empty($userAffiliations) || count(array_filter($userAffiliations)) == 0) {
+        if (empty($userAffiliations) || count(array_filter($userAffiliations)) === 0) {
             return null;
         }
+
+        $affiliation = $this->newDataObject();
         foreach ($userAffiliations as $locale => $name) {
-            $ror = Repo::ror()->getCollector()->filterByName($name)->getMany()->first();
-            if ($ror) {
-                $affiliation->setRor($ror->getRor());
-                break;
-            } else {
-                if (in_array($locale, $allowedLocales)) {
-                    $affiliation->setName($name, $locale);
-                }
+            if (in_array($locale, $allowedLocales) && (string) $name !== '') {
+                $affiliation->setName($name, $locale);
             }
         }
-        if ($affiliation->getRor()) {
-            $affiliation->setName(null);
-        } else {
-            if (!array_key_exists($submissionLocale, $affiliation->getName())) {
-                $affiliation->setName($user->getData('name', $user->getDefaultLocale()), $submissionLocale);
+
+        // the affiliation name is required in the submission locale
+        $names = $affiliation->getName() ?? [];
+        if (($names[$submissionLocale] ?? '') === '') {
+            $fallback = $user->getLocalizedData('affiliation', $user->getDefaultLocale());
+            if ((string) $fallback !== '') {
+                $affiliation->setName($fallback, $submissionLocale);
             }
         }
-        return ($affiliation->getRor() || $affiliation->getName()) ? $affiliation : null;
+
+        return $affiliation->getName() ? $affiliation : null;
     }
 }

@@ -461,6 +461,12 @@ msgstr ""
 "You are about to modify the review submitted by {$reviewerName}. All "
 "modifications will be recorded in the activity log."
 
+msgid "editor.review.competingInterests.declaration"
+msgstr "Declaration"
+
+msgid "editor.review.competingInterests.hasCompetingInterests"
+msgstr "I may have competing interests"
+
 msgid "editor.review.reviewerRecommendation"
 msgstr "Reviewer Recommendation"
 

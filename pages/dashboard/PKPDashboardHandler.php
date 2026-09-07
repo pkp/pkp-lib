@@ -199,6 +199,7 @@ abstract class PKPDashboardHandler extends Handler
                     'supportsFunders' => !!$context->getData('funders'),
                     'identifiersEnabled' => $identifiersEnabled,
                     'isReviewerSuggestionEnabled' => (bool)$context->getData('reviewerSuggestionEnabled'),
+                    'isCompetingInterestsRequested' => Repo::reviewAssignment()->isCompetingInterestsRequested($context),
                 ],
                 'componentForms' => [
                     'contributorForm' => $contributorForm->getConfig(),

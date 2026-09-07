@@ -513,10 +513,6 @@ class Schema extends \PKP\core\maps\Schema
                         ]
                     )->toArray();
                     break;
-                case 'canCurrentUserChangeMetadata':
-                    // Identify if current user can change metadata. Consider roles in the active stage.
-                    $output[$prop] = $this->canChangeMetadata($this->stageAssignments);
-                    break;
                 case 'editorAssigned':
                     $output[$prop] = $this->stageAssignments && $this->getPropertyStageAssignments($this->stageAssignments);
                     break;
@@ -592,45 +588,6 @@ class Schema extends \PKP\core\maps\Schema
         }
 
         return $output;
-    }
-
-    /**
-     * Determine whether current user is able to change metadata
-     *
-     * @deprecated should be determined per publication level, see pkp/pkp-lib#13109
-     */
-    protected function canChangeMetadata(?Enumerable $stageAssignments): bool
-    {
-        $currentUser = Application::get()->getRequest()->getUser();
-        $isAssigned = false;
-        $canChangeMetadata = false;
-
-        // Check if stage assignment is associated with the current user and edit metadata flag
-        foreach ($stageAssignments ?? [] as $stageAssignment) {
-            if ($stageAssignment->userId === $currentUser->getId()) {
-                $isAssigned = true;
-                if ($stageAssignment->canChangeMetadata) {
-                    $canChangeMetadata = true;
-                    break;
-                }
-            }
-        }
-
-        if ($canChangeMetadata) {
-            return true;
-        }
-
-        // If user is not assigned, check editorial global roles, journal admin and managers should have access for editing metadata
-        if (!$isAssigned) {
-            if (!empty(array_intersect(
-                $this->userRoles,
-                [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]
-            ))) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**

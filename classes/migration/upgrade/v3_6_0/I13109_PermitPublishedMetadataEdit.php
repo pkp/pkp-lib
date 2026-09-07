@@ -1,21 +1,34 @@
 <?php
 
+/**
+ * @file classes/migration/upgrade/v3_6_0/I13109_PermitPublishedMetadataEdit.php
+ *
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class I13109_PermitPublishedMetadataEdit
+ *
+ * @brief Migrate new workflow stage to allow access to published metadata editing for certain roles.
+ */
+
 namespace PKP\migration\upgrade\v3_6_0;
 
-use APP\core\Application;
 use Illuminate\Support\Facades\DB;
+use PKP\migration\HasContextNameHelper;
 use PKP\migration\Migration;
 use PKP\security\Role;
 
 class I13109_PermitPublishedMetadataEdit extends Migration
 {
+    use HasContextNameHelper;
+
     /**
      * @inheritDoc
      */
     public function up(): void
     {
-        $contextDao = Application::getContextDAO();
-        $contextIds = DB::table($contextDao->tableName)->pluck($contextDao->primaryKeyColumn)->all();
+        $contextIds = DB::table($this->getContextTableName())->pluck($this->getContextTableKey())->all();
 
         $groupIds = [];
         foreach ($this->roleUpdateMap() as $roleId => $userGroupNames) {

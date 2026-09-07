@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-09-04 12:25+0000\n"
+"PO-Revision-Date: 2026-09-07 14:45+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -61,8 +61,8 @@ msgstr ""
 
 msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
-"Lorsqu'une invitation est associée à une adresse e-mail ({$email}), cette "
-"adresse ne doit pas être utilisée par un/e autre utilisateur/rice."
+"Lorsqu'une invitation est associée à une adresse courriel ({$email}), cette "
+"adresse ne doit pas être utilisée par un/e autre utilisateur/ice."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""

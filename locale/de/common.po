@@ -4,13 +4,14 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2024.
 # Ralf Weber <ralf@weberr.de>, 2025.
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2025.
+# Elisabeth Sawatzky <ejournals.ojs@uni-muenster.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2026-02-12 16:00+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2026-09-07 14:45+0000\n"
+"Last-Translator: Elisabeth Sawatzky <ejournals.ojs@uni-muenster.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
 "Language: de\n"
@@ -2434,3 +2435,6 @@ msgstr "Redaktion"
 
 msgid "common.changeLanguage"
 msgstr "Sprache ändern"
+
+msgid "common.openLinkNewTab"
+msgstr "Link in neuem Tab öffnen."

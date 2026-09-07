@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-09-04 12:25+0000\n"
+"PO-Revision-Date: 2026-09-07 14:45+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/api/fr/>"
 "\n"
@@ -399,7 +399,7 @@ msgstr "La tâche en échec a été supprimée avec succès de la liste d'échec
 #~ msgstr "Aucun fichier à téléverser n'a pu être trouvé avec la requête."
 
 msgid "api.400.errorUploadingImage"
-msgstr "Une erreur est survenue lors du téléversement de cette image."
+msgstr "Une erreur est survenue lors du chargement de cette image."
 
 msgid "api.highlights.400.noOrderData"
 msgstr ""
@@ -475,8 +475,8 @@ msgstr "Impossible d'effectuer l'action prévue sur la ressource."
 
 msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
 msgstr ""
-"Vous avez fourni un « eventType » invalide pour les e-mails de l'auteur : "
-"{$eventType}."
+"Vous avez fourni un « eventType » invalide pour les courriels de l'auteur/"
+"ice : {$eventType}."
 
 msgid "api.submission.403.cantChangeSubmissionLanguage"
 msgstr ""

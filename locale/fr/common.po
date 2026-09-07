@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-09-05 15:59+0000\n"
+"PO-Revision-Date: 2026-09-07 14:45+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr/>\n"
@@ -408,7 +408,7 @@ msgid "common.editItem"
 msgstr "Modifier {$name}"
 
 msgid "common.emailTemplates"
-msgstr "Modèles d'e-mail"
+msgstr "Modèles de courriel"
 
 msgid "common.enable"
 msgstr "Activer"
@@ -480,7 +480,7 @@ msgid "common.filterRemove"
 msgstr "Supprimer le filtre : {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr "Trouver un modèle d'e-mail"
+msgstr "Trouver un modèle de courriel"
 
 msgid "common.formatting"
 msgstr "Mise en forme"
@@ -1726,7 +1726,7 @@ msgid "search.deleteFilter"
 msgstr "Supprimer"
 
 msgid "search.discipline"
-msgstr "Discipline(s)"
+msgstr "Disciplines"
 
 msgid "search.fullText"
 msgstr "Texte intégral"
@@ -1887,7 +1887,7 @@ msgid "notification.addedStageParticipant"
 msgstr "L'utilisateur a été ajouté à titre de participant."
 
 msgid "notification.editStageParticipant"
-msgstr "L'affectation de l'étape a été modifiée."
+msgstr "L'étape d'affectation a été modifiée."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Nouvelle annonce."
@@ -1993,7 +1993,7 @@ msgstr ""
 "de votre revue."
 
 msgid "notification.type.editorialReminder"
-msgstr "E-mail hebdomadaire des tâches en attente"
+msgstr "Courriel hebdomadaire des tâches en attente"
 
 msgid "semicolon"
 msgstr "{$label} : "

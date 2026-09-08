@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-09-07 14:45+0000\n"
+"PO-Revision-Date: 2026-09-09 14:59+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -348,10 +348,10 @@ msgid "invitation.cancelInvite.title"
 msgstr "Annuler l'invitation"
 
 msgid "invitation.masthead.show"
-msgstr "Apparaître dans l'équipe éditoriale"
+msgstr "Apparaît dans l'équipe éditoriale"
 
 msgid "invitation.masthead.hidden"
-msgstr "Ne pas apparaître dans l'équipe éditoriale"
+msgstr "N'apparaît pas dans l'équipe éditoriale"
 
 msgid "invitation.management.options"
 msgstr "Options de gestion des invitations"

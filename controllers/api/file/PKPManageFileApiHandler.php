@@ -22,10 +22,9 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\controllers\wizard\fileUpload\FileUploadWizardHandler;
 use PKP\controllers\wizard\fileUpload\form\SubmissionFilesMetadataForm;
 use PKP\core\JSONMessage;
-use PKP\core\PKPApplication;
-use PKP\log\event\EventLogEntry;
 use PKP\notification\Notification;
 use PKP\observers\events\MetadataChanged;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
@@ -101,43 +100,34 @@ abstract class PKPManageFileApiHandler extends Handler
         }
 
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
-        $originalFile = $request->getUserVar('originalFile') ? (array)$request->getUserVar('originalFile') : null;
         $fileIdToCancel = $request->getUserVar('fileId') ? (int)$request->getUserVar('fileId') : null;
 
-        // Get revisions and check file IDs
-        $revisions = Repo::submissionFile()->getRevisions($submissionFile->getId());
-        $revisionIds = [];
-        foreach ($revisions as $revision) {
-            $revisionIds[] = $revision->fileId;
-        }
+        // Revisions are ordered newest first
+        $revisions = Repo::submissionFile()->getRevisions($submissionFile->getId())->values();
 
-        if (!$fileIdToCancel || !in_array($fileIdToCancel, $revisionIds)) {
+        // Only the revision the submission file currently points at may be cancelled
+        if (!$fileIdToCancel
+            || (int) $submissionFile->getData('fileId') !== $fileIdToCancel
+            || (int) $revisions->first()?->fileId !== $fileIdToCancel
+        ) {
             return new JSONMessage(false);
         }
 
-        // Original file is only present in request when the file to be cancelled was being upload as a revision of a previous file
-        if (!empty($originalFile)) {
-            if (!isset($originalFile['fileId']) || !in_array($originalFile['fileId'], $revisionIds)) {
-                return new JSONMessage(false);
-            }
+        // A previous revision exists only when the cancelled upload replaced an existing file;
+        // a first upload has nothing to restore.
+        if ($previousRevision = $revisions->get(1)) {
+            // Recorded by FileUploadWizardHandler::uploadFile() before the revision replaced the
+            // original file. It is only usable if it describes the revision the chain is about to
+            // fall back to; anything else is left over from an abandoned wizard run.
+            $originalFile = $request->getSession()->remove(
+                FileUploadWizardHandler::getOriginalFileSessionKey($submissionFile->getId())
+            );
 
-            $originalFileId = (int) $originalFile['fileId'];
-
-            // Get the file name and uploader user ID
-            $originalUserId = $originalFile['uploaderUserId'] ? (int)$originalFile['uploaderUserId'] : null;
-            $originalFileName = $originalFile['name'] ? (array)$originalFile['name'] : null;
-            if (!$originalUserId || !$originalFileName) {
-                return new JSONMessage(false);
-            }
-
-            $originalUser = Repo::user()->get($originalUserId);
-            if (!$originalUser) {
-                return new JSONMessage(false);
-            }
-
-            $originalUsername = $originalUser->getUsername();
-            $matchedLogEntry = $this->findMatchedLogEntry($submissionFile, $originalFileId, $originalUsername, $originalFileName);
-            if (!$matchedLogEntry) {
+            if (!is_array($originalFile)
+                || ($originalFile['fileId'] ?? null) !== (int) $previousRevision->fileId
+                || empty($originalFile['name'])
+                || empty($originalFile['uploaderUserId'])
+            ) {
                 return new JSONMessage(false);
             }
 
@@ -145,9 +135,9 @@ abstract class PKPManageFileApiHandler extends Handler
             Repo::submissionFile()->edit(
                 $submissionFile,
                 [
-                    'fileId' => $matchedLogEntry->getData('fileId'),
-                    'name' => $matchedLogEntry->getData('filename'),
-                    'uploaderUserId' => Repo::user()->getByUsername($matchedLogEntry->getData('username'))->getId(),
+                    'fileId' => (int) $previousRevision->fileId,
+                    'name' => $originalFile['name'],
+                    'uploaderUserId' => (int) $originalFile['uploaderUserId'],
                 ]
             );
         }
@@ -269,42 +259,5 @@ abstract class PKPManageFileApiHandler extends Handler
     protected function getUpdateNotifications()
     {
         return [Notification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS];
-    }
-
-    /**
-     * Compare user supplied data when cancelling file upload with saved in the event log;
-     * assuming we found the right entry if they match
-     */
-    protected function findMatchedLogEntry(
-        SubmissionFile $submissionFile,
-        int            $originalFileId,
-        string         $originalUsername,
-        array          $originalFileName
-    ): ?EventLogEntry {
-        $logEntries = Repo::eventLog()->getCollector()
-            ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, [$submissionFile->getId()])
-            ->getMany();
-
-        $match = null;
-        foreach ($logEntries as $logEntry) {
-
-            $loggedUsername = $logEntry->getData('username');
-            $loggedFileName = $logEntry->getData('filename');
-            $loggedFileId = $logEntry->getData('fileId');
-            if (!$loggedUsername || !$loggedFileName || !$loggedFileId) {
-                continue;
-            }
-
-            if (
-                $loggedUsername === $originalUsername &&
-                $loggedFileName == $originalFileName &&
-                $loggedFileId === $originalFileId
-            ) {
-                $match = $logEntry;
-                break;
-            }
-        }
-
-        return $match;
     }
 }

@@ -97,11 +97,10 @@ class PKPReviewController extends PKPBaseController
 
         Route::middleware([
             self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_ASSISTANT,
-                Role::ROLE_ID_REVIEWER,
-                Role::ROLE_ID_AUTHOR,
             ]),
         ])->group(function () {
             Route::get('{submissionId}/{reviewAssignmentId}/export-pdf', $this->exportReviewPDF(...))

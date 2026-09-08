@@ -43,9 +43,6 @@
                     "orcid": {
                         "type": "string"
                     },
-                    "orcidLookedUp": {
-                        "type": "boolean"
-                    },
                     "openAlex": {
                         "type": "string"
                     },

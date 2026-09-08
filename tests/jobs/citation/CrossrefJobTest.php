@@ -25,8 +25,11 @@ use PKP\tests\PKPTestCase;
 #[CoversClass(CrossrefJob::class)]
 class CrossrefJobTest extends PKPTestCase
 {
-    /** Matches the perSecond() value configured in CrossrefJob::middleware(). */
-    protected const CONFIGURED_LIMIT = 9;
+    /** Matches CrossrefJob::POLITE_POOL_LIMIT, used when there is a contact email to send as mailto. */
+    protected const CONFIGURED_LIMIT = 3;
+
+    /** Matches CrossrefJob::PUBLIC_POOL_LIMIT. */
+    protected const CONFIGURED_PUBLIC_POOL_LIMIT = 1;
 
     protected ArrayStore $arrayStore;
 
@@ -97,5 +100,31 @@ class CrossrefJobTest extends PKPTestCase
 
         $middleware->handle($fakeJob, $next);
         $this->assertSame(self::CONFIGURED_LIMIT + 1, $ranCount);
+    }
+
+    /**
+     * With no contact email there is no mailto to send, which leaves the request in Crossref's
+     * public pool at half the rate, so the job has to throttle itself harder.
+     */
+    public function testWithoutAContactEmailItThrottlesToThePublicPoolLimit(): void
+    {
+        $job = new CrossrefJob(1, 1, '');
+        $middleware = $job->middleware()[0];
+
+        $fakeJob = Mockery::mock();
+        $fakeJob->shouldReceive('release')->once()->with(Mockery::any());
+
+        $ranCount = 0;
+        $next = function () use (&$ranCount) {
+            $ranCount++;
+        };
+
+        for ($i = 0; $i < self::CONFIGURED_PUBLIC_POOL_LIMIT; $i++) {
+            $middleware->handle($fakeJob, $next);
+        }
+        $this->assertSame(self::CONFIGURED_PUBLIC_POOL_LIMIT, $ranCount);
+
+        $middleware->handle($fakeJob, $next);
+        $this->assertSame(self::CONFIGURED_PUBLIC_POOL_LIMIT, $ranCount);
     }
 }

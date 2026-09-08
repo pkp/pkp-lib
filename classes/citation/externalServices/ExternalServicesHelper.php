@@ -24,6 +24,13 @@ use GuzzleHttp\Exception\RequestException;
 class ExternalServicesHelper
 {
     /**
+     * Guzzle waits indefinitely without these, and a job's requests must all finish inside its
+     * $timeout - Laravel enforces that by killing the worker, leaving the job reserved, not failed.
+     */
+    public const REQUEST_TIMEOUT_SECONDS = 20;
+    public const CONNECT_TIMEOUT_SECONDS = 10;
+
+    /**
      * Gets an element of an array from an array containing the path to the keys for each dimension.
      *
      * @param array $array The array to retrieve the value from.
@@ -61,7 +68,10 @@ class ExternalServicesHelper
         $httpClient = Application::get()->getHttpClient();
 
         try {
-            $response = $httpClient->request('GET', $url, $options);
+            $response = $httpClient->request('GET', $url, $options + [
+                'timeout' => self::REQUEST_TIMEOUT_SECONDS,
+                'connect_timeout' => self::CONNECT_TIMEOUT_SECONDS,
+            ]);
 
             if (!str_contains('200,201,202', (string)$response->getStatusCode())) {
                 return $response->getStatusCode();

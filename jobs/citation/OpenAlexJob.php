@@ -11,51 +11,61 @@
  *
  * @ingroup jobs
  *
- * @brief Job for retrieving structured metadata for citations from external services.
+ * @brief Job for retrieving a citation's metadata from OpenAlex by its DOI.
  */
 
 namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\externalServices\openAlex\Inbound;
-use PKP\job\exceptions\JobException;
-use PKP\jobs\BaseJob;
 
-class OpenAlexJob extends BaseJob
+class OpenAlexJob extends CitationLookupJob
 {
+    protected const RATE_LIMITER_NAME = 'openalex-lookups';
+
     /**
-     * Calls a rate-limited external API and self-releases on 429/503, each release spending
-     * an attempt — hence far above BaseJob's default. $maxExceptions still bounds real errors.
+     * OpenAlex's ceiling is 100 requests/second. No daily counterpart: retrieving a single entity
+     * by DOI (used here) is free and unmetered.
+     *
+     * @see https://help.openalex.org/api/authentication/
+     * @see https://help.openalex.org/access/example-costs/
      */
-    public $tries = 500;
+    protected const PER_SECOND_LIMIT = 90;
 
-    /** Retries here wait on an external service, so pace them wider than BaseJob's default. */
-    public int $backoff = 300;
+    /** The ceiling is a per-second one, so a 429 needs only a short wait. */
+    protected const RATE_LIMIT_FALLBACK_SECONDS = 5;
 
-    protected int $contextId;
-    protected int $citationId;
-    protected string $contactEmail = '';
-
-    public function __construct(int $contextId, int $citationId, string $contactEmail)
+    public function __construct(int $contextId, int $citationId, string $contactEmail, int $serviceRetries = 0)
     {
         parent::__construct();
         $this->contextId = $contextId;
         $this->citationId = $citationId;
         $this->contactEmail = $contactEmail;
+        $this->serviceRetries = $serviceRetries;
+    }
+
+    /**
+     * Job middleware; self-throttles below OpenAlex's rate limit rather than routinely earning a 429.
+     */
+    public function middleware(): array
+    {
+        RateLimiter::for(self::RATE_LIMITER_NAME, fn () => Limit::perSecond(self::PER_SECOND_LIMIT));
+
+        return [new JitteredRateLimited(self::RATE_LIMITER_NAME)];
     }
 
     /**
      * Handle the queue job execution process
-     *
-     * @throws JobException
      */
     public function handle(): void
     {
         $citation = Repo::citation()->get($this->citationId);
 
         if (!$citation) {
-            throw new JobException(JobException::INVALID_PAYLOAD);
+            return;
         }
 
         if ($citation->getProcessingStatus() >= CitationProcessingStatus::OPEN_ALEX->value || !$citation->getData('doi')) {
@@ -72,13 +82,12 @@ class OpenAlexJob extends BaseJob
                 case 500:
                 case 502:
                 case 504:
-                    // Service is unwell or unreachable: fail fast and visibly, then bulk-retry once it recovers.
-                    throw new JobException(__('admin.job.failed.connection.externalService', [
-                        'statusCode' => $service->statusCode]));
+                    $this->retryAfterServiceError($service->statusCode);
+                    return;
                 case 429:
                 case 503:
                     // OpenAlex returns 429 when the rate limit is exceeded; 503 handled defensively.
-                    $this->release($service->retryAfter !== null ? $service->retryAfter + 3 : 60);
+                    $this->retryAfterRateLimit($service->retryAfter, $service->statusCode);
                     return;
                 case 404:
                 default:

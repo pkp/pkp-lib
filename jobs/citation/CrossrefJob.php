@@ -11,71 +11,74 @@
  *
  * @ingroup jobs
  *
- * @brief Job for retrieving structured metadata for citations from external services.
+ * @brief Job for finding a citation at Crossref by searching on its raw text.
  */
 
 namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
 use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Queue\Middleware\RateLimited;
 use Illuminate\Support\Facades\RateLimiter;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\externalServices\crossref\Inbound;
-use PKP\job\exceptions\JobException;
-use PKP\jobs\BaseJob;
 
-class CrossrefJob extends BaseJob
+class CrossrefJob extends CitationLookupJob
 {
-    /** Name of the shared rate limiter throttling all Crossref lookups below the "polite pool" limit of 10 requests/second. */
     protected const RATE_LIMITER_NAME = 'crossref-lookups';
 
     /**
-     * Calls a rate-limited external API and self-releases on 429/503, each release spending
-     * an attempt — hence far above BaseJob's default. $maxExceptions still bounds real errors.
+     * Crossref's limits for query endpoints (bibliographic search used here): 3 requests/second
+     * and 3 concurrent in the polite pool, 1 and 1 in the public.
+     *
+     * @see https://www.crossref.org/blog/announcing-changes-to-rest-api-rate-limits/
      */
-    public $tries = 500;
+    protected const POLITE_POOL_LIMIT = 3;
 
-    /** Retries here wait on an external service, so pace them wider than BaseJob's default. */
-    public int $backoff = 300;
+    /** Used when there is no contact email, so no mailto to send. */
+    protected const PUBLIC_POOL_LIMIT = 1;
 
-    protected int $contextId;
-    protected int $citationId;
-    protected string $contactEmail = '';
+    /** Crossref sends no Retry-After with a 429, and its window is only a second long. */
+    protected const RATE_LIMIT_FALLBACK_SECONDS = 5;
 
-    public function __construct(int $contextId, int $citationId, string $contactEmail)
+    public function __construct(int $contextId, int $citationId, string $contactEmail, int $serviceRetries = 0)
     {
         parent::__construct();
         $this->contextId = $contextId;
         $this->citationId = $citationId;
         $this->contactEmail = $contactEmail;
+        $this->serviceRetries = $serviceRetries;
     }
 
     /**
-     * Job middleware; self-throttles below Crossref's rate limit so this job (across all
-     * queued citations) is released back to the queue instead of routinely hitting a 429.
+     * Job middleware; self-throttles below Crossref's rate limit instead of routinely hitting a 429.
      */
     public function middleware(): array
     {
-        RateLimiter::for(self::RATE_LIMITER_NAME, fn () => Limit::perSecond(9));
+        // The two pools are separate machines with independent limits, so separate counters.
+        [$limit, $pool] = $this->contactEmail !== ''
+            ? [self::POLITE_POOL_LIMIT, 'polite']
+            : [self::PUBLIC_POOL_LIMIT, 'public'];
 
-        return [new RateLimited(self::RATE_LIMITER_NAME)];
+        RateLimiter::for(
+            self::RATE_LIMITER_NAME,
+            fn () => Limit::perSecond($limit)->by(self::RATE_LIMITER_NAME . ':' . $pool)
+        );
+
+        return [new JitteredRateLimited(self::RATE_LIMITER_NAME)];
     }
 
     /**
      * Handle the queue job execution process
-     *
-     * @throws JobException
      */
     public function handle(): void
     {
         $citation = Repo::citation()->get($this->citationId);
 
         if (!$citation) {
-            throw new JobException(JobException::INVALID_PAYLOAD);
+            return;
         }
 
-        if ($citation->getProcessingStatus() >= CitationProcessingStatus::CROSSREF->value) {
+        if ($citation->getProcessingStatus() >= CitationProcessingStatus::CROSSREF->value || $citation->getData('doi')) {
             return;
         }
 
@@ -89,13 +92,12 @@ class CrossrefJob extends BaseJob
                 case 500:
                 case 502:
                 case 504:
-                    // Service is unwell or unreachable: fail fast and visibly, then bulk-retry once it recovers.
-                    throw new JobException(__('admin.job.failed.connection.externalService', [
-                        'statusCode' => $service->statusCode]));
+                    $this->retryAfterServiceError($service->statusCode);
+                    return;
                 case 429:
                 case 503:
                     // Crossref returns either 429 or 503 when the rate limit is exceeded.
-                    $this->release($service->retryAfter !== null ? $service->retryAfter + 3 : 60);
+                    $this->retryAfterRateLimit($service->retryAfter, $service->statusCode);
                     return;
                 default:
                     return;

@@ -66,8 +66,7 @@ class Inbound
         // Without an explicit Accept the API defaults to XML; request the plain JSON record Mapping expects.
         $options = ['headers' => ['Accept' => 'application/json']];
 
-        // A sandbox-registered app's token wouldn't be honored by the production API these (real) citation authors live on.
-        if ($this->context !== null && OrcidManager::isEnabled($this->context) && !OrcidManager::isSandbox($this->context)) {
+        if (self::hasReadCredentials($this->context)) {
             $accessToken = $this->getAccessToken();
             if ($accessToken !== null) {
                 $url = OrcidManager::getApiPath($this->context) . OrcidManager::ORCID_API_VERSION_URL . $orcidId;
@@ -96,6 +95,18 @@ class Inbound
         }
 
         return $author;
+    }
+
+    /**
+     * Whether the journal's credentials can be exchanged for a read-public token. Sandbox is not considered.
+     */
+    public static function hasReadCredentials(?Context $context): bool
+    {
+        return $context !== null
+            && OrcidManager::isEnabled($context)
+            && !OrcidManager::isSandbox($context)
+            && OrcidManager::getClientId($context) !== ''
+            && OrcidManager::getClientSecret($context) !== '';
     }
 
     /**
@@ -134,6 +145,10 @@ class Inbound
                         'scope' => '/read-public',
                     ],
                     'headers' => ['Accept' => 'application/json'],
+                    // This one does not go through apiRequest(), but a hang here strands the job
+                    // just the same.
+                    'timeout' => ExternalServicesHelper::REQUEST_TIMEOUT_SECONDS,
+                    'connect_timeout' => ExternalServicesHelper::CONNECT_TIMEOUT_SECONDS,
                 ]
             );
         } catch (Throwable $e) {
@@ -154,10 +169,11 @@ class Inbound
     }
 
     /**
-     * Cache key for this journal's ORCID client-credentials access token.
+     * Cache key for the client-credentials access token, scoped to the Client ID: rotating the
+     * credentials starts a new key, and journals sharing a site-wide ORCID config share one token.
      */
     protected function getAccessTokenCacheKey(): string
     {
-        return 'orcid-read-public-token-' . $this->context->getId();
+        return 'orcid-read-public-token-' . md5(OrcidManager::getClientId($this->context));
     }
 }

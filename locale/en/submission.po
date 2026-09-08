@@ -3150,6 +3150,15 @@ msgstr "Converting…"
 msgid "publication.bodyText.import.uploadingImages"
 msgstr "Uploading images…"
 
+msgid "publication.bodyText.import.importedWithWarnings"
+msgstr "Imported with warnings"
+
+msgid "publication.bodyText.import.warnings"
+msgstr "{$count} part(s) of the document need attention. Unconverted blocks are marked in the document."
+
+msgid "publication.bodyText.import.missingImage"
+msgstr "The image {$path} could not be extracted from the document and was replaced by a placeholder."
+
 msgid "publication.jats.confirmDeleteFileTitle"
 msgstr "Confirm deleting JATS XML"
 

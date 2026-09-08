@@ -28,7 +28,8 @@ use PKP\submission\PKPSubmission;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
-use PKP\observers\events\MetadataChanged;
+use PKP\observers\events\AuthorMetadataChanged;
+use PKP\observers\events\PublicationMetadataChanged;
 
 class Repository
 {
@@ -188,7 +189,7 @@ class Repository
 
         Hook::call('Author::add', [$author]);
 
-        $this->dispatchMetadataChanged($author->getData('publicationId')); //#13074
+        event(new AuthorMetadataChanged($author));
 
         return $author->getId();
     }
@@ -208,7 +209,7 @@ class Repository
 
         Repo::author()->get($newAuthor->getId());
 
-        $this->dispatchMetadataChanged($newAuthor->getData('publicationId')); // #13074
+        event(new AuthorMetadataChanged($newAuthor));
     }
 
     /**
@@ -225,7 +226,7 @@ class Repository
 
         Hook::call('Author::delete', [$author]);
 
-        $this->dispatchMetadataChanged($author->getData('publicationId')); // NEW
+        event(new AuthorMetadataChanged($author)); // NEW
     }
 
     /**
@@ -328,33 +329,10 @@ class Repository
             $seq++;
         }
 
-        $this->dispatchMetadataChanged($publicationId); // #13074, once for the whole reorder
-    }
-
-    /**
-     * Adds a private helper plus one dispatch call in each of the four write
-     * methods (add, edit, delete, setAuthorsOrder). No existing line is removed;
-     * each block below shows the method with the new line(s) marked.
-     *
-     */
-
-    /**
-     * Dispatch MetadataChanged for the submission owning the given publication.
-     * Silently no-ops if the publication or submission can't be resolved.
-     *
-     * @see https://github.com/pkp/pkp-lib/issues/13074
-     */
-    private function dispatchMetadataChanged(int $publicationId): void
-    {
         $publication = Repo::publication()->get($publicationId);
-        if (!$publication) {
-            return;
+        if ($publication) {
+            event(new PublicationMetadataChanged($publication));
         }
-        $submission = Repo::submission()->get($publication->getData('submissionId'));
-        if (!$submission) {
-            return;
-        }
-        event(new MetadataChanged($submission));
     }
 
 }

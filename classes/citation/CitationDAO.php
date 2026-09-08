@@ -22,7 +22,7 @@ use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
-use PKP\observers\events\MetadataChanged;
+use PKP\observers\events\CitationMetadataChanged;
 use App\facades\Repo;
 
 class CitationDAO extends \PKP\db\DAO
@@ -60,9 +60,10 @@ class CitationDAO extends \PKP\db\DAO
             ]
         );
         $citation->setId($this->getInsertId());
+
         $this->_updateObjectMetadata($citation);
 
-        $this->dispatchMetadataChanged((int) $citation->getData('publicationId')); // #13074
+        event(new CitationMetadataChanged((int) $citation->getData('publicationId')));
 
         return $citation->getId();
     }
@@ -181,7 +182,7 @@ class CitationDAO extends \PKP\db\DAO
         );
         $this->_updateObjectMetadata($citation);
 
-        $this->dispatchMetadataChanged((int) $citation->getData('publicationId')); // #13074
+        event(new CitationMetadataChanged((int) $citation->getData('publicationId')));
     }
 
     /**
@@ -193,11 +194,9 @@ class CitationDAO extends \PKP\db\DAO
      */
     public function deleteObject($citation)
     {
-        // #13074 --- deleteObject(): capture publicationId before delete, dispatch after ---
-        $publicationId = (int) $citation->getData('publicationId');
         $result = $this->deleteById($citation->getId());
 
-        $this->dispatchMetadataChanged($publicationId); // NEW
+        event(new CitationMetadataChanged((int) $citation->getData('publicationId')));
 
         return $result;
     }
@@ -226,7 +225,7 @@ class CitationDAO extends \PKP\db\DAO
             $this->deleteById($citation->getId());
         }
 
-        $this->dispatchMetadataChanged((int) $publicationId); // #13074, once for the whole batch
+        event(new CitationMetadataChanged((int) $publicationId));
 
         return true;
     }
@@ -271,25 +270,6 @@ class CitationDAO extends \PKP\db\DAO
         $this->updateDataObjectSettings('citation_settings', $citation, ['citation_id' => $citation->getId()]);
     }
 
-// --- New private helper ---
-    /**
-     * Dispatch MetadataChanged for the submission owning the given publication.
-     * Silently no-ops if the publication or submission can't be resolved.
-     *
-     * @see https://github.com/pkp/pkp-lib/issues/13074
-     */
-    private function dispatchMetadataChanged(int $publicationId): void
-    {
-        $publication = Repo::publication()->get($publicationId);
-        if (!$publication) {
-            return;
-        }
-        $submission = Repo::submission()->get($publication->getData('submissionId'));
-        if (!$submission) {
-            return;
-        }
-        event(new MetadataChanged($submission));
-    }
 }
 
 if (!PKP_STRICT_MODE) {

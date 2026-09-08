@@ -42,6 +42,9 @@ import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenRev
 import PkpCombobox from '@/frontend/components/PkpCombobox/PkpCombobox.vue';
 import PkpCiteBody from '@/frontend/components/PkpCite/PkpCiteBody.vue';
 import PkpUsageChart from '@/frontend/components/PkpUsageChart/PkpUsageChart.vue';
+import PkpCitedBy from '@/frontend/components/PkpCitedBy/PkpCitedBy.vue';
+import PkpCitedByCount from '@/frontend/components/PkpCitedBy/PkpCitedByCount.vue';
+import PkpCitedByBody from '@/frontend/components/PkpCitedBy/PkpCitedByBody.vue';
 
 // Pinia stores
 import {usePkpModalStore} from '@/frontend/stores/pkpModalStore';
@@ -50,6 +53,7 @@ import {usePkpCommentsStore} from '@/frontend/components/PkpComments/usePkpComme
 import {usePkpOpenReviewStore} from '@/frontend/components/PkpOpenReview/usePkpOpenReviewStore';
 import {usePkpCiteStore} from '@/frontend/components/PkpCite/usePkpCiteStore';
 import {usePkpUsageChartStore} from '@/frontend/components/PkpUsageChart/usePkpUsageChartStore';
+import {usePkpCitedByStore} from '@/frontend/components/PkpCitedBy/usePkpCitedByStore';
 
 // PkpTab Components
 import PkpTabRoot from '@/frontend/components/PkpTab/PkpTabRoot.vue';
@@ -89,6 +93,7 @@ VueRegistry.registerStore('pkpComments', usePkpCommentsStore);
 VueRegistry.registerStore('pkpOpenReview', usePkpOpenReviewStore);
 VueRegistry.registerStore('pkpCite', usePkpCiteStore);
 VueRegistry.registerStore('pkpUsageChart', usePkpUsageChartStore);
+VueRegistry.registerStore('pkpCitedBy', usePkpCitedByStore);
 
 VueRegistry.registerComponent('PkpButton', PkpButton);
 VueRegistry.registerComponent('PkpDialog', PkpDialog);
@@ -104,6 +109,9 @@ VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);
 VueRegistry.registerComponent('PkpCombobox', PkpCombobox);
 VueRegistry.registerComponent('PkpCiteBody', PkpCiteBody);
 VueRegistry.registerComponent('PkpUsageChart', PkpUsageChart);
+VueRegistry.registerComponent('PkpCitedBy', PkpCitedBy);
+VueRegistry.registerComponent('PkpCitedByCount', PkpCitedByCount);
+VueRegistry.registerComponent('PkpCitedByBody', PkpCitedByBody);
 
 // Register PkpTab Components
 VueRegistry.registerComponent('PkpTabRoot', PkpTabRoot);

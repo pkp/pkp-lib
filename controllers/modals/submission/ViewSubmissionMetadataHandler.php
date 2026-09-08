@@ -71,8 +71,12 @@ class ViewSubmissionMetadataHandler extends handler
             'keywords' => 'common.keywords',
             'subjects' => 'common.subjects',
             'disciplines' => 'common.discipline',
-            'supportingAgencies' => 'submission.agencies',
         ];
+
+        // Supporting agencies can contain information identifying the author, so hide it under double-anonymous review.
+        if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) {
+            $controlledVocabs['supportingAgencies'] = 'submission.supportingAgencies';
+        }
 
         $additionalMetadata = [];
         foreach ($controlledVocabs as $prop => $localeKey) {

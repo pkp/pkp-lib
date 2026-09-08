@@ -21,6 +21,7 @@ use APP\notification\NotificationManager;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Exception;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -349,7 +350,8 @@ abstract class Repository
     /** @copydoc DAO::update() */
     public function edit(
         SubmissionFile $submissionFile,
-        array $params
+        array $params,
+        bool $log = true
     ): void {
         $newSubmissionFile = clone $submissionFile;
         $newSubmissionFile->setAllData(array_merge($newSubmissionFile->_data, $params));
@@ -366,6 +368,10 @@ abstract class Repository
         $newSubmissionFile->setData('updatedAt', Core::getCurrentDate());
 
         $this->dao->update($newSubmissionFile);
+
+        if (!$log) {
+            return;
+        }
 
         $newFileUploaded = !empty($params['fileId']) && $params['fileId'] !== $submissionFile->getData('fileId');
 
@@ -397,6 +403,35 @@ abstract class Repository
             ]
         ));
         Repo::eventLog()->add($submissionLogEntry);
+    }
+
+    /**
+     * Delete the event log entries that describe one revision of a submission file.
+     *
+     * Used when a revision upload is cancelled before it was confirmed which(as revision) never
+     * became part of the file's history, and its entries would otherwise survive pointing at a
+     * file that the same operation deletes, which leaves a broken download link in the event log.
+     *
+     * Matches on the `submissionFileId` and `fileId` recorded by getSubmissionFileLogData(), so it
+     * covers both the submission file and the submission scoped entries.
+     */
+    public function deleteRevisionLogEntries(SubmissionFile $submissionFile, int $fileId): void
+    {
+        $logIds = DB::table('event_log_settings as submissionFileSetting')
+            ->join('event_log_settings as fileSetting', function (JoinClause $join) {
+                $join->on('fileSetting.log_id', '=', 'submissionFileSetting.log_id')
+                    ->where('fileSetting.setting_name', '=', 'fileId');
+            })
+            ->where('submissionFileSetting.setting_name', '=', 'submissionFileId')
+            ->where('submissionFileSetting.setting_value', '=', (string) $submissionFile->getId())
+            ->where('fileSetting.setting_value', '=', (string) $fileId)
+            ->pluck('submissionFileSetting.log_id');
+
+        foreach ($logIds as $logId) {
+            if ($logEntry = Repo::eventLog()->get((int) $logId)) {
+                Repo::eventLog()->delete($logEntry);
+            }
+        }
     }
 
     /**

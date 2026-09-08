@@ -332,7 +332,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         // Add the metadata form if one or more metadata fields are enabled
         $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__', 'submissionId' => $submission->getId()]);
-        $metadataForm = new PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase, true);
+        $metadataForm = $this->getMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
         $metadataEnabled = count($metadataForm->fields);
 
         if ($metadataEnabled) {
@@ -409,6 +409,15 @@ abstract class PKPAuthorDashboardHandler extends Handler
      * @return string
      */
     abstract protected function _getRepresentationsGridUrl($request, $submission);
+
+    /**
+     * Get the form for entering the publication metadata. Applications may
+     * override this to supply their own form.
+     */
+    protected function getMetadataForm(string $latestPublicationApiUrl, array $locales, Publication $latestPublication, Context $context, string $vocabSuggestionUrlBase): PKPMetadataForm
+    {
+        return new PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $context, $vocabSuggestionUrlBase);
+    }
 
     /**
      * Get the form for entering the title/abstract details

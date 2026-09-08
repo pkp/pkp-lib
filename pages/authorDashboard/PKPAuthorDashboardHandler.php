@@ -28,7 +28,6 @@ use Illuminate\Support\Enumerable;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\listPanels\ContributorsListPanel;
-use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -39,7 +38,6 @@ use PKP\log\SubmissionEmailLogEventType;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
-use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
@@ -271,7 +269,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         // Check if current author can edit metadata
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         $canEditPublication = true;
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $user->getId())) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($latestPublication, $user)) {
             $canEditPublication = false;
         }
 

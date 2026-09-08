@@ -3159,6 +3159,9 @@ msgstr "{$count} part(s) of the document need attention. Unconverted blocks are 
 msgid "publication.bodyText.import.missingImage"
 msgstr "The image {$path} could not be extracted from the document and was replaced by a placeholder."
 
+msgid "publication.bodyText.import.uploadFailed"
+msgstr "The image {$path} could not be uploaded ({$error}) and was replaced by a placeholder."
+
 msgid "publication.jats.confirmDeleteFileTitle"
 msgstr "Confirm deleting JATS XML"
 

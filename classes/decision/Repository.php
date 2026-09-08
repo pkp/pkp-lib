@@ -3,8 +3,8 @@
 /**
  * @file classes/decision/Repository.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -27,6 +27,10 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\decision\types\Withdraw;
+use PKP\decision\types\WithdrawInCopyediting;
+use PKP\decision\types\WithdrawInProduction;
+use PKP\decision\types\WithdrawInReview;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\notification\Notification;
 use PKP\observers\events\DecisionAdded;
@@ -407,6 +411,21 @@ abstract class Repository
      * @return DecisionType[]
      */
     abstract public function getDeclineDecisionTypes(): array;
+
+    /**
+     * Get a list of the withdraw decision types
+     *
+     * @return DecisionType[]
+     */
+    public function getWithdrawnDecisionTypes(): array
+    {
+        return [
+            new Withdraw(),
+            new WithdrawInReview(),
+            new WithdrawInCopyediting(),
+            new WithdrawInProduction(),
+        ];
+    }
 
     /**
      * Get a list of the decision types that a recommending user is

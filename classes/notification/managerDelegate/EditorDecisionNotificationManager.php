@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/managerDelegate/EditorDecisionNotificationManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionNotificationManager
@@ -39,6 +39,8 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE => __('notification.type.editorDecisionDecline'),
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE => __('notification.type.editorDecisionRevertDecline'),
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION => __('notification.type.editorDecisionSendToProduction'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_WITHDRAW => __('notification.type.editorDecisionWithdraw'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_WITHDRAW => __('notification.type.editorDecisionRevertWithdraw'),
             default => null
         };
     }
@@ -116,7 +118,9 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT,
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND,
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE,
-            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION =>
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_WITHDRAW,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_WITHDRAW =>
                 Repo::submission()->getWorkflowUrlByUserRoles(
                     Repo::submission()->get($notification->assocId),
                     $notification->userId
@@ -142,7 +146,9 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND,
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE,
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE,
-            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_WITHDRAW,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_WITHDRAW,
         ];
     }
 

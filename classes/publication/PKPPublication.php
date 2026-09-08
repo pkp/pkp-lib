@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/PKPPublication.php
  *
- * Copyright (c) 2016-2025 Simon Fraser University
- * Copyright (c) 2003-2025 John Willinsky
+ * Copyright (c) 2016-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublication
@@ -36,6 +36,7 @@ class PKPPublication extends \PKP\core\DataObject
     public const STATUS_PUBLISHED = 3;
     public const STATUS_DECLINED = 4;
     public const STATUS_SCHEDULED = 5;
+    public const STATUS_WITHDRAWN = 6;
 
     /**
      * Get the valid pre-publish statuses if available

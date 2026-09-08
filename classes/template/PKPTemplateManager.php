@@ -8,8 +8,8 @@
 /**
  * @file classes/template/PKPTemplateManager.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTemplateManager
@@ -977,12 +977,14 @@ class PKPTemplateManager extends Smarty
                 'STATUS_QUEUED' => Submission::STATUS_QUEUED,
                 'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
                 'STATUS_DECLINED' => Submission::STATUS_DECLINED,
+                'STATUS_WITHDRAWN' => Submission::STATUS_WITHDRAWN,
                 'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
             ],
             'publication' => [
                 'STATUS_QUEUED' => Publication::STATUS_QUEUED,
                 'STATUS_PUBLISHED' => Publication::STATUS_PUBLISHED,
                 'STATUS_DECLINED' => Publication::STATUS_DECLINED,
+                'STATUS_WITHDRAWN' => Publication::STATUS_WITHDRAWN,
                 'STATUS_SCHEDULED' => Publication::STATUS_SCHEDULED,
             ],
         ]);

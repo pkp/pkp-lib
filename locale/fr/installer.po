@@ -1,11 +1,11 @@
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025, 2026.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-08-14 15:07+0000\n"
+"PO-Revision-Date: 2026-09-08 10:13+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/fr/>\n"
@@ -25,7 +25,7 @@ msgstr "Compte administrateur"
 msgid "installer.administratorAccountInstructions"
 msgstr ""
 "Ce compte utilisateur deviendra l'administrateur du site et aura le plein "
-"accès à tout le système. D'autres comptes utilisateurs peuvent être créés "
+"accès à tout le système. D'autres comptes utilisateur peuvent être créés "
 "après l'installation."
 
 msgid "installer.checkNo"

@@ -131,16 +131,20 @@ abstract class PKPManageFileApiHandler extends Handler
                 return new JSONMessage(false);
             }
 
-            // Restore original submission file
+            // Restore original submission file without any log as the file remain same with cancel.
             Repo::submissionFile()->edit(
                 $submissionFile,
                 [
                     'fileId' => (int) $previousRevision->fileId,
                     'name' => $originalFile['name'],
                     'uploaderUserId' => (int) $originalFile['uploaderUserId'],
-                ]
+                ],
+                log: false
             );
         }
+
+        // The cancelled upload should never became part of the file's history
+        Repo::submissionFile()->deleteRevisionLogEntries($submissionFile, $fileIdToCancel);
 
         // Remove uploaded file
         app()->get('file')->delete($fileIdToCancel);

@@ -145,4 +145,24 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler {
 		import('lib.pkp.controllers.grid.files.submissionDocuments.form.EditLibraryFileForm');
 		return new EditLibraryFileForm($context->getId(), $fileId, $submission->getId());
 	}
+
+	/**
+	 * Delete a file
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function deleteFile($args, $request) {
+		$context = $request->getContext();
+		$submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+		$fileId = isset($args['fileId']) ? $args['fileId'] : null;
+
+		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+		$libraryFile = $libraryFileDao->getById($fileId, $context->getId());
+		if (!$libraryFile || !$submission || $submission->getId() != $libraryFile->getSubmissionId()) {
+			fatalError('Invalid library file specified!');
+		}
+
+		return parent::deleteFile($args, $request);
+	}
 }

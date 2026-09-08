@@ -35,7 +35,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 	 * @copydoc Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('temporaryFileId', 'submissionId'));
+		$this->readUserVars(array('temporaryFileId'));
 		return parent::readInputData();
 	}
 
@@ -71,7 +71,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 		$libraryFile->setName($this->getData('libraryFileName'), null); // Localized
 		$libraryFile->setData('description', $this->getData('description'), null); // Localized
 		$libraryFile->setType($this->getData('fileType'));
-		$libraryFile->setSubmissionId($this->getData('submissionId'));
+		$libraryFile->setSubmissionId($this->submissionId);
 
 		$fileId = $libraryFileDao->insertObject($libraryFile);
 

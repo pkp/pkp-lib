@@ -44,9 +44,8 @@ use PKP\submission\SubmissionCommentDAO;
 
 class SubmissionPeerReviewResource extends JsonResource
 {
+    use CachesSubmissionPeerReviewData;
     use ReviewerRecommendationSummary;
-
-    private ?Enumerable $availableReviewerRecommendations = null;
 
     /** @var Collection<int, ReviewForm>|null Caches review forms to avoid redundant fetches */
     private ?Collection $reviewFormsCache = null;
@@ -65,31 +64,18 @@ class SubmissionPeerReviewResource extends JsonResource
         /** @var Submission $submission */
         $submission = $this->resource;
 
-        $contextDao = Application::getContextDAO();
-        /** @var Context $context */
-        $context = $contextDao->getById($submission->getData('contextId'));
-
         /** @var Collection<int, Publication> $publishedPublications */
         $publishedPublications = collect($submission->getPublishedPublications())
             ->keyBy(fn (Publication $publication) => $publication->getId());
 
-        $reviewRounds = $this->getPublicReviewRounds($submission);
+        $reviewRounds = $this->getPublicReviewRounds();
         $roundIds = $reviewRounds->keys()->all();
 
         // Get all accepted review assignments. Confirmed ones will be filtered and exposed to peer review API, while all accepted reviews will be considered for summary.
-        $acceptedReviewAssignments = empty($roundIds) ? collect() : Repo::reviewAssignment()
-            ->getCollector()
-            ->filterByReviewRoundIds($roundIds)
-            ->filterByIsPubliclyVisible(true)
-            ->filterByIsAccepted(true)
-            ->getMany()
-            // Materialize the lazy collection: it is iterated once per consumer
-            // below and each LazyCollection iteration re-runs the query and
-            // re-hydrates every assignment
-            ->collect();
+        $publicAcceptedReviewAssignments = $this->getPublicAcceptedReviewAssignments();
 
         // Only confirmed reviews are to be exposed; however, all accepted reviews are to be considered when preparing summary further down
-        $confirmedReviewAssignments = $acceptedReviewAssignments->filter(
+        $confirmedReviewAssignments = $publicAcceptedReviewAssignments->filter(
             fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateConsidered() !== null || $reviewAssignment->getDateAcknowledged() !== null
         );
 
@@ -121,7 +107,7 @@ class SubmissionPeerReviewResource extends JsonResource
             /** @var ?AuthorResponse $currentRoundResponse */
             $currentRoundResponse = $roundResponses->get($reviewRound->getId())?->first();
 
-            $acceptedReviewsInRound = $acceptedReviewAssignments->filter(
+            $acceptedReviewsInRound = $publicAcceptedReviewAssignments->filter(
                 fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId() === $reviewRound->getId()
             );
             $reviewStatusData = $reviewRound->getPublicReviewStatusByAssignments($acceptedReviewsInRound);
@@ -134,10 +120,10 @@ class SubmissionPeerReviewResource extends JsonResource
                     'versionString' => $publication->getData('versionString'),
                     'versionStage' => $publication->getData('versionStage'),
                     'datePublished' => $publication->getData('datePublished'),
-                    'doi' => $this->getReviewedVersionDoi($publication, $submission, $context),
+                    'doi' => $this->getReviewedVersionDoi($publication, $submission, $this->getContext()),
                 ],
                 ...$reviewStatusData->toArray(),
-                'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context)->toArray(),
+                'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $this->getContext())->toArray(),
                 'authorResponse' => $currentRoundResponse ? (new ReviewRoundAuthorResponseResource($currentRoundResponse))->resolve() : null,
             ]);
         }
@@ -145,7 +131,7 @@ class SubmissionPeerReviewResource extends JsonResource
         return [
             'submissionId' => $submission->getId(),
             'reviewRounds' => $roundsData->toArray(),
-            'reviewerRecommendationsSummary' => $this->getReviewerRecommendationsSummary($acceptedReviewAssignments, $context),
+            'reviewerRecommendationsSummary' => $this->getReviewerRecommendationsSummary($publicAcceptedReviewAssignments, $this->getContext()),
         ];
     }
 
@@ -179,7 +165,6 @@ class SubmissionPeerReviewResource extends JsonResource
      */
     private function getReviewAssignmentPeerReviews(Enumerable $assignments, Context $context): Enumerable
     {
-        $this->availableReviewerRecommendations = $this->availableReviewerRecommendations ?: ReviewerRecommendation::withContextId($context->getId())->get()->keyBy('reviewerRecommendationId');
         $recommendationTypesTypeLabels = Repo::reviewerRecommendation()->getRecommendationTypeLabels();
 
         // Preload all review form data for use in class
@@ -205,7 +190,7 @@ class SubmissionPeerReviewResource extends JsonResource
             $isReviewOpen = $assignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN;
             $reviewer = $isReviewOpen ? Repo::user()->get($assignment->getReviewerId()) : null;
             /** @var ReviewerRecommendation $recommendation */
-            $recommendation = $this->availableReviewerRecommendations->get($assignment->getReviewerRecommendationId());
+            $recommendation = $this->getAvailableRecommendationTypes()->get($assignment->getReviewerRecommendationId());
             // A recommendation a journal defined itself may have no machine-readable type
             $recommendationType = $recommendation?->type;
 

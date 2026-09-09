@@ -83,9 +83,6 @@ msgstr "Naudotojas šiuo metu išjungtas."
 msgid "acceptInvitation.privacyConsent"
 msgstr "Privatumo sutikimas"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Naudotojų grupė priskirta pakviestam naudotojui"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "Turi būti nurodyta bent viena pašalintina naudotojų grupė"
 

@@ -11,9 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "O grupo de utilizador foi atribuído ao utilizador convidado"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
 msgstr "Não se podem remover funções de utilizadores que não existam."
 

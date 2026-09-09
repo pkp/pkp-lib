@@ -16,9 +16,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "At least one user group to add must be defined"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "The user group is assigned to the invited user"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "At least one user group to remove must be defined"
 

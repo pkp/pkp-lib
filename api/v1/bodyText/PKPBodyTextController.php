@@ -24,13 +24,10 @@ use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\ContextAccessPolicy;
-use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
-use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\submissionFile\SubmissionFile;
 
 class PKPBodyTextController extends PKPBaseController
 {
@@ -55,6 +52,7 @@ class PKPBodyTextController extends PKPBaseController
 
     public function getGroupRoutes(): void
     {
+        // Read access: authors may view body text content (read-only)
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
@@ -67,6 +65,18 @@ class PKPBodyTextController extends PKPBaseController
 
             Route::get('', $this->get(...))
                 ->name('publication.bodyText.get');
+
+        })->whereNumber(['submissionId', 'publicationId']);
+
+        // Write access: body text is a production artifact editable by editorial roles only (no author)
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+            ]),
+        ])->group(function () {
 
             Route::put('', $this->save(...))
                 ->name('publication.bodyText.save');
@@ -93,18 +103,6 @@ class PKPBodyTextController extends PKPBaseController
             $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
         } else {
             $this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
-        }
-
-        if ($actionName === 'save') {
-            $params = $illuminateRequest->input();
-            $fileStage = isset($params['fileStage']) ? (int) $params['fileStage'] : SubmissionFile::SUBMISSION_FILE_BODY_TEXT;
-            $this->addPolicy(
-                new SubmissionFileStageAccessPolicy(
-                    $fileStage,
-                    SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY,
-                    'api.submissionFiles.403.unauthorizedFileStageIdWrite'
-                )
-            );
         }
 
         return parent::authorize($request, $args, $roleAssignments);

@@ -47,6 +47,7 @@ class OrcidManager
     public const ENABLED = 'orcidEnabled';
     public const CLIENT_ID = 'orcidClientId';
     public const CLIENT_SECRET = 'orcidClientSecret';
+    public const CUSTOM_REDIRECT_BASE_URL = 'orcidCustomRedirectBaseUrl';
     public const SEND_MAIL_TO_AUTHORS_ON_PUBLICATION = 'orcidSendMailToAuthorsOnPublication';
     public const LOG_LEVEL = 'orcidLogLevel';
     public const CITY = 'orcidCity';
@@ -175,6 +176,12 @@ class OrcidManager
             urlLocaleForPage: '',
         );
 
+        // Overwrite redirect base url if variable is configured
+        $customRedirectUrl = self::getCustomRedirectUrl();
+        if (!empty($customRedirectUrl)) {
+            $redirectUrl = preg_replace("#^https{0,1}:\/\/(.*)\/#U", $customRedirectUrl, $redirectUrl);
+        }
+
         return self::getOauthPath($context) . 'authorize?' . http_build_query(
             [
                 'client_id' => self::getClientId($context),
@@ -290,6 +297,16 @@ class OrcidManager
         }
 
         return $context->getData(self::CLIENT_SECRET) ?? '';
+    }
+
+    /**
+     * Gets configured ORCID-specific custom redirect URl.
+     *
+     * NB: Only applicable as a site-wide setting. Can be configured without overwriting other context-specific settings.
+     */
+    public static function getCustomRedirectUrl(): string
+    {
+        return Application::get()->getRequest()->getSite()->getData(self::CUSTOM_REDIRECT_BASE_URL) ?? '';
     }
 
     /**

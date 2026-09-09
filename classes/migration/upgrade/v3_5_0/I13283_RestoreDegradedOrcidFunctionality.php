@@ -15,6 +15,7 @@
 namespace PKP\migration\upgrade\v3_5_0;
 
 use Illuminate\Support\Facades\DB;
+use PKP\config\Config;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
 
@@ -27,6 +28,7 @@ class I13283_RestoreDegradedOrcidFunctionality extends Migration
     public function up(): void
     {
         $this->fixEmailVariableNames();
+        $this->moveRedirectUrlSiteSetting();
     }
 
     /**
@@ -40,18 +42,37 @@ class I13283_RestoreDegradedOrcidFunctionality extends Migration
 
     /**
      * Updates ORCID email template variable names. Can be run multiple times.
+     *
+     * See: https://github.com/pkp/pkp-lib/issues/13155
      */
     private function fixEmailVariableNames(): void
     {
-        DB::transaction(function () {
-            $this->replace('ORCID_COLLECT_AUTHOR_ID', '{$principalContactSignature}', '{$siteSignature}');
-            $this->replace('ORCID_REQUEST_AUTHOR_AUTHORIZATION', '{$principalContactSignature}', '{$siteSignature}');
-            $this->replace('ORCID_REQUEST_UPDATE_SCOPE', '{$principalContactSignature}', '{$siteSignature}');
+        $this->replace('ORCID_COLLECT_AUTHOR_ID', '{$principalContactSignature}', '{$siteSignature}');
+        $this->replace('ORCID_REQUEST_AUTHOR_AUTHORIZATION', '{$principalContactSignature}', '{$siteSignature}');
+        $this->replace('ORCID_REQUEST_UPDATE_SCOPE', '{$principalContactSignature}', '{$siteSignature}');
 
-            $this->replace('ORCID_COLLECT_AUTHOR_ID', '{$authorName}', '{$recipientName}');
-            $this->replace('ORCID_REQUEST_AUTHOR_AUTHORIZATION', '{$authorName}', '{$recipientName}');
-            $this->replace('ORCID_REQUEST_UPDATE_SCOPE', '{$authorName}', '{$recipientName}');
-        });
+        $this->replace('ORCID_COLLECT_AUTHOR_ID', '{$authorName}', '{$recipientName}');
+        $this->replace('ORCID_REQUEST_AUTHOR_AUTHORIZATION', '{$authorName}', '{$recipientName}');
+        $this->replace('ORCID_REQUEST_UPDATE_SCOPE', '{$authorName}', '{$recipientName}');
+    }
+
+    /**
+     * Moves config.inc.php-based variable orcid_redirect_base_url to a site setting field
+     *
+     * See: https://github.com/pkp/pkp-lib/12267
+     */
+    private function moveRedirectUrlSiteSetting(): void
+    {
+        $customRedirectUrl = (string) Config::getVar('orcidProfilePlugin', 'orcid_redirect_base_url', '');
+        if (empty($customRedirectUrl)) {
+            return;
+        }
+
+        DB::table('site_settings')
+            ->updateOrInsert(
+                ['setting_name' => 'orcidCustomRedirectBaseUrl'],
+                ['setting_value' => $customRedirectUrl],
+            );
     }
 
     /**

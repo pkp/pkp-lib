@@ -38,6 +38,7 @@ use PKP\security\Role;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
 use PKP\submission\RepresentationDAOInterface;
+use TemplateManager;
 
 interface iPKPApplicationInfoProvider
 {
@@ -435,8 +436,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             }
         } catch (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
             header('HTTP/1.0 404 Not Found');
-            echo "<h1>404 Not Found</h1>\n";
-            exit;
+            $templateMgr = TemplateManager::getManager($this->getRequest());
+            $templateMgr->assign([
+                'pageTitle' => 'api.404.resourceNotFound',
+                'errorMsg' => '',
+                'errorParams' => [],
+            ]);
+            $templateMgr->display('frontend/pages/error.tpl');
         } catch (\Symfony\Component\HttpKernel\Exception\GoneHttpException) {
             header('HTTP/1.0 410 Gone');
             echo "<h1>404 Not Found</h1>\n";

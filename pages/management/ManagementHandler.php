@@ -600,7 +600,7 @@ class ManagementHandler extends Handler
             $invitationHandler = $invitation->getInvitationUIActionRedirectController();
             $invitationHandler->createHandle($request,$userId);
         } else {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
     }
 

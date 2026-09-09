@@ -842,6 +842,12 @@ msgstr "Enable ORCID functionality site-wide"
 msgid "orcid.manager.siteWide.description"
 msgstr "ORCID functionality can optionally be enabled and configured at a site level for all journals/presses/servers. If enabled, this will override all context-level credentials and apply the following credentials to all journals/presses/servers on this installation."
 
+msgid "orcid.manager.siteWide.orcidCustomRedirectBaseUrl"
+msgstr "Custom Redirect Base URL"
+
+msgid "orcid.manager.siteWide.orcidCustomRedirectBaseUrl.description"
+msgstr "A custom base URL used when constructing ORCID redirect URLs. This can be applied site-wide without enabling the above site-wide ORCID settings override as this setting is only applicable at a site level."
+
 msgid "orcid.field.verification.request"
 msgstr "Request verification"
 

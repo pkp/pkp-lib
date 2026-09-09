@@ -555,7 +555,7 @@ msgstr ""
 " <br>\n"
 " Jei turite klausimų, susisiekite su manimi.<br>\n"
 " <br>\n"
-" {$principalContactSignature}<br>\n"
+" {$siteSignature}<br>\n"
 
 msgid "orcid.orcidRequestUpdateScope.name"
 msgstr "orcidRequestUpdateScope"

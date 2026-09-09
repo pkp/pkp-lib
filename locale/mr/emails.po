@@ -589,7 +589,7 @@ msgstr ""
 "<br>\n"
 "If you have any questions, please contact me.<br>\n"
 "<br>\n"
-"{$principalContactSignature}<br>\n"
+"{$contextSignature}<br>\n"
 
 msgid "emails.userRoleEndNotify.body"
 msgstr ""

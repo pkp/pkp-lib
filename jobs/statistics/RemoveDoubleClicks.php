@@ -25,6 +25,9 @@ class RemoveDoubleClicks extends BaseJob
 {
     public int $timeout = 600;
 
+    /** @copydoc BaseJob::$isLongRunning */
+    protected bool $isLongRunning = true;
+
     /**
      * The load ID = usage stats log file name
      */

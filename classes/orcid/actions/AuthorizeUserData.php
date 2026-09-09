@@ -19,7 +19,6 @@ use APP\core\Request;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use GuzzleHttp\Exception\ClientException;
-use PKP\identity\Identity;
 use PKP\orcid\OrcidManager;
 
 class AuthorizeUserData
@@ -74,10 +73,9 @@ class AuthorizeUserData
                 $accessToken = $tokenData['access_token'];
             }
         } catch (ClientException $exception) {
-            $reason = $exception->getResponse()->getBody();
-            $message = "AuthorizeUserData::execute failed: {$reason}";
-            OrcidManager::logError($message);
-            $errorMessages[] = 'ORCID authorization failed: ' . $message;
+            $message = $this->getAuthErrorDisplayMessage($exception);
+            OrcidManager::logError("AuthorizeUserData::execute failed:\n {$exception->getMessage()}");
+            $errorMessages[] = $message;
         }
 
         switch ($this->request->getUserVar('targetOp')) {
@@ -147,11 +145,13 @@ class AuthorizeUserData
                 ';
                 break;
             case 'profile':
-                $user = $this->request->getUser();
-                // Store the access token and other data for the user
-                $orcidData = $this->getOrcidOAuthAccessData($orcidUri, $tokenData);
-                $user->setVerifiedOrcidOAuthData($orcidData);
-                Repo::user()->edit($user, ['orcidAccessDenied', 'orcidAccessToken', 'orcidAccessScope', 'orcidRefreshToken', 'orcidAccessExpiresOn']);
+                if (empty($errorMessages)) {
+                    $user = $this->request->getUser();
+                    // Store the access token and other data for the user
+                    $orcidData = $this->getOrcidOAuthAccessData($orcidUri, $tokenData);
+                    $user->setVerifiedOrcidOAuthData($orcidData);
+                    Repo::user()->edit($user, ['orcidAccessDenied', 'orcidAccessToken', 'orcidAccessScope', 'orcidRefreshToken', 'orcidAccessExpiresOn']);
+                }
 
                 // Reload the public profile tab (incl. form)
                 echo '
@@ -163,12 +163,14 @@ class AuthorizeUserData
                 ';
                 break;
             case 'invitation':
-                $orcidData = $this->getOrcidOAuthAccessData($orcidUri, $tokenData);
+                if (empty($errorMessages)) {
+                    $orcidData = $this->getOrcidOAuthAccessData($orcidUri, $tokenData);
+                }
                 echo '
                     <html><body><script type="text/javascript">' .
                         $this->renderFrontendErrorNotification($errorMessages) .
-                        'opener.pkp.eventBus.$emit("addOrcidInvitationData", ' . json_encode($orcidData) . ');
-                        window.close();
+                        (empty($errorMessages) ? ('opener.pkp.eventBus.$emit("addOrcidInvitationData", ' . json_encode($orcidData) . ');') : '') .
+                        'window.close();
                     </script></body></html>
                 ';
                 break;
@@ -196,7 +198,6 @@ class AuthorizeUserData
      *
      * @param string $orcidUri ORCID ID as a URI
      * @param array $orcidResponse OAuth response payload
-     * @return array
      */
     private function getOrcidOAuthAccessData(string $orcidUri, array $orcidResponse): array
     {
@@ -217,5 +218,39 @@ class AuthorizeUserData
         $data['orcidAccessExpiresOn'] = $orcidAccessExpiresOn->toDateTimeString();
 
         return $data;
+    }
+
+    /**
+     * Format OAuth error message for front-end display.
+     */
+    private function getAuthErrorDisplayMessage(ClientException $clientException): string
+    {
+        $message = 'ORCID authorization failed: ';
+        $defaultReason = 'ORCID API credentials may be incorrect.';
+        $statusCode = $clientException->getResponse()->getStatusCode();
+
+            switch ($statusCode) {
+                case 401:
+                    $errorData = json_decode($clientException->getResponse()->getBody()->getContents(), true);
+
+                    if (json_last_error() !== JSON_ERROR_NONE) {
+                        $message .= $defaultReason;
+                    }
+
+                    $description =  $errorData['error_description'] ?? '';
+                    $errorReason = $errorData['error'] ?? '';
+
+                    if (empty($description) || empty($errorReason)) {
+                        $message .= $defaultReason;
+                    }
+
+
+                    $message .= $description . '. Reason: ' . $errorReason . '.';
+                    break;
+                default:
+                    $message .= $defaultReason;
+            }
+
+        return $message;
     }
 }

@@ -34,7 +34,7 @@ class CitationDAOTest extends PKPTestCase
      * A partial DAO whose persistence methods are stubbed out, so that only
      * the event emission is exercised.
      */
-    protected function makeDao(LazyCollection $existingCitations = null): CitationDAO
+    protected function makeDao(?LazyCollection $existingCitations = null): CitationDAO
     {
         return Mockery::mock(CitationDAO::class)
             ->makePartial()

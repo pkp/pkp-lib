@@ -61,7 +61,7 @@ class DecisionEmailVariable extends Variable
     {
         return
         [
-            self::DECISION => $this->decisionType->getLabel($locale),
+            self::DECISION => $this->decisionType->getLabel($locale, Repo::submission()->get((int) $this->decision->getData('submissionId'))),
             self::DESCRIPTION => $this->decisionType->getDescription($locale),
             self::STAGE => $this->getStageName($locale),
             self::ROUND => (string) $this->decision->getData('round'),

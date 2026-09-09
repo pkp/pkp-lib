@@ -25,13 +25,13 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
 use PKP\context\LibraryFileDAO;
-use PKP\publication\PKPPublication;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
 use PKP\notification\Notification;
+use PKP\publication\PKPPublication;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
@@ -81,7 +81,7 @@ abstract class DecisionType
     /**
      * Get a localized label for this decision, such as Accept Submission
      */
-    abstract public function getLabel(?string $locale = null): string;
+    abstract public function getLabel(?string $locale = null, ?Submission $submission = null): string;
 
     /**
      * Get the locale key to use for the log entry when this decision is taken

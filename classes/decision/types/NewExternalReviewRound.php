@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/NewExternalReviewRound.php
  *
@@ -57,7 +58,7 @@ class NewExternalReviewRound extends DecisionType
         return ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS;
     }
 
-    public function getLabel(?string $locale = null): string
+    public function getLabel(?string $locale = null, ?Submission $submission = null): string
     {
         return __('editor.submission.decision.newReviewRound', [], $locale);
     }

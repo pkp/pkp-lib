@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/Accept.php
  *
@@ -58,7 +59,7 @@ class Accept extends DecisionType
         return ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED;
     }
 
-    public function getLabel(?string $locale = null): string
+    public function getLabel(?string $locale = null, ?Submission $submission = null): string
     {
         return __('editor.submission.decision.accept', [], $locale);
     }

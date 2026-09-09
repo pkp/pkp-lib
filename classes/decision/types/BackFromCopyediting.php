@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/BackFromCopyediting.php
  *
@@ -90,9 +91,13 @@ class BackFromCopyediting extends DecisionType
         return WORKFLOW_STAGE_ID_SUBMISSION;
     }
 
-    public function getLabel(?string $locale = null): string
+    public function getLabel(?string $locale = null, ?Submission $submission = null): string
     {
-        return __('editor.submission.decision.backFromCopyediting', [], $locale);
+        $newStageId = $submission ? $this->getNewStageId($submission, null) : null;
+        return match ($newStageId) {
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW => __('editor.submission.decision.backFromCopyediting', [], $locale),
+            default => __('editor.submission.decision.backFromCopyediting.toSubmission', [], $locale)
+        };
     }
 
     public function getDescription(?string $locale = null): string
@@ -138,7 +143,7 @@ class BackFromCopyediting extends DecisionType
         parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        if($reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId())) {
+        if ($reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId())) {
             $reviewRoundDao->updateStatus($reviewRound, ReviewRound::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW);
         }
 

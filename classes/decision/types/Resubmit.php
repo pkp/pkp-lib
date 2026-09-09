@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/Resubmit.php
  *
@@ -55,7 +56,7 @@ class Resubmit extends DecisionType
         return ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW;
     }
 
-    public function getLabel(?string $locale = null): string
+    public function getLabel(?string $locale = null, ?Submission $submission = null): string
     {
         return __('editor.submission.decision.resubmit', [], $locale);
     }

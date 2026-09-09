@@ -39,10 +39,6 @@ class StampModifiedJob extends BaseJob
     ) {
         parent::__construct();
 
-        // BaseJob's constructor reads the default connection from config, which
-        // is "database". A queued job is never processed when job_runner is off
-        // and no worker is running, leaving last_modified unstamped. Forcing the
-        // sync connection keeps the cascade correct in that deployment.
         $this->connection = 'sync';
     }
 

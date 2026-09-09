@@ -348,7 +348,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
         });
 
         Schema::table('edit_tasks', function (Blueprint $table) {
-            $table->foreign('edit_task_template_id')
+            $table->foreign('edit_task_template_id', 'edit_task_task_template_id_fk')
                 ->references('edit_task_template_id')
                 ->on('edit_task_templates')
                 ->nullOnDelete();
@@ -395,12 +395,12 @@ class SubmissionsMigration extends \PKP\migration\Migration
      */
     public function down(): void
     {
-        Schema::drop('edit_task_template_user_groups');
-        Schema::drop('edit_task_template_settings');
-        Schema::drop('edit_task_templates');
         Schema::drop('edit_task_participants');
         Schema::drop('edit_task_settings');
         Schema::drop('edit_tasks');
+        Schema::drop('edit_task_template_user_groups');
+        Schema::drop('edit_task_template_settings');
+        Schema::drop('edit_task_templates');
         Schema::drop('subeditor_submission_group');
         Schema::drop('submission_comments');
         Schema::drop('edit_decisions');

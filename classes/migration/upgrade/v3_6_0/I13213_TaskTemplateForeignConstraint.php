@@ -25,7 +25,7 @@ class I13213_TaskTemplateForeignConstraint extends Migration
      */
     public function up(): void
     {
-        if (!$this->hasForeignKey('edit_tasks', 'edit_tasks_edit_task_template_id_foreign')) {
+        if (!$this->hasForeignKey('edit_tasks', 'edit_task_task_template_id_fk')) {
             Schema::table('edit_tasks', function (Blueprint $table) {
                 $table->foreign('edit_task_template_id')
                     ->references('edit_task_template_id')
@@ -40,9 +40,9 @@ class I13213_TaskTemplateForeignConstraint extends Migration
      */
     public function down(): void
     {
-        if ($this->hasForeignKey('edit_tasks', 'edit_tasks_edit_task_template_id_foreign')) {
+        if ($this->hasForeignKey('edit_tasks', 'edit_task_task_template_id_fk')) {
             Schema::table('edit_tasks', function (Blueprint $table) {
-                $table->dropForeign(['edit_task_template_id']);
+                $table->dropForeign('edit_task_task_template_id_fk');
             });
         }
     }

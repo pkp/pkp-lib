@@ -291,6 +291,7 @@ class AdminHandler extends Handler
             'bulkEmails' => true,
             'statistics' => true,
             'siteSecurity' => true,
+            'orcidSiteSettings' => true,
             'siteAppearance' => $isMultiContextSite,
             'sitePlugins' => $isMultiContextSite,
             'siteConfig' => $isMultiContextSite,
@@ -300,7 +301,6 @@ class AdminHandler extends Handler
             'siteTheme' => $isMultiContextSite,
             'siteAppearanceSetup' => $isMultiContextSite,
             'announcements' => $isMultiContextSite,
-            'orcidSiteSettings' => $isMultiContextSite,
         ];
     }
 

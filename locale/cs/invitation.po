@@ -148,9 +148,6 @@ msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr ""
 "Je nutné definovat alespoň jednu skupinu uživatelů, kterou chcete přidat"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Uživatelská skupina je přiřazena pozvanému uživateli"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr ""
 "Je nutné definovat alespoň jednu skupinu uživatelů, kterou chcete odstranit"

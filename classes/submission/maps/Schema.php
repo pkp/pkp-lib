@@ -965,7 +965,7 @@ class Schema extends \PKP\core\maps\Schema
             );
             // when being assigned as reviewer to this submission, don't add global roles
             if (!$hasCurrentUserReviewAssignment) {
-                $globalRoles = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->userRoles);
+                $globalRoles = array_values(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->userRoles));
                 if (!empty($globalRoles)) {
                     foreach ($stageIds as $stageId) {
                         $stages[$stageId]['currentUserAssignedRoles'] = $globalRoles;

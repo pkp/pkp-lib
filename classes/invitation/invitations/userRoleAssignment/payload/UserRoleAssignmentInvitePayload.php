@@ -22,6 +22,7 @@ use PKP\invitation\invitations\userRoleAssignment\rules\AddUserGroupRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\AllowedKeysRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\NotNullIfPresent;
 use PKP\invitation\invitations\userRoleAssignment\rules\ProhibitedIncludingNull;
+use PKP\invitation\invitations\userRoleAssignment\rules\UserGroupBelongsToContextRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserGroupExistsRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UsernameExistsRule;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
@@ -167,6 +168,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 'required',
                 'integer',
                 new UserGroupExistsRule(),
+                new UserGroupBelongsToContextRule($invitation),
                 new AddUserGroupRule($invitation),
             ],
             'userGroupsToAdd.*.masthead' => 'required|bool',

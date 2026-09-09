@@ -154,6 +154,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'fullTitle':
                     $output[$prop] = $publication->getFullTitles('html');
                     break;
+                case 'supportingAgencies':
+                    $output[$prop] = $anonymizeAuthors ? [] : $publication->getData($prop);
+                    break;
                 default:
                     $output[$prop] = $publication->getData($prop);
                     break;

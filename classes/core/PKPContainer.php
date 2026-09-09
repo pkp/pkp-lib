@@ -31,6 +31,7 @@ use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
 use PDO;
 use PKP\config\Config;
+use PKP\facades\Locale;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
@@ -215,6 +216,7 @@ class PKPContainer extends Container
         $this->register(new PKPRoutingProvider($this));
         $this->register(new \Illuminate\Log\LogServiceProvider($this));
         $this->register(new \Illuminate\Log\Context\ContextServiceProvider($this));
+        $this->register(new PKPLogViewerServiceProvider($this));
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
@@ -624,7 +626,14 @@ class PKPContainer extends Container
             'cache' => true, // Cache compiled templates (set false only for debugging)
             'compiled_extension' => 'php',
             'relative_hash' => false,
+            // Laravel-standard flat view paths. Third-party packages (e.g. Log Viewer)
+            // iterate this in ServiceProvider::loadViewsFrom(), which requires plain strings.
             'paths' => [
+                'app' => $this->basePath('templates'),
+                'pkp' => $this->basePath('lib/pkp/templates'),
+            ],
+            // PKP namespace map, consumed by PKPBladeViewServiceProvider::boot()
+            'namespaces' => [
                 // 'app' namespace includes both directories to match Smarty's app: resource
                 'app' => [$this->basePath('templates'), $this->basePath('lib/pkp/templates')],
                 'pkp' => $this->basePath('lib/pkp/templates'),
@@ -670,6 +679,50 @@ class PKPContainer extends Container
     public function storagePath(string $path = ''): string
     {
         return Config::getVar('files', 'files_dir') . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the public directory
+     *
+     * Required by Laravel's public_path() helper, which third-party packages call directly
+     * (e.g. Log Viewer probes public_path() on every render to decide whether to link or
+     * inline its assets).
+     *
+     * @see \Illuminate\Foundation\Application::publicPath()
+     */
+    public function publicPath(string $path = ''): string
+    {
+        return $this->basePath('public') . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the configuration directory
+     *
+     * @see \Illuminate\Foundation\Application::configPath()
+     */
+    public function configPath(string $path = ''): string
+    {
+        return $this->get('path.config') . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the path to the resources directory
+     *
+     * @see \Illuminate\Foundation\Application::resourcePath()
+     */
+    public function resourcePath(string $path = ''): string
+    {
+        return $this->basePath() . ($path ? "/{$path}" : $path);
+    }
+
+    /**
+     * Get the current application locale
+     *
+     * @see \Illuminate\Foundation\Application::getLocale()
+     */
+    public function getLocale(): string
+    {
+        return Locale::getLocale();
     }
 
     /**

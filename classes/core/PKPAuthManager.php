@@ -26,14 +26,6 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
     protected $app;
 
     /**
-     * @copydoc \Illuminate\Auth\AuthManager::__construct($app)
-     */
-    public function __construct($app)
-    {
-        $this->app = $app;
-    }
-
-    /**
      * @copydoc \Illuminate\Auth\AuthManager::createUserProvider($provider = null)
      *
      * @param null|mixed $provider

@@ -18,7 +18,7 @@
 		{translate key="user.login.registrationComplete.instructions"}
 	</p>
 	<ul class="registration_complete_actions">
-		{if array_intersect(array(PKP\security\Role::ROLE_ID_MANAGER, PKP\security\Role::ROLE_ID_SUB_EDITOR, PKP\security\Role::ROLE_ID_ASSISTANT, PKP\security\Role::ROLE_ID_REVIEWER), (array)$userRoles)}
+		{if $canViewSubmissions}
 			<li class="view_submissions">
 				<a href="{url page="submissions"}">
 					{translate key="user.login.registrationComplete.manageSubmissions"}

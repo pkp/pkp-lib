@@ -21,15 +21,12 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\Facades\DB;
 use PKP\userComment\UserComment;
 
 class UserCommentComponent
 {
     private int $allCommentsCount;
     private Enumerable $publishedPublication;
-
-    private array $commentsCountPerPublication;
 
     private Submission $submission;
     private Request $request;
@@ -48,10 +45,21 @@ class UserCommentComponent
         foreach (array_reverse($submission->getPublishedPublications()) as $publishedPublication) {
             $this->publishedPublication->add([
                 'id' => $publishedPublication->getId(),
-                'version' => $publishedPublication->getData('versionString')
+                'version' => $publishedPublication->getData('versionString'),
+                'url' => $this->request->url(
+                    null,
+                    'article',
+                    'view',
+                    $this->submission->getCurrentPublication()?->getId() === $publishedPublication->getId()
+                        ? [$this->submission->getBestId()]
+                        : [
+                            $this->submission->getBestId(),
+                            'version',
+                            $publishedPublication->getId(),
+                        ]
+                ),
             ]);
         }
-
 
         // Fetch data needed to calculate the count of comments for each publication and the total count of all comments across publications.
         $commentsForAllPublications = UserComment::withPublicationIds($this->publishedPublication->pluck('id')->all())
@@ -67,12 +75,6 @@ class UserCommentComponent
             })
             ->select(['publication_id', 'is_approved'])
             ->get();
-
-        $this->commentsCountPerPublication = $commentsForAllPublications
-            ->groupBy('publication_id')
-            ->map
-            ->count()
-            ->toArray();
 
         $this->allCommentsCount = $commentsForAllPublications
             ->filter(fn($comment) => $comment->is_approved)
@@ -101,25 +103,35 @@ class UserCommentComponent
     public function getLocaleKeys(): array
     {
         return [
-            'userComment.discussionClosed',
+            'common.cancel',
+            'common.delete',
+            'common.deleting',
+            'common.loading',
+            'common.sending',
+            'form.submit',
+            'manager.userComment.comments',
             'userComment.awaitingApprovalNotice',
             'userComment.report.reason',
-            'common.cancel',
             'userComment.reportCommentBy',
             'userComment.reportCommentByUserWithAffiliation',
-            'userComment.report',
+            'userComment.reportButton',
+            'userComment.reportComment',
+            'userComment.reportSubmitted',
             'userComment.showMore',
-            'form.submit',
+            'userComment.commentedOn',
+            'userComment.noComments',
+            'userComment.noCommentsLatestVersion',
+            'userComment.previousVersion',
+            'userComment.previousVersion.desc',
             'userComment.login',
-            'userComment.commentOnThisPublication',
-            'userComment.versionWithCount',
-            'common.delete',
+            'userComment.addCommentPrompt',
+            'userComment.addComment',
+            'userComment.addComment.desc',
+            'userComment.addComment.prompt',
+            'userComment.addComment.submit',
             'userComment.deleteCommentConfirmation',
             'userComment.deleteComment',
-            'userComment.addYourComment',
-            'userComment.allComments',
-            'userComment.comments',
-            'userComment.reportComment',
+            'userComment.deleteButton',
         ];
     }
 
@@ -138,7 +150,7 @@ class UserCommentComponent
                 'login',
                 null,
                 null,
-                ['source' => $this->request->getRequestPath() . '#public-comments']
+                ['source' => $this->request->getRequestPath() . '?section=comments']
             );
     }
 
@@ -150,12 +162,12 @@ class UserCommentComponent
     public function getConfig()
     {
         return [
+            'submissionId' => $this->submission->getId(),
             'publications' => $this->publishedPublication->values(),
             'latestPublicationId' => $this->submission->getCurrentPublication()->getId(),
             'itemsPerPage' => Repo::userComment()->getPerPage(),
             'loginUrl' => $this->getLoginUrl(),
             'allCommentsCount' => $this->allCommentsCount,
-            'commentsCountPerPublication' => $this->commentsCountPerPublication,
         ];
     }
 

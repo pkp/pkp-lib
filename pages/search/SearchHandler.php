@@ -19,6 +19,8 @@ use APP\handler\Handler;
 use APP\search\SubmissionSearchResult;
 use APP\template\TemplateManager;
 use PKP\core\PKPRequest;
+use PKP\db\DAORegistry;
+use PKP\submission\GenreDAO;
 
 class SearchHandler extends Handler
 {
@@ -59,6 +61,8 @@ class SearchHandler extends Handler
 
         $this->_assignDateFromTo($request, $templateMgr);
 
+        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
+
         $templateMgr->assign([
             'query' => $builder->query,
             'results' => $results,
@@ -67,6 +71,15 @@ class SearchHandler extends Handler
             'yearEnd' => $yearEnd,
             'orderBy' => $request->getUserVar('orderBy'),
             'orderDir' => $request->getUserVar('orderDir'),
+            'primaryFileGenreIds' => $genreDao->getIdsBy(
+                    contextIds: $context ? [$context->getId()] : null,
+                    supplementary: false,
+                    dependent: false,
+                )->toArray(),
+            'supplementaryFileGenreIds' => $genreDao->getIdsBy(
+                    contextIds: $context ? [$context->getId()] : null,
+                    supplementary: true,
+                )->toArray(),
         ]);
 
         if (!$context) {

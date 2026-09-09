@@ -284,12 +284,12 @@ class LoginHandler extends Handler
             $rateLimiter->applyRateLimitDelay(); // Apply artificial delay to prevent timing attacks
 
             // Show generic success message (don't reveal rate limiting)
-            $templateMgr->assign([
-                'pageTitle' => 'user.login.resetPassword',
-                'message' => 'user.login.lostPassword.confirmationSent',
-                'backLink' => $request->url(null, $request->getRequestedPage(), null, null),
-                'backLinkLabel' => 'user.login',
-            ])->display('frontend/pages/message.tpl');
+            $templateMgr->displaySystemMessage(
+                title: __('user.login.resetPassword'),
+                message: __('user.login.lostPassword.confirmationSent'),
+                backLink: $request->url(null, $request->getRequestedPage(), null, null),
+                backLinkLabel: __('user.login'),
+            );
             return;
         }
 
@@ -350,12 +350,12 @@ class LoginHandler extends Handler
             ]);
         }
 
-        $templateMgr->assign([
-            'pageTitle' => 'user.login.resetPassword',
-            'message' => 'user.login.lostPassword.confirmationSent',
-            'backLink' => $request->url(null, $request->getRequestedPage(), null, null),
-            'backLinkLabel' => 'user.login',
-        ])->display('frontend/pages/message.tpl');
+        $templateMgr->displaySystemMessage(
+            title: __('user.login.resetPassword'),
+            message: __('user.login.lostPassword.confirmationSent'),
+            backLink: $request->url(null, $request->getRequestedPage(), null, null),
+            backLinkLabel: __('user.login'),
+        );
     }
 
     /**
@@ -385,18 +385,16 @@ class LoginHandler extends Handler
         }
 
         if ($user->getDisabled()) {
-            $templateMgr
-                ->assign([
-                    'backLink' => $request->url(null, $request->getRequestedPage()),
-                    'backLinkLabel' => 'user.login',
-                    'messageTranslated' => __('user.login.lostPassword.confirmationSentFailedWithReason', [
-                        'reason' => empty($reason = $user->getDisabledReason() ?? '')
-                            ? __('user.login.accountDisabled')
-                            : __('user.login.accountDisabledWithReason', ['reason' => htmlspecialchars($reason)])
-                    ]),
-                ])
-                ->display('frontend/pages/message.tpl');
-
+            $templateMgr->displaySystemMessage(
+                title: __('user.login.resetPassword'),
+                backLink: $request->url(null, $request->getRequestedPage()),
+                backLinkLabel: __('user.login'),
+                message: __('user.login.lostPassword.confirmationSentFailedWithReason', [
+                    'reason' => empty($reason = $user->getDisabledReason() ?? '')
+                        ? __('user.login.accountDisabled')
+                        : __('user.login.accountDisabledWithReason', ['reason' => htmlspecialchars($reason)])
+                ]),
+            );
             return;
         }
 
@@ -441,14 +439,12 @@ class LoginHandler extends Handler
 
         if ($passwordResetForm->validate()) {
             if ($passwordResetForm->execute()) {
-                $templateMgr->assign([
-                    'pageTitle' => 'user.login.resetPassword',
-                    'message' => 'user.login.resetPassword.passwordUpdated',
-                    'backLink' => $request->url(null, $request->getRequestedPage(), null, null, ['username' => $user->getUsername()]),
-                    'backLinkLabel' => 'user.login',
-                ]);
-
-                $templateMgr->display('frontend/pages/message.tpl');
+                $templateMgr->displaySystemMessage(
+                    title: __('user.login.resetPassword'),
+                    message: __('user.login.resetPassword.passwordUpdated'),
+                    backLink: $request->url(null, $request->getRequestedPage(), null, null, ['username' => $user->getUsername()]),
+                    backLinkLabel: __('user.login'),
+                );
             }
         } else {
             $passwordResetForm->display($request);
@@ -515,13 +511,13 @@ class LoginHandler extends Handler
                 // We don't have administrative rights
                 // over this user. Display an error.
                 $templateMgr = TemplateManager::getManager($request);
-                $templateMgr->assign([
-                    'pageTitle' => 'manager.people',
-                    'errorMsg' => 'manager.people.noAdministrativeRights',
-                    'backLink' => $request->url(null, 'management', 'settings', ['access']),
-                    'backLinkLabel' => 'manager.people.allUsers',
-                ]);
-                return $templateMgr->display('frontend/pages/error.tpl');
+                return $templateMgr->displaySystemMessage(
+                    title: __('manager.people'),
+                    message: __('manager.people.noAdministrativeRights'),
+                    type: 'error',
+                    backLink: $request->url(null, 'management', 'settings', ['access']),
+                    backLinkLabel: __('manager.people.allUsers'),
+                );
             }
 
             $newUser = Repo::user()->get($userId, true);

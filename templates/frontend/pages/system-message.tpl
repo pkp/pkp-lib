@@ -10,21 +10,17 @@
  *}
 {include file="frontend/components/header.tpl"}
 
-<div class="page page_message">
-	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
+<div class="page page_{if $type}{$type}{else}message{/if}">
+	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$title}
 	<h1>
-		{translate key=$pageTitle}
+		{$pageTitle}
 	</h1>
 	<div class="description">
-		{if $messageTranslated}
-			{$messageTranslated}
-		{else}
-			{translate key=$message}
-		{/if}
+    {$message|strip_unsafe_html}
 	</div>
 	{if $backLink}
 		<div class="cmp_back_link">
-			<a href="{$backLink}">{translate key=$backLinkLabel}</a>
+			<a href="{$backLink}">{$backLinkLabel}</a>
 		</div>
 	{/if}
 </div>

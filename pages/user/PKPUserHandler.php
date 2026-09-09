@@ -51,7 +51,9 @@ class PKPUserHandler extends Handler
 
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('message', $authorizationMessage);
-        return $templateMgr->display('frontend/pages/message.tpl');
+        $templateMgr->displaySystemMessage(
+            title: __('common.error'),
+            message: $authorizationMessage,
+        );
     }
 }

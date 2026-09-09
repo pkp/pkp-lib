@@ -1,0 +1,62 @@
+<x-metadata-blocks.default
+    slug="version"
+    title="{{ __('admin.version') }}"
+    :$headingTag
+>
+    <span>
+        {{ $publication->getData('versionString') }}
+    </span>
+
+    @if (count($submission->getPublishedPublications()))
+        <x-dropdown>
+            <x-slot:trigger
+                class="metadata-version-dropdown"
+                triggerClass="metadata-version-dropdown-trigger"
+            >
+                {{ __('admin.versionHistory') }}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.3933 14.7616L7 10.3683L7.86831 9.5L11.3933 13.025L14.9183 9.5L15.7866 10.3683L11.3933 14.7616Z" fill="currentColor"/>
+                </svg>
+            </x-slot:trigger>
+            <ul class="metadata-versions-list">
+                @foreach (array_reverse($submission->getPublishedPublications()) as $version)
+                    @php
+                        $name = $version->getData('versionString');
+                        $urlPath = [$submission->getBestId()];
+                        if ($version->getId() !== $currentPublication->getId()) {
+                            $urlPath[] = 'version';
+                            $urlPath[] = $version->getId();
+                        }
+                    @endphp
+                    <li class="metadata-versions-item">
+                        @if ($version->getId() === $publication->getId())
+                            <div class="metadata-version metadata-version-current">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.55032 17.6538L4.21582 12.3193L5.28482 11.2501L9.55032 15.5156L18.7158 6.3501L19.7848 7.41935L9.55032 17.6538Z" fill="currentColor"/>
+                                </svg>
+                                <span class="metdata-version-name">
+                                    {{ $name }}
+                                </span>
+                            </div>
+                        @else
+                            <a
+                                class="metadata-version metadata-version-other"
+                                href="{{
+                                    ViewHelper::url([
+                                        'page' => 'article',
+                                        'op' => 'view',
+                                        'path' => $urlPath,
+                                    ])
+                                }}"
+                            >
+                                <span class="metdata-version-name">
+                                    {{ $name }}
+                                </span>
+                            </a>
+                        @endif
+                    </li>
+                @endforeach
+            </ul>
+        </x-dropdown>
+    @endif
+</x-metadata-blocks.default>

@@ -38,7 +38,6 @@ class NewAnnouncementNotifyUsers extends BaseJob
     protected Collection $recipientIds;
     protected int $contextId;
     protected int $announcementId;
-    protected string $locale;
 
     // Sender of the email
     protected ?User $sender;
@@ -47,7 +46,6 @@ class NewAnnouncementNotifyUsers extends BaseJob
         Collection $recipientIds,
         int $contextId,
         int $announcementId,
-        string $locale,
         ?User $sender = null // Leave null to not send an email
     ) {
         parent::__construct();
@@ -55,7 +53,6 @@ class NewAnnouncementNotifyUsers extends BaseJob
         $this->recipientIds = $recipientIds;
         $this->contextId = $contextId;
         $this->announcementId = $announcementId;
-        $this->locale = $locale;
         $this->sender = $sender;
     }
 
@@ -74,6 +71,7 @@ class NewAnnouncementNotifyUsers extends BaseJob
         $announcementNotificationManager->initialize($announcement);
         $context = Application::getContextDAO()->getById($this->contextId);
         $template = Repo::emailTemplate()->getByKey($context->getId(), AnnouncementNotify::getEmailTemplateKey());
+        $supportedLocales = $context->getSupportedLocales();
 
         foreach ($this->recipientIds as $recipientId) {
             /** @var int $recipientId */
@@ -87,11 +85,16 @@ class NewAnnouncementNotifyUsers extends BaseJob
                 continue;
             }
 
+            // Send in the recipient's working language if the context supports it,
+            // otherwise fall back to the context's primary locale
+            $workingLocales = array_values(array_intersect($recipient->getLocales(), $supportedLocales));
+            $recipientLocale = $workingLocales[0] ?? $context->getPrimaryLocale();
+
             // Send email
-            $mailable = $this->createMailable($context, $recipient, $announcement, $template)
+            $mailable = $this->createMailable($context, $recipient, $announcement, $template, $recipientLocale)
                 ->allowUnsubscribe($notification);
 
-            $mailable->setLocale($this->locale);
+            $mailable->setLocale($recipientLocale);
             Mail::send($mailable);
         }
     }
@@ -103,14 +106,15 @@ class NewAnnouncementNotifyUsers extends BaseJob
         Context       $context,
         User          $recipient,
         Announcement  $announcement,
-        EmailTemplate $template
+        EmailTemplate $template,
+        string        $locale
     ): AnnouncementNotify {
         $mailable = new AnnouncementNotify($context, $announcement);
 
         $mailable->sender($this->sender);
-        $mailable->recipients([$recipient]);
-        $mailable->body($template->getLocalizedData('body', $this->locale));
-        $mailable->subject($template->getLocalizedData('subject', $this->locale));
+        $mailable->recipients([$recipient], $locale);
+        $mailable->body($template->getLocalizedData('body', $locale));
+        $mailable->subject($template->getLocalizedData('subject', $locale));
 
         return $mailable;
     }

@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPApplication;
@@ -42,6 +43,7 @@ use PKP\userGroup\UserGroup;
  * @method Builder|static withSearch(string $phrase)
  * @method Builder|static withUserGroupsAccess(?array $userGroupIds)
  * @method Builder|static withEmailKeys(array $emailKeys, int $contextId)
+ * @method Builder|static isNotAlreadyCreated(int $submissionId)
  */
 class Template extends Model
 {
@@ -132,6 +134,11 @@ class Template extends Model
             'edit_task_template_id',
             'user_group_id'
         );
+    }
+
+    public function editorialTasks(): HasMany
+    {
+        return $this->hasMany(EditorialTask::class, 'edit_task_template_id', 'edit_task_template_id');
     }
 
     /**
@@ -316,5 +323,14 @@ class Template extends Model
     {
         return $builder->where('context_id', $contextId)->whereIn('key', $keys);
 
+    }
+
+    /**
+     * Filter query by templates that have not been used to create a task for a given submission
+     */
+    protected function scopeIsNotAlreadyCreated(Builder $builder, int $submissionId): Builder
+    {
+        return $builder->whereDoesntHave('editorialTasks', fn (Builder $query) => $query
+            ->withAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, $submissionId));
     }
 }

@@ -206,15 +206,10 @@ class Repository
             ->withContextId($contextId)
             ->withStageId($stageId)
             ->withInclude(true)
+            ->isNotAlreadyCreated($submission->getId())
             ->get();
 
         foreach ($templates as $template) {
-            $templateId = (int) $template->id;
-
-            if ($this->taskAlreadyCreatedFromTemplate($submission->getId(), $templateId)) {
-                continue;
-            }
-
             $task = $template->promote($submission, false); // no participants
 
             $maxSeq = (float) (EditorialTask::query()
@@ -228,16 +223,6 @@ class Repository
             $task->save();
         }
     }
-
-    private function taskAlreadyCreatedFromTemplate(int $submissionId, int $templateId): bool
-    {
-        return DB::table('edit_tasks')
-            ->where('assoc_type', PKPApplication::ASSOC_TYPE_SUBMISSION)
-            ->where('assoc_id', $submissionId)
-            ->where('edit_task_template_id', $templateId)
-            ->exists();
-    }
-
 
     /**
      * Deletes all tasks, notes, and notifications associated with the given submission ID.

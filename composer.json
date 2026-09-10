@@ -34,6 +34,7 @@
 		"smarty/smarty": "4.*",
 		"sokil/php-isocodes": "^4.1",
 		"sokil/php-isocodes-db-i18n": "^4.0",
+		"symfony/html-sanitizer": "^7.4",
 		"symfony/mailer": "^7.0",
 		"tinymce/tinymce": "^7.6",
 		"wikimedia/less.php": "3.*",

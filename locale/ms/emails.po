@@ -345,7 +345,7 @@ msgstr ""
 "<br/>\n"
 "Jika anda mempunyai sebarang pertanyaan, sila hubungi saya.<br/>\n"
 "<br/>\n"
-"{$principalContactSignature}<br/>\n"
+"{$siteSignature}<br/>\n"
 
 msgid "emails.orcidCollectAuthorId.subject"
 msgstr "Penyerahan ORCID"

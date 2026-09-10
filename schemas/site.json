@@ -145,6 +145,14 @@
 				"nullable"
 			]
 		},
+		"orcidCustomRedirectBaseUrl": {
+			"type": "string",
+			"default": "",
+			"validation": [
+				"nullable",
+				"url"
+			]
+		},
 		"orcidEnabled": {
 			"type": "boolean",
 			"default": false,

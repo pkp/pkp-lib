@@ -54,7 +54,7 @@ class WorkflowStageRequiredPolicy extends AuthorizationPolicy
         }
 
         // Check the stage id.
-        $validAppStages = Application::getApplicationStages();
+        $validAppStages = Application::getValidStages();
         if (!in_array($this->stageId, array_values($validAppStages))) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

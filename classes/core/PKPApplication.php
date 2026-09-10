@@ -637,6 +637,27 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
     }
 
     /**
+     * Get stages that are not part of the editorial workflow
+     */
+    public static function getNonWorkflowStages(): array
+    {
+        return [
+            WORKFLOW_STAGE_ID_DONE,
+        ];
+    }
+
+    /**
+     * Get all stages in the application that are used to determine authorization and workflow access.
+     */
+    public static function getValidStages(): array
+    {
+        return array_merge(
+            static::getApplicationStages(),
+            static::getNonWorkflowStages()
+        );
+    }
+
+    /**
      * Get a human-readable version of the max file upload size
      */
     public static function getReadableMaxFileSize(): string

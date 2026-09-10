@@ -114,7 +114,7 @@ class AuthorResponse extends Model
     {
         return Attribute::make(
             get: function () {
-                return Repo::user()->get($this->userId);
+                return Repo::user()->get($this->userId, true);
             }
         )->shouldCache();
     }

@@ -1005,7 +1005,7 @@ class EditorialTaskController extends PKPBaseController
 
             $reviewerId = $reviewAssignment->getReviewerId();
             if (!$users->has($reviewerId)) {
-                $users->put($reviewerId, Repo::user()->get($reviewerId));
+                $users->put($reviewerId, Repo::user()->get($reviewerId, true));
             }
             $includedReviewAssignments->push($reviewAssignment);
         }
@@ -1300,9 +1300,9 @@ class EditorialTaskController extends PKPBaseController
             'dateLogged' => Core::getCurrentDate(),
             'submissionId' => $submission->getId(),
             'taskOwnerOldUserId' => $oldOwner->userId,
-            'taskOwnerOldUsername' => $oldOwner->userId ? Repo::user()->get($oldOwner->userId)->getUsername() : '',
+            'taskOwnerOldUsername' => $oldOwner->userId ? Repo::user()->get($oldOwner->userId, true)->getUsername() : '',
             'taskOwnerNewUserId' => $newOwner->userId,
-            'taskOwnerNewUsername' => $newOwner->userId ? Repo::user()->get($newOwner->userId)->getUsername() : '',
+            'taskOwnerNewUsername' => $newOwner->userId ? Repo::user()->get($newOwner->userId, true)->getUsername() : '',
             'username' => $actionedUser->getUsername(),
             'userGroupNames' => $this->getUserUserGroups($submission, $actionedUser, $editorialTask),
             'userFullName' => $actionedUser->getFullNames(),

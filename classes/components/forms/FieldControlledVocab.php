@@ -25,12 +25,16 @@ class FieldControlledVocab extends FieldBaseAutosuggest
     /** @var array Key/value list of languages this field should support. Key = locale code. Value = locale name */
     public $locales = [];
 
+    /** @var bool Whether free-text entries may be added alongside suggested ones */
+    public $allowCustom = true;
+
     /**
      * @copydoc Field::getConfig()
      */
     public function getConfig()
     {
         $config = parent::getConfig();
+        $config['allowCustom'] = $this->allowCustom;
 
         if ($this->isMultilingual) {
             $config['selected'] = [];

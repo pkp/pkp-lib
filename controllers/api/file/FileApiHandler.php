@@ -106,9 +106,15 @@ class FileApiHandler extends Handler
                 $file = $revision;
             }
         }
+
         if (!$file) {
-            throw new Exception('File ' . $fileId . ' is not a revision of submission file ' . $submissionFile->getId());
+            // The file may have been removed since the link was rendered, e.g. by cancelling the
+            // revision upload that created it. Report it as missing rather than as a server error.
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException(
+                'File ' . $fileId . ' is not a revision of submission file ' . $submissionFile->getId()
+            );
         }
+
         if (!app()->get('file')->fs->has($file->path)) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }

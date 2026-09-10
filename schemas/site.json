@@ -249,6 +249,22 @@
 				]
 			}
 		},
+		"taskRunnerLastRunSummary": {
+			"type": "array",
+			"writeOnly": true,
+			"description": "Internal bookkeeping for the web-based scheduled task runner last run timestamp",
+			"items": {
+				"type": "object",
+				"properties": {
+					"taskName": {
+						"type": "string"
+					},
+					"lastRun": {
+						"type": "integer"
+					}
+				}
+			}
+		},
 		"themePluginPath": {
 			"type": "string",
 			"default": "default"

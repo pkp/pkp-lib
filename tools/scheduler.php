@@ -18,6 +18,8 @@ namespace PKP\tools;
 
 use APP\core\Application;
 use Carbon\Carbon;
+use Carbon\CarbonInterface;
+use Cron\CronExpression;
 use Illuminate\Console\Scheduling\CallbackEvent;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ProcessUtils;
@@ -129,17 +131,97 @@ class CommandScheduler extends CommandLineTool
 
     /**
      * List all the schedule tasks in the system
+     *
+     * Rendered here rather than delegating to Laravel's ScheduleListCommand so that the next run
+     * can be shown as an absolute date. The relative form on its own is ambiguous: Carbon reports
+     * a single unit and floors it, so a monthly task 12 days out reads as "1 week from now".
      */
     protected function list(): void
     {
-        [$input, $output] = ConsoleCommandServiceProvider::getConsoleIOInstances();
+        $outputStyle = ConsoleCommandServiceProvider::getConsoleOutputStyle();
 
-        $scheduleListCommand = new ScheduleListCommand;
-        $scheduleListCommand->setLaravel(PKPContainer::getInstance());
-        $scheduleListCommand->setInput($input);
-        $scheduleListCommand->setOutput(ConsoleCommandServiceProvider::getConsoleOutputStyle());
+        $schedule = app()->get(Schedule::class); /** @var \Illuminate\Console\Scheduling\Schedule $schedule */
+        $events = $schedule->events();
 
-        $scheduleListCommand->run($input, $output);
+        if (empty($events)) {
+            /** @var \Illuminate\Console\View\Components\Factory $components */
+            $components = app()->get(\Illuminate\Console\View\Components\Factory::class);
+            $components->warning(__('admin.cli.tool.scheduler.tasks.empty'));
+
+            return;
+        }
+
+        // Same resolved value the Schedule itself is built from, so what is listed here is what
+        // the runner will actually match against
+        $appTimezone = date_default_timezone_get();
+        $now = Carbon::now($appTimezone);
+        $terminalWidth = ScheduleListCommand::getTerminalWidth();
+
+        // Pad every cron field to the widest value in the list so the expressions line up
+        $spacing = [];
+        foreach ($events as $event) {
+            foreach (preg_split('/\s+/', $event->getExpression()) as $position => $field) {
+                $spacing[$position] = max($spacing[$position] ?? 0, mb_strlen($field));
+            }
+        }
+
+        // The timezone applies to every task, so state it once here rather than on each row
+        $outputStyle->writeln('');
+        $outputStyle->writeln(
+            "  <fg=#6C7280>Timezone:</> {$appTimezone} <fg=#6C7280>(config: general.time_zone)</>"
+        );
+        $outputStyle->writeln('');
+
+        foreach ($events as $event) {
+            $fields = preg_split('/\s+/', $event->getExpression());
+            $expression = implode(' ', array_map(
+                fn ($field, $position) => str_pad($field, $spacing[$position]),
+                $fields,
+                array_keys($fields)
+            ));
+
+            $taskName = $event->command ?? $event->getSummaryForDisplay();
+            $taskName = mb_strlen($taskName) > 1 ? "{$taskName} " : '';
+
+            // Resolve the next run in the event's own timezone before presenting it in the
+            // application's, matching how ScheduleListCommand::getNextDueDateForEvent() does it
+            $eventTimezone = $event->timezone ? (string) $event->timezone : $appTimezone;
+            $nextRun = Carbon::instance(
+                (new CronExpression($event->getExpression()))->getNextRunDate(Carbon::now($eventTimezone))
+            )->setTimezone($appTimezone);
+
+            // Cap the largest unit at days.
+            $nextRunLabel = 'Next Run:';
+            $nextRunValue = $nextRun->format('M j, Y H:i') . ' (in ' . $nextRun->diffForHumans($now, [
+                'syntax' => CarbonInterface::DIFF_ABSOLUTE,
+                'skip' => ['week', 'month', 'year'],
+            ]) . ')';
+
+            // Only worth stating when a task has opted out of the application wide timezone
+            $timezoneNote = $eventTimezone === $appTimezone ? '' : " [{$eventTimezone}]";
+
+            $hasMutex = $event->mutex->exists($event) ? 'Has Mutex › ' : '';
+
+            $dots = str_repeat('.', max(
+                $terminalWidth - mb_strwidth(
+                    $expression . $taskName . $hasMutex . $nextRunLabel . $nextRunValue . $timezoneNote
+                ) - 8,
+                0
+            ));
+
+            $outputStyle->writeln(sprintf(
+                '  <fg=yellow>%s</>  %s<fg=#6C7280>%s %s%s %s%s</>',
+                $expression,
+                $taskName,
+                $dots,
+                $hasMutex,
+                $nextRunLabel,
+                $nextRunValue,
+                $timezoneNote
+            ));
+        }
+
+        $outputStyle->writeln('');
     }
 
     /**

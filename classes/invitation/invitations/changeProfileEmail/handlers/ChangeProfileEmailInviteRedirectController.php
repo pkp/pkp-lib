@@ -46,9 +46,9 @@ class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirec
             null,
             'user',
             'profile',
-            [
-                'contact'
-            ]
+            null,
+            null,
+            'contact'
         );
 
         $this->getInvitation()->finalize();
@@ -78,9 +78,9 @@ class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirec
             null,
             'user',
             'profile',
-            [
-                'contact'
-            ]
+            null,
+            null,
+            'contact'
         );
 
         $this->getInvitation()->decline();

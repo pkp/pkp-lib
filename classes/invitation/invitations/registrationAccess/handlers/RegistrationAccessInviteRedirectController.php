@@ -83,28 +83,9 @@ class RegistrationAccessInviteRedirectController extends InvitationActionRedirec
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            null,
-            'user',
-            'login',
-            [
-            ]
+            $this->invitation->getContextPath(),
+            'login'
         );
-
-        $contextId = $this->invitation->getContextId();
-        if (isset($contextId)) {
-            $context = Application::getContextDAO()->getById($contextId);
-
-            $url = PKPApplication::get()->getDispatcher()->url(
-                PKPApplication::get()->getRequest(),
-                PKPApplication::ROUTE_PAGE,
-                $context->getData('urlPath'),
-                'user',
-                'login',
-                null,
-                [
-                ]
-            );
-        }
 
         $this->getInvitation()->decline();
 

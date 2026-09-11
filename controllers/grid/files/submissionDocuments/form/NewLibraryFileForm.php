@@ -49,7 +49,7 @@ class NewLibraryFileForm extends LibraryFileForm
      */
     public function readInputData()
     {
-        $this->readUserVars(['temporaryFileId', 'submissionId']);
+        $this->readUserVars(['temporaryFileId']);
         return parent::readInputData();
     }
 
@@ -90,7 +90,7 @@ class NewLibraryFileForm extends LibraryFileForm
         $libraryFile->setName($this->getData('libraryFileName'), null); // Localized
         $libraryFile->setData('description', $this->getData('description'), null); // Localized
         $libraryFile->setType($this->getData('fileType'));
-        $libraryFile->setSubmissionId($this->getData('submissionId'));
+        $libraryFile->setSubmissionId($this->submissionId);
 
         $fileId = $libraryFileDao->insertObject($libraryFile);
 

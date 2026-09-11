@@ -76,6 +76,9 @@ msgstr "This invitation operation failed"
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "The provided user group ID {$userGroupId} does not exist"
 
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotInContext"
+msgstr "The provided user group does not belong to the invitation's context"
+
 msgid "invitation.validation.required"
 msgstr "The {$attribute} field is required."
 

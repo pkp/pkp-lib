@@ -24,6 +24,7 @@ use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
+use Illuminate\Support\Str;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\doi\Doi;
@@ -475,24 +476,11 @@ abstract class Collector implements CollectorInterface, ViewsCount
                     $q->orderBy('s.date_submitted', $this->orderDirection);
                     break;
                 }
-                // Retrieves the number of matches for all keywords
-                $orderByMatchCount = DB::table('submission_search_objects', 'sso')
-                    ->join('submission_search_object_keywords AS ssok', 'ssok.object_id', '=', 'sso.object_id')
-                    ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
-                    ->where(
-                        fn (Builder $q) =>
-                        $keywords->map(
-                            fn (string $keyword) => $q
-                                ->orWhere('sskl.keyword_text', '=', DB::raw('LOWER(?)'))
-                                ->addBinding($keyword)
-                        )
-                    )
-                    ->whereColumn('s.submission_id', '=', 'sso.submission_id')
-                    ->selectRaw('COUNT(0)');
-                // Retrieves the number of distinct matched keywords
-                $orderByDistinctKeyword = (clone $orderByMatchCount)->select(DB::raw('COUNT(DISTINCT sskl.keyword_id)'));
-                $q->orderBy($orderByDistinctKeyword, $this->orderDirection)
-                    ->orderBy($orderByMatchCount, $this->orderDirection);
+                // The match counts come from the pre-aggregated join that the search phrase
+                // filter below adds. Computing them here as correlated sub-queries instead
+                // re-evaluates them once per candidate row
+                $q->orderBy(DB::raw('COALESCE(search_ranking.distinct_keyword_count, 0)'), $this->orderDirection)
+                    ->orderBy(DB::raw('COALESCE(search_ranking.keyword_match_count, 0)'), $this->orderDirection);
                 break;
             case self::ORDERBY_DATE_SUBMITTED:
             default:
@@ -630,74 +618,102 @@ abstract class Collector implements CollectorInterface, ViewsCount
                     DB::raw('1')
                 );
             }
+            // Aggregate the matches for every keyword against the search index in a single
+            // pass and join the result once. Running one correlated EXISTS per keyword
+            // instead re-evaluates it for every candidate row, which is what makes
+            // multi-keyword searches collapse on large installations
+            $authorObjectType = (int) SubmissionSearch::SUBMISSION_SEARCH_AUTHOR;
+            $q->leftJoinSub(
+                DB::table('submission_search_objects', 'sso')
+                    ->join('submission_search_object_keywords AS ssok', 'ssok.object_id', '=', 'sso.object_id')
+                    ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
+                    // Keywords are already lower-cased by SubmissionSearchIndex::filterKeywords(),
+                    // both here and when the index was written
+                    ->whereIn('sskl.keyword_text', $keywords->map(fn (string $keyword) => Str::lower($keyword))->all())
+                    ->groupBy('sso.submission_id')
+                    ->select([
+                        'sso.submission_id',
+                        DB::raw('COUNT(DISTINCT ssok.keyword_id) AS distinct_keyword_count'),
+                        DB::raw('COUNT(0) AS keyword_match_count'),
+                        // Don't permit reviewers to search on author names
+                        DB::raw("COUNT(CASE WHEN sso.type <> {$authorObjectType} THEN 1 END) AS keyword_match_count_no_author"),
+                    ]),
+                'search_ranking',
+                'search_ranking.submission_id',
+                '=',
+                's.submission_id'
+            );
+
+            // Reviewers must not be able to search on author names, so the aggregate above
+            // carries a second counter that ignores author search objects. `any_assignment`
+            // is an alias of the outer query and cannot be referenced from inside a derived
+            // table, so the choice between the two counters is made out here.
+            $keywordMatchCount = empty($this->assignedTo)
+                ? 'search_ranking.keyword_match_count'
+                : 'CASE WHEN any_assignment.value IS NULL'
+                    . ' THEN search_ranking.keyword_match_count'
+                    . ' ELSE search_ranking.keyword_match_count_no_author END';
+
+            $numericWords = $keywords->filter(fn (string $keyword) => ctype_digit($keyword));
+
             // Builds the filters
             $q->where(
-                fn (Builder $q) => $keywords
-                    ->map(
-                        fn (string $keyword) => $q
-                        // Look for matches on the indexed data
-                            ->orWhereExists(
-                                fn (Builder $query) => $query
-                                    ->from('submission_search_objects', 'sso')
-                                    ->join('submission_search_object_keywords AS ssok', 'sso.object_id', '=', 'ssok.object_id')
-                                    ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
-                                    ->where('sskl.keyword_text', '=', DB::raw('LOWER(?)'))->addBinding($keyword)
-                                    ->whereColumn('s.submission_id', '=', 'sso.submission_id')
-                                // Don't permit reviewers to search on author names
-                                    ->when(
-                                        !empty($this->assignedTo),
-                                        fn (Builder $q) => $q
-                                            ->where(
-                                                fn (Builder $q) => $q
-                                                    ->whereNull('any_assignment.value')
-                                                    ->orWhere('sso.type', '!=', SubmissionSearch::SUBMISSION_SEARCH_AUTHOR)
-                                            )
-                                    )
+                fn (Builder $q) => $q
+                // Look for matches on the indexed data
+                    ->whereRaw("COALESCE({$keywordMatchCount}, 0) > 0")
+                // Search on the publication title
+                    ->orWhereIn(
+                        's.submission_id',
+                        fn (Builder $query) => $query
+                            ->select('p.submission_id')->from('publications AS p')
+                            ->join('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
+                            ->where('ps.setting_name', '=', 'title')
+                            ->where(
+                                fn (Builder $q) => $keywords->each(
+                                    fn (string $keyword) => $q
+                                        ->orWhere(DB::raw('LOWER(ps.setting_value)'), 'LIKE', $likePattern)
+                                        ->addBinding($keyword)
+                                )
                             )
-                        // Search on the publication title
-                            ->orWhereIn(
-                                's.submission_id',
-                                fn (Builder $query) => $query
-                                    ->select('p.submission_id')->from('publications AS p')
-                                    ->join('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
-                                    ->where('ps.setting_name', '=', 'title')
-                                    ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', $likePattern)
-                                    ->addBinding($keyword)
-                            )
-                        // Search on the author name and ORCID
-                            ->orWhereIn(
-                                's.submission_id',
-                                fn (Builder $query) => $query
-                                    ->select('p.submission_id')
-                                    ->from('publications AS p')
-                                    ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
-                                    ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
-                                    ->whereIn('aus.setting_name', [
-                                        Identity::IDENTITY_SETTING_GIVENNAME,
-                                        Identity::IDENTITY_SETTING_FAMILYNAME,
-                                        'orcid'
-                                    ])
-                                // Don't permit reviewers to search on author names
-                                    ->when(
-                                        !empty($this->assignedTo),
-                                        fn (Builder $q) => $q
-                                            ->where(
-                                                fn (Builder $q) => $q
-                                                    ->whereNull('any_assignment.value')
-                                                    ->orWhereNotIn('aus.setting_name', [
-                                                        Identity::IDENTITY_SETTING_GIVENNAME,
-                                                        Identity::IDENTITY_SETTING_FAMILYNAME
-                                                    ])
-                                            )
-                                    )
-                                    ->where(DB::raw('LOWER(aus.setting_value)'), 'LIKE', $likePattern)
-                                    ->addBinding($keyword)
-                            )
-                        // Search for the exact submission ID
+                    )
+                // Search on the author name and ORCID
+                    ->orWhereIn(
+                        's.submission_id',
+                        fn (Builder $query) => $query
+                            ->select('p.submission_id')
+                            ->from('publications AS p')
+                            ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
+                            ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
+                            ->whereIn('aus.setting_name', [
+                                Identity::IDENTITY_SETTING_GIVENNAME,
+                                Identity::IDENTITY_SETTING_FAMILYNAME,
+                                'orcid'
+                            ])
+                        // Don't permit reviewers to search on author names
                             ->when(
-                                ($numericWords = $keywords->filter(fn (string $keyword) => ctype_digit($keyword)))->count(),
-                                fn (Builder $query) => $query->orWhereIn('s.submission_id', $numericWords)
+                                !empty($this->assignedTo),
+                                fn (Builder $q) => $q
+                                    ->where(
+                                        fn (Builder $q) => $q
+                                            ->whereNull('any_assignment.value')
+                                            ->orWhereNotIn('aus.setting_name', [
+                                                Identity::IDENTITY_SETTING_GIVENNAME,
+                                                Identity::IDENTITY_SETTING_FAMILYNAME
+                                            ])
+                                    )
                             )
+                            ->where(
+                                fn (Builder $q) => $keywords->each(
+                                    fn (string $keyword) => $q
+                                        ->orWhere(DB::raw('LOWER(aus.setting_value)'), 'LIKE', $likePattern)
+                                        ->addBinding($keyword)
+                                )
+                            )
+                    )
+                // Search for the exact submission ID
+                    ->when(
+                        $numericWords->count(),
+                        fn (Builder $query) => $query->orWhereIn('s.submission_id', $numericWords)
                     )
             );
         } elseif (strlen($this->searchPhrase ?? '') && !$isSearchPhraseDoi) {

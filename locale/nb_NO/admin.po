@@ -4,13 +4,14 @@
 # Eirik Hanssen <eirikhanssen79@gmail.com>, 2023.
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
 # Anne-Inger <annrag@oslomet.no>, 2026.
+# Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-16 14:49+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"PO-Revision-Date: 2026-09-12 13:59+0000\n"
+"Last-Translator: Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -553,7 +554,7 @@ msgstr ""
 "Send tilgjengelige jobber til køen. Hvis du ønsker å sende en jobb inn i en "
 "bestemt kø, send parameteren --queue=QUEUE_NAME. Du kan også bare bruke "
 "parameteren --test for å kjøre testjobben og --once for å kjøre kun en jobb "
-"om gangen"
+"om gangen."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr "Fullførte kjøringen av {$jobCount} jobber i køen kalt {$queueName}."
@@ -929,7 +930,6 @@ msgstr "Kjør arbeider-bakgrunnsprosessen for testkø"
 #~ msgid "admin.languages.downloadLocales"
 #~ msgstr "Last ned språkpakker"
 
-#, fuzzy
 msgid "admin.settings.sharedReviewerStatistics"
 msgstr "Fagfellestatistikk"
 
@@ -939,7 +939,6 @@ msgstr ""
 "fagfeller, som antall innsendte vurderinger, enten vises individuelt for "
 "hvert tidsskrift/utgiver eller samlet for alle."
 
-#, fuzzy
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Deaktiver samlet fagfellestatistikk"
 
@@ -985,7 +984,6 @@ msgstr ""
 "Kontrollsummen i den nedlastede ROR-register-datasett ZIP-filen kan ikke "
 "bekreftes."
 
-#, fuzzy
 msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
 msgstr ""
 "Kan ikke hente ut ROR-register-datasettets metadata. Ingen nedlastingsfil "
@@ -1000,7 +998,6 @@ msgstr "ZIP-filen med ROR-register-datasett kan ikke åpnes. Feilkode: {$code}."
 msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
 msgstr "ZIP-filen med ROR-register-datasett kan ikke pakkes ut."
 
-#, fuzzy
 msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
 msgstr ""
 "ROR-register-poster med id \"{$id}\" mangler ett eller flere påkrevde felter "
@@ -1029,17 +1026,14 @@ msgstr "Vis AppKey-bruksparametrene"
 msgid "admin.cli.tool.appKey.options.configure.description"
 msgstr "Legg til app_key config-variablen i config.inc.php-filen."
 
-#, fuzzy
 msgid "admin.cli.tool.appKey.warning.replaceValidKey"
 msgstr ""
 "En gyldig APP-nøkkel er allerede angitt i konfigurasjonsfilen. For å "
 "overskrive, send flagget --force med kommandoen."
 
-#, fuzzy
 msgid "admin.scheduledTask.removeExpiredInvitations"
 msgstr "Send en jobb for å automatisk fjerne utløpte invitasjoner"
 
-#, fuzzy
 msgid "admin.cli.tool.appKey.options.validate.description"
 msgstr "Valider den gjeldende app key, hvis det finnes en i config-filen"
 
@@ -1054,7 +1048,6 @@ msgstr "Mente du én av følgende?"
 msgid "admin.cli.tool.appKey.show"
 msgstr "Generert App Key: {$appKey}"
 
-#, fuzzy
 msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
 msgstr ""
 "Variabelen `app_key` finnes allerede under `general`-delen i "
@@ -1064,20 +1057,78 @@ msgstr ""
 msgid "admin.cli.tool.appKey.error.missingAppKey"
 msgstr "Ingen app-nøkkel angitt i config-filen."
 
-#, fuzzy
 msgid "admin.cli.tool.appKey.error.InvalidAppKey"
 msgstr ""
 "Ugyldig app key-sett, chiffer som ikke støttes eller feil nøkkellengde. "
 "Støttede chiffer er: {$ciphers}."
 
-#, fuzzy
 msgid "admin.cli.tool.appKey.success.writtenToConfig"
 msgstr "App key ble innstilt riktig i config-filen."
 
-#, fuzzy
 msgid "admin.cli.tool.appKey.error.missingKeyVariable"
 msgstr ""
 "Ingen nøkkelvariabel kalt `app_key` er definert i `general`-delen av "
 "konfigurasjonsfilen. Vennligst oppdater konfigurasjonsfilens generelle del "
 "og legg til linjen `app_key = ` eller kjør kommandoen `php lib/pkp/tools/"
 "appKey.php configure` for å angi den."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Hvilken kommando ønsker du å kjøre?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Kasn ikke gjøre planlagte oppgaver fordi applikasjonens sandbox-modus er "
+"aktivert."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Finner ingen matchende planlagt oppgave."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Kan ikke kjøre jobber i køen fordi programmets sandbox-modus er slått på."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"App key variabelen ble satt i config filen. Kjør kommandoen `php lib/pkp/"
+"tools/appKey.php generate` for å sette en ny app key."
+
+#, fuzzy
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Ute av stand til å sette `app_key` variabelen i config filen. Oppdater "
+"config filens \"general section\" og legg til linjen `app_key = `."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "En gyldig applikasjonsnøkkel er satt i config-filen"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Kjør jobbplanleggeren."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "List opp alle planlagte oppgaver."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Start oppgaveplanleggeren."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Kjør en bestemt planlagt oppgave fra listen eller bruk --name for å kjøre en "
+"spesifikk oppgave. Sett flagget --no-scroll for å se hele listen uten å "
+"skrolle."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Vis parametrene i oppgaveplanleggeren."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Kan ikke kjøre planlagte oppgaver fordi programmets vedlikeholdsmodus er "
+"aktivert."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Mente du en av følgende?"
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Kjører planlagte oppgaver hvert minutt."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Ingen planlagte oppgaver er registrert."

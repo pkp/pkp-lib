@@ -48,7 +48,26 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
         $context = $request->getContext();
         $steps = new AcceptInvitationStep();
         $invitationModel = $this->getInvitation()->invitationModel->toArray();
-        $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId']) : null;
+
+        // Return also disabled users
+        $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId'], true) : null;
+
+        if (!$user && !empty($invitationModel['email'])) {
+            $user = Repo::user()->getByEmail($invitationModel['email'], true);
+        }
+
+        // Check if user is disabled, and if so, return invitation unavailable page
+        if ($user && $user->getDisabled()) {
+            $contextPath = $context?->getData('urlPath');
+            $templateMgr->assign([
+                'loginUrl' => $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, $contextPath, 'login'),
+                'registerUrl' => $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, $contextPath, 'user', 'register'),
+                'pageComponent' => 'Page',
+            ]);
+            $templateMgr->display('invitation/invitationUnavailable.tpl');
+            return;
+        }
+
         $templateMgr->setState([
             'steps' => $steps->getSteps($this->getInvitation(), $context, $user),
             'primaryLocale' => $context->getData('primaryLocale'),

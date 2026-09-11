@@ -2,13 +2,14 @@
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024, 2026.
 # Aysa Ekanger <aysa.ekanger@uit.no>, 2026.
 # Anne-Inger <annrag@oslomet.no>, 2026.
+# Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-22 07:01+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"PO-Revision-Date: 2026-09-12 13:59+0000\n"
+"Last-Translator: Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -1067,7 +1068,7 @@ msgid "submission.submit.includeInBrowse"
 msgstr "Inkluder bidragsyter i søkelister?"
 
 msgid "submission.submit.includeInBrowse.title"
-msgstr ""
+msgstr "Publikasjonsliste"
 
 msgid "submission.submit.newFile"
 msgstr "Legg til en fil til"
@@ -1360,10 +1361,11 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Alle anbefalinger er levert inn. Det må tas en avgjørelse."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Har vært inaktiv i mer enn {$days} dager i {$stage}-trinnet."
 
 msgid "editor.submission.status.waitingInitialReview"
 msgstr ""
+"En ny innsending venter på å bli sendt til fagfellevurdering eller forkastet."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Deltakere"
@@ -1429,44 +1431,64 @@ msgid "editor.submission.decision"
 msgstr "Avgjørelse"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Informer forfattere"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Informer fagfeller"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Send en e-post til fagfellene for å takke dem for deres bedømmelser og la "
+"dem få vite at en beslutning er tatt. Hver fagfelle får sendt en separat e-"
+"post for å beskytte deres anonymitet. Frasen {$recipientName} kan brukes i "
+"meldingen for å inkludere hver fagfelles navn på sikkert vis."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Send en e-post til fagfellene for å informere dem om at fagfelleoppgaven har "
+"blitt kansellert."
 
 msgid "editor.submission.decision.accept"
 msgstr "Aksepter innlevering"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"Denne innsendingen vil bli akseptert for publisering og sendt til redigering."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} aksepterte denne innsendingen og sendte den til "
+"redigeringsstadiet."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Innsendingen er akseptert"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"Innsendingen «{$title}» har blitt akseptert for publisering og er sendt til "
+"redigeringsstadiet. Alle meldinger er sendt, unntatt de du måtte ha valgt å "
+"hoppe over."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Send en e-post til forfatterne for å la dem få vite at innsendingen deres "
+"har blitt akseptert for publisering. Denne e-posten blir ikke sendt før du "
+"har registrert beslutningen."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Send en e-post til forfatterne for å la dem få vite at "
+"fagfellevuderingsrunden er avsluttet. Denne e-posten blir ikke sendt før "
+"beslutningen er registrert."
 
 msgid "editor.submission.decision.decline"
 msgstr "Avvis innlevering"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Denne innsendingen blir ikke godtatt for publisering. "
+"Fagfellevurderingsrunden blir stengt og innsendingen blir arkivert."
 
 msgid "editor.submission.decision.decline.log"
 msgstr "{$editorName} avviste denne innleveringen."
@@ -1476,12 +1498,19 @@ msgstr "Innleveringen er blitt avvist"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"Innsendingen «{$title}» har blitt avslått og arkivert. Alle meldinger har "
+"blitt sendt, unntatt de du måtte ha valgt å hoppe over."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Send en e-post til forfatterne for å la dem få vite at innsendingen deres "
+"har blitt avvist. Denne e-posten vil ikke bli sendt før beslutningen er "
+"registrert."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Denne innsendingen vil bli avvist og ikke publisert. Ytterligere "
+"fagfellevurdering vil ikke bli foretatt, og innsendingen vil bli arkivert."
 
 msgid "editor.submission.decision.newReviewRound"
 msgstr ""
@@ -2916,3 +2945,18 @@ msgstr "Slett utferdige innsendinger"
 
 msgid "reviewer.competingInterests"
 msgstr "Interessekonflikter"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Forslag til fagfeller"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Sendt tilbake til fagfellevurdering."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Du har kommet med en anbefaling."
+
+msgid "ror.invalidRorId"
+msgstr "Oppgi en gyldig ID."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Fagfeller foreslått av forfatteren"

@@ -184,6 +184,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'fundingStatement':
                     $output[$prop] = $anonymizeAuthors ? null : $publication->getData('fundingStatement');
                     break;
+                case 'supportingAgencies':
+                    $output[$prop] = $anonymizeAuthors ? [] : $publication->getData('supportingAgencies');
+                    break;
                 case 'reviewDoiItems':
                     $reviewDoiItemsByPub = $this->getReviewDoiItemsCache($publication);
                     $entries = $reviewDoiItemsByPub[$publication->getId()] ?? [];

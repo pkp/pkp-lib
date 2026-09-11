@@ -82,6 +82,9 @@ class PKPImportExportDeployment
     /** @var array A list of exported root elements to display to the user after the export is complete */
     private $_exportRootEntities;
 
+    /** @var array Excluded submission file ids */
+    private $_excludedSubmissionFileIds;
+
     /**
      * Constructor
      *
@@ -96,6 +99,7 @@ class PKPImportExportDeployment
         $this->setPublication(null);
         $this->setFileDBIds([]);
         $this->setSubmissionFileDBIds([]);
+        $this->setExcludedSubmissionFileIds([]);
         $this->_processedObjectsIds = [];
         $this->_importedRootEntities = [];
     }
@@ -542,6 +546,39 @@ class PKPImportExportDeployment
     public function getExportRootEntities()
     {
         return $this->_exportRootEntities;
+    }
+
+    /**
+     * Set the excluded submission file IDs for export.
+     *
+     * @param array $excludedSubmissionFileIds
+     */
+    public function setExcludedSubmissionFileIds(array $excludedSubmissionFileIds): void
+    {
+        $this->_excludedSubmissionFileIds = $excludedSubmissionFileIds;
+    }
+
+    /**
+     * Get the excluded submission file IDs for export.
+     *
+     * @return array|null
+     */
+    public function getExcludedSubmissionFileIds(): ?array
+    {
+        return $this->_excludedSubmissionFileIds;
+    }
+
+    /**
+     * Add a single excluded submission file ID for export.
+     *
+     * @param int $fileId
+     */
+    public function addExcludedSubmissionFileId(int $fileId): void
+    {
+        if (!is_array($this->_excludedSubmissionFileIds)) {
+            $this->_excludedSubmissionFileIds = [];
+        }
+        $this->_excludedSubmissionFileIds[] = $fileId;
     }
 
     /**

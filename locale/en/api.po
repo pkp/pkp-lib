@@ -304,3 +304,6 @@ msgstr "Unable to delete failed job from failed list."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
 msgstr "Failed job deleted successfully from failed list."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "The provided section does not exist."

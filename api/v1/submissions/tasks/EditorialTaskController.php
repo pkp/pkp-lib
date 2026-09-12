@@ -308,7 +308,11 @@ class EditorialTaskController extends PKPBaseController
             $tasks->pluck('createdBy')
         )->filter()->unique()->toArray();
 
-        $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
+        $userCollector = Repo::user()->getCollector();
+        $users = $userCollector
+            ->filterByUserIds($participantIds)
+            ->filterByStatus($userCollector::STATUS_ALL)
+            ->getMany();
 
         $stageAssignments = StageAssignment::with('userGroup')
             ->withSubmissionIds([$submission->getId()])
@@ -632,7 +636,10 @@ class EditorialTaskController extends PKPBaseController
 
         $participantIds = $task->participants->pluck('userId')->toArray();
 
-        $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
+        $userCollector = Repo::user()->getCollector();
+        $users = $userCollector->filterByUserIds($participantIds)
+            ->filterByStatus($userCollector::STATUS_ALL)
+            ->getMany();
         $userGroups = UserGroup::with('userUserGroups')
             ->withContextIds($submission->getData('contextId'))
             ->withUserIds($participantIds)
@@ -673,9 +680,10 @@ class EditorialTaskController extends PKPBaseController
             $participantIds[] = $creatorId;
         }
 
-        $users = !empty($participantIds)
-            ? Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany()
-            : collect();
+        $userCollector = Repo::user()->getCollector();
+        $users = $userCollector->filterByUserIds($participantIds)
+            ->filterByStatus($userCollector::STATUS_ALL)
+            ->getMany();
         $userGroups = UserGroup::with('userUserGroups')
             ->withContextIds($submission->getData('contextId'))
             ->withUserIds($participantIds)
@@ -995,7 +1003,7 @@ class EditorialTaskController extends PKPBaseController
 
             $reviewerId = $reviewAssignment->getReviewerId();
             if (!$users->has($reviewerId)) {
-                $users->put($reviewerId, Repo::user()->get($reviewerId));
+                $users->put($reviewerId, Repo::user()->get($reviewerId, true));
             }
             $includedReviewAssignments->push($reviewAssignment);
         }

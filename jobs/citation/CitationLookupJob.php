@@ -18,9 +18,12 @@
 
 namespace PKP\jobs\citation;
 
+use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\jobs\BaseJob;
+use Throwable;
 
 abstract class CitationLookupJob extends BaseJob
 {
@@ -93,5 +96,31 @@ abstract class CitationLookupJob extends BaseJob
             ($retryAfter !== null ? $retryAfter + 3 : static::RATE_LIMIT_FALLBACK_SECONDS)
             + random_int(0, self::RELEASE_JITTER_SECONDS)
         );
+    }
+
+    /**
+     * Called by the queue when this job is abandoned. Marks the citation FAILED so it stops
+     * appearing as still processing, and logs the failure for debugging.
+     */
+    public function failed(Throwable $e): void
+    {
+        $citation = Repo::citation()->get($this->citationId);
+        $lastProcessingStatus = null;
+        if ($citation) {
+            $lastProcessingStatus = $citation->getProcessingStatus();
+            $citation->setProcessingStatus(CitationProcessingStatus::FAILED->value);
+            Repo::citation()->edit($citation, []);
+        }
+
+        Log::error('Citation metadata lookup abandoned', [
+            'job' => static::class,
+            'contextId' => $this->contextId,
+            'citationId' => $this->citationId,
+            'publicationId' => $citation?->getData('publicationId'),
+            'lastProcessingStatus' => $lastProcessingStatus,
+            'serviceRetries' => $this->serviceRetries,
+            'attempts' => $this->attempts(),
+            'reason' => $e->getMessage(),
+        ]);
     }
 }

@@ -17,6 +17,7 @@ use Illuminate\Contracts\Queue\Job as QueueJobContract;
 use Mockery;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\citation\enum\CitationProcessingStatus;
 use PKP\jobs\citation\CitationLookupJob;
 use PKP\tests\PKPTestCase;
 use ReflectionMethod;
@@ -74,6 +75,27 @@ class CitationLookupJobTest extends PKPTestCase
         $this->assertEmpty($this->read($job, 'chained'));
         $this->assertInstanceOf(Exception::class, $failedWith);
         $this->assertStringContainsString('HTTP 500', $failedWith->getMessage());
+    }
+
+    /**
+     * failed() writes FAILED, and the lookup jobs skip a stage they have already reached with
+     * `getProcessingStatus() >= Stage->value`. A FAILED above those values would therefore make a
+     * redispatched or reprocessed citation skip every remaining lookup and still reach
+     * IsProcessedJob, marking it processed without anything having been looked up.
+     */
+    public function testFailedStatusSortsBelowEveryOtherProcessingStatus(): void
+    {
+        foreach (CitationProcessingStatus::cases() as $status) {
+            if ($status === CitationProcessingStatus::FAILED) {
+                continue;
+            }
+
+            $this->assertLessThan(
+                $status->value,
+                CitationProcessingStatus::FAILED->value,
+                "FAILED must sort below {$status->name}, or the lookup jobs will skip it"
+            );
+        }
     }
 
     /** A 429/503 releases for Retry-After + 3s (or 60s if absent), plus up to RELEASE_JITTER_SECONDS. */

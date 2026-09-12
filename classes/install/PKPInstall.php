@@ -220,6 +220,7 @@ class PKPInstall extends Installer
                 'database' => [
                     'driver' => $this->getParam('databaseDriver'),
                     'host' => $this->getParam('databaseHost'),
+                    'unix_socket' => $this->getParam('unixSocket') ?? '',
                     'username' => $this->getParam('databaseUsername'),
                     'password' => $this->getParam('databasePassword'),
                     'name' => $this->getParam('databaseName')

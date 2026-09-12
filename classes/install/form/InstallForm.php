@@ -171,6 +171,7 @@ class InstallForm extends MaintenanceForm
             'adminEmail',
             'databaseDriver',
             'databaseHost',
+            'unixSocket',
             'databaseUsername',
             'databasePassword',
             'databaseName',

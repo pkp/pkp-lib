@@ -339,6 +339,7 @@ abstract class PKPDashboardHandler extends Handler
             'SUBMISSION_LOG_TASK_NOTE_POSTED' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_NOTE_POSTED,
 
             'citationProcessingStatus' => [
+                'QUEUED' => CitationProcessingStatus::QUEUED->value,
                 'FAILED' => CitationProcessingStatus::FAILED->value,
                 'NOT_PROCESSED' => CitationProcessingStatus::NOT_PROCESSED->value,
                 'PID_EXTRACTED' => CitationProcessingStatus::PID_EXTRACTED->value,

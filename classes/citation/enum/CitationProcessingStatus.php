@@ -18,8 +18,10 @@ namespace PKP\citation\enum;
 
 enum CitationProcessingStatus: int
 {
-    // Must sort below every real stage, so a redispatched/reprocessed citation still redoes its
-    // pending stage instead of being skipped by a `getProcessingStatus() >= Stage->value` guard.
+    // QUEUED and FAILED must sort below every real stage, so a redispatched/reprocessed citation still
+    // redoes its pending stage instead of being skipped by a `getProcessingStatus() >= Stage->value` guard.
+    // NOT_PROCESSED means no lookup was requested, as opposed to QUEUED.
+    case QUEUED = -2;
     case FAILED = -1;
     case NOT_PROCESSED = 0;
     case PID_EXTRACTED = 1;

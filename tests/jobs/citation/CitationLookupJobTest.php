@@ -97,23 +97,27 @@ class CitationLookupJobTest extends PKPTestCase
     }
 
     /**
-     * failed() writes FAILED, and the lookup jobs skip a stage they have already reached with
-     * `getProcessingStatus() >= Stage->value`. A FAILED above those values would therefore make a
-     * redispatched or reprocessed citation skip every remaining lookup and still reach
-     * IsProcessedJob, marking it processed without anything having been looked up.
+     * reprocessCitation() writes QUEUED and failed() writes FAILED, and the lookup jobs skip a stage
+     * they have already reached with `getProcessingStatus() >= Stage->value`. Either above those values
+     * would therefore make a redispatched or reprocessed citation skip every remaining lookup and still
+     * reach IsProcessedJob, marking it processed without anything having been looked up.
      */
-    public function testFailedStatusSortsBelowEveryOtherProcessingStatus(): void
+    public function testQueuedAndFailedStatusesSortBelowEveryOtherProcessingStatus(): void
     {
-        foreach (CitationProcessingStatus::cases() as $status) {
-            if ($status === CitationProcessingStatus::FAILED) {
-                continue;
-            }
+        $preLookupStatuses = [CitationProcessingStatus::QUEUED, CitationProcessingStatus::FAILED];
 
-            $this->assertLessThan(
-                $status->value,
-                CitationProcessingStatus::FAILED->value,
-                "FAILED must sort below {$status->name}, or the lookup jobs will skip it"
-            );
+        foreach ($preLookupStatuses as $preLookupStatus) {
+            foreach (CitationProcessingStatus::cases() as $status) {
+                if (in_array($status, $preLookupStatuses, true)) {
+                    continue;
+                }
+
+                $this->assertLessThan(
+                    $status->value,
+                    $preLookupStatus->value,
+                    "{$preLookupStatus->name} must sort below {$status->name}, or the lookup jobs will skip it"
+                );
+            }
         }
     }
 

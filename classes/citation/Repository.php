@@ -262,16 +262,28 @@ class Repository
     }
 
     /**
-     * Insert/cpopy citations as they are for a publication. Used at publication versioning.
+     * Insert/copy citations as they are for a publication. Used at publication versioning.
      */
     public function copyCitations(array $citations, int $publicationId): void
     {
+        $lookupInProgress = [
+            CitationProcessingStatus::QUEUED->value,
+            CitationProcessingStatus::PID_EXTRACTED->value,
+            CitationProcessingStatus::CROSSREF->value,
+            CitationProcessingStatus::OPEN_ALEX->value,
+            CitationProcessingStatus::ORCID->value,
+        ];
+
         foreach ($citations as $citation) {
             /** @var Citation $citation */
             $citation->setData('publicationId', $publicationId);
             $this->dao->insert($citation);
+            // The queued jobs carry the original citation's ID, so the copy needs a lookup of its own.
+            // getData(), as citations from before 3.6 have no status and getProcessingStatus() requires one.
+            if (in_array($citation->getData('processingStatus'), $lookupInProgress, true)) {
+                $this->reprocessCitation($citation);
+            }
         }
-
     }
 
     /**
@@ -341,6 +353,9 @@ class Repository
         $context = Application::getContextDAO()->getById($submission->getData('contextId'));
 
         $contactEmail = $context->getContactEmail();
+
+        $citation->setProcessingStatus(CitationProcessingStatus::QUEUED->value);
+        $this->edit($citation, []);
 
         $jobs = [
             new ExtractPidsJob($context->getId(), $citation->getId()),

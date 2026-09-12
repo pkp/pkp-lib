@@ -23,7 +23,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\citation\enum\CitationProcessingStatus;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\pid\Arxiv;
@@ -293,9 +292,6 @@ class PKPCitationController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
-        Repo::citation()->edit($citation, []);
-
         Repo::citation()->reprocessCitation($citation);
 
         return response()->json(
@@ -348,8 +344,6 @@ class PKPCitationController extends PKPBaseController
         $citations = $publication->getData('citations');
         $citationsMapped = [];
         foreach ($citations as $citation) {
-            $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
-            Repo::citation()->edit($citation, []);
             Repo::citation()->reprocessCitation($citation);
             $citationsMapped[] = Repo::citation()->getSchemaMap()->map($citation);
         }

@@ -18,14 +18,10 @@
 
 namespace PKP\jobs\citation;
 
-use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\Log;
-use PKP\citation\enum\CitationProcessingStatus;
-use PKP\jobs\BaseJob;
-use Throwable;
 
-abstract class CitationLookupJob extends BaseJob
+abstract class CitationLookupJob extends CitationJob
 {
     /** Retries after a 408/5xx/transport failure, escalating 5m to ~10.5h over about a day. */
     public const MAX_SERVICE_RETRIES = 8;
@@ -39,8 +35,6 @@ abstract class CitationLookupJob extends BaseJob
     /** Random seconds added to a release, so jobs throttled together do not all come back at once. */
     public const RELEASE_JITTER_SECONDS = 3;
 
-    protected int $contextId;
-    protected int $citationId;
     protected string $contactEmail = '';
 
     /** Service-error retries so far, separate from $this->attempts(), which also counts rate-limit releases. */
@@ -99,28 +93,10 @@ abstract class CitationLookupJob extends BaseJob
     }
 
     /**
-     * Called by the queue when this job is abandoned. Marks the citation FAILED so it stops
-     * appearing as still processing, and logs the failure for debugging.
+     * @copydoc CitationJob::getFailureLogContext()
      */
-    public function failed(Throwable $e): void
+    protected function getFailureLogContext(): array
     {
-        $citation = Repo::citation()->get($this->citationId);
-        $lastProcessingStatus = null;
-        if ($citation) {
-            $lastProcessingStatus = $citation->getProcessingStatus();
-            $citation->setProcessingStatus(CitationProcessingStatus::FAILED->value);
-            Repo::citation()->edit($citation, []);
-        }
-
-        Log::error('Citation metadata lookup abandoned', [
-            'job' => static::class,
-            'contextId' => $this->contextId,
-            'citationId' => $this->citationId,
-            'publicationId' => $citation?->getData('publicationId'),
-            'lastProcessingStatus' => $lastProcessingStatus,
-            'serviceRetries' => $this->serviceRetries,
-            'attempts' => $this->attempts(),
-            'reason' => $e->getMessage(),
-        ]);
+        return ['serviceRetries' => $this->serviceRetries];
     }
 }

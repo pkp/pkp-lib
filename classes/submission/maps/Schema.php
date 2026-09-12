@@ -863,7 +863,7 @@ class Schema extends \PKP\core\maps\Schema
 
         // Create stages and fill with predefined data
         $stages = [];
-        $stageIds = Application::get()->getApplicationStages();
+        $stageIds = Application::get()->getValidStages();
         $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
         foreach ($stageIds as $stageId) {
             $stages[$stageId] = [

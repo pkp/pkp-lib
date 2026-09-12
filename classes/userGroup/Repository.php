@@ -541,7 +541,7 @@ class Repository
             // Install default groups for each stage
             foreach ($defaultStages as $stageId) {
                 $stageId = (int) trim($stageId);
-                if ($stageId >= WORKFLOW_STAGE_ID_SUBMISSION && $stageId <= WORKFLOW_STAGE_ID_PRODUCTION) {
+                if ($stageId >= WORKFLOW_STAGE_ID_SUBMISSION && $stageId <= WORKFLOW_STAGE_ID_DONE) {
                     UserGroupStage::create([
                         'contextId' => $contextId,
                         'userGroupId' => $userGroupId,

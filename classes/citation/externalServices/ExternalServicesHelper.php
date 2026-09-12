@@ -3,8 +3,8 @@
 /**
  * @file classes/citation/externalServices/ExternalServicesHelper.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Helpers
@@ -19,9 +19,17 @@ namespace PKP\citation\externalServices;
 use APP\core\Application;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\RequestException;
 
 class ExternalServicesHelper
 {
+    /**
+     * Guzzle waits indefinitely without these, and a job's requests must all finish inside its
+     * $timeout - Laravel enforces that by killing the worker, leaving the job reserved, not failed.
+     */
+    public const REQUEST_TIMEOUT_SECONDS = 20;
+    public const CONNECT_TIMEOUT_SECONDS = 10;
+
     /**
      * Gets an element of an array from an array containing the path to the keys for each dimension.
      *
@@ -49,15 +57,21 @@ class ExternalServicesHelper
      * Makes HTTP request to the API and returns the response as an array.
      *
      * @param string $url The API endpoint URL.
+     * @param array $options Guzzle request options.
+     * @param int|null &$retryAfter Set to the response's Retry-After value (in seconds), if the server sent one.
      *
      * @return array|int|null The response as an associative array, request status code or null.
      */
-    public static function apiRequest(string $url, array $options = []): array|int|null
+    public static function apiRequest(string $url, array $options = [], ?int &$retryAfter = null): array|int|null
     {
+        $retryAfter = null;
         $httpClient = Application::get()->getHttpClient();
 
         try {
-            $response = $httpClient->request('GET', $url, $options);
+            $response = $httpClient->request('GET', $url, $options + [
+                'timeout' => self::REQUEST_TIMEOUT_SECONDS,
+                'connect_timeout' => self::CONNECT_TIMEOUT_SECONDS,
+            ]);
 
             if (!str_contains('200,201,202', (string)$response->getStatusCode())) {
                 return $response->getStatusCode();
@@ -71,10 +85,45 @@ class ExternalServicesHelper
 
             return $result;
 
+        } catch (RequestException $e) {
+            // Guzzle throws (rather than returning a response) for 4xx/5xx statuses by default,
+            // so this is where a real 429/408/504/etc from the service actually needs to be caught.
+            $response = $e->getResponse();
+
+            if (!$response) {
+                error_log(__METHOD__ . ' ' . $e->getMessage());
+                return 504;
+            }
+
+            if ($response->hasHeader('Retry-After')) {
+                $retryAfter = self::parseRetryAfter($response->getHeaderLine('Retry-After'));
+            }
+
+            return $response->getStatusCode();
+
         } catch (GuzzleException|Exception $e) {
+            // Connection failure, timeout, DNS error, etc.: report it as a gateway timeout so the
+            // caller retries/fails loudly instead of mistaking it for an empty (but successful) response.
             error_log(__METHOD__ . ' ' . $e->getMessage());
+            return 504;
+        }
+    }
+
+    /**
+     * Parses a Retry-After header value into a delay in seconds. Per RFC 9110, the value may
+     * be either a number of delay-seconds or an HTTP-date to wait until.
+     */
+    protected static function parseRetryAfter(string $value): ?int
+    {
+        if (is_numeric($value)) {
+            return max(0, (int) $value);
         }
 
-        return null;
+        $timestamp = strtotime($value);
+        if ($timestamp === false) {
+            return null;
+        }
+
+        return max(0, $timestamp - time());
     }
 }

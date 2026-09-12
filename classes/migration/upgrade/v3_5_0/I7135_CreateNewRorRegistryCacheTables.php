@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_5_0/I7135_CreateNewRorRegistryCacheTables.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7135_CreateNewRorRegistryCacheTables
@@ -14,7 +14,6 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
-use Illuminate\Database\Query\JoinClause;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema as Schema;
@@ -57,11 +56,9 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
 
         // update the tables with latest data set dump from Ror.org
         $updateRorRegistryDataset = new UpdateRorRegistryDataset();
-        $updateRorRegistryDataset->execute();
+        $rorImportSucceeded = $updateRorRegistryDataset->execute();
 
-        $this->migrateRorAffiliations();
-
-        $this->migrateNonRorAffiliations();
+        $this->migrateAffiliations($rorImportSucceeded);
     }
 
     /**
@@ -75,76 +72,125 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
     }
 
     /**
-     * Migrate affiliations with an exact name in rors table.
-     * Only migrate if author has none in author_affiliations.
+     * Migrate the legacy per-author affiliation into one author_affiliations row.
+     *
+     * Every localized author_settings 'affiliation' string is kept verbatim as a
+     * 'name'. 'ror' is taken from a syntactically valid ROR plugin 'rorId' setting
+     * and then reconciled with the just-updated rors cache:
+     *  - resolves in the cache: store 'ror', drop the 'name' (3.5's ROR xor name)
+     *  - not in the cache, import succeeded: drop the 'ror', keep the name
+     *  - not in the cache, import failed: cannot judge, keep both 'ror' and name
+     *
+     * Skips authors that already have an entry in author_affiliations.
      */
-    public function migrateRorAffiliations(): void
+    public function migrateAffiliations(bool $rorCacheComplete): void
     {
-        $sql = DB::table('author_settings as as')
-            ->join(
-                'ror_settings as rs',
-                function (JoinClause $join) {
-                    $join
-                        ->on('rs.setting_value', '=', 'as.setting_value')
-                        ->where('as.setting_name', '=', 'affiliation')
-                        ->where('rs.setting_name', '=', 'name')
-                        ->whereNotNull('as.setting_value');
-                }
-            )
-            ->join('rors as r', 'r.ror_id', '=', 'rs.ror_id')
-            ->leftJoin(
-                'author_affiliations as aa',
-                function (JoinClause $join) {
-                    $join
-                        ->on('aa.author_id', '=', 'as.author_id')
-                        ->on('aa.ror', '=', 'r.ror');
-                }
-            )
-            ->where('aa.author_affiliation_id', '=', null)
-            ->select(['as.author_id', 'r.ror'])
-            ->distinct();
+        $rows = DB::table('authors as a')
+            ->join('author_settings as aus', 'a.author_id', '=', 'aus.author_id')
+            ->leftJoin('author_affiliations as aa', 'aa.author_id', '=', 'a.author_id')
+            ->whereNull('aa.author_id')
+            ->whereIn('aus.setting_name', ['affiliation', 'rorId'])
+            ->whereNotNull('aus.setting_value')
+            ->where('aus.setting_value', '<>', '')
+            ->select(['a.author_id', 'aus.locale', 'aus.setting_name', 'aus.setting_value'])
+            ->distinct()
+            ->get()
+            ->groupBy('author_id');
 
-        DB::table('author_affiliations')->insertUsing(['author_id', 'ror'], $sql);
+        // which of the referenced rorIds are present in the just-updated cache?
+        $referencedRors = $rows->collapse()
+            ->where('setting_name', 'rorId')
+            ->map(fn ($row) => $this->normalizeRor($row->setting_value))
+            ->filter()
+            ->unique();
+        $knownRors = [];
+        foreach (array_chunk($referencedRors->all(), 5000) as $rorChunk) {
+            $knownRors += DB::table('rors')->whereIn('ror', $rorChunk)->pluck('ror', 'ror')->all();
+        }
+
+        // build the insert rows up front so the transaction only has to do the id wiring
+        $affiliationRows = [];
+        $pendingNames = [];
+        foreach ($rows as $authorId => $authorRows) {
+            $ror = $this->normalizeRor($authorRows->firstWhere('setting_name', 'rorId')?->setting_value);
+            $rorIsKnown = $ror !== null && isset($knownRors[$ror]);
+
+            // a normalized rorId missing from a complete import is probably a typo from the old
+            // free-text plugin (ROR never removes ids) - drop it, keep the name
+            if ($ror !== null && !$rorIsKnown && $rorCacheComplete) {
+                $ror = null;
+            }
+
+            $names = $rorIsKnown
+                ? collect()
+                : $authorRows
+                    ->where('setting_name', 'affiliation')
+                    ->filter(fn ($row) => trim((string) $row->setting_value) !== '');
+
+            if ($ror === null && $names->isEmpty()) {
+                continue;
+            }
+
+            $affiliationRows[] = ['author_id' => $authorId, 'ror' => $ror];
+            foreach ($names as $nameRow) {
+                $pendingNames[] = [$authorId, $nameRow->locale, $nameRow->setting_value];
+            }
+        }
+
+        if (empty($affiliationRows)) {
+            return;
+        }
+
+        $authorIds = array_column($affiliationRows, 'author_id');
+
+        DB::transaction(function () use ($affiliationRows, $authorIds, $pendingNames) {
+            // one author_affiliations row per author
+            foreach (array_chunk($affiliationRows, 1000) as $chunk) {
+                DB::table('author_affiliations')->insert($chunk);
+            }
+
+            // each of these authors had no affiliation before, so exactly one row maps back
+            $affiliationIds = [];
+            foreach (array_chunk($authorIds, 5000) as $authorIdChunk) {
+                $affiliationIds += DB::table('author_affiliations')
+                    ->whereIn('author_id', $authorIdChunk)
+                    ->pluck('author_affiliation_id', 'author_id')
+                    ->all();
+            }
+
+            // wire the new ids into the name settings and insert
+            foreach (array_chunk($pendingNames, 1000) as $chunk) {
+                DB::table('author_affiliation_settings')->insert(array_map(fn ($n) => [
+                    'author_affiliation_id' => $affiliationIds[$n[0]],
+                    'locale' => $n[1],
+                    'setting_name' => 'name',
+                    'setting_value' => $n[2],
+                ], $chunk));
+            }
+        });
     }
 
     /**
-     * Migrates affiliations which have not migrated yet.
-     * Only migrate rows which don't exist.
+     * Normalize a value from the legacy ROR plugin 'rorId' setting to the
+     * canonical https://ror.org/<id> form, or null when it is not a syntactically
+     * valid ROR id (existence in the rors table is not checked).
+     * The pattern mirrors the one used by PKPRorController.
      */
-    public function migrateNonRorAffiliations(): void
+    private function normalizeRor(?string $value): ?string
     {
-        $rows = DB::table('authors as a')
-            ->join(
-                'author_settings as as',
-                function (JoinClause $join) {
-                    $join
-                        ->on('a.author_id', '=', 'as.author_id')
-                        ->where('as.setting_name', '=', 'affiliation')
-                        ->whereNotNull('as.setting_value');
-                }
-            )
-            ->leftJoin('author_affiliations as aa', 'a.author_id', '=', 'aa.author_id')
-            ->where('aa.author_id', '=', null)
-            ->select(['a.author_id', 'as.locale', 'as.setting_value'])
-            ->distinct()
-            ->get();
+        if ($value === null) {
+            return null;
+        }
 
-        $groupedRows = $rows->groupBy('author_id');
+        // just in case: strip surrounding whitespace or a trailing slash so an otherwise-valid id still passes the check below
+        $value = rtrim(trim($value), '/');
+        $value = preg_replace('#^http://#i', 'https://', $value);
 
-        $groupedRows->each(function ($row, $key) {
-            DB::table('author_affiliations')
-                ->insert(['author_id' => $key]);
+        // accept a bare id as well as the full URL both plugin versions stored
+        if (preg_match('#^0[^ILOU]{6}\d{2}$#', $value)) {
+            $value = 'https://ror.org/' . $value;
+        }
 
-            $newId = DB::getPdo()->lastInsertId();
-            $row->each(function ($affiliationRow) use ($newId) {
-                DB::table('author_affiliation_settings')
-                    ->insert([
-                        'author_affiliation_id' => $newId,
-                        'locale' => $affiliationRow->locale,
-                        'setting_name' => 'name',
-                        'setting_value' => $affiliationRow->setting_value
-                    ]);
-            });
-        });
+        return preg_match('#^https://ror\.org/0[^ILOU]{6}\d{2}$#', $value) ? $value : null;
     }
 }

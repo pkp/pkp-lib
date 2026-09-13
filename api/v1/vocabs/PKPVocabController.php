@@ -121,7 +121,7 @@ class PKPVocabController extends PKPBaseController
             $entries = ControlledVocabEntry::query()
                 ->whereHas(
                     'controlledVocab',
-                    fn ($query) => $query->withSymbolics([$vocab])->withContextId($context->getId())
+                    fn ($query) => $query->withSymbolics([$vocab])->withContextIdAndPublishedPublications($context->getId())
                 )
                 ->withLocales([$locale])
                 ->when(

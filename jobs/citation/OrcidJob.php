@@ -3,30 +3,30 @@
 /**
  * @file jobs/citation/OrcidJob.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OrcidJob
  *
  * @ingroup jobs
  *
- * @brief Job for retrieving structured metadata for citations from external services.
+ * @brief Job for queueing one ORCID lookup per citation author carrying an iD. Makes no request
+ * of its own, so it extends BaseJob rather than CitationLookupJob. The queued jobs run in the
+ * chain, so a citation's author writes stay ordered and IsProcessedJob still waits for them.
  */
 
 namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
 use PKP\citation\enum\CitationProcessingStatus;
-use PKP\citation\externalServices\orcid\Inbound;
-use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
 class OrcidJob extends BaseJob
 {
     protected int $contextId;
     protected int $citationId;
-    protected string $contactEmail = '';
+    protected string $contactEmail;
 
     public function __construct(int $contextId, int $citationId, string $contactEmail)
     {
@@ -38,56 +38,33 @@ class OrcidJob extends BaseJob
 
     /**
      * Handle the queue job execution process
-     *
-     * @throws JobException
      */
     public function handle(): void
     {
         $citation = Repo::citation()->get($this->citationId);
 
         if (!$citation) {
-            throw new JobException(JobException::INVALID_PAYLOAD);
+            return;
         }
 
         if ($citation->getProcessingStatus() >= CitationProcessingStatus::ORCID->value) {
             return;
         }
 
-        $authors = $citation->getData('authors');
-        if (empty($authors)) {
+        $authorJobs = [];
+
+        foreach ($citation->getData('authors') ?: [] as $author) {
+            if (!empty($author['orcid'])) {
+                $authorJobs[] = new OrcidAuthorJob($this->contextId, $this->citationId, $author['orcid'], $this->contactEmail);
+            }
+        }
+
+        if (empty($authorJobs)) {
             return;
         }
 
-        $service = new Inbound($this->contactEmail);
+        $this->prependToChain($authorJobs);
 
-        $authorsChanged = [];
-
-        foreach ($authors as $author) {
-            if (empty($author['orcid'])) {
-                $authorsChanged[] = $author;
-                continue;
-            }
-
-            $authorChanged = $service->getAuthor($author);
-
-            if (empty($authorChanged)) {
-                switch ($service->statusCode) {
-                    case '404':
-                        $author['orcid'] = '';
-                        break;
-                    case '408':
-                    case '504':
-                        throw new JobException(__('admin.job.failed.connection.externalService', [
-                            'statusCode' => $service->statusCode]));
-                }
-                $authorsChanged[] = $author;
-                continue;
-            }
-
-            $authorsChanged[] = $authorChanged;
-        }
-
-        $citation->setData('authors', $authorsChanged);
         $citation->setProcessingStatus(CitationProcessingStatus::ORCID->value);
         Repo::citation()->edit($citation, []);
     }

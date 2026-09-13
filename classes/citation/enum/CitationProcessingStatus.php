@@ -18,6 +18,9 @@ namespace PKP\citation\enum;
 
 enum CitationProcessingStatus: int
 {
+    // Must sort below every real stage, so a redispatched/reprocessed citation still redoes its
+    // pending stage instead of being skipped by a `getProcessingStatus() >= Stage->value` guard.
+    case FAILED = -1;
     case NOT_PROCESSED = 0;
     case PID_EXTRACTED = 1;
     case CROSSREF = 2;

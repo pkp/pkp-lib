@@ -45,18 +45,18 @@ class commandJobs extends CommandLineTool
 {
     use HasParameterList;
     use HasCommandInterface;
-    
+
     protected const AVAILABLE_OPTIONS = [
-        'list'      => 'admin.cli.tool.jobs.available.options.list.description',
-        'purge'     => 'admin.cli.tool.jobs.available.options.purge.description',
-        'test'      => 'admin.cli.tool.jobs.available.options.test.description',
-        'total'     => 'admin.cli.tool.jobs.available.options.total.description',
-        'help'      => 'admin.cli.tool.jobs.available.options.help.description',
-        'run'       => 'admin.cli.tool.jobs.available.options.run.description',
-        'work'      => 'admin.cli.tool.jobs.available.options.work.description',
-        'failed'    => 'admin.cli.tool.jobs.available.options.failed.description',
-        'restart'   => 'admin.cli.tool.jobs.available.options.restart.description',
-        'usage'     => 'admin.cli.tool.jobs.available.options.usage.description',
+        'list' => 'admin.cli.tool.jobs.available.options.list.description',
+        'purge' => 'admin.cli.tool.jobs.available.options.purge.description',
+        'test' => 'admin.cli.tool.jobs.available.options.test.description',
+        'total' => 'admin.cli.tool.jobs.available.options.total.description',
+        'help' => 'admin.cli.tool.jobs.available.options.help.description',
+        'run' => 'admin.cli.tool.jobs.available.options.run.description',
+        'work' => 'admin.cli.tool.jobs.available.options.work.description',
+        'failed' => 'admin.cli.tool.jobs.available.options.failed.description',
+        'restart' => 'admin.cli.tool.jobs.available.options.restart.description',
+        'usage' => 'admin.cli.tool.jobs.available.options.usage.description',
     ];
 
     protected const CURRENT_PAGE = 'current';
@@ -152,7 +152,7 @@ class commandJobs extends CommandLineTool
      */
     protected function restart(): void
     {
-        $cache = app()->get("cache.store"); /** @var \Illuminate\Contracts\Cache\Repository $cache */
+        $cache = app()->get('cache.store'); /** @var \Illuminate\Contracts\Cache\Repository $cache */
 
         $cache->forever('illuminate:queue:restart', Carbon::now()->getTimestamp());
 
@@ -430,8 +430,10 @@ class commandJobs extends CommandLineTool
             'timeout' => $this->getParameterValue('timeout', $workerConfig->getTimeout()),
             'sleep' => $this->getParameterValue('sleep', $workerConfig->getSleep()),
             'maxTries' => $this->getParameterValue('tries', $workerConfig->getMaxTries()),
-            'force' => $this->getParameterValue('force', in_array('force', $parameters) ? true : $workerConfig->getForce()),
-            'stopWhenEmpty' => $this->getParameterValue('stop-when-empty', in_array('stop-when-empty', $parameters) ? true : $workerConfig->getStopWhenEmpty()),
+            // hasFlagSet(), not in_array(): the parameter list strips the leading dashes only off
+            // key=value options, so a bare flag is stored as '--force', not 'force'.
+            'force' => $this->getParameterValue('force', $this->hasFlagSet('--force') ? true : $workerConfig->getForce()),
+            'stopWhenEmpty' => $this->getParameterValue('stop-when-empty', $this->hasFlagSet('--stop-when-empty') ? true : $workerConfig->getStopWhenEmpty()),
             'maxJobs' => $this->getParameterValue('max-jobs', $workerConfig->getMaxJobs()),
             'maxTime' => $this->getParameterValue('max-time', $workerConfig->getMaxTime()),
             'rest' => $this->getParameterValue('rest', $workerConfig->getRest()),
@@ -564,7 +566,7 @@ try {
     $tool = new commandJobs($argv ?? []);
     $tool->execute();
 } catch (Throwable $e) {
-    $output = new \PKP\cliTool\CommandInterface;
+    $output = new \PKP\cliTool\CommandInterface();
 
     if ($e instanceof CommandInvalidArgumentException) {
         $output->errorBlock([$e->getMessage()]);

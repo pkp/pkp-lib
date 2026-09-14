@@ -422,6 +422,11 @@ class PKPContainer extends Container
             'password' => Config::getVar('database', 'password'),
             'charset' => Config::getVar('i18n', 'connection_charset', 'utf8'),
             'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
+            // Reuse the PDO connection across requests of the same PHP process
+            // (persistent = On in the [database] section; off by default).
+            'options' => [
+                PDO::ATTR_PERSISTENT => (bool) Config::getVar('database', 'persistent', false),
+            ],
         ];
 
         // Add SSL/TLS options if secure mode is enabled

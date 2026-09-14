@@ -557,11 +557,11 @@ class Repository
             ]);
 
             $userGroup->save();
+        }
 
-            // Install the settings in the current locale for this context
-            foreach ($installedLocales as $locale) {
-                $this->installLocale($locale, $contextId);
-            }
+        // Install the settings in the current locale for this context
+        foreach ($installedLocales as $locale) {
+            $this->installLocale($locale, $contextId);
         }
 
         self::forgetEditorialCache($contextId);

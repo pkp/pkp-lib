@@ -1,12 +1,13 @@
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
 # Anne-Inger <annrag@oslomet.no>, 2026.
+# Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-16 12:00+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"PO-Revision-Date: 2026-09-14 11:59+0000\n"
+"Last-Translator: Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/grid/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -287,7 +288,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Legg til oppslag"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Legg til institusjon"
 
 msgid "grid.action.mergeUser"
 msgstr "Slå sammen bruker"
@@ -369,7 +370,6 @@ msgstr "Sluttkontrollør"
 msgid "grid.columns.locale"
 msgstr "Språk"
 
-#, fuzzy
 msgid "grid.columns.locale.code"
 msgstr "Språkkode"
 
@@ -414,6 +414,8 @@ msgstr "Slett bidragsyter"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
+"Er du sikker på at du vil fjerne {$name} som bidragsyter? Dette kan ikke "
+"angres."
 
 msgid "grid.action.newVersion"
 msgstr "Opprett ny versjon"
@@ -457,27 +459,27 @@ msgstr "Kontaktperson"
 msgid "author.users.contributor.setPrincipalContact"
 msgstr "Velg som kontaktperson"
 
-#, fuzzy
 msgid "contributor.listPanel.preview"
 msgstr "Forhåndsvis"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
+"Bidragsytere til denne publikasjonen vil bli identifisert på følgende måter."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Format"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Vis"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Forkortet"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Publikasjonslister"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Fullstendig"
 
 msgid "grid.roles.currentRoles"
 msgstr "Nåværende roller"
@@ -616,7 +618,7 @@ msgid "grid.user.mergeUsers.confirm"
 msgstr ""
 "Dette kan ikke gjøres om. Er du sikker på at du vil flytte kontoen med "
 "brukernavnet «{$oldUsername}» over til kontoen med brukernavnet "
-"«{$newUsername}»? Kontoen med brukernavnet  «{$oldUsername}» vil opphøre."
+"«{$newUsername}»? Kontoen med brukernavnet «{$oldUsername}» vil opphøre."
 
 msgid "grid.preparedEmails.title"
 msgstr "E-postmaler"
@@ -747,3 +749,13 @@ msgstr "Fjern bruker"
 
 msgid "grid.user.logInAs"
 msgstr "Logg inn som"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Legg til forslag på fagfeller"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Slett forslag til fagfeller"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Er du sikker på at du vil fjerne dette forslaget? Dette kan ikke angres."

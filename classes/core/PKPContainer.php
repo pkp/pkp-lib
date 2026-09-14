@@ -412,7 +412,9 @@ class PKPContainer extends Container
         $items['app'] = [
             'key' => PKPAppKey::getKey(),
             'cipher' => PKPAppKey::getCipher(),
-            'timezone' => Config::getVar('general', 'timezone', 'UTC'),
+            // Resolved rather than read straight from the config, so a legacy
+            // [general] time_zone value never lands here in a form DateTimeZone rejects
+            'timezone' => Application::resolveTimeZone(),
             'env' => Config::getVar('general', 'app_env', 'production'),
         ];
 

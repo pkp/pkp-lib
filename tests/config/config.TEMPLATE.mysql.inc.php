@@ -101,6 +101,4 @@ default_queue = "test_default_queue"
 disable_jobs_run_at_shutdown = Off
 
 [schedule]
-task_runner = On
-task_runner_interval = 60
 scheduled_tasks_report_error_only = Off

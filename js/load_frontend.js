@@ -41,7 +41,6 @@ import PkpOpenReview from '@/frontend/components/PkpOpenReview/PkpOpenReview.vue
 import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenReviewSummary.vue';
 import PkpCombobox from '@/frontend/components/PkpCombobox/PkpCombobox.vue';
 import PkpCiteBody from '@/frontend/components/PkpCite/PkpCiteBody.vue';
-import PkpCrossmarkButton from '@/frontend/components/PkpCrossmarkButton/PkpCrossmarkButton.vue';
 import PkpUsageChart from '@/frontend/components/PkpUsageChart/PkpUsageChart.vue';
 
 // Pinia stores
@@ -104,7 +103,6 @@ VueRegistry.registerComponent('PkpOpenReview', PkpOpenReview);
 VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);
 VueRegistry.registerComponent('PkpCombobox', PkpCombobox);
 VueRegistry.registerComponent('PkpCiteBody', PkpCiteBody);
-VueRegistry.registerComponent('PkpCrossmarkButton', PkpCrossmarkButton);
 VueRegistry.registerComponent('PkpUsageChart', PkpUsageChart);
 
 // Register PkpTab Components

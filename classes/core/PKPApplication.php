@@ -278,9 +278,15 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     }
 
     /**
-     * Setup the internal time zone for the database and PHP.
+     * Resolve the application's time zone to a canonical identifier.
+     *
+     * The configured [general] time_zone may hold a legacy display form such as "Amsterdam" or
+     * "New York" rather than a real identifier, so it cannot be handed to DateTimeZone as is.
+     * This is the single place that resolution happens; callers that need the time zone before
+     * initializeTimeZone() has applied it as the PHP default should use this rather than reading
+     * the configuration directly.
      */
-    protected function initializeTimeZone(): void
+    public static function resolveTimeZone(): string
     {
         $timeZone = null;
         // Loads the time zone from the configuration file
@@ -298,8 +304,17 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 }
             }
         }
+
+        return $timeZone ?: ini_get('date.timezone') ?: 'UTC';
+    }
+
+    /**
+     * Setup the internal time zone for the database and PHP.
+     */
+    protected function initializeTimeZone(): void
+    {
         // Set the default timezone
-        date_default_timezone_set($timeZone ?: ini_get('date.timezone') ?: 'UTC');
+        date_default_timezone_set(static::resolveTimeZone());
 
         // Synchronize the database time zone
         if (Application::isInstalled()) {

@@ -145,9 +145,13 @@ class ScheduleServiceProvider extends ServiceProvider implements DeferrableProvi
             $config = $app->get('config'); /** @var \Illuminate\Config\Repository $config */
             $cacheConfig = $config->get('cache'); /** @var array $cacheConfig */
 
+            // The application timezone is resolved once by PKPApplication::initializeTimeZone(),
+            // which reads [general] time_zone, maps legacy to their canonical identifier.
+            // This binding is resolved lazily, well after that has run, so the resolved
+            // value is both available and the only form safe to hand to DateTime.
             return (
                 new Schedule(
-                    Config::getVar('general', 'timezone', 'UTC')
+                    date_default_timezone_get()
                 )
             )->useCache($cacheConfig['default']);
         });

@@ -61,6 +61,7 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
+use PKP\user\Collector as UserCollector;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
@@ -308,7 +309,10 @@ class EditorialTaskController extends PKPBaseController
             $tasks->pluck('createdBy')
         )->filter()->unique()->toArray();
 
-        $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
+        $users = Repo::user()->getCollector()
+            ->filterByUserIds($participantIds)
+            ->filterByStatus(UserCollector::STATUS_ALL)
+            ->getMany();
 
         $stageAssignments = StageAssignment::with('userGroup')
             ->withSubmissionIds([$submission->getId()])
@@ -674,7 +678,10 @@ class EditorialTaskController extends PKPBaseController
         }
 
         $users = !empty($participantIds)
-            ? Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany()
+            ? Repo::user()->getCollector()
+                ->filterByUserIds($participantIds)
+                ->filterByStatus(UserCollector::STATUS_ALL)
+                ->getMany()
             : collect();
         $userGroups = UserGroup::with('userUserGroups')
             ->withContextIds($submission->getData('contextId'))

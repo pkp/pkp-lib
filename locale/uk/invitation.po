@@ -18,9 +18,6 @@ msgstr "Потрібно визначити принаймні одну груп
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "Потрібно визначити принаймні одну групу користувачів для додавання"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Група користувачів призначається запрошеному користувачеві"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
 msgstr "Видалити ролі користувачів неможливо для користувачів, які не існують."
 

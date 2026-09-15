@@ -16,9 +16,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "追加するユーザーグループを少なくとも1つ指定してください。"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "このユーザーグループは招待対象ユーザーにすでに割り当てられています。"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "削除するユーザーグループを少なくとも1つ指定してください。"
 

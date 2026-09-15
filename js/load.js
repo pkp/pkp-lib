@@ -13,6 +13,7 @@ import {createApp} from 'vue';
 import * as vue from 'vue';
 
 import {createPinia} from 'pinia';
+import * as pinia from 'pinia';
 import GlobalMixins from '@/mixins/global.js';
 import VueAnnouncer from '@vue-a11y/announcer';
 import FloatingVue from 'floating-vue';
@@ -47,6 +48,9 @@ import * as useSideMenu from '@/composables/useSideMenu.js';
 import * as useSorting from '@/composables/useSorting.js';
 import * as useSubmission from '@/composables/useSubmission.js';
 import * as useUrl from '@/composables/useUrl.js';
+
+// Store helpers exposed for plugins
+import * as defineComponentStore from '@/utils/defineComponentStore.js';
 
 // Directives
 import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
@@ -333,14 +337,14 @@ VueRegistry.registerComponent(
 	RequestReviewRoundAuthorResponse,
 );
 
-const pinia = createPinia();
+const piniaInstance = createPinia();
 
-VueRegistry.attachPiniaInstance(pinia);
+VueRegistry.attachPiniaInstance(piniaInstance);
 
 function pkpCreateVueApp(createAppArgs, rootProps) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs, rootProps);
-	vueApp.use(pinia);
+	vueApp.use(piniaInstance);
 	vueApp.use(PrimeVue, {
 		unstyled: true,
 	});
@@ -388,7 +392,9 @@ export default {
 	// especially useful when using composition api
 	modules: {
 		vue,
-		piniaInstance: pinia,
+		pinia,
+		piniaInstance,
+		defineComponentStore,
 		useAnnouncer,
 		useApp,
 		useContainerStateManager,

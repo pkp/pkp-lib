@@ -23,6 +23,7 @@ use APP\facades\Repo;
 use APP\publication\enums\VersionStage;
 use Illuminate\Support\Str;
 use PKP\author\contributorRole\ContributorType;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
@@ -51,6 +52,30 @@ class PKPPublication extends \PKP\core\DataObject
     public function getDefaultLocale(): ?string
     {
         return $this->getData('locale');
+    }
+
+    /**
+     * Stamp the context identity metadata onto the publication, so later context changes do not
+     * rewrite already-published metadata. The base stamps the fields common to all apps; apps
+     * override to add their own (e.g. ISSN).
+     */
+    public function stampContextIdentity(Context $context): void
+    {
+        $this->setData('contextName', array_filter((array) $context->getName()) ?: null);
+        $this->setData('contextAbbreviation', $context->getAbbreviationOrAcronym());
+        $this->setData('contextPrimaryLocale', $context->getPrimaryLocale());
+    }
+
+    /**
+     * Clear the stamped identity fields so a new major version is re-stamped on publish.
+     * Apps override to clear their own additional fields (e.g. ISSN in OJS).
+     */
+    public function clearIdentityMetadata(): void
+    {
+        $this->setData('contextName', null);
+        $this->setData('contextAbbreviation', null);
+        $this->setData('contextPrimaryLocale', null);
+        $this->setData('publisherLocation', null);
     }
 
     /**

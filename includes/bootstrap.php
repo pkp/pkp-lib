@@ -33,5 +33,10 @@ chdir(BASE_SYS_DIR);
 // System-wide functions
 require_once './lib/pkp/includes/functions.php';
 
+// Work around https://github.com/php/php-src/issues/20469: with OPcache, reading a
+// PKPSubmission/PKPPublication constant before the app class is loaded fails.
+class_exists(\APP\submission\Submission::class);
+class_exists(\APP\publication\Publication::class);
+
 // Initialize the application environment
 return new \APP\core\Application();

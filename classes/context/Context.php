@@ -332,6 +332,17 @@ abstract class Context extends \PKP\core\DataObject
     }
 
     /**
+     * Get the abbreviation of the context per locale, falling back to the acronym where no
+     * abbreviation is set, as metadata output uses the acronym in that case.
+     */
+    public function getAbbreviationOrAcronym(): ?array
+    {
+        $abbreviations = array_filter((array) $this->getData('abbreviation'));
+        $acronyms = array_filter((array) $this->getData('acronym'));
+        return array_replace($acronyms, $abbreviations) ?: null;
+    }
+
+    /**
      * Get localized favicon
      *
      * @return string

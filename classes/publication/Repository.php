@@ -426,6 +426,8 @@ abstract class Repository
 
         if ($context->getData(Context::SETTING_DOI_VERSIONING) && !$isMinorVersion) {
             $newPublication->setData('doiId', null);
+            // Clear identity so a new-DOI version is re-stamped on publish; others inherit.
+            $newPublication->clearIdentityMetadata();
         }
 
         $citations = $newPublication->getData('citations');
@@ -597,16 +599,17 @@ abstract class Repository
         $newPublication = clone $publication;
         $newPublication->stampModified();
 
-        if (!$newPublication->getData('datePublished')) {
-            $newPublication->stampContextIdentity();
-        }
-
         $this->setStatusOnPublish($newPublication);
 
         // Set the copyright and license information
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
         $itsPublished = ($newPublication->getData('status') === PKPPublication::STATUS_PUBLISHED);
+
+        // Stamp identity on first publication, only when empty so versions inherit (see version()).
+        if ($itsPublished && !$newPublication->getData('contextName')) {
+            $newPublication->stampContextIdentity();
+        }
 
         if ($itsPublished && !$newPublication->getData('copyrightHolder')) {
             $newPublication->setData(

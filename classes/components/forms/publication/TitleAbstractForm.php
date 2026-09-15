@@ -76,6 +76,8 @@ class TitleAbstractForm extends FormComponent
                 'isMultilingual' => true,
                 'isRequired' => $this->isAbstractRequired,
                 'size' => 'large',
+                'toolbar' => 'bold italic superscript subscript | link | bullist numlist',
+                'plugins' => ['link', 'lists'],
                 'wordLimit' => $this->abstractWordLimit,
                 'value' => $publication->getData('abstract'),
             ]));
@@ -104,6 +106,8 @@ class TitleAbstractForm extends FormComponent
             'label' => __('manager.setup.metadata.plainLanguageSummary'),
             'isMultilingual' => true,
             'size' => 'large',
+            'toolbar' => 'bold italic superscript subscript | link | bullist numlist',
+            'plugins' => ['link', 'lists'],
             'wordLimit' => $this->abstractWordLimit,
             'value' => $publication->getData('plainLanguageSummary'),
             'isRequired' => $context->getData('plainLanguageSummary') == Context::METADATA_REQUIRE,

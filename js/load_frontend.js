@@ -13,6 +13,7 @@ import {createApp} from 'vue';
 import * as vue from 'vue';
 
 import {createPinia} from 'pinia';
+import * as pinia from 'pinia';
 
 // Composables
 import * as usePkpApp from '@/frontend/composables/usePkpApp.js';
@@ -154,14 +155,14 @@ VueRegistry.registerComponent(
 );
 VueRegistry.registerComponent('PkpCommentsShowMore', PkpCommentsShowMore);
 
-const pinia = createPinia();
+const piniaInstance = createPinia();
 
-VueRegistry.attachPiniaInstance(pinia);
+VueRegistry.attachPiniaInstance(piniaInstance);
 
 function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs);
-	vueApp.use(pinia);
+	vueApp.use(piniaInstance);
 
 	// https://github.com/vuejs/pinia/discussions/1197
 	// to be able globally share stores
@@ -191,7 +192,8 @@ export default {
 	// especially useful when using composition api
 	modules: {
 		vue,
-		piniaInstance: pinia,
+		pinia,
+		piniaInstance,
 		usePkpApp,
 		usePkpUrl,
 		usePkpFetch,

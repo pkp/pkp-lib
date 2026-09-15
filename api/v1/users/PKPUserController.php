@@ -113,7 +113,7 @@ class PKPUserController extends PKPBaseController
     {
         $userId = $request->route('userId', null);
 
-        $user = Repo::user()->get($userId);
+        $user = Repo::user()->get($userId, true);
 
         if (!$user) {
             return response()->json([

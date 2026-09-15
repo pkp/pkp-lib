@@ -14,9 +14,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "Gutxienez gehitu beharreko erabiltzaile-talde bat definitu behar da"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Erabiltzaile-taldea gonbidatutako erabiltzaileari esleitzen zaio"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "Gutxienez ezabatu beharreko erabiltzaile-talde bat definitu behar da"
 

@@ -123,9 +123,6 @@ msgstr ""
 "W przypadku dodawania grup użytkowników należy podać identyfikator grupy "
 "użytkowników"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Grupa użytkowników została przypisana do zaproszonego użytkownika"
-
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "Należy zdefiniować co najmniej jedną grupę użytkowników do usunięcia"
 

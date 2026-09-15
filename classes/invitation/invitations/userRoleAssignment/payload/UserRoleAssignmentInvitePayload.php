@@ -19,7 +19,6 @@ use Illuminate\Validation\Rules\Password;
 use PKP\db\DAORegistry;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\InvitePayload;
-use PKP\invitation\invitations\userRoleAssignment\rules\AddUserGroupRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\AllowedKeysRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\NotNullIfPresent;
 use PKP\invitation\invitations\userRoleAssignment\rules\ProhibitedIncludingNull;
@@ -167,7 +166,6 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 'required',
                 'integer',
                 new UserGroupExistsRule(),
-                new AddUserGroupRule($invitation),
             ],
             'userGroupsToAdd.*.masthead' => 'required|bool',
             'userGroupsToAdd.*.dateStart' => 'required|date',
@@ -217,7 +215,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
     {
         $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
         $site = $siteDao->getSite();
-        
+
         return [
             'password.min' => __('user.register.form.passwordLengthRestriction', [
                 'length' => $site->getMinPasswordLength()

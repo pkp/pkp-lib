@@ -82,6 +82,7 @@ class UserRoleAssignmentInviteResource extends BaseUserRoleAssignmentInviteResou
         $invitationPayload['inviteeEmail'] = !$userId ?$invitationPayload['sendEmailAddress']:$payload['email'];
         $invitationPayload['userGroupsToAdd'] = !$invitationPayload['userGroupsToAdd'] ? [] :$invitationPayload['userGroupsToAdd'];
         $invitationPayload['currentUserGroups'] = [];
+        $invitationPayload['disabled'] = (bool) ($payload['disabled'] ?? false);
 
         return (object)$invitationPayload;
     }

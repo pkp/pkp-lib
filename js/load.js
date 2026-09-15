@@ -19,7 +19,6 @@ import FloatingVue from 'floating-vue';
 
 import PrimeVue from 'primevue/config';
 
-import VueScrollTo from 'vue-scrollto';
 import emitter from 'tiny-emitter/instance';
 
 // Mixins exposed for plugins
@@ -352,7 +351,6 @@ function pkpCreateVueApp(createAppArgs, rootProps) {
 
 	// For compatibility with vue2 to preserve spaces between html tags
 	vueApp.config.compilerOptions.whitespace = 'preserve';
-	vueApp.use(VueScrollTo);
 	vueApp.use(VueAnnouncer);
 	vueApp.use(FloatingVue, {
 		themes: {

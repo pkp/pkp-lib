@@ -613,8 +613,6 @@ class FileManager
                 return '.mov';
             case 'video/mp4':
                 return '.mp4';
-            case 'text/javascript':
-                return '.js';
             case 'image/webp':
                 return '.webp';
             default:

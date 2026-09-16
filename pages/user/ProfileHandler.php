@@ -69,7 +69,7 @@ class ProfileHandler extends UserHandler
             [$firstContext, $secondContext] = [$workingContexts->next(), $workingContexts->next()];
             
             if ($firstContext && !$secondContext) {
-                $request->redirect($firstContext->getPath(), 'user', 'profile', null, $args);
+                $request->redirect($firstContext->getPath(), 'user', 'profile', $args);
             }
         }
 

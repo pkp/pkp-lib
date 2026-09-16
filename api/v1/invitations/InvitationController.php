@@ -129,6 +129,7 @@ class InvitationController extends PKPBaseController
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
+                // WARNING: See pkp/pkp-lib#13339 before extending this list
             ]),
         ])->group(function () {
 

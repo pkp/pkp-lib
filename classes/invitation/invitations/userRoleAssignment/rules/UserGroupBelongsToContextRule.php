@@ -38,7 +38,7 @@ class UserGroupBelongsToContextRule implements Rule
             return true;
         }
 
-        return $userGroup->contextId === $this->invitation->getContextId();
+        return $userGroup->contextId == $this->invitation->getContextId();
     }
 
     public function message()

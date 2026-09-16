@@ -636,7 +636,10 @@ class EditorialTaskController extends PKPBaseController
 
         $participantIds = $task->participants->pluck('userId')->toArray();
 
-        $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
+        $users = Repo::user()->getCollector()
+            ->filterByUserIds($participantIds)
+            ->filterByStatus(UserCollector::STATUS_ALL)
+            ->getMany();
         $userGroups = UserGroup::with('userUserGroups')
             ->withContextIds($submission->getData('contextId'))
             ->withUserIds($participantIds)
@@ -1339,7 +1342,11 @@ class EditorialTaskController extends PKPBaseController
             'submission.event.task.participantsAdded' :
             'submission.event.task.participantsRemoved';
 
-        $usersToRecord = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany()->toArray();
+        $usersToRecord = Repo::user()->getCollector()
+            ->filterByUserIds($participantIds)
+            ->filterByStatus(UserCollector::STATUS_ALL)
+            ->getMany()
+            ->toArray();
 
         /*
         * Get localized roles for each user

@@ -637,7 +637,17 @@ class ReviewAssignmentController extends PKPBaseController
             $newAssignmentData['lastModifiedById'] = Validation::loggedInAs() ?? $user->getId();
 
             if (!$reviewAssignment->getDateCompleted()) {
-                $newAssignmentData['dateCompleted'] = Core::getCurrentDate();
+                // One timestamp, so the review's completed and confirmed dates are the same
+                $now = Core::getCurrentDate();
+                $newAssignmentData['dateCompleted'] = $now;
+
+                // Completing a review means the reviewer should move to step 4
+                $newAssignmentData['step'] = 4;
+
+                // Set the confirmed date if it hasn't been set already
+                if (!$reviewAssignment->getDateConfirmed()) {
+                    $newAssignmentData['dateConfirmed'] = $now;
+                }
             }
             Repo::reviewAssignment()->edit($reviewAssignment, $newAssignmentData);
         }

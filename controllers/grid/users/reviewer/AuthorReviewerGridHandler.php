@@ -45,7 +45,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
 
         $this->addRoleAssignment(
             [Role::ROLE_ID_AUTHOR],
-            ['fetchGrid', 'fetchRow', 'readReview', 'reviewRead']
+            ['fetchGrid', 'fetchRow', 'readReview']
         );
     }
 
@@ -141,7 +141,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
         $workflowStageAccessPolicy->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', ['fetchGrid', 'fetchRow']));
 
         // Add policy to ensure there is a review assignment for certain operations.
-        $workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', ['readReview', 'reviewRead'], [ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN]));
+        $workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', ['readReview'], [ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN]));
         $this->addPolicy($workflowStageAccessPolicy);
 
         return parent::authorize($request, $args, $roleAssignments);

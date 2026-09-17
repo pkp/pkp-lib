@@ -48,7 +48,6 @@ use PKP\logParser\PKPUsageEventLog;
 use PKP\middleware\SiteAdminAuthorizer;
 use PKP\plugins\Hook;
 use PKP\scheduledTask\ScheduledTaskHelper;
-use PKP\statistics\PKPStatisticsHelper;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -244,12 +243,13 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
     {
         Gate::define(
             'deleteLogFile',
-            fn (mixed $user, LogFile $file): bool => !static::isProtectedFromDeletion($file->path)
+            fn (mixed $user, LogFile $file): bool => static::isDeletable($file->path)
         );
 
+        // FoldersController::delete() authorizes the folder and then each file, so both gates are needed
         Gate::define(
             'deleteLogFolder',
-            fn (mixed $user, LogFolder $folder): bool => !static::isProtectedFromDeletion($folder->path)
+            fn (mixed $user, LogFolder $folder): bool => static::isDeletable($folder->path)
         );
 
         // Lets the vendor supply the two download gates it still has no opinion from us on
@@ -257,16 +257,47 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
     }
 
     /**
-     * Whether a log file or folder holds data the application still needs
+     * Whether a log file or folder may be deleted from the viewer
+     *
+     * Only the logs the application writes for its own diagnostics can be deleted. Everything else
+     * is refused: usage statistics logs are source data the statistics task has not processed yet,
+     * and external logs (PHP, web server, database, supervisor) belong to the server.
+     *
+     * A path that cannot be resolved is refused, and resolving it means a symlink placed in a
+     * deletable directory is judged by its target.
      */
-    protected static function isProtectedFromDeletion(string $path): bool
+    protected static function isDeletable(string $path): bool
     {
-        $path = realpath($path) ?: $path;
-        $protectedPath = PKPStatisticsHelper::getUsageStatsDirPath();
-        $protectedPath = realpath($protectedPath) ?: $protectedPath;
+        if (($path = realpath($path)) === false) {
+            return false;
+        }
 
-        return $path === $protectedPath
-            || str_starts_with($path, rtrim($protectedPath, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
+        foreach (static::getDeletableLogDirectories() as $directory) {
+            if (($directory = realpath($directory)) === false) {
+                continue;
+            }
+
+            if ($path === $directory || str_starts_with($path, $directory . DIRECTORY_SEPARATOR)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Get the directories holding the logs that may be deleted from the viewer
+     *
+     * @return array<int, string>
+     */
+    protected static function getDeletableLogDirectories(): array
+    {
+        return [
+            // Application logs written by the Laravel log channels
+            storage_path(PKPContainer::LOG_DIRECTORY),
+            // Scheduled task execution logs
+            Config::getVar('files', 'files_dir') . '/' . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR,
+        ];
     }
 
     /**

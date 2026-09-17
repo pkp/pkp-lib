@@ -409,11 +409,6 @@ msgstr ""
 "Lỗi sau đây đã được trả về bởi {$registrationAgency} và chứa chi tiết về "
 "nguyên nhân của lỗi:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Thông báo sau đây đã được trả về bởi {$registrationAgency} và chứa chi tiết "
-"về đăng ký:"
-
 msgid "manager.emails.addEmail"
 msgstr "Thêm mẫu"
 

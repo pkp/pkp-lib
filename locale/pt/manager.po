@@ -422,11 +422,6 @@ msgstr ""
 "Regressou o seguinte erro da {$registrationAgency} e contém detalhes da "
 "causa do erro:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Regressou a seguinte mensagem da {$registrationAgency} e contém detalhes "
-"sobre o registo:"
-
 msgid "manager.emails.addEmail"
 msgstr "Adicionar modelo"
 

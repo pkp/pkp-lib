@@ -415,11 +415,6 @@ msgstr ""
 "Aşağıdaki hata mesajı {$registrationAgency} tarafından döndürüldü ve hatanın "
 "nedeniyle ilgili ayrıntılar:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Aşağıdaki mesaj {$registrationAgency} tarafından döndürüldü ve kayıtla "
-"ilgili ayrıntılar:"
-
 msgid "manager.emails.addEmail"
 msgstr "Şablon Ekle"
 

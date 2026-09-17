@@ -2309,12 +2309,6 @@ msgstr ""
 "Aşağıdakı səhv {$registrationAgency} ilə geri qaytarıldı və səhvin səbəbi "
 "ilə bağlı təfərrüatları ehtiva edir:"
 
-#, fuzzy
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Aşağıdakı mesaj {$registrationAgency} tərəfindən qaytarıldı və qeydiyyat "
-"haqqında təfərrüatları ehtiva edir:"
-
 msgid "manager.emails.form.bodyRequired"
 msgstr "Email üçün bir mətnin formalaşdırılması tələb olunur"
 

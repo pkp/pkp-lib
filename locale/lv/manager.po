@@ -415,11 +415,6 @@ msgstr ""
 "{$registrationAgency} parādīja šādu kļūdu ar sīkāku informāciju par kļūdas "
 "cēloni:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"{$registrationAgency} parādīja šādu ziņojumu ar sīkāku informāciju par "
-"reģistrāciju:"
-
 msgid "manager.emails.addEmail"
 msgstr "Pievienot veidni"
 

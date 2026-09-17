@@ -1385,11 +1385,6 @@ msgstr "Каттоо катасы жөнүндө билдирүү"
 msgid "manager.dois.registration.viewRecord"
 msgstr "Жазууну көрүү"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Төмөнкү билдирүү {$registrationAgency} тарабынан кайтарылды жана каттоо "
-"жөнүндө маалыматты камтыйт:"
-
 msgid "manager.emails.createEmail"
 msgstr "Электрондук кат түзүү"
 

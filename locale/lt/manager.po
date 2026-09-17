@@ -415,11 +415,6 @@ msgstr ""
 "{$registrationAgency} pateikė šią klaidą, kurioje pateikiama išsami "
 "informacija apie klaidos priežastį:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"{$registrationAgency} grąžino šį pranešimą, kuriame pateikiama išsami "
-"informacija apie registraciją:"
-
 msgid "manager.emails.addEmail"
 msgstr "Pridėti elektroninio laiško šabloną"
 

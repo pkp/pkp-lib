@@ -419,11 +419,6 @@ msgstr ""
 "Eror berikut dikembalikan oleh {$registrationAgency} dan terdiri dari detail "
 "tentang penyebab eror:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Pesan berikut dikembalikan oleh {$registrationAgency} dan berisi detail "
-"tentang registrasi:"
-
 msgid "manager.emails.addEmail"
 msgstr "Tambahkan Template"
 

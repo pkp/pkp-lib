@@ -423,11 +423,6 @@ msgstr ""
 "{$registrationAgency} devolvió el siguiente error, que contiene detalles "
 "sobre su causa:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"{$registrationAgency} devolvió el siguiente mensaje, que contiene detalles "
-"acerca del registro:"
-
 msgid "manager.emails.addEmail"
 msgstr "Añadir plantilla"
 

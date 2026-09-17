@@ -386,9 +386,6 @@ msgstr "DOI"
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr "{$registrationAgency} から以下のエラーが返されました。エラー原因の詳細が含まれています:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr "{$registrationAgency} から以下のメッセージが返されました。登録の詳細が含まれています:"
-
 msgid "manager.emails.addEmail"
 msgstr "テンプレートの追加"
 

@@ -425,11 +425,6 @@ msgstr ""
 "Հետևյալ սխալն է վերադարձվել {$registrationAgency} -ի կողմից և պարունակում է "
 "մանրամասներ սխալի պատճառի մասին:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Հետևյալ հաղորդագրությունն է վերադարձվել {$registrationAgency} -ի կողմից և "
-"պարունակում է մանրամասներ գրանցման մասին:"
-
 msgid "manager.emails.addEmail"
 msgstr "Ավելացնել ձևանմուշ"
 

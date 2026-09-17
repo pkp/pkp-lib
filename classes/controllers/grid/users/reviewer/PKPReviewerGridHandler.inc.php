@@ -988,7 +988,6 @@ class PKPReviewerGridHandler extends GridHandler {
 		return array(
 			'readReview',
 			'reviewHistory',
-			'reviewRead',
 			'sendEmail',
 			'gossip',
 		);

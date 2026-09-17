@@ -733,6 +733,12 @@ abstract class Repository
 
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
+
+        if (!$temporaryFile || ($isImage && !$temporaryFileManager->getImageExtension($temporaryFile->getFileType()))) {
+            // Temporary file must exist, and if it should be an image, ensure that's the case
+            return null;
+        }
+
         $fileNameBase = join('_', ['submission', $submission->getId(), $publication->getId(), $settingName]); // eg - submission_1_1_coverImage
         $fileName = app()->get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $userId, $localeKey);
 

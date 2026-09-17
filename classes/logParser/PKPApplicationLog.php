@@ -20,17 +20,17 @@
  *
  *   {"message":"...","context":{},"level":400,"level_name":"ERROR","channel":"production", ...}
  *
+ * Line-format entries are parsed by PKPLaravelLog, which also makes logged email previews safe.
  */
 
 namespace PKP\logParser;
 
 use Illuminate\Support\Carbon;
 use Opcodes\LogViewer\Facades\LogViewer;
-use Opcodes\LogViewer\Logs\LaravelLog;
 use Opcodes\LogViewer\Utils\Utils;
 use Throwable;
 
-class PKPApplicationLog extends LaravelLog
+class PKPApplicationLog extends PKPLaravelLog
 {
     public static string $name = 'Application';
 

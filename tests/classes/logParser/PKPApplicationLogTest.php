@@ -10,15 +10,20 @@
  * @class PKPApplicationLogTest
  *
  * @brief Tests the application log parser against both the default Monolog line format
- *   and the JSON format produced by [logs] log_formatter = Monolog\Formatter\JsonFormatter,
- *   including a file that mixes the two (which happens whenever the setting is changed).
+ *   and the JSON format produced by [logs] log_formatter = Monolog\Formatter\JsonFormatter
  */
 
 namespace PKP\tests\classes\logParser;
 
+use Illuminate\Mail\Transport\LogTransport;
+use Monolog\Formatter\LineFormatter;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Opcodes\LogViewer\LogFile;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PKP\logParser\PKPApplicationLog;
 use PKP\tests\PKPTestCase;
+use Symfony\Component\Mime\Email;
 
 class PKPApplicationLogTest extends PKPTestCase
 {
@@ -108,6 +113,46 @@ class PKPApplicationLogTest extends PKPTestCase
         $levels = array_map(fn ($log) => $log->level, iterator_to_array($logs));
         sort($levels);
         self::assertSame(['ERROR', 'INFO', 'INFO'], $levels);
+    }
+
+    /**
+     * With mail sent to the log, the viewer renders each email's HTML part in an iframe that runs
+     * in the site's origin, so markup that can execute must be gone before it reaches the browser.
+     */
+    #[DataProvider('mailLogFileNames')]
+    public function testStripsUnsafeHtmlFromLoggedMailPreviews(string $fileName): void
+    {
+        $dir = sys_get_temp_dir() . '/pkp-log-' . uniqid();
+        mkdir($dir);
+        $path = $this->tempPaths[] = $dir . '/' . $fileName;
+
+        $logger = new Logger('production', [
+            (new StreamHandler($path))->setFormatter(new LineFormatter(null, 'Y-m-d H:i:s', true, true, true)),
+        ]);
+        $email = (new Email())
+            ->from('journal@example.org')
+            ->to('editor@example.org')
+            ->subject('New discussion')
+            ->text('Hello')
+            ->html('<p>Hello <strong>editor</strong></p><img src="x" onerror="alert(1)"><script>alert(2)</script>');
+        (new LogTransport($logger))->send($email);
+
+        $logs = array_values(iterator_to_array((new LogFile($path))->logs()->scan()->get()));
+
+        self::assertCount(1, $logs);
+        $html = $logs[0]->extra['mail_preview']['html'] ?? null;
+        self::assertIsString($html, 'The email preview should still be offered');
+        self::assertStringContainsString('<strong>editor</strong>', $html);
+        self::assertStringNotContainsStringIgnoringCase('<script', $html);
+        self::assertStringNotContainsStringIgnoringCase('onerror', $html);
+    }
+
+    public static function mailLogFileNames(): array
+    {
+        return [
+            'application log' => ['app.log'],
+            'laravel log' => ['laravel.log'],
+        ];
     }
 
     private function writeTempLog(array $lines): string

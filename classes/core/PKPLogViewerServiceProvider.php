@@ -41,6 +41,7 @@ use Opcodes\LogViewer\LogViewerService;
 use Opcodes\LogViewer\LogViewerServiceProvider;
 use PKP\config\Config;
 use PKP\logParser\PKPApplicationLog;
+use PKP\logParser\PKPLaravelLog;
 use PKP\logParser\PKPPhpErrorLog;
 use PKP\logParser\PKPScheduledTaskLog;
 use PKP\logParser\PKPUsageEventLog;
@@ -275,6 +276,9 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
     {
         // Override built-in PhpFpmLog parser with better PHP error log support
         LogViewer::extend('php_fpm', PKPPhpErrorLog::class);
+
+        // Override built-in LaravelLog parser so logged email previews are sanitized
+        LogViewer::extend('laravel', PKPLaravelLog::class);
 
         // APP-specific log types
         LogViewer::extend(self::LOG_TYPE_APPLICATION, PKPApplicationLog::class);

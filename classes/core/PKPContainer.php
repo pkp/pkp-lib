@@ -316,6 +316,13 @@ class PKPContainer extends Container
                 \Illuminate\Contracts\Routing\Registrar::class,
                 \Illuminate\Contracts\Routing\BindingRegistrar::class
             ],
+            'session' => [
+                \Illuminate\Session\SessionManager::class
+            ],
+            'session.store' => [
+                \Illuminate\Session\Store::class,
+                \Illuminate\Contracts\Session\Session::class
+            ],
             'url' => [
                 \Illuminate\Routing\UrlGenerator::class,
                 \Illuminate\Contracts\Routing\UrlGenerator::class

@@ -15,6 +15,7 @@
 namespace PKP\migration\upgrade\v3_6_0;
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
 
@@ -26,6 +27,19 @@ class I13213_TaskTemplateForeignConstraint extends Migration
     public function up(): void
     {
         if (!$this->hasForeignKey('edit_tasks', 'edit_task_task_template_id_fk')) {
+
+            // Get orphaned template IDs from edit_tasks that do not have a corresponding entry in edit_task_templates
+            $orphanedTemplateIds = DB::table('edit_tasks as et')
+                ->leftJoin('edit_task_templates as ett', 'et.edit_task_template_id', '=', 'ett.edit_task_template_id')
+                ->whereNull('ett.edit_task_template_id')
+                ->whereNotNull('et.edit_task_template_id')
+                ->pluck('et.edit_task_template_id');
+
+            // Set the ID to null for orphaned templates in edit_tasks to avoid foreign key constraint violation
+            DB::table('edit_tasks')
+                ->whereIn('edit_task_template_id', $orphanedTemplateIds)
+                ->update(['edit_task_template_id' => null]);
+
             Schema::table('edit_tasks', function (Blueprint $table) {
                 $table->foreign('edit_task_template_id')
                     ->references('edit_task_template_id')

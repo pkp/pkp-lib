@@ -11,8 +11,9 @@
 	{foreach from=$dates key="localeKey" item="date"}
 		{if $date}
 		<div>
-			<strong>{$date|date_format:$datetimeFormatShort}</strong>
-			{translate key=$localeKey}
+			{capture assign="label"}{translate key=$localeKey}{/capture}
+			<strong>{translate key="semicolon" label=$label}</strong>
+			{$date|date_format:$datetimeFormatShort}
 		</div>
 		{/if}
 	{/foreach}

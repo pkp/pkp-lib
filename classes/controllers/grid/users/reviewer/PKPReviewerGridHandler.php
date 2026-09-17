@@ -1082,12 +1082,14 @@ class PKPReviewerGridHandler extends GridHandler
 
         $templateMgr = TemplateManager::getManager($request);
         $dates = [
-            'common.assigned' => $reviewAssignment->getDateAssigned(),
-            'common.notified' => $reviewAssignment->getDateNotified(),
-            'common.reminder' => $reviewAssignment->getDateReminded(),
-            $reviewAssignment->getDeclined() ? 'common.declined' : 'common.confirm' => $reviewAssignment->getDateConfirmed(),
-            'common.completed' => $reviewAssignment->getDateCompleted(),
-            'common.acknowledged' => $reviewAssignment->getDateAcknowledged(),
+            'editor.review.requestSent' => $reviewAssignment->getDateNotified(),
+            'editor.review.reviewerReminded' => $reviewAssignment->getDateReminded(),
+            $reviewAssignment->getDeclined() ? 'editor.review.requestDeclined' : 'editor.review.requestAccepted' => $reviewAssignment->getDateConfirmed(),
+            'editor.review.reviewSubmitted' => $reviewAssignment->getDateCompleted(),
+            'editor.review.reviewCompleted' => $reviewAssignment->getDateConsidered(),
+            'editor.review.reviewerThanked' => $reviewAssignment->getConsidered() == ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED
+                ? null
+                : $reviewAssignment->getDateAcknowledged(),
         ];
         asort($dates);
         $templateMgr->assign('dates', $dates);

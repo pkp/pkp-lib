@@ -376,9 +376,6 @@ msgstr ""
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-
 msgid "manager.emails.addEmail"
 msgstr "Email sablon hozzáadása"
 

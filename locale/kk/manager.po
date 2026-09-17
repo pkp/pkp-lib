@@ -392,9 +392,6 @@ msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
 "{$registrationAgency} оның себебі туралы ақпаратпен келесі қатені қайтарды:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr "{$registrationAgency} тіркеу ақпараты бар келесі хабарды қайтарды:"
-
 msgid "manager.emails.addEmail"
 msgstr "Үлгіні қосыңыз"
 

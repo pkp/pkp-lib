@@ -394,11 +394,6 @@ msgstr ""
 "შემდეგი შეცდომა დაბრუნდა {$registrationAgency}-ის მიერ და შეიცავს დეტალებს "
 "შეცდომის მიზეზის შესახებ:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"შემდეგი შეტყობინება დაბრუნდა {$registrationAgency}-ის მიერ და შეიცავს "
-"დეტალებს რეგისტრაციის შესახებ:"
-
 msgid "manager.emails.addEmail"
 msgstr "შაბლონის დამატება"
 

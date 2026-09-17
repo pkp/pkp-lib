@@ -424,11 +424,6 @@ msgstr ""
 "Z {$registrationAgency} otrzymano informację o błędzie. Szczegóły i "
 "przyczyny:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Z {$registrationAgency} otrzymano informację o błędzie. Szczegóły i "
-"przyczyny nieudanej rejestracji:"
-
 msgid "manager.emails.addEmail"
 msgstr "Dodaj szablon"
 

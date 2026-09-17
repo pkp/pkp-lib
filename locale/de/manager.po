@@ -433,11 +433,6 @@ msgstr ""
 "Die folgende Fehlermeldung wurde von {$registrationAgency} zurückgeschickt "
 "und beinhaltet Details über die Ursache des Fehlers:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Die folgende Nachricht wurde von {$registrationAgency} zurückgeschickt und "
-"beinhaltet Details über die Registrierung:"
-
 msgid "manager.emails.addEmail"
 msgstr "Vorlage hinzufügen"
 

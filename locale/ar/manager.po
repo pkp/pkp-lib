@@ -414,11 +414,6 @@ msgstr "معرفات المكونات الرقمية"
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr "الخطأ الآتي عاد من قبل {$registrationAgency} وهو يتضمن تفاصيل مسبباته:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"الرسالة الآتية عادت من قبل {$registrationAgency} وهي تتضمن تفاصيل عملية "
-"التسجيل:"
-
 msgid "manager.emails.addEmail"
 msgstr "إضافة قالب"
 

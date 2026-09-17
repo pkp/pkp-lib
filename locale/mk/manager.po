@@ -418,11 +418,6 @@ msgstr ""
 "Следната грешка беше вратена од {$registrationAgency} и содржи детали за "
 "причината за грешката:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Следната порака беше вратена од {$registrationAgency} и содржи детали за "
-"регистрацијата:"
-
 msgid "manager.emails.addEmail"
 msgstr "Додади шаблон"
 

@@ -90,7 +90,7 @@ class OrcidSettingsForm extends FormComponent
                 ->addField(new FieldHTML(OrcidManager::CLIENT_SECRET, [
                     'groupId' => self::SETTINGS_GROUP,
                     'label' => __('orcid.manager.settings.orcidClientSecret'),
-                    'description' => $site->getData(OrcidManager::CLIENT_SECRET),
+                    'description' => '*************************',
                 ]));
 
         } else {

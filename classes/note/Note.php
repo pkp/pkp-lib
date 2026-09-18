@@ -3,8 +3,8 @@
 /**
  * @file classes/note/Note.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2024-2026 Simon Fraser University
+ * Copyright (c) 2024-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Note
@@ -19,7 +19,9 @@ use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use PKP\core\PKPApplication;
 use PKP\db\DAO;
+use PKP\submissionFile\SubmissionFile;
 
 class Note extends Model
 {
@@ -28,8 +30,8 @@ class Note extends Model
     public const NOTE_ORDER_DATE_CREATED = 1;
     public const NOTE_ORDER_ID = 2;
 
-    const CREATED_AT = 'date_created';
-    const UPDATED_AT = 'date_modified';
+    public const CREATED_AT = 'date_created';
+    public const UPDATED_AT = 'date_modified';
 
     protected $table = 'notes';
     protected $primaryKey = 'note_id';
@@ -49,6 +51,25 @@ class Note extends Model
             'dateCreated' => 'datetime',
             'dateModified' => 'datetime'
         ];
+    }
+
+    /**
+     * Booted method to handle model events.
+     *
+     * Files attached to a note are deleted before the note itself, so that they are
+     * not left behind with an assoc id pointing at a note that no longer exists.
+     * Deleting notes through the query builder does not fire model events, so any
+     * code that relies on this cascade must delete notes one at a time.
+     */
+    protected static function booted(): void
+    {
+        static::deleting(function (Note $note) {
+            Repo::submissionFile()
+                ->getCollector()
+                ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$note->id])
+                ->getMany()
+                ->each(fn (SubmissionFile $submissionFile) => Repo::submissionFile()->delete($submissionFile));
+        });
     }
 
     /**

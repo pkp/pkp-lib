@@ -1,11 +1,12 @@
 # Anne-Inger <annrag@oslomet.no>, 2026.
+# Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-15 12:08+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"PO-Revision-Date: 2026-09-14 11:59+0000\n"
+"Last-Translator: Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/installer/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -50,7 +51,7 @@ msgstr ""
 "<strong>Databasedriverne som er oppført i hakeparenteser ser ikke ut til å "
 "ha den nødvendige PHP-utvidelsen lastet. Installeringen vil trolig feile om "
 "databasedriverne er valgt.</strong><br /> Databasedrivere som ikke er "
-"støttet, er oppført over er kun til informasjon og vil trolig ikke fungere."
+"støttet, er oppført over er kun til informasjon og vil trolig ikke fungere"
 
 msgid "installer.databaseHost"
 msgstr "Vert"
@@ -143,7 +144,6 @@ msgstr ""
 msgid "installer.installParseDBFileError"
 msgstr "Feil ved lesing av databaseinstallasjonsfilen <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.installMigrationError"
 msgstr "Feil ved utførelse av migreringsklassen <tt>{$class}</tt>."
 
@@ -161,7 +161,6 @@ msgstr ""
 msgid "installer.timezoneInstructions"
 msgstr "Tidssonen som skal brukes til dette systemet."
 
-#, fuzzy
 msgid "installer.additionalLocalesInstructions"
 msgstr ""
 "Legg til eventuelle tilleggsspråk som skal støttes i systemet. Ytterligere "
@@ -265,7 +264,6 @@ msgstr ""
 "Sett verdien for `app_key` under `generelt`-delen i `config.inc.php`-filen "
 "til {$key}."
 
-#, fuzzy
 msgid "installer.appKey.keyVariable.missing.instruction"
 msgstr ""
 "Vennligst legg til konfigurasjonsvariabelen `app_key` under `generell`-delen "

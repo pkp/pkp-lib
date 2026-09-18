@@ -1054,6 +1054,9 @@ msgstr "DOIs for all versions"
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr "The DOI contains invalid characters."
 
+msgid "manager.setup.publisherLocation"
+msgstr "Publisher Location"
+
 msgid "manager.setup.publishing"
 msgstr "Publishing Details"
 

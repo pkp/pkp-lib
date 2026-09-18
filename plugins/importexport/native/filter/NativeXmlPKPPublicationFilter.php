@@ -120,9 +120,22 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             }
         }
 
+        if ((int) $publication->getData('status') === Publication::STATUS_PUBLISHED && !$publication->getData('contextName')) {
+            $this->inheritImportedIdentity($publication);
+        }
+
         Repo::publication()->dao->update($publication);
 
         return Repo::publication()->get($publication->getId());
+    }
+
+    /**
+     * Complete a published publication imported without identity metadata from an object it
+     * belongs to. Import never stamps the current context identity, as imported content is
+     * often older. No-op by default; OJS inherits the identity of the publication's issue.
+     */
+    protected function inheritImportedIdentity(Publication $publication): void
+    {
     }
 
     /**
@@ -212,6 +225,12 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
                     break;
                 case 'licenseUrl':
                     $publication->setData('licenseUrl', $n->textContent);
+                    break;
+                case 'contextPrimaryLocale':
+                    $publication->setData('contextPrimaryLocale', $n->textContent);
+                    break;
+                case 'publisherLocation':
+                    $publication->setData('publisherLocation', $n->textContent);
                     break;
                 default:
                     $deployment = $this->getDeployment();
@@ -346,6 +365,8 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             'source',
             'rights',
             'copyrightHolder',
+            'contextName',
+            'contextAbbreviation',
         ];
     }
 

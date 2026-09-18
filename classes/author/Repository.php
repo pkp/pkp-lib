@@ -28,6 +28,8 @@ use PKP\submission\PKPSubmission;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
+use PKP\observers\events\AuthorMetadataChanged;
+use PKP\observers\events\PublicationMetadataChanged;
 
 class Repository
 {
@@ -187,6 +189,8 @@ class Repository
 
         Hook::call('Author::add', [$author]);
 
+        event(new AuthorMetadataChanged($author));
+
         return $author->getId();
     }
 
@@ -204,6 +208,8 @@ class Repository
         $this->dao->update($newAuthor);
 
         Repo::author()->get($newAuthor->getId());
+
+        event(new AuthorMetadataChanged($newAuthor));
     }
 
     /**
@@ -219,6 +225,8 @@ class Repository
         $this->dao->resetContributorsOrder($author->getData('publicationId'));
 
         Hook::call('Author::delete', [$author]);
+
+        event(new AuthorMetadataChanged($author)); // NEW
     }
 
     /**
@@ -320,5 +328,11 @@ class Repository
 
             $seq++;
         }
+
+        $publication = Repo::publication()->get($publicationId);
+        if ($publication) {
+            event(new PublicationMetadataChanged($publication));
+        }
     }
+
 }

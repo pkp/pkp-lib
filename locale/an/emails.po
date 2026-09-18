@@ -30,7 +30,7 @@ msgstr ""
 "actualizar la suya cuenta con ORCID: <a href=\"{$authorOrcidUrl}\""
 ">{$authorOrcidUrl}</a>.</p> <p><a href=\"{$orcidAboutUrl}\">Mas información "
 "sobre ORCID en {$contextName}</a></p> <p>Si tien garra pregunta, per favor "
-"no dude en contactar-nos.</p> <p>{$principalContactSignature}</p>\n"
+"no dude en contactar-nos.</p> <p>{$siteSignature}</p>\n"
 
 msgid "orcid.orcidRequestUpdateScope.name"
 msgstr "orcidRequestUpdateScope"

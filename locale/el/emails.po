@@ -372,7 +372,7 @@ msgstr ""
 "<br>\n"
 "Παρακαλώ επικοινωνήστε μαζί μας εάν χρειάζεστε πρόσθετες διευκρινίσεις.<br>\n"
 "<br>\n"
-"{$principalContactSignature}<br>\n"
+"{$siteSignature}<br>\n"
 ""
 
 msgid "emails.orcidRequestAuthorAuthorization.description"

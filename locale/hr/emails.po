@@ -516,7 +516,7 @@ msgstr ""
 "<br>\n"
 "Ako imate bilo kakvih pitanja, slobodno me kontaktirajte.<br>\n"
 "<br>\n"
-"{$principalContactSignature}<br>\n"
+"{$siteSignature}<br>\n"
 
 msgid "emails.userRoleEndNotify.body"
 msgstr ""

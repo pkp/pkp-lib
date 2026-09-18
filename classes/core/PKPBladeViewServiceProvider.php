@@ -39,13 +39,13 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
 
         AliasLoader::getInstance()->alias('Js', \Illuminate\Support\Js::class);
 
-        // This allows templates to be referenced explicitly, 
+        // This allows templates to be referenced explicitly,
         // e.g., @include('VIEW_NAMESPACE::some-template') or @include('VIEW_NAMESPACE::some-template'),
         // or even allow to render view as view('VIEW_NAMESPACE::some-template', [....])
         // which allow to render views from any namespace ambiguity and improving maintainability.
         collect($this->app->get('config')->get('view.paths'))
             ->each(fn ($path, $namespace) => view()->addNamespace($namespace, $path));
-        
+
         // This allows to render components as <x-COMPONENT_NAMESPACE::some-component />
         // which allow to render components from any namespace ambiguity and improving maintainability.
         collect($this->app->get('config')->get('view.components.namespace'))
@@ -66,7 +66,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
                 return "{$pluginViewNamespace}::{$viewPath}";
             }
         );
-        
+
         // use as @loadScript(['context' => 'frontend'])
         Blade::directive('loadScript', function ($parameters) {
             return "<?php
@@ -195,7 +195,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
     {
         $this->app->singleton('blade.compiler', function (PKPContainer  $app) {
             $viewConfig = $app->get('config')->get('view'); /** @var array $viewConfig */
-            
+
             return tap(
                 new BladeCompiler(
                     $app->get('files'),
@@ -209,7 +209,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
 
                     $this->app->instance(BladeCompiler::class, $bladeCompiler);
                     $this->app->instance(IlluminateBladeCompiler::class, $bladeCompiler);
-                    
+
                     $facadeAccessor = (new class extends \Illuminate\Support\Facades\Blade {
                         public static function getFacadeAccessor() { return parent::getFacadeAccessor(); }
                     })::getFacadeAccessor();
@@ -282,7 +282,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
 
         $app->instance(\Illuminate\Contracts\View\Factory::class, $factory);
         $app->alias(
-            \Illuminate\Contracts\View\Factory::class, 
+            \Illuminate\Contracts\View\Factory::class,
             (new class extends View {
                 public static function getFacadeAccessor() { return parent::getFacadeAccessor(); }
             })::getFacadeAccessor()

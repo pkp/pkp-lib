@@ -30,6 +30,8 @@ use APP\file\PublicFileManager;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use APP\view\HomepageBlocksRegistry;
+use APP\view\MetadataBlocksRegistry;
 use Exception;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
@@ -140,6 +142,12 @@ class PKPTemplateManager extends Smarty
     /** @var bool Track whether vue runtime is included */
     private bool $isVueRuntimeIncluded = false;
 
+    /** @var MetadataBlocksRegistry Register and load metadata blocks for the reader facing UI */
+    public MetadataBlocksRegistry $metadataBlocks;
+
+    /** @var HomepageBlocksRegistry Register and load metadata blocks for the reader facing UI */
+    public HomepageBlocksRegistry $homepageBlocks;
+
     /**
      * Constructor.
      * Initialize template engine and assign basic template variables.
@@ -174,6 +182,9 @@ class PKPTemplateManager extends Smarty
         // This routes {include} directives through Laravel's FileViewFinder
         // for unified template resolution and hook firing
         $this->template_class = \PKP\core\blade\SmartyTemplate::class;
+
+        $this->metadataBlocks = new MetadataBlocksRegistry();
+        $this->homepageBlocks = new HomepageBlocksRegistry();
     }
 
     /**
@@ -206,6 +217,7 @@ class PKPTemplateManager extends Smarty
             'currentLocale' => $locale,
             'currentLocaleLangDir' => Locale::getMetadata($locale)?->isRightToLeft() ? 'rtl' : 'ltr',
             'applicationName' => __($application->getNameKey()),
+            'site' => $request->getSite(),
         ]);
 
         // Assign date and time format
@@ -257,17 +269,7 @@ class PKPTemplateManager extends Smarty
                 ['contexts' => ['frontend', 'backend']]
             );
 
-            $activeTheme = null;
-            $contextOrSite = $currentContext ? $currentContext : $request->getSite();
-            $allThemes = PluginRegistry::getPlugins('themes');
-            foreach ($allThemes as $theme) { /** @var \PKP\plugins\Plugin|\PKP\plugins\ThemePlugin $theme */
-                if ($contextOrSite->getData('themePluginPath') === $theme->getDirName()) {
-                    $activeTheme = $theme;
-                    break;
-                }
-            }
-
-            $this->assign(['activeTheme' => $activeTheme]);
+            $this->assign(['activeTheme' => $this->getActiveTheme($request, $currentContext)]);
         }
 
         if ($router instanceof \PKP\core\PKPPageRouter) {
@@ -930,6 +932,14 @@ class PKPTemplateManager extends Smarty
                 ]
             );
 
+            $this->addStyleSheet(
+                'pkpAppFrontend',
+                $baseUrl . '/styles/build_frontend.css',
+                [
+                    'priority' => self::STYLE_SEQUENCE_CORE,
+                    'contexts' => ['frontend']
+                ]
+            );
         }
     }
 
@@ -1708,6 +1718,25 @@ class PKPTemplateManager extends Smarty
         echo $this->fetch($template, $cache_id, $compile_id, $parent);
     }
 
+    /**
+     * Display a system message template
+     */
+    public function displaySystemMessage(
+        string $title,
+        string $message,
+        string $type = 'message',
+        string $backLink = '',
+        string $backLinkLabel = '',
+    ) {
+        $this->assign([
+            'title' => $title,
+            'message' => $message,
+            'type' => $type,
+            'backLink' => $backLink,
+            'backLinkLabel' => $backLinkLabel,
+        ]);
+        $this->display('frontend/pages/system-message.tpl');
+    }
     /**
      * Clear template compile and cache directories.
      */
@@ -2653,18 +2682,23 @@ class PKPTemplateManager extends Smarty
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /** @var NavigationMenuDAO $navigationMenuDao */
 
         $output = '';
+        $navigationMenu = null;
         $navigationMenus = $navigationMenuDao->getByArea($contextId, $areaName, !Validation::isLoggedIn());
         if (isset($navigationMenus[0])) {
             $navigationMenu = $navigationMenus[0];
             app()->get('navigationMenu')->getMenuTree($navigationMenu);
         }
 
+        if (!$navigationMenu) {
+            return '';
+        }
 
         $this->assign([
             'navigationMenu' => $navigationMenu,
             'id' => $params['id'],
             'ulClass' => $params['ulClass'] ?? '',
             'liClass' => $params['liClass'] ?? '',
+            'items' => $navigationMenu?->menuTree ?? [],
         ]);
 
         return $this->fetch($menuTemplatePath);
@@ -2913,5 +2947,23 @@ class PKPTemplateManager extends Smarty
     public function getHeaders(): array
     {
         return $this->headers;
+    }
+
+    /**
+     * Get the active theme for a context or site
+     */
+    public function getActiveTheme(Request $request, ?Context $context = null): ?ThemePlugin
+    {
+        $activeTheme = null;
+        $contextOrSite = $context ? $context : $request->getSite();
+        $allThemes = PluginRegistry::getPlugins('themes');
+        foreach ($allThemes as $theme) { /** @var \PKP\plugins\Plugin|\PKP\plugins\ThemePlugin $theme */
+            if ($contextOrSite->getData('themePluginPath') === $theme->getDirName()) {
+                $activeTheme = $theme;
+                break;
+            }
+        }
+
+        return $activeTheme;
     }
 }

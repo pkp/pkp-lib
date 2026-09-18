@@ -1,0 +1,41 @@
+@if($highlights && count($highlights))
+    <x-homepage-blocks.default slug="highlights">
+        <h2 class="sr-only">
+            {{ __('common.highlights') }}
+        </h2>
+        <div
+            class="swiper"
+            data-ally-prev="{{ __('common.slide.prev') }}"
+            data-ally-next="{{ __('common.slide.next') }}"
+            data-slides-per-view="1"
+        >
+            <ol class="swiper-wrapper">
+                @foreach($highlights as $highlight)
+                    <li class="swiper-slide @if($highlight->getImage())swiper-has-image @endif">
+                        @if($highlight->getImage())
+                            <img
+                                class="swiper-slide-image"
+                                src="{{ $highlight->getImageUrl() }}"
+                                alt="{{ $highlight->getImageAltText() }}"
+                            >
+                        @endif
+                        <div class="swiper-slide-content">
+                            <h3 class="swiper-slide-title">
+                                {!! ViewHelper::sanitizeHtml($highlight->getLocalizedTitle()) !!}
+                            </h3>
+                            <div class="swiper-slide-desc">
+                                {!! ViewHelper::sanitizeHtml($highlight->getLocalizedDescription()) !!}
+                            </div>
+                            <a class="swiper-slide-button pkp_button" href="{{ $highlight->getUrl() }}">
+                                {!! ViewHelper::sanitizeHtml($highlight->getLocalizedUrlText()) !!}
+                            </a>
+                        </div>
+                    </li>
+                @endforeach
+            </ol>
+            <div class="swiper-pagination"></div>
+            <button class="swiper-button-prev"></button>
+            <button class="swiper-button-next"></button>
+        </div>
+    </x-homepage-blocks.default>
+@endif

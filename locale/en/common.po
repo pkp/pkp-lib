@@ -46,7 +46,7 @@ msgid "about.contact.supportContact"
 msgstr "Support Contact"
 
 msgid "about.editorialMasthead.linkToEditorialHistory"
-msgstr "View <a href=\"{$url}\">Editorial History</a>"
+msgstr "View the full <a href=\"{$url}\">editorial history</a>."
 
 msgid "about.other"
 msgstr "Other"
@@ -952,6 +952,9 @@ msgstr "Select {$name}"
 msgid "common.sendEmail"
 msgstr "Send Email"
 
+msgid "common.sending"
+msgstr "Sending"
+
 msgid "common.showAllSteps"
 msgstr "Show all steps"
 
@@ -960,6 +963,12 @@ msgstr "{$current}/{$total} steps"
 
 msgid "common.showingXofX"
 msgstr "Showing <strong>{$start} to {$finish}</strong> of {$total}"
+
+msgid "common.slide.next"
+msgstr "Next slide"
+
+msgid "common.slide.prev"
+msgstr "Previous slide"
 
 msgid "common.size"
 msgstr "Size"

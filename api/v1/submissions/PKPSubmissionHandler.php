@@ -55,6 +55,7 @@ use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\userGroup\UserGroup;
 use Slim\Http\Request as SlimRequest;
 
@@ -594,21 +595,21 @@ class PKPSubmissionHandler extends APIHandler
 
         if (isset($parsedBody)){
             $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $parsedBody);
-    
+
             $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
             if (!empty($readOnlyErrors)) {
                 return $response->withStatus(400)->withJson($readOnlyErrors);
             }
-    
+
             $params['id'] = $submission->getId();
             $params['contextId'] = $request->getContext()->getId();
-    
+
             $errors = Repo::submission()->validate($submission, $params, $request->getContext());
-    
+
             if (!empty($errors)) {
                 return $response->withStatus(400)->withJson($errors);
             }
-    
+
             Repo::submission()->edit($submission, $params);
         }
 
@@ -894,7 +895,7 @@ class PKPSubmissionHandler extends APIHandler
             ->filterByContextIds([$submission->getData('contextId')])
             ->getMany();
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var \PKP\submission\reviewAssignment\ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $currentUserReviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer(
             $submission->getId(),
             $request->getUser()->getId()
@@ -938,12 +939,19 @@ class PKPSubmissionHandler extends APIHandler
             ->filterByContextIds([$submission->getData('contextId')])
             ->getMany();
 
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $currentUserReviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer(
+            $submission->getId(),
+            $this->getRequest()->getUser()->getId()
+        );
+        $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
+
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return $response->withJson(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication, $anonymize),
             200
         );
     }
@@ -1338,6 +1346,17 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $currentUserReviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer(
+            $submission->getId(),
+            $this->getRequest()->getUser()->getId()
+        );
+        $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
+
+        if ($anonymize) {
+            return $response->withStatus(403)->withJsonError('api.403.unauthorized');
+        }
+
         return $response->withJson(
             Repo::author()->getSchemaMap()->map($author),
             200
@@ -1369,6 +1388,20 @@ class PKPSubmissionHandler extends APIHandler
         $collector = Repo::author()->getCollector()
             ->filterByPublicationIds([$publication->getId()]);
         $authors = $collector->getMany();
+
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $currentUserReviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer(
+            $submission->getId(),
+            $this->getRequest()->getUser()->getId()
+        );
+        $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
+
+        if ($anonymize) {
+            return $response->withJson([
+                'itemsMax' => 0,
+                'items' => [],
+            ], 200);
+        }
 
         return $response->withJson([
             'itemsMax' => $collector->getCount(),

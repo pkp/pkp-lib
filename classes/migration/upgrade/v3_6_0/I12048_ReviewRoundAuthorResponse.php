@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/migration/install/ReviewFormsMigration.php
+ * @file classes/migration/upgrade/v3_6_0/I12048_ReviewRoundAuthorResponse.php
  *
  * Copyright (c) 2026 Simon Fraser University
  * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewRoundAuthorResponse
+ * @class I12048_ReviewRoundAuthorResponse
  *
  * @brief Add database tables related to author review responses.
  */

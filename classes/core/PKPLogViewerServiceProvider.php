@@ -429,6 +429,11 @@ class PKPLogViewerServiceProvider extends LogViewerServiceProvider
                 ->then(fn ($req) => app('router')->dispatch($req));
 
             if ($response->getStatusCode() !== Response::HTTP_NOT_FOUND) {
+                // Log contents (stack traces, logged emails) must not be kept in the browser cache.
+                // Laravel's default for a request with a session is "no-cache, private", which still
+                // allows the response to be written to disk.
+                $response->headers->set('Cache-Control', 'no-store');
+
                 $response->send();
                 exit;
             }

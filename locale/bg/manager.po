@@ -422,11 +422,6 @@ msgstr ""
 "Следната грешка беше върната от {$registrationAgency} и съдържа подробности "
 "за причината за грешката:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Следното съобщение беше върнато от {$registrationAgency} и съдържа "
-"подробности за регистрацията:"
-
 msgid "manager.emails.addEmail"
 msgstr "Добавяне на шаблон"
 

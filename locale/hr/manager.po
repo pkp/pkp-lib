@@ -419,11 +419,6 @@ msgstr ""
 "Sljedeću poruku o pogrešci vratila je {$registrationAgency} i uključuje "
 "detalje o uzroku pogreške:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Sljedeća poruka vraćena je od {$registrationAgency} i uključuje podatke o "
-"registraciji:"
-
 msgid "manager.emails.addEmail"
 msgstr "Dodajte predložak"
 

@@ -2764,11 +2764,6 @@ msgstr ""
 "{$registrationAgency} द्वारे कळवण्यात आलेल्या खालील त्रुटीच्या कारणांचे तपशी"
 "ल असे आहेत:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"{$registrationAgency} द्वारे कळवण्यात आलेल्या खालील संदेशात नोंदणीबद्दलचे "
-"तपशील असे आहेत :"
-
 msgid "emailTemplate.variable.decision.stage"
 msgstr "संपादकीय कार्यप्रवाहाच्या या टप्प्यावर हा निर्णय घेण्यात आला"
 

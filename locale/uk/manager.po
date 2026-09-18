@@ -421,11 +421,6 @@ msgstr ""
 "Наведена нижче помилка повернулася з {$registrationAgency} і містить "
 "докладні відомості про її причину:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Наступне повідомлення повернулося з {$registrationAgency} і містить докладні "
-"відомості про реєстрацію:"
-
 msgid "manager.emails.addEmail"
 msgstr "Додати шаблон"
 

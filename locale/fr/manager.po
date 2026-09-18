@@ -437,11 +437,6 @@ msgstr ""
 "{$registrationAgency} a renvoyé l'erreur suivante, qui contient des détails "
 "sur sa cause :"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"{$registrationAgency} a renvoyé le message suivant, contenant des détails "
-"sur l'enregistrement :"
-
 msgid "manager.emails.addEmail"
 msgstr "Ajouter un modèle"
 

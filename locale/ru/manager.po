@@ -427,11 +427,6 @@ msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
 "{$registrationAgency} вернуло следующую ошибку с информацией о её причинах:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"{$registrationAgency} вернуло следующее сообщение с информацией о "
-"регистрации:"
-
 msgid "manager.emails.addEmail"
 msgstr "Добавить шаблон"
 

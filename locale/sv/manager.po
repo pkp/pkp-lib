@@ -404,9 +404,6 @@ msgstr "DOI:er"
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr "Följande fel har rapporterats av {$registrationAgency}:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr "Följande fel har rapporterats av {$registrationAgency}:"
-
 msgid "manager.emails.addEmail"
 msgstr "Lägg till mall"
 

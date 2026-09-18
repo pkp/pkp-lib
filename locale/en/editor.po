@@ -310,6 +310,9 @@ msgstr "Review Viewed"
 msgid "editor.review.reviewerThanked"
 msgstr "Reviewer Thanked"
 
+msgid "editor.review.reviewerReminded"
+msgstr "Reviewer Reminded"
+
 msgid "editor.review.ReviewerResendRequest"
 msgstr "Request Resent"
 

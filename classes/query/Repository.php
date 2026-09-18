@@ -3,8 +3,8 @@
 /**
  * @file classes/query/Repository.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2024-2026 Simon Fraser University
+ * Copyright (c) 2024-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -198,17 +198,16 @@ class Repository
     }
 
     /**
-     * Deletes all queries, notes, and notifications associated with the given submission ID.
+     * Deletes all queries associated with the given submission ID.
+     *
+     * Queries are deleted one at a time rather than through the query builder so that
+     * each query's own cascade runs and removes its notes, the files attached to those
+     * notes, and its notifications.
      */
     public function deleteBySubmissionId(int $submissionId): void
     {
-        $queries = Query::withAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, $submissionId)->get();
-        $queryIds = $queries->pluck('query_id')->all();
-
-        if (!empty($queryIds)) {
-            Query::whereIn('query_id', $queryIds)->delete();
-            Note::whereIn('assoc_id', $queryIds)->delete();
-            Notification::whereIn('assoc_id', $queryIds)->delete();
-        }
+        Query::withAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, $submissionId)
+            ->get()
+            ->each(fn (Query $query) => $query->delete());
     }
 }

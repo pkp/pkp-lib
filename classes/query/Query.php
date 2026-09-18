@@ -3,8 +3,8 @@
 /**
  * @file classes/query/Query.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2024-2026 Simon Fraser University
+ * Copyright (c) 2024-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Query
@@ -28,8 +28,8 @@ class Query extends Model
 {
     use HasCamelCasing;
 
-    const CREATED_AT = 'date_posted';
-    const UPDATED_AT = 'date_modified';
+    public const CREATED_AT = 'date_posted';
+    public const UPDATED_AT = 'date_modified';
 
     protected $table = 'queries';
     protected $primaryKey = 'query_id';
@@ -52,11 +52,20 @@ class Query extends Model
         ];
     }
 
+    /**
+     * Booted method to handle model events.
+     *
+     * Deletes the data connected to a query when it is deleted. Notes are deleted one at
+     * a time rather than through the query builder so that each note's own cascade runs
+     * and removes the files attached to it. Notifications have no such cascade, and their
+     * settings are removed by a foreign key, so they are deleted in bulk.
+     */
     protected static function booted(): void
     {
-        // Delete connected model data when a Query is deleted.
         static::deleted(function (Query $query) {
-            Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
+            Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)
+                ->get()
+                ->each(fn (Note $note) => $note->delete());
             Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
         });
     }

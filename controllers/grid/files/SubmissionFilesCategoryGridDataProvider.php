@@ -131,29 +131,27 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
             }
         } else {
             // Filter the passed workflow stage files.
-            if (!$this->_submissionFiles) {
-                $this->_submissionFiles = Repo::submissionFile()
-                    ->getCollector()
-                    ->filterBySubmissionIds([$submission->getId()])
-                    ->getMany()
-                    ->toArray();
-            }
-            $submissionFiles = $this->_submissionFiles;
+            $this->_submissionFiles ??= Repo::submissionFile()
+                ->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->getMany()
+                ->toArray();
+
             $stageSubmissionFiles = [];
-            foreach ($submissionFiles as $key => $submissionFile) {
+            foreach ($this->_submissionFiles as $key => $submissionFile) {
                 if (in_array($submissionFile->getData('fileStage'), $fileStages)) {
                     $stageSubmissionFiles[$key] = $submissionFile;
                 } elseif ($submissionFile->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_QUERY) {
                     // Determine the stage from the query.
                     if ($submissionFile->getData('assocType') != Application::ASSOC_TYPE_NOTE) {
-                        break;
+                        continue;
                     }
                     $note = Note::find($submissionFile->getData('assocId'));
                     if ($note?->assocType == Application::ASSOC_TYPE_QUERY) {
                         $query = EditorialTask::find($note->assocId);
-                    }
-                    if ($query && $query->stageId == $stageId) {
-                        $stageSubmissionFiles[$key] = $submissionFile;
+                        if ($query?->stageId == $stageId) {
+                            $stageSubmissionFiles[$key] = $submissionFile;
+                        }
                     }
                 }
             }

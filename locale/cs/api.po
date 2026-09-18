@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-07-26 09:10+0000\n"
+"PO-Revision-Date: 2026-09-03 07:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs/>\n"
 "Language: cs\n"
@@ -79,8 +79,8 @@ msgstr "Vámi požadovaný příspěvek nebyl nalezen."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
-"Nezveřejněné položky nelze exportovat/odložit. Zrušte prosím výběr "
-"nepublikovaných položek a zkuste to znovu."
+"Položky, u kterých bylo zrušeno zveřejnění, nelze exportovat ani archivovat. "
+"Zrušte, prosím, výběr položek se zrušeným zveřejněním a zkuste to znovu."
 
 msgid "api.dois.400.creationFailed"
 msgstr "Došlo k chybě a objekt DOI nelze vytvořit."
@@ -109,17 +109,17 @@ msgid "api.dois.400.invalidPluginType"
 msgstr "Aktuálně nakonfigurovaný plugin musí být plugin registrační agentury."
 
 msgid "api.emails.400.missingBody"
-msgstr "Musíte zahrnout email, který má být odeslán."
+msgstr "Musíte zahrnout e-mail, který má být odeslán."
 
 msgid "api.emails.400.missingSubject"
-msgstr "Musíte uvést předmět emailu."
+msgstr "Musíte uvést předmět e-mailu."
 
 msgid "api.emails.400.missingUserGroups"
-msgstr "Musíte uvést uživatelské role, které mají dostat tento email."
+msgstr "Musíte uvést uživatelské role, které mají dostat tento e-mail."
 
 msgid "api.emails.403.notAllowedUserGroup"
 msgstr ""
-"Nemáte oprávnění odeslat email uživatelům s jednou, nebo více vybranými "
+"Nemáte oprávnění odeslat e-mail uživatelům s jednou, nebo více vybranými "
 "rolemi."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
@@ -129,7 +129,7 @@ msgid "api.emailTemplates.400.invalidContext"
 msgstr "Toto není platný kontext."
 
 msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Požadovaná šablona emailu nebyla nalezena."
+msgstr "Požadovaná šablona e-mailu nebyla nalezena."
 
 msgid "api.files.400.noUpload"
 msgstr "S požadavkem nebyl nalezen žádný soubor k nahrání."
@@ -149,17 +149,16 @@ msgid "api.publication.403.alreadyPublished"
 msgstr "Publikace, kterou chcete publikovat již byla publikována."
 
 msgid "api.publication.403.alreadyUnpublished"
-msgstr "Publikace, u které chcete zrušit publikování, nebyla publikována."
+msgstr "Publikace, u které chcete zrušit zveřejnění, nebyla zveřejněna."
 
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
-"Status nejde změni přímo pomocí API. Místo toho použijte funkce /publish a /"
-"unpublish."
+"Status nejde změnit přímo pomocí API. Místo toho použijte koncové body /"
+"publish a /unpublish."
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr ""
-"Nejprve je třeba zrušit publikování této publikace, než ji budete moci "
-"smazat."
+"Nejprve je třeba zrušit zveřejnění této publikace, než ji budete moci smazat."
 
 msgid "api.publicFiles.400.extensionNotSupported"
 msgstr "Můžete nahrávat pouze soubory následujících typů: {$fileTypes}."
@@ -302,7 +301,7 @@ msgid "api.vocabs.400.localeNotSupported"
 msgstr "Lokalizace {$locale} není podporována."
 
 msgid "api.mailables.404.mailableNotFound"
-msgstr "Požadovaný email nebyl nalezen."
+msgstr "Požadovaný e-mail nebyl nalezen."
 
 msgid "api.jobs.404.failedJobNotFound"
 msgstr "Neúspěšná úloha nebyla nalezena v seznamu neúspěšných úloh."

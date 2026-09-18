@@ -2,13 +2,14 @@
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
 # Sérgio Reis <disergioreis@gmail.com>, 2025.
 # Alberto Simoes <ambs@zbr.pt>, 2026.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2026-05-18 16:36+0000\n"
-"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"PO-Revision-Date: 2026-08-28 12:07+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pt/>\n"
 "Language: pt\n"
@@ -2167,7 +2168,7 @@ msgid "submission.copyrightYear"
 msgstr "Ano dos Direitos de Autor"
 
 msgid "submission.copyrightStatement"
-msgstr "Direitos de Autor (c) {$copyrightYear} {$copyrightHolder}"
+msgstr "Alguns direitos reservados {$copyrightYear} {$copyrightHolder}"
 
 msgid "submission.licenseURLValid"
 msgstr "Indique um URL remoto válido (incluindo http://)."

@@ -1,10 +1,10 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023, 2024, 2025.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2025-10-14 17:41+0000\n"
+"PO-Revision-Date: 2026-09-09 14:59+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "sv/>\n"
@@ -636,7 +636,6 @@ msgstr ""
 "Deadline för granskning måste vara senare än eller lika med deadline för "
 "svar."
 
-#, fuzzy
 msgid "editor.review.reviewViewed"
 msgstr "Granskning visad"
 

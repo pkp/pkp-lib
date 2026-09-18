@@ -1,8 +1,9 @@
 # Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+# ศราวุฒิ จำปาทอง <sarawut_cc@thonburi-u.ac.th>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-10-20 04:17+0000\n"
-"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"PO-Revision-Date: 2026-09-16 03:59+0000\n"
+"Last-Translator: ศราวุฒิ จำปาทอง <sarawut_cc@thonburi-u.ac.th>\n"
 "Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/common/th/>"
 "\n"
 "Language: th\n"
@@ -2228,3 +2229,12 @@ msgstr "คิวของฉัน"
 
 msgid "review.anonymousPeerReview.title"
 msgstr "วิธีการทำให้ไฟล์ทั้งหมดเป็นแบบไม่ระบุชื่อ"
+
+msgid "common.editorialMasthead"
+msgstr "รายชื่อคณะบรรณาธิการ"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "รายนามผู้ทรงคุณวุฒิตรวจสอบบทความประจำปีที่ผ่านมา"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "ดู <a href=\"{$url}\">ประวัติบรรณาธิการ</a>"

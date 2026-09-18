@@ -1,8 +1,9 @@
 # Anne-Inger <annrag@oslomet.no>, 2026.
+# Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-06-16 07:20+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"PO-Revision-Date: 2026-09-14 11:59+0000\n"
+"Last-Translator: Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -283,8 +284,9 @@ msgstr ""
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Den forespurte årgangen, nummeret og året er ikke gyldig."
 
+#, fuzzy
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr ""
+msgstr "Du har ikke adgang til å sende inn manus i din brukerrolle."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -317,29 +319,32 @@ msgstr ""
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "Språket {$locale} støttes ikke."
 
+#, fuzzy
 msgid "api.mailables.404.mailableNotFound"
-msgstr ""
+msgstr "E-posten du ba om ble ikke funnet."
 
+#, fuzzy
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Oppgaven som feilet ble ikke funnet i feillisten."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "Ingen oppgaver som feilet ble funnet i listen."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Ikke i stand til å resende oppgaver som feilet."
 
+#, fuzzy
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "Jobb som feilet ble gjeninnsendt."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
 
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr ""
+msgstr "Ikke i stand til å fjerne jobb som feilet fra listen over feil."
 
 #, fuzzy
 msgid "api.jobs.200.failedJobDeleteSucceed"
@@ -466,3 +471,22 @@ msgstr ""
 
 msgid "api.rors.404.rorNotFound"
 msgstr "Ror-en du etterspurte, ble ikke funnet."
+
+msgid "api.rors.429.tooManyRequests"
+msgstr "For mange ROR-oppslag. Vent litt og prøv på nytt."
+
+msgid "api.rors.429.globalRateLimited"
+msgstr ""
+"Det er for mange ROR-oppslag som behandles akkurat nå. Vent litt og prøv "
+"igjen."
+
+#, fuzzy
+msgid "api.rors.429.rorApiRateLimited"
+msgstr ""
+"ROR-registeret (ror.org) begrenser i øyeblikket våre oppslag. Vent noen få "
+"minutter, og prøv igjen."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Du kan ikke endre språk for denne innsendingen fordi den allerede har mer "
+"enn en publiseringsversjon eller en publisert utgivelse."

@@ -1,11 +1,12 @@
 # Anne-Inger <annrag@oslomet.no>, 2026.
+# Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-16 12:00+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"PO-Revision-Date: 2026-09-14 11:59+0000\n"
+"Last-Translator: Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -314,7 +315,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Fagfelle takket"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Forespørsel sendt på nytt"
 
 msgid "editor.review.reviewerComments"
 msgstr "Fagfellens kommentarer"
@@ -344,8 +345,11 @@ msgid "editor.review.errorReinstatingReviewer"
 msgstr ""
 "Det skjedde en feil da fagfellen skulle legges til på nytt. Prøv igjen."
 
+#, fuzzy
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Det oppstod en feil ved forespørsel til fagfellen om å revurdere "
+"invitasjonen. Prøv på nytt."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Legg til brukeren til fagfellegruppen"
@@ -541,8 +545,9 @@ msgstr "{$count} aktive"
 msgid "reviewer.list.activeReviewsDescription"
 msgstr "Aktive fagfelleoppdrag for øyeblikket"
 
+#, fuzzy
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "Denne fagfellen fullførte en vurdering i siste runde."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Ferdige fagfelleoppdrag"
@@ -684,3 +689,25 @@ msgstr "Seksjoner som kun angår forfattere vises"
 #, fuzzy
 msgid "editor.review.allSections"
 msgstr "Redaktørens skjema viser alle seksjoner om vurdering"
+
+msgid "editor.review.reviewViewed"
+msgstr "Fagfellevurdering sett"
+
+#, fuzzy
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Fagfelle lot seg ikke legge til fordi dato for når vurdering skal foreligge "
+"må være senere enn datoen for når det må svares på henvendelsen."
+
+#, fuzzy
+msgid "editor.submission.search"
+msgstr "Søk i innsendelser, ID, forfattere, nøkkelord osv."
+
+msgid "editor.submission.days"
+msgstr "Dager"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dager på aktuelt trinn"
+
+msgid "editor.submission.viewSummary"
+msgstr "Sammendrag"

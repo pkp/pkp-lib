@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-08-26 12:49+0000\n"
+"PO-Revision-Date: 2026-09-04 12:25+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
@@ -432,7 +432,7 @@ msgid "manager.emails.addEmail"
 msgstr "Přidat šablonu"
 
 msgid "manager.emails.createEmail"
-msgstr "Vytvořit email"
+msgstr "Vytvořit e-mail"
 
 msgid "manager.emails.data"
 msgstr "Data šablony zprávy"
@@ -445,15 +445,15 @@ msgstr "Zakázat"
 
 msgid "manager.emails.disable.message"
 msgstr ""
-"Chystáte se zakázat tuto šablonu emailu. Pokud existují systémové procesy "
+"Chystáte se zakázat tuto šablonu e-mailu. Pokud existují systémové procesy "
 "používající tuto šablonu, nebudou ji moci používat. Chcete tuto akci "
 "potvrdit?"
 
 msgid "manager.emails.editTestExample"
-msgstr "Editovat testovací příklad emailu"
+msgstr "Editovat testovací příklad e-mailu"
 
 msgid "manager.emails.emailTemplate"
-msgstr "Šablona emailu"
+msgstr "Šablona e-mailu"
 
 msgid "manager.emails.emailTemplates"
 msgstr "E-mailové šablony"
@@ -465,24 +465,24 @@ msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Při přidávání e-mailové šablony musíte zadat ID kontextu."
 
 msgid "manager.emails.enabled"
-msgstr "Povolit tuto šablonu emailu"
+msgstr "Povolit tuto šablonu e-mailu"
 
 msgid "manager.emails.enable"
 msgstr "Povolit"
 
 msgid "manager.emails.enable.message"
-msgstr "Chystáte se aktivovat tento email. Chcete tuto akci potvrdit?"
+msgstr "Chystáte se aktivovat tento e-mail. Chcete tuto akci potvrdit?"
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr ""
-"Pro daný email je vyžadován unikátní emailový klíč, který nesmí obsahovat "
+"Pro daný e-mail je vyžadován unikátní e-mailový klíč, který nesmí obsahovat "
 "mezery ani speciální znaky."
 
 msgid "manager.emails.form.bodyRequired"
-msgstr "Je vyžadován text zprávy emailu."
+msgstr "Je vyžadován text zprávy e-mailu."
 
 msgid "manager.emails.form.subjectRequired"
-msgstr "Je vyžadován předmět emailu."
+msgstr "Je vyžadován předmět e-mailu."
 
 msgid "manager.emails"
 msgstr "Připravené e-maily"
@@ -492,7 +492,7 @@ msgstr "Resetovat vše"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
-"Pokud obnovíte všechny šablony, budou všechny změny šablon emailů ztraceny. "
+"Pokud obnovíte všechny šablony, budou všechny změny šablon e-mailů ztraceny. "
 "Chcete tuto akci potvrdit?"
 
 msgid "manager.emails.reset.message"
@@ -616,7 +616,7 @@ msgstr "Vygenerovat náhodné heslo."
 
 msgid "manager.people.createUserSendNotify"
 msgstr ""
-"Poslat uživateli uvítací email obsahující jeho uživatelské jméno a heslo."
+"Poslat uživateli uvítací e-mail obsahující jeho uživatelské jméno a heslo."
 
 msgid "manager.people.disable"
 msgstr "Zablokovat"
@@ -631,20 +631,20 @@ msgid "manager.people.editUser"
 msgstr "Editovat uživatele"
 
 msgid "manager.people.emailUsers.emailSelectedUsers"
-msgstr "Napsat vybraným uživatelům email"
+msgstr "Napsat vybraným uživatelům e-mail"
 
 msgid "manager.people.emailUsers.emailUsersEnrolledAs"
-msgstr "Napsat email uživatelům zapsaným jako"
+msgstr "Napsat e-mail uživatelům zapsaným jako"
 
 msgid "manager.people.emailUsers"
-msgstr "Napsat uživateli email"
+msgstr "Napsat uživateli e-mail"
 
 msgid "manager.people.emailUsers.selectLocale"
 msgstr "Vyberte jazykovou lokalizaci"
 
 msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
-"Vyberte uživatele, kterým byste chtěli napsat email tím, že zaškrtnete "
+"Vyberte uživatele, kterým byste chtěli napsat e-mail tím, že zaškrtnete "
 "políčka vedle jejich jmen"
 
 msgid "manager.people.enable"
@@ -1061,7 +1061,7 @@ msgid "manager.setup.notifications"
 msgstr "Upozornění na příspěvky autora"
 
 msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Poslat kopii na tuto emailovou adresu"
+msgstr "Poslat kopii na tuto e-mailovou adresu"
 
 msgid "manager.setup.notifyAllAuthors"
 msgstr "Upozornit všechny autory"
@@ -1076,7 +1076,7 @@ msgstr "Odeslání e-mailového oznámení všem autorům příspěvku."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
-"Odeslat email pouze autorům přiřazeným k pracovnímu postupu příspěvku. "
+"Odeslat e-mail pouze autorům přiřazeným k redakčního procesu příspěvku. "
 "Obvykle se jedná o předkládajícího autora."
 
 msgid "manager.setup.submissionsNotifications"
@@ -1086,7 +1086,7 @@ msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
 msgstr "Upozornit primární kontakt"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr "Ano, poslat kopii na email {$email}"
+msgstr "Ano, poslat kopii na e-mail {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
 msgstr "Ne"
@@ -1105,7 +1105,7 @@ msgstr "Jedna nebo více z těchto e-mailových adres není platná."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
-"Autorům je automaticky zasíláno emailem potvrzení podání jejich příspěvku. "
+"Autorům je automaticky zasíláno e-mailem potvrzení podání jejich příspěvku. "
 "Můžete zaslat kopii této zprávy také na následující adresy:"
 
 msgid "manager.setup.notifyUsers"
@@ -1118,7 +1118,7 @@ msgid "manager.setup.notifyUsers.copyDetails"
 msgstr "Zašlete mi kopii tohoto e-mailu na adresu {$email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr "Poslat email"
+msgstr "Poslat e-mail"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
@@ -1132,7 +1132,7 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr "E-mail byl úspěšně odeslán všem příjemcům."
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Poslat další email"
+msgstr "Poslat další e-mail"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Politika otevřeného přístupu"
@@ -1875,10 +1875,10 @@ msgid "manager.website.title"
 msgstr "Nastavení webových stránek"
 
 msgid "manager.workflow"
-msgstr "Pracovní postup"
+msgstr "Redakční proces"
 
 msgid "manager.workflow.title"
-msgstr "Nastavení workflow"
+msgstr "Nastavení redakčního procesu"
 
 msgid "manager.distribution"
 msgstr "Distribuce"
@@ -2480,7 +2480,7 @@ msgstr "Odkaz na stránku zobrazující prohlášení o soukromí."
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
 "Tento odkaz se zobrazí pouze pokud jste vložili prohlášení o soukromí v "
-"Nastavení > Workflow > Příspěvek."
+"Nastavení > Redakční proces > Příspěvek."
 
 msgid "grid.category.add"
 msgstr "Přidat kategorii"
@@ -2829,8 +2829,7 @@ msgid "emailTemplate.variable.decision.description"
 msgstr "Popis přijatého rozhodnutí"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
-"Fáze redakčního pracovního postupu, ve které bylo toto rozhodnutí přijato"
+msgstr "Fáze redakčního procesu, ve které bylo toto rozhodnutí přijato"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
@@ -2956,7 +2955,7 @@ msgstr "Adresa URL pro odeslání v průvodci odesláním"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
-"Jména autorů přiřazených k pracovnímu postupu příspěvku. Obvykle se jedná o "
+"Jména autorů přiřazených k redakčnímu procesu příspěvku. Obvykle se jedná o "
 "předkládajícího autora"
 
 msgid "emailTemplate.variable.passwordResetUrl"
@@ -3020,21 +3019,23 @@ msgstr "Odkaz na stránku s redakčními aktivitami"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
-"Tento e-mail je odeslán, když editor znovu přiřadí nepřiřazeného recenzenta."
+"Tento e-mail je odeslán, když redaktor znovu přiřadí nepřiřazeného "
+"recenzenta."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
-"Tento e-mail zasílá editor recenzentovi, který odmítl žádost o recenzi, "
-"pokud si editor přeje žádost znovu zaslat."
+"Tento e-mail zasílá redaktor recenzentovi, který odmítl žádost o recenzi, "
+"pokud si redaktor přeje žádost znovu zaslat."
 
 msgid "mailable.reviewerUnassign.name"
 msgstr "Bylo zrušeno přiřazení recenzenta"
 
 msgid "mailable.reviewerUnassign.description"
-msgstr "Tento email je poslán v případě, že editor zruší přiřazení recenzenta."
+msgstr ""
+"Tento e-mail je poslán v případě, že redaktor zruší přiřazení recenzenta."
 
 msgid "mailable.validateEmailSite.name"
-msgstr "Validace emailu (stránky)"
+msgstr "Validace e-mailu (stránky)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
@@ -3058,7 +3059,7 @@ msgstr "Oznámení rozhodnutí recenzentům"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
-"Tento e-mail zasílá editor recenzentovi, aby mu oznámil, že bylo přijato "
+"Tento e-mail zasílá redaktor recenzentovi, aby mu oznámil, že bylo přijato "
 "rozhodnutí týkající se příspěvku, který recenzoval."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
@@ -3191,7 +3192,7 @@ msgstr ""
 "jazykových úprav a nebude podroben recenznímu řízení."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr "Vypracováno doporučení"
+msgstr "Vydané doporučení"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
@@ -3236,7 +3237,7 @@ msgstr "Poděkování za recenzi"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"Tento e-mail zasílá editor recenzentovi, aby mu potvrdil, že jeho recenzi "
+"Tento e-mail zasílá redaktor recenzentovi, aby mu potvrdil, že jeho recenzi "
 "obdržel, a poděkoval mu za jeho práci."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
@@ -3252,7 +3253,7 @@ msgstr "Požadavek na recenzi"
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Tento e-mail od editora sekce recenzentovi žádá, aby recenzent přijal nebo "
+"Tento e-mail od redaktora sekce recenzentovi žádá, aby recenzent přijal nebo "
 "odmítl úkol posoudit předložený příspěvek. "
 
 msgid "mailable.reviewRequestSubsequent.name"
@@ -3282,9 +3283,9 @@ msgstr "Potvrzení obnovení hesla"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
-"Tento email je zasílán registrovanému uživateli, když uvede, že zapomněl své "
-"heslo nebo se nemůže přihlásit. Obsahuje adresu URL, kterou může následovat "
-"a resetovat své heslo."
+"Tento e-mail je zasílán registrovanému uživateli, když uvede, že zapomněl "
+"své heslo nebo se nemůže přihlásit. Obsahuje adresu URL, kterou může "
+"následovat a resetovat své heslo."
 
 msgid "mailable.userRegister.name"
 msgstr "Uživatelský účet byl vytvořen"
@@ -3301,7 +3302,7 @@ msgstr "Registrace recenzentů"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
-"Tento email je zaslán nově registrovanému recenzentovi jako přivítání do "
+"Tento e-mail je zaslán nově registrovanému recenzentovi jako přivítání do "
 "systému a poskytne mu doklad o jeho uživatelském jménu a heslu."
 
 msgid "mailable.submissionSavedForLater.name"
@@ -3366,14 +3367,14 @@ msgstr "Oznámení revidované verze"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
-"Tento email je automaticky odeslán příslušnému editorovi článku, pokud autor "
-"odešle revidovanou verzi článku."
+"Tento e-mail je automaticky odeslán příslušnému redaktorovi článku, pokud "
+"autor odešle revidovanou verzi článku."
 
 msgid "mailable.announcementNotify.name"
 msgstr "Nové oznámení"
 
 msgid "mailable.announcementNotify.description"
-msgstr "Tento email je posílán, pokud je vytvořeno nové oznámení."
+msgstr "Tento e-mail je posílán, pokud je vytvořeno nové oznámení."
 
 msgid "mailable.statisticsReportNotify.name"
 msgstr "Oznámení o statistické zprávě"
@@ -3417,7 +3418,7 @@ msgstr ""
 "podávání."
 
 msgid "manager.manageEmails"
-msgstr "Správa emailů"
+msgstr "Správa e-mailů"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
@@ -3671,7 +3672,7 @@ msgstr "Statistiky & Zprávy"
 #~ msgstr "Odkaz na stránku se statistikami publikovaných článků"
 
 msgid "emailTemplate.variable.activateUrl"
-msgstr "Odkaz k ověření emailového účtu"
+msgstr "Odkaz k ověření e-mailového účtu"
 
 msgid "manager.highlights.confirmDelete"
 msgstr "Opravdu chcete odstranit {$title}? Tuto akci nelze vrátit zpět."
@@ -3857,7 +3858,7 @@ msgstr ""
 "redakčnímu týmu."
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
-msgstr "Změňte adresu emailové pozvánky"
+msgstr "Změňte adresu e-mailové pozvánky"
 
 msgid "notification.defaultLocaleSettingsCannotBeSaved"
 msgstr ""
@@ -3934,5 +3935,5 @@ msgstr "Je nutné zadat formát přípony DOI."
 
 msgid "mailable.changeProfileEmailInvitationNotify.description"
 msgstr ""
-"Uživatelé, kteří v uživatelském profilu požádají o změnu své emailové "
+"Uživatelé, kteří v uživatelském profilu požádají o změnu své e-mailové "
 "adresy, obdrží žádost o potvrzení této změny."

@@ -7,13 +7,14 @@
 # Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
 # Lívia Carolina Gouvêa de Faria <livia@mail.mayfirst.org>, 2025.
 # Leandro Muniz de Lima <leandro.m.lima@ufes.br>, 2026.
+# Andre Moura Melgarejo <melgarejo.andre@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2026-07-17 23:24+0000\n"
-"Last-Translator: Leandro Muniz de Lima <leandro.m.lima@ufes.br>\n"
+"PO-Revision-Date: 2026-08-31 17:05+0000\n"
+"Last-Translator: Andre Moura Melgarejo <melgarejo.andre@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1946,7 +1947,7 @@ msgid "manager.reviewForms.description"
 msgstr "Detalhes e instruções"
 
 msgid "manager.reviewForms.edit"
-msgstr "Forumlário de avaliação"
+msgstr "Formulário de avaliação"
 
 msgid "manager.reviewForms.form.titleRequired"
 msgstr "É necessário informar o título do formulário."

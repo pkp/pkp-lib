@@ -1,13 +1,14 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
 # Anne-Inger <annrag@oslomet.no>, 2026.
+# Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2026-06-16 14:49+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"PO-Revision-Date: 2026-09-14 11:59+0000\n"
+"Last-Translator: Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -480,7 +481,7 @@ msgid "user.apiKey.generate"
 msgstr "Generer ny API-nøkkel"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Slett"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
@@ -959,3 +960,22 @@ msgid "user.masthead.update.message"
 msgstr ""
 "Dette vil oppdatere om denne brukeren vises i journalens topptekst for den "
 "valgte rollen. Brukeren vil bli varslet om denne endringen."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Foretrukne avatar-initialer"
+
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr ""
+"For mange forespørsler er sendt til ROR-API-en. Vent litt før du fortsetter "
+"å søke."
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Oppgi de to bokstavene som du ønsker å bruke som din avatar. Disse "
+"bokstavene vil bli vist for å angi deg."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Oppgi tilhørighet på innsendingens språk."
+
+msgid "user.role.ended"
+msgstr "Rollen avsluttet"

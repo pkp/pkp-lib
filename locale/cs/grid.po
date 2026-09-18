@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-06-25 09:31+0000\n"
+"PO-Revision-Date: 2026-09-04 12:25+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/cs/>"
 "\n"
@@ -162,7 +162,7 @@ msgid "grid.action.readReview"
 msgstr "Číst tuto recenzi"
 
 msgid "grid.action.email"
-msgstr "Poslat email"
+msgstr "Poslat e-mail"
 
 msgid "grid.action.addReviewer"
 msgstr "Přidat recenzenta"
@@ -207,16 +207,16 @@ msgid "grid.action.resetAll"
 msgstr "Vrátit všem položkám původní hodnotu"
 
 msgid "grid.action.addPreparedEmail"
-msgstr "Přidat novou šablonu emailu"
+msgstr "Přidat novou šablonu e-mailu"
 
 msgid "grid.action.editPreparedEmail"
-msgstr "Upravit tuto šablonu emailu¨"
+msgstr "Upravit tuto šablonu e-mailu¨"
 
 msgid "grid.action.disableEmail"
-msgstr "Zakázat tuto šablonu emailu"
+msgstr "Zakázat tuto šablonu e-mailu"
 
 msgid "grid.action.resetEmail"
-msgstr "Vrátit tuto šablonu emailu na původní nastavení"
+msgstr "Vrátit tuto šablonu e-mailu na původní nastavení"
 
 msgid "grid.action.expandAll"
 msgstr "Rozbalit vše"
@@ -530,7 +530,7 @@ msgstr "Při správě tohoto uživatele došlo k chybě. Prosím, zkuste to znov
 
 msgid "grid.user.errorEmail"
 msgstr ""
-"Při odesílání tohoto emailu došlo k chybě. Ujistěte se, že konfigurace e-"
+"Při odesílání tohoto e-mailu došlo k chybě. Ujistěte se, že konfigurace e-"
 "mailového serveru funguje a/nebo se obraťte na správce systému."
 
 msgid "grid.user.cannotAdminister"
@@ -552,7 +552,7 @@ msgid "grid.user.notifyUser"
 msgstr "Upozornit uživatele"
 
 msgid "grid.user.notifyUserDescription"
-msgstr "Poslat uživateli uvítací email."
+msgstr "Poslat uživateli uvítací e-mail."
 
 msgid "grid.user.mustChangePassword"
 msgstr "Změnit heslo"
@@ -620,7 +620,7 @@ msgstr ""
 "\"{$oldUsername}\" bude definitivně smazán. Tuto akci nelze vrátit."
 
 msgid "grid.preparedEmails.title"
-msgstr "Připravené šablony emailů"
+msgstr "Připravené šablony e-mailů"
 
 msgid "grid.preparedEmails.currentList"
 msgstr "Současný seznam"
@@ -659,7 +659,7 @@ msgid "grid.userGroup.unassignStage"
 msgstr "Odebrat přiřazení etapy"
 
 msgid "grid.userGroup.allStages"
-msgstr "Všechny etapy workflow"
+msgstr "Všechny etapy redakčního procesu"
 
 msgid "grid.userGroup.filter.listRoles"
 msgstr "Seznam rolí přiřazených pro"

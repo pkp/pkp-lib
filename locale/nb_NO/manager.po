@@ -3,13 +3,14 @@
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024, 2026.
 # "My L. Bjørnflaten" <myl@uio.no>, 2024.
 # Anne-Inger <annrag@oslomet.no>, 2026.
+# Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2026-06-22 13:45+0000\n"
-"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
+"PO-Revision-Date: 2026-09-14 11:59+0000\n"
+"Last-Translator: Jan Erik Frantsvåg <jan.e.frantsvag@uit.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -968,38 +969,49 @@ msgstr ""
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Egendefinert format"
 
+#, fuzzy
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "DOI-registeringsorganisasjon"
 
+#, fuzzy
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Angi hvilken DOI-registreringsorganisasjon du vil benytte når du deponerer "
+"DOI-er."
 
+#, fuzzy
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Ingen DOI-registreringsorganisasjon aktivert"
 
+#, fuzzy
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI-er kan skapes og deponeres automatisk hos en DOI-"
+"registreringsorganisasjon. For å nyttiggjøre deg av dette må du finne og "
+"installere en progamutvidelse fra den aktuelle organisasjonen."
 
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Ingen"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOI-versjonering"
 
+#, fuzzy
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Du kan ikke velge dette uten at DOI-funksjonalitet er aktivert."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Det finnes {$count} versjoner."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Se alle"
 
+#, fuzzy
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI-er for alle versjoner"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOI-en inneholder ugyldige tegn."
 
 msgid "manager.setup.publishing"
 msgstr "Publiseringsopplysninger"
@@ -1105,7 +1117,7 @@ msgstr ""
 "Dette gjelder som regel kun den innsendende forfatter."
 
 msgid "manager.setup.submissionsNotifications"
-msgstr ""
+msgstr "Meldinger"
 
 #, fuzzy
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
@@ -1127,8 +1139,9 @@ msgstr ""
 "gjennomføres, sendes til alle eposter som angis her. Skill e-postadressene "
 "med komma. For eksempel: one@example.com,two@example.com"
 
+#, fuzzy
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "En eller flere av disse e-postadressene er ugyldige."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -3065,20 +3078,27 @@ msgstr "Forfatternes fulle navn"
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
 msgstr "Forfatters URL til bidraget"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "URL for innsendingen i redaktørgrensesnittet"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "URL for den publiserte innsendingen"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "URL for innsendingen i innsendingsgrensesnittet"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Navnene på forfatterne som er angitt i innsendingens arbeidsflyt. Dette er "
+"vanligvis bare korresponderende forfatter"
 
+#, fuzzy
 msgid "emailTemplate.variable.passwordResetUrl"
-msgstr ""
+msgstr "Fiktiv URL som sendes en bruker for å bekrefte nullstilling av passord"
 
 msgid "emailTemplate.variable.password"
 msgstr "Nytt tilfeldig passord"
@@ -3179,35 +3199,53 @@ msgstr "En kopi av e-posten sendt til forfatteren som sendte inn bidraget"
 msgid "mailable.decision.notifyReviewer.name"
 msgstr "Varsle fagfellene om avgjørelsen"
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Denne e-posten sendes av en redaktør til en fagfelle for å informere dem om "
+"det er tatt en beslutning om en innsending de har vurdert."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"En kort beskrivelse av beslutningen, som er ment å bli delt i en e-post sent "
+"fagfellene om beslutningen."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Vi har besluttet å akseptere denne innsendingen uten endringer."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Vi har besluttet å avvise denne innsendingen."
 
+#, fuzzy
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Vi har bedt forfatterne om å sende inn omarbeidelser."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Vi har bedt forfatterne om å sende inn en omarbeidet versjon for ytterligere "
+"vurdering."
 
+#, fuzzy
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
 msgstr ""
+"En fagfelle som var invitert til å bedømme innsendingen har blitt fjernet."
 
+#, fuzzy
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Innsendingen er akseptert"
 
+#, fuzzy
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at innsendingen har blitt akseptert "
+"for publisering."
 
 #, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
@@ -3216,63 +3254,102 @@ msgstr ""
 #, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Denne e-posten gir forfatteren beskjed om at innsendingen har blitt sendt "
+"tilbake til språkvasktrinnet."
 
+#, fuzzy
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Innsending sendt tilbake fra språkvask"
 
+#, fuzzy
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at innsendingen har blitt sendt "
+"tilbake fra språkvasktinnet."
 
+#, fuzzy
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Beømmelsesrunde er annulert"
 
+#, fuzzy
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at en fagfelevurderingsrunde har "
+"blitt annullert."
 
+#, fuzzy
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Innsending avslått"
 
+#, fuzzy
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at innsendingen har blitt avslått "
+"etter fagfellevurdering."
 
+#, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Innsending er avslått (før fagfellevurdering)"
 
+#, fuzzy
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Ny fagfellevurderingsrunde igangsatt"
 
+#, fuzzy
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at en ny fagfellevurderingsrunde "
+"har begynt for innsendingen."
 
+#, fuzzy
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Omarbeidelser kreves"
 
+#, fuzzy
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om en beslutning om å kreve "
+"omarbeidelser."
 
+#, fuzzy
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Send inn på nytt for fagfellevurdering"
 
+#, fuzzy
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om en beslutning om å kreve "
+"omarbeidelser og ny innsending."
 
+#, fuzzy
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Gjenoppta avslått innsending"
 
+#, fuzzy
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at en tidligere beslutning om å "
+"avvise innsendelsen har blitt omgjort."
 
+#, fuzzy
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Gjenoppta innsending som ble avvist uten fagfellevurdering"
 
+#, fuzzy
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at en tidligere beslutning om å "
+"avvise innsendingen uten fagfellevurdering, har blitt omgjort."
 
+#, fuzzy
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Sendt til fagfellevurdering"
 
+#, fuzzy
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at innsendingen blir sendt til "
+"fagfellevurdering."
 
 #, fuzzy
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
@@ -3523,27 +3600,35 @@ msgstr ""
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Denne e-posten sendes automatisk til de oppnevnte redaktørene når fagfellen "
+"kommer med kommentarer"
 
+#, fuzzy
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Autentiseringskilde"
 
 #, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Innsendingen har blitt sendt tilbake til fagfellevurdering"
 
 #, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at innsendingen har blitt sendt "
+"tilbake til fagfellevurdering."
 
 #, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Innsending sendt tilbake til innsendingsstadiet"
 
 #, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Denne e-posten informerer forfatteren om at innsendingen har blitt sendt "
+"tilbake til innsendingstrinnet."
 
 msgid "manager.manageEmails"
 msgstr "Administrer e-poster"
@@ -3554,32 +3639,44 @@ msgstr ""
 "<p><a href=\"{$url}\">Legg til og rediger maler</a> for alle e-poster sendt "
 "fra systemet.</p>"
 
+#, fuzzy
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Legg til og rediger maler som du ønsker å gjøre tilgjengelig for brukerne nå "
+"de sender denne e-posten. Standarden lastes opp automatisk, brukeren vil "
+"raskt kunne laste opp øvrige maler som legges til her."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Maler"
 
+#, fuzzy
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Rediger mal"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Fjern mal"
 
+#, fuzzy
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "Er du sikker på at vil fjerne malen <strong>{$template}</strong>?"
 
+#, fuzzy
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Nullstill mal"
 
+#, fuzzy
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Er du sikker på at du ønsker å tilbakestille emne og standardtekst for malen "
+"<strong>{$template}</strong>?"
 
+#, fuzzy
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Søk etter navn eller beskrivelse"
 
+#, fuzzy
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Legg inn et kortnavn for å gjøre det lettere å finne igjen denne malen."
 
 msgid "manager.newSubmission"
 msgstr "Ny innlevering"
@@ -3653,41 +3750,53 @@ msgstr "Ja, legg til et kategorifelt i innleveringsarbeidsflyten."
 msgid "manager.submitWithCategories.no"
 msgstr "Nei, ikke vis forfattere dette feltet."
 
+#, fuzzy
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Be om språkvask"
 
+#, fuzzy
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Redaktør angitt"
 
+#, fuzzy
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Klar til produksjon"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "System"
 
+#, fuzzy
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Versjon opprettet"
 
+#, fuzzy
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Fagfellevurdering fullført"
 
+#, fuzzy
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Fagfellevurdering redigert"
 
+#, fuzzy
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Innsendingsbekreftelse til andre forfattere"
 
+#, fuzzy
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Redaktør tildelt"
 
+#, fuzzy
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Denne e-posten sendes til en redaktør når de har blitt tildelt en innsending."
 
+#, fuzzy
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Tildel redaktør"
 
+#, fuzzy
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Innsendingen må få tildelt en redaktør"
 
 #~ msgid "manager.plugins.pluginGallery.date"
 #~ msgstr "Versjonsdato: {$date}"
@@ -3992,3 +4101,82 @@ msgstr ""
 "Forfatteren {$authorName} har ikke et tilknytningsnavn på innsendingens "
 "språk, {$localeName}. Innsendingen kan ikke importeres uten disse "
 "opplysningene."
+
+#, fuzzy
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "Et DOI-suffiksmønster må angis."
+
+#, fuzzy
+msgid "manager.setup.notifyUsers.queued"
+msgstr "E-poster er lagt i kø og sendes så raskt som mulig."
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Sett påminnelser om fagfellevurdering"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Svar på anmodning om fagfellevurdering - før svarfristen"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Svar på forespørsel om fagfellevurdering - etter forfallsdatoen"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Innsending av fagfellevurdering - før forfallsdatoen"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Innsending av fagfellevurdering - etter forfallsdato"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dager før forfallsdato"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dager etter forfallsdato"
+
+#, fuzzy
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"Bestem rekkefølgen til roller i redaksjonsoversikten som blir allment "
+"tilgjengelig."
+
+#, fuzzy
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Fagfeller blir vist i et standardisert format for å sikre ensartethet og "
+"lett fremfinning i denne seksjonen."
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Send en e-post med påminnelse før eller etter om svar på forespørsel om "
+"fagfellevurdering (om fagfellen ikke har svart på forespørsel om "
+"fagfellevurdering) eller innsending av bedømmelse (om fagfellen ikke har "
+"sendt inn bedømmelse ennå)"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Minste antall bekreftede fagfellevurderinger påkrevd"
+
+#, fuzzy
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Vennligst angi redaksjonens historikk inkludert fulle navn, tilknytning og "
+"start- og sluttdatoer for hver redaktør."
+
+#, fuzzy
+msgid "mailable.changeProfileEmailInvitationNotify.description"
+msgstr ""
+"Brukere som ber om å få endret sin e-postadresse i brukerprofilen vil få "
+"tilsendt denne anmodningen om å bekrefte."
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Ingen"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Ingen påminnelse angitt"

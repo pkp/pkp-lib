@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-20 19:09+0000\n"
-"Last-Translator: Gwenn Dossmann Ritter <gwenn.dossmann@openedition.org>\n"
+"PO-Revision-Date: 2026-09-17 15:02+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
 "Language: fr\n"
@@ -61,8 +61,8 @@ msgstr ""
 
 msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
-"Lorsqu'une invitation est associée à une adresse e-mail ({$email}), cette "
-"adresse ne doit pas être utilisée par un/e autre utilisateur/rice."
+"Lorsqu'une invitation est associée à une adresse courriel ({$email}), cette "
+"adresse ne doit pas être utilisée par un/e autre utilisateur/ice."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
@@ -112,16 +112,16 @@ msgid "invitation.inviteToRole.btn"
 msgstr "Inviter à un rôle"
 
 msgid "invitation.wizard.pageTitle"
-msgstr "Inviter un/e utilisateur/ice à accepter un rôle"
+msgstr "Inviter une personne à accepter un rôle"
 
 msgid "userInvitation.enterDetailsLabel"
 msgstr "Renseigner les détails"
 
 msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Vérifier et inviter à des rôles"
+msgstr "Vérifier et lancer l'invitation"
 
 msgid "userInvitation.searchUser.nextButtonLabel"
-msgstr "Rechercher un/e utilisateur/ice"
+msgstr "Chercher"
 
 msgid "userInvitation.enterDetails.stepName"
 msgstr "Renseigner les détails"
@@ -139,10 +139,10 @@ msgid "userInvitation.roleTable.startDate"
 msgstr "Date de début"
 
 msgid "userInvitation.sendMail.nextButtonLabel"
-msgstr "Inviter un/e utilisateur/ice à un rôle"
+msgstr "Envoyer l'invitation"
 
 msgid "userInvitation.sendMail.stepLabel"
-msgstr "{$step} - Modifier le courriel partagé avec l'utilisateur/ice"
+msgstr "{$step} - Préparer le courriel d'invitation"
 
 msgid "userInvitation.modal.title"
 msgstr "Invitation envoyée"
@@ -170,7 +170,7 @@ msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocale
 msgstr "Une valeur est requise pour '{$primaryLocale}'"
 
 msgid "userInvitation.searchUser.stepName"
-msgstr "Rechercher un/e utilisateur/ice"
+msgstr "Rechercher une personne"
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
 msgstr ""
@@ -178,7 +178,7 @@ msgstr ""
 "attribut"
 
 msgid "userInvitation.searchUser.stepLabel"
-msgstr "{$step} - Rechercher un/e utilisateur/ice"
+msgstr "{$step} - Rechercher une personne"
 
 msgid "userInvitation.searchUser.stepDescription"
 msgstr ""
@@ -190,7 +190,7 @@ msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
 msgstr "La valeur de l'attribut doit être égale ou postérieure à aujourd'hui"
 
 msgid "userInvitation.searchField.description"
-msgstr "par exemple : aeinstein@example.com ou aeinstein ou 0000-0002-1825-0097"
+msgstr "Exemple : aeinstein@example.com ou aeinstein ou 0000-0002-1825-0097"
 
 msgid "invitation.role.dateStart"
 msgstr "Date de début"
@@ -208,19 +208,18 @@ msgid "userInvitation.roleTable.endDate"
 msgstr "Date de fin"
 
 msgid "userInvitation.sendMail.stepName"
-msgstr "Vérifier et inviter à des rôles"
+msgstr "Vérifier et lancer l'invitation"
 
 msgid "invitation.api.error.operationFailed"
 msgstr "Cette invitation a échoué"
 
 msgid "invitation.email.description"
-msgstr "par exemple : aeinstein@example.com"
+msgstr "Exemple : aeinstein@example.com"
 
 msgid "invitation.givenName.description"
 msgstr ""
-"Si vous connaissez le prénom de l'utilisateur/ice, vous pouvez le "
-"renseigner. Cependant, cette information peut être modifiée par la personne "
-"elle-même."
+"Si vous connaissez son prénom, vous pouvez le renseigner. Cette information "
+"peut cependant être éditée par la personne elle-même."
 
 msgid "invitation.decline.confirm"
 msgstr "Confirmer le refus de l'invitation"
@@ -236,14 +235,13 @@ msgstr "{$step} - Vérifier l'identifiant ORCID"
 
 msgid "invitation.orcid.description"
 msgstr ""
-"En acceptant l'invitation, l'utilisateur/ice sera redirigé/e vers ORCID pour "
-"vérifier son compte si souhaité."
+"En acceptant l'invitation, la personne pourra choisir d'être redirigée vers "
+"ORCID pour vérifier son compte."
 
 msgid "invitation.familyName.description"
 msgstr ""
-"Si vous connaissez le nom de famille de l'utilisateur/ice, vous pouvez le "
-"renseigner. Cependant, cette information peut être modifiée par la personne "
-"elle-même."
+"Si vous connaissez son nom, vous pouvez le renseigner. Cette information "
+"peut cependant être éditée par la personne elle-même."
 
 msgid "invitation.decline.confirm.description"
 msgstr ""
@@ -348,10 +346,10 @@ msgid "invitation.cancelInvite.title"
 msgstr "Annuler l'invitation"
 
 msgid "invitation.masthead.show"
-msgstr "Apparaître dans l'équipe éditoriale"
+msgstr "Apparaît dans l'équipe éditoriale"
 
 msgid "invitation.masthead.hidden"
-msgstr "Ne pas apparaître dans l'équipe éditoriale"
+msgstr "N'apparaît pas dans l'équipe éditoriale"
 
 msgid "invitation.management.options"
 msgstr "Options de gestion des invitations"
@@ -374,7 +372,7 @@ msgid "userInvitation.status.invited"
 msgstr "Invité/e le {$date}"
 
 msgid "userInvitation.edit.title"
-msgstr "Éditer l'invitation"
+msgstr "Modifier l'invitation"
 
 msgid "userInvitation.edit.message"
 msgstr ""
@@ -409,7 +407,7 @@ msgstr "Annuler le processus d'invitation"
 msgid "acceptInvitation.authorization.shouldBeAnonymous"
 msgstr ""
 "L'invitation n'a pas été acceptée. Vous êtes connecté/e sous un autre compte "
-"utilisateur/ice."
+"utilisateur."
 
 msgid "acceptInvitation.authorization.message"
 msgstr ""
@@ -418,8 +416,8 @@ msgstr ""
 
 msgid "userInvitation.searchField"
 msgstr ""
-"Rechercher un/e utilisateur/ice par son courriel ou son nom d'utilisateur ou "
-"son ORCID."
+"Rechercher une personne à l'aide de son courriel, de son nom d'utilisateur "
+"ou son identifiant ORCID."
 
 msgid "userInvitation.user.disableTitle"
 msgstr "Cet/te utilisateur/ice a été désactivé/e."
@@ -436,3 +434,12 @@ msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProper
 msgstr ""
 "Des propriétés inattendues ont été détectées dans l'élément à l'index "
 "{$attribute} : {$properties}."
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"Cette invitation n'est plus disponible. Elle a peut-être déjà été acceptée, "
+"refusée ou a expiré. Veuillez contacter le/la responsable de la revue pour "
+"obtenir de l'aide."
+
+msgid "invitation.unavailable.title"
+msgstr "Invitation indisponible"

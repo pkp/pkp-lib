@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-07-27 07:33+0000\n"
+"PO-Revision-Date: 2026-09-09 14:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -84,11 +84,11 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Rozšířená metadata"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Registrační email pro Crossref"
+msgstr "Registrační e-mail pro Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Zadejte platný registrační email pro Crossref. Svůj email můžete bezplatně "
+"Zadejte platný registrační e-mail pro Crossref. Svůj e-mail můžete bezplatně "
 "zaregistrovat na webových stránkách Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
@@ -100,10 +100,10 @@ msgstr ""
 "ISBNdb zdarma vyžádat."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
-msgstr "Registrační email PubMed"
+msgstr "Registrační e-mail PubMed"
 
 msgid "metadata.filters.pubmed.settings.email.validationMessage"
-msgstr "Zadejte, prosím, platný registrační email pro PubMed, pokud ho máte."
+msgstr "Zadejte, prosím, platný registrační e-mail pro PubMed, pokud ho máte."
 
 msgid "metadata.filters.worldcat.settings.apiKey.displayName"
 msgstr "WorldCat API klíč"
@@ -119,7 +119,7 @@ msgstr "Zvolte, prosím, jeden z uvedených citačních modulů."
 
 msgid "metadata.filters.settings.isOptional.displayName"
 msgstr ""
-"Ve výchozím nastavení nepoužívat (bude ale nadále k dispozici editorům)"
+"Ve výchozím nastavení nepoužívat (bude ale nadále k dispozici redaktorovi)"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
 msgstr ""
@@ -197,10 +197,10 @@ msgid "metadata.property.validationMessage.edition"
 msgstr "Zadejte, prosím, platnou hodnotu pro vydání."
 
 msgid "metadata.property.displayName.series"
-msgstr "Série"
+msgstr "Ediční řada"
 
 msgid "metadata.property.validationMessage.series"
-msgstr "Zadejte, prosím, platnou hodnotu pro sérii."
+msgstr "Zadejte, prosím, platnou hodnotu pro ediční řadu."
 
 msgid "metadata.property.displayName.supplement"
 msgstr "Dodatek"
@@ -502,7 +502,7 @@ msgid "submission.comments.importPeerReviews"
 msgstr "Importovat recenzní posudky"
 
 msgid "submission.comments.addReviews"
-msgstr "Přidat do emailu recenze"
+msgstr "Přidat do e-mailu recenze"
 
 msgid "submission.comments.importPeerReviews.reviewerLetter"
 msgstr "Recenzent {$reviewerLetter}:"
@@ -517,7 +517,7 @@ msgid "submission.comments.review"
 msgstr "Recenze"
 
 msgid "submission.comments.sendDecisionToReviewers"
-msgstr "Poslat recenzentům rozhodnutí editora"
+msgstr "Poslat recenzentům rozhodnutí redaktora"
 
 msgid "submission.comments.subject"
 msgstr "Předmět"
@@ -529,7 +529,7 @@ msgid "submission.contributors"
 msgstr "Seznam autorů"
 
 msgid "submission.copyedited"
-msgstr "Soubory po jazykovou redakci"
+msgstr "Po jazykové korektuře"
 
 msgid "submission.copyediting"
 msgstr "Jazyková redakce"
@@ -565,19 +565,19 @@ msgid "submission.editorial"
 msgstr "Jazyková redakce"
 
 msgid "submission.email.backToEmailLog"
-msgstr "Zpět k protokolu emailů"
+msgstr "Zpět k protokolu e-mailů"
 
 msgid "submission.email.confirmClearLog"
-msgstr "Jste si jisti, že chcete smazat protokol emailů pro tento příspěvek?"
+msgstr "Jste si jisti, že chcete smazat protokol e-mailů pro tento příspěvek?"
 
 msgid "submission.email.confirmDeleteLogEntry"
-msgstr "Jste si jisti, že chcete smazat tento záznam protokolu emailů?"
+msgstr "Jste si jisti, že chcete smazat tento záznam protokolu e-mailů?"
 
 msgid "submission.email.deleteLogEntry"
 msgstr "Smazat záznam protokolu"
 
 msgid "submission.emailLog"
-msgstr "Log emailů"
+msgstr "Log e-mailů"
 
 msgid "submission.event.participantAdded"
 msgstr ""
@@ -673,7 +673,7 @@ msgid "submission.event.subjectPrefix"
 msgstr "Email byl odeslán:"
 
 msgid "submission.event.viewEmail"
-msgstr "Zobrazit email"
+msgstr "Zobrazit e-mail"
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
@@ -715,7 +715,7 @@ msgid "submission.history.recentLogEntries"
 msgstr "Nedávné záznamy"
 
 msgid "submission.history.submissionEmailLog"
-msgstr "Protokol emailů"
+msgstr "Protokol e-mailů"
 
 msgid "submission.history.submissionEventLog"
 msgstr "Protokol událostí"
@@ -798,7 +798,7 @@ msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Jste si jisti, že chcete odstranit tento obrázek ze sazebnice?"
 
 msgid "submission.layout.deleteGalleyStylesheet"
-msgstr "Smazat tento stylesheet."
+msgstr "Smazat tento stylopis."
 
 msgid "submission.layout.editGalley"
 msgstr "Editovat sazebnici"
@@ -842,7 +842,7 @@ msgid "submission.layout.galleys"
 msgstr "Sazebnice"
 
 msgid "submission.layout.galleyStylesheet"
-msgstr "Stylesheet sazebnice"
+msgstr "Stylopis sazebnice"
 
 msgid "submission.layout.galleyStyle"
 msgstr "Styl"
@@ -863,7 +863,7 @@ msgid "submission.layout.newGalley"
 msgstr "Vytvořit novou sazebnici"
 
 msgid "submission.layout.noStyleFile"
-msgstr "K této sazebnici nebyl přidán žádný stylesheet."
+msgstr "K této sazebnici nebyl přidán žádný stylopis."
 
 msgid "submission.layout.viewingGalley"
 msgstr "Prohlížení sazebnice příspěvků"
@@ -1013,7 +1013,7 @@ msgid "submissions.queued"
 msgstr "Ve frontě"
 
 msgid "submissions.queuedUnassigned"
-msgstr "K tomuto příspěvku nebyl přiřazen žádný editor."
+msgstr "K tomuto příspěvku nebyl přiřazen žádný redaktor."
 
 msgid "submissions.ruling"
 msgstr "Rozhodnuto"
@@ -1211,7 +1211,7 @@ msgid "submission.status.review"
 msgstr "V recenzním procesu"
 
 msgid "submission.status.submission"
-msgstr "Čeká se na rozhodnutí editora"
+msgstr "Čeká se na rozhodnutí redaktora"
 
 msgid "submission.status.unassigned"
 msgstr "Nepřiřazeno"
@@ -1269,7 +1269,7 @@ msgstr "Nahrát tento soubor v rámci mé role..."
 msgid "submission.upload.userGroupDescription"
 msgstr ""
 "Pokud odesíláte Editovaný svazek, měli byste nahrát všechny kapitoly svazků "
-"jednotlivě pod svou roli jako editor svazků."
+"jednotlivě pod svou roli jako redaktor svazků."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Nahrát knihovní soubor"
@@ -1370,10 +1370,10 @@ msgstr "Upravit přiřazení"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
-"Uživatelé jsou přiřazeni ke etapám pracovního postupu podle skupin "
+"Uživatelé jsou přiřazeni ke etapám redakčního procesu podle skupin "
 "uživatelů. Každý uživatel přiřazený k této etapě bude automaticky přiřazen "
 "dalším etapám, kterým byla přiřazena uživatelská skupina. To je obvykle "
-"vyhrazeno pro editory, autory a překladatele."
+"vyhrazeno pro redaktory, autory a překladatele."
 
 msgid "editor.submission.removeStageParticipant"
 msgstr "Odebrat uživatele"
@@ -1659,7 +1659,7 @@ msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr "{$editorName} odeslal/a tento příspěvek zpět z fáze jazykové redakce."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr "Vráceno zpět z fáze jazykových úprav"
+msgstr "Vráceno zpět z fáze jazykové redakce"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
@@ -1776,7 +1776,7 @@ msgstr ""
 "pokud jste se nerozhodli tento e-mail přeskočit."
 
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Přidělte editora, který umožní redakční rozhodnutí pro tuto fázi."
+msgstr "Přidělte redaktora, který umožní redakční rozhodnutí pro tuto fázi."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
@@ -1851,7 +1851,7 @@ msgstr "Doporučení: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
-"Doporučení můžete vydat až poté, co vám bude přidělen editor s oprávněním "
+"Doporučení můžete vydat až poté, co vám bude přidělen redaktor s oprávněním "
 "zaznamenat rozhodnutí."
 
 msgid "editor.submission.recommendation"
@@ -1963,7 +1963,7 @@ msgid "notification.type.indexRequest"
 msgstr "Byl jste požádán(a) o vytvoření indexu pro \"{$title}\"."
 
 msgid "notification.type.editorDecisionTitle"
-msgstr "Aktuální rozhodnutí editora."
+msgstr "Aktuální rozhodnutí redaktora."
 
 msgid "notification.type.editorDecisionAccept"
 msgstr "Příspěvek byl přijat."
@@ -2039,8 +2039,8 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Editor {$editorName} potvrdil recenzi pro {$round}. recenzní kolo příspěvku "
-"{$submissionId}."
+"Redaktor {$editorName} potvrdil recenzi pro {$round}. recenzní kolo "
+"příspěvku {$submissionId}."
 
 #, fuzzy
 msgid "log.review.reviewReady"
@@ -2095,20 +2095,20 @@ msgid "submission.supplementary.sponsor"
 msgstr "Autorská či sponzorská agentura"
 
 msgid "grid.action.itemWorkflow"
-msgstr "Jít na workflow tohoto příspěvku"
+msgstr "Jít na redakční proces tohoto příspěvku"
 
 msgid "notification.type.editorDecisionSendToProduction"
 msgstr "Začal proces produkce."
 
 msgid "notification.type.editorAssignmentProduction"
 msgstr ""
-"Je třeba přidělit editora produkce před započetím produkční fáze. Přidejte "
-"editora produkce pomocí odkazu Účastníci výše."
+"Je třeba před zahájením produkční fáze přidělit redaktora produkce. Přidejte "
+"redaktora produkce pomocí odkazu Účastníci výše."
 
 msgid "notification.type.editorAssignmentEditing"
 msgstr ""
-"Je třeba přidělit editora produkce před započetím editační fáze. Přidejte "
-"editora produkce pomocí odkazu Účastníci výše."
+"Je třeba před zahájením produkční fáze přidělit redaktora produkce. Přidejte "
+"redaktora produkce pomocí odkazu Účastníci výše."
 
 msgid "submission.reviewForm"
 msgstr "Formulář posudku"
@@ -2393,13 +2393,13 @@ msgstr "Otevřené diskuse"
 msgid "submission.list.dualWorkflowLinks"
 msgstr ""
 "K tomuto příspěvku vám bylo přiřazeno několik rolí. Chcete pokračovat v "
-"rámci <a href=\"{$urlAuthorWorkflow}\">Role autora</a> nebo <a href="
-"\"{$urlEditorialWorkflow}\">role editora</a>?"
+"rámci <a href=\"{$urlAuthorWorkflow}\">Role autora</a> nebo <a href=\""
+"{$urlEditorialWorkflow}\">role redaktora</a>?"
 
 msgid "submission.list.reviewerWorkflowLink"
 msgstr ""
-"Byla vám přiřazena editorská role pro tento příspěvek. Chcete pokračovat v "
-"rámci <a href=\"{$urlEditorialWorkflow}\">editorské role</a>?"
+"Byla vám přiřazena redaktorská role pro tento příspěvek. Chcete pokračovat v "
+"rámci <a href=\"{$urlEditorialWorkflow}\">redaktorské role</a>?"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Příspěvky musí být dokončené před kontrolou redaktorem."
@@ -2414,7 +2414,7 @@ msgid "submission.list.daysSinceLastActivity"
 msgstr "Dny od poslední aktivity"
 
 msgid "submission.list.assignEditor"
-msgstr "Přiřadit editora"
+msgstr "Přiřadit redaktora"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
@@ -2551,7 +2551,7 @@ msgid "publication.status.scheduled"
 msgstr "Naplánováno"
 
 msgid "publication.status.unpublished"
-msgstr "Nepublikovaný"
+msgstr "Nezveřejněné"
 
 msgid "publication.titleAbstract"
 msgstr "Název a abstrakt"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-03-20 19:09+0000\n"
+"PO-Revision-Date: 2026-09-09 14:59+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/fr/>"
 "\n"
@@ -113,19 +113,19 @@ msgid "grid.action.moreInformation"
 msgstr "Plus d'information"
 
 msgid "grid.action.restoreDefaults"
-msgstr "Réinitialiser aux valeurs par défaut"
+msgstr "Réinitialiser les valeurs par défaut"
 
 msgid "grid.action.restoreDefaults.confirm"
 msgstr "Vous voulez vraiment réinstaurer les valeurs par défaut ?"
 
 msgid "grid.action.addAuthor"
-msgstr "Ajouter un·e auteur·e"
+msgstr "Ajouter un/e auteur/ice"
 
 msgid "grid.action.editAuthor"
-msgstr "Modifier l'auteur·e"
+msgstr "Modifier l'auteur/ice"
 
 msgid "grid.action.deleteAuthor"
-msgstr "Supprimer l'auteur·e"
+msgstr "Supprimer l'auteur/ice"
 
 msgid "grid.action.addAuditor"
 msgstr "Ajouter un vérificateur"
@@ -224,7 +224,7 @@ msgid "grid.action.expandAll"
 msgstr "Élargir tout"
 
 msgid "grid.action.requestAccount"
-msgstr "Ajouter un participant"
+msgstr "Ajouter un-e participant/e"
 
 msgid "grid.action.expand"
 msgstr "Élargir"
@@ -318,8 +318,7 @@ msgid "grid.action.exportAllUsers"
 msgstr "Exporter tous/tes les utilisateur/ices"
 
 msgid "grid.users.confirmExportAllUsers"
-msgstr ""
-"Vous voulez vraiment exporter tous/tes les utilisateurs et utilisatrices ?"
+msgstr "Vous voulez vraiment exporter tous/tes les utilisateur/ices ?"
 
 msgid "grid.action.activate"
 msgstr "Activer"
@@ -486,16 +485,16 @@ msgid "contributor.listPanel.preview.full"
 msgstr "Complet"
 
 msgid "grid.roles.currentRoles"
-msgstr "Rôles actuels"
+msgstr "Rôles"
 
 msgid "grid.roles.add"
 msgstr "Créer un nouveau rôle"
 
 msgid "grid.roles.stageAssignment"
-msgstr "Affectation d'étape"
+msgstr "Étape d'affectation"
 
 msgid "grid.user.currentUsers"
-msgstr "Utilisateur/ices actuel/les"
+msgstr "Utilisateur/ices"
 
 msgid "grid.user.currentEnrollment"
 msgstr "Inscriptions actuelles"
@@ -700,12 +699,12 @@ msgid "grid.userGroup.unassignedStage"
 msgstr "Le rôle {$userGroupName} est désassigner de l'étape {$stageName}."
 
 msgid "grid.submission.itemTitle"
-msgstr "Auteur·e ; Titre"
+msgstr "Auteur/ice ; Titre"
 
 msgid "grid.submission.active.selectOrphaned"
 msgstr ""
-"Inclure les soumissions incomplètes qui n'ont pas été soumises par un·e "
-"auteur·e."
+"Inclure les soumissions incomplètes qui n'ont pas été soumises par un/e "
+"auteur/ice."
 
 msgid "grid.action.addNavigationMenu"
 msgstr "Ajouter un menu"

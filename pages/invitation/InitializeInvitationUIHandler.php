@@ -20,6 +20,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use PKP\invitation\core\Invitation;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -54,6 +55,8 @@ class InitializeInvitationUIHandler extends Handler
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        $this->addPolicy(new CanAccessSettingsPolicy());
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {

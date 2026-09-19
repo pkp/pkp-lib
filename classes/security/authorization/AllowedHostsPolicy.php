@@ -46,6 +46,12 @@ class AllowedHostsPolicy extends AuthorizationPolicy
      */
     public function applies(): bool
     {
+        // In test mode the server host is whatever the Playwright harness
+        // chooses (127.0.0.1:8000, etc.). Skip enforcement — there's no
+        // meaningful threat model and the install step can't predict it.
+        if (getenv('APPLICATION_ENV') === 'test') {
+            return false;
+        }
         return Config::getVar('general', 'allowed_hosts') != '';
     }
 

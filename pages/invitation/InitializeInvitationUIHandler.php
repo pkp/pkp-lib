@@ -38,8 +38,7 @@ class InitializeInvitationUIHandler extends Handler
             [
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SUB_EDITOR,
-                ROLE::ROLE_ID_ASSISTANT,
+                // WARNING: See pkp/pkp-lib#13339 before extending this list
             ],
             [
                 'create',
@@ -111,7 +110,8 @@ class InitializeInvitationUIHandler extends Handler
             // Handle existing invitation by ID
             $invitationId = (int) $arg;
             $invitation = Repo::invitation()->getById($invitationId);
-            if (!$invitation) {
+            // An invitation that does not exist, or belongs to another context, is not found here
+            if (!$invitation || !$invitation->belongsToContext($request->getContext()?->getId())) {
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
             $invitationHandler = $invitation->getInvitationUIActionRedirectController();

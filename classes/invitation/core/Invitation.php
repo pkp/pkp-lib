@@ -469,6 +469,14 @@ abstract class Invitation
         return $this->invitationModel->contextId;
     }
 
+    /**
+     * Whether this invitation belongs to the given context.
+     */
+    public function belongsToContext(?int $contextId): bool
+    {
+        return $this->getContextId() === $contextId;
+    }
+
     public function getEmail(): ?string
     {
         return $this->invitationModel->email;

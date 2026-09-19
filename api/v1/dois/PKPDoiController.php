@@ -820,7 +820,8 @@ class PKPDoiController extends PKPBaseController
         if (method_exists($pubObjectHandler, 'getMinorVersionsWithSameDoi')) {
             return $pubObjectHandler->getMinorVersionsWithSameDoi($pubObject);
         }
-        return [];
+        // Not versioned, e.g. peer reviews
+        return [$pubObject];
     }
 
     /**

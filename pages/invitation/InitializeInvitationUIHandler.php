@@ -20,6 +20,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use PKP\invitation\core\Invitation;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -38,8 +39,7 @@ class InitializeInvitationUIHandler extends Handler
             [
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SUB_EDITOR,
-                ROLE::ROLE_ID_ASSISTANT,
+                // WARNING: See pkp/pkp-lib#13339 before extending this list
             ],
             [
                 'create',
@@ -55,6 +55,8 @@ class InitializeInvitationUIHandler extends Handler
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        $this->addPolicy(new CanAccessSettingsPolicy());
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
         foreach ($roleAssignments as $role => $operations) {
@@ -111,7 +113,8 @@ class InitializeInvitationUIHandler extends Handler
             // Handle existing invitation by ID
             $invitationId = (int) $arg;
             $invitation = Repo::invitation()->getById($invitationId);
-            if (!$invitation) {
+            // An invitation that does not exist, or belongs to another context, is not found here
+            if (!$invitation || !$invitation->belongsToContext($request->getContext()?->getId())) {
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
             $invitationHandler = $invitation->getInvitationUIActionRedirectController();

@@ -208,6 +208,11 @@ class InvitationController extends PKPBaseController
             }
 
             $invitation = app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
+
+            // An invitation that belongs to another context is treated as not found
+            if (isset($invitation) && !$invitation->belongsToContext($request->getContext()?->getId())) {
+                throw new Exception('Invitation not found');
+            }
         } elseif (in_array($actionName, $this->requiresIdAndKey)) {
             if (!isset($invitationId) || !isset($invitationKey)) {
                 throw new Exception("Parameters with the names '" . self::PARAM_ID . "' and '" . self::PARAM_KEY . "' need to be declared");

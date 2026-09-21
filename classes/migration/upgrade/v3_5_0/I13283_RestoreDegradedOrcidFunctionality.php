@@ -14,6 +14,7 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
+use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\install\DowngradeNotSupportedException;
@@ -26,7 +27,7 @@ class I13283_RestoreDegradedOrcidFunctionality extends Migration
      */
     public function up(): void
     {
-        $this->fixEmailVariableNames();
+        $this->updateEmails();
         $this->moveRedirectUrlSiteSetting();
     }
 
@@ -45,8 +46,12 @@ class I13283_RestoreDegradedOrcidFunctionality extends Migration
      *
      * See: https://github.com/pkp/pkp-lib/issues/13155
      */
-    private function fixEmailVariableNames(): void
+    private function updateEmails(): void
     {
+        // NB: ORCID_COLLECT_AUTHOR_ID appears here and below to include complete update to email template where
+        // translated alongside variable renaming for existing entries that may not have an update to provide.
+
+        // Fix variable names
         $this->replace('ORCID_COLLECT_AUTHOR_ID', '{$principalContactSignature}', '{$contextSignature}');
         $this->replace('ORCID_REQUEST_AUTHOR_AUTHORIZATION', '{$principalContactSignature}', '{$contextSignature}');
         $this->replace('ORCID_REQUEST_UPDATE_SCOPE', '{$principalContactSignature}', '{$contextSignature}');
@@ -54,6 +59,13 @@ class I13283_RestoreDegradedOrcidFunctionality extends Migration
         $this->replace('ORCID_COLLECT_AUTHOR_ID', '{$authorName}', '{$recipientName}');
         $this->replace('ORCID_REQUEST_AUTHOR_AUTHORIZATION', '{$authorName}', '{$recipientName}');
         $this->replace('ORCID_REQUEST_UPDATE_SCOPE', '{$authorName}', '{$recipientName}');
+
+        // Wholesale update email templates
+        Repo::emailTemplate()->dao->installEmailTemplates(
+            Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(),
+            [],
+            'ORCID_COLLECT_AUTHOR_ID',
+        );
     }
 
     /**

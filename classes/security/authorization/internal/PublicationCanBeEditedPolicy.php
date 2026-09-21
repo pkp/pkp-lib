@@ -45,7 +45,7 @@ class PublicationCanBeEditedPolicy extends AuthorizationPolicy
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) || Repo::submission()->canEditPublication($submission->getId(), $this->_currentUser->getId())) {
+        if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) || Repo::submission()->canEditPublication($submission, $this->_currentUser->getId())) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 

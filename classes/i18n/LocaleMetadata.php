@@ -102,12 +102,12 @@ class LocaleMetadata
         $displayLocale = $langLocaleStatus === static::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale;
 
         $weblateLocaleName = Locale::getWeblateLocaleNames()[$this->locale];
-        $displayName = \Locale::getDisplayLanguage($this->locale, $displayLocale);
+        $displayName = $this->_getLanguageDisplayName($displayLocale, $withCountry);
         $name = ($displayName && $displayName !== $this->locale) ? $displayName : $weblateLocaleName;
 
         if ($langLocaleStatus === static::LANGUAGE_LOCALE_WITH) {
             // Get the translated language name in language's own locale
-            $displayName = \Locale::getDisplayLanguage($this->locale, $this->locale);
+            $displayName = $this->_getLanguageDisplayName($this->locale, $withCountry);
             $nameInLangLocale = ($displayName && $displayName !== $this->locale) ? $displayName : $weblateLocaleName;
 
             $name = __(
@@ -245,5 +245,30 @@ class LocaleMetadata
             'country' => \Locale::getRegion($this->locale) ?? null,
             'script' => \Locale::getScript($this->locale) ?? null
         ];
+    }
+
+    /**
+     * Retrieves the language display name, qualified by script when the locale carries one
+     *
+     * Locales which differ only by script (e.g. sr_Cyrl/sr_Latn, zh_Hans/zh_Hant) share the same
+     * language name, as \Locale::getDisplayLanguage() discards the script subtag. When the caller
+     * asks for a qualified name, the script is folded into the name through ICU, which yields the
+     * contextual form together with the punctuation expected by the display locale
+     * (e.g. "Serbian (Cyrillic)" and "中文（简体）").
+     *
+     * @param string $displayLocale The locale code the name should be displayed in
+     * @param bool   $withScript    Whether the name should be qualified by the script, when there is one
+     */
+    private function _getLanguageDisplayName(string $displayLocale, bool $withScript): string
+    {
+        $language = \Locale::getDisplayLanguage($this->locale, $displayLocale);
+        $script = $withScript ? \Locale::getScript($this->locale) : null;
+        if (!$script) {
+            return $language;
+        }
+
+        return \Locale::getDisplayName(
+            \Locale::getPrimaryLanguage($this->locale) . "_{$script}", $displayLocale
+        ) ?: $language;
     }
 }

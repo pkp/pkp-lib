@@ -28,6 +28,7 @@ use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\relationships\UserUserGroup;
+use PKP\core\PKPRequest;
 
 class AboutContextHandler extends Handler
 {
@@ -61,15 +62,18 @@ class AboutContextHandler extends Handler
 
     /**
      * Display editorial masthead page.
-     *
-     * @param array $args
-     * @param \PKP\core\PKPRequest $request
-     *
      * @hook AboutContextHandler::editorialMasthead [[$mastheadRoles, $mastheadUsers, $reviewers, $previousYear]]
      */
-    public function editorialMasthead($args, $request)
+    public function editorialMasthead(array $args, PKPRequest $request)
     {
+        $this->setupTemplate($request);
         $context = $request->getContext();
+
+        if (!$context->getSetting('enableEnrollmentMasthead')) {
+            $templateMgr = TemplateManager::getManager($request);
+            $templateMgr->display('frontend/pages/editorialMastheadDisabled.tpl');
+            return;
+        }
 
         // Get sorted masthead roles
         $mastheadRoles = Repo::userGroup()->getSortedMastheadUserGroups($context);
@@ -99,22 +103,24 @@ class AboutContextHandler extends Handler
             }
         }
 
-        $previousYear = date('Y') - 1;
-        $reviewerIds = Repo::reviewAssignment()->getExternalReviewerIdsByCompletedYear($context->getId(), $previousYear);
-        $usersCollector = Repo::user()->getCollector();
-        $reviewers = $usersCollector
-            ->filterByUserIds($reviewerIds->toArray())
-            ->orderBy(
-                $usersCollector::ORDERBY_FAMILYNAME,
-                $usersCollector::ORDER_DIR_ASC,
-                [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()]
-            )
-            ->getMany();
+        $reviewers = null;
+        if ($context->getData('enableEnrollmentMastheadReviewers')) {
+            $previousYear = date('Y') - 1;
+            $reviewerIds = Repo::reviewAssignment()->getExternalReviewerIdsByCompletedYear($context->getId(), $previousYear);
+            $usersCollector = Repo::user()->getCollector();
+            $reviewers = $usersCollector
+                ->filterByUserIds($reviewerIds->toArray())
+                ->orderBy(
+                    $usersCollector::ORDERBY_FAMILYNAME,
+                    $usersCollector::ORDER_DIR_ASC,
+                    [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()]
+                )
+                ->getMany();
+        }
 
         Hook::call('AboutContextHandler::editorialMasthead', [$mastheadRoles, $mastheadUsers, $reviewers, $previousYear]);
 
         $templateMgr = TemplateManager::getManager($request);
-        $this->setupTemplate($request);
         $templateMgr->assign([
             'mastheadRoles' => $mastheadRoles,
             'mastheadUsers' => $mastheadUsers,
@@ -127,15 +133,18 @@ class AboutContextHandler extends Handler
 
     /**
      * Display editorial history page.
-     *
-     * @param array $args
-     * @param \PKP\core\PKPRequest $request
-     *
      * @hook AboutContextHandler::editorialHistory [[$mastheadRoles, $mastheadUsers]]
      */
-    public function editorialHistory($args, $request)
+    public function editorialHistory(array $args, PKPRequest $request)
     {
         $context = $request->getContext();
+        $enableEnrollmentMasthead = $context->getData('enableEnrollmentMasthead');
+
+        // If the masthead is disabled, redirect to ".../editorialMasthead" instead of ".../editorialHistory"
+        if (!$enableEnrollmentMasthead) {
+            $request->redirect(null, null, 'editorialMasthead');
+            exit();
+        }
 
         // get sorted masthead roles
         $mastheadRoles = Repo::userGroup()->getSortedMastheadUserGroups($context);

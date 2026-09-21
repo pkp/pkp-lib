@@ -3681,3 +3681,12 @@ msgstr "Users who request a change to their email address in their user profile 
 
 msgid "plugins.importexport.common.validation"
 msgstr "Validate XML before the export and registration."
+
+msgid "manager.setup.enableEnrollmentMasthead"
+msgstr "Enrollment-based Masthead"
+
+msgid "manager.setup.enableEnrollmentMasthead.enable"
+msgstr "Present a masthead based on user enrollments"
+
+msgid "manager.setup.enableEnrollmentMastheadReviewers.enable"
+msgstr "Enable listing of reviewers on the masthead"

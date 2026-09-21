@@ -513,8 +513,10 @@ class FileUploadWizardHandler extends Handler
         /** @var SubmissionFile $file */
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
-        // The upload was confirmed, so there is nothing left to restore
-        $request->getSession()->forget(static::getOriginalFileSessionKey($submissionFile->getId()));
+        // Deliberately not clearing the session key here as the wizard is still cancellable from the final step.
+        // A leftover entry from a completed run can't cause a wrong restore as PKPManageFileApiHandler::cancelFileUpload() 
+        // refuses unless `$originalFile['fileId'] === (int)$previousRevision->fileId` . And the next revision upload of
+        // the same file writes the same key, superseding it.
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('submissionId', $submission->getId());

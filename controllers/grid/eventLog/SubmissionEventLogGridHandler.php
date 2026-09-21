@@ -318,16 +318,24 @@ class SubmissionEventLogGridHandler extends GridHandler
             ->getMany()
             ->toArray() : [];
 
-        $recommendationLogEntries = $reviewsWithCommentsIds ? Repo::eventLog()->getCollector()
-            ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, array_merge($reviewsWithCommentsIds, $reviewsWithFormIds))
+        $allReviewAssignmentIds = array_merge($reviewsWithCommentsIds, $reviewsWithFormIds);
+        $recommendationLogEntries = $allReviewAssignmentIds ? Repo::eventLog()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, $allReviewAssignmentIds)
             ->filterByEventType(PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED)
+            ->getMany()
+            ->toArray() : [];
+
+        $competingInterestLogEntries = $allReviewAssignmentIds ? Repo::eventLog()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, $allReviewAssignmentIds)
+            ->filterByEventType(PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMPETING_INTERESTS_MODIFIED)
             ->getMany()
             ->toArray() : [];
 
         return array_merge(
             $commentLogEntries,
             $formResponseLogEntries,
-            $recommendationLogEntries
+            $recommendationLogEntries,
+            $competingInterestLogEntries,
         );
     }
 }

@@ -101,6 +101,7 @@ class EventLogGridRow extends GridRow
                 case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMMENTS_MODIFIED:
                 case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED:
                 case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_FORM_RESPONSE_MODIFIED:
+                case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMPETING_INTERESTS_MODIFIED:
                     if (!$this->_isCurrentUserAssignedAuthor) {
                         $this->addAction(
                             new ReviewChangeLinkAction(

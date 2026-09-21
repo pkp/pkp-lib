@@ -396,6 +396,20 @@
 				"validation": [
 					"nullable"
 				]
+		},
+		"reviewerNewCompetingInterests": {
+			  "type": "string",
+				"description": "The new review competing interests response, if the competing interets on the review was changed.",
+				"validation": [
+					"nullable"
+				]
+		},
+		"reviewerOldCompetingInterests": {
+			  "type": "string",
+				"description": "The previous review competing interests response, if the competing interests on the review was changed.",
+				"validation": [
+					"nullable"
+				]
 		}
 	}
 }

@@ -170,6 +170,17 @@ class EditReview extends FormRequest
                     }
                 },
             ],
+            'competingInterests' => [
+                'bail',
+                'sometimes',
+                'nullable',
+                'string',
+                function (string $attribute, mixed $value, Closure $fail) {
+                    if (!Application::get()->getRequest()->getContext()->isReviewCompetingInterestRequired()) {
+                        $fail(__('api.submissions.reviews.422.competingInterestsNotAllowed'));
+                    }
+                }
+            ]
         ];
     }
 
@@ -235,6 +246,7 @@ class EditReview extends FormRequest
                 'reviewFormResponses' => $this->input('reviewFormResponses'),
                 // Will default to null in cases where the app does not support reviewer recommendations (e.g., in OMP).
                 'reviewerRecommendationId' => $this->input('reviewerRecommendationId') ? (int)$this->input('reviewerRecommendationId') : null,
+                'competingInterests' => $this->input('competingInterests'),
             ]
         );
     }

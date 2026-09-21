@@ -304,6 +304,19 @@
 				"nullable"
 			]
 		},
+		"enableEnrollmentMasthead": {
+			"type": "boolean",
+			"default": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"enableEnrollmentMastheadReviewers": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
 		"enableDois": {
 			"type": "boolean",
 			"default": true,

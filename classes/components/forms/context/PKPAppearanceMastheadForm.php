@@ -17,6 +17,7 @@
 namespace PKP\components\forms\context;
 
 use APP\facades\Repo;
+use APP\core\Application;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
@@ -48,17 +49,31 @@ class PKPAppearanceMastheadForm extends FormComponent
             ];
         }
 
-        $this->addField(new FieldOptions('mastheadUserGroupIds', [
-            'label' => __('common.editorialMasthead'),
-            'description' => __('manager.setup.editorialMasthead.order.description'),
-            'isOrderable' => true,
-            'value' => array_column($mastheadOptions, 'value'),
-            'options' => $mastheadOptions,
-            'allowOnlySorting' => true
+        $this->addField(new FieldOptions('enableEnrollmentMasthead', [
+            'label' => __('manager.setup.enableEnrollmentMasthead'),
+            'description' => __('manager.setup.enableEnrollmentMasthead.description'),
+            'options' => [
+                ['value' => true, 'label' => __('manager.setup.enableEnrollmentMasthead.enable')]
+            ],
+            'value' => (bool) $context->getData('enableEnrollmentMasthead'),
         ]))
-            ->addField(new FieldHTML('reviewer', [
-                'label' => __('user.role.reviewers'),
-                'description' => __('manager.setup.editorialMasthead.order.reviewers.description')
+            ->addField(new FieldOptions('mastheadUserGroupIds', [
+                'label' => __('common.editorialMasthead'),
+                'description' => __('manager.setup.editorialMasthead.order.description'),
+                'isOrderable' => true,
+                'value' => array_column($mastheadOptions, 'value'),
+                'options' => $mastheadOptions,
+                'allowOnlySorting' => true
             ]));
+        if (count(Application::get()->getReviewStages())) {
+            $this->addField(new FieldOptions('enableEnrollmentMastheadReviewers', [
+                'label' => __('user.role.reviewers'),
+                'description' => __('manager.setup.editorialMasthead.order.reviewers.description'),
+                'options' => [
+                    ['value' => true, 'label' => __('manager.setup.enableEnrollmentMastheadReviewers.enable')]
+                ],
+                'value' => (bool) $context->getData('enableEnrollmentMastheadReviewers'),
+            ]));
+        }
     }
 }

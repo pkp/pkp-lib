@@ -77,7 +77,7 @@ class EditorialReminder extends BaseJob
 
         $submissionIds = Repo::submission()
             ->getCollector()
-            ->assignedTo([$this->editorId], [Role::ROLE_ID_SUB_EDITOR])
+            ->assignedTo([$this->editorId])
             ->filterByContextIds([$this->contextId])
             ->filterByStatus([Submission::STATUS_QUEUED])
             ->filterByIncomplete(false)
@@ -88,6 +88,16 @@ class EditorialReminder extends BaseJob
 
         /** @var int $submissionId */
         foreach ($submissionIds as $submissionId) {
+            $reviewAssignments = Repo::reviewAssignment()
+                ->getCollector()
+                ->filterBySubmissionIds([$submissionId])
+                ->filterByReviewerIds([$this->editorId])
+                ->getMany();
+
+            if (!$reviewAssignments->isEmpty()) {
+                continue;
+            }
+
             $submission = Repo::submission()->get($submissionId);
             $submissions[$submissionId] = $submission;
 

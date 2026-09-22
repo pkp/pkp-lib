@@ -49,7 +49,7 @@
 	</p>
 	<hr>
 
-	{if $reviewers && $reviewers->count()}
+	{if $reviewers->count()}
 		<h2>{translate key="common.editorialMasthead.peerReviewers"}</h2>
 		<p>{translate key="common.editorialMasthead.peerReviewers.description" year=$previousYear}</p>
 		<ul class="user_listing" role="list">

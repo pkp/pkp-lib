@@ -1,13 +1,13 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2024.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2025.
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2025.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-10-31 20:16+0000\n"
+"PO-Revision-Date: 2026-09-23 18:59+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/fr_CA/>\n"
@@ -697,3 +697,26 @@ msgstr ""
 #, fuzzy
 msgid "editor.review.authorOnly"
 msgstr "Sections réservées uniquement à l'auteur-e"
+
+msgid "editor.review.allSections"
+msgstr ""
+"Formulaire du rédacteur ou de la rédactrice. Afficher toutes les sections de "
+"l’évaluation."
+
+msgid "editor.review.download"
+msgstr "Télécharger les formulaires d’évaluation"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"La date de remise de l’évaluation doit être égale ou postérieure à celle de "
+"la réponse à l’invitation."
+
+msgid "editor.submission.search"
+msgstr ""
+"Rechercher des soumissions, des identifiants, des auteurs ou autrices, etc."
+
+msgid "editor.review.logResponse.for"
+msgstr "Enregistrer la réponse pour"
+
+msgid "editor.review.logResponse"
+msgstr "Enregistrer la réponse"

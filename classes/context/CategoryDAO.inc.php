@@ -108,13 +108,19 @@ class CategoryDAO extends DAO {
 	 * @param $path the path for the category
 	 * @return boolean
 	 */
-	function categoryExistsByPath($path) {
-		$result = $this->retrieve(
-			'SELECT COUNT(*) AS row_count FROM categories WHERE path = ?', [$path]
-		);
-		$row = $result->current();
-		return $row ? (boolean) $row->row_count : false;
-	}
+	function categoryExistsByPath($path, $contextId = null) {
+    if ($contextId) {
+        $result = $this->retrieve(
+            'SELECT COUNT(*) AS row_count FROM categories WHERE path = ? AND context_id = ?', [$path, $contextId]
+        );
+    } else {
+        $result = $this->retrieve(
+            'SELECT COUNT(*) AS row_count FROM categories WHERE path = ?', [$path]
+        );
+    }
+    $row = $result->current();
+    return $row ? (boolean) $row->row_count : false;
+}
 
 	/**
 	 * Construct a new data object corresponding to this DAO.

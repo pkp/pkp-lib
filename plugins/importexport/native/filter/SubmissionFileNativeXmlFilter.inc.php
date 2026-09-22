@@ -166,9 +166,12 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 			$revisionNode->setAttribute('filesize', filesize($localPath));
 			$revisionNode->setAttribute('extension', pathinfo($revision->path, PATHINFO_EXTENSION));
 
-			if (array_key_exists('no-embed', $this->opts)) {
-				$hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
-				if (array_key_exists('use-file-urls', $this->opts)) {
+			if (isset($this->opts['serializationMode'])) {
+				if ($this->opts['serializationMode'] == NativeExportFilter::SERIALIZATION_MODE_EMBED) {
+					$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($localPath)));
+					$embedNode->setAttribute('encoding', 'base64');
+					$revisionNode->appendChild($embedNode);
+				} else {
 					$stageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
 					$dispatcher = Application::get()->getDispatcher();
 					$request = Application::get()->getRequest();
@@ -178,17 +181,44 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 						"stageId" => $stageId,
 						"fileId" => $revision->fileId,
 					];
-					$url = $dispatcher->url($request, ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
-					$hrefNode->setAttribute('src', $url);
-				} else {
-					$hrefNode->setAttribute('src', $revision->path);
+
+					$url = ($this->opts['serializationMode'] == NativeExportFilter::SERIALIZATION_MODE_RELATIVE_PATH)
+						? $dispatcher->url($request, ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params, null, true)
+						: $dispatcher->url($request, ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
+
+					$hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
+					$hrefNode->setAttribute('src', htmlspecialchars($url, ENT_COMPAT, 'UTF-8'));
+					$hrefNode->setAttribute('mime_type', $revision->mimetype);
+					$revisionNode->appendChild($hrefNode);
 				}
-				$hrefNode->setAttribute('mime_type', $revision->mimetype);
-				$revisionNode->appendChild($hrefNode);
 			} else {
-				$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($localPath)));
-				$embedNode->setAttribute('encoding', 'base64');
-				$revisionNode->appendChild($embedNode);
+				// Make this default behavior if no serialization mode is set
+				if (!empty($this->opts['use-file-urls'])) {
+					$stageId = Services::get('submissionFile')->getWorkflowStageId($submissionFile);
+					$dispatcher = Application::get()->getDispatcher();
+					$request = Application::get()->getRequest();
+					$params = [
+						"submissionFileId" => $submissionFile->getId(),
+						"submissionId" => $submissionFile->getData('submissionId'),
+						"stageId" => $stageId,
+						"fileId" => $revision->fileId,
+					];
+
+					if (!empty($this->opts['use-absolute-urls'])) {
+						$url = $dispatcher->url($request, ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
+					} else {
+						$url = $dispatcher->url($request, ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params, null, true);
+					}
+
+					$hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
+					$hrefNode->setAttribute('src', htmlspecialchars($url, ENT_COMPAT, 'UTF-8'));
+					$hrefNode->setAttribute('mime_type', $revision->mimetype);
+					$revisionNode->appendChild($hrefNode);
+				} else if (empty($this->opts['no-embed'])) {
+					$embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($localPath)));
+					$embedNode->setAttribute('encoding', 'base64');
+					$revisionNode->appendChild($embedNode);
+				}
 			}
 
 			$submissionFileNode->appendChild($revisionNode);

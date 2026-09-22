@@ -63,6 +63,7 @@ class PKPAppearanceMastheadForm extends FormComponent
                 'isOrderable' => true,
                 'value' => array_column($mastheadOptions, 'value'),
                 'options' => $mastheadOptions,
+                'showWhen' => 'enableEnrollmentMasthead',
                 'allowOnlySorting' => true
             ]));
         if (count(Application::get()->getReviewStages())) {
@@ -72,6 +73,7 @@ class PKPAppearanceMastheadForm extends FormComponent
                 'options' => [
                     ['value' => true, 'label' => __('manager.setup.enableEnrollmentMastheadReviewers.enable')]
                 ],
+                'showWhen' => 'enableEnrollmentMasthead',
                 'value' => (bool) $context->getData('enableEnrollmentMastheadReviewers'),
             ]));
         }

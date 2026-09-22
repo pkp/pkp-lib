@@ -69,7 +69,7 @@ class AboutContextHandler extends Handler
         $this->setupTemplate($request);
         $context = $request->getContext();
 
-        if (!$context->getSetting('enableEnrollmentMasthead')) {
+        if (!$context->getData('enableEnrollmentMasthead')) {
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->display('frontend/pages/editorialMastheadDisabled.tpl');
             return;
@@ -103,9 +103,9 @@ class AboutContextHandler extends Handler
             }
         }
 
-        $reviewers = null;
+        $reviewers = collect();
+        $previousYear = date('Y') - 1;
         if ($context->getData('enableEnrollmentMastheadReviewers')) {
-            $previousYear = date('Y') - 1;
             $reviewerIds = Repo::reviewAssignment()->getExternalReviewerIdsByCompletedYear($context->getId(), $previousYear);
             $usersCollector = Repo::user()->getCollector();
             $reviewers = $usersCollector

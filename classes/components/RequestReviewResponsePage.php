@@ -28,6 +28,7 @@ use PKP\components\fileAttachers\Upload;
 use PKP\context\Context;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\RequestReviewRoundAuthorResponse;
 use PKP\security\Role;
@@ -180,11 +181,13 @@ class RequestReviewResponsePage
      */
     private function getLocales(): array
     {
+        $localeNames = Locale::getFormattedDisplayNames($this->locales, null, LocaleMetadata::LANGUAGE_LOCALE_WITHOUT);
+
         // Re-index so the locales encode as a JSON array, not an object
         return array_values(array_map(
             fn ($locale) => [
                 'locale' => $locale,
-                'name' => Locale::getMetadata($locale)->getDisplayName(),
+                'name' => $localeNames[$locale] ?? $locale,
             ],
             $this->locales,
         ));

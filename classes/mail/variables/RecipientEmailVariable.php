@@ -66,6 +66,14 @@ class RecipientEmailVariable extends Variable
     }
 
     /**
+     * @return iterable<Identity>
+     */
+    public function getRecipients(): iterable
+    {
+        return $this->recipients;
+    }
+
+    /**
      * Full names of recipients in all supported locales separated by a comma
      */
     protected function getRecipientsFullName(string $locale): string

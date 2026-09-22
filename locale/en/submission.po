@@ -3959,5 +3959,22 @@ msgstr "Updated Comments"
 msgid "submission.event.review.previousComments"
 msgstr "Previous Comments"
 
+msgid "submission.event.review.previousCompetingInterests"
+msgstr "Previous Competing Interests"
+
+msgid "submission.event.review.updatedCompetingInterests"
+msgstr "Updated Competing Interests"
+
 msgid "submission.event.viewReview"
 msgstr "View Review"
+
+msgid "submission.event.review.competingInterestsWithNoDeclaration"
+msgstr "Competing Interests declared: NO<br>"
+"Competing Interests: {$competingInterests}"
+
+msgid "submission.event.review.competingInterestsWithDeclaration"
+msgstr "Competing Interests declared: YES<br>"
+"Competing Interests: {$competingInterests}"
+
+msgid "submission.event.review.field.modified.reviewerCompetingInterests"
+msgstr "The following was modified in this review: Reviewer Competing Interests. Select \"View changes\" to see a detailed summary of all modifications."

@@ -131,7 +131,7 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
         // Set competing interests. The question is only presented to the reviewer
         // when the context has competing interests guidelines (see step1.tpl), so
         // only then can a declaration be recorded.
-        if ($this->request->getContext()->getData('competingInterests')) {
+        if ($this->request->getContext()->isReviewCompetingInterestRequired()) {
             $reviewAssignment->setCompetingInterestsDeclared(true);
             if ($this->getData('competingInterestOption') == 'hasCompetingInterests') {
                 $reviewAssignment->setCompetingInterests($this->request->getUserVar('reviewerCompetingInterests'));

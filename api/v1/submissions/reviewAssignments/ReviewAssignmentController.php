@@ -633,6 +633,18 @@ class ReviewAssignmentController extends PKPBaseController
             $isReviewUpdated = true;
         }
 
+        $oldCompetingInterests = $reviewAssignment->getCompetingInterests();
+        $oldCompetingInterestsDeclared = $reviewAssignment->getCompetingInterestsDeclared();
+        if ($illuminateRequest->exists('competingInterests')) {
+            $competingInterest = $validated['competingInterests'];
+
+            if ($oldCompetingInterests !== $competingInterest || !$reviewAssignment->getCompetingInterestsDeclared()) {
+                $newAssignmentData['competingInterests'] = $competingInterest;
+                $newAssignmentData['competingInterestsDeclared'] = true;
+                $newAssignmentData['lastModifiedById'] = Validation::loggedInAs() ?? $user->getId();
+            }
+        }
+
         if ($isReviewUpdated) {
             $newAssignmentData['lastModifiedById'] = Validation::loggedInAs() ?? $user->getId();
 
@@ -649,6 +661,9 @@ class ReviewAssignmentController extends PKPBaseController
                     $newAssignmentData['dateConfirmed'] = $now;
                 }
             }
+        }
+
+        if (!empty($newAssignmentData)) {
             Repo::reviewAssignment()->edit($reviewAssignment, $newAssignmentData);
         }
 
@@ -670,6 +685,25 @@ class ReviewAssignmentController extends PKPBaseController
             Repo::eventLog()->add($eventLog);
         }
 
+        if (array_key_exists('competingInterests', $newAssignmentData)) {
+            // Log changes to the event log
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                'assocId' => $reviewAssignment->getId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMPETING_INTERESTS_MODIFIED,
+                'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'message' => 'submission.event.review.field.modified.reviewerCompetingInterests',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+                'reviewerNewCompetingInterests' => __('submission.event.review.competingInterestsWithDeclaration', ['competingInterests' => $validated['competingInterests']]),
+                'reviewerOldCompetingInterests' => $oldCompetingInterestsDeclared ?
+                    __('submission.event.review.competingInterestsWithDeclaration', ['competingInterests' => $oldCompetingInterests])
+                    : __('submission.event.review.competingInterestsWithNoDeclaration', ['competingInterests' => $oldCompetingInterests]),
+                'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+            ]);
+
+            Repo::eventLog()->add($eventLog);
+        }
         // If the editor completed the review on reviewer's behalf, then remove the initial task notification sent to reviewer
         if (isset($newAssignmentData['dateCompleted'])) {
             // Remove the reviewer task.

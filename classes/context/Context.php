@@ -632,4 +632,12 @@ abstract class Context extends \PKP\core\DataObject
 
         return $numReviewsPerSubmission;
     }
+
+    /**
+     * Whether competing interests are required for reviews in this context.
+     */
+    public function isReviewCompetingInterestRequired(): bool
+    {
+        return (bool) $this->getData('competingInterests');
+    }
 }

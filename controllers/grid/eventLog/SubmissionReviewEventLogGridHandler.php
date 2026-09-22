@@ -59,6 +59,8 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
             $results = '<form class="pkp_form">' . $this->formatCommentsChange($logEntry) . '</form>';
         } elseif ($logEntry->getEventType() === PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_FORM_RESPONSE_MODIFIED) {
             $results = $this->formatReviewFormResponseChange($logEntry);
+        } elseif ($logEntry->getEventType() === PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMPETING_INTERESTS_MODIFIED) {
+            $results = $this->formatCompetingInterestChange($logEntry);
         }
 
         return $results;
@@ -112,6 +114,22 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
             PKPString::stripUnsafeHtml($new),
             __('submission.event.review.updatedComments'),
             __('submission.event.review.previousComments')
+        );
+    }
+
+    /**
+     * Format contents of the competing interests change.
+     */
+    protected function formatCompetingInterestChange(EventLogEntry $logEntry): string
+    {
+        $previous = (string)$logEntry->getData('reviewerOldCompetingInterests');
+        $new = (string)$logEntry->getData('reviewerNewCompetingInterests');
+
+        return $this->formatBasicValueChange(
+            PKPString::stripUnsafeHtml($previous),
+            PKPString::stripUnsafeHtml($new),
+            __('submission.event.review.updatedCompetingInterests'),
+            __('submission.event.review.previousCompetingInterests')
         );
     }
 

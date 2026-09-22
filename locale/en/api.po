@@ -541,3 +541,6 @@ msgstr "The form element with ID {$elementId} is not a part of this review assig
 
 msgid "api.submissions.reviews.422.invalidComments"
 msgstr "The submitted comments are not valid."
+
+msgid "api.submissions.reviews.422.competingInterestsNotAllowed"
+msgstr "Competing interests are not allowed for reviews in this Context."

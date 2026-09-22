@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\files;
 
+use APP\core\Application;
 use PKP\controllers\api\file\linkAction\DownloadLibraryFileLinkAction;
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
@@ -36,13 +37,18 @@ class LibraryFileGridCellProvider extends GridCellProvider
     {
         $element = & $row->getData();
         $columnId = $column->getId();
+        $request = Application::get()->getRequest();
+
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
         switch ($columnId) {
             case 'files':
                 // handled by our link action.
                 return ['label' => ''];
+            case 'url':
+                return $element->getPublicAccess() ? ['label' => $request->getDispatcher()->url(Application::get()->getRequest(), Application::ROUTE_PAGE, null, 'libraryFiles', 'downloadPublic', [$element->getId()])] : ['label' => ''];
         }
     }
+
 
     /**
      * Get cell actions associated with this row/column combination

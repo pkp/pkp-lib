@@ -2,13 +2,14 @@
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 # "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
 # Emma U <emmaupkp@gmail.com>, 2025.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-06-16 18:06+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2026-09-23 18:59+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "user/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -880,3 +881,34 @@ msgstr "Saisissez le nom de l'institut en {$language}"
 
 msgid "user.affiliations.searchPhraseNothingFound"
 msgstr "La phrase recherchée n'a pas été trouvée"
+
+msgid "user.masthead.update.title"
+msgstr "Confirmer la modification d’affichage sur l'entête"
+
+msgid "user.masthead.update.message"
+msgstr ""
+"Ceci modifiera l’affichage de l’utilisateur ou de l'utilisatrice sur "
+"l'entête pour le rôle sélectionné. La modification sera signalée à "
+"l'utilisateur ou à l'utilisatrice."
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Inscrivez les deux lettres que vous souhaitez utiliser comme avatar. Ces "
+"initiales seront affichées pour vous représenter."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Initiales de l’avatar"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Vous ne pouvez pas retirer ce rôle. Un utilisateur ou utilisatrice doit "
+"avoir au moins un rôle."
+
+msgid "orcid.unauthenticated"
+msgstr "(non authentifié)"
+
+msgid "orcid.manager.context.enabled"
+msgstr "Activer la fonctionnalité ORCID"
+
+msgid "user.bioStatement"
+msgstr "Biographie"

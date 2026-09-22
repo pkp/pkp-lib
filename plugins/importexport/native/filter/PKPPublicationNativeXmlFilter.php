@@ -210,6 +210,9 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
         $this->createLocalizedNodes($doc, $entityNode, 'prefix', $entity->getData('prefix'));
         $this->createLocalizedNodes($doc, $entityNode, 'subtitle', $entity->getSubTitles('html'));
         $this->createLocalizedNodes($doc, $entityNode, 'abstract', $entity->getData('abstract'));
+        $this->createLocalizedNodes($doc, $entityNode, 'plainLanguageSummary', $entity->getData('plainLanguageSummary'));
+        $this->createLocalizedNodes($doc, $entityNode, 'dataAvailability', $entity->getData('dataAvailability'));
+        $this->createLocalizedNodes($doc, $entityNode, 'fundingStatement', $entity->getData('fundingStatement'));
         $this->createLocalizedNodes($doc, $entityNode, 'coverage', $entity->getData('coverage'));
         $this->createLocalizedNodes($doc, $entityNode, 'type', $entity->getData('type'));
         $this->createLocalizedNodes($doc, $entityNode, 'source', $entity->getData('source'));

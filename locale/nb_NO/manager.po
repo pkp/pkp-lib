@@ -442,11 +442,6 @@ msgstr "DOI-er"
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr "Følgende feil ble returnert av {$registrationAgency}:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Følgende melding ble sendt tilbake av {$registrationAgency} og inneholder "
-"detaljer om registreringen:"
-
 msgid "manager.emails.addEmail"
 msgstr "Legg til e-postmal"
 

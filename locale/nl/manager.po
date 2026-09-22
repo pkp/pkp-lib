@@ -424,11 +424,6 @@ msgstr ""
 "De volgende foutmelding is doorgegeven door {$registrationAgency} en bevat "
 "details over de oorzaak van de fout:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Het volgende bericht is doorgegeven door {$registrationAgency} en bevat "
-"details over de registratie:"
-
 msgid "manager.emails.addEmail"
 msgstr "Voeg e-mail sjabloon toe"
 

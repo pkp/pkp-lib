@@ -415,11 +415,6 @@ msgstr ""
 "Sledeća greška je vraćena od strane {$registrationAgency} i sadrži detalje o "
 "uzroku greške:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Sledeća poruka je vraćena od strane {$registrationAgency} i sadrži detalje o "
-"registraciji:"
-
 msgid "manager.emails.addEmail"
 msgstr "Dodaj šablon"
 

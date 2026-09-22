@@ -423,11 +423,6 @@ msgstr ""
 "Následující chyba byla vrácena agenturou {$registrationAgency} a obsahuje "
 "podrobnosti o příčině chyby:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Následující zpráva byla vrácena agenturou {$registrationAgency} a obsahuje "
-"podrobnosti o registraci:"
-
 msgid "manager.emails.addEmail"
 msgstr "Přidat šablonu"
 

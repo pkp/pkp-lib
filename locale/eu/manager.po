@@ -421,11 +421,6 @@ msgstr ""
 "Ondorengo errorea {$registrationAgency}-(e)k itzuli du eta errorearen "
 "zergatiari buruzko xehetasunak ditu:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Ondorengo mezua {$registrationAgency}-(e)k itzuli du eta erregistroari "
-"buruzko xehetasunak ditu:"
-
 msgid "manager.emails.addEmail"
 msgstr "Gehitu txantiloia"
 

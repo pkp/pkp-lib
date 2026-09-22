@@ -426,11 +426,6 @@ msgstr ""
 "Den følgende fejl blev returneret af {$registrationAgency} og indeholder "
 "detaljer omkring årsagen til fejlen:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Den følgende besked blev returneret af {$registrationAgency} og indeholder "
-"detaljer omkring registreringen:"
-
 msgid "manager.emails.addEmail"
 msgstr "Tilføj skabelon"
 

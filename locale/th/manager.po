@@ -793,11 +793,6 @@ msgstr ""
 "ข้อผิดพลาดต่อไปนี้ถูกส่งคืนโดย {$registrationAgency} "
 "และประกอบด้วยรายละเอียดเกี่ยวกับสาเหตุของข้อผิดพลาด:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"ข้อความต่อไปนี้ถูกส่งคืนโดย {$registrationAgency} "
-"และประกอบด้วยรายละเอียดเกี่ยวกับการลงทะเบียน:"
-
 msgid "manager.emails.addEmail"
 msgstr "เพิ่มแม่แบบ"
 

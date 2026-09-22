@@ -430,11 +430,6 @@ msgstr ""
 "Le message d'erreur suivant a été transmis par {$registrationAgency} et il "
 "contient des détails sur les causes de l'erreur:"
 
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Le message suivant a été transmis par {$registrationAgency} et il contient "
-"des détails sur l'enregistrement:"
-
 msgid "manager.emails.addEmail"
 msgstr "Ajouter un modèle de courriel"
 

@@ -142,7 +142,6 @@ abstract class PKPDoisHandler extends Handler
         $info->errorMessageKey = null;
         $info->registeredMessageKey = null;
         $info->errorMessagePreamble = null;
-        $info->registeredMessagePreamble = null;
 
         /** @var IPKPDoiRegistrationAgency $plugin */
         $plugin = $context->getConfiguredDoiAgency();
@@ -152,7 +151,6 @@ abstract class PKPDoisHandler extends Handler
             $info->errorMessageKey = $plugin->getErrorMessageKey();
             $info->registeredMessageKey = $plugin->getRegisteredMessageKey();
             $info->errorMessagePreamble = __('manager.dois.registrationAgency.errorMessagePreamble', ['registrationAgency' => $plugin->getRegistrationAgencyName()]);
-            $info->registeredMessagePreamble = __('manager.dois.registrationAgency.registeredMessagePreamble', ['registrationAgency' => $plugin->getRegistrationAgencyName()]);
         }
 
         return $info;

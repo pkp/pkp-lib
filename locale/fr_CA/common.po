@@ -1,5 +1,5 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023, 2025.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023, 2025, 2026.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2025.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 msgid ""
@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-10-17 16:19+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2026-09-23 18:59+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -2333,3 +2333,62 @@ msgstr "Afficher l'<a href=\"{$url}\">historique éditorial</a>"
 
 msgid "common.assignments"
 msgstr "Affectation"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mes soumissions en tant qu'évaluateur(-trice)"
+
+msgid "common.yesContinue"
+msgstr "Oui, continuer"
+
+msgid "common.filtersClear"
+msgstr "Effacer les filtres"
+
+msgid "common.showingXofX"
+msgstr "Résultats <strong>{$start} à {$finish}</strong> de {$total}"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"Une erreur a été détectée! Veuillez corriger l’erreur ci-dessous avant de "
+"continuer."
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Évaluateurs et évaluatrices de l’année précédente"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Le comité éditorial exprime sa reconnaissance envers les évaluateurs et "
+"évaluatrices de {$year} dont les noms figurent ci-dessous."
+
+msgid "common.editorialHistory"
+msgstr "Historique de l’équipe éditoriale"
+
+msgid "common.editorialHistory.page"
+msgstr "Page de l'historique de l’équipe éditoriale"
+
+msgid "common.editorialHistory.page.description"
+msgstr ""
+"Cette section contient l'historique des contributeurs et contributrices."
+
+msgid "common.editorialMasthead"
+msgstr "Entête"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "No"
+
+msgid "common.viewMoreDetails"
+msgstr "Afficher plus de details"
+
+msgid "common.highlights"
+msgstr "En vedette"
+
+msgid "common.changeLanguage"
+msgstr "Changer la langue"
+
+msgid "navigation.mySubmissions"
+msgstr "Mes soumissions en tant qu'auteur(-trice)"
+
+msgid "common.refreshingData"
+msgstr "Actualiser les données"

@@ -1,13 +1,13 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 # "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2025.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-09-15 14:40+0000\n"
+"PO-Revision-Date: 2026-09-23 18:59+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/fr_CA/>\n"
@@ -206,3 +206,17 @@ msgstr ""
 "transmise, un membre de l'équipe éditoriale lui sera assigné afin de "
 "l'évaluer. S'il vous plaît, assurez vous que les détails fournis sont le "
 "plus exactes possibles.</p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Membre du comité éditorial"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "MCE"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Lorsque vous soumettez un texte, vous avez la possibilité de suggérer des "
+"personnes pour effectuer l'évaluation. Ces indications peuvent être utiles à "
+"l'équipe éditoriale et simplifier le processus d’évaluation. Veuillez "
+"sélectionner des personnes qui ont de l'expertise dans votre domaine et qui "
+"n’ont pas de conflits d’intérêt avec votre travail.</p>"

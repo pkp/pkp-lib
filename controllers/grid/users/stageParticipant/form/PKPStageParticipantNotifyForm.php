@@ -314,7 +314,7 @@ class PKPStageParticipantNotifyForm extends Form
     /**
      * Get the available email template variable names for the given template name.
      */
-    public function getEmailVariableNames(string $emailKey): array
+    public function getEmailVariableNames(?string $emailKey): array
     {
         switch ($emailKey) {
             case 'COPYEDIT_REQUEST':

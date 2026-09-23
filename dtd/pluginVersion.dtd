@@ -9,7 +9,7 @@
   *
   -->
 
-<!ELEMENT version (application, type, release, tag?, date, lazy-load?, sitewide?, class?)>
+<!ELEMENT version (application, type, release, tag?, date, lazy-load?, sitewide?, class?, compatibility*)>
 <!ELEMENT application (#PCDATA)>
 <!ELEMENT type (#PCDATA)>
 <!ELEMENT release (#PCDATA)>
@@ -18,3 +18,5 @@
 <!ELEMENT lazy-load (#PCDATA)>
 <!ELEMENT sitewide (#PCDATA)>
 <!ELEMENT class (#PCDATA)>
+<!ELEMENT compatibility (release+)>
+<!ATTLIST compatibility application CDATA #REQUIRED>

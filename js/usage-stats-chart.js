@@ -96,85 +96,101 @@
 		},
 	};
 
-	// Fire an event to allow third-party customization of the options
-	var optionsEvent = document.createEvent('Event');
-	optionsEvent.initEvent('usageStatsChartOptions.pkp', true, true);
-	optionsEvent.chartOptions = chartOptions;
-	document.dispatchEvent(optionsEvent);
+	/**
+	 * Initialize the chart on the page
+	 */
+	function init() {
+		// Fire an event to allow third-party customization of the options
+		var optionsEvent = document.createEvent('Event');
+		optionsEvent.initEvent('usageStatsChartOptions.pkp', true, true);
+		optionsEvent.chartOptions = chartOptions;
+		document.dispatchEvent(optionsEvent);
 
-	var graph, objectType, objectId, graphData, initializedEvent;
-	pkpUsageStats.charts = {};
-	for (var g = 0; g < graphs.length; g++) {
-		graph = graphs[g];
+		var graph, objectType, objectId, graphData, initializedEvent;
+		pkpUsageStats.charts = {};
+		for (var g = 0; g < graphs.length; g++) {
+			graph = graphs[g];
 
-		// Check for markup we can use
-		if (
-			typeof graph.dataset.objectType === 'undefined' ||
-			typeof graph.dataset.objectId === 'undefined'
-		) {
-			continue;
-		}
-
-		objectType = graph.dataset.objectType;
-		objectId = graph.dataset.objectId;
-
-		// Check that data exists for this graph
-		if (
-			typeof pkpUsageStats.data[objectType] === 'undefined' ||
-			pkpUsageStats.data[objectType][objectId] === 'undefined'
-		) {
-			continue;
-		}
-
-		// Do nothing if there's no data for this chart
-		if (typeof pkpUsageStats.data[objectType][objectId].data === 'undefined') {
-			graph.parentNode.removeChild(graph);
-			continue;
-		}
-
-		graphData = pkpUsageStats.data[objectType][objectId];
-
-		// Turn the data set into an array
-		var dataArray = [],
-			labelsArray = [],
-			currentDate = new Date(),
-			currentYear = currentDate.getFullYear(),
-			currentMonth = currentDate.getMonth();
-		// Get the data from the last year
-		for (var month = currentMonth + 1; month <= 11; month++) {
-			if (!(currentYear - 1 in graphData.data)) {
-				dataArray.push(0);
-			} else {
-				dataArray.push(graphData.data[currentYear - 1][month + 1]);
+			// Check for markup we can use
+			if (
+				typeof graph.dataset.objectType === 'undefined' ||
+				typeof graph.dataset.objectId === 'undefined'
+			) {
+				continue;
 			}
-			labelsArray.push(pkpUsageStats.locale.months[month]);
-		}
-		// Get the data from the current year
-		for (month = 0; month <= currentMonth; month++) {
-			if (!(currentYear in graphData.data)) {
-				dataArray.push(0);
-			} else {
-				dataArray.push(graphData.data[currentYear][month + 1]);
-			}
-			labelsArray.push(pkpUsageStats.locale.months[month]);
-		}
-		pkpUsageStats.charts[objectType + '_' + objectId] = new Chart(graph, {
-			type: pkpUsageStats.config.chartType,
-			data: {
-				labels: labelsArray,
-				datasets: [
-					{
-						label: graphData.label,
-						data: dataArray,
-					},
-				],
-			},
-			options: chartOptions,
-		});
 
-		// Fire an event when the chart is initialized
-		initializedEvent = document.createEvent('Event');
-		initializedEvent.initEvent('usageStatsChartLoaded.pkp', true, true);
-		graph.dispatchEvent(initializedEvent);
+			objectType = graph.dataset.objectType;
+			objectId = graph.dataset.objectId;
+
+			// Check that data exists for this graph
+			if (
+				typeof pkpUsageStats.data[objectType] === 'undefined' ||
+				pkpUsageStats.data[objectType][objectId] === 'undefined'
+			) {
+				continue;
+			}
+
+			// Do nothing if there's no data for this chart
+			if (typeof pkpUsageStats.data[objectType][objectId].data === 'undefined') {
+				graph.parentNode.removeChild(graph);
+				continue;
+			}
+
+			graphData = pkpUsageStats.data[objectType][objectId];
+
+			// Turn the data set into an array
+			var dataArray = [],
+				labelsArray = [],
+				currentDate = new Date(),
+				currentYear = currentDate.getFullYear(),
+				currentMonth = currentDate.getMonth();
+			// Get the data from the last year
+			for (var month = currentMonth + 1; month <= 11; month++) {
+				if (!(currentYear - 1 in graphData.data)) {
+					dataArray.push(0);
+				} else {
+					dataArray.push(graphData.data[currentYear - 1][month + 1]);
+				}
+				labelsArray.push(pkpUsageStats.locale.months[month]);
+			}
+			// Get the data from the current year
+			for (month = 0; month <= currentMonth; month++) {
+				if (!(currentYear in graphData.data)) {
+					dataArray.push(0);
+				} else {
+					dataArray.push(graphData.data[currentYear][month + 1]);
+				}
+				labelsArray.push(pkpUsageStats.locale.months[month]);
+			}
+			pkpUsageStats.charts[objectType + '_' + objectId] = new Chart(graph, {
+				type: pkpUsageStats.config.chartType,
+				data: {
+					labels: labelsArray,
+					datasets: [
+						{
+							label: graphData.label,
+							data: dataArray,
+						},
+					],
+				},
+				options: chartOptions,
+			});
+
+			// Fire an event when the chart is initialized
+			initializedEvent = document.createEvent('Event');
+			initializedEvent.initEvent('usageStatsChartLoaded.pkp', true, true);
+			graph.dispatchEvent(initializedEvent);
+		}
 	}
+
+	/**
+	 * Defer initialization of the chart so that all other callbacks
+	 * attached to DOMContentLoaded are executed first. This ensures
+	 * third-party scripts can listen to the chart initialization
+	 * events.
+	 */
+	document.addEventListener('DOMContentLoaded', () => {
+		setTimeout(init, 1)
+	})
+
 })();

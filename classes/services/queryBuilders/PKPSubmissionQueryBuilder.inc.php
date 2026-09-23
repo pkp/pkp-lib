@@ -362,17 +362,8 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 				$table->whereIn('sa.user_id', $assignedTo);
 			});
 
-			// Review assignments
-			$q->leftJoin('review_assignments as ra', function($table) use ($assignedTo) {
-				$table->on('s.submission_id', '=', 'ra.submission_id');
-				$table->on('ra.declined', '=', Capsule::raw((int) 0));
-				$table->on('ra.cancelled', '=', Capsule::raw((int) 0));
-				$table->whereIn('ra.reviewer_id', $assignedTo);
-			});
-
 			$q->where(function($q) {
 				$q->whereNotNull('sa.stage_assignment_id');
-				$q->orWhereNotNull('ra.review_id');
 			});
 		} elseif ($this->assignedTo === -1) {
 			$sub = Capsule::table('stage_assignments')
@@ -415,10 +406,6 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 							$q->where('aus.setting_name', 'orcid');
 							$q->where(Capsule::raw('lower(aus.setting_value)'), '=', "{$word}");
 						});
-						// Prevent reviewers from matching searches by author name
-						if ($isAssignedOnly) {
-							$q->whereNull('ra.reviewer_id');
-						}
 						if (ctype_digit((string) $word)) {
 							$q->orWhere('s.submission_id', '=', $word);
 						}

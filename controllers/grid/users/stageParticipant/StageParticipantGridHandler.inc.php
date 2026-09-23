@@ -39,7 +39,7 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		// Managers and Editors additionally get administrative access
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR),
-			array_merge($peOps, array('addParticipant', 'deleteParticipant', 'saveParticipant', 'fetchUserList'))
+			array_merge($peOps, array('addParticipant', 'saveParticipant', 'fetchUserList', 'removeParticipant', 'removeStageAssignment'))
 		);
 		$this->setTitle('editor.submission.stageParticipants');
 	}
@@ -356,12 +356,34 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 	}
 
 	/**
-	 * Delete the participant from the user groups
-	 * @param $args
-	 * @param $request
-	 * @return JSONMessage JSON object
+	 * Show a confirmation form to remove a stage participant, with optional email notification.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage
 	 */
-	function deleteParticipant($args, $request) {
+	function removeParticipant($args, $request) {
+		$submission = $this->getSubmission();
+		$assignmentId = (int) $request->getUserVar('assignmentId');
+
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$stageAssignment = $stageAssignmentDao->getById($assignmentId);
+		if (!$stageAssignment || $stageAssignment->getSubmissionId() != $submission->getId()) {
+			return new JSONMessage(false);
+		}
+
+		import('lib.pkp.controllers.grid.users.stageParticipant.form.RemoveParticipantForm');
+		$form = new RemoveParticipantForm($submission, $stageAssignment, $this->getStageId());
+		$form->initData();
+		return new JSONMessage(true, $form->fetch($request));
+	}
+
+	/**
+	 * Handle removal form submission: optionally email the user and then remove the assignment.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage
+	 */
+	function removeStageAssignment($args, $request) {
 		$submission = $this->getSubmission();
 		$stageId = $this->getStageId();
 		$assignmentId = (int) $request->getUserVar('assignmentId');
@@ -372,40 +394,19 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 			return new JSONMessage(false);
 		}
 
-		// Delete the assignment
-		$stageAssignmentDao->deleteObject($stageAssignment);
-
-		// FIXME: perhaps we can just insert the notification on page load
-		// instead of having it there all the time?
-		$notificationMgr = new NotificationManager();
-		import('classes.workflow.EditorDecisionActionsManager');
-		$notificationMgr->updateNotification(
-			$request,
-			(new EditorDecisionActionsManager())->getStageNotifications(),
-			null,
-			ASSOC_TYPE_SUBMISSION,
-			$submission->getId()
-		);
-
-		if ($stageId == WORKFLOW_STAGE_ID_EDITING ||
-			$stageId == WORKFLOW_STAGE_ID_PRODUCTION) {
-
-			// Update submission notifications
-			$notificationMgr->updateNotification(
-				$request,
-				array(
-					NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-					NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-					NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-					NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
-				),
-				null,
-				ASSOC_TYPE_SUBMISSION,
-				$submission->getId()
-			);
+		import('lib.pkp.controllers.grid.users.stageParticipant.form.RemoveParticipantForm');
+		$form = new RemoveParticipantForm($submission, $stageAssignment, $stageId);
+		$form->readInputData();
+		if (!$form->validate()) {
+			return new JSONMessage(true, $form->fetch($request));
 		}
 
-		// Log removal.
+		$form->execute();
+
+		$stageAssignmentDao->deleteObject($stageAssignment);
+
+		$notificationMgr = new NotificationManager();
+
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$assignedUser = $userDao->getById($stageAssignment->getUserId());
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
@@ -413,7 +414,9 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		import('lib.pkp.classes.log.SubmissionLog');
 		SubmissionLog::logEvent($request, $submission, SUBMISSION_LOG_REMOVE_PARTICIPANT, 'submission.event.participantRemoved', array('name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()));
 
-		// Redraw the category
+		$currentUser = $request->getUser();
+		$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS);
+
 		return DAO::getDataChangedEvent($stageAssignment->getUserGroupId());
 	}
 
@@ -548,5 +551,3 @@ class StageParticipantGridHandler extends CategoryGridHandler {
 		return '$.pkp.controllers.grid.users.stageParticipant.StageParticipantGridHandler';
 	}
 }
-
-

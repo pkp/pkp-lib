@@ -1,4 +1,4 @@
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023, 2025.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023, 2025, 2026.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024, 2025.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-10-31 20:16+0000\n"
+"PO-Revision-Date: 2026-09-23 18:59+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -3948,7 +3948,67 @@ msgid "settings.roles.permitSettings"
 msgstr "Autoriser la modification des configurations"
 
 msgid "manager.highlights.add"
-msgstr "Ajouter un clou"
+msgstr "Mettre en vedette"
 
 msgid "manager.highlights.delete"
 msgstr "Supprimer le clou"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Configurer les rappels pour l'évaluation"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Permettre à l'auteur ou l'autrice des suggérer des personnes pour "
+"l'évaluation lors de la soumission"
+
+msgid "settings.roles.masthead"
+msgstr "Afficher dans la page du personnel éditorial"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Lien vers la page affichant les membres actifs du personnel éditorial."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"Définir l’ordre des rôles sur la page de l'équipe éditoriale de la revue."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Veuillez inscrire l’historique de l’activité éditoriale, incluant le nom "
+"complet, l’affiliation et les dates de début et de fin de service de chaque "
+"membre de l'équipe éditoriale."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Le format d'affichage des évaluateurs et évaluatrices sera normalisé afin de "
+"maintenir l'uniformité et d’assurer une meilleure découvrabilité des "
+"informations de cette section."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Avant de finaliser la soumission, l’auteur ou l'autrice peut suggérer "
+"plusieurs personnes susceptibles de procéder à l'évaluation, ce qui peut "
+"simplifier le processus d’évaluation et faciliter le travail de l’équipe "
+"éditoriale."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Le texte suivant est affiché au moment de suggérer des évaluateurs ou "
+"évaluatrices. Veuillez fournir une brève explication sur les informations à "
+"fournir au sujet des auteurs et autrices, co-auteurs et co-autrices, ou de "
+"toute autre personne ayant contribué au manuscrit."
+
+msgid "manager.highlights.edit"
+msgstr "Modifier la mise en vedette"
+
+msgid "manager.highlights.url.description"
+msgstr "URL complète (incluant https://) pour le bouton de mise en vedette."
+
+msgid "manager.highlights.urlText.description"
+msgstr ""
+"Le libellé (par exemple « En savoir plus ») du bouton de mise en vedette."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Nombre minimal requis d’évaluations confirmées"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Nombre minimal requis d'évaluations confirmées pour une soumission"

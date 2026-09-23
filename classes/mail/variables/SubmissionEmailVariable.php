@@ -121,6 +121,16 @@ abstract class SubmissionEmailVariable extends Variable
      */
     protected function getSubmissionUrl(Context $context): string
     {
+        $to = $this->mailable->to[0]['address'];
+        $authors = $this->currentPublication->getData('authors');
+        foreach($authors as $author)
+        {
+            if($to == $author->getEmail())
+            {
+                return $this->getAuthorSubmissionUrl($context);
+            }
+        }
+        
         $application = PKPApplication::get();
         $request = $application->getRequest();
         $dispatcher = $application->getDispatcher();

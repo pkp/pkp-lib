@@ -3,8 +3,8 @@
 /**
  * @file classes/invitation/invitations/UserRoleAssignmentInvite.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2024-2026 Simon Fraser University
+ * Copyright (c) 2024-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserRoleAssignmentInvite
@@ -86,6 +86,9 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return array_merge(parent::getNotAccessibleBeforeInvite(), $this->notAccessibleBeforeInvite);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function getMailable(): Mailable
     {
         $contextDao = Application::getContextDAO();
@@ -105,7 +108,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         $inviter = $this->getInviter();
 
-        $reciever = $this->getMailableReceiver($locale);
+        $receiver = $this->getMailableReceiver($locale);
 
         $emailComposerValues = $this->getPayload()->emailComposer;
 
@@ -119,7 +122,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         $mailable
             ->sender($inviter)
-            ->recipients([$reciever])
+            ->recipients([$receiver])
             ->subject($emailSubject)
             ->body($emailBody);
 
@@ -128,18 +131,26 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return $this->mailable;
     }
 
+    /**
+     * Get the identity that will receive the invitation email.
+     *
+     * Names provided in the invitation payload for the given locale are used
+     * when present, so that new users who do not yet have an account are
+     * addressed by name rather than by email address.
+     */
     public function getMailableReceiver(?string $locale = null): Identity
     {
         $locale = $this->getUsedLocale($locale);
 
         $receiver = parent::getMailableReceiver($locale);
+        $payload = $this->getPayload();
 
-        if (isset($this->familyName)) {
-            $receiver->setFamilyName($this->getPayload()->familyName, $locale);
+        if (isset($payload->familyName[$locale])) {
+            $receiver->setFamilyName($payload->familyName[$locale], $locale);
         }
 
-        if (isset($this->givenName)) {
-            $receiver->setGivenName($this->getPayload()->givenName, $locale);
+        if (isset($payload->givenName[$locale])) {
+            $receiver->setGivenName($payload->givenName[$locale], $locale);
         }
 
         return $receiver;
@@ -191,12 +202,10 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new EmailMustNotExistRule($this->getEmail());
         }
 
-        $validationRules = array_merge(
+        return array_merge(
             $invitationValidationRules,
             $this->getPayload()->getValidationRules($this, $validationContext)
         );
-
-        return $validationRules;
     }
 
     /**
@@ -206,12 +215,10 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     {
         $invitationValidationMessages = [];
 
-        $invitationValidationMessages = array_merge(
+        return array_merge(
             $invitationValidationMessages,
             $this->getPayload()->getValidationMessages($validationContext)
         );
-
-        return $invitationValidationMessages;
     }
 
     /**
@@ -221,7 +228,11 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     {
         // Encrypt the password if it exists
         // There is already a validation rule that makes username and password fields interconnected
-        if (isset($this->getPayload()->username) && isset($this->getPayload()->password) && !$this->getPayload()->passwordHashed) {
+        if (
+            isset($this->getPayload()->username) &&
+            isset($this->getPayload()->password) &&
+            !$this->getPayload()->passwordHashed
+        ) {
             $this->getPayload()->password = Validation::encryptCredentials($this->getPayload()->username, $this->getPayload()->password);
             $this->getPayload()->passwordHashed = true;
         }
@@ -249,5 +260,4 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         return null;
     }
-
 }

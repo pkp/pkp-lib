@@ -167,13 +167,15 @@
 		// Track current values in the tinyMCE control
 		if (this.getHtmlElement().find('.richContent').length) {
 			$popover.find('textarea').each(function() {
-				var id = $(this).attr('id'),
-						tinymce;
+				// #13180 - A rendering editor has no serializer yet; read the textarea.
+				var $textarea = $(this),
+						editor = tinyMCE.EditorManager.get(/** @type {string} */(
+								$textarea.attr('id'))),
+						content = editor && editor.initialized ?
+								editor.getContent() : $textarea.val();
 
-				$inputs.push($(this));
-				tinymce = tinyMCE.EditorManager.get(/** @type {string} */(
-						$(this).attr('id')));
-				if (tinymce.getContent()) {
+				$inputs.push($textarea);
+				if (content) {
 					valuesCount++;
 				}
 			});

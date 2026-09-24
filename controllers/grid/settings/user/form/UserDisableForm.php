@@ -19,7 +19,6 @@ namespace PKP\controllers\grid\settings\user\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
 use PKP\form\Form;
 
 class UserDisableForm extends Form

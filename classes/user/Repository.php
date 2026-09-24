@@ -18,21 +18,21 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\file\TemporaryFileDAO;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\SubmissionCommentDAO;
-use PKP\userGroup\relationships\UserUserGroup;
 use PKP\user\interest\UserInterest;
-use Illuminate\Support\Facades\DB;
-use PKP\facades\Locale;
+use PKP\userGroup\relationships\UserUserGroup;
 use PKP\workflow\WorkflowStageDAO;
 
 class Repository
@@ -392,9 +392,7 @@ class Repository
         }
 
         // Delete all user group assignments for the old user
-        UserUserGroup::query()
-            ->withUserId($oldUserId)
-            ->delete();
+        Repo::userGroup()->deleteAssignmentsByUserId($oldUserId);
 
         // Transfer stage assignments.
         $stageAssignments = StageAssignment::withUserId($oldUserId)->get();
@@ -457,27 +455,31 @@ class Repository
     public function permissionMapForManager(int $managerUserId, array $userIds): array
     {
         $userIds = array_values(array_unique(array_map('intval', $userIds)));
-        if (empty($userIds)) return [];
+        if (empty($userIds)) {
+            return [];
+        }
 
         $unmanaged = DB::table('users as u')
             ->whereIn('u.user_id', $userIds)
             ->whereExists(function ($q) use ($managerUserId) {
                 $q->from('user_user_groups as uug_t')
-                  ->join('user_groups as ug_t', 'ug_t.user_group_id', '=', 'uug_t.user_group_id')
-                  ->whereColumn('uug_t.user_id', 'u.user_id')
-                  ->whereNotExists(function ($qq) use ($managerUserId) {
-                      $qq->from('user_groups as ug_m')
-                         ->join('user_user_groups as uug_m', 'ug_m.user_group_id', '=', 'uug_m.user_group_id')
-                         ->where('ug_m.role_id', Role::ROLE_ID_MANAGER)
-                         ->where('uug_m.user_id', $managerUserId)
-                         ->whereColumn('ug_m.context_id', 'ug_t.context_id');
-                  });
+                    ->join('user_groups as ug_t', 'ug_t.user_group_id', '=', 'uug_t.user_group_id')
+                    ->whereColumn('uug_t.user_id', 'u.user_id')
+                    ->whereNotExists(function ($qq) use ($managerUserId) {
+                        $qq->from('user_groups as ug_m')
+                            ->join('user_user_groups as uug_m', 'ug_m.user_group_id', '=', 'uug_m.user_group_id')
+                            ->where('ug_m.role_id', Role::ROLE_ID_MANAGER)
+                            ->where('uug_m.user_id', $managerUserId)
+                            ->whereColumn('ug_m.context_id', 'ug_t.context_id');
+                    });
             })
             ->pluck('u.user_id')
             ->all();
 
         $map = array_fill_keys($userIds, true);
-        foreach ($unmanaged as $id) $map[(int)$id] = false;
+        foreach ($unmanaged as $id) {
+            $map[(int)$id] = false;
+        }
         return $map;
     }
 
@@ -494,7 +496,7 @@ class Repository
             ->whereIn('ug.role_id', [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->where(function ($q) use ($contextId) {
                 $q->where('ug.context_id', $contextId)
-                  ->orWhereNull('ug.context_id');
+                    ->orWhereNull('ug.context_id');
             })
             ->exists();
     }
@@ -560,7 +562,7 @@ class Repository
             ->whereIn('user_interests.user_id', $userIds)
             ->leftJoin('controlled_vocab_entry_settings as cves', function ($join) {
                 $join->on('cves.controlled_vocab_entry_id', '=', 'user_interests.controlled_vocab_entry_id')
-                ->whereIn('cves.setting_name', ['interest', 'name']);
+                    ->whereIn('cves.setting_name', ['interest', 'name']);
             })
             ->orderBy('user_interests.user_id')
             ->orderBy('user_interests.controlled_vocab_entry_id')
@@ -580,7 +582,7 @@ class Repository
 
         $map = [];
         foreach ($rows as $r) {
-            $userId  = (int) $r->user_id;
+            $userId = (int) $r->user_id;
             $entryId = (int) $r->controlled_vocab_entry_id;
             $map[$userId][$entryId] ??= [
                 'id' => $entryId,
@@ -601,6 +603,7 @@ class Repository
 
     /**
      * Batch load stage assignments for many users for one submission + stage.
+     *
      * @return array<int,array> [userId => [stageAssignmentPayload...]]
      */
     public function stageAssignmentsForUsers(array $userIds, int $submissionId, int $stageId, int $contextId): array

@@ -198,6 +198,34 @@ abstract class ThemePlugin extends LazyLoadPlugin
     }
 
     /**
+     * Get the theme that is active in the current context, or the site
+     * when there is no context
+     */
+    public static function getActive(): ?ThemePlugin
+    {
+        $themes = PluginRegistry::getPlugins('themes') ?: PluginRegistry::loadCategory('themes', true);
+        foreach ($themes as $theme) { /** @var ThemePlugin $theme */
+            if ($theme->isActive()) {
+                return $theme;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Whether this theme is the theme with the given name or, unless
+     * $includeParents is false, one of its parent themes is
+     *
+     * @param string $themeName Theme plugin name, e.g. `defaultthemeplugin`
+     */
+    public function isOrInheritsFrom(string $themeName, bool $includeParents = true): bool
+    {
+        return $this->getName() === $themeName
+            || ($includeParents && $this->parent?->isOrInheritsFrom($themeName));
+    }
+
+    /**
      * Add a stylesheet to load with this theme
      *
      * Style paths with a .less extension will be compiled and redirected to

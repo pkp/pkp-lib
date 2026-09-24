@@ -24,6 +24,8 @@ import * as usePkpModal from '@/frontend/composables/usePkpModal.js';
 import * as usePkpLocalize from '@/frontend/composables/usePkpLocalize';
 import * as usePkpDate from '@/frontend/composables/usePkpDate';
 import * as usePkpStyles from '@/frontend/composables/usePkpStyles.js';
+import * as usePkpPageData from '@/frontend/composables/usePkpPageData.js';
+import * as usePkpVueComponentStyles from '@/frontend/composables/usePkpVueComponentStyles.js';
 
 // Directives
 import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
@@ -46,7 +48,6 @@ import PkpUsageChart from '@/frontend/components/PkpUsageChart/PkpUsageChart.vue
 
 // Pinia stores
 import {usePkpModalStore} from '@/frontend/stores/pkpModalStore';
-import {usePageStore} from '@/frontend/stores/pkpPageStore';
 import {usePkpCommentsStore} from '@/frontend/components/PkpComments/usePkpCommentsStore';
 import {usePkpOpenReviewStore} from '@/frontend/components/PkpOpenReview/usePkpOpenReviewStore';
 import {usePkpCiteStore} from '@/frontend/components/PkpCite/usePkpCiteStore';
@@ -85,7 +86,6 @@ VueRegistry.registerDirective('strip-unsafe-html', stripUnsafeHtml);
 
 // Register frontend Pinia stores for lookup via pkp.registry.getPiniaStore()
 VueRegistry.registerStore('pkpModal', usePkpModalStore);
-VueRegistry.registerStore('pkpPage', usePageStore);
 VueRegistry.registerStore('pkpComments', usePkpCommentsStore);
 VueRegistry.registerStore('pkpOpenReview', usePkpOpenReviewStore);
 VueRegistry.registerStore('pkpCite', usePkpCiteStore);
@@ -200,6 +200,8 @@ export default {
 		usePkpLocalize,
 		usePkpDate,
 		usePkpStyles,
+		usePkpPageData,
+		usePkpVueComponentStyles,
 	},
 	pkpCreateVueApp,
 	createApp,

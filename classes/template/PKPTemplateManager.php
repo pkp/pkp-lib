@@ -116,8 +116,17 @@ class PKPTemplateManager extends Smarty
     /** @var array Initial state data to be managed by the page's Vue.js component */
     protected array $_state = [];
 
-    /** @var array State that can be expose via pinia store on frontend when vue is enabled */
-    protected array $_piniaData = [];
+    /** @var array Shared page context exposed to frontend Pinia stores (pkp._piniaData.page) */
+    protected array $_piniaPageData = [];
+
+    /** @var array Init data for frontend Pinia stores, keyed by store id (pkp._piniaData.stores) */
+    protected array $_piniaStoreData = [];
+
+    /** @var array Global styles for Vue components, keyed by component name */
+    protected array $_vueComponentStyles = [];
+
+    /** @var bool Whether the global styles for Vue components have been output by the footer */
+    protected bool $_vueComponentStylesLoaded = false;
 
     /** @var array List of SVG icon names required by Vue components */
     protected array $_svgIcons = [];
@@ -427,6 +436,7 @@ class PKPTemplateManager extends Smarty
         // load stylesheets/scripts/headers from a given context
         $this->registerPlugin('function', 'load_stylesheet', $this->smartyLoadStylesheet(...));
         $this->registerPlugin('function', 'load_script', $this->smartyLoadScript(...));
+        $this->registerPlugin('function', 'load_vue_component_styles', $this->smartyLoadVueComponentStyles(...));
         $this->registerPlugin('function', 'load_header', $this->smartyLoadHeader(...));
 
         // load NavigationMenu Areas from context
@@ -759,11 +769,83 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * Set initial state data to be managed by the Vue.js component on this page
+     * Add global styles for Vue components
+     *
+     * Applied to every instance of the component on the page, as the lowest
+     * priority styles of usePkpStyles(). Only affects Vue components, not Blade
+     * components. Merged with previously added styles per component, element and
+     * nested component key. In Blade templates use @vueComponentStyles([...]).
+     *
+     * The styles are output by the theme's footer via @loadVueComponentStyles
+     * (Smarty: {load_vue_component_styles}), so they must be added before it.
+     *
+     * @param array $styles Styles keyed by component name, e.g.
+     *  ['PkpButton' => ['root' => 'btn'], 'PkpDialog' => ['content' => 'rounded']]
      */
-    public function setPiniaData(array $data)
+    public function addVueComponentStyles(array $styles): void
     {
-        $this->_piniaData = array_merge($this->_piniaData, $data);
+        if ($this->_vueComponentStylesLoaded) {
+            error_log('Vue component styles for ' . implode(', ', array_keys($styles)) . ' were added after they were output by the footer and are ignored.');
+        }
+
+        $this->_vueComponentStyles = array_replace_recursive($this->_vueComponentStyles, $styles);
+    }
+
+    /**
+     * Get the script registering the global styles for Vue components
+     *
+     * Called from the theme's footer via @loadVueComponentStyles (Smarty:
+     * {load_vue_component_styles}), after the frontend scripts are loaded and
+     * after the page's templates have added their styles, but before the Vue
+     * apps mount.
+     */
+    public function loadVueComponentStyles(): string
+    {
+        $this->_vueComponentStylesLoaded = true;
+
+        if (!$this->isVueRuntimeIncluded || empty($this->_vueComponentStyles)) {
+            return '';
+        }
+
+        return '<script>pkp.modules.usePkpVueComponentStyles.usePkpVueComponentStyles().addStyles('
+            . json_encode($this->_vueComponentStyles, JSON_HEX_TAG | JSON_HEX_AMP)
+            . ');</script>';
+    }
+
+    /**
+     * Smarty usage: {load_vue_component_styles}
+     *
+     * @see self::loadVueComponentStyles()
+     */
+    public function smartyLoadVueComponentStyles(array $params, $smarty = null): string
+    {
+        return $this->loadVueComponentStyles();
+    }
+
+    /**
+     * Set shared page context for frontend Pinia stores
+     *
+     * Exposed as pkp._piniaData.page and read via usePkpPageData(). Use for data
+     * describing the page itself that more than one store needs. Shallow-merges
+     * with previously set data.
+     */
+    public function setPiniaPageData(array $data): void
+    {
+        $this->_piniaPageData = array_merge($this->_piniaPageData, $data);
+    }
+
+    /**
+     * Set init data for a frontend Pinia store
+     *
+     * Exposed as pkp._piniaData.stores[$storeId]. The store reads it once, when
+     * it is first used, via usePkpPageData().getStoreData(). Shallow-merges
+     * with data previously set for the same store, so plugins can add fields.
+     *
+     * @param string $storeId Pinia store id, e.g. 'pkpComments'
+     */
+    public function setPiniaStoreData(string $storeId, array $data): void
+    {
+        $this->_piniaStoreData[$storeId] = array_merge($this->_piniaStoreData[$storeId] ?? [], $data);
     }
 
 
@@ -1562,8 +1644,11 @@ class PKPTemplateManager extends Smarty
             $output .= 'Object.assign(pkp.localeKeys, ' . json_encode($this->_localeKeys) . ');';
         }
 
-        if (!empty($this->_piniaData)) {
-            $output .= 'pkp._piniaData = ' . json_encode($this->_piniaData) . ';';
+        if (!empty($this->_piniaPageData) || !empty($this->_piniaStoreData)) {
+            $output .= 'pkp._piniaData = ' . json_encode([
+                'page' => (object) $this->_piniaPageData,
+                'stores' => (object) array_map(fn (array $data) => (object) $data, $this->_piniaStoreData),
+            ]) . ';';
         }
 
         $dispatcher = Application::get()->getDispatcher();
@@ -1706,6 +1791,10 @@ class PKPTemplateManager extends Smarty
 
         // Use fetch() for unified template rendering, then output
         echo $this->fetch($template, $cache_id, $compile_id, $parent);
+
+        if (!empty($this->_vueComponentStyles) && !$this->_vueComponentStylesLoaded) {
+            error_log('Vue component styles were added but not output. The theme\'s footer must include @loadVueComponentStyles (Smarty: {load_vue_component_styles}) after the frontend scripts.');
+        }
     }
 
     /**

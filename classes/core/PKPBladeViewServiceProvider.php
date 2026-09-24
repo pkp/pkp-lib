@@ -108,6 +108,20 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             ?>";
         });
 
+        // use as @vueComponentStyles(['PkpButton' => ['root' => 'btn']]); outputs nothing where used
+        Blade::directive('vueComponentStyles', function ($styles) {
+            return "<?php
+                \PKP\\template\\PKPTemplateManager::getManager()->addVueComponentStyles($styles);
+            ?>";
+        });
+
+        // use as @loadVueComponentStyles in the footer, after @loadScript(['context' => 'frontend'])
+        Blade::directive('loadVueComponentStyles', function () {
+            return "<?php
+                echo \PKP\\template\\PKPTemplateManager::getManager()->loadVueComponentStyles();
+            ?>";
+        });
+
         // use as @htmlSelectDateA11y(['legend' => $dateFromLegend, 'prefix' => 'dateFrom', 'time' => $dateFrom, 'start_year' => $yearStart, 'end_year' => $yearEnd])
         Blade::directive('htmlSelectDateA11y', function ($parameters) {
             return "<?php

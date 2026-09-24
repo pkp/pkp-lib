@@ -44,7 +44,6 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\security\Validation;
 use PKP\user\User;
-use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 use Psr\Log\LogLevel;
 
@@ -578,13 +577,7 @@ class UserGridHandler extends GridHandler
             return new JSONMessage(false, __('grid.user.userNoRoles'));
         } else {
             // End all active user group assignments for this context.
-            UserUserGroup::query()
-                ->withUserId($userId)
-                ->withActive()
-                ->whereHas('userGroup', function ($query) use ($context) {
-                    $query->withContextIds($context->getId());
-                })
-                ->update(['date_end' => now()]);
+            Repo::userGroup()->endAssignments($context->getId(), (int) $userId);
 
             AuditLog::log(AuditEvent::USER_CONTEXT_REMOVED, LogLevel::NOTICE, [
                 'targetUserId' => (int) $userId,

@@ -353,11 +353,11 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                             // and there is no such entry in the user_user_group table
                             if (($dateEnd == null && !$activeExists) || ($dateEnd != null && !$endedExists)) {
                                 // import that user_user_group
-                                if ($userGroup->roleId = Role::ROLE_ID_REVIEWER) {
+                                if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
                                     $masthead = true;
                                 }
 
-                                $dateStart = $startDate ?? Core::getCurrentDate();
+                                $dateStart ??= Core::getCurrentDate();
                                 // Clear editorial masthead cache if a new user is assigned to a masthead role
                                 if ($userGroup->masthead && $masthead) {
                                     Repo::userGroup()::forgetEditorialCache($userGroup->contextId);

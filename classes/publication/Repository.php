@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/publication/Repository.php
  *
@@ -264,24 +265,37 @@ abstract class Repository
             $errors['reviewStage'] = __('publication.required.reviewStage');
         }
 
-        // Orcid errors
+        Hook::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);
+
+        return $errors;
+    }
+
+    /**
+     * Perform validations that should be treated as warnings instead of errors.
+     *
+     * @hook Publication::validatePublishWarnings [[&$warnings, $publication, $submission, $allowedLocales, $primaryLocale]]
+     */
+    public function validatePublishWarnings(Publication $publication, Submission $submission, array $allowedLocales, string $primaryLocale): array
+    {
+        $warnings = [];
+
+        // ORCID warnings
         if (OrcidManager::isEnabled()) {
             $orcidIds = [];
             foreach ($publication->getData('authors') as $author) {
                 $authorOrcid = $author->getData('orcid');
                 if ($authorOrcid and in_array($authorOrcid, $orcidIds)) {
-                    $errors['hasDuplicateOrcids'] = __('orcid.verify.duplicateOrcidAuthor');
+                    $warnings['hasDuplicateOrcids'] = __('orcid.verify.duplicateOrcidAuthor');
                 } elseif ($authorOrcid && !$author->getData('orcidAccessToken')) {
-                    $errors['hasUnauthenticatedOrcid'] = __('orcid.verify.hasUnauthenticatedOrcid');
+                    $warnings['hasUnauthenticatedOrcid'] = __('orcid.verify.hasUnauthenticatedOrcid');
                 } else {
                     $orcidIds[] = $authorOrcid;
                 }
             }
         }
 
-        Hook::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);
-
-        return $errors;
+        Hook::call('Publication::validatePublishWarnings', [&$warnings, $publication, $submission, $allowedLocales, $primaryLocale]);
+        return $warnings;
     }
 
     /** @copydoc DAO::insert() */

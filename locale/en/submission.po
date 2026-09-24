@@ -2779,3 +2779,6 @@ msgstr "Delete Incomplete Submissions"
 
 msgid "reviewer.competingInterests"
 msgstr "Competing Interests"
+
+msgid "publication.publish.warning"
+msgstr "The following issues were found, but will not prevent publishing"

@@ -22,6 +22,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 use PKP\db\DAORegistry;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
@@ -89,12 +90,7 @@ class EditReview extends FormRequest
             'comments' => [
                 'sometimes',
                 'nullable',
-                // If the review has a form, then no comments can be added.
                 function (string $attribute, mixed $value, Closure $fail) {
-                    if ($this->reviewAssignment->getReviewFormId()) {
-                        $fail(__('api.submissions.reviews.422.commentsNotAllowed'));
-                    }
-
                     if ($value !== null && !is_scalar($value) || is_bool($value)) {
                         $fail(__('api.submissions.reviews.422.invalidComments'));
                     }
@@ -171,19 +167,40 @@ class EditReview extends FormRequest
                 },
             ],
             'competingInterests' => [
-                'bail',
                 'sometimes',
                 'nullable',
                 'string',
-                function (string $attribute, mixed $value, Closure $fail) {
-                    if (!Application::get()->getRequest()->getContext()->isReviewCompetingInterestRequired()) {
-                        $fail(__('api.submissions.reviews.422.competingInterestsNotAllowed'));
-                    }
-                }
             ]
         ];
     }
 
+
+    public function withValidator(Validator $validator): void
+    {
+        $context = Application::get()->getRequest()->getContext();
+        $isCompetingInterestAllowed = $context->isReviewCompetingInterestRequired() || $this->reviewAssignment->getCompetingInterestsDeclared();
+
+        // If the context does not allow competing interests, then the request cannot include a competing interests field
+        // unless the review has already been marked as having competing interests.
+        $validator->after(function (Validator $validator) use ($isCompetingInterestAllowed) {
+            if (!$isCompetingInterestAllowed && $this->has('competingInterests')) {
+                $validator->errors()->add(
+                    'competingInterests',
+                    __('api.submissions.reviews.422.competingInterestsNotAllowed')
+                );
+            }
+        });
+
+        // If the review has a form, then no comments can be added.
+        $validator->after(function (Validator $validator) use ($isCompetingInterestAllowed) {
+            if ($this->reviewAssignment->getReviewFormId() && $this->has('comments')) {
+                $validator->errors()->add(
+                    'comments',
+                    __('api.submissions.reviews.422.commentsNotAllowed')
+                );
+            }
+        });
+    }
     /**
      * Check whether a submitted response is valid for the given review form element's type.
      */

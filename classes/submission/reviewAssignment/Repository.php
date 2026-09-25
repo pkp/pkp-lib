@@ -288,17 +288,6 @@ class Repository
     }
 
     /**
-     * Whether the context asks its reviewers to declare competing interests.
-     *
-     * Mirrors the condition that puts the question in front of the reviewer on step 1 of their
-     * review, so editors are offered the field exactly when reviewers are asked for it.
-     */
-    public function isCompetingInterestsRequested(Context $context): bool
-    {
-        return (bool) $context->getData('competingInterests');
-    }
-
-    /**
      * Update the status of the review round an assignment is attached to. This
      * should be fired whenever a reviewer assignment is modified.
      */

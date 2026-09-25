@@ -13,6 +13,7 @@
 
 namespace PKP\template;
 
+use APP\core\Application;
 use PKP\core\PKPString;
 
 class ViewHelper
@@ -27,6 +28,7 @@ class ViewHelper
     {
         return PKPTemplateManager::getManager()->smartyUrl($parameters);
     }
+
 
     /**
      * Format a date with locale-aware formatting
@@ -48,10 +50,31 @@ class ViewHelper
      * @param string $configKey The configuration key for allowed HTML tags
      * @return string The sanitized HTML
      */
-    public static function sanitizeHtml(string $input, string $configKey = 'allowed_html'): string
+    public static function sanitizeHtml(?string $input, string $configKey = 'allowed_html'): string
     {
         $result = PKPString::stripUnsafeHtml($input, $configKey);
         return self::escapeVueDelimiters($result);
+    }
+
+    /**
+     * Convert HTML to plain text
+     */
+    public static function html2Text(?string $html): string
+    {
+        $result = PKPString::html2text($html);
+        return self::escapeVueDelimiters($result);
+    }
+
+    /**
+     * Add a hidden form field with the user's CSRF token
+     */
+    public static function csrfFormField(): string
+    {
+        $csrfToken = Application::get()->getRequest()->getSession()->token();
+        if (!$csrfToken) {
+            return '';
+        }
+        return '<input type="hidden" name="csrfToken" value="' . htmlspecialchars($csrfToken) . '" />';
     }
 
     /**

@@ -1,0 +1,11 @@
+@if ($publication->getData('fundingStatement'))
+    <x-metadata-blocks.default
+        slug="funding-statement"
+        title="{{ __('submission.fundingStatement') }}"
+        :$headingTag
+    >
+        <div class="html-text">
+            {!! ViewHelper::sanitizeHtml($publication->getLocalizedData('fundingStatement')) !!}
+        </div>
+    </x-metadata-blocks.default>
+@endif

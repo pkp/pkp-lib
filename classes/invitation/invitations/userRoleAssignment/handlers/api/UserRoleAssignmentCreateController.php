@@ -27,6 +27,7 @@ use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteManagerDataResource;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 
@@ -46,6 +47,8 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         $controller->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $controller->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        $controller->addPolicy(new CanAccessSettingsPolicy());
 
         return true;
     }

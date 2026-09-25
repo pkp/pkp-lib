@@ -160,7 +160,7 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
     public function getScripts(?string $locale = null): Scripts;
 
     /**
-     * Get the formatted locale display names with country if same language code present multiple times
+     * Get the formatted locale display names, qualified with script and country if same language code present multiple times
      *
      * @param array $filterByLocales Optional list of locales code to filter by the returned formatted names list
      * @param array $locales Optional list of available all locales

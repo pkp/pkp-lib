@@ -323,7 +323,13 @@ class Locale implements LocaleInterface
      */
     public function getSupportedLocales(): array
     {
-        return $this->supportedLocaleNames ??= array_map(fn (string $locale) => $this->getMetadata($locale)?->getDisplayName() ?? $locale, $this->_getSupportedLocales());
+        if (!isset($this->supportedLocaleNames)) {
+            $supportedLocales = $this->_getSupportedLocales();
+            $localeNames = $this->getFormattedDisplayNames(array_keys($supportedLocales), null, LocaleMetadata::LANGUAGE_LOCALE_WITHOUT);
+            $this->supportedLocaleNames = array_map(fn (string $locale) => $localeNames[$locale] ?? $locale, $supportedLocales);
+        }
+
+        return $this->supportedLocaleNames;
     }
 
     /**

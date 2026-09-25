@@ -81,12 +81,12 @@ class LocaleMetadata
      * Retrieves this locale display name
      *
      * @param string    $locale             The locale code the name of this locale should be displayed in
-     * @param bool      $withCountry        Whether to append the country name to language
+     * @param bool      $qualified          Whether to qualify the language with its script and country, when it has them
      * @param int       $langLocaleStatus   The language locale conversion value specified by const LocaleMetadata::LANGUAGE_LOCALE_*
      *
-     * @return string The fully qualified locale with/without own translated locale and with/without country name
+     * @return string The fully qualified locale with/without own translated locale and with/without script and country name
      */
-    public function getDisplayName(?string $locale = null, bool $withCountry = false, int $langLocaleStatus = self::LANGUAGE_LOCALE_WITHOUT): string
+    public function getDisplayName(?string $locale = null, bool $qualified = false, int $langLocaleStatus = self::LANGUAGE_LOCALE_WITHOUT): string
     {
         if (!in_array($langLocaleStatus, static::getLanguageLocaleStatuses())) {
             throw new Exception(
@@ -102,12 +102,12 @@ class LocaleMetadata
         $displayLocale = $langLocaleStatus === static::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale;
 
         $weblateLocaleName = Locale::getWeblateLocaleNames()[$this->locale];
-        $displayName = $this->_getLanguageDisplayName($displayLocale, $withCountry);
+        $displayName = $this->_getLanguageDisplayName($displayLocale, $qualified);
         $name = ($displayName && $displayName !== $this->locale) ? $displayName : $weblateLocaleName;
 
         if ($langLocaleStatus === static::LANGUAGE_LOCALE_WITH) {
             // Get the translated language name in language's own locale
-            $displayName = $this->_getLanguageDisplayName($this->locale, $withCountry);
+            $displayName = $this->_getLanguageDisplayName($this->locale, $qualified);
             $nameInLangLocale = ($displayName && $displayName !== $this->locale) ? $displayName : $weblateLocaleName;
 
             $name = __(
@@ -119,7 +119,7 @@ class LocaleMetadata
             );
         }
 
-        if (!$withCountry) {
+        if (!$qualified) {
             return $name;
         }
 

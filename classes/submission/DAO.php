@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
 use PKP\note\Note;
@@ -304,5 +305,15 @@ class DAO extends EntityDAO
         Repo::emailLogEntry()->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
 
         return parent::deleteById($id);
+    }
+
+    /**
+     * Update only the last_modified column of a submission.
+     */
+    public function updateLastModified(int $submissionId): void
+    {
+        DB::table($this->table)
+            ->where($this->primaryKeyColumn, $submissionId)
+            ->update(['last_modified' => Core::getCurrentDate()]);
     }
 }

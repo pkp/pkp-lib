@@ -80,13 +80,17 @@ class LocaleMetadata
     /**
      * Retrieves this locale display name
      *
-     * @param string    $locale             The locale code the name of this locale should be displayed in
-     * @param bool      $qualified          Whether to qualify the language with its script and country, when it has them
-     * @param int       $langLocaleStatus   The language locale conversion value specified by const LocaleMetadata::LANGUAGE_LOCALE_*
+     * @param string|null    $locale             The locale code the name of this locale should be displayed in
+     * @param bool          $qualified           Whether to qualify the language with its script and country, when it has them
+     * @param int           $langLocaleStatus    The language locale conversion value specified by const LocaleMetadata::LANGUAGE_LOCALE_*
      *
      * @return string The fully qualified locale with/without own translated locale and with/without script and country name
      */
-    public function getDisplayName(?string $locale = null, bool $qualified = false, int $langLocaleStatus = self::LANGUAGE_LOCALE_WITHOUT): string
+    public function getDisplayName(
+        ?string $locale = null,
+        bool $qualified = false,
+        int $langLocaleStatus = self::LANGUAGE_LOCALE_WITHOUT
+    ): string
     {
         if (!in_array($langLocaleStatus, static::getLanguageLocaleStatuses())) {
             throw new Exception(

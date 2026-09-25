@@ -192,7 +192,7 @@ class DecisionHandler extends Handler
             'pageTitle' => join(
                 __('common.titleSeparator'),
                 [
-                    $this->decisionType->getLabel(),
+                    $this->decisionType->getLabel(submission: $this->submission),
                     $this->submission->getCurrentPublication()->getShortAuthorString()
                         ? $this->submission->getCurrentPublication()->getShortAuthorString()
                         : $this->submission->getCurrentPublication()->getLocalizedFullTitle(),
@@ -246,7 +246,7 @@ class DecisionHandler extends Handler
             ],
             [
                 'id' => 'decision',
-                'name' => $this->decisionType->getLabel(),
+                'name' => $this->decisionType->getLabel(submission: $submission),
             ]
         ];
     }

@@ -17,10 +17,12 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use PKP\config\Config;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Throwable;
 
 class PKPExceptionHandler implements ExceptionHandler
@@ -74,6 +76,17 @@ class PKPExceptionHandler implements ExceptionHandler
                     ? $exception->getCode()
                     : Response::HTTP_INTERNAL_SERVER_ERROR
             );
+        }
+
+        if ($exception instanceof AuthorizationException || $exception instanceof HttpExceptionInterface) {
+            $statusCode = $exception instanceof HttpExceptionInterface
+                ? $exception->getStatusCode()
+                : Response::HTTP_FORBIDDEN;
+            $message = $exception->getMessage() ?: (Response::$statusTexts[$statusCode] ?? 'Error');
+
+            return $request->expectsJson() || $request->isJson()
+                ? response()->json(['error' => $message], $statusCode)
+                : response($message, $statusCode);
         }
 
         return null;

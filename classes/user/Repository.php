@@ -397,9 +397,7 @@ class Repository
         }
 
         // Delete all user group assignments for the old user
-        UserUserGroup::query()
-            ->withUserId($oldUserId)
-            ->delete();
+        Repo::userGroup()->deleteAssignmentsByUserId($oldUserId);
 
         // Transfer stage assignments.
         $stageAssignments = StageAssignment::withUserId($oldUserId)->get();

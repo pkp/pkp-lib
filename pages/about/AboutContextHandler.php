@@ -21,7 +21,6 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use DateTime;
-use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
@@ -84,7 +83,11 @@ class AboutContextHandler extends Handler
         $mastheadUsers = [];
         foreach ($mastheadRoles as $userGroupId => $mastheadUserGroup) {
             foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
-                $user = Repo::user()->get($userId);
+                $user = Repo::user()->get($userId, true);
+                // The cached user IDs can include a user deleted since
+                if (!$user) {
+                    continue;
+                }
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupIds([$userGroupId])
                     ->withActive()
@@ -105,6 +108,7 @@ class AboutContextHandler extends Handler
         $usersCollector = Repo::user()->getCollector();
         $reviewers = $usersCollector
             ->filterByUserIds($reviewerIds->toArray())
+            ->filterByStatus($usersCollector::STATUS_ALL)
             ->orderBy(
                 $usersCollector::ORDERBY_FAMILYNAME,
                 $usersCollector::ORDER_DIR_ASC,
@@ -151,7 +155,11 @@ class AboutContextHandler extends Handler
         $mastheadUsers = [];
         foreach ($mastheadRoles as $userGroupId => $mastheadUserGroup) {
             foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
-                $user = Repo::user()->get($userId);
+                $user = Repo::user()->get($userId, true);
+                // The cached user IDs can include a user deleted since
+                if (!$user) {
+                    continue;
+                }
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupIds([$userGroupId])
                     ->withEnded()

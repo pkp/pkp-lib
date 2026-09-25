@@ -271,6 +271,10 @@ class Repository
      */
     public function isTemplateAccessibleToUser(Template $template, User $user): bool
     {
+        if ($user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $template->contextId)) {
+            return true;
+        }
+
         if (!$template->restrictToUserGroups) {
             return true;
         }
@@ -282,9 +286,7 @@ class Repository
 
         $template->loadMissing('userGroups');
 
-        return $template->userGroups()
-            ->whereIn('user_group_id', $userGroupIds)
-            ->exists();
+        return $template->userGroups->whereIn((new UserGroup())->getPrimaryKeyName(), $userGroupIds)->isNotEmpty();
     }
 
     /**
@@ -418,5 +420,18 @@ class Repository
         DB::table('edit_task_template_settings')
             ->whereIn('locale', $locales)
             ->delete();
+    }
+
+    /**
+     * Get the keys of the default discussion templates.
+     */
+    public function getDiscussionTemplateKeys(): array
+    {
+        return [
+            'DISCUSSION_NOTIFICATION_SUBMISSION',
+            'DISCUSSION_NOTIFICATION_REVIEW',
+            'DISCUSSION_NOTIFICATION_COPYEDITING',
+            'DISCUSSION_NOTIFICATION_PRODUCTION',
+        ];
     }
 }

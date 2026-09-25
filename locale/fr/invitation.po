@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-09-17 15:02+0000\n"
+"PO-Revision-Date: 2026-09-25 13:27+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -12,12 +12,12 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Le groupe d'utilisateur/rices est attribué à la personne invitée"
+msgstr "Le groupe d'utilisateur/ices est attribué à la personne invitée"
 
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "L'invitation ne peut pas être envoyée car vous n'avez défini aucun "
-"changement de groupe d'utilisateur/rices"
+"changement de groupe d'utilisateur/ices"
 
 msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
 msgstr "Veuillez fournir un nom d'utilisateur"
@@ -36,28 +36,28 @@ msgstr "Veuillez fournir un nom de famille"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
 msgstr ""
-"Veuillez fournir une date de début pour les groupes d'utilisateur/rices "
+"Veuillez fournir une date de début pour les groupes d'utilisateur/ices "
 "ajoutés"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Au moins un groupe d'utilisateur/rices à ajouter doit être défini"
+msgstr "Au moins un groupe d'utilisateur/ices à ajouter doit être défini"
 
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Au moins un groupe d'utilisateur/rices à supprimer doit être défini"
+msgstr "Au moins un groupe d'utilisateur/ices à supprimer doit être défini"
 
 msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
 msgstr ""
 "Lorsqu'une invitation comporte un identifiant utilisateur ({$userId}), l'"
-"utilisateur/rice correspondant/e doit exister."
+"utilisateur/ice correspondant/e doit exister."
 
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
 msgstr ""
 "Les rôles utilisateur supprimés ne peuvent pas être définis pour des "
-"utilisateur/rices inexistant/es."
+"utilisateur/ices inexistant/es."
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
 msgstr ""
-"Les groupes d'utilisateur/rices fournis contiennent des entrées en double."
+"Les groupes d'utilisateur/ices fournis contiennent des entrées en double."
 
 msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
@@ -66,7 +66,7 @@ msgstr ""
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
-"Il existe déjà un/e utilisateur/rice avec le nom d'utilisateur {$username}. "
+"Il existe déjà un/e utilisateur/ice avec le nom d'utilisateur {$username}. "
 "Veuillez en essayer un autre."
 
 msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
@@ -74,8 +74,8 @@ msgstr "Veuillez fournir un mot de passe"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
 msgstr ""
-"Veuillez fournir un identifiant de groupe d'utilisateur/rices pour les "
-"groupes d'utilisateur/rices ajoutés"
+"Veuillez fournir un identifiant de groupe d'utilisateur/ices pour les "
+"groupes d'utilisateur/ices ajoutés"
 
 msgid "invitation.header"
 msgstr "Invitations en cours"

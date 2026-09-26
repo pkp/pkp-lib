@@ -176,14 +176,19 @@ class PKPStageParticipantNotifyForm extends Form
         $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($submission->getData('contextId'));
         $templateId = $this->getData('template');
-        $template = Template::withContextId($context->getId())->find($templateId);
 
-        if (!is_a($template, Template::class)) {
-            return;
+        $template = null;
+
+        if ($templateId) {
+            $template = Template::withContextId($context->getId())->find($templateId);
         }
 
-        if (!Repo::editorialTask()->isTemplateAccessibleToUser($template, $user)) {
-            return;
+        // Template is used to create a mailable, title for the message, identify the type of the notification. Fallback to the default one if it's not accessible
+        if (!is_a($template, Template::class) || !Repo::editorialTask()->isTemplateAccessibleToUser($template, $user)) {
+            $template = Template::withKeys(Repo::editorialTask()->getDiscussionTemplateKeys(), $context->getId())
+                ->withStageId($this->_stageId)
+                ->withType(EditorialTaskType::DISCUSSION->value)
+                ->first();
         }
 
         $mailable = new TemplateVariables($template->promote($submission), $submission, $context);
@@ -314,7 +319,7 @@ class PKPStageParticipantNotifyForm extends Form
     /**
      * Get the available email template variable names for the given template name.
      */
-    public function getEmailVariableNames(string $emailKey): array
+    public function getEmailVariableNames(?string $emailKey): array
     {
         switch ($emailKey) {
             case 'COPYEDIT_REQUEST':

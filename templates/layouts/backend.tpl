@@ -21,6 +21,61 @@
 	<style type="text/css">
 		/* Prevent flash of unstyled content in some browsers */
 		[v-cloak] { display: none; }
+
+		.app__navToggle {
+			display: none;
+		}
+
+		@media (max-width: 639px) {
+			.pkp_page_dashboard,
+			.pkp_page_invitation {
+				min-width: 0;
+			}
+
+			.app__body {
+				position: relative;
+			}
+
+			#app-nav {
+				position: fixed;
+				top: 3rem;
+				bottom: 0;
+				left: 0;
+				z-index: 20;
+				width: min(16rem, 85vw);
+				height: auto;
+				overflow-y: auto;
+				transform: translateX(-100%);
+				transition: transform .2s ease-in-out;
+				box-shadow: .25rem 0 .75rem rgba(0, 0, 0, .25);
+			}
+
+			body.appNav--isOpen #app-nav {
+				transform: translateX(0);
+			}
+
+			[dir="rtl"] #app-nav {
+				left: auto;
+				right: 0;
+				transform: translateX(100%);
+			}
+
+			[dir="rtl"] body.appNav--isOpen #app-nav {
+				transform: translateX(0);
+			}
+
+			.app__navToggle {
+				display: block;
+				margin: 0;
+				padding: .5rem;
+				border: 0;
+				background: transparent;
+				color: #fff;
+				font-size: 1.5rem;
+				line-height: 1;
+				cursor: pointer;
+			}
+		}
 	</style>
 </head>
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
@@ -42,6 +97,12 @@
 		<modal-manager></modal-manager>
 		<header class="app__header" role="banner">
 			<pkp-skip-link></pkp-skip-link>
+			{if isset($currentContext) && isset($currentUser) && $currentUser->getRoles($currentContext->getId())|count > 0}
+				<button id="app-nav-toggle" class="app__navToggle" type="button" aria-controls="app-nav" aria-expanded="false">
+					<span aria-hidden="true">☰</span>
+					<span class="-screenReader">{translate key="common.navigation.site"}</span>
+				</button>
+			{/if}
 			{if $availableContexts}
 				<dropdown class="app__headerAction app__contexts">
 					<template #button>
@@ -154,6 +215,45 @@
 
 	<script type="text/javascript">
 		pkp.registry.init('app', {$pageComponent|json_encode}, {$state|json_encode});
+
+		$(function() {ldelim}
+			var $body = $('body');
+			var $toggle = $('#app-nav-toggle');
+			var mobileQuery = window.matchMedia('(max-width: 639px)');
+
+			function closeNavigation() {ldelim}
+				$body.removeClass('appNav--isOpen');
+				$toggle.attr('aria-expanded', 'false');
+			{rdelim}
+
+			$toggle.on('click', function() {ldelim}
+				var isOpen = !$body.hasClass('appNav--isOpen');
+				$body.toggleClass('appNav--isOpen', isOpen);
+				$toggle.attr('aria-expanded', isOpen ? 'true' : 'false');
+			{rdelim});
+
+			$(document).on('click', function(event) {ldelim}
+				if (
+					mobileQuery.matches &&
+					$body.hasClass('appNav--isOpen') &&
+					!$(event.target).closest('#app-nav, #app-nav-toggle').length
+				) {ldelim}
+					closeNavigation();
+				{rdelim}
+			{rdelim});
+
+			$(document).on('keydown', function(event) {ldelim}
+				if (event.key === 'Escape') {ldelim}
+					closeNavigation();
+				{rdelim}
+			{rdelim});
+
+			mobileQuery.addEventListener('change', function(event) {ldelim}
+				if (!event.matches) {ldelim}
+					closeNavigation();
+				{rdelim}
+			{rdelim});
+		{rdelim});
 	</script>
 </body>
 </html>

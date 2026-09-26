@@ -34,6 +34,7 @@ use PKP\facades\Locale;
 use PKP\mail\mailables\UserRoleEndNotify;
 use PKP\mail\mailables\UserRoleMastheadUpdateNotify;
 use PKP\plugins\Hook;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -60,11 +61,6 @@ class PKPUserController extends PKPBaseController
         return [
             'has.user',
             'has.context',
-            self::roleAuthorizer([
-                Role::ROLE_ID_SITE_ADMIN,
-                Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SUB_EDITOR
-            ]),
         ];
     }
 
@@ -73,26 +69,46 @@ class PKPUserController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
-        Route::get('reviewers', $this->getReviewers(...))
-            ->name('user.getReviewers');
+        // Read access: editorial roles may look up users and reviewers
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+            ]),
+        ])->group(function () {
 
-        Route::get('report', $this->getReport(...))
-            ->name('user.getReport');
+            Route::get('reviewers', $this->getReviewers(...))
+                ->name('user.getReviewers');
 
-        Route::get('{userId}', $this->get(...))
-            ->name('user.getUser')
-            ->whereNumber('userId');
+            Route::get('report', $this->getReport(...))
+                ->name('user.getReport');
 
-        Route::get('', $this->getMany(...))
-            ->name('user.getManyUsers');
+            Route::get('{userId}', $this->get(...))
+                ->name('user.getUser')
+                ->whereNumber('userId');
 
-        Route::put('{userId}/endRole/{userGroupId}', $this->endRole(...))
-            ->name('user.endRole')
-            ->whereNumber(['userId', 'userGroupId']);
+            Route::get('', $this->getMany(...))
+                ->name('user.getManyUsers');
+        });
 
-        Route::put('{userId}/masthead/{userUserGroupId}', $this->masthead(...))
-            ->name('user.masthead')
-            ->whereNumber(['userId', 'userUserGroupId']);
+        // Write access: changing role assignments is a Users & Roles action,
+        // limited to site admins and managers (settings access is enforced in authorize())
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+            ]),
+        ])->group(function () {
+
+            Route::put('{userId}/endRole/{userGroupId}', $this->endRole(...))
+                ->name('user.endRole')
+                ->whereNumber(['userId', 'userGroupId']);
+
+            Route::put('{userId}/masthead/{userUserGroupId}', $this->masthead(...))
+                ->name('user.masthead')
+                ->whereNumber(['userId', 'userUserGroupId']);
+        });
     }
 
     /**
@@ -102,6 +118,12 @@ class PKPUserController extends PKPBaseController
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        // Role assignment changes require access to the Users & Roles settings area
+        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
+        if (in_array(static::getRouteActionName($illuminateRequest), ['endRole', 'masthead'])) {
+            $this->addPolicy(new CanAccessSettingsPolicy());
+        }
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -313,6 +335,20 @@ class PKPUserController extends PKPBaseController
         );
     }
 
+    /**
+     * Whether the current user has administrative authority over the target
+     * user, mirroring the Users & Roles grid. Protects the site administrator
+     * and any user the current user cannot administer.
+     */
+    protected function canAdministerUser(Request $request, int $targetUserId, Context $context): bool
+    {
+        return Validation::getAdministrationLevel(
+            $targetUserId,
+            $request->user()->getId(),
+            $context->getId()
+        ) !== Validation::ADMINISTRATION_PROHIBITED;
+    }
+
     public function endRole(Request $request): JsonResponse
     {
         // Ensure user exists
@@ -322,6 +358,13 @@ class PKPUserController extends PKPBaseController
             return response()->json([
                 'error' => __('api.404.resourceNotFound')
             ], Response::HTTP_NOT_FOUND);
+        }
+
+        $context = $request->attributes->get('context'); /** @var Context $context */
+        if (!$this->canAdministerUser($request, $user->getId(), $context)) {
+            return response()->json([
+                'error' => __('api.403.unauthorized')
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Ensure user has role
@@ -336,7 +379,6 @@ class PKPUserController extends PKPBaseController
         }
 
         // Set end date for role and save
-        $context = $request->attributes->get('context'); /** @var Context $context */
         Repo::userGroup()->endAssignments($context->getId(), $userId, $userGroupId);
 
         // Send email notification
@@ -375,8 +417,14 @@ class PKPUserController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Ensure UserUserGroup exists and belongs to the current context and user
         $context = $request->attributes->get('context'); /** @var Context $context */
+        if (!$this->canAdministerUser($request, $user->getId(), $context)) {
+            return response()->json([
+                'error' => __('api.403.unauthorized')
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        // Ensure UserUserGroup exists and belongs to the current context and user
         $userUserGroupId = (int) $request->route('userUserGroupId');
         $userUserGroup = UserUserGroup::query()
             ->withUserId($userId)

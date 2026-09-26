@@ -608,6 +608,7 @@ class Repository
 
             // Query that gets all users that are or were active in the given masthead roles
             // and that have accepted to be displayed on the masthead for the roles.
+            // Disabled users are included: disabling an account does not remove them from the scholarly record.
             // Sort the results by role ID and user family name.
             $usersCollector = Repo::user()->getCollector();
             $usersQuery = $usersCollector
@@ -615,6 +616,7 @@ class Repository
                 ->filterByUserGroupIds($mastheadRoleIds)
                 ->filterByUserUserGroupStatus($userUserGroupStatus)
                 ->filterByUserMastheadStatus(UserMastheadStatus::STATUS_ON)
+                ->filterByStatus($usersCollector::STATUS_ALL)
                 ->orderBy(
                     $usersCollector::ORDERBY_FAMILYNAME,
                     $usersCollector::ORDER_DIR_ASC,

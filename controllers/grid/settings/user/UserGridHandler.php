@@ -43,7 +43,6 @@ use PKP\security\RoleDAO;
 use PKP\security\Validation;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
-use PKP\userGroup\relationships\UserUserGroup;
 
 class UserGridHandler extends GridHandler
 {
@@ -165,15 +164,15 @@ class UserGridHandler extends GridHandler
 
                     // fetch user groups where the user is assigned in the current context
                     $userGroups = UserGroup::query()
-                    ->withContextIds($contextId)
-                    ->whereHas('userUserGroups', function ($query) use ($user) {
-                        $query->withUserId($user->getId())
-                              ->withActiveAndActiveInFuture();
-                    })
-                    ->get();
+                        ->withContextIds($contextId)
+                        ->whereHas('userUserGroups', function ($query) use ($user) {
+                            $query->withUserId($user->getId())
+                                ->withActiveAndActiveInFuture();
+                        })
+                        ->get();
 
-                $roles = $userGroups->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'))->join(__('common.commaListSeparator'));
-                return ['label' => $roles];
+                    $roles = $userGroups->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'))->join(__('common.commaListSeparator'));
+                    return ['label' => $roles];
                 }
             }
         );
@@ -575,13 +574,7 @@ class UserGridHandler extends GridHandler
             return new JSONMessage(false, __('grid.user.userNoRoles'));
         } else {
             // End all active user group assignments for this context.
-            UserUserGroup::query()
-                ->withUserId($userId)
-                ->withActive()
-                ->whereHas('userGroup', function ($query) use ($context) {
-                    $query->withContextIds($context->getId());
-                })
-                ->update(['date_end' => now()]);
+            Repo::userGroup()->endAssignments($context->getId(), (int) $userId);
 
             return \PKP\db\DAO::getDataChangedEvent($userId);
         }

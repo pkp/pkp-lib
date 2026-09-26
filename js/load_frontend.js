@@ -13,6 +13,7 @@ import {createApp} from 'vue';
 import * as vue from 'vue';
 
 import {createPinia} from 'pinia';
+import * as pinia from 'pinia';
 
 // Composables
 import * as usePkpApp from '@/frontend/composables/usePkpApp.js';
@@ -23,6 +24,8 @@ import * as usePkpModal from '@/frontend/composables/usePkpModal.js';
 import * as usePkpLocalize from '@/frontend/composables/usePkpLocalize';
 import * as usePkpDate from '@/frontend/composables/usePkpDate';
 import * as usePkpStyles from '@/frontend/composables/usePkpStyles.js';
+import * as usePkpPageData from '@/frontend/composables/usePkpPageData.js';
+import * as usePkpVueComponentStyles from '@/frontend/composables/usePkpVueComponentStyles.js';
 
 // Directives
 import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
@@ -45,7 +48,6 @@ import PkpUsageChart from '@/frontend/components/PkpUsageChart/PkpUsageChart.vue
 
 // Pinia stores
 import {usePkpModalStore} from '@/frontend/stores/pkpModalStore';
-import {usePageStore} from '@/frontend/stores/pkpPageStore';
 import {usePkpCommentsStore} from '@/frontend/components/PkpComments/usePkpCommentsStore';
 import {usePkpOpenReviewStore} from '@/frontend/components/PkpOpenReview/usePkpOpenReviewStore';
 import {usePkpCiteStore} from '@/frontend/components/PkpCite/usePkpCiteStore';
@@ -84,7 +86,6 @@ VueRegistry.registerDirective('strip-unsafe-html', stripUnsafeHtml);
 
 // Register frontend Pinia stores for lookup via pkp.registry.getPiniaStore()
 VueRegistry.registerStore('pkpModal', usePkpModalStore);
-VueRegistry.registerStore('pkpPage', usePageStore);
 VueRegistry.registerStore('pkpComments', usePkpCommentsStore);
 VueRegistry.registerStore('pkpOpenReview', usePkpOpenReviewStore);
 VueRegistry.registerStore('pkpCite', usePkpCiteStore);
@@ -152,14 +153,14 @@ VueRegistry.registerComponent(
 );
 VueRegistry.registerComponent('PkpCommentsShowMore', PkpCommentsShowMore);
 
-const pinia = createPinia();
+const piniaInstance = createPinia();
 
-VueRegistry.attachPiniaInstance(pinia);
+VueRegistry.attachPiniaInstance(piniaInstance);
 
 function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs);
-	vueApp.use(pinia);
+	vueApp.use(piniaInstance);
 
 	// https://github.com/vuejs/pinia/discussions/1197
 	// to be able globally share stores
@@ -189,7 +190,8 @@ export default {
 	// especially useful when using composition api
 	modules: {
 		vue,
-		piniaInstance: pinia,
+		pinia,
+		piniaInstance,
 		usePkpApp,
 		usePkpUrl,
 		usePkpFetch,
@@ -198,6 +200,8 @@ export default {
 		usePkpLocalize,
 		usePkpDate,
 		usePkpStyles,
+		usePkpPageData,
+		usePkpVueComponentStyles,
 	},
 	pkpCreateVueApp,
 	createApp,

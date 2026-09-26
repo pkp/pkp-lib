@@ -916,6 +916,17 @@ abstract class Plugin
         return $this->request;
     }
 
+    /**
+     * Whether the theme with the given name is active in the current context
+     * or, unless $includeParents is false, is a parent of the active theme
+     *
+     * @param string $themeName Theme plugin name, e.g. `defaultthemeplugin`
+     */
+    public function isThemeActive(string $themeName, bool $includeParents = true): bool
+    {
+        return (bool) ThemePlugin::getActive()?->isOrInheritsFrom($themeName, $includeParents);
+    }
+
     /*
      * Private helper methods
      */

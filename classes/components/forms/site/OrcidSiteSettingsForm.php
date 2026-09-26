@@ -53,6 +53,12 @@ class OrcidSiteSettingsForm extends FormComponent
                 'groupId' => self::DEFAULT_GROUP,
                 'description' => __('orcid.manager.siteWide.description'),
             ]))
+            ->addField(new FieldText(OrcidManager::CUSTOM_REDIRECT_BASE_URL, [
+                'label' => __('orcid.manager.siteWide.orcidCustomRedirectBaseUrl'),
+                'groupId' => self::DEFAULT_GROUP,
+                'description' => __('orcid.manager.siteWide.orcidCustomRedirectBaseUrl.description'),
+                'value' => $site->getData(OrcidManager::CUSTOM_REDIRECT_BASE_URL) ?? '',
+            ]))
             ->addField(new FieldSelect(OrcidManager::API_TYPE, [
                 'label' => __('orcid.manager.settings.orcidProfileAPIPath'),
                 'groupId' => self::SETTINGS_GROUP,

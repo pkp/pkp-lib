@@ -441,7 +441,7 @@ msgstr ""
 "<br/>\n"
 "Hör gärna av dig om du har några frågor.<br/>\n"
 "<br/>\n"
-"{$principalContactSignature}<br/>\n"
+"{$contextSignature}<br/>\n"
 
 msgid "emails.orcidCollectAuthorId.description"
 msgstr "Den här e-postmallen används för att samla in ORCID-iD:n från medförfattare."

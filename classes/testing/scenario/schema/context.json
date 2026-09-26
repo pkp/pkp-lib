@@ -1,0 +1,112 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Context (journal/press/server) scenario spec",
+    "type": "object",
+    "required": ["tag"],
+    "additionalProperties": false,
+    "properties": {
+        "tag": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "path": { "type": "string" },
+        "name": { "type": "object", "additionalProperties": true },
+        "description": { "type": "object", "additionalProperties": true },
+        "acronym": { "type": "object", "additionalProperties": true },
+        "abbreviation": { "type": "object", "additionalProperties": true },
+        "publisherInstitution": { "type": "string" },
+        "primaryLocale": { "type": "string" },
+        "supportedLocales": { "type": "array", "items": { "type": "string" } },
+        "country": { "type": "string" },
+        "copyrightNotice": { "type": "object", "additionalProperties": true },
+        "submitWithCategories": { "type": "boolean" },
+        "enableDois": { "type": "boolean" },
+        "doiPrefix": { "type": "string" },
+        "doiVersioning": { "type": "boolean" },
+        "enabledDoiTypes": { "type": "array", "items": { "type": "string" } },
+        "registrationAgency": { "type": "string" },
+        "onlineIssn": { "type": "string" },
+        "printIssn": { "type": "string" },
+        "enablePublicComments": { "type": "boolean" },
+        "publishingMode": { "type": "integer" },
+        "plugins": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "enabled": { "type": "boolean" },
+                    "settings": {
+                        "type": "object",
+                        "additionalProperties": true
+                    }
+                }
+            }
+        },
+        "sections": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["abbrev", "title"],
+                "additionalProperties": true,
+                "properties": {
+                    "abbrev": { "type": "object" },
+                    "title": { "type": "object" },
+                    "wordCount": { "type": "integer", "minimum": 0 },
+                    "identifyType": { "type": "object" },
+                    "abstractsNotRequired": { "type": "boolean" },
+                    "editorRestricted": { "type": "boolean" },
+                    "sectionEditors": { "type": "array", "items": { "type": "string" } }
+                }
+            }
+        },
+        "categories": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/category" }
+        },
+        "issues": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": true
+            }
+        },
+        "contact": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": { "type": "string" },
+                "email": { "type": "string" }
+            }
+        },
+        "users": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["username"],
+                "additionalProperties": false,
+                "properties": {
+                    "username": { "type": "string", "minLength": 1 },
+                    "roles": { "type": "array", "items": { "type": "string" } },
+                    "password": { "type": "string", "minLength": 1 },
+                    "email": { "type": "string" },
+                    "givenName": { "type": "string" },
+                    "familyName": { "type": "string" },
+                    "country": { "type": "string" },
+                    "affiliation": { "type": "string" },
+                    "locale": { "type": "string" },
+                    "mustChangePassword": { "type": "boolean" }
+                }
+            }
+        }
+    },
+    "$defs": {
+        "category": {
+            "type": "object",
+            "required": ["path", "title"],
+            "additionalProperties": false,
+            "properties": {
+                "path": { "type": "string" },
+                "title": { "type": "object" },
+                "children": { "type": "array", "items": { "$ref": "#/$defs/category" } }
+            }
+        }
+    }
+}

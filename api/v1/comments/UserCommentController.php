@@ -321,8 +321,12 @@ class UserCommentController extends PKPBaseController
         $comment->delete();
 
         // Delete notifications associated with the comment and its reports
-        Notification::whereIn('assoc_type', [Application::ASSOC_TYPE_COMMENT, Application::ASSOC_TYPE_COMMENT_REPORT])
-            ->whereIn('assoc_id', array_merge([$commentId], $reportIds))
+        Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT)
+            ->where('assoc_id', $commentId)
+            ->delete();
+
+        Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT_REPORT)
+            ->whereIn('assoc_id', $reportIds)
             ->delete();
 
         return response()->json([], Response::HTTP_OK);

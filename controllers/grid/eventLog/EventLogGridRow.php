@@ -78,6 +78,17 @@ class EventLogGridRow extends GridRow
                     if (!$submissionFile) {
                         break;
                     }
+
+                    // A log entry can name a file that is no longer one of the submission file's
+                    // revisions, e.g. a revision upload that was later cancelled. Downloading it
+                    // is not possible, so don't offer the link.
+                    $isRevision = $fileId && Repo::submissionFile()
+                        ->getRevisions($submissionFile->getId())
+                        ->contains(fn (object $revision): bool => (int) $revision->fileId === (int) $fileId);
+                    if (!$isRevision) {
+                        break;
+                    }
+                    
                     $filename = $logEntry->getLocalizedData('filename') ?? $submissionFile->getLocalizedData('name');
                     if ($submissionFile) {
                         $anonymousAuthor = false;

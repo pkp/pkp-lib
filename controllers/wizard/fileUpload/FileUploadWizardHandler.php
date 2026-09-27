@@ -43,6 +43,12 @@ use PKP\submissionFile\SubmissionFile;
 
 class FileUploadWizardHandler extends Handler
 {
+    /**
+     * Session key under which the state of a submission file is stored before a revision
+     * replaces it, so that cancelling the wizard can restore it.
+     */
+    public const REVISION_ORIGINAL_FILE_SESSION_KEY = 'revisionUploadOriginalFile';
+
     /** @var int */
     public $_fileStage;
 
@@ -432,6 +438,21 @@ class FileUploadWizardHandler extends Handler
             return new JSONMessage(false, __('common.uploadFailed'));
         }
 
+        // Keep the replaced file's state server side so that cancelling the wizard can restore
+        // it. It cannot be reconstructed afterwards as the event log records, the user who performed
+        // each event rather than the user a file is attributed to, and neither the name nor the
+        // uploader of a superseded revision is kept anywhere else.
+        if (isset($originalFile)) {
+            $request->getSession()->put(
+                static::getOriginalFileSessionKey($uploadedFile->getId()),
+                [
+                    'fileId' => (int) $originalFile->getData('fileId'),
+                    'name' => $originalFile->getData('name'),
+                    'uploaderUserId' => (int) $originalFile->getData('uploaderUserId'),
+                ]
+            );
+        }
+
         // Retrieve file info to be used in a JSON response.
         $uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile, $originalFile ?? null);
         $reviewRound = $this->getReviewRound();
@@ -491,6 +512,11 @@ class FileUploadWizardHandler extends Handler
         $fileId = (int)$request->getUserVar('fileId');
         /** @var SubmissionFile $file */
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
+
+        // Deliberately not clearing the session key here as the wizard is still cancellable from the final step.
+        // A leftover entry from a completed run can't cause a wrong restore as PKPManageFileApiHandler::cancelFileUpload() 
+        // refuses unless `$originalFile['fileId'] === (int)$previousRevision->fileId` . And the next revision upload of
+        // the same file writes the same key, superseding it.
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('submissionId', $submission->getId());
@@ -581,5 +607,14 @@ class FileUploadWizardHandler extends Handler
         }
 
         return $uploadedFile;
+    }
+
+    /**
+     * Get the session key holding the state a submission file had before the revision
+     * currently being uploaded replaced it.
+     */
+    public static function getOriginalFileSessionKey(int $submissionFileId): string
+    {
+        return self::REVISION_ORIGINAL_FILE_SESSION_KEY . '.' . $submissionFileId;
     }
 }

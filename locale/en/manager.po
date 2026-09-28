@@ -3874,7 +3874,7 @@ msgid "manager.setup.editorialMasthead.order.description"
 msgstr "Define the order of masthead roles for public display."
 
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
-msgstr "Reviewers will be displayed in a standardized format to maintain uniformity and ensure easy discoverability in this section."
+msgstr "Reviewers who completed a review in the previous calendar year will be credited in a standardized format to maintain uniformity and ensure easy discoverability in this section."
 
 msgid "manager.setup.editorialMasthead.editorialHistory.description"
 msgstr "Please provide the editorial history, including the full name, affiliation, and start and end dates of each editor."
@@ -4084,3 +4084,12 @@ msgstr "Request Author Review Response"
 
 msgid "mailable.reviewRound.requestAuthorResponse.description"
 msgstr "This email notifies the author to submit a response to reviewers' comments."
+
+msgid "manager.setup.enableEnrollmentMasthead"
+msgstr "Enrollment-based Masthead"
+
+msgid "manager.setup.enableEnrollmentMasthead.enable"
+msgstr "Present a masthead based on user enrollments"
+
+msgid "manager.setup.enableEnrollmentMastheadReviewers.enable"
+msgstr "Enable listing of reviewers on the masthead"

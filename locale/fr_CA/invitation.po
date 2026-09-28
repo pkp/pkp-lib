@@ -1,2 +1,112 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2026-09-28 15:22+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
+"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/fr_CA/>\n"
+"Language: fr_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - rechercher une personne"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Vérifier l'identifiant ORCID"
+
+msgid "userInvitation.edit.title"
+msgstr "Modifier l’invitation"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Sauvegarder et continuer"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Saisir les détails"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Chercher une personne"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Date de fin"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rôle"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Inviter la personne à assumer ce rôle"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Modifier le courriel envoyé à la personne"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Réviser et inviter à des rôles"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Enregistrer et continuer"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Enregistrer et continuer"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Saisir les détails"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Déclaration de confidentialité"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Le mot de passe doit se composer d'au moins 6 caractères, et doit contenir "
+"des lettres majuscules, des lettres minuscules, des chiffres et des "
+"caractères spéciaux"
+
+msgid "userInvitation.status.invited"
+msgstr "Invitation envoyée le {$date}"
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Consentement relatif à la protection des données"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - entrer les informations de profil et inviter à des rôles"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Si vous modifiez l’invitation existante ou ajoutez un nouveau rôle, l’"
+"invitation actuelle sera annulée et une nouvelle invitation sera envoyée. "
+"Souhaitez-vous vraiment continuer ?"
+
+msgid "userInvitation.modal.button"
+msgstr "Voir tous les utilisateur(-trice)s"
+
+msgid "userInvitation.modal.title"
+msgstr "Invitation envoyée"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Date de début"
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Rechercher une personne par adresse courriel, nom d'utilisateur(-trice) ou "
+"identifiant ORCID. Entrez un seul de ces critères pour commencer!"
+
+msgid "userInvitation.searchField.description"
+msgstr "par ex. aeinstein@example.com ou aeinstein ou 0000-0002-1825-0097"
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Veuillez vérifier l'identifiant ORCID"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - vérifier l'identifiant ORCID"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Passer la vérification de l'identifiant ORCID"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Vérifier et créer le compte"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr ""
+"Il peut s'agir d'une combinaison de lettres majuscules, de lettres "
+"minuscules ou de chiffres"

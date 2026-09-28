@@ -156,7 +156,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
                     $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'date_end', $userUserGroup->dateEnd));
                 }
                 $masthead = $userUserGroup->masthead;
-                if ($userGroup->roleId = Role::ROLE_ID_REVIEWER) {
+                if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
                     $masthead = true;
                 }
                 $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'masthead', $masthead ? 'true' : 'false'));

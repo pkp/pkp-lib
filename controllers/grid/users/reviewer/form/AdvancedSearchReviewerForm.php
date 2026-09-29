@@ -209,9 +209,10 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     }
                 }
 
+                $warnOnAssignment = array_values(array_diff($warnOnAssignment, $lastRoundReviewerIds));
+                $selectReviewerListPanel->set(['warnOnAssignment' => $warnOnAssignment]);
                 $lastRoundReviewers = Repo::user()->getCollector()
                     ->filterByContextIds([$submissionContext->getId()])
-                    ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
                     ->filterByUserIds($lastRoundReviewerIds)
                     ->includeReviewerData()
                     ->getMany();

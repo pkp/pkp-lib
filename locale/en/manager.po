@@ -2581,6 +2581,21 @@ msgstr ""
 "The username \"{$username}\" and the e-mail \"{$email}\" do not match to the "
 "one and the same existing user."
 
+msgid "plugins.importexport.user.error.invalidRoleDate"
+msgstr ""
+"The role \"{$userGroup}\" of the user \"{$username}\" has not been imported "
+"because \"{$date}\" is not a valid date."
+
+msgid "plugins.importexport.user.error.invalidRolePeriod"
+msgstr ""
+"The role \"{$userGroup}\" of the user \"{$username}\" has not been imported "
+"because its start date is not before its end date."
+
+msgid "plugins.importexport.user.error.roleOverlap"
+msgstr ""
+"The role \"{$userGroup}\" of the user \"{$username}\" has not been imported "
+"because the user already holds this role in an overlapping period."
+
 msgid "plugins.importexport.common.settings.form.testMode.label"
 msgstr "Testing"
 

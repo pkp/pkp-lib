@@ -110,6 +110,7 @@ class Repository
             'assocId' => $task->id,
             'contents' => $content,
             'userId' => $fromUser->getId(),
+            'isHeadnote' => true,
         ]);
 
         // Add task for assigned participants

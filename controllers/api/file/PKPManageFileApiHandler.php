@@ -102,52 +102,81 @@ abstract class PKPManageFileApiHandler extends Handler
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         $fileIdToCancel = $request->getUserVar('fileId') ? (int)$request->getUserVar('fileId') : null;
 
-        // Revisions are ordered newest first
-        $revisions = Repo::submissionFile()->getRevisions($submissionFile->getId())->values();
+        // The file ids of every revision, ordered newest first
+        $chain = Repo::submissionFile()->getRevisions($submissionFile->getId())
+            ->pluck('fileId')
+            ->map(fn ($fileId): int => (int) $fileId)
+            ->values();
 
         // Only the revision the submission file currently points at may be cancelled
         if (!$fileIdToCancel
             || (int) $submissionFile->getData('fileId') !== $fileIdToCancel
-            || (int) $revisions->first()?->fileId !== $fileIdToCancel
+            || $chain->first() !== $fileIdToCancel
         ) {
             return new JSONMessage(false);
         }
 
-        // A previous revision exists only when the cancelled upload replaced an existing file;
-        // a first upload has nothing to restore.
-        if ($previousRevision = $revisions->get(1)) {
-            // Recorded by FileUploadWizardHandler::uploadFile() before the revision replaced the
-            // original file. It is only usable if it describes the revision the chain is about to
-            // fall back to; anything else is left over from an abandoned wizard run.
-            $originalFile = $request->getSession()->remove(
-                FileUploadWizardHandler::getOriginalFileSessionKey($submissionFile->getId())
-            );
+        $originalFileId = (int) (((array) $request->getUserVar('originalFile'))['fileId'] ?? 0);
+        $abandonedFileIds = $chain;
 
-            if (!is_array($originalFile)
-                || ($originalFile['fileId'] ?? null) !== (int) $previousRevision->fileId
-                || empty($originalFile['name'])
-                || empty($originalFile['uploaderUserId'])
-            ) {
+        if ($chain->count() > 1) {
+            $originalPosition = $chain->search($originalFileId, true);
+
+            // The revision to fall back to must still be part of the file's history
+            if ($originalPosition === false) {
                 return new JSONMessage(false);
+            }
+
+            $replacedFileIds = $chain->slice(1, $originalPosition)->values();
+            $stashedFiles = [];
+
+            foreach ($replacedFileIds as $position => $replacedFileId) {
+                $stashed = $request->getSession()->get(
+                    FileUploadWizardHandler::getOriginalFileSessionKey($submissionFile->getId(), $replacedFileId)
+                );
+
+                if (!is_array($stashed) || ($stashed['fileId'] ?? null) !== $replacedFileId) {
+                    return new JSONMessage(false);
+                }
+
+                if ($position > 0 && !empty($stashed['confirmed'])) {
+                    return new JSONMessage(false);
+                }
+
+                $stashedFiles[$replacedFileId] = $stashed;
+            }
+
+            $originalFile = $stashedFiles[$originalFileId];
+
+            if (empty($originalFile['name']) || empty($originalFile['uploaderUserId'])) {
+                return new JSONMessage(false);
+            }
+
+            foreach (array_keys($stashedFiles) as $replacedFileId) {
+                $request->getSession()->forget(
+                    FileUploadWizardHandler::getOriginalFileSessionKey($submissionFile->getId(), $replacedFileId)
+                );
             }
 
             // Restore original submission file without any log as the file remain same with cancel.
             Repo::submissionFile()->edit(
                 $submissionFile,
                 [
-                    'fileId' => (int) $previousRevision->fileId,
+                    'fileId' => $originalFileId,
                     'name' => $originalFile['name'],
                     'uploaderUserId' => (int) $originalFile['uploaderUserId'],
                 ],
                 log: false
             );
+
+            $abandonedFileIds = $chain->take($originalPosition);
         }
 
         // The cancelled upload should never became part of the file's history
-        Repo::submissionFile()->deleteRevisionLogEntries($submissionFile, $fileIdToCancel);
-
-        // Remove uploaded file
-        app()->get('file')->delete($fileIdToCancel);
+        foreach ($abandonedFileIds as $abandonedFileId) {
+            Repo::submissionFile()->deleteRevisionLogEntries($submissionFile, $abandonedFileId);
+            app()->get('file')->delete($abandonedFileId);
+        }
 
         $this->setupTemplate($request);
         return \PKP\db\DAO::getDataChangedEvent();

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-09-28 15:22+0000\n"
+"PO-Revision-Date: 2026-09-30 15:43+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr_CA/>\n"
@@ -110,3 +110,48 @@ msgid "acceptInvitation.usernameField.description"
 msgstr ""
 "Il peut s'agir d'une combinaison de lettres majuscules, de lettres "
 "minuscules ou de chiffres"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Voir toutes les soumissions"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Enregistrer et poursuivre"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - saisir les détails"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Saisir vos informations personnelles comme votre courriel, votre "
+"affiliation, etc. Au regard du RGPD, ces données peuvent être modifiées "
+"uniquement par vous-même. Vous pouvez également choisir de rendre ces "
+"données visibles sur votre profil pour la rédaction."
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - vérifier et créer le compte"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Oui, j'accepte que mes données soient collectées et conservées selon les "
+"conditions décrites ici : {$url}"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr "Nom de famille."
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Pays d'affiliation"
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Institution d'affiliation"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Pays dans lequel se trouve l'institution d'affiliation"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Détails du compte"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr "Prénom."
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Détails de l'utilisateur(-trice)"

@@ -50,6 +50,7 @@
 </div><!-- pkp_structure_page -->
 
 {load_script context="frontend"}
+{load_vue_component_styles}
 
 {call_hook name="Templates::Common::Footer::PageFooter"}
 

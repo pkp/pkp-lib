@@ -18,6 +18,8 @@ namespace PKP\plugins\importexport\users\filter;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -324,10 +326,24 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                     $n = $userUserGroupNodeList->item($i);
 
                     $userGroupNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref')->item(0);
-                    $dateStartNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'date_start')->item(0);
-                    $dateStart = $dateStartNode?->textContent;
-                    $dateEndNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'date_end')->item(0);
-                    $dateEnd = $dateEndNode?->textContent;
+                    $dateStartValue = trim((string) $n->getElementsByTagNameNS($deployment->getNamespace(), 'date_start')->item(0)?->textContent);
+                    $dateEndValue = trim((string) $n->getElementsByTagNameNS($deployment->getNamespace(), 'date_end')->item(0)?->textContent);
+                    $dateStart = $this->parseRoleDate($dateStartValue);
+                    $dateEnd = $this->parseRoleDate($dateEndValue);
+                    if ($dateStart === false || $dateEnd === false) {
+                        $this->addError(__('plugins.importexport.user.error.invalidRoleDate', ['username' => $user->getUsername(), 'userGroup' => $userGroupNode->textContent, 'date' => $dateStart === false ? $dateStartValue : $dateEndValue]));
+                        continue;
+                    }
+                    // Without a start date, the role starts on the import day, unless it has already ended:
+                    // the export writes no start date for roles from before start dates were stored.
+                    $startsOnImport = $dateStart === null && ($dateEnd === null || $dateEnd > Core::getCurrentDate());
+                    if ($startsOnImport) {
+                        $dateStart = Core::getCurrentDate();
+                    }
+                    if ($dateStart !== null && $dateEnd !== null && $dateStart >= $dateEnd) {
+                        $this->addError(__('plugins.importexport.user.error.invalidRolePeriod', ['username' => $user->getUsername(), 'userGroup' => $userGroupNode->textContent]));
+                        continue;
+                    }
                     $mastheadNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'masthead')->item(0);
                     $masthead = filter_var($mastheadNode->textContent, FILTER_VALIDATE_BOOLEAN);
 
@@ -335,29 +351,42 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                     foreach ($userGroups as $userGroup) {
                         // if the given user associated group name in within tag 'user_group_ref' is in the list of $userGroup name local list
                         if (in_array($userGroupNode->textContent, $userGroup->name)) {
-                            $endedExists = UserUserGroup::withUserId($userId)
+                            $overlapping = UserUserGroup::withUserId($userId)
                                 ->withUserGroupIds([$userGroup->id])
-                                ->withEnded()
-                                ->get()
-                                ->count() > 0;
-                            $activeExists = UserUserGroup::withUserId($userId)
-                                ->withUserGroupIds([$userGroup->id])
-                                ->withActive()
-                                ->get()
-                                ->count() > 0;
+                                ->when(
+                                    $dateStart !== null,
+                                    fn (Builder $query) => $query->where(
+                                        fn (Builder $query) => $query->whereNull('user_user_groups.date_end')
+                                            ->orWhere('user_user_groups.date_end', '>', $dateStart)
+                                    )
+                                )
+                                ->when(
+                                    $dateEnd !== null,
+                                    fn (Builder $query) => $query->where(
+                                        fn (Builder $query) => $query->whereNull('user_user_groups.date_start')
+                                            ->orWhere('user_user_groups.date_start', '<', $dateEnd)
+                                    )
+                                )
+                                ->get();
 
-                            // if it is an active user group (according to the XML that is imported),
-                            // and the user is currently not active in that group
-                            // or
-                            // if it is a past/ended user group (according to the XML that is imported),
-                            // and there is no such entry in the user_user_group table
-                            if (($dateEnd == null && !$activeExists) || ($dateEnd != null && !$endedExists)) {
-                                // import that user_user_group
+                            // A role starting on the import day counts as already imported if an existing row covers today
+                            // until the XML end date, so that re-importing the same XML on a later day is not reported.
+                            $alreadyImported = $overlapping->contains(
+                                fn (UserUserGroup $existing) => $startsOnImport
+                                    ? ($existing->dateStart === null || $existing->dateStart->toDateTimeString() <= $dateStart)
+                                        && ($dateEnd === null || $existing->dateEnd === null || $existing->dateEnd->toDateTimeString() >= $dateEnd)
+                                    : $existing->dateStart?->toDateTimeString() === $dateStart && $existing->dateEnd?->toDateTimeString() === $dateEnd
+                            );
+
+                            if ($overlapping->isNotEmpty() && !$alreadyImported) {
+                                $this->addError(__('plugins.importexport.user.error.roleOverlap', ['username' => $user->getUsername(), 'userGroup' => $userGroupNode->textContent]));
+                            }
+
+                            if ($overlapping->isEmpty()) {
                                 if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
                                     $masthead = true;
                                 }
 
-                                $dateStart ??= Core::getCurrentDate();
                                 // Clear editorial masthead cache if a new user is assigned to a masthead role
                                 if ($userGroup->masthead && $masthead) {
                                     Repo::userGroup()::forgetEditorialCache($userGroup->contextId);
@@ -378,6 +407,28 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
         }
 
         return $user;
+    }
+
+    /**
+     * Parse a user group assignment date from the XML
+     *
+     * @return string|false|null The date as Y-m-d H:i:s, null if empty, false if not a valid date
+     */
+    protected function parseRoleDate(string $value): string|false|null
+    {
+        if ($value === '') {
+            return null;
+        }
+        // Warnings catch dates PHP would roll over, e.g. 2027-02-30; relative dates such as "tomorrow" have no year
+        $parsed = date_parse($value);
+        if ($parsed['error_count'] || $parsed['warning_count'] || $parsed['year'] === false || $parsed['month'] === false || $parsed['day'] === false) {
+            return false;
+        }
+        // A weekday that contradicts the date, e.g. "Mon, 05 Jan 2024" (a Friday), would shift it to the following Monday
+        if (isset($parsed['relative']['weekday']) && Carbon::create($parsed['year'], $parsed['month'], $parsed['day'])->dayOfWeek !== $parsed['relative']['weekday']) {
+            return false;
+        }
+        return Carbon::parse($value)->toDateTimeString();
     }
 
     /**

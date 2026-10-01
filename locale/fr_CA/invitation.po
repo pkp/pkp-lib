@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-09-30 15:43+0000\n"
+"PO-Revision-Date: 2026-10-02 07:59+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr_CA/>\n"
@@ -155,3 +155,76 @@ msgstr "Prénom."
 
 msgid "acceptInvitation.review.userDetails"
 msgstr "Détails de l'utilisateur(-trice)"
+
+msgid "invitation.tableHeader.name"
+msgstr "Nom"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Inscrire au moins un critère de recherche."
+
+msgid "invitation.unavailable.title"
+msgstr "Invitation non disponible"
+
+msgid "invitation.header"
+msgstr "Invitations"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Inviter un utilisateur ou une utilisatrice à prendre un rôle"
+
+msgid "invitation.role.selectRole"
+msgstr "Sélectionner un nouveau rôle"
+
+msgid "invitation.role.addRole.button"
+msgstr "Ajouter un rôle"
+
+msgid "invitation.role.dateStart"
+msgstr "Date de début"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Retirer le rôle"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Souhaitez-vous vraiment refuser l’invitation ? Confirmez votre refus en "
+"cliquant sur le bouton ci-dessous."
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Annuler l'invitation"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"Cette invitation n’est plus disponible. Elle a peut-être déjà été acceptée, "
+"refusée ou a expiré. Veuillez contacter la revue afin d’obtenir du soutien."
+
+msgid "invitation.step"
+msgstr "Étape"
+
+msgid "invitation.masthead.show"
+msgstr "Afficher"
+
+msgid "invitation.masthead.hidden"
+msgstr "Ne pas afficher"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Refuser l'invitation"
+
+msgid "invitation.decline.confirm"
+msgstr "Confirmer le refus de l'invitation"
+
+msgid "invitation.email.description"
+msgstr "par ex. aeinstein@example.com"
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Si vous connaissez le nom de famille de l’utilisateur ou de l'utilisatrice, "
+"veuillez saisir l’information. Cependant, l’utilisateur ou l'utilisatrice "
+"pourra modifier cette information."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Si vous connaissez le prénom de l’utilisateur ou de l'utilisatrice, veuillez "
+"saisir l’information. Cependant, l’utilisateur ou l'utilisatrice pourra "
+"modifier cette information."
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Inviter à un rôle"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-09-28 15:22+0000\n"
+"PO-Revision-Date: 2026-10-02 07:59+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "useraccess/fr_CA/>\n"
@@ -16,3 +16,6 @@ msgstr "Nom"
 
 msgid "userAccess.tableHeader.startDate"
 msgstr "Date de début"
+
+msgid "userAccess.search"
+msgstr "Entrez le nom d’un utilisateur ou d'une utilisatrice, son rôle, etc."

@@ -62,19 +62,17 @@ class PluginGalleryDAO extends \PKP\db\DAO
 
             foreach ($doc->getElementsByTagName('plugin') as $element) {
                 $plugin = $this->_compatibleFromElement($element, $application);
-                // May be null if no compatible version exists; also
-                // apply search filters if any supplied.
-                if (
-                    $plugin &&
-                    ($category == '' || $category == PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE || $plugin->getCategory() == $category) &&
-                    ($search == '' || Str::position(Str::lower(serialize($plugin)), Str::lower($search)) !== false)
-                ) {
-                    $plugins["{$plugin->getCategory()}/{$plugin->getProduct()}"] = $plugin;
-                }
+                // May be null if no compatible version exists
+                if (!$plugin) continue;
+                $plugins["{$plugin->getCategory()}/{$plugin->getProduct()}"] = $plugin;
             }
         }
 
-        return array_values($plugins);
+        // Apply search filters if any supplied.
+        return array_filter(array_values($plugins), function($plugin) use ($category, $search) {
+            return ($category == '' || $category == PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE || $plugin->getCategory() == $category) &&
+                ($search == '' || Str::position(Str::lower(serialize($plugin)), Str::lower($search)) !== false);
+        });
     }
 
     protected function getPluginGalleryConfig() : string

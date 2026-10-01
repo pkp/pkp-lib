@@ -168,11 +168,11 @@ class PKPStageParticipantNotifyForm extends Form
      */
     public function sendMessage(int $userId, Submission $submission, Request $request)
     {
-        $user = Repo::user()->get($userId);
-        if (!isset($user)) {
+        $recipient = Repo::user()->get($userId);
+        if (!isset($recipient)) {
             return;
         }
-
+        $sender = $request->getUser();
         $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($submission->getData('contextId'));
         $templateId = $this->getData('template');
@@ -184,7 +184,7 @@ class PKPStageParticipantNotifyForm extends Form
         }
 
         // Template is used to create a mailable, title for the message, identify the type of the notification. Fallback to the default one if it's not accessible
-        if (!is_a($template, Template::class) || !Repo::editorialTask()->isTemplateAccessibleToUser($template, $user)) {
+        if (!is_a($template, Template::class) || !Repo::editorialTask()->isTemplateAccessibleToUser($template, $sender)) {
             $template = Template::withKeys(Repo::editorialTask()->getDiscussionTemplateKeys(), $context->getId())
                 ->withStageId($this->_stageId)
                 ->withType(EditorialTaskType::DISCUSSION->value)
@@ -194,9 +194,9 @@ class PKPStageParticipantNotifyForm extends Form
         $mailable = new TemplateVariables($template->promote($submission), $submission, $context);
         // Populate mailable with data before compiling headNote
         $mailable
-            ->addData(['authorName' => $user->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
-            ->sender($request->getUser())
-            ->recipients([$user])
+            ->addData(['authorName' => $recipient->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
+            ->sender($sender)
+            ->recipients([$recipient])
             ->body($this->getData('message'))
             ->subject($template->getLocalizedData('title'));
 
@@ -206,7 +206,7 @@ class PKPStageParticipantNotifyForm extends Form
             'assocId' => $submission->getId(),
             'stageId' => $this->_stageId,
             'seq' => REALLY_BIG_NUMBER,
-            'createdBy' => $user->getId(),
+            'createdBy' => $sender->getId(),
             'type' => EditorialTaskType::DISCUSSION,
             'title' => $template->getLocalizedData('title'),
         ]);
@@ -216,9 +216,9 @@ class PKPStageParticipantNotifyForm extends Form
         // Add the current user and message recipient as participants.
         Participant::create([
             'editTaskId' => $query->id,
-            'userId' => $user->getId()
+            'userId' => $recipient->getId()
         ]);
-        if ($user->getId() != $request->getUser()->getId()) {
+        if ($recipient->getId() != $request->getUser()->getId()) {
             Participant::create([
                 'editTaskId' => $query->id,
                 'userId' => $request->getUser()->getId()
@@ -229,8 +229,8 @@ class PKPStageParticipantNotifyForm extends Form
         $additionalVariables = $this->getEmailVariableNames($templateKey);
 
         // Create a head note
-        $headNote = Note::create([
-            'userId' => $request->getUser()->getId(),
+        Note::create([
+            'userId' => $sender->getId(),
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $query->id,
             'contents' => Mail::compileParams(
@@ -242,7 +242,7 @@ class PKPStageParticipantNotifyForm extends Form
         // Send the email
         $notificationMgr = new NotificationManager();
         $notification = $notificationMgr->createNotification(
-            $userId,
+            $recipient->getId(),
             Notification::NOTIFICATION_TYPE_NEW_QUERY,
             $request->getContext()->getId(),
             PKPApplication::ASSOC_TYPE_QUERY,
@@ -260,7 +260,7 @@ class PKPStageParticipantNotifyForm extends Form
             } catch (TransportException $e) {
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->createTrivialNotification(
-                    $request->getUser()->getId(),
+                    $sender->getId(),
                     Notification::NOTIFICATION_TYPE_ERROR,
                     ['contents' => __('email.compose.error')]
                 );
@@ -272,19 +272,19 @@ class PKPStageParticipantNotifyForm extends Form
 
         switch ($templateKey) {
             case 'EDITOR_ASSIGN':
-                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId());
+                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_EDITOR_ASSIGN, $recipient->getId(), $submission->getId());
                 !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEventType::EDITOR_ASSIGN, $mailable, $submission);
                 break;
             case 'COPYEDIT_REQUEST':
-                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId());
+                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $recipient->getId(), $submission->getId());
                 !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEventType::COPYEDIT_NOTIFY_COPYEDITOR, $mailable, $submission);
                 break;
             case 'LAYOUT_REQUEST':
-                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId());
+                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $recipient->getId(), $submission->getId());
                 !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEventType::LAYOUT_NOTIFY_EDITOR, $mailable, $submission);
                 break;
             case 'INDEX_REQUEST':
-                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());
+                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $recipient->getId(), $submission->getId());
                 !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEventType::INDEX_NOTIFY_INDEXER, $mailable, $submission);
                 break;
             case 'LAYOUT_COMPLETE':

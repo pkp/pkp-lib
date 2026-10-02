@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-10-02 07:59+0000\n"
+"PO-Revision-Date: 2026-10-02 14:17+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr/>\n"
@@ -66,13 +66,13 @@ msgid "about.siteMap"
 msgstr "Plan du site"
 
 msgid "announcement.announcements"
-msgstr "Actualités"
+msgstr "Annonces"
 
 msgid "announcement.announcementsHome"
-msgstr "Actualités"
+msgstr "Annonces"
 
 msgid "announcement.moreAnnouncements"
-msgstr "Plus d'actualités..."
+msgstr "Plus d'annonces..."
 
 msgid "announcement.noneExist"
 msgstr "Aucune annonce n'a été publiée."
@@ -976,7 +976,7 @@ msgid "common.user"
 msgstr "Utilisateur"
 
 msgid "common.user.nonexistent"
-msgstr "[Utilisateur/ice inexistant-e]"
+msgstr "[Utilisateur/ice inexistante]"
 
 msgid "common.view"
 msgstr "Afficher"
@@ -1549,7 +1549,7 @@ msgid "navigation.skip.description"
 msgstr "Allez aux liens du contenu"
 
 msgid "navigation.skip.announcements"
-msgstr "Aller aux actualités"
+msgstr "Aller aux annonces"
 
 msgid "navigation.skip.main"
 msgstr "Aller directement au contenu principal"
@@ -2455,7 +2455,7 @@ msgid "common.moreActions"
 msgstr "Plus d'actions"
 
 msgid "common.editorialMasthead"
-msgstr "Équipe éditoriale"
+msgstr "Comité éditorial"
 
 msgid "common.editorialMasthead.peerReviewers"
 msgstr "Évaluateur/ices de l'année précédente"

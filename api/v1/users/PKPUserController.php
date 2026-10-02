@@ -112,10 +112,14 @@ class PKPUserController extends PKPBaseController
     public function get(Request $request): JsonResponse
     {
         $userId = $request->route('userId', null);
+        if (in_array(
+            Validation::getAdministrationLevel($userId, $this->getRequest()->getUser()->getId(), $this->getRequest()->getContext()->getId()),
+            [Validation::ADMINISTRATION_FULL, Validation::ADMINISTRATION_PARTIAL]
+        )) {
+            $user = Repo::user()->get($userId, true);
+        }
 
-        $user = Repo::user()->get($userId, true);
-
-        if (!$user) {
+        if (!isset($user)) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound')
             ], Response::HTTP_NOT_FOUND);

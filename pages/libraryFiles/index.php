@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file lib/pkp/pages/libraryFiles/index.php
+ * @file lib/pkp/pages/publicLibraryFiles/index.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -9,7 +9,7 @@
  *
  * @ingroup pages_publicLibraryFiles
  *
- * @brief Handle requests for library files.
+ * @brief Handle requests for public library files.
  *
  */
 

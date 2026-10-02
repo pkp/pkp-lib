@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-10-02 14:17+0000\n"
+"PO-Revision-Date: 2026-10-02 15:20+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -146,7 +146,7 @@ msgid "userInvitation.modal.title"
 msgstr "Invitation envoyée"
 
 msgid "invitation.role.removeRole.button"
-msgstr "Annuler le rôle"
+msgstr "Supprimer le rôle"
 
 msgid "userInvitation.modal.button"
 msgstr "Voir l'ensemble des utilisateur/ices"
@@ -161,7 +161,7 @@ msgstr ""
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
 msgstr ""
-"Les utilisateur/ices existant/es ne sont pas autorisé/es à accéder à cet "
+"Les utilisateur/ices existantes ne sont pas autorisées à accéder à cet "
 "attribut"
 
 msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
@@ -344,10 +344,10 @@ msgid "invitation.cancelInvite.title"
 msgstr "Annuler l'invitation"
 
 msgid "invitation.masthead.show"
-msgstr "Apparaît sur la page Comités"
+msgstr "Apparaît sur la page Responsabilités"
 
 msgid "invitation.masthead.hidden"
-msgstr "N'apparaît pas sur la page Comités"
+msgstr "N'apparaît pas sur la page Responsabilités"
 
 msgid "invitation.management.options"
 msgstr "Options de gestion des invitations"
@@ -394,7 +394,7 @@ msgstr ""
 "Êtes-vous sûr/e de vouloir annuler ? Si vous annulez maintenant, le "
 "processus d'acceptation du rôle sera interrompu et vous devrez accéder au "
 "courriel d'invitation pour relancer le processus. Si vous êtes déjà "
-"utilisateur/ice, vous serez redirigé/e vers le tableau de bord."
+"utilisateur/ice, vous serez redirigée vers le tableau de bord."
 
 msgid "acceptInvitation.cancelInvite.title"
 msgstr "Annuler le processus en cours d'invitation à un rôle ?"
@@ -418,11 +418,11 @@ msgstr ""
 "ou son identifiant ORCID."
 
 msgid "userInvitation.user.disableTitle"
-msgstr "Cet/te utilisateur/ice a été désactivé/e."
+msgstr "Cet/te utilisateur/ice a été désactivée."
 
 msgid "userInvitation.user.disableMessage"
 msgstr ""
-"L'utilisateur/ice a été désactivé/e et vous ne pouvez pas lui attribuer un "
+"L'utilisateur/ice a été désactivée et vous ne pouvez pas lui attribuer un "
 "rôle. Veuillez d'abord l'activer avant de l'inviter à un rôle."
 
 msgid "acceptInvitation.privacyConsent"

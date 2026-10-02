@@ -238,7 +238,10 @@ class SubmissionEventLogGridHandler extends GridHandler
     public function viewEmail($args, $request)
     {
         $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $emailLogEntry = $submissionEmailLogDao->getById((int) $args['emailLogEntryId']);
+        $emailLogEntry = $submissionEmailLogDao->getById((int) $args['emailLogEntryId'], Application::ASSOC_TYPE_SUBMISSION, $this->getSubmission()->getId());
+        if (!$emailLogEntry) {
+            return new JSONMessage(false, __('api.404.resourceNotFound'));
+        }
         return new JSONMessage(true, $this->_formatEmail($emailLogEntry));
     }
 

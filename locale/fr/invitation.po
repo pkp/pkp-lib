@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-09-25 13:27+0000\n"
+"PO-Revision-Date: 2026-10-02 14:17+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -84,9 +84,7 @@ msgid "invitation.tableHeader.name"
 msgstr "Nom"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr ""
-"Pour ajouter de nouveaux groupes d'utilisateur/ices, il faut au préalable "
-"avoir déclaré une équipe éditoriale"
+msgstr "Un comité doit être mentionné pour les nouveaux groupes"
 
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Ce type d'invitation n'a pas de modèle de courriel renseigné"
@@ -174,7 +172,7 @@ msgstr "Rechercher une personne"
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
 msgstr ""
-"Les utilisateur/ices non-existant/es ne sont pas autorisé/es à accéder à cet "
+"Les utilisateur/ices non-existantes ne sont pas autorisées à accéder à cet "
 "attribut"
 
 msgid "userInvitation.searchUser.stepLabel"
@@ -346,10 +344,10 @@ msgid "invitation.cancelInvite.title"
 msgstr "Annuler l'invitation"
 
 msgid "invitation.masthead.show"
-msgstr "Apparaît dans l'équipe éditoriale"
+msgstr "Apparaît sur la page Comités"
 
 msgid "invitation.masthead.hidden"
-msgstr "N'apparaît pas dans l'équipe éditoriale"
+msgstr "N'apparaît pas sur la page Comités"
 
 msgid "invitation.management.options"
 msgstr "Options de gestion des invitations"

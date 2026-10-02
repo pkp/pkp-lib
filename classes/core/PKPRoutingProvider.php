@@ -29,6 +29,7 @@ use PKP\middleware\HasRoles;
 use PKP\middleware\HasUser;
 use PKP\middleware\PolicyAuthorizer;
 use PKP\middleware\SetupContextBasedOnRequestUrl;
+use PKP\middleware\TestModeGate;
 use PKP\middleware\ValidateCsrfToken;
 
 class PKPRoutingProvider extends RoutingServiceProvider
@@ -63,6 +64,7 @@ class PKPRoutingProvider extends RoutingServiceProvider
         'has.roles' => HasRoles::class,
         'has.user' => HasUser::class,
         'has.context' => HasContext::class,
+        'test.mode' => TestModeGate::class,
     ];
 
     public static function getGlobalRouteMiddleware(): array

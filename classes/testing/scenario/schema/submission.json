@@ -1,0 +1,136 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "OJS submission scenario spec",
+    "type": "object",
+    "required": ["tag", "journal", "submitter", "section"],
+    "additionalProperties": false,
+    "properties": {
+        "tag": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "journal": { "type": "string", "minLength": 1 },
+        "submitter": { "type": "string", "minLength": 1 },
+        "section": { "type": "string", "minLength": 1 },
+        "locale": { "type": "string" },
+        "submitted": { "type": "boolean" },
+        "commentsForEditor": { "type": "string" },
+
+        "author": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "orcid": { "type": "string" },
+                "orcidIsVerified": { "type": "boolean" },
+                "email": { "type": "string" }
+            }
+        },
+
+        "participants": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["user", "role"],
+                "additionalProperties": false,
+                "properties": {
+                    "user": { "type": "string" },
+                    "role": { "type": "string" },
+                    "recommendOnly": { "type": "boolean" },
+                    "canChangeMetadata": { "type": "boolean" }
+                }
+            }
+        },
+
+        "decisions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["type", "by"],
+                "additionalProperties": false,
+                "properties": {
+                    "type": { "type": "string" },
+                    "by": { "type": "string" },
+                    "toAuthor": { "type": "string" },
+                    "toReviewers": { "type": ["string", "object"] },
+                    "toEditor": { "type": "string" }
+                }
+            }
+        },
+
+        "reviewRounds": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "reviewers": {
+                        "type": "array",
+                        "items": { "$ref": "#/$defs/reviewer" }
+                    }
+                }
+            }
+        },
+
+        "publications": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/publication" }
+        }
+    },
+
+    "$defs": {
+        "reviewer": {
+            "type": "object",
+            "required": ["user"],
+            "additionalProperties": false,
+            "properties": {
+                "user": { "type": "string" },
+                "method": { "type": "string", "enum": ["anonymous", "doubleAnonymous", "open"] },
+                "responseDueDate": { "type": "string" },
+                "reviewDueDate": { "type": "string" },
+                "status": {
+                    "type": "string",
+                    "enum": ["invited", "accepted", "declined", "completed", "cancelled"]
+                },
+                "recommendation": {
+                    "type": "string",
+                    "enum": ["accept", "pendingRevisions", "resubmitHere", "resubmitElsewhere", "decline", "seeComments"]
+                },
+                "comments": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "toEditor": { "type": "string" },
+                        "toAuthor": { "type": "string" }
+                    }
+                }
+            }
+        },
+
+        "publication": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "versionStage": { "type": "string", "enum": ["AO", "PMUR", "VoR"] },
+                "versionIsMinor": { "type": "boolean" },
+                "jatsPublicVisibility": { "type": "boolean" },
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "issue": {
+                    "oneOf": [
+                        { "type": "string", "enum": ["latest", "current"] },
+                        {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "volume": { "type": ["integer", "null"] },
+                                "number": { "type": ["integer", "string", "null"] },
+                                "year": { "type": ["integer", "null"] }
+                            }
+                        }
+                    ]
+                },
+                "published": { "type": "boolean" }
+            }
+        }
+    }
+}

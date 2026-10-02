@@ -773,7 +773,8 @@ msgid "common.replaceFile"
 msgstr "استبدال الملف"
 
 msgid "common.requiredField"
-msgstr "* تدل على حقول إجبارية"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> تدل على حقول إجبارية"
 
 msgid "common.required"
 msgstr "مطلوب حتماً"

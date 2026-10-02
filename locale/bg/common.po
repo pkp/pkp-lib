@@ -770,7 +770,9 @@ msgid "common.replaceFile"
 msgstr "Заместване на файл"
 
 msgid "common.requiredField"
-msgstr "* Обозначава задължително поле"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> Обозначава "
+"задължително поле"
 
 msgid "common.required"
 msgstr "Задължително"

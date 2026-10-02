@@ -770,7 +770,9 @@ msgid "common.replaceFile"
 msgstr "ფაილის ჩანაცვლება"
 
 msgid "common.requiredField"
-msgstr "* აღნიშნავს სავალდებულო ველს"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> აღნიშნავს სავალდებულო "
+"ველს"
 
 msgid "common.required"
 msgstr "სავალდებულო"

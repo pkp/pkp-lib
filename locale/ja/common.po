@@ -764,8 +764,7 @@ msgid "common.replaceFile"
 msgstr "ファイルの置換え"
 
 msgid "common.requiredField"
-msgstr "<abbr class=\"required\" title=\"required\""
-">*</abbr>は必須フィールドを表します"
+msgstr "<span class=\"required\" aria-hidden=\"true\">*</span>は必須フィールドを表します"
 
 msgid "common.required"
 msgstr "必須"

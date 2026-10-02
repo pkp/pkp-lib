@@ -762,7 +762,7 @@ msgid "common.replaceFile"
 msgstr "替代文件"
 
 msgid "common.requiredField"
-msgstr "* 表示必须填写"
+msgstr "<span class=\"required\" aria-hidden=\"true\">*</span> 表示必须填写"
 
 msgid "common.required"
 msgstr "必须"

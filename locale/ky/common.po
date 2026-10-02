@@ -1435,8 +1435,8 @@ msgstr "Алмаштырылды"
 
 msgid "common.requiredField"
 msgstr ""
-"Талап кылынган талаалар жылдызча менен белгиленет: <abbr class=\"required\" "
-"title=\"required\">*</abbr>"
+"Талап кылынган талаалар жылдызча менен белгиленет: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Талап кылынат"

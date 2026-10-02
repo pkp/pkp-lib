@@ -37,6 +37,9 @@ use PKP\form\validation\FormValidatorCSRF;
 use PKP\form\validation\FormValidatorPost;
 use PKP\log\event\EventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
+use PKP\mail\Mailable;
+use PKP\mail\traits\Recipient;
+use PKP\mail\traits\Sender;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\security\Role;
@@ -191,14 +194,20 @@ class PKPStageParticipantNotifyForm extends Form
                 ->first();
         }
 
-        $mailable = new TemplateVariables($template->promote($submission), $submission, $context);
+        // If no template exists, use a default mailable.
+        $mailable = $template ? new TemplateVariables($template->promote($submission), $submission, $context) : new class extends Mailable
+        {
+            use Sender;
+            use Recipient;
+        };
+
         // Populate mailable with data before compiling headNote
         $mailable
             ->addData(['authorName' => $recipient->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
             ->sender($sender)
             ->recipients([$recipient])
             ->body($this->getData('message'))
-            ->subject($template->getLocalizedData('title'));
+            ->subject($this->getDiscussionTitle($template));
 
         // Create a query
         $query = EditorialTask::create([
@@ -208,7 +217,7 @@ class PKPStageParticipantNotifyForm extends Form
             'seq' => REALLY_BIG_NUMBER,
             'createdBy' => $sender->getId(),
             'type' => EditorialTaskType::DISCUSSION,
-            'title' => $template->getLocalizedData('title'),
+            'title' => $this->getDiscussionTitle($template),
         ]);
 
         Repo::editorialTask()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
@@ -225,8 +234,11 @@ class PKPStageParticipantNotifyForm extends Form
             ]);
         }
 
-        $templateKey = $template->key;
-        $additionalVariables = $this->getEmailVariableNames($templateKey);
+        $additionalVariables = [];
+        if ($template) {
+            $templateKey = $template->key;
+            $additionalVariables = $this->getEmailVariableNames($templateKey);
+        }
 
         // Create a head note
         Note::create([
@@ -270,7 +282,7 @@ class PKPStageParticipantNotifyForm extends Form
 
         // remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
 
-        switch ($templateKey) {
+        switch ($templateKey ?? '') {
             case 'EDITOR_ASSIGN':
                 $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_EDITOR_ASSIGN, $recipient->getId(), $submission->getId());
                 !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEventType::EDITOR_ASSIGN, $mailable, $submission);
@@ -419,5 +431,20 @@ class PKPStageParticipantNotifyForm extends Form
     public function isMessageRequired()
     {
         return true;
+    }
+
+    /**
+     * Get the discussion title for the current stage.
+     * It's used if no template is available.
+     *
+     * @return string
+     */
+    protected function getDiscussionTitle(?Template $template = null): string
+    {
+        if (!is_null($template)) {
+            return $template->getLocalizedData('title');
+        }
+
+        return Repo::editorialTask()->getDiscussionTitles()->get($this->_stageId, '');
     }
 }

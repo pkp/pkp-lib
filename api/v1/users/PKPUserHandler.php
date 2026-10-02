@@ -23,6 +23,7 @@ use PKP\core\APIResponse;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
+use PKP\security\Validation;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -167,13 +168,17 @@ class PKPUserHandler extends APIHandler
      */
     public function get($slimRequest, $response, $args)
     {
-        $request = $this->getRequest();
-
         if (!empty($args['userId'])) {
-            $user = Repo::user()->get($args['userId']);
+            $userId = $args['userId'];
+            if (in_array(
+                Validation::getAdministrationLevel($userId, $this->getRequest()->getUser()->getId()),
+                [Validation::ADMINISTRATION_FULL, Validation::ADMINISTRATION_PARTIAL]
+            )) {
+                $user = Repo::user()->get($args['userId']);
+            }
         }
 
-        if (!$user) {
+        if (!isset($user)) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 

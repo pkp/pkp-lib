@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2026-10-02 14:17+0000\n"
+"PO-Revision-Date: 2026-10-02 15:20+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr/>\n"
@@ -664,13 +664,13 @@ msgid "submission.event.reviewer.reviewDueDate"
 msgstr "Date d'échéance de l'évaluation modifiée"
 
 msgid "submission.event.reviewer.reviewerAssigned"
-msgstr "Évaluateur/ice assigné/e à une soumission"
+msgstr "Évaluateur/ice assignée à une soumission"
 
 msgid "submission.event.reviewer.reviewerRated"
 msgstr "Note de l'évaluateur/ice soumise"
 
 msgid "submission.event.reviewer.reviewerUnassigned"
-msgstr "Évaluateur/ice non assigné/e à une soumission"
+msgstr "Évaluateur/ice non assignée à une soumission"
 
 msgid "submission.event.reviewer.reviewFile"
 msgstr "Fichier d'évaluation mis à jour"
@@ -2138,7 +2138,7 @@ msgstr "L'évaluation est complète."
 
 msgid "submission.review.status.thanked"
 msgstr ""
-"Cette évaluation est terminée et l'évaluateur/ice a été remercié/e pour sa "
+"Cette évaluation est terminée et l'évaluateur/ice a été remerciée pour sa "
 "contribution."
 
 msgid "submission.document"
@@ -2941,7 +2941,7 @@ msgid "dashboard.reviewAssignment.action.editDueDate"
 msgstr "Modifier la date d'échéance"
 
 msgid "submission.wizard.noReviewerSuggestions"
-msgstr "Aucun/e évaluateur/ice n'a été proposé/e pour cette soumission."
+msgstr "Aucun/e évaluateur/ice n'a été proposée pour cette soumission."
 
 msgid "dashboard.declinedDuringStage"
 msgstr "Refusé pendant la phase {$stageName}."
@@ -3187,7 +3187,7 @@ msgid "reviewerSuggestion.suggestionReason"
 msgstr "Raisons pour lesquelles vous suggérez cet/te évaluateur/ice"
 
 msgid "dashboard.reviewersAssigned"
-msgstr "Évaluateur/ices désigné/es"
+msgstr "Évaluateur/ices désignées"
 
 msgid "dashboard.assignReviewers"
 msgstr "Désigner des évaluateur/ices"

@@ -3,8 +3,8 @@
 /**
  * @file classes/mail/mailables/UserRoleAssignmentInvitationNotify.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserRoleAssignmentInvitationNotify
@@ -17,6 +17,7 @@ namespace PKP\mail\mailables;
 use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\facades\Locale;
+use PKP\identity\Identity;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\invitations\userRoleAssignment\helpers\UserGroupHelper;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
@@ -90,7 +91,11 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         return $variables;
     }
 
-    private function getAllUserUserGroupSection(array $userUserGroups, ?UserGroup $userGroup = null, Context $context, string $locale, string $title): string
+    /**
+     * Build the email section listing the given role assignments, headed by
+     * the given title. Returns an empty string when there are no assignments.
+     */
+    private function getAllUserUserGroupSection(array $userUserGroups, Context $context, string $locale, string $title): string
     {
         $retString = '';
 
@@ -104,9 +109,9 @@ class UserRoleAssignmentInvitationNotify extends Mailable
                 $retString = $title;
             }
 
-            $userGroupToUse = $userGroup ?? UserGroup::find($userGroupHelper->userGroupId);
+            $userGroup = UserGroup::find($userGroupHelper->userGroupId);
 
-            $userGroupSection = $this->getUserUserGroupSection($userGroupHelper, $userGroupToUse, $context, $count, $locale);
+            $userGroupSection = $this->getUserUserGroupSection($userGroupHelper, $userGroup, $context, $count, $locale);
 
             $retString .= $userGroupSection;
 
@@ -116,7 +121,12 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         return $retString;
     }
 
-    private function getUserUserGroupSection(UserGroupHelper $userUserGroup, UserGroup $userGroup, Context $context, int  $count, string $locale): string
+    /**
+     * Build the email text describing a role assignment: its position in
+     * the list, the role's name, its start and optional end date, and whether
+     * the role will appear on the context's masthead.
+     */
+    private function getUserUserGroupSection(UserGroupHelper $userUserGroup, UserGroup $userGroup, Context $context, int $count, string $locale): string
     {
         $sectionEndingDate = '';
         if (isset($userUserGroup->dateEnd)) {
@@ -146,7 +156,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
             );
         }
 
-        $userGroupSection = __(
+        return __(
             'emails.userRoleAssignmentInvitationNotify.userGroupSection',
             [
                 'sectionNumber' => $count,
@@ -156,10 +166,20 @@ class UserRoleAssignmentInvitationNotify extends Mailable
                 'sectionMastheadAppear' => $sectionMastheadAppear
             ]
         );
-
-        return $userGroupSection;
     }
 
+    /**
+     * Get an identity's full name in the given locale, falling back to the site's
+     * primary locale and then to the first locale with a name.
+     */
+    private function getLocalizedFullName(Identity $identity, string $locale): string
+    {
+        $fullName = $identity->getFullName(preferredLocale: $locale);
+        if ($fullName !== '' || empty($identity->getGivenName(null))) {
+            return $fullName;
+        }
+        return collect($identity->getFullNames())->filter()->first() ?? '';
+    }
 
     /**
      * Set localized email template variables
@@ -185,7 +205,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         $userGroupsAdded = '';
 
         if ($this->invitation->getPayload()->userGroupsToAdd) {
-            $userGroupsAdded = $this->getAllUserUserGroupSection($this->invitation->getPayload()->userGroupsToAdd, null, $context, $locale, $userGroupsAddedTitle);
+            $userGroupsAdded = $this->getAllUserUserGroupSection($this->invitation->getPayload()->userGroupsToAdd, $context, $locale, $userGroupsAddedTitle);
         }
 
         $existingUserGroupsTitle = __('emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles');
@@ -211,17 +231,18 @@ class UserRoleAssignmentInvitationNotify extends Mailable
                 return $userUserGroups;
             }, collect());
 
-            $existingUserGroups .= $this->getAllUserUserGroupSection($userUserGroups->toArray(), null, $context, $locale, $existingUserGroupsTitle);
+            $existingUserGroups .= $this->getAllUserUserGroupSection($userUserGroups->toArray(), $context, $locale, $existingUserGroupsTitle);
         }
 
-        $recipientName = !empty($sendIdentity->getFullName()) ? $sendIdentity->getFullName() : $sendIdentity->getEmail();
+        $recipientFullName = $this->getLocalizedFullName($sendIdentity, $locale);
+        $recipientName = htmlspecialchars(!empty($recipientFullName) ? $recipientFullName : $sendIdentity->getEmail());
 
         // Set view data for the template
         $this->viewData = array_merge(
             $this->viewData,
             [
                 static::$recipientName => $recipientName,
-                static::$inviterName => $inviter?->getFullName(),
+                static::$inviterName => $inviter ? htmlspecialchars($this->getLocalizedFullName($inviter, $locale)) : null,
                 static::$acceptUrl => $this->invitation->getActionURL(InvitationAction::ACCEPT),
                 static::$declineUrl => $this->invitation->getActionURL(InvitationAction::DECLINE),
                 static::$rolesAdded => $userGroupsAdded,

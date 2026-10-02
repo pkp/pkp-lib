@@ -55,6 +55,9 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         'password'
     ];
 
+    /**
+     * Get the type key that identifies this kind of invitation.
+     */
     public static function getType(): string
     {
         return self::INVITATION_TYPE;
@@ -76,17 +79,29 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return parent::getPayload();
     }
 
+    /**
+     * Get the payload properties that cannot be changed once the invitation
+     * has been sent, so the invitee cannot change the roles they were offered.
+     */
     public function getNotAccessibleAfterInvite(): array
     {
         return array_merge(parent::getNotAccessibleAfterInvite(), $this->notAccessibleAfterInvite);
     }
 
+    /**
+     * Get the payload properties that cannot be set before the invitation is
+     * sent. These are the invitee's account details, which only the invitee
+     * provides when accepting.
+     */
     public function getNotAccessibleBeforeInvite(): array
     {
         return array_merge(parent::getNotAccessibleBeforeInvite(), $this->notAccessibleBeforeInvite);
     }
 
     /**
+     * Build the invitation email in the context's primary locale, using the
+     * subject and body the inviter wrote, otherwise the email template's.
+     *
      * @throws \Exception
      */
     public function getMailable(): Mailable
@@ -107,22 +122,20 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         }
 
         $inviter = $this->getInviter();
-
         $receiver = $this->getMailableReceiver($locale);
 
         $emailComposerValues = $this->getPayload()->emailComposer;
-
         $emailSubject = $emailTemplate->getLocalizedData('subject', $locale);
-        $templateBody = $emailTemplate->getLocalizedData('body', $locale);
+        $emailBody = $emailTemplate->getLocalizedData('body', $locale);
 
         if (isset($emailComposerValues)) {
             $emailSubject = $emailComposerValues['subject'] ?? $emailSubject;
-            $emailBody = $emailComposerValues['body'] ?? $templateBody;
+            $emailBody = $emailComposerValues['body'] ?? $emailBody;
         }
 
         $mailable
             ->sender($inviter)
-            ->recipients([$receiver])
+            ->recipients([$receiver], $locale)
             ->subject($emailSubject)
             ->body($emailBody);
 
@@ -134,9 +147,11 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     /**
      * Get the identity that will receive the invitation email.
      *
-     * Names provided in the invitation payload for the given locale are used
-     * when present, so that new users who do not yet have an account are
-     * addressed by name rather than by email address.
+     * Names provided in the invitation payload are used in every locale they
+     * were entered in, so that new users who do not yet have an account are
+     * addressed by name rather than by email address. When there is no name in
+     * the given locale or the site's primary locale, the first locale with a
+     * name is used so that the name in the email headers matches the greeting in the body.
      */
     public function getMailableReceiver(?string $locale = null): Identity
     {
@@ -145,22 +160,34 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         $receiver = parent::getMailableReceiver($locale);
         $payload = $this->getPayload();
 
-        if (isset($payload->familyName[$locale])) {
-            $receiver->setFamilyName($payload->familyName[$locale], $locale);
+        foreach (array_filter($payload->familyName ?? []) as $nameLocale => $familyName) {
+            $receiver->setFamilyName($familyName, $nameLocale);
         }
 
-        if (isset($payload->givenName[$locale])) {
-            $receiver->setGivenName($payload->givenName[$locale], $locale);
+        foreach (array_filter($payload->givenName ?? []) as $nameLocale => $givenName) {
+            $receiver->setGivenName($givenName, $nameLocale);
+        }
+
+        $fallbackLocale = array_key_first(array_filter((array) $receiver->getGivenName(null)));
+        if ($fallbackLocale !== null && $receiver->getFullName(preferredLocale: $locale) === '') {
+            $receiver->setGivenName($receiver->getGivenName($fallbackLocale), $locale);
+            $receiver->setFamilyName($receiver->getFamilyName($fallbackLocale), $locale);
         }
 
         return $receiver;
     }
 
+    /**
+     * Get the controller that handles the accept and decline links in the invitation email.
+     */
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new UserRoleAssignmentInviteRedirectController($this);
     }
 
+    /**
+     * Get the controller that shows the pages for creating and editing this invitation.
+     */
     public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
     {
         return new UserRoleAssignmentInviteUIController($this);
@@ -182,6 +209,14 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return new UserRoleAssignmentReceiveController($invitation);
     }
 
+    /**
+     * Get the validation rules for the given validation context.
+     *
+     * When sending or accepting, at least one role must be offered and an
+     * invited existing user must still exist. When accepting, a new user's
+     * email must not belong to an account. The payload's own rules are added
+     * in every context.
+     */
     public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
         $invitationValidationRules = [];
@@ -241,6 +276,10 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return parent::updatePayload($validationContext);
     }
 
+    /**
+     * Link the invitation to an existing account with the invited email if one exists.
+     * Returns the result of updating the payload, or null when no account was linked.
+     */
     public function changeInvitationUserIdUsingUserEmail(): ?bool
     {
         $invitationUserByEmail = $this->getExistingUserByEmail();

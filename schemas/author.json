@@ -136,49 +136,49 @@
 		},
 		"orcidSandbox": {
 			"type": "string",
-			"apiSummary": true,
+			"writeOnly": true,
 			"validation": [
 				"nullable"
 			]
 		},
 		"orcidAccessToken": {
 			"type": "string",
-			"apiSummary": true,
+			"writeOnly": true,
 			"validation": [
 				"nullable"
 			]
 		},
 		"orcidAccessScope": {
 			"type": "string",
-			"apiSummary": true,
+			"writeOnly": true,
 			"validation": [
 				"nullable"
 			]
 		},
 		"orcidRefreshToken": {
 			"type": "string",
-			"apiSummary": true,
+			"writeOnly": true,
 			"validation": [
 				"nullable"
 			]
 		},
 		"orcidAccessExpiresOn": {
 			"type": "string",
-			"apiSummary": true,
+			"writeOnly": true,
 			"validation": [
 				"nullable"
 			]
 		},
 		"orcidAccessDenied": {
 			"type": "string",
-			"apiSummary": true,
+			"writeOnly": true,
 			"validation": [
 				"nullable"
 			]
 		},
 		"orcidEmailToken": {
 			"type": "string",
-			"apiSummary": true,
+			"writeOnly": true,
 			"validation": [
 				"nullable"
 			]
@@ -192,7 +192,7 @@
 		},
 		"orcidWorkPutCode": {
 			"type": "string",
-			"apiSummary": true,
+			"writeOnly": true,
 			"validation": [
 				"nullable"
 			]

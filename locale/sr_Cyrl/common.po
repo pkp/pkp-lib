@@ -760,7 +760,8 @@ msgid "common.replaceFile"
 msgstr "Замени фајл"
 
 msgid "common.requiredField"
-msgstr "* означава обавезно поље"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> означава обавезно поље"
 
 msgid "common.required"
 msgstr "Обавезно"

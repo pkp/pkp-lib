@@ -773,8 +773,8 @@ msgstr "Замінити файл"
 
 msgid "common.requiredField"
 msgstr ""
-"Обов'язкові поля позначено астериском: <abbr class=\"required\" title="
-"\"required\">*</abbr>"
+"Обов'язкові поля позначено астериском: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Обов'язково"

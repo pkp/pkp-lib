@@ -130,7 +130,9 @@ msgid "common.replaceFile"
 msgstr "Faylın üstünə yazın"
 
 msgid "common.requiredField"
-msgstr "* Doldurulması məcburi olan sahələri göstərir"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> Doldurulması məcburi "
+"olan sahələri göstərir"
 
 #, fuzzy
 msgid "common.reviewRoundNumber"

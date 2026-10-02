@@ -895,8 +895,8 @@ msgstr "Reemplazar fichero"
 
 msgid "common.requiredField"
 msgstr ""
-"Los campos obligatorios son marcaus con un asterisco: <abbr class=\"required"
-"\" title=\"required\"></abbr>"
+"Los campos obligatorios son marcaus con un asterisco: <span "
+"class=\"required\" aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Obligatorio"

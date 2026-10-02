@@ -769,7 +769,9 @@ msgid "common.replaceFile"
 msgstr "Dosyanın üzerine yaz"
 
 msgid "common.requiredField"
-msgstr "* Doldurulması zorunlu alanları gösterir"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> Doldurulması zorunlu "
+"alanları gösterir"
 
 msgid "common.required"
 msgstr "Gerekli"

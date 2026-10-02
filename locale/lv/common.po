@@ -630,8 +630,8 @@ msgstr "Noņemt atlasi"
 
 msgid "common.requiredField"
 msgstr ""
-"Obligātie lauki ir atzīmēti ar zvaigznīti: <abbr class=\"required\" title="
-"\"required\">*</abbr>"
+"Obligātie lauki ir atzīmēti ar zvaigznīti: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Obligāts"

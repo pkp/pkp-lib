@@ -769,7 +769,9 @@ msgid "common.replaceFile"
 msgstr "Ganti fail"
 
 msgid "common.requiredField"
-msgstr "* Menandakan medan yang diperlukan"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> Menandakan medan yang "
+"diperlukan"
 
 msgid "common.required"
 msgstr "Diperlukan"

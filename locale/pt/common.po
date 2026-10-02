@@ -778,8 +778,8 @@ msgstr "Substituir ficheiro"
 
 msgid "common.requiredField"
 msgstr ""
-"Os campos obrigatórios são identificados com <abbr class=\"required\" title="
-"\"required\">*</abbr>"
+"Os campos obrigatórios são identificados com <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Obrigatório"

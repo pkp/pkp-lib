@@ -120,6 +120,7 @@ msgstr "Sil"
 msgid "common.removeItem"
 msgstr "{$item} elementini J4316silin"
 
+#, fuzzy
 msgid "common.removeSelection"
 msgstr "* Doldurulması məcburi olan sahələri göstərir"
 

@@ -759,6 +759,7 @@ msgstr "Kaldır"
 msgid "common.removeItem"
 msgstr "{$item} öğesini kaldır"
 
+#, fuzzy
 msgid "common.removeSelection"
 msgstr "* Doldurulması zorunlu alanları gösterir"
 

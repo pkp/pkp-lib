@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
@@ -434,5 +435,19 @@ class Repository
             'DISCUSSION_NOTIFICATION_COPYEDITING',
             'DISCUSSION_NOTIFICATION_PRODUCTION',
         ];
+    }
+
+    /**
+     * Get the map of the localized discussion titles for a workflow stage.
+     */
+    public function getDiscussionTitles(): Collection
+    {
+        return collect([
+            WORKFLOW_STAGE_ID_SUBMISSION => __('mailable.discussionSubmission.name'),
+            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => __('mailable.discussionReview.name'),
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => __('mailable.discussionReview.name'),
+            WORKFLOW_STAGE_ID_EDITING => __('mailable.discussionCopyediting.name'),
+            WORKFLOW_STAGE_ID_PRODUCTION => __('mailable.discussionProduction.name'),
+        ]);
     }
 }

@@ -178,7 +178,7 @@ class LoginHandler extends Handler
             'source' => $request->getUserVar('source'),
             'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
             'error' => $error,
-            'reason' => $reason,
+            'reason' => htmlspecialchars($reason),
         ]);
         $templateMgr->display('frontend/pages/userLogin.tpl');
     }

@@ -31,6 +31,7 @@ use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\file\FileArchive;
 use PKP\file\FileManager;
+use APP\file\LibraryFileManager;
 use PKP\pages\libraryFiles\LibraryFileHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
@@ -150,8 +151,51 @@ class FileApiHandler extends Handler
      */
     public function downloadLibraryFile($args, $request)
     {
-        $libraryFileHandler = new LibraryFileHandler($this);
-        return $libraryFileHandler->downloadLibraryFile($args, $request);
+        $context = $request->getContext();
+        $libraryFileManager = new LibraryFileManager($context->getId());
+        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
+        $libraryFile = $libraryFileDao->getById($request->getUserVar('libraryFileId'), $context->getId());
+        if (!$libraryFile) {
+            header('HTTP/1.0 403 Forbidden');
+            echo '403 Forbidden<br>';
+            return;
+        }
+
+        // If this file has a submission ID, ensure that the current
+        // user has access to that submission.
+        if ($libraryFile->getSubmissionId()) {
+            $allowedAccess = false;
+
+            // Managers are always allowed access.
+            $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+            if (array_intersect($userRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
+                $allowedAccess = true;
+            }
+
+            // Check for specific assignments.
+            $assignedUsers = Repo::user()->getCollector()
+                ->assignedTo($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION)
+                ->getMany();
+
+            $user = $request->getUser();
+            foreach ($assignedUsers as $assignedUser) {
+                if ($assignedUser->getId() == $user->getId()) {
+                    $allowedAccess = true;
+                    break;
+                }
+            }
+        } else {
+            // This is a context library file; access policies already ensured sufficient access.
+            $allowedAccess = true;
+        }
+
+        if ($allowedAccess) {
+            $libraryFileManager->downloadByPath($libraryFile->getFilePath());
+        } else {
+            header('HTTP/1.0 403 Forbidden');
+            echo '403 Forbidden<br>';
+            return;
+        }
     }
 
     /**

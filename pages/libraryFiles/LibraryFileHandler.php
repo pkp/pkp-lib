@@ -27,19 +27,6 @@ use PKP\security\Role;
 
 class LibraryFileHandler extends Handler
 {
-    /** @var Handler the Handler that calls the LibraryFileHandler functions */
-    public $_callingHandler = null;
-
-    /**
-     * Constructor.
-     *
-     * @param Handler $callingHandler
-     */
-    public function __construct($callingHandler = null)
-    {
-        $this->_callingHandler = $callingHandler;
-    }
-
     //
     // Public handler methods
     //
@@ -65,58 +52,6 @@ class LibraryFileHandler extends Handler
             header('HTTP/1.0 403 Forbidden');
             echo '403 Forbidden<br>';
             return;
-        }
-    }
-
-    /**
-     * Download a library file.
-     *
-     * @param array $args
-     * @param Request $request
-     */
-    public function downloadLibraryFile($args, $request)
-    {
-        $context = $request->getContext();
-        $libraryFileManager = new LibraryFileManager($context->getId());
-        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
-        $libraryFile = $libraryFileDao->getById($request->getUserVar('libraryFileId'), $context->getId());
-        if ($libraryFile) {
-            // If this file has a submission ID, ensure that the current
-            // user has access to that submission.
-            if ($libraryFile->getSubmissionId()) {
-                $allowedAccess = false;
-
-                // Managers are always allowed access.
-                if ($this->_callingHandler) {
-                    $userRoles = $this->_callingHandler->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-                    if (array_intersect($userRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
-                        $allowedAccess = true;
-                    }
-                }
-
-                // Check for specific assignments.
-                $assignedUsers = Repo::user()->getCollector()
-                    ->assignedTo($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION)
-                    ->getMany();
-
-                $user = $request->getUser();
-                foreach ($assignedUsers as $assignedUser) {
-                    if ($assignedUser->getId() == $user->getId()) {
-                        $allowedAccess = true;
-                        break;
-                    }
-                }
-            } else {
-                $allowedAccess = true; // this is a Context submission document, default to access policy.
-            }
-
-            if ($allowedAccess) {
-                $libraryFileManager->downloadByPath($libraryFile->getFilePath());
-            } else {
-                header('HTTP/1.0 403 Forbidden');
-                echo '403 Forbidden<br>';
-                return;
-            }
         }
     }
 }

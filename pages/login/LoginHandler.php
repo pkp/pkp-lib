@@ -180,7 +180,7 @@ class LoginHandler extends Handler
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
             'error' => $error,
-            'reason' => $reason,
+            'reason' => htmlspecialchars($reason),
         ]);
 
         $this->_generateAltchaComponent('altcha_on_login', $templateMgr);

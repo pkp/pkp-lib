@@ -144,8 +144,8 @@ msgstr "{$min}-{$max}"
 
 msgid "common.requiredField"
 msgstr ""
-"Obavezna polja označena su zvjezdicom: <abbr class=\"required\" title="
-"\"required\">*</abbr>"
+"Obavezna polja označena su zvjezdicom: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.saving"
 msgstr "Spremanje"

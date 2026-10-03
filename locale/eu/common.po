@@ -774,7 +774,7 @@ msgstr "Ordeztu fitxategia"
 
 msgid "common.requiredField"
 msgstr ""
-"<abbr class=\"required\" title=\"required\">*</abbr> Nahitaezko eremua "
+"<span class=\"required\" aria-hidden=\"true\">*</span> Nahitaezko eremua "
 "adierazten du"
 
 msgid "common.required"

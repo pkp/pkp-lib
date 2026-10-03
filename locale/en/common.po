@@ -884,7 +884,7 @@ msgid "common.replaceFile"
 msgstr "Replace file"
 
 msgid "common.requiredField"
-msgstr "Required fields are marked with an asterisk: <abbr class=\"required\" title=\"required\">*</abbr>"
+msgstr "Required fields are marked with an asterisk: <span class=\"required\" aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Required"

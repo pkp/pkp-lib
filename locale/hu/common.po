@@ -775,7 +775,9 @@ msgid "common.replaceFile"
 msgstr "Lecserélt fájl"
 
 msgid "common.requiredField"
-msgstr "* Kötelezően kitöltendő mező"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> Kötelezően kitöltendő "
+"mező"
 
 msgid "common.required"
 msgstr "Kötelező"

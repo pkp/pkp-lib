@@ -774,8 +774,8 @@ msgstr "Zameni fajl"
 
 msgid "common.requiredField"
 msgstr ""
-"Obavezna polja označena su zvezdicom: <abbr class=\"required\" title="
-"\"obavezno\">*</abbr>"
+"Obavezna polja označena su zvezdicom: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Obavezno"

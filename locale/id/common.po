@@ -774,8 +774,8 @@ msgstr "Ganti file"
 
 msgid "common.requiredField"
 msgstr ""
-"Kolom yang wajib diisi ditandai dengan tanda bintang: <abbr class=\"required"
-"\" title=\"required\">*</abbr>"
+"Kolom yang wajib diisi ditandai dengan tanda bintang: <span "
+"class=\"required\" aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Dibutuhkan"

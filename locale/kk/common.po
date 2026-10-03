@@ -769,7 +769,8 @@ msgid "common.replaceFile"
 msgstr "Файлды алмастыру"
 
 msgid "common.requiredField"
-msgstr "* Қажет өрісті білдіреді"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> Қажет өрісті білдіреді"
 
 msgid "common.required"
 msgstr "Міндетті"

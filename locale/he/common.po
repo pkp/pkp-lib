@@ -639,8 +639,8 @@ msgstr "החלף קובץ"
 
 msgid "common.requiredField"
 msgstr ""
-"שדות חובה מסומנים בכוכבית: <abbr class=\"required\" title=\"required\""
-">*</abbr>"
+"שדות חובה מסומנים בכוכבית: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "חובה"

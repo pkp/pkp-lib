@@ -756,7 +756,7 @@ msgid "common.replaceFile"
 msgstr "جایگزین کردن فایل"
 
 msgid "common.requiredField"
-msgstr "* فیلد مورد نیاز"
+msgstr "<span class=\"required\" aria-hidden=\"true\">*</span> فیلد مورد نیاز"
 
 msgid "common.required"
 msgstr "مورد نیاز"

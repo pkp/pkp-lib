@@ -781,7 +781,8 @@ msgstr "Vervang bestand"
 
 msgid "common.requiredField"
 msgstr ""
-"<abbr class=\"required\" title=\"required\">*</abbr> Betekent verplicht veld"
+"<span class=\"required\" aria-hidden=\"true\">*</span> Betekent verplicht "
+"veld"
 
 msgid "common.required"
 msgstr "Verplicht"

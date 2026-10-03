@@ -776,8 +776,8 @@ msgstr "Erstat fil"
 
 msgid "common.requiredField"
 msgstr ""
-"Obligatoriske felter er angivet med en asterisk: <abbr class=\"required\" "
-"title=\"required\">*</abbr>"
+"Obligatoriske felter er angivet med en asterisk: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Obligatorisk"

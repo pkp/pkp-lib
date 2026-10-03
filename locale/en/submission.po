@@ -502,6 +502,9 @@ msgstr "The above references have been organised here in a structured format."
 msgid "submission.citations.structured.noStructuredInformationFound"
 msgstr "No structured information found"
 
+msgid "submission.citations.structured.lookupIncomplete"
+msgstr "Metadata lookup incomplete"
+
 msgid "submission.citations.structured.enableCitationsMetadataLookup"
 msgstr "Enable Metadata Lookup"
 
@@ -547,6 +550,15 @@ msgstr "All {$total} references successfully processed"
 
 msgid "submission.citations.structured.processed.description"
 msgstr "All references have been processed and added below. You can review, edit or remove them at any time."
+
+msgid "submission.citations.structured.processedWithFailures.title"
+msgstr "{$processed} of {$total} references processed, {$failed} incomplete"
+
+msgid "submission.citations.structured.processedWithFailures.description"
+msgstr ""
+"The metadata lookup could not be completed for some references, usually because an external "
+"service was temporarily unavailable. They are marked below - you can edit them by hand, or use "
+"Reprocess to try again."
 
 msgid "submission.citations.structured.deleteDialog.title"
 msgstr "Delete this structured citation."

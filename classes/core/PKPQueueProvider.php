@@ -26,8 +26,9 @@ use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\queue\JobRunner;
-use PKP\queue\WorkerConfiguration;
+use PKP\queue\JobRuntimeMonitor;
 use PKP\queue\PKPQueueDatabaseConnector;
+use PKP\queue\WorkerConfiguration;
 
 class PKPQueueProvider extends IlluminateQueueServiceProvider
 {
@@ -173,6 +174,10 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 ])
             );
         });
+
+        // Report jobs whose runtime approaches or exceeds retry_after, which is the
+        // point at which their queue row can be re-reserved while still running
+        (new JobRuntimeMonitor())->register();
     }
 
     /**

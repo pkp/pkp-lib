@@ -218,6 +218,12 @@
 		var htmlElement = this.getHtmlElement(),
 				tinyMCEObject = tinyMCE.EditorManager.get(/** @type {string} */(
 				htmlElement.find('textarea').first().attr('id')));
+		htmlElement.find('textarea').each(function() {
+			var tinymce;
+			tinymce = tinyMCE.EditorManager.get(/** @type {string} */(
+				$(this).attr('id')));
+			tinymce.load();
+		});
 
 		tinyMCEObject.on('focus', this.callbackWrapper(function() {
 			// We need also to close the multilingual popover when user clicks

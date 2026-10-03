@@ -444,7 +444,7 @@ class FileUploadWizardHandler extends Handler
         // uploader of a superseded revision is kept anywhere else.
         if (isset($originalFile)) {
             $request->getSession()->put(
-                static::getOriginalFileSessionKey($uploadedFile->getId()),
+                static::getOriginalFileSessionKey($uploadedFile->getId(), (int) $originalFile->getData('fileId')),
                 [
                     'fileId' => (int) $originalFile->getData('fileId'),
                     'name' => $originalFile->getData('name'),
@@ -513,10 +513,21 @@ class FileUploadWizardHandler extends Handler
         /** @var SubmissionFile $file */
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
-        // Deliberately not clearing the session key here as the wizard is still cancellable from the final step.
-        // A leftover entry from a completed run can't cause a wrong restore as PKPManageFileApiHandler::cancelFileUpload() 
-        // refuses unless `$originalFile['fileId'] === (int)$previousRevision->fileId` . And the next revision upload of
-        // the same file writes the same key, superseding it.
+        // Deliberately not clearing the session entries here as the wizard is still cancellable
+        // from this step.
+        $replacedFileId = (int) Repo::submissionFile()->getRevisions($submissionFile->getId())
+            ->pluck('fileId')
+            ->values()
+            ->get(1);
+
+        if ($replacedFileId) {
+            $sessionKey = static::getOriginalFileSessionKey($submissionFile->getId(), $replacedFileId);
+
+            if (is_array($originalFile = $request->getSession()->get($sessionKey))) {
+                $originalFile['confirmed'] = true;
+                $request->getSession()->put($sessionKey, $originalFile);
+            }
+        }
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('submissionId', $submission->getId());
@@ -613,8 +624,8 @@ class FileUploadWizardHandler extends Handler
      * Get the session key holding the state a submission file had before the revision
      * currently being uploaded replaced it.
      */
-    public static function getOriginalFileSessionKey(int $submissionFileId): string
+    public static function getOriginalFileSessionKey(int $submissionFileId, int $originalFileId): string
     {
-        return self::REVISION_ORIGINAL_FILE_SESSION_KEY . '.' . $submissionFileId;
+        return self::REVISION_ORIGINAL_FILE_SESSION_KEY . '.' . $submissionFileId . '.' . $originalFileId;
     }
 }

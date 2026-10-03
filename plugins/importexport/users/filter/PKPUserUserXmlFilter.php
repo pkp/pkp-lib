@@ -59,7 +59,9 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         // Multiple users; wrap in a <users> element
         $usersNode = $doc->createElementNS($deployment->getNamespace(), 'users');
         foreach ($users as $user) {
-            $usersNode->appendChild($this->createPKPUserNode($doc, $user));
+            $userDoc = new DOMDocument('1.0', 'utf-8');
+            $userNode = $this->createPKPUserNode($userDoc, $user);
+            $usersNode->appendChild($doc->importNode($userNode, true));
         }
         $rootNode->appendChild($usersNode);
         $doc->appendChild($rootNode);

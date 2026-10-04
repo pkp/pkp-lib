@@ -42,6 +42,9 @@ class LoginChangePasswordForm extends Form
         }));
         $this->addCheck(new \PKP\form\validation\FormValidatorLength($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', '>=', $site->getMinPasswordLength()));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.newPasswordRequired'));
+        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.profile.form.passwordSameAsOld', function ($password) use ($form) {
+            return $password != $form->getData('oldPassword');
+        }));
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
             return $password == $form->getData('password2');
         }));

@@ -11,7 +11,7 @@
  *
  * @ingroup classes_components
  *
- * @brief A class to prepare configurations for PkpOpenReviews UI component.
+ * @brief A class to prepare configurations for PkpOpenReview UI component.
  */
 
 namespace PKP\components;
@@ -61,7 +61,7 @@ class OpenReviewComponent
             'common.inProgress',
             'submission.submit.contributorType.anonymous',
             'manager.userComment.comments',
-            // PkpOpenReviewsSummary component locale keys
+            // PkpOpenReview Summary component locale keys
             'openReview.title',
             'openReview.status',
             'openReview.statusInProgress',
@@ -91,7 +91,7 @@ class OpenReviewComponent
     }
 
     /**
-     * Get the configuration for the PkpOpenReviews component.
+     * Get the configuration for the PkpOpenReview component.
      */
     public function getConfig(): array
     {
@@ -117,7 +117,7 @@ class OpenReviewComponent
     }
 
     /**
-     * Get SVG icons used by the PkpOpenReviews component.
+     * Get SVG icons used by the PkpOpenReview component.
      */
     public function getSvgIcons(): array
     {

@@ -1,8 +1,8 @@
 {**
  * templates/submission/review-editors.tpl
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2003-2022 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * The template in the submission wizard when reviewing the For the Editors step.
@@ -52,9 +52,6 @@
             {if in_array($currentContext->getData('type'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {include file="/submission/review-publication-field.tpl" prop="type" inLocale=$localeKey name="{translate key="common.type"}" type="string"}
             {/if}
-			{if in_array($currentContext->getData('fundingStatement'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
-				{include file="/submission/review-publication-field.tpl" prop="fundingStatement" inLocale=$localeKey name="{translate key="submission.fundingStatement"}" type="html"}
-			{/if}
             {if $localeKey === $submission->getData('locale')}
                 {if $isCategoriesEnabled}
                     <div class="submissionWizard__reviewPanel__item">

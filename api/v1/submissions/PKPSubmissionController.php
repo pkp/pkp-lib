@@ -43,6 +43,7 @@ use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\contributorRole\ContributorType;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPDataAvailabilityForm;
+use PKP\components\forms\publication\PKPFundingStatementForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
@@ -123,6 +124,7 @@ class PKPSubmissionController extends PKPBaseController
         'addDecision',
         'returnToDone',
         'getPublicationDataAvailabilityForm',
+        'getPublicationFundingStatementForm',
         'getPublicationMetadataForm',
         'getPublicationIdentifierForm',
         'getPublicationLicenseForm',
@@ -330,6 +332,7 @@ class PKPSubmissionController extends PKPBaseController
             Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {
                 Route::get('metadata', $this->getPublicationMetadataForm(...))->name('submission.publication._components.metadata');
                 Route::get('dataAvailability', $this->getPublicationDataAvailabilityForm(...))->name('submission.publication._components.dataAvailability');
+                Route::get('fundingStatement', $this->getPublicationFundingStatementForm(...))->name('submission.publication._components.fundingStatement');
                 Route::get('titleAbstract', $this->getPublicationTitleAbstractForm(...))->name('submission.publication._components.titleAbstract');
                 Route::get('changeLanguageMetadata', $this->getChangeLanguageMetadata(...))->name('submission.publication._components.changeLanguageMetadata');
             })->whereNumber(['submissionId', 'publicationId']);
@@ -417,6 +420,7 @@ class PKPSubmissionController extends PKPBaseController
             $actionName,
             [
                 'getPublicationDataAvailabilityForm',
+                'getPublicationFundingStatementForm',
                 'getPublicationMetadataForm',
                 'getPublicationIdentifierForm',
                 'getPublicationLicenseForm',
@@ -2163,6 +2167,32 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json($this->getLocalizedForm($dataAvailabilityForm, $submissionLocale, $locales), Response::HTTP_OK);
 
+    }
+
+    /**
+     * Get Publication Funding Statement Form component
+     */
+    protected function getPublicationFundingStatementForm(Request $illuminateRequest): JsonResponse
+    {
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $context = $data['context']; /** @var Context $context*/
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+
+        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+
+        $submissionLocale = $submission->getData('locale');
+        $locales = $this->getPublicationFormLocales($context, $submission);
+        $fundingStatementSetting = (bool) $context->getData('fundingStatement');
+
+        $fundingStatementForm = new PKPFundingStatementForm($publicationApiUrl, $locales, $publication, $fundingStatementSetting);
+
+        return response()->json($this->getLocalizedForm($fundingStatementForm, $submissionLocale, $locales), Response::HTTP_OK);
     }
 
     /**

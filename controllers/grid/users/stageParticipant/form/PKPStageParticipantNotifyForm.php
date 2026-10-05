@@ -23,6 +23,7 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -38,6 +39,7 @@ use PKP\form\validation\FormValidatorPost;
 use PKP\log\event\EventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Discussion;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\note\Note;
@@ -195,10 +197,16 @@ class PKPStageParticipantNotifyForm extends Form
         }
 
         // If no template exists, use a default mailable.
-        $mailable = $template ? new TemplateVariables($template->promote($submission), $submission, $context) : new class extends Mailable
+        $mailable = $template ? new TemplateVariables($template->promote($submission), $submission, $context) : new class($submission, $context) extends Mailable
         {
             use Sender;
             use Recipient;
+            use Discussion;
+
+            public function __construct(protected Submission $submission, protected Context $context)
+            {
+                parent::__construct(func_get_args());
+            }
         };
 
         // Populate mailable with data before compiling headNote

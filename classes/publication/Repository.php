@@ -426,6 +426,8 @@ abstract class Repository
 
         if ($context->getData(Context::SETTING_DOI_VERSIONING) && !$isMinorVersion) {
             $newPublication->setData('doiId', null);
+            // Clear identity so a new-DOI version is re-stamped on publish; others inherit.
+            $newPublication->clearIdentityMetadata();
         }
 
         $citations = $newPublication->getData('citations');
@@ -602,7 +604,16 @@ abstract class Repository
         // Set the copyright and license information
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
+        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
+        ? Application::get()->getRequest()->getContext()
+        : app()->get('context')->get($submission->getData('contextId'));
+
         $itsPublished = ($newPublication->getData('status') === PKPPublication::STATUS_PUBLISHED);
+
+        // Stamp identity on first publication, only when empty so versions inherit (see version()).
+        if ($itsPublished && !$newPublication->hasContextIdentity()) {
+            $newPublication->stampContextIdentity($context);
+        }
 
         if ($itsPublished && !$newPublication->getData('copyrightHolder')) {
             $newPublication->setData(
@@ -680,10 +691,6 @@ abstract class Repository
             'dateLogged' => Core::getCurrentDate()
         ]);
         Repo::eventLog()->add($eventLog);
-
-        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
-        ? Application::get()->getRequest()->getContext()
-        : app()->get('context')->get($submission->getData('contextId'));
 
         // Mark DOIs stale (if applicable).
         if ($newPublication->getData('status') === Publication::STATUS_PUBLISHED) {

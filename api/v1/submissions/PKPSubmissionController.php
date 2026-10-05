@@ -1244,6 +1244,12 @@ class PKPSubmissionController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
+
+        $writeDisabledErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_PUBLICATION, $params);
+        if (!empty($writeDisabledErrors)) {
+            return response()->json($writeDisabledErrors, Response::HTTP_BAD_REQUEST);
+        }
+
         $params['submissionId'] = $submission->getId();
 
         $submissionContext = $request->getContext();
@@ -1345,6 +1351,11 @@ class PKPSubmissionController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
+
+        $writeDisabledErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_PUBLICATION, $params);
+        if (!empty($writeDisabledErrors)) {
+            return response()->json($writeDisabledErrors, Response::HTTP_BAD_REQUEST);
+        }
 
         if (array_key_exists('status', $params) && is_null($params['status'])) {
             unset($params['status']);

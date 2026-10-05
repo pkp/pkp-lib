@@ -38,8 +38,8 @@ import PkpTextarea from '@/frontend/components/PkpTextarea/PkpTextarea.vue';
 import PkpDropdownMenu from '@/frontend/components/PkpDropdownMenu/PkpDropdownMenu.vue';
 import PkpIcon from '@/frontend/components/PkpIcon/PkpIcon.vue';
 import PkpComments from '@/frontend/components/PkpComments/PkpComments.vue';
-import PkpOpenReviews from '@/frontend/components/PkpOpenReviews/PkpOpenReviews.vue';
-import PkpOpenReviewsSummary from '@/frontend/components/PkpOpenReviews/PkpOpenReviewsSummary.vue';
+import PkpOpenReview from '@/frontend/components/PkpOpenReview/PkpOpenReview.vue';
+import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenReviewSummary.vue';
 import PkpCombobox from '@/frontend/components/PkpCombobox/PkpCombobox.vue';
 import PkpCopyToClipboard from '@/frontend/components/PkpCopyToClipboard/PkpCopyToClipboard.vue';
 import PkpCiteBody from '@/frontend/components/PkpCite/PkpCiteBody.vue';
@@ -49,7 +49,7 @@ import PkpSpinner from '@/frontend/components/PkpSpinner/PkpSpinner.vue';
 // Pinia stores
 import {usePkpModalStore} from '@/frontend/stores/pkpModalStore';
 import {usePkpCommentsStore} from '@/frontend/components/PkpComments/usePkpCommentsStore';
-import {usePkpOpenReviewsStore} from '@/frontend/components/PkpOpenReviews/usePkpOpenReviewsStore';
+import {usePkpOpenReviewStore} from '@/frontend/components/PkpOpenReview/usePkpOpenReviewStore';
 import {usePkpCiteStore} from '@/frontend/components/PkpCite/usePkpCiteStore';
 import {usePkpUsageChartStore} from '@/frontend/components/PkpUsageChart/usePkpUsageChartStore';
 
@@ -106,7 +106,7 @@ VueRegistry.registerDirective('strip-unsafe-html', stripUnsafeHtml);
 // Register frontend Pinia stores for lookup via pkp.registry.getPiniaStore()
 VueRegistry.registerStore('pkpModal', usePkpModalStore);
 VueRegistry.registerStore('pkpComments', usePkpCommentsStore);
-VueRegistry.registerStore('PkpOpenReviews', usePkpOpenReviewsStore);
+VueRegistry.registerStore('PkpOpenReview', usePkpOpenReviewStore);
 VueRegistry.registerStore('pkpCite', usePkpCiteStore);
 VueRegistry.registerStore('pkpUsageChart', usePkpUsageChartStore);
 
@@ -117,8 +117,8 @@ VueRegistry.registerComponent('PkpTextarea', PkpTextarea);
 VueRegistry.registerComponent('PkpDropdownMenu', PkpDropdownMenu);
 VueRegistry.registerComponent('PkpIcon', PkpIcon);
 VueRegistry.registerComponent('PkpComments', PkpComments);
-VueRegistry.registerComponent('PkpOpenReviews', PkpOpenReviews);
-VueRegistry.registerComponent('PkpOpenReviewsSummary', PkpOpenReviewsSummary);
+VueRegistry.registerComponent('PkpOpenReview', PkpOpenReview);
+VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);
 VueRegistry.registerComponent('PkpCombobox', PkpCombobox);
 VueRegistry.registerComponent('PkpCopyToClipboard', PkpCopyToClipboard);
 VueRegistry.registerComponent('PkpCiteBody', PkpCiteBody);

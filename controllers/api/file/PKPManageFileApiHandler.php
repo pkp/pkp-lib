@@ -108,71 +108,86 @@ abstract class PKPManageFileApiHandler extends Handler
             ->map(fn ($fileId): int => (int) $fileId)
             ->values();
 
-        // Only the revision the submission file currently points at may be cancelled
+        // Only the revision the submission file currently points at may be cancelled. It stops
+        // pointing at it once another wizard run cancels an upload made on top of this one.
         if (!$fileIdToCancel
             || (int) $submissionFile->getData('fileId') !== $fileIdToCancel
             || $chain->first() !== $fileIdToCancel
         ) {
-            return new JSONMessage(false);
+            return new JSONMessage(false, __('common.unknownError'));
         }
 
-        $originalFileId = (int) (((array) $request->getUserVar('originalFile'))['fileId'] ?? 0);
-        $abandonedFileIds = $chain;
+        $runFileIds = $request->getUserVar('uploadedFileIds');
+        $runFileIds = $runFileIds === null
+            ? null
+            : collect((array) $runFileIds)->map(fn ($fileId): int => (int) $fileId);
 
-        if ($chain->count() > 1) {
-            $originalPosition = $chain->search($originalFileId, true);
+        // Take back one revision at a time for as long as the step was this run's own and the state
+        // the revision below it had before being replaced is still known. Anything else as a revision
+        // uploaded from another user's session or from another tab, or one that was confirmed on the
+        // wizard's final step - is part of the file's history and stops the walk.
+        $restoreToPosition = 0;
+        $originalFile = null;
 
-            // The revision to fall back to must still be part of the file's history
-            if ($originalPosition === false) {
-                return new JSONMessage(false);
+        for ($position = 1; $position < $chain->count(); $position++) {
+            // The upload that replaced the revision about to be taken back
+            if ($runFileIds !== null && !$runFileIds->containsStrict($chain->get($position - 1))) {
+                break;
             }
 
-            $replacedFileIds = $chain->slice(1, $originalPosition)->values();
-            $stashedFiles = [];
+            $stashed = $request->getSession()->get(
+                FileUploadWizardHandler::getOriginalFileSessionKey($submissionFile->getId(), $chain->get($position))
+            );
 
-            foreach ($replacedFileIds as $position => $replacedFileId) {
-                $stashed = $request->getSession()->get(
-                    FileUploadWizardHandler::getOriginalFileSessionKey($submissionFile->getId(), $replacedFileId)
-                );
-
-                if (!is_array($stashed) || ($stashed['fileId'] ?? null) !== $replacedFileId) {
-                    return new JSONMessage(false);
-                }
-
-                if ($position > 0 && !empty($stashed['confirmed'])) {
-                    return new JSONMessage(false);
-                }
-
-                $stashedFiles[$replacedFileId] = $stashed;
+            if (!is_array($stashed)
+                || ($stashed['fileId'] ?? null) !== $chain->get($position)
+                || empty($stashed['name'])
+                || empty($stashed['uploaderUserId'])
+            ) {
+                break;
             }
 
-            $originalFile = $stashedFiles[$originalFileId];
-
-            if (empty($originalFile['name']) || empty($originalFile['uploaderUserId'])) {
-                return new JSONMessage(false);
+            // The revision being cancelled may itself have been confirmed, which is exactly what
+            // cancelling from the wizard's final step undoes. A confirmation further down the chain
+            // was another run's and is not this one's to undo.
+            if ($position > 1 && !empty($stashed['confirmed'])) {
+                break;
             }
 
-            foreach (array_keys($stashedFiles) as $replacedFileId) {
-                $request->getSession()->forget(
-                    FileUploadWizardHandler::getOriginalFileSessionKey($submissionFile->getId(), $replacedFileId)
-                );
-            }
+            $restoreToPosition = $position;
+            $originalFile = $stashed;
+        }
 
+        // A first upload has nothing to restore. Anything else with no reachable revision would
+        // leave the cancelled upload standing as the file, so refuse rather than guess.
+        if ($chain->count() > 1 && !$restoreToPosition) {
+            return new JSONMessage(false, __('common.unknownError'));
+        }
+
+        if ($restoreToPosition) {
             // Restore original submission file without any log as the file remain same with cancel.
             Repo::submissionFile()->edit(
                 $submissionFile,
                 [
-                    'fileId' => $originalFileId,
+                    'fileId' => $chain->get($restoreToPosition),
                     'name' => $originalFile['name'],
                     'uploaderUserId' => (int) $originalFile['uploaderUserId'],
                 ],
                 log: false
             );
 
-            $abandonedFileIds = $chain->take($originalPosition);
+            // The stashes the walk consumed describe state that has now been applied
+            for ($position = 1; $position <= $restoreToPosition; $position++) {
+                $request->getSession()->forget(
+                    FileUploadWizardHandler::getOriginalFileSessionKey($submissionFile->getId(), $chain->get($position))
+                );
+            }
         }
 
-        // The cancelled upload should never became part of the file's history
+        // The cancelled upload should never became part of the file's history. Deleting the files
+        // cascades onto their revision rows, so what is left stays one unbroken chain.
+        $abandonedFileIds = $restoreToPosition ? $chain->take($restoreToPosition) : $chain;
+
         foreach ($abandonedFileIds as $abandonedFileId) {
             Repo::submissionFile()->deleteRevisionLogEntries($submissionFile, $abandonedFileId);
             app()->get('file')->delete($abandonedFileId);

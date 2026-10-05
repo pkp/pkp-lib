@@ -20,9 +20,13 @@ namespace PKP\jobs\doi;
 
 use APP\facades\Repo;
 use APP\plugins\IDoiRegistrationAgency;
+use APP\publication\Publication;
 use PKP\context\Context;
+use PKP\db\DAORegistry;
+use PKP\doi\Doi;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class DepositSubmission extends BaseJob
 {
@@ -63,11 +67,20 @@ class DepositSubmission extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        $submissionDepositResults = $this->agency->depositSubmissions([$submission], $this->context);
+        $this->agency->depositSubmissions([$submission], $this->context);
 
-        // Deposit Submission's associated Peer Review if Peer Review DOIs are enabled in Context and Agency, and the Submission was successfully deposited.
+        $publicationsCache = collect();
+        if (!$this->context->getData(Context::SETTING_DOI_VERSIONING)) {
+            $currentPublication = $submission->getCurrentPublication();
+            $publicationsCache->put($currentPublication->getId(), $currentPublication);
+        }
+
+        $roundsCache = collect();
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
+        // Deposit Submission's associated Peer Review if Peer Review DOIs are enabled in Context and Agency, and the associated Publication DOI was successfully deposited.
         if (
-            empty($submissionDepositResults['hasErrors']) &&
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $this->agency->getAllowedDoiTypes()) &&
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $this->context->getData(Context::SETTING_ENABLED_DOI_TYPES))
         ) {
@@ -75,13 +88,28 @@ class DepositSubmission extends BaseJob
                 ->getExportableDOIsPeerReviewIds($this->context->getId(), $this->context->getData(Context::SETTING_DOI_VERSIONING), [$this->submissionId]);
 
             foreach ($depositablePeerReviewIds as $peerReviewId) {
-                /**
-                 * When `$this->agency->depositSubmissions` is executed above, some Agency plugins (like Datacite) may add cached data to the Agency plugin instance.
-                 * This cached data at times includes unresolved data (e.g., a lazy collection of Publications on a cached Submission object) which will result in a serialization error when passed to a job since the job
-                 * cannot serialize unresolved data (the lazy collection). To avoid this error, a fresh instance of the currently configured agency is fetched and passed to the `DepositPeerReview` job.
-                 */
-                $agency = $this->context->getConfiguredDoiAgency();
-                dispatch(new DepositPeerReview($peerReviewId, $this->context->getId(), $agency, $this->submissionId));
+                $review = Repo::reviewAssignment()->get($peerReviewId);
+                $round = $roundsCache->get($review->getReviewRoundId());
+
+                if (!$round) {
+                    $round = $reviewRoundDao->getById($review->getReviewRoundId());
+                    $roundsCache->put($round->getId(), $round);
+                }
+
+                $publication = null;
+                if ($this->context->getData(Context::SETTING_DOI_VERSIONING)) {
+                    if (!$publicationsCache->has($round->getPublicationId())) {
+                        $publicationsCache->put($round->getPublicationId(), Repo::publication()->get($round->getPublicationId()));
+                    }
+                }
+
+                /** @var Publication $publication */
+                $publication = $publicationsCache->get($round->getPublicationId());
+                $doiId = $publication->getData('doiId');
+
+                if ($doiId && Repo::doi()->get($doiId)->getStatus() === Doi::STATUS_REGISTERED) {
+                    dispatch(new DepositPeerReview($peerReviewId, $this->context->getId(), $this->submissionId));
+                }
             }
         }
     }

@@ -17,6 +17,7 @@ namespace PKP\submission\reviewAssignment;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\publication\Publication;
 use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\core\Core;
@@ -34,6 +35,7 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
 use PKP\submission\ReviewFilesDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
@@ -494,5 +496,41 @@ class Repository
         }
 
         return $submissionCommentDao->getById($commentId);
+    }
+
+    /**
+     * Create a title for a review assignment.
+     * Title format: Review: "{publicationTitle}" (Round{revisionNumber}/Review{reviewNumber}).
+     *
+     * Where `{publicationTitle}` is the title of the publication, `{revisionNumber}` is the round number of the review round,
+     * and `{reviewNumber}` is the position of the given review assignment in the round based on the date the reviews were completed by the reviewers.
+     *
+     * @param ReviewAssignment[] $allReviewsInRound - The review assignments belonging to the same round as the given assignment, including the given assignment itself. Incomplete reviews in this list will be ignored.
+     */
+    public function getReviewTitle(ReviewAssignment $reviewAssignment, ReviewRound $reviewRound, array $allReviewsInRound, Publication $publication, string $locale): string
+    {
+        // Get Revision Number (round of review)
+        $revisionNumber = $reviewRound->getRound();
+        $reviewNumber = $this->getReviewPositionInRound($reviewAssignment, $allReviewsInRound);
+
+        return __('submission.doi.review.title', [
+            'publicationTitle' => $publication->getLocalizedTitle($locale),
+            'revisionNumber' => $revisionNumber,
+            'reviewNumber' => $reviewNumber
+        ]);
+    }
+
+    /**
+     * Get the position of a review assignment in a review round based on the date the reviews were completed by the reviewers.
+     *
+     * @param ReviewAssignment[] $allReviewsInRound -The review assignments belonging to the same round as the given assignment, including the given assignment itself. Incomplete reviews in this list will be ignored.
+     */
+    public function getReviewPositionInRound(ReviewAssignment $reviewAssignment, array $allReviewsInRound): int
+    {
+        $allReviewsInRound = array_filter($allReviewsInRound, fn ($review) => $review->getDateCompleted() !== null);
+        usort($allReviewsInRound, fn (ReviewAssignment $a, ReviewAssignment $b) => strtotime($a->getDateCompleted()) <=> strtotime($b->getDateCompleted()));
+        $reviewIds = array_map(fn (ReviewAssignment $ra) => $ra->getId(), $allReviewsInRound);
+
+        return array_search($reviewAssignment->getId(), $reviewIds) + 1;
     }
 }

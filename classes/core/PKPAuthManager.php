@@ -14,7 +14,11 @@
 
 namespace PKP\core;
 
+use APP\facades\Repo;
+use APP\core\Application;
 use InvalidArgumentException;
+use PKP\core\PKPSessionGuard;
+use PKP\core\PKPUserProvider;
 
 class PKPAuthManager extends \Illuminate\Auth\AuthManager
 {
@@ -31,6 +35,15 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
     public function __construct($app)
     {
         $this->app = $app;
+
+        $this->userResolver = function ($guard = null) {
+
+            if ($userId = Application::get()->getRequest()->getSessionGuard()->getUserId()) {
+                return Repo::user()->get($userId);
+            }
+
+            return null;
+        };
     }
 
     /**

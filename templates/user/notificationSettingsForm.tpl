@@ -8,59 +8,90 @@
  * User profile form.
  *}
 <script>
-	$(function() {ldelim}
-		// Attach the form handler.
-		$('#notificationSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler', {ldelim}
-			'enableDisablePairs': {ldelim}
-					{foreach from=$notificationSettingCategories item=notificationSettingCategory}
-						{foreach name=notifications from=$notificationSettingCategory.settings item=settingId}
-						{$notificationSettings.$settingId.settingName|json_encode}: {$notificationSettings.$settingId.emailSettingName|json_encode},
-						{/foreach}
-					{/foreach}
-				{rdelim}
-		{rdelim});
-	{rdelim});
+    $(function() {ldelim}
+        $('#notificationSettingsForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
+    {rdelim});
 </script>
+
+<style>
+    /* Strip OJS default list formatting from checkboxes inside this table */
+    #notificationSettingsForm .pkpTable ul, 
+    #notificationSettingsForm .pkpTable li {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: none !important;
+    }
+</style>
+
 <div class="semantic-defaults">
-<form class="pkp_form" id="notificationSettingsForm" method="post" action="{url op="saveNotificationSettings"}" enctype="multipart/form-data">
-	<p>{translate key="notification.settingsDescription"}</p>
+    <form class="pkp_form" id="notificationSettingsForm" method="post" action="{url op="saveNotificationSettings"}" enctype="multipart/form-data">
+        <p>{translate key="notification.settingsDescription"}</p>
 
-	{csrf}
+        {csrf}
 
-	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="notificationSettingsFormNotification"}
+        {include file="controllers/notification/inPlaceNotification.tpl" notificationId="notificationSettingsFormNotification"}
 
-	{fbvFormArea id="notificationSettings"}
-		{foreach from=$notificationSettingCategories item=notificationSettingCategory}
-			<h4>{translate key=$notificationSettingCategory.categoryKey}</h4>
-			{foreach from=$notificationSettingCategory.settings item=settingId}
-				{assign var="settingName" value=$notificationSettings.$settingId.settingName}
-				{assign var="emailSettingName" value=$notificationSettings.$settingId.emailSettingName}
-				{capture assign="settingKey"}{translate key=$notificationSettings.$settingId.settingKey title="common.title"|translate}{/capture}
+        {fbvFormArea id="notificationSettings"}
+            
+            <table class="pkpTable" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="width: 60%;">{translate key="common.title"}</th>
+                        <th style="width: 20%; text-align: center;">{translate key="notification.allow"}</th>
+                        <th style="width: 20%; text-align: center;">Enable these types of emails.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {foreach from=$notificationSettingCategories item=notificationSettingCategory}
+                    
+                    {* --- Category Header Row --- *}
+                    <tr>
+                        <td colspan="3" style="padding-top: 30px; padding-bottom: 10px; border-bottom: 2px solid #ccc;">
+                            <h4 style="margin: 0;">{translate key=$notificationSettingCategory.categoryKey}</h4>
+                        </td>
+                    </tr>
+                    
+                    {* --- Individual Notification Rows --- *}
+                    {foreach from=$notificationSettingCategory.settings item=settingId}
+                        {assign var="settingName" value=$notificationSettings.$settingId.settingName}
+                        {assign var="emailSettingName" value=$notificationSettings.$settingId.emailSettingName}
+                        {capture assign="settingKey"}{translate key=$notificationSettings.$settingId.settingKey title="common.title"|translate}{/capture}
 
-				{fbvFormSection title=$settingKey list=true translate=false}
-					{if $settingId|in_array:$blockedNotifications}
-						{assign var="checked" value="0"}
-					{else}
-						{assign var="checked" value="1"}
-					{/if}
-					{if $settingId|in_array:$emailSettings}
-						{assign var="emailChecked" value="1"}
-					{else}
-						{assign var="emailChecked" value="0"}
-					{/if}
-					{fbvElement type="checkbox" id=$settingName checked=$checked label="notification.allow"}
-					{fbvElement type="checkbox" id=$emailSettingName checked=$emailChecked label="notification.email"}
-				{/fbvFormSection}
-			{/foreach}
-		{/foreach}
+                        <tr>
+                            <td style="vertical-align: middle;">{$settingKey}</td>
+                            
+                            <td style="text-align: center; vertical-align: middle;">
+                                {if $settingId|in_array:$blockedNotifications}
+                                    {assign var="checked" value="0"}
+                                {else}
+                                    {assign var="checked" value="1"}
+                                {/if}
+                                {fbvElement type="checkbox" id=$settingName checked=$checked}
+                            </td>
+                            
+                            <td style="text-align: center; vertical-align: middle;">
+                                {if $settingId|in_array:$emailSettings}
+                                    {assign var="emailChecked" value="0"}
+                                {else}
+                                    {assign var="emailChecked" value="1"}
+                                {/if}
+                                {fbvElement type="checkbox" id=$emailSettingName checked=$emailChecked}
+                            </td>
+                        </tr>
+                    {/foreach}
+                {/foreach}
+                </tbody>
+            </table>
 
-		<p>
-			{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
-			{translate key="user.privacyLink" privacyUrl=$privacyUrl}
-		</p>
+            <p style="margin-top: 30px;">
+                {capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
+                {translate key="user.privacyLink" privacyUrl=$privacyUrl}
+            </p>
 
-		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
-		{fbvFormButtons hideCancel=true submitText="common.save"}
-	{/fbvFormArea}
-</form>
+            <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+            {fbvFormButtons hideCancel=true submitText="common.save"}
+        {/fbvFormArea}
+    </form>
 </div>
+

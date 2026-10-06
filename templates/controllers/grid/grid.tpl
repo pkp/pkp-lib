@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/grid.tpl
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Grid HTML markup and construction
@@ -36,7 +36,7 @@
 	{rdelim});
 </script>
 
-<div id="{$gridId|escape}" class="pkp_controllers_grid{if is_a($grid, 'CategoryGridHandler')} pkp_grid_category{/if}{if !$grid->getTitle()} pkp_grid_no_title{/if}">
+<div id="{$gridId|escape}" class="pkp_controllers_grid{if is_a($grid, 'PKP\controllers\grid\CategoryGridHandler')} pkp_grid_category{/if}{if !$grid->getTitle()} pkp_grid_no_title{/if}">
 	{include file="controllers/grid/gridHeader.tpl"}
 	<table id="{$gridTableId|escape}">
 		{include file="controllers/grid/columnGroup.tpl" columns=$columns}
@@ -67,7 +67,7 @@
 				{/foreach}
 			</tr>
 		</thead>
-		{if $grid->getIsSubcomponent() && !is_a($grid, 'CategoryGridHandler')}
+		{if $grid->getIsSubcomponent() && !is_a($grid, 'PKP\controllers\grid\CategoryGridHandler')}
 			{* Create two separate tables so that the body part
 			   can be scrolled independently from the header in a
 			   cross-browser compatible way using only CSS. *}
@@ -92,7 +92,7 @@
 		</tbody>
 	</table>
 
-	{if $grid->getIsSubcomponent() && !is_a($grid, 'CategoryGridHandler')}
+	{if $grid->getIsSubcomponent() && !is_a($grid, 'PKP\controllers\grid\CategoryGridHandler')}
 		</div>
 	{/if}
 

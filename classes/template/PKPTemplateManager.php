@@ -2802,6 +2802,7 @@ class PKPTemplateManager extends Smarty
             'ulClass' => $params['ulClass'] ?? '',
             'liClass' => $params['liClass'] ?? '',
             'items' => $navigationMenu?->menuTree ?? [],
+            'ariaLabel' => $params['ariaLabel'] ?? '',
         ]);
 
         return $this->fetch($menuTemplatePath);

@@ -88,7 +88,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             ?>";
         });
 
-        // use as @loadMenu(['name' => 'user', 'id' => 'navigationUser', 'ulClass' => 'pkp_navigation_user', 'liClass' => 'profile'])
+        // use as @loadMenu(['name' => 'user', 'id' => 'navigationUser', 'ulClass' => 'pkp_navigation_user', 'liClass' => 'profile', 'ariaLabel' => '',])
         Blade::directive('loadMenu', function ($parameters) {
             return "<?php
                 echo \PKP\\template\\PKPTemplateManager::getManager()->smartyLoadNavigationMenuArea($parameters);

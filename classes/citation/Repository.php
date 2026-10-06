@@ -241,16 +241,17 @@ class Repository
                         $citation->setData('publicationId', $publicationId);
                         $citation->setSequence($seq + 1);
                         $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
-                        $newCitationId = $this->dao->insert($citation);
-                        $citation->setId($newCitationId);
-                        if ($citationsMetadataLookup && $reprocess) {
-                            $this->reprocessCitation($citation);
-                        } elseif (!$citationsMetadataLookup) {
+                        if (!$citationsMetadataLookup) {
                             $rawString = str_ireplace('http://', 'https://', $rawCitationString);
                             $doi = Doi::extractFromString($rawString);
                             if (!empty($doi)) {
                                 $citation->setData('doi', $doi);
                             }
+                        }
+                        $newCitationId = $this->dao->insert($citation);
+                        $citation->setId($newCitationId);
+                        if ($citationsMetadataLookup && $reprocess) {
+                            $this->reprocessCitation($citation);
                         }
                         $importedCitations[] = $citation;
                     }

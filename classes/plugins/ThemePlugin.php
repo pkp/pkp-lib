@@ -934,16 +934,26 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function isColourDark(string $color, $limit = 130)
     {
+        return $this->getColourBrightness($color) <= $limit;
+    }
+
+    /**
+     * Get the brightness of a color
+     *
+     * @see self::isColourDark()
+     * @return float 0 = black, 256 = white
+     */
+    public function getColourBrightness(string $color) : float
+    {
         $color = str_replace('#', '', $color);
         $r = hexdec(substr($color, 0, 2));
         $g = hexdec(substr($color, 2, 2));
         $b = hexdec(substr($color, 4, 2));
-        $contrast = sqrt(
+        return sqrt(
             $r * $r * .241 +
             $g * $g * .691 +
             $b * $b * .068
         );
-        return $contrast < $limit;
     }
 
     /**

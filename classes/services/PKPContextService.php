@@ -356,6 +356,17 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             }
         });
 
+        // Immediate DOI assignment is only possible with the default suffix
+        $validator->after(function ($validator) use ($props) {
+            $context = isset($props['id']) ? Application::getContextDAO()->getById($props['id']) : null;
+            $creationTime = $props[Context::SETTING_DOI_CREATION_TIME] ?? $context?->getData(Context::SETTING_DOI_CREATION_TIME);
+            $suffixType = $props[Context::SETTING_DOI_SUFFIX_TYPE] ?? $context?->getData(Context::SETTING_DOI_SUFFIX_TYPE);
+            if ($creationTime === Repo::doi()::CREATION_TIME_IMMEDIATE && $suffixType !== Repo::doi()::SUFFIX_DEFAULT) {
+                $field = isset($props[Context::SETTING_DOI_CREATION_TIME]) ? Context::SETTING_DOI_CREATION_TIME : Context::SETTING_DOI_SUFFIX_TYPE;
+                $validator->errors()->add($field, __('doi.manager.settings.doiCreationTime.immediate.requiresDefaultSuffix'));
+            }
+        });
+
         // If a new file has been uploaded, check that the temporary file exists and
         // the current user owns it
         $user = Application::get()->getRequest()->getUser();

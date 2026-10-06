@@ -963,6 +963,12 @@ msgstr "Automatic DOI Assignment"
 msgid "doi.manager.settings.doiCreationTime.description"
 msgstr "When should a submission be assigned a DOI?"
 
+msgid "doi.manager.settings.doiCreationTime.immediate"
+msgstr "Immediately, when an item is created (only with the default DOI suffix)"
+
+msgid "doi.manager.settings.doiCreationTime.immediate.requiresDefaultSuffix"
+msgstr "Immediate DOI assignment is only possible with the default DOI suffix. Please choose the default suffix or a different time for automatic DOI assignment."
+
 msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr "Upon publication"
 

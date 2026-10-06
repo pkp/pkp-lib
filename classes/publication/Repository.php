@@ -392,6 +392,8 @@ abstract class Repository
      * Makes a copy of an existing publication, without the datePublished,
      * and makes copies of all associated objects.
      *
+     * Apps fire the PublicationVersioned event once they have copied their own objects.
+     *
      * @hook Publication::version [[&$newPublication, $publication]]
      */
     public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true, ?int $submissionStatus = null): int

@@ -549,7 +549,7 @@ class PKPDoiController extends PKPBaseController
         $doiIdsToUpdate = [];
         foreach ($requestIds as $submissionId) {
             dispatch(new DepositSubmission($submissionId, $context, $agency));
-            $doiIdsToUpdate = array_merge($doiIdsToUpdate, Repo::doi()->getDoisForSubmission($submissionId));
+            $doiIdsToUpdate = array_merge($doiIdsToUpdate, Repo::doi()->getPublishedDoisForSubmission($submissionId));
         }
 
         Repo::doi()->markSubmitted($doiIdsToUpdate);
@@ -599,7 +599,7 @@ class PKPDoiController extends PKPBaseController
         }
 
         foreach ($requestIds as $id) {
-            $doiIds = Repo::doi()->getDoisForSubmission($id);
+            $doiIds = Repo::doi()->getPublishedDoisForSubmission($id);
             foreach ($doiIds as $doiId) {
                 Repo::doi()->markRegistered($doiId);
             }

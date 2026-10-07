@@ -351,7 +351,7 @@ class PKPUserController extends PKPBaseController
 
         // Return updated user model
         $user = Repo::user()->get($userId, true);
-                $map = Repo::user()->getSchemaMap();
+        $map = Repo::user()->getSchemaMap();
         $currentUser = Application::get()->getRequest()->getUser();
         $options = [
             'currentUserId' => $currentUser?->getId(),
@@ -382,6 +382,7 @@ class PKPUserController extends PKPBaseController
             ->withUserId($userId)
             ->withContextId($context->getId())
             ->withUserUserGroupId($userUserGroupId)
+            ->with(['userGroup'])
             ->first();
         if (!$userUserGroup) {
             return response()->json([

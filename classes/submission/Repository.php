@@ -550,6 +550,7 @@ abstract class Repository
         $userId = $user->getId();
         $submissionId = $publication->getData('submissionId');
         $assignments = StageAssignment::withSubmissionIds([$submissionId])
+            ->with(['userGroup'])
             ->withUserId($userId)
             ->get();
 

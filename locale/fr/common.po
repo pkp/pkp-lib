@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-09-17 15:02+0000\n"
+"PO-Revision-Date: 2026-10-02 15:20+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr/>\n"
@@ -66,13 +66,13 @@ msgid "about.siteMap"
 msgstr "Plan du site"
 
 msgid "announcement.announcements"
-msgstr "Actualités"
+msgstr "Annonces"
 
 msgid "announcement.announcementsHome"
-msgstr "Actualités"
+msgstr "Annonces"
 
 msgid "announcement.moreAnnouncements"
-msgstr "Plus d'actualités..."
+msgstr "Plus d'annonces..."
 
 msgid "announcement.noneExist"
 msgstr "Aucune annonce n'a été publiée."
@@ -190,7 +190,7 @@ msgid "common.applyAction"
 msgstr "Appliquer l'action"
 
 msgid "common.assign"
-msgstr "Assigner"
+msgstr "Ajouter"
 
 msgid "common.assigned"
 msgstr "Assigné"
@@ -976,7 +976,7 @@ msgid "common.user"
 msgstr "Utilisateur"
 
 msgid "common.user.nonexistent"
-msgstr "[Utilisateur/ice inexistant-e]"
+msgstr "[Utilisateur/ice inexistante]"
 
 msgid "common.view"
 msgstr "Afficher"
@@ -1549,7 +1549,7 @@ msgid "navigation.skip.description"
 msgstr "Allez aux liens du contenu"
 
 msgid "navigation.skip.announcements"
-msgstr "Aller aux actualités"
+msgstr "Aller aux annonces"
 
 msgid "navigation.skip.main"
 msgstr "Aller directement au contenu principal"
@@ -1847,7 +1847,7 @@ msgstr ""
 "de courriel de notification."
 
 msgid "notification.removedReviewer"
-msgstr "L'évaluateur/ice a été supprimé/e."
+msgstr "L'évaluateur/ice a été supprimée."
 
 msgid "notification.cancelledReviewer"
 msgstr "L'évaluatrice ou évaluateur a été annulé."
@@ -1860,7 +1860,7 @@ msgstr ""
 "Une demande pour reconsidérer l’assignation de l’évaluation a été envoyée."
 
 msgid "notification.addedStageParticipant"
-msgstr "L'utilisateur/ice a été ajouté/e à titre de participant/e."
+msgstr "L'utilisateur/ice a été ajoutée à titre de participante."
 
 msgid "notification.editStageParticipant"
 msgstr "L'étape d'affectation a été modifiée."
@@ -1945,10 +1945,10 @@ msgid "user.register.form.privacyConsentLabel"
 msgstr "Options de confidentialité"
 
 msgid "notification.type.queryActivity"
-msgstr "Activités sur la discusssion."
+msgstr "Activités sur la discussion."
 
 msgid "notification.type.queryAdded"
-msgstr "Discussion ajouté."
+msgstr "Discussion ajoutée."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
@@ -2434,7 +2434,7 @@ msgid "common.moreActions"
 msgstr "Plus d'actions"
 
 msgid "common.editorialMasthead"
-msgstr "Équipe éditoriale"
+msgstr "Responsabilités"
 
 msgid "common.editorialMasthead.peerReviewers"
 msgstr "Évaluateur/ices de l'année précédente"
@@ -2473,7 +2473,7 @@ msgstr ""
 "de continuer."
 
 msgid "navigation.mySubmissions"
-msgstr "Mes soumissions en tant qu'auteur/ice"
+msgstr "Mes soumissions"
 
 msgid "navigation.reviewAssignments"
 msgstr "Mes évaluations en tant qu'évaluateur/ice"

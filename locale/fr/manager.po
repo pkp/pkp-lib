@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-09-09 14:59+0000\n"
+"PO-Revision-Date: 2026-10-05 14:10+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr/>\n"
@@ -35,14 +35,13 @@ msgstr ""
 "fichier."
 
 msgid "manager.announcements"
-msgstr "Actualités"
+msgstr "Annonces"
 
 msgid "manager.announcements.confirmDelete"
-msgstr ""
-"Voulez-vous vraiment supprimer l'actualité {$title} de façon permanente ?"
+msgstr "Voulez-vous vraiment supprimer l'annonce {$title} de façon permanente ?"
 
 msgid "manager.announcements.create"
-msgstr "Créer une nouvelle actualité"
+msgstr "Créer une nouvelle annonce"
 
 msgid "manager.announcements.createTitle"
 msgstr "Créer"
@@ -54,10 +53,10 @@ msgid "manager.announcements.datePublish"
 msgstr "Publié"
 
 msgid "manager.announcements.deleteAnnouncement"
-msgstr "Supprimer l'actualité"
+msgstr "Supprimer l'annonce"
 
 msgid "manager.announcements.edit"
-msgstr "Modifier une actualité"
+msgstr "Modifier une annonce"
 
 msgid "manager.announcements.editTitle"
 msgstr "Modifier"
@@ -70,42 +69,42 @@ msgstr "Date d'expiration"
 
 msgid "manager.announcements.form.dateExpireInstructions"
 msgstr ""
-"L'actualité sera affichée au public jusqu'à cette date. Laissez vide si "
-"l'annonce doit être affichée indéfiniment."
+"L'annonce sera affichée au public jusqu'à cette date. Laissez vide si elle "
+"doit être affichée indéfiniment."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
 msgstr "Veuillez choisir une année et/ou un jour en plus du mois d'expiration."
 
 msgid "manager.announcements.form.dateExpireValid"
-msgstr "Veuillez choisir une date d'expiration valide pour l'actualité."
+msgstr "Veuillez choisir une date d'expiration valide pour l'annonce."
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr ""
 "Veuillez choisir un mois et/ou un jour en plus de l'année d'expiration."
 
 msgid "manager.announcements.form.description"
-msgstr "Actualité"
+msgstr "Annonce"
 
 msgid "manager.announcements.form.descriptionInstructions"
-msgstr "Texte intégral de l'actualité."
+msgstr "Texte intégral de l'annonce."
 
 msgid "manager.announcements.form.descriptionRequired"
-msgstr "Une description de l'actualité est obligatoire."
+msgstr "Une description de l'annonce est obligatoire."
 
 msgid "manager.announcements.form.descriptionShortInstructions"
-msgstr "Une brève description apparaîtra à côté du titre de l'actualité."
+msgstr "Une brève description apparaîtra à côté du titre de l'annonce."
 
 msgid "manager.announcements.form.descriptionShortRequired"
-msgstr "Une brève description de l'actualité est obligatoire."
+msgstr "Une brève description de l'annonce est obligatoire."
 
 msgid "manager.announcements.form.descriptionShort"
 msgstr "Brève description"
 
 msgid "manager.announcements.form.saveAndCreateAnother"
-msgstr "Enregistrer et en créer un autre"
+msgstr "Enregistrer et en créer une autre"
 
 msgid "manager.announcements.form.titleRequired"
-msgstr "Le titre de l'actualité est obligatoire."
+msgstr "Le titre de l'annonce est obligatoire."
 
 msgid "manager.announcements.form.title"
 msgstr "Titre"
@@ -114,10 +113,10 @@ msgid "manager.announcements.form.typeId"
 msgstr "Type"
 
 msgid "manager.announcements.form.typeIdValid"
-msgstr "Veuillez choisir un type d'actualité valide."
+msgstr "Veuillez choisir un type d'annonce valide."
 
 msgid "manager.announcements.noneCreated"
-msgstr "Aucune actualité n'a été créée."
+msgstr "Aucune annonce n'a été créée."
 
 msgid "manager.announcements.title"
 msgstr "Titre"
@@ -126,42 +125,42 @@ msgid "manager.announcements.type"
 msgstr "Type"
 
 msgid "manager.announcementTypes"
-msgstr "Types d'actualité"
+msgstr "Types d'annonce"
 
 msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
-"Attention ! Toutes les actualités du même type seront également supprimées. "
-"Voulez-vous vraiment continuer et supprimer ce type d'actualité ?"
+"Attention ! Toutes les annonces du même type seront également supprimées. "
+"Voulez-vous vraiment continuer et supprimer ce type d'annonce ?"
 
 msgid "manager.announcementTypes.create"
-msgstr "Créer un type d'actualité"
+msgstr "Créer un type d'annonce"
 
 msgid "manager.announcementTypes.createTitle"
 msgstr "Créer"
 
 msgid "manager.announcementTypes.edit"
-msgstr "Modifier le type d'actualité"
+msgstr "Modifier le type d'annonce"
 
 msgid "manager.announcementTypes.editTitle"
 msgstr "Modifier"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr "Sauvegarder et en créer un autre"
+msgstr "Sauvegarder et en créer une autre"
 
 msgid "manager.announcementTypes.form.typeNameExists"
-msgstr "Un type d'actualité portant ce nom existe déjà."
+msgstr "Un type d'annonce portant ce nom existe déjà."
 
 msgid "manager.announcementTypes.form.typeName"
 msgstr "Nom"
 
 msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr "Le nom du type d'actualité est obligatoire."
+msgstr "Le nom du type d'annonce est obligatoire."
 
 msgid "manager.announcementTypes.noneCreated"
-msgstr "Aucun type d'actualité n'a été créé."
+msgstr "Aucun type d'annonce n'a été créé."
 
 msgid "manager.announcementTypes.typeName"
-msgstr "Type d'actualité"
+msgstr "Type d'annonce"
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "Tout déposer"
@@ -645,7 +644,7 @@ msgid "manager.people.editUser"
 msgstr "Modifier l'utilisateur"
 
 msgid "manager.people.emailUsers.emailSelectedUsers"
-msgstr "Envoyer un courriel aux utilisateur/ices sélectionné-es"
+msgstr "Envoyer un courriel aux utilisateur/ices sélectionnées"
 
 msgid "manager.people.emailUsers.emailUsersEnrolledAs"
 msgstr "Envoyer un courriel aux personnes inscrites en tant que"
@@ -671,7 +670,7 @@ msgid "manager.people.enrollment"
 msgstr "Inscription"
 
 msgid "manager.people.enrollSelected"
-msgstr "Inscrire les utilisateur/ices sélectionné-es"
+msgstr "Inscrire les utilisateur/ices sélectionnées"
 
 msgid "manager.people.enrollSyncRole"
 msgstr "Synchroniser les rôles"
@@ -1208,9 +1207,9 @@ msgstr "Contact principal"
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""
-"Entrez les coordonnées d'un-e rédacteur/ice en chef, d'un-e membre de la "
-"rédaction ou du personnel administratif qui peuvent être affichées sur la "
-"version public de votre site Web."
+"Entrez les coordonnées d'un/e rédacteur/ice en chef, d'un/e membre de la "
+"rédaction ou du personnel administratif qui peuvent être affichées sur les "
+"pages publics de votre site web."
 
 msgid "manager.setup.privacyStatement"
 msgstr "Déclaration de confidentialité"
@@ -1419,7 +1418,7 @@ msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} nouveau(x))"
 
 msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Utilisateur/ices enregistré-es"
+msgstr "Utilisateur/ices enregistrées"
 
 msgid "manager.users"
 msgstr "Utilisateur/ices"
@@ -1727,7 +1726,7 @@ msgstr ""
 "être activée pour chaque option"
 
 msgid "notification.editedUser"
-msgstr "Utilisateur/ice modifié-e."
+msgstr "Utilisateur/ice modifiée."
 
 msgid "manager.distribution.license"
 msgstr "Licence"
@@ -1778,7 +1777,7 @@ msgstr "Permettre à l'utilisateur de s'inscrire lui-même"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
-"Ce rôle est seulement autorisé à faire une recommandation et un-e rédacteur/"
+"Ce rôle est seulement autorisé à faire une recommandation et un/e rédacteur/"
 "ice doit prendre la décision finale."
 
 msgid "settings.roles.roleName"
@@ -2355,7 +2354,7 @@ msgstr "Le contenu n'est pas encodé comme {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr ""
-"Le fichier d'importation contient un-e auteur/ice '{$authorName}' du groupe "
+"Le fichier d'importation contient un/e auteur/ice '{$authorName}' du groupe "
 "'{$userGroupName}'. Il n'y a cependant pas de groupe défini avec un tel nom."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
@@ -2368,7 +2367,7 @@ msgstr ""
 "cette information."
 
 msgid "plugins.importexport.common.error.unknownUploader"
-msgstr "Déposant-e inconnu-e {$param}"
+msgstr "Déposant/e inconnue {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
 msgstr "Le fichier temporaire {$dest} ne peut pas être créé depuis {$source}"
@@ -2409,12 +2408,12 @@ msgstr ""
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
 msgstr ""
 "La personne « {$username} » a un mot de passe invalide. L'utilisateur/ice "
-"n'a pas été importé-e."
+"n'a pas été importée."
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
 "Le nom d'utilisateur « {$username} » et l'adresse courriel « {$email} » ne "
-"correspondent pas à ceux de l'utilisateur/ice existant-e."
+"correspondent pas à ceux de l'utilisateur/ice existante."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
 msgstr "Test"
@@ -2482,12 +2481,12 @@ msgstr "En savoir plus sur l'apparition de ce menu."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
-"Lorsqu'un élément du menu ouvre un sous-menu, son lien ne peut pas être "
-"suivi sur tous les périphériques. Par exemple, si vous avez un élément « À "
-"propos » qui ouvre un sous-menu avec « Contact » et « Équipe éditoriale », "
-"le lien « À propos » peut ne pas être accessible sur tous les appareils. "
-"Dans le menu par défaut, cela est géré en créant un deuxième élément de "
-"menu, « À propos de cette revue », qui apparaît dans le sous-menu."
+"u'un élément du menu ouvre un sous-menu, son lien ne peut pas être suivi sur "
+"tous les périphériques. Par exemple, si vous avez un élément « À propos » "
+"qui ouvre un sous-menu avec « Contact » et « Responsabilités », le lien « À "
+"propos » peut ne pas être accessible sur tous les appareils. Dans le menu "
+"par défaut, cela est géré en créant un deuxième élément de menu, « À propos "
+"de cette revue », qui apparaît dans le sous-menu."
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
 msgstr "Type de menu de navigation"
@@ -2531,12 +2530,12 @@ msgid "manager.navigationMenus.archives.description"
 msgstr "Lien vers votre numéro archivé."
 
 msgid "manager.navigationMenus.announcements.description"
-msgstr "Lien vers la page affichant vos actualités."
+msgstr "Lien vers la page affichant vos annonces."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
 msgstr ""
-"Ce lien ne sera affiché que si vous avez activé les actualités sous "
-"Paramètres > Site Web."
+"Ce lien ne sera affiché que si vous avez activé les annonces sous Paramètres "
+"> Site Web."
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Lien vers la page de connexion."
@@ -2768,7 +2767,7 @@ msgid "stats.file.type.suppFile"
 msgstr "Fichier supplémentaire"
 
 msgid "stats.fileViews"
-msgstr "Visualisation de fichiers"
+msgstr "Vues de fichiers"
 
 msgid "stats.html"
 msgstr "HTML"
@@ -3066,7 +3065,7 @@ msgstr "La signature courriel de la personne-ressource principale du site"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""
-"Les rédacteur/ices affecté-es à cette soumission qui peuvent prendre une "
+"Les rédacteur/ices affectées à cette soumission qui peuvent prendre une "
 "décision"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
@@ -3121,13 +3120,13 @@ msgstr ""
 "Le nom complet de l'utilisateur/ice qui a chargé un fichier de soumission"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr "Le titre de l'actualité"
+msgstr "Le titre de l'annonce"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr "Courte description de l'actualité"
+msgstr "Courte description de l'annonce"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr "URL de l'actualité"
+msgstr "URL de l'annonce"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "Le nombre de soumissions reçues ce mois-ci"
@@ -3178,7 +3177,7 @@ msgstr "Evaluateur( trice) plus attribué(e)"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
-"Ce courriel est envoyé lorsqu'un-e rédacteur/ice désassigne un-e évaluateur/"
+"Ce courriel est envoyé lorsqu'un/e rédacteur/ice désassigne un/e évaluateur/"
 "ice."
 
 msgid "mailable.validateEmailSite.name"
@@ -3236,7 +3235,7 @@ msgstr ""
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr "L'évaluateur/ice invité/e à la soumission a été retiré/e."
+msgstr "L'évaluateur/ice invitée à la soumission a été retirée."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
 msgstr "Soumission acceptée"
@@ -3354,7 +3353,7 @@ msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
 "Ce message informe un/e responsable éditorial ou de section qu'une "
 "recommandation éditoriale a été formulée concernant l'une de ses soumissions "
-"assignées. Ce message est utilisé lorsqu'un/e éditeur/ice n'est autorisé/e "
+"assignées. Ce message est utilisé lorsqu'un/e éditeur/ice n'est autorisée "
 "qu'à recommander une décision éditoriale et qu'une personne autorisée doit "
 "enregistrer les décisions éditoriales. Cette option peut être sélectionnée "
 "lors de l'assignation de participant/es à une soumission."
@@ -3466,7 +3465,7 @@ msgstr ""
 "réinitialiser leur mot de passe."
 
 msgid "mailable.userRegister.name"
-msgstr "Utilisateur/ice créé/e"
+msgstr "Utilisateur/ice créée"
 
 msgid "mailable.userRegister.description"
 msgstr ""
@@ -3546,14 +3545,14 @@ msgstr "Notification de version révisée"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
-"Ce courriel est envoyé automatiquement à la rédaction lorsqu'un-e auteur/ice "
+"Ce courriel est envoyé automatiquement à la rédaction lorsqu'un/e auteur/ice "
 "envoie une version révisée de son article."
 
 msgid "mailable.announcementNotify.name"
-msgstr "Nouvelle actualité"
+msgstr "Nouvelle annonce"
 
 msgid "mailable.announcementNotify.description"
-msgstr "Ce courriel est envoyé lorsqu'une nouvelle actualité est créée."
+msgstr "Ce courriel est envoyé lorsqu'une nouvelle annonce est créée."
 
 msgid "mailable.statisticsReportNotify.name"
 msgstr "Notification de rapport statistique"
@@ -3571,8 +3570,8 @@ msgstr "Informer les éditeur/ices des commentaires de l'évaluateur/ice"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
-"Ce courriel est automatiquement envoyé aux éditeur/ices désigné/es lorsque "
-"l'évaluateur/ice transmet ses recommandations"
+"Ce courriel est automatiquement envoyé aux éditeur/ices désignées lorsque l'é"
+"valuateur/ice transmet ses recommandations"
 
 msgid "manager.people.authSource"
 msgstr "Source d'authentification"
@@ -3703,7 +3702,7 @@ msgid "mailable.copyeditRequest.name"
 msgstr "Demande d'édition"
 
 msgid "mailable.editorAssign.name"
-msgstr "Editeur/ice désigné/e"
+msgstr "Editeur/ice désignée"
 
 msgid "mailable.layoutRequest.name"
 msgstr "Prêt à la production"
@@ -3724,7 +3723,7 @@ msgid "mailable.submissionAckOtherAuthors.name"
 msgstr "Remerciements aux autres auteur/ices de la soumission"
 
 msgid "mailable.editorAssigned.name"
-msgstr "Éditeur/ice désigné/e (automatique)"
+msgstr "Éditeur/ice désignée (automatique)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
@@ -3866,7 +3865,7 @@ msgstr ""
 "d'intérêts (CI) avec leur soumission."
 
 msgid "manager.setup.masthead"
-msgstr "Équipe"
+msgstr "Page des Responsabilités"
 
 msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
 msgstr ""
@@ -3920,7 +3919,7 @@ msgstr ""
 msgid "manager.announcements.notEnabled"
 msgstr ""
 "Vous devez <a href=\"#announcements/announcement-settings\">activer les "
-"actualités</a>."
+"annonces</a>."
 
 msgid "manager.statistics.counterR5Report.settings.startDate"
 msgstr "Date de début"
@@ -3992,7 +3991,7 @@ msgstr ""
 "Lien vers une page affichant tous les services éditoriaux actifs de l'équipe."
 
 msgid "manager.setup.editorialMasthead.order.description"
-msgstr "Définir l'ordre d'apparition sur la page d'accueil."
+msgstr "Définir l'ordre d'apparition des rôles sur la page Responsabilités."
 
 msgid "manager.language.websiteLanguages"
 msgstr "Langues du site web"
@@ -4061,7 +4060,7 @@ msgstr ""
 "du processus de soumission"
 
 msgid "settings.roles.masthead"
-msgstr "Inclure ce rôle dans la page de l'équipe éditoriale"
+msgstr "Inclure ce rôle pour la page Responsabilités"
 
 msgid "manager.setup.reviewOptions.reminders.description"
 msgstr ""
@@ -4104,8 +4103,7 @@ msgstr ""
 
 msgid "manager.setup.appearance.editorialMasthead.description"
 msgstr ""
-"Définissez l'ordre d'affichage public des rôles éditoriaux dans l'équipe "
-"éditoriale."
+"Définissez l'ordre d'affichage public des rôles dans l'équipe éditorial."
 
 msgid "notification.submissionLocales"
 msgstr "Paramètres locaux de soumission mis à jour."
@@ -4118,8 +4116,8 @@ msgstr ""
 
 msgid "manager.categories.form.removeCoverImageFileNotFound"
 msgstr ""
-"Les fichiers de la couverture et de la vignette sont introuvables. Ils "
-"peuvent avoir été supprimés. Veuillez rafraîchir la page."
+"L'image de couverture et la vignette sont introuvables. Ces fichiers peuvent "
+"avoir été supprimés. Veuillez rafraîchir la page."
 
 msgid "doi.manager.settings.doiSuffixPattern.required"
 msgstr "Un modèle de suffixe pour le DOI est requis."

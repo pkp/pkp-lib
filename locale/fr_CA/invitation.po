@@ -1,2 +1,230 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2026-10-02 07:59+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
+"Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/fr_CA/>\n"
+"Language: fr_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - rechercher une personne"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Vérifier l'identifiant ORCID"
+
+msgid "userInvitation.edit.title"
+msgstr "Modifier l’invitation"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Sauvegarder et continuer"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Saisir les détails"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Chercher une personne"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Date de fin"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rôle"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Inviter la personne à assumer ce rôle"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Modifier le courriel envoyé à la personne"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Réviser et inviter à des rôles"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Enregistrer et continuer"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Enregistrer et continuer"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Saisir les détails"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Déclaration de confidentialité"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Le mot de passe doit se composer d'au moins 6 caractères, et doit contenir "
+"des lettres majuscules, des lettres minuscules, des chiffres et des "
+"caractères spéciaux"
+
+msgid "userInvitation.status.invited"
+msgstr "Invitation envoyée le {$date}"
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Consentement relatif à la protection des données"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - entrer les informations de profil et inviter à des rôles"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Si vous modifiez l’invitation existante ou ajoutez un nouveau rôle, l’"
+"invitation actuelle sera annulée et une nouvelle invitation sera envoyée. "
+"Souhaitez-vous vraiment continuer ?"
+
+msgid "userInvitation.modal.button"
+msgstr "Voir tous les utilisateur(-trice)s"
+
+msgid "userInvitation.modal.title"
+msgstr "Invitation envoyée"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Date de début"
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Rechercher une personne par adresse courriel, nom d'utilisateur(-trice) ou "
+"identifiant ORCID. Entrez un seul de ces critères pour commencer!"
+
+msgid "userInvitation.searchField.description"
+msgstr "par ex. aeinstein@example.com ou aeinstein ou 0000-0002-1825-0097"
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Veuillez vérifier l'identifiant ORCID"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - vérifier l'identifiant ORCID"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Passer la vérification de l'identifiant ORCID"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Vérifier et créer le compte"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr ""
+"Il peut s'agir d'une combinaison de lettres majuscules, de lettres "
+"minuscules ou de chiffres"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Voir toutes les soumissions"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Enregistrer et poursuivre"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - saisir les détails"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Saisir vos informations personnelles comme votre courriel, votre "
+"affiliation, etc. Au regard du RGPD, ces données peuvent être modifiées "
+"uniquement par vous-même. Vous pouvez également choisir de rendre ces "
+"données visibles sur votre profil pour la rédaction."
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - vérifier et créer le compte"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Oui, j'accepte que mes données soient collectées et conservées selon les "
+"conditions décrites ici : {$url}"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr "Nom de famille."
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Pays d'affiliation"
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Institution d'affiliation"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Pays dans lequel se trouve l'institution d'affiliation"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Détails du compte"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr "Prénom."
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Détails de l'utilisateur(-trice)"
+
+msgid "invitation.tableHeader.name"
+msgstr "Nom"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Inscrire au moins un critère de recherche."
+
+msgid "invitation.unavailable.title"
+msgstr "Invitation non disponible"
+
+msgid "invitation.header"
+msgstr "Invitations"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Inviter un utilisateur ou une utilisatrice à prendre un rôle"
+
+msgid "invitation.role.selectRole"
+msgstr "Sélectionner un nouveau rôle"
+
+msgid "invitation.role.addRole.button"
+msgstr "Ajouter un rôle"
+
+msgid "invitation.role.dateStart"
+msgstr "Date de début"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Retirer le rôle"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Souhaitez-vous vraiment refuser l’invitation ? Confirmez votre refus en "
+"cliquant sur le bouton ci-dessous."
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Annuler l'invitation"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"Cette invitation n’est plus disponible. Elle a peut-être déjà été acceptée, "
+"refusée ou a expiré. Veuillez contacter la revue afin d’obtenir du soutien."
+
+msgid "invitation.step"
+msgstr "Étape"
+
+msgid "invitation.masthead.show"
+msgstr "Afficher"
+
+msgid "invitation.masthead.hidden"
+msgstr "Ne pas afficher"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Refuser l'invitation"
+
+msgid "invitation.decline.confirm"
+msgstr "Confirmer le refus de l'invitation"
+
+msgid "invitation.email.description"
+msgstr "par ex. aeinstein@example.com"
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Si vous connaissez le nom de famille de l’utilisateur ou de l'utilisatrice, "
+"veuillez saisir l’information. Cependant, l’utilisateur ou l'utilisatrice "
+"pourra modifier cette information."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Si vous connaissez le prénom de l’utilisateur ou de l'utilisatrice, veuillez "
+"saisir l’information. Cependant, l’utilisateur ou l'utilisatrice pourra "
+"modifier cette information."
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Inviter à un rôle"

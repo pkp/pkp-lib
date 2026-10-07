@@ -19,13 +19,9 @@ namespace PKP\jobs\citation;
 use APP\facades\Repo;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\pid\ExtractPidsHelper;
-use PKP\jobs\BaseJob;
 
-class ExtractPidsJob extends BaseJob
+class ExtractPidsJob extends CitationJob
 {
-    protected int $contextId;
-    protected int $citationId;
-
     public function __construct(int $contextId, int $citationId)
     {
         parent::__construct();

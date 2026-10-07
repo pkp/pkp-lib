@@ -18,13 +18,9 @@ namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
 use PKP\citation\enum\CitationProcessingStatus;
-use PKP\jobs\BaseJob;
 
-class IsProcessedJob extends BaseJob
+class IsProcessedJob extends CitationJob
 {
-    protected int $contextId;
-    protected int $citationId;
-
     public function __construct(int $contextId, int $citationId)
     {
         parent::__construct();

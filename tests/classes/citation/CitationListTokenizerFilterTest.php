@@ -18,9 +18,9 @@
 
 namespace PKP\tests\classes\citation;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\citation\filter\CitationListTokenizerFilter;
 use PKP\tests\PKPTestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(CitationListTokenizerFilter::class)]
 class CitationListTokenizerFilterTest extends PKPTestCase
@@ -39,5 +39,8 @@ class CitationListTokenizerFilterTest extends PKPTestCase
 
         $rawCitationList = '';
         self::assertEquals([], $tokenizer->process($rawCitationList));
+
+        $rawCitationList = "citation1\n   \n\t\ncitation2";
+        self::assertEquals(['citation1', 'citation2'], $tokenizer->process($rawCitationList));
     }
 }

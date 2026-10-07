@@ -602,7 +602,7 @@ class ReviewAssignmentController extends PKPBaseController
                 )->next();
 
                 $oldComments = $existingComment?->getData('comments');
-                if ($commentsSubmitted !== $oldComments) {
+                if ($commentsSubmitted !== ($oldComments ?? '')) {
                     $savedComment = Repo::reviewAssignment()->saveReviewComment($reviewAssignment, $commentsSubmitted, true);
                     $isReviewUpdated = true;
                     // Log changes to the event log

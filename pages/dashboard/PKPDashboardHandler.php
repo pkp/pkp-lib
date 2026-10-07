@@ -197,6 +197,7 @@ abstract class PKPDashboardHandler extends Handler
                     'supportsDataCitations' => !!$context->getData('dataCitations'),
                     'supportsDataAvailability' => !!$context->getData('dataAvailability'),
                     'supportsFunders' => !!$context->getData('funders'),
+                    'supportsFundingStatement' => !!$context->getData('fundingStatement'),
                     'identifiersEnabled' => $identifiersEnabled,
                     'isReviewerSuggestionEnabled' => (bool)$context->getData('reviewerSuggestionEnabled'),
                     'isCompetingInterestsRequested' => $context->isReviewCompetingInterestRequired(),

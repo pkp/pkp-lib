@@ -1255,7 +1255,8 @@ abstract class Repository
     }
 
     /**
-     * Retrieve completed review assignments for publications.
+     * Retrieve the review assignments of publications that can have a DOI:
+     * confirmed by an editor and publicly visible.
      *
      *
      * @throws Exception
@@ -1268,6 +1269,7 @@ abstract class Repository
             ->getCollector()
             ->filterByPublicationIds($publicationIds)
             ->filterByIsConfirmedByEditor(true)
+            ->filterByIsPubliclyVisible(true)
             ->getMany();
     }
 

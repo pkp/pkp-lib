@@ -1265,8 +1265,8 @@ msgstr "แทนที่ไฟล์"
 
 msgid "common.requiredField"
 msgstr ""
-"ฟิลด์ที่ต้องกรอกจะถูกระบุด้วยเครื่องหมายดอกจัน: <abbr class=\"required\" "
-"title=\"จำเป็น\">*</abbr>"
+"ฟิลด์ที่ต้องกรอกจะถูกระบุด้วยเครื่องหมายดอกจัน: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "จำเป็น"

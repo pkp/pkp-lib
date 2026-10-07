@@ -832,7 +832,9 @@ msgid "common.replaceFile"
 msgstr "फ़ाइल बदलें"
 
 msgid "common.requiredField"
-msgstr "आवश्यक फ़ील्ड तारांकन के साथ चिह्नित हैं: <abbr class=\"required\" title=\"required\">*</abbr>"
+msgstr ""
+"आवश्यक फ़ील्ड तारांकन के साथ चिह्नित हैं: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "आवश्यक"

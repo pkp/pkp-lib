@@ -732,7 +732,7 @@ msgid "common.replaceFile"
 msgstr ""
 
 msgid "common.requiredField"
-msgstr "*為必填項目"
+msgstr "<span class=\"required\" aria-hidden=\"true\">*</span>為必填項目"
 
 msgid "common.required"
 msgstr ""

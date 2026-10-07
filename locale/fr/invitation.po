@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-09-17 15:02+0000\n"
+"PO-Revision-Date: 2026-10-02 15:20+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -12,12 +12,12 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
-msgstr "Le groupe d'utilisateur/rices est attribué à la personne invitée"
+msgstr "Le groupe d'utilisateur/ices est attribué à la personne invitée"
 
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "L'invitation ne peut pas être envoyée car vous n'avez défini aucun "
-"changement de groupe d'utilisateur/rices"
+"changement de groupe d'utilisateur/ices"
 
 msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
 msgstr "Veuillez fournir un nom d'utilisateur"
@@ -36,28 +36,28 @@ msgstr "Veuillez fournir un nom de famille"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
 msgstr ""
-"Veuillez fournir une date de début pour les groupes d'utilisateur/rices "
+"Veuillez fournir une date de début pour les groupes d'utilisateur/ices "
 "ajoutés"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Au moins un groupe d'utilisateur/rices à ajouter doit être défini"
+msgstr "Au moins un groupe d'utilisateur/ices à ajouter doit être défini"
 
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Au moins un groupe d'utilisateur/rices à supprimer doit être défini"
+msgstr "Au moins un groupe d'utilisateur/ices à supprimer doit être défini"
 
 msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
 msgstr ""
 "Lorsqu'une invitation comporte un identifiant utilisateur ({$userId}), l'"
-"utilisateur/rice correspondant/e doit exister."
+"utilisateur/ice correspondant/e doit exister."
 
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
 msgstr ""
 "Les rôles utilisateur supprimés ne peuvent pas être définis pour des "
-"utilisateur/rices inexistant/es."
+"utilisateur/ices inexistant/es."
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
 msgstr ""
-"Les groupes d'utilisateur/rices fournis contiennent des entrées en double."
+"Les groupes d'utilisateur/ices fournis contiennent des entrées en double."
 
 msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
@@ -66,7 +66,7 @@ msgstr ""
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
-"Il existe déjà un/e utilisateur/rice avec le nom d'utilisateur {$username}. "
+"Il existe déjà un/e utilisateur/ice avec le nom d'utilisateur {$username}. "
 "Veuillez en essayer un autre."
 
 msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
@@ -74,8 +74,8 @@ msgstr "Veuillez fournir un mot de passe"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
 msgstr ""
-"Veuillez fournir un identifiant de groupe d'utilisateur/rices pour les "
-"groupes d'utilisateur/rices ajoutés"
+"Veuillez fournir un identifiant de groupe d'utilisateur/ices pour les "
+"groupes d'utilisateur/ices ajoutés"
 
 msgid "invitation.header"
 msgstr "Invitations en cours"
@@ -84,9 +84,7 @@ msgid "invitation.tableHeader.name"
 msgstr "Nom"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr ""
-"Pour ajouter de nouveaux groupes d'utilisateur/ices, il faut au préalable "
-"avoir déclaré une équipe éditoriale"
+msgstr "Un comité doit être mentionné pour les nouveaux groupes"
 
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Ce type d'invitation n'a pas de modèle de courriel renseigné"
@@ -148,7 +146,7 @@ msgid "userInvitation.modal.title"
 msgstr "Invitation envoyée"
 
 msgid "invitation.role.removeRole.button"
-msgstr "Annuler le rôle"
+msgstr "Supprimer le rôle"
 
 msgid "userInvitation.modal.button"
 msgstr "Voir l'ensemble des utilisateur/ices"
@@ -163,7 +161,7 @@ msgstr ""
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
 msgstr ""
-"Les utilisateur/ices existant/es ne sont pas autorisé/es à accéder à cet "
+"Les utilisateur/ices existantes ne sont pas autorisées à accéder à cet "
 "attribut"
 
 msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
@@ -174,7 +172,7 @@ msgstr "Rechercher une personne"
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
 msgstr ""
-"Les utilisateur/ices non-existant/es ne sont pas autorisé/es à accéder à cet "
+"Les utilisateur/ices non-existantes ne sont pas autorisées à accéder à cet "
 "attribut"
 
 msgid "userInvitation.searchUser.stepLabel"
@@ -346,10 +344,10 @@ msgid "invitation.cancelInvite.title"
 msgstr "Annuler l'invitation"
 
 msgid "invitation.masthead.show"
-msgstr "Apparaît dans l'équipe éditoriale"
+msgstr "Apparaît sur la page Responsabilités"
 
 msgid "invitation.masthead.hidden"
-msgstr "N'apparaît pas dans l'équipe éditoriale"
+msgstr "N'apparaît pas sur la page Responsabilités"
 
 msgid "invitation.management.options"
 msgstr "Options de gestion des invitations"
@@ -396,7 +394,7 @@ msgstr ""
 "Êtes-vous sûr/e de vouloir annuler ? Si vous annulez maintenant, le "
 "processus d'acceptation du rôle sera interrompu et vous devrez accéder au "
 "courriel d'invitation pour relancer le processus. Si vous êtes déjà "
-"utilisateur/ice, vous serez redirigé/e vers le tableau de bord."
+"utilisateur/ice, vous serez redirigée vers le tableau de bord."
 
 msgid "acceptInvitation.cancelInvite.title"
 msgstr "Annuler le processus en cours d'invitation à un rôle ?"
@@ -420,11 +418,11 @@ msgstr ""
 "ou son identifiant ORCID."
 
 msgid "userInvitation.user.disableTitle"
-msgstr "Cet/te utilisateur/ice a été désactivé/e."
+msgstr "Cet/te utilisateur/ice a été désactivée."
 
 msgid "userInvitation.user.disableMessage"
 msgstr ""
-"L'utilisateur/ice a été désactivé/e et vous ne pouvez pas lui attribuer un "
+"L'utilisateur/ice a été désactivée et vous ne pouvez pas lui attribuer un "
 "rôle. Veuillez d'abord l'activer avant de l'inviter à un rôle."
 
 msgid "acceptInvitation.privacyConsent"

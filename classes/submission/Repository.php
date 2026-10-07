@@ -515,12 +515,13 @@ abstract class Repository
     {
         // block authors can never edit a published publication even if an editor granted them canChangeMetadata
         $assignments = StageAssignment::withSubmissionIds([$submissionId])
+            ->with(['userGroup'])
             ->withUserId($userId)
             ->get();
 
         $submission = $this->get($submissionId);
 
-        // if user has no stage assigments, check if user can edit anyway ie. is manager
+        // if user has no stage assignments, check if user can edit anyway ie. is manager
         $context = Application::get()->getRequest()->getContext();
         if ($this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
             return true;
@@ -540,7 +541,7 @@ abstract class Repository
             return false;
         }
 
-        if ($assignments->contains(fn($sa) => $sa->canChangeMetadata)) {
+        if ($assignments->contains(fn ($sa) => $sa->canChangeMetadata)) {
             return true;
         }
         return false;

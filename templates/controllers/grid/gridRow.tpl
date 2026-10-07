@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/gridRow.tpl
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * A grid row.
@@ -18,7 +18,7 @@
 {/if}
 
 {assign var="row_class" value="gridRow"}
-{if is_a($row, 'GridCategoryRow')}
+{if is_a($row, 'PKP\controllers\grid\GridCategoryRow')}
 	{assign var="row_class" value=$row_class|cat:' category'}
 	{if !$row->hasFlag('gridRowStyle')}
 		{assign var="row_class" value=$row_class|cat:' default_category_style'}
@@ -54,7 +54,7 @@
 					</a>
 				{/if}
 				{$cells[$smarty.foreach.columnLoop.index]}
-				{if is_a($row, 'GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}
+				{if is_a($row, 'PKP\controllers\grid\GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}
 					<span class="category_items_number">({$grid->getCategoryItemsCount($categoryRow->getData(), $request)})</span>
 				{/if}
 				<div class="row_actions">
@@ -66,7 +66,7 @@
 				</div>
 			{else}
 				{$cells[$smarty.foreach.columnLoop.index]}
-				{if is_a($row, 'GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}
+				{if is_a($row, 'PKP\controllers\grid\GridCategoryRow') && $column->hasFlag('showTotalItemsNumber')}
 					<span class="category_items_number">({$grid->getCategoryItemsCount($categoryRow->getData(), $request)})</span>
 				{/if}
 			{/if}
@@ -74,7 +74,7 @@
 	{/foreach}
 </tr>
 {if $row->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_DEFAULT)}
-	<tr id="{$rowId|escape|replace:" ":"_"}-control-row" class="row_controls{if is_a($row, 'GridCategoryRow')} category_controls{/if}">
+	<tr id="{$rowId|escape|replace:" ":"_"}-control-row" class="row_controls{if is_a($row, 'PKP\controllers\grid\GridCategoryRow')} category_controls{/if}">
 		<td colspan="{$grid->getColumnsCount('indent')}">
 			{if $row->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_DEFAULT)}
 				{foreach from=$row->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_DEFAULT) item=action}

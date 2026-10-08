@@ -3014,6 +3014,7 @@ msgstr ""
 "Бул рецензент рецензия өтүнүчүн кабыл алды. Анын рецензиясы <b>{$days} күн "
 "ичинде, {$date} күнү</b> тапшырылышы керек."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Бул рецензент рецензиясын аяктаган жок. Жооп <b>{$date}</b> күнү күтүлгөн."
@@ -3034,9 +3035,11 @@ msgstr "Рецензия редактор тарабынан ырасталды"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Рецензия редактор тарабынан <b>{$date}</b> күнү кабыл алынды."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Рецензент рецензия өтүнүчүн жокко чыгарды"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Рецензент рецензия өтүнүчүн <b>{$date}</b> күнү жокко чыгарды."
 

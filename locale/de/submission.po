@@ -2799,6 +2799,7 @@ msgstr "Die Rezension wurde vom Herausgeber bestätigt"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Die Rezension wurde vom Herausgeber am <b>{$date}</b> angenommen."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Gutachter/in hat die Gutachtenanfrage storniert"
 
@@ -3129,6 +3130,7 @@ msgstr "Bewertung eingereicht am {$date}"
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
 msgstr "Warten auf Antwort des Rezensenten"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Der Rezensent hat die Bewertungsanfrage am <b>{$date}</b> storniert."
 
@@ -3178,6 +3180,7 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Gutachten ist {$days} Tage überfällig"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Diese/r Gutachter/in hat das Gutachten noch nicht abgeschlossen. Eine "

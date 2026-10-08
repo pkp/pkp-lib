@@ -3160,11 +3160,11 @@ msgstr ""
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Hakem, hakemlik davetini reddetti"
+msgstr "Editör, hakemlik davetini iptal etti"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Hakemlik davetini <b>{$date}</b> tarihinde reddetti."
+msgstr "Editör, bu hakemlik davetini <b>{$date}</b> tarihinde iptal etti."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Hakemlik davetine yanıt bekleniyor"

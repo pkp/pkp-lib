@@ -2738,9 +2738,7 @@ msgstr "Gomendio editorial bat jaso da"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr ""
-"Ebaluatzaileak berrikuspen-eskaera bertan behera utzi du <b>{$date}</b> "
-"egunean."
+msgstr "Editoreak berrikuspen-eskaera hau ezeztatu du <b>{$date}</b> egunean."
 
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Editoreak berrikuspena onartu zuen <b>{$date}</b> egunean."
@@ -3032,7 +3030,7 @@ msgstr "Ezeztatu ebaluatzailea"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Ebaluatzaileak berrikuspen-eskaera bertan behera utzi du"
+msgstr "Editoreak berrikuspen-eskaera ezeztatu du"
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Ezabatu bidalketa osatugabeak"
@@ -3161,8 +3159,8 @@ msgstr ""
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Ebaluatzaile honek ez du bere berrikuspena amaitu. Erantzuna <b>{$date}</b> "
-"egunerako eman behar zen"
+"Ebaluatzaile honek ez du bere berrikuspena amaitu. Berrikuspena "
+"<b>{$date}</b> egunerako eman behar zen."
 
 msgid "dashboard.recommendOnly.pendingRecommendations"
 msgstr ""

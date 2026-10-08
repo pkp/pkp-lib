@@ -3035,8 +3035,8 @@ msgstr ""
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Овој рецензент не ја завршил својата рецензија. Одговорот требаше да се "
-"добие на <b>{$date}.</b>"
+"Овој рецензент не ја завршил својата рецензија. Рецензијата требаше да се "
+"добие на <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Рецензијата беше прифатена од уредникот на <b>{$date}</b>."
@@ -3046,7 +3046,7 @@ msgstr "Поднесокот е префрлен во следниот круг 
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Рецензентот го откажа барањето за рецензија"
+msgstr "Уредникот го откажа барањето за рецензија"
 
 msgid "dashboard.reviewAssignment.action.viewDetails"
 msgstr "Погледнете детали"
@@ -3165,7 +3165,7 @@ msgstr "Рецензијата беше потврдена од уреднико
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Рецензентот го откажа барањето за рецензија на <b>{$date}</b>."
+msgstr "Уредникот го откажа ова барање за рецензија на <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Се чека одговор од рецензентот"

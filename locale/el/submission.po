@@ -3001,7 +3001,7 @@ msgstr "Η αξιολόγηση έγινε αποδεκτή από τον επι
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Ο αξιολογητής ακύρωσε το αίτημα για αξιολόγηση"
+msgstr "Το αίτημα αξιολόγησης ακυρώθηκε από τον επιμελητή"
 
 msgid "participantManager.onlyAllowedToRecommend"
 msgstr "Επιτρέπεται μόνο η υποβολή πρότασης για μια συντακτική απόφαση"
@@ -3078,7 +3078,7 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Ο συγκεκριμένος αξιολογητής δεν έχει ολοκληρώσει την αξιολόγησή του. Η "
-"προθεσμία για την απάντηση έληξε στις <b>{$date}.</b>"
+"προθεσμία για την αξιολόγηση έληξε στις <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.description"
 msgstr ""
@@ -3277,7 +3277,7 @@ msgstr "Η αξιολόγηση βρίσκεται σε εξέλιξη – το 
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Ο αξιολογητής ακύρωσε το αίτημα για αξιολόγηση στις <b>{$date}</b>."
+msgstr "Ο επιμελητής ακύρωσε αυτό το αίτημα αξιολόγησης στις <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Σε αναμονή απάντησης από τον αξιολογητή"

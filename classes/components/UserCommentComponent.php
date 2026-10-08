@@ -104,18 +104,18 @@ class UserCommentComponent
     {
         return [
             'common.cancel',
+            'common.copied',
             'common.delete',
-            'common.deleting',
+            'common.details',
             'common.loading',
             'common.sending',
-            'form.submit',
             'manager.userComment.comments',
             'userComment.awaitingApprovalNotice',
             'userComment.report.reason',
             'userComment.reportCommentBy',
             'userComment.reportCommentByUserWithAffiliation',
-            'userComment.reportButton',
             'userComment.reportComment',
+            'userComment.sendReport',
             'userComment.reportSubmitted',
             'userComment.showMore',
             'userComment.commentedOn',
@@ -131,7 +131,7 @@ class UserCommentComponent
             'userComment.addComment.submit',
             'userComment.deleteCommentConfirmation',
             'userComment.deleteComment',
-            'userComment.deleteButton',
+            'userComment.copyLink',
         ];
     }
 

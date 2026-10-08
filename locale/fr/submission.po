@@ -2946,6 +2946,7 @@ msgstr "Programmées pour publication"
 msgid "fileManager.copyeditedFiles"
 msgstr "Fichiers édités"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "L'évaluateur/ice a annulé la demande d'évaluation"
 
@@ -3262,6 +3263,7 @@ msgstr "En attente de la réponse de l'évaluateur/ice"
 msgid "dashboard.reviewAssignment.statusDeclined.description"
 msgstr "L'évaluateur/ice a refusé d'évaluer la soumission le <b>{$date}</b>"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "L'évaluateur/ice a annulé la demande d'évaluation le <b>{$date}</b>."
 
@@ -3400,6 +3402,7 @@ msgstr ""
 "L'évaluateur/ice n'a pas répondu à la sollicitation. La réponse était "
 "attendue pour le <b>{$date}</b>"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "L'évaluation n'a pas été reçue. Elle était attendue pour le <b>{$date}.</b>"

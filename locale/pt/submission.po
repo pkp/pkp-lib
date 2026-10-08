@@ -2818,9 +2818,11 @@ msgstr "O editor já visualizou a revisão."
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "A revisão foi concluída em {$date}"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "O revisor cancelou o pedido de revisão"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "O revisor cancelou o pedido de revisão em <b>{$date}</b>."
 
@@ -3230,6 +3232,7 @@ msgstr "Revisão em curso - pedido aceite"
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Revisão em atraso há {$dias} dias"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Este revisor não concluiu a sua avaliação. A resposta era esperada em "

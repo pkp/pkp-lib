@@ -2755,6 +2755,7 @@ msgstr ""
 msgid "dashboard.applyFilters"
 msgstr "Menerapkan Filter"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Reviewer tidak menyelesaikan review mereka. Batas waktu respon telah "
@@ -3127,9 +3128,11 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Review telah diterima oleh editor pada <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Reviewer membatalkan permintaan review"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Reviewer telah membatalkan permintaan review pada <b>{$date}</b>."
 

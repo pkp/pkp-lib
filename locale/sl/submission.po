@@ -3029,9 +3029,11 @@ msgstr "Urednik je potrdil recenzijo"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Urednik je sprejel recenzijo dne <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Recenzent je zavrnil prošnjo za recenzijo"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Recenzent je zvrnil prošnjo za recenzijo dne <b>{$date}</b>."
 
@@ -3075,6 +3077,7 @@ msgstr ""
 "Recenzent je sprejel prošnjo za opravljanje recenzije. Za dokončanje "
 "recenzije je še <b>{$days} dni, rok je {$date}.</b>"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Ta recenzent ni dokončal recenzije. Rok za dokončanje je bil <b>{$date}.</b>"

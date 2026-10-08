@@ -2827,10 +2827,12 @@ msgstr ""
 "Ovaj recenzent je prihvatio zahtev za recenziju. Recenzija je očekivana za "
 "<b>{$days} dana, do {$date}</b>"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Ovaj recenzent nije završio recenziju. Odgovor je bio očekivan <b>{$date}</b>"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Recenzent je otkazao zahtev za recenziju <b>{$date}</b>."
 
@@ -2985,6 +2987,7 @@ msgstr "Recenzija završena {$date}"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Recenzija je prihvaćena od strane urednika <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Recenzent je otkazao zahtev za recenziju"
 

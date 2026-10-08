@@ -1124,7 +1124,7 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function _getReviewerFormClassName(int $selectionType): string
     {
-        return match ((int)$selectionType) {
+        return match ($selectionType) {
             static::REVIEWER_SELECT_ADVANCED_SEARCH => AdvancedSearchReviewerForm::class,
             static::REVIEWER_SELECT_CREATE => CreateReviewerForm::class,
             static::REVIEWER_SELECT_ENROLL_EXISTING => EnrollExistingReviewerForm::class,

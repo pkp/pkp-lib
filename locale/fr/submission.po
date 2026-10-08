@@ -2948,7 +2948,7 @@ msgstr "Fichiers édités"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "L'évaluateur/ice a annulé la demande d'évaluation"
+msgstr "Demande d'évaluation annulée par le rédacteur ou la rédactrice"
 
 msgid "dashboard.reviewAssignment.action.editDueDate"
 msgstr "Modifier la date d'échéance"
@@ -3265,7 +3265,9 @@ msgstr "L'évaluateur/ice a refusé d'évaluer la soumission le <b>{$date}</b>"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "L'évaluateur/ice a annulé la demande d'évaluation le <b>{$date}</b>."
+msgstr ""
+"Le rédacteur ou la rédactrice a annulé cette demande d'évaluation le "
+"<b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "En attente de la réponse de l'évaluateur/ice"

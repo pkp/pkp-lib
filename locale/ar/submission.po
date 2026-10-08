@@ -2931,7 +2931,7 @@ msgstr "قيد الإنجاز - إلتماس التحكيم مقبول"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"هذا المحكم لم يُكمل مهمة التحكيم. الإجابة كانت مستوجبة في <b>{$date}.</b>"
+"هذا المحكم لم يُكمل مهمة التحكيم. كان التحكيم مستوجباً في <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "التحكيم قد إكتمل في {$date}"

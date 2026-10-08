@@ -3332,19 +3332,19 @@ msgstr "Avaliação atrasada por {$days} dias"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Este avaliador não concluiu sua avaliação. A resposta estava prevista para "
-"<b>{$date}.</b>"
+"Este avaliador não concluiu sua avaliação. A avaliação estava prevista para "
+"<b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Avaliação concluída em {$date}"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "O avaliador cancelou a solicitação de avaliação"
+msgstr "Solicitação de avaliação cancelada pelo editor"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "O avaliador cancelou a solicitação de avaliação em <b>{$date}</b>."
+msgstr "O editor cancelou esta solicitação de avaliação em <b>{$date}</b>."
 
 msgid "submission.reviewerSuggestions"
 msgstr "Sugestões do Avaliador"

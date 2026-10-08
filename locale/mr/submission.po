@@ -3071,11 +3071,11 @@ msgstr "<b>{$date}</b> रोजी संपादकाने समीक्�
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "समीक्षकाने समीक्षणाची विनंती नाकारली"
+msgstr "संपादकाने समीक्षणाची विनंती रद्द केली"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "समीक्षकाने <b>{$date}</b> रोजी समीक्षणाची विनंती नाकारली आहे."
+msgstr "संपादकाने <b>{$date}</b> रोजी या समीक्षणाची विनंती रद्द केली."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "समीक्षकाकडून प्रतिसादाची वाट पाहत आहे"

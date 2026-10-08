@@ -2996,8 +2996,8 @@ msgstr "Atsiliepimas vėluoja {$days} dienas"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Šis recenzentas nebaigė savo peržiūros. Atsakymo terminas buvo "
-"<b>{$date}.</b>"
+"Šis recenzentas nebaigė savo peržiūros. Peržiūros terminas buvo "
+"<b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Peržiūra baigta {$date}"
@@ -3017,11 +3017,11 @@ msgstr "Recenziją redaktorius patvirtino <b>{$date</b>."
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Recenzentas atšaukė peržiūros užklausą"
+msgstr "Redaktorius atšaukė peržiūros užklausą"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Recenzentas atšaukė peržiūros užklausą <b>{$date</b>."
+msgstr "Redaktorius atšaukė šią peržiūros užklausą <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Laukiama recenzento atsakymo"

@@ -3081,8 +3081,8 @@ msgstr "Igangværende bedømmelse - anmodning accepteret"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Denne bedømmer har ikke afsluttet bedømmelsen. Et svar skulle være indsendt "
-"den <b>{$date}.</b>"
+"Denne bedømmer har ikke afsluttet bedømmelsen. Bedømmelsen skulle være "
+"indsendt den <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Bedømmelse afsluttet den {$date}"
@@ -3100,11 +3100,12 @@ msgstr "Bedømmelsen blev accepteret af redaktøren den <b>{$date}</b>."
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Bedømmeren afslog anmodning om bedømmelse"
+msgstr "Anmodning om bedømmelse annulleret af redaktøren"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Bedømmeren afslog anmodning om bedømmelse den <b>{$date}</b>."
+msgstr ""
+"Redaktøren annullerede denne anmodning om bedømmelse den <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Afventer svar fra bedømmer"

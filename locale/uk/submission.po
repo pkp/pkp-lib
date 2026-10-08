@@ -2992,7 +2992,7 @@ msgstr ""
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Рецензент скасував запит на перевірку <b>{$date}</b>."
+msgstr "Редактор скасував цей запит на перевірку <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.action.cancelReviewer"
 msgstr "Скасувати Рецензента"
@@ -3208,8 +3208,8 @@ msgstr "Перегляд затримано на {$days} днів"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Цей рецензент не завершив рецензування. Відповідь мала бути надіслана до "
-"<b>{$date}.</b>"
+"Цей рецензент не завершив рецензування. Рецензія мала бути надіслана до "
+"<b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Перевірку завершено {$date}"
@@ -3222,7 +3222,7 @@ msgstr "Рецензія була прийнята редактором <b>{$dat
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Рецензент скасував запит на перевірку"
+msgstr "Редактор скасував запит на перевірку"
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Очікується відповідь від рецензента"

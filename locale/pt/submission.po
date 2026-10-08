@@ -2820,11 +2820,11 @@ msgstr "A revisão foi concluída em {$date}"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "O revisor cancelou o pedido de revisão"
+msgstr "Pedido de revisão cancelado pelo editor"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "O revisor cancelou o pedido de revisão em <b>{$date}</b>."
+msgstr "O editor cancelou este pedido de revisão em <b>{$date}</b>."
 
 msgid "dashboard.proceedWithoutMinimumReviews"
 msgstr "Continuar sem um número mínimo de avaliações confirmadas?"
@@ -3235,8 +3235,8 @@ msgstr "Revisão em atraso há {$dias} dias"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Este revisor não concluiu a sua avaliação. A resposta era esperada em "
-"<b>{$date}.</b>"
+"Este revisor não concluiu a sua avaliação. A avaliação era esperada em "
+"<b>{$date}</b>."
 
 msgid "reviewer.competingInterests"
 msgstr "Conflito de Interesses"

@@ -3132,8 +3132,8 @@ msgstr "De recensie is overschreden met {$days} dagen"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Deze recensent heeft de recensie niet voltooid. Een antwoord werd verwacht "
-"op <b>{$date}.</b>"
+"Deze recensent heeft de recensie niet voltooid. De recensie werd verwacht op "
+"<b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Recensie voltooid op {$date}"
@@ -3146,11 +3146,11 @@ msgstr "De recensie werd bevestigd door de redacteur"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Recensent annuleerde het recensieverzoek"
+msgstr "Recensieverzoek geannuleerd door de redacteur"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Recensent heeft het recensieverzoek geannuleerd op <b>{$date}</b>."
+msgstr "De redacteur heeft dit recensieverzoek geannuleerd op <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "In afwachting van beantwoording door de recensent"

@@ -3055,8 +3055,8 @@ msgstr "Գրախոսումն ուշացել է {$days} օրով"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Այս գրախոսը չի ավարտել իր վերանայումը: Պատասխանը պետք է տրվեր "
-"<b>{$date}-ին:</b>"
+"Այս գրախոսը չի ավարտել իր վերանայումը: Վերանայումը պետք է տրվեր "
+"<b>{$date}</b>-ին:"
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Գրախոսությունն ավարտվել է {$date}-ին"
@@ -3074,11 +3074,11 @@ msgstr "Գրախոսությունն ընդունվել է խմբագրի կող
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Գրախոսը չեղարկել է վերանայման հարցումը"
+msgstr "Խմբագիրը չեղարկել է վերանայման հարցումը"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Գրախոսը չեղարկել է վերանայման հարցումը <b>{$date}</b>-ին:"
+msgstr "Խմբագիրը չեղարկել է այս վերանայման հարցումը <b>{$date}</b>-ին:"
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Սպասում է գրախոսի պատասխանին"

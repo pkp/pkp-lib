@@ -2844,8 +2844,8 @@ msgstr "Phản biện quá hạn {$days} ngày"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Người phản biện này chưa hoàn thành bài phản biện của họ. Hạn chót phản hồi "
-"là vào <b>{$date}.</b>"
+"Người phản biện này chưa hoàn thành bài phản biện của họ. Hạn chót nộp bài "
+"phản biện là vào <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Phản biện hoàn thành vào {$date}"
@@ -2863,11 +2863,11 @@ msgstr "Bài phản biện đã được biên tập viên chấp nhận vào <b
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Người phản biện đã hủy yêu cầu phản biện"
+msgstr "Biên tập viên đã hủy yêu cầu phản biện"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Người phản biện đã hủy yêu cầu phản biện vào <b>{$date}</b>."
+msgstr "Biên tập viên đã hủy yêu cầu phản biện này vào <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Đang chờ Phản hồi từ người phản biện"

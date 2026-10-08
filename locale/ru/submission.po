@@ -3024,8 +3024,8 @@ msgstr "Запрос на рецензирование был отклонён {
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Этот рецензент не завершил своё рецензирование. Ответ должен был быть "
-"предоставлен <b>{$date}.</b>"
+"Этот рецензент не завершил своё рецензирование. Рецензия должна была быть "
+"предоставлена <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusDeclined.description"
 msgstr "Рецензент отклонил запрос на рецензирование <b>{$date}</b>"
@@ -3117,11 +3117,11 @@ msgstr "Файлы для рецензии"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Рецензент отменил запрос на рецензирование"
+msgstr "Запрос на рецензирование отменён редактором"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Рецензент отменил запрос на рецензирование <b>{$date}</b>."
+msgstr "Редактор отменил этот запрос на рецензирование <b>{$date}</b>."
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Удалить незавершённые подачи"

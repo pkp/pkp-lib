@@ -3010,7 +3010,8 @@ msgstr "Fagfellevurdering fullført {$date}"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Fagfellen avslo forespørselen om fagfellevurdering <b>{$date}</b>."
+msgstr ""
+"Redaktøren avbrøt denne forespørselen om fagfellevurdering <b>{$date}</b>."
 
 msgid "reviewerManager.reviewerStatus"
 msgstr "Fagfellestatus"
@@ -3130,8 +3131,8 @@ msgstr "Pågående fagfellevurdering – forespørsel akseptert"
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Denne fagfellen har ikke fullført sin fagfellevurdering. Et svar var "
-"forventet <b>{$date}.</b>"
+"Denne fagfellen har ikke fullført sin fagfellevurdering. Fristen for "
+"fagfellevurderingen var <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.description"
 msgstr ""
@@ -3143,7 +3144,7 @@ msgstr "Fagfellevurderingen ble akseptert av redaktøren <b>{$date}</b>."
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Fagfellen avslo forespørselen om fagfellevurdering"
+msgstr "Forespørselen om fagfellevurdering ble avbrutt av redaktøren"
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Venter på svar fra fagfellen"

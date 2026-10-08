@@ -2818,11 +2818,12 @@ msgstr ""
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Ovaj recenzent nije završio recenziju. Odgovor je bio očekivan <b>{$date}</b>"
+"Ovaj recenzent nije završio recenziju. Recenzija je bila očekivana "
+"<b>{$date}</b>."
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Recenzent je otkazao zahtev za recenziju <b>{$date}</b>."
+msgstr "Urednik je otkazao ovaj zahtev za recenziju <b>{$date}</b>."
 
 msgid "author.competingInterests"
 msgstr "Sukob interesa"
@@ -2977,7 +2978,7 @@ msgstr "Recenzija je prihvaćena od strane urednika <b>{$date}</b>."
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Recenzent je otkazao zahtev za recenziju"
+msgstr "Urednik je otkazao zahtev za recenziju"
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Čeka se odgovor recenzenta"

@@ -3019,11 +3019,11 @@ msgstr "Urednik je sprejel recenzijo dne <b>{$date}</b>."
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Recenzent je zavrnil prošnjo za recenzijo"
+msgstr "Urednik je preklical prošnjo za recenzijo"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Recenzent je zvrnil prošnjo za recenzijo dne <b>{$date}</b>."
+msgstr "Urednik je preklical to prošnjo za recenzijo dne <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Čaka na odziv recenzenta"

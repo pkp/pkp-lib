@@ -2861,8 +2861,8 @@ msgstr "Odmítnuto během fáze {$stageName}."
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Tento recenzent recenzi nedokončil. Odpověď měla být zaslána dne <b>{$date}."
-"</b>"
+"Tento recenzent recenzi nedokončil. Recenze měla být odevzdána dne "
+"<b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Recenze byla ukončena dne {$date}"
@@ -2880,11 +2880,11 @@ msgstr "Recenze byla přijata redakcí dne <b>{$date}</b>."
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Recenzent zrušil požadavek na recenzi"
+msgstr "Žádost o recenzi byla zrušena redaktorem"
 
 #, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Recenzent zrušil žádost o recenzi dne <b>{$date}</b>."
+msgstr "Redaktor tuto žádost o recenzi zrušil dne <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.action.viewDetails"
 msgstr "Zobrazit podrobnosti"

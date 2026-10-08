@@ -3512,7 +3512,7 @@ msgid "publication.required.versionStage.alreadyAssignment"
 msgstr "The publication version is \"{$versionString}\""
 
 msgid "publication.versionStage.authorOriginal"
-msgstr "Author Original"
+msgstr "Author's Original"
 
 msgid "publication.versionStage.publishedManuscriptUnderReview"
 msgstr "Published Manuscript Under Review"

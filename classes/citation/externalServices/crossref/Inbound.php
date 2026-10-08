@@ -103,7 +103,7 @@ class Inbound
             return false;
         }
 
-        $authors = ExternalServicesHelper::getValueFromArrayPath($response, ['message', 'items', 0, 'author']);
+        $authors = ExternalServicesHelper::getValueFromArrayPath($response, ['message', 'items', 0, 'author']) ?? [];
         foreach ($authors as $author) {
             if (empty($author['family']) || !str_contains(strtolower($rawCitation), strtolower($author['family']))) {
                 return false;

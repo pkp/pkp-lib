@@ -7,12 +7,6 @@
         "seq"
     ],
     "properties": {
-        "_href": {
-            "type": "string",
-            "format": "uri",
-            "readOnly": true,
-            "apiSummary": true
-        },
         "arxiv": {
             "type": "string",
             "description": "Arxiv id, e.g. 1902.02534.",
@@ -101,7 +95,8 @@
             "type": "boolean",
             "description": "Whether this citation is assumed structured, is calculated at every update and insert.",
             "default": false,
-            "apiSummary": true
+            "apiSummary": true,
+            "writeDisabledInApi": true
         },
         "issue": {
             "type": "string",
@@ -136,6 +131,7 @@
             "description": "The metadata lookup status.",
             "default": 0,
             "apiSummary": true,
+            "writeDisabledInApi": true,
             "validation": [
                 "in:-2,-1,0,1,2,3,4,5"
             ]

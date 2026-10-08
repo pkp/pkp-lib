@@ -209,17 +209,15 @@ class PKPCitationController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CITATION, $illuminateRequest->input());
 
-        $arxiv = Arxiv::extractFromString($params['arxiv']);
-        if (!empty($arxiv)) {
-            $params['arxiv'] = $arxiv;
-        }
-        $doi = Doi::extractFromString($params['doi']);
-        if (!empty($doi)) {
-            $params['doi'] = $doi;
-        }
-        $handle = Handle::extractFromString($params['handle']);
-        if (!empty($handle)) {
-            $params['handle'] = $handle;
+        // The raw-citation form sends none of these.
+        foreach (['arxiv' => Arxiv::class, 'doi' => Doi::class, 'handle' => Handle::class] as $key => $pidClass) {
+            if (empty($params[$key])) {
+                continue;
+            }
+            $pid = $pidClass::extractFromString($params[$key]);
+            if (!empty($pid)) {
+                $params[$key] = $pid;
+            }
         }
 
         $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_CITATION, $params);

@@ -2770,9 +2770,11 @@ msgstr "Sukob interesa"
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Recenzija je dovršena {$date}"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Recenzent je otkazao zahtjev za recenziju"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Recenzent je otkazao zahtjev za recenziju <b>{$date}</b>."
 
@@ -3095,6 +3097,7 @@ msgstr ""
 "Recenzent je prihvatio zahtjev za recenziju. Rok za dostavu recenzije je "
 "<b>{$date}</b> (još {$days} dana)"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Recenzent nije dovršio svoju recenziju. Rok za odgovor bio je <b>{$date}.</b>"

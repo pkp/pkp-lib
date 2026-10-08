@@ -3011,6 +3011,7 @@ msgstr "Η αξιολόγηση επιβεβαιώθηκε από τον επι�
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Η αξιολόγηση έγινε αποδεκτή από τον επιμελητή στις <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Ο αξιολογητής ακύρωσε το αίτημα για αξιολόγηση"
 
@@ -3085,6 +3086,7 @@ msgstr ""
 "Ο συγκεκριμένος αξιολογητής δέχτηκε το αίτημα αξιολόγησης. Η αξιολόγησή του "
 "αναμένεται σε <b>{$days} ημέρες, στις {$date}.</b>"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Ο συγκεκριμένος αξιολογητής δεν έχει ολοκληρώσει την αξιολόγησή του. Η "
@@ -3285,6 +3287,7 @@ msgstr "Το αίτημα αξιολόγησης έχει καθυστερήσε
 msgid "dashboard.reviewAssignment.statusAccepted.title"
 msgstr "Η αξιολόγηση βρίσκεται σε εξέλιξη – το αίτημα έγινε δεκτό"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Ο αξιολογητής ακύρωσε το αίτημα για αξιολόγηση στις <b>{$date}</b>."
 

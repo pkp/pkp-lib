@@ -3317,6 +3317,7 @@ msgstr "A ser publicada na edição {$issue}"
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Avaliação atrasada por {$days} dias"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Este avaliador não concluiu sua avaliação. A resposta estava prevista para "
@@ -3325,9 +3326,11 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Avaliação concluída em {$date}"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "O avaliador cancelou a solicitação de avaliação"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "O avaliador cancelou a solicitação de avaliação em <b>{$date}</b>."
 

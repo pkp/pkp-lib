@@ -2881,6 +2881,7 @@ msgstr "Asignado a mí"
 msgid "submission.dashboard.view.submissionStageAll"
 msgstr "Todo en fase de envío"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Este revisor no ha completado su revisión. La respuesta se esperaba para el "
@@ -3137,9 +3138,11 @@ msgstr "La revisión fue confirmada por el editor"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "La revisión fue aceptada por el editor el <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "El revisor canceló la solicitud de revisión"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "El revisor canceló la solicitud de revisión el <b>{$date}</b>."
 

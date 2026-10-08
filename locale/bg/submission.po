@@ -3167,6 +3167,7 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Рецензията е просрочена с {$days} дни"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Този рецензент не е завършил рецензията си. Отговорът трябваше да бъде "
@@ -3186,9 +3187,11 @@ msgstr "Рецензията беше потвърдена от редактор
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Рецензията беше приета от редактора на <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Рецензентът отмени молбата за рецензия"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Рецензентът отмени заявката за преглед на <b>{$date}</b>."
 

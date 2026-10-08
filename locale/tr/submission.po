@@ -3137,6 +3137,7 @@ msgstr "Değerlendirme devam ediyor - Hakemlik daveti kabul edildi"
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Değerlendirme, {$days} gün gecikmiştir."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Hakem, değerlendirmeyi tamamlamamıştır. <b>{$date}</b> tarihine kadar "
@@ -3157,9 +3158,11 @@ msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr ""
 "Değerlendirme, editör tarafından <b>{$date}</b> tarihinde onaylanmıştır."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Hakem, hakemlik davetini reddetti"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Hakemlik davetini <b>{$date}</b> tarihinde reddetti."
 

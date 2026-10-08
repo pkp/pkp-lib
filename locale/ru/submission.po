@@ -3009,6 +3009,7 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusDeclined.title"
 msgstr "Запрос на рецензирование был отклонён {$date}"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Этот рецензент не завершил своё рецензирование. Ответ должен был быть "
@@ -3102,9 +3103,11 @@ msgstr "Будет опубликовано в выпуске {$issue}"
 msgid "fileManager.filesForReview"
 msgstr "Файлы для рецензии"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Рецензент отменил запрос на рецензирование"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Рецензент отменил запрос на рецензирование <b>{$date}</b>."
 

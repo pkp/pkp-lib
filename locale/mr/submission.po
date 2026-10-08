@@ -2025,6 +2025,7 @@ msgstr "चालू समीक्षण - विनंती स्वीक�
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "समीक्षणाची पूर्ण करण्याची तारीख उलटून {$days} दिवस झाले आहेत"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "या समीक्षकाने त्याचे समीक्षण पूर्ण केलेले नाही. <b>{$date} पर्यंत ते अपेक्षि"
@@ -3056,9 +3057,11 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "<b>{$date}</b> रोजी संपादकाने समीक्षण स्वीकारले."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "समीक्षकाने समीक्षणाची विनंती नाकारली"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "समीक्षकाने <b>{$date}</b> रोजी समीक्षणाची विनंती नाकारली आहे."
 

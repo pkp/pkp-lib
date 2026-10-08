@@ -2916,6 +2916,7 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusAccepted.title"
 msgstr "قيد الإنجاز - إلتماس التحكيم مقبول"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "هذا المحكم لم يُكمل مهمة التحكيم. الإجابة كانت مستوجبة في <b>{$date}.</b>"
@@ -2933,9 +2934,11 @@ msgstr "التحكيم قد تم تأكيده من قبل المحرر"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "التحكيم قد تم قبوله من قبل المحرر في <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "المحرر ألغى إلتماس التحكيم"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "المحرر ألغى إلتماس التحكيم في <b>{$date}</b>."
 

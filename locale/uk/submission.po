@@ -2978,6 +2978,7 @@ msgstr ""
 "Перевірку було завершено {$date} з такою рекомендацією: "
 "<b>{$recommendation}</b>"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Рецензент скасував запит на перевірку <b>{$date}</b>."
 
@@ -3192,6 +3193,7 @@ msgstr "Триває перевірка – запит прийнято"
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Перегляд затримано на {$days} днів"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Цей рецензент не завершив рецензування. Відповідь мала бути надіслана до "
@@ -3206,6 +3208,7 @@ msgstr "Відгук підтверджено редактором"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Рецензія була прийнята редактором <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Рецензент скасував запит на перевірку"
 

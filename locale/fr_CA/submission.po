@@ -3066,6 +3066,7 @@ msgstr ""
 "La demande d'évaluation a été partagée avec les évaluateur-trices. Une "
 "réponse est attendue dans <b>{$days} jours, le {$date}</b>"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "L'évaluateur-trice a annulé la demande d'évaluation le <b>{$date}</b>."
 
@@ -3196,6 +3197,7 @@ msgstr "L'évaluation a été confirmée par l'éditeur-trice"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "L'évaluation a été acceptée par l'éditeur-trice le <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "L'évaluateur-trice a annulé la demande d'évaluation"
 
@@ -3291,6 +3293,7 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Évaluation en retard de {$days} jours"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "L'évaluateur-trice n'a pas complété son évaluation. Une réponse était "

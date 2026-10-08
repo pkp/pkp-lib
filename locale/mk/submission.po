@@ -3032,6 +3032,7 @@ msgstr ""
 "Поднесокот премина во следниот круг на преглед, беше прифатен и моментално е "
 "во фаза на {$stage}."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Овој рецензент не ја завршил својата рецензија. Одговорот требаше да се "
@@ -3043,6 +3044,7 @@ msgstr "Рецензијата беше прифатена од уреднико
 msgid "workflow.submissionInNextReviewRound"
 msgstr "Поднесокот е префрлен во следниот круг на рецензија"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Рецензентот го откажа барањето за рецензија"
 
@@ -3161,6 +3163,7 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusComplete.title"
 msgstr "Рецензијата беше потврдена од уредникот"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Рецензентот го откажа барањето за рецензија на <b>{$date}</b>."
 

@@ -26,10 +26,10 @@ msgid "userComment.reportCommentByUserWithAffiliation"
 msgstr "Please tell us why you think this comment from <strong>{$name}, {$affiliation}</strong> is inappropriate. Our moderators will review your message."
 
 msgid "userComment.reportComment"
-msgstr "Report Comment"
+msgstr "Report inappropriate comment"
 
-msgid "userComment.reportButton"
-msgstr "<button>Report this comment</button> for inappropriate content."
+msgid "userComment.sendReport"
+msgstr "Send Report"
 
 msgid "userComment.reportSubmitted"
 msgstr "Thank you for submitting your report. Our moderators will review your concerns."
@@ -38,7 +38,7 @@ msgid "userComment.showMore"
 msgstr "Show {$count} more comments"
 
 msgid "userComment.commentedOn"
-msgstr "Commented <time datetime=\"{$dateTime}\" title=\"{$dateTime}\">{$date}</time> on <a href=\"{$versionUrl}\">{$versionLabel}</a>:"
+msgstr "Commented <time>{$dateTime}</time> on <a href=\"{$versionUrl}\">{$versionLabel}</a>."
 
 msgid "userComment.noComments"
 msgstr "There are no comments on this publication yet."
@@ -77,7 +77,7 @@ msgid "userComment.deleteCommentConfirmation"
 msgstr "Are you sure you want to delete your comment?"
 
 msgid "userComment.deleteComment"
-msgstr "Delete Comment"
+msgstr "Delete comment"
 
-msgid "userComment.deleteButton"
-msgstr "<button>Delete your comment</button> to remove it from this page."
+msgid "userComment.copyLink"
+msgstr "Copy link to comment"

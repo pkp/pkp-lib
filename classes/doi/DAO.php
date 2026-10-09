@@ -174,7 +174,7 @@ abstract class DAO extends EntityDAO
     abstract public function getAllDepositableSubmissionIds(Context $context): Collection;
 
     /**
-     * Restrict a query on publications (aliased `p`) to those whose DOIs are deposited:
+     * Restrict a query on publications (aliased `p`) to those whose DOIs are depositable:
      * the current publication, or, with DOI versioning, the latest published minor version
      * of each version stage and major version.
      *

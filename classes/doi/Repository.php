@@ -348,7 +348,7 @@ abstract class Repository
      *
      * Only considered with the default suffix.
      */
-    public function assignOnCreation(Context $context): bool
+    public function assignOnItemCreation(Context $context): bool
     {
         return $context->areDoisEnabled()
             && $context->getData(Context::SETTING_DOI_CREATION_TIME) === self::CREATION_TIME_IMMEDIATE

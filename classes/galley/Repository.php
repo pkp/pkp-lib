@@ -196,15 +196,16 @@ class Repository
         }
 
         $context = Application::getContextDAO()->getById($submission->getData('contextId'));
-        if (!Repo::doi()->assignOnCreation($context) || !$context->isDoiTypeEnabled(Repo::doi()::TYPE_REPRESENTATION)) {
+        if (!Repo::doi()->assignOnItemCreation($context) || !$context->isDoiTypeEnabled(Repo::doi()::TYPE_REPRESENTATION)) {
             return;
         }
 
         try {
             $doiId = Repo::doi()->mintGalleyDoi($galley, $publication, $submission, $context);
             $this->edit($galley, ['doiId' => $doiId]);
-        } catch (DoiException) {
+        } catch (DoiException $exception) {
             // A DOI error should not prevent adding the galley
+            error_log("Could not assign a DOI to galley {$galley->getId()}: {$exception->getMessage()}");
         }
     }
 

@@ -74,7 +74,7 @@ class AssignDOIs
             Repo::submission()->createDois($event->submission);
         }
 
-        if (Repo::doi()->assignOnCreation($context)) {
+        if (Repo::doi()->assignOnItemCreation($context)) {
             $this->handleDecline($event);
         }
     }
@@ -84,7 +84,7 @@ class AssignDOIs
      */
     public function handleSubmitted(SubmissionSubmitted $event): void
     {
-        if (Repo::doi()->assignOnCreation($event->context)) {
+        if (Repo::doi()->assignOnItemCreation($event->context)) {
             Repo::submission()->createDois($event->submission);
         }
     }
@@ -108,7 +108,7 @@ class AssignDOIs
     public function handleVersioned(PublicationVersioned $event): void
     {
         if (
-            Repo::doi()->assignOnCreation($event->context)
+            Repo::doi()->assignOnItemCreation($event->context)
             || Repo::doi()->assignOnVersionCreation($event->context, $event->submission)
         ) {
             Repo::publication()->createDois($event->publication);
@@ -130,7 +130,7 @@ class AssignDOIs
 
             foreach (Repo::doi()->getDoisForSubmission($submission->getId()) as $doiId) {
                 $doi = Repo::doi()->get($doiId);
-                // Deposited DOIs can not be withdrawn
+                // Deposited DOIs cannot be withdrawn
                 if ($doi?->getStatus() === Doi::STATUS_UNREGISTERED) {
                     Repo::doi()->delete($doi);
                 }

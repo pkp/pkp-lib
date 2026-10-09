@@ -231,7 +231,7 @@ class Repository
     /**
      * Remove the DOI of a review that is no longer confirmed and publicly visible
      *
-     * It has no public page, so it must not be deposited or marked registered. Deposited DOIs can not be withdrawn.
+     * It has no public page, so it must not be deposited or marked registered. Deposited DOIs cannot be withdrawn.
      */
     protected function removeUnregisteredDoi(ReviewAssignment $reviewAssignment): void
     {
@@ -257,14 +257,14 @@ class Repository
      */
     protected function assignDoiOnCreation(ReviewAssignment $reviewAssignment): void
     {
-        if ($reviewAssignment->getData('doiId')) {
+        if ($reviewAssignment->getData('doiId') || !$this->canHaveDoi($reviewAssignment)) {
             return;
         }
 
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $context = Application::getContextDAO()->getById($submission->getData('contextId'));
         if (
-            !Repo::doi()->assignOnCreation($context)
+            !Repo::doi()->assignOnItemCreation($context)
             || !$context->isDoiTypeEnabled(Repo::doi()::TYPE_PEER_REVIEW)
         ) {
             return;
@@ -273,8 +273,9 @@ class Repository
         try {
             $doiId = Repo::doi()->mintDoi($context);
             $this->edit($reviewAssignment, ['doiId' => $doiId]);
-        } catch (DoiException) {
+        } catch (DoiException $exception) {
             // A DOI error should not prevent saving the review
+            error_log("Could not assign a DOI to review assignment {$reviewAssignment->getId()}: {$exception->getMessage()}");
         }
     }
 

@@ -67,7 +67,7 @@ class UserGridRow extends GridRow {
 				$oldUser = $userDao->getById($this->getOldUserId());
 
 				// Don't merge a user in itself
-				if ($oldUser && $actionArgs['oldUserId'] != $actionArgs['newUserId']) {
+				if ($oldUser && $actionArgs['oldUserId'] != $actionArgs['newUserId'] && Validation::canAdminister($actionArgs['newUserId'], $request->getUser()->getId())) {
 					$this->addAction(
 						new LinkAction(
 							'mergeUser',

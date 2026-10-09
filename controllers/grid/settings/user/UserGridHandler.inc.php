@@ -546,8 +546,14 @@ class UserGridHandler extends GridHandler {
 		$user = $request->getUser();
 
 		// if there is a $newUserId, this is the second time through, so merge the users.
-		if ($newUserId > 0 && $oldUserId > 0 && Validation::canAdminister($oldUserId, $user->getId())) {
-			if (!$request->checkCSRF()) return new JSONMessage(false);
+		if ($newUserId > 0 && $oldUserId > 0) {
+			if (
+				!Validation::canAdminister($oldUserId, $user->getId()) ||
+				!Validation::canAdminister($newUserId, $user->getId()) ||
+				!$request->checkCSRF())
+			{
+				return new JSONMessage(false);
+			}
 			import('classes.user.UserAction');
 			$userAction = new UserAction();
 			$userAction->mergeUsers($oldUserId, $newUserId);

@@ -585,14 +585,14 @@ msgstr "URL to the page about ORCID"
 
 #, fuzzy
 msgid "orcid.orcidRequestAuthorAuthorization.name"
-msgstr "orcidRequestAuthorAuthorization"
+msgstr "ORCID record access request"
 
 msgid "orcid.orcidRequestUpdateScope.name"
-msgstr "orcidRequestUpdateScope"
+msgstr "ORCID updated record access request"
 
 #, fuzzy
 msgid "orcid.orcidCollectAuthorId.name"
-msgstr "orcidCollectAuthorId"
+msgstr "ORCID id submission request"
 
 msgid "mailable.userRoleAssignmentInvitationNotify.name"
 msgstr "User Invited to Role Notification"

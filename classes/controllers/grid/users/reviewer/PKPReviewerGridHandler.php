@@ -402,6 +402,7 @@ class PKPReviewerGridHandler extends GridHandler
 
     /**
      * Save the designated reviewer form.
+     *
      * @param $selectionType int self::REVIEWER_...
      */
     protected function saveReviewerForm(int $selectionType, PKPRequest $request): JSONMessage
@@ -1328,8 +1329,9 @@ class PKPReviewerGridHandler extends GridHandler
         $formClassName = $this->_getReviewerFormClassName($selectionType);
 
         if ($request->getUserVar('reviewerSuggestionId')) {
-
-            $reviewerSuggestion = ReviewerSuggestion::find($request->getUserVar('reviewerSuggestionId'));
+            $reviewerSuggestion = ReviewerSuggestion::query()
+                ->withSubmissionIds([$this->getSubmission()->getId()])
+                ->find($request->getUserVar('reviewerSuggestionId'));
 
             if (!$reviewerSuggestion) {
                 throw new Exception('Given reviewer suggestion ID is invalid');

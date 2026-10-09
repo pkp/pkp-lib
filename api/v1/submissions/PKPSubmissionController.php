@@ -573,6 +573,9 @@ class PKPSubmissionController extends PKPBaseController
                 case 'onDoiPage':
                     $collector->filterByOnDoiPage((bool) $val, $context->getEnabledDoiTypes());
                     break;
+                case 'inEditingOrPublished':
+                    $collector->filterByInEditingOrPublished((bool) $val);
+                    break;
                 case 'isUnassigned':
                     $collector->filterByisUnassigned(true);
                     break;

@@ -18,6 +18,7 @@
 
 namespace PKP\doi;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -25,6 +26,7 @@ use PKP\context\Context;
 use PKP\core\EntityDAO;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\core\traits\EntityWithParent;
+use PKP\publication\PKPPublication;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -170,4 +172,33 @@ abstract class DAO extends EntityDAO
      *
      */
     abstract public function getAllDepositableSubmissionIds(Context $context): Collection;
+
+    /**
+     * Restrict a query on publications (aliased `p`) to those whose DOIs are depositable:
+     * the current publication, or, with DOI versioning, the latest published minor version
+     * of each version stage and major version.
+     *
+     * @param bool $withPublicationDoi Only consider publications with a DOI. Pass false for
+     *  the DOIs of child objects (e.g. galleys), which can be deposited without a publication DOI.
+     *
+     * @see \PKP\doi\Repository::getLatestMinorPublicationsForDoiDeposit()
+     */
+    protected function whereDepositablePublication(Builder $q, bool $doiVersioning, bool $withPublicationDoi = true): Builder
+    {
+        if (!$doiVersioning) {
+            return $q->join('submissions as s', 'p.publication_id', '=', 's.current_publication_id');
+        }
+
+        return $q->when($withPublicationDoi, fn (Builder $q) => $q->whereNotNull('p.doi_id'))
+            ->whereNotExists(function (Builder $q) use ($withPublicationDoi) {
+                $q->select(DB::raw(1))
+                    ->from('publications as newer_p')
+                    ->whereColumn('newer_p.submission_id', '=', 'p.submission_id')
+                    ->whereColumn('newer_p.version_stage', '=', 'p.version_stage')
+                    ->whereColumn('newer_p.version_major', '=', 'p.version_major')
+                    ->whereColumn('newer_p.version_minor', '>', 'p.version_minor')
+                    ->when($withPublicationDoi, fn (Builder $q) => $q->whereNotNull('newer_p.doi_id'))
+                    ->where('newer_p.status', '=', PKPPublication::STATUS_PUBLISHED);
+            });
+    }
 }

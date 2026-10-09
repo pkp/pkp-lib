@@ -17,6 +17,7 @@ namespace PKP\doi;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
@@ -39,6 +40,7 @@ abstract class Repository
     public const CUSTOM_PUBLICATION_PATTERN = 'doiPublicationSuffixPattern';
     public const CUSTOM_REPRESENTATION_PATTERN = 'doiRepresentationSuffixPattern';
 
+    public const CREATION_TIME_IMMEDIATE = 'immediateCreationTime';
     public const CREATION_TIME_COPYEDIT = 'copyEditCreationTime';
     public const CREATION_TIME_PUBLICATION = 'publicationCreationTime';
     public const CREATION_TIME_NEVER = 'neverCreationTime';
@@ -307,8 +309,8 @@ abstract class Repository
                 return $carry;
             }, ['submissionIds' => [], 'doiIds' => []]);
 
-            // Schedule/queue jobs for submissions
-            foreach ($submissionData['submissionIds'] as $submissionId) {
+            // Schedule/queue jobs for submissions, once per submission
+            foreach (array_unique($submissionData['submissionIds']) as $submissionId) {
                 dispatch(new DepositSubmission($submissionId, $context, $agency));
             }
 
@@ -339,6 +341,29 @@ abstract class Repository
             Repo::doi()::TYPE_AUTHOR_RESPONSE => AuthorResponse::withDoiIds([$doiId])->count() > 0,
             default => false,
         };
+    }
+
+    /**
+     * Whether DOIs should be assigned as soon as an item is created
+     *
+     * Only considered with the default suffix.
+     */
+    public function assignOnItemCreation(Context $context): bool
+    {
+        return $context->areDoisEnabled()
+            && $context->getData(Context::SETTING_DOI_CREATION_TIME) === self::CREATION_TIME_IMMEDIATE
+            && $context->getData(Context::SETTING_DOI_SUFFIX_TYPE) === self::SUFFIX_DEFAULT;
+    }
+
+    /**
+     * Whether a new version's DOIs should be assigned right away, because the
+     * submission has already passed the copyediting stage DOIs are assigned at
+     */
+    public function assignOnVersionCreation(Context $context, Submission $submission): bool
+    {
+        return $context->areDoisEnabled()
+            && $context->getData(Context::SETTING_DOI_CREATION_TIME) === self::CREATION_TIME_COPYEDIT
+            && in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_DONE]);
     }
 
     /**
@@ -399,6 +424,23 @@ abstract class Repository
      * @return array<int> DOI IDs
      */
     abstract public function getDoisForPublication(Publication $publication): array;
+
+    /**
+     * Gets the DOI IDs of a submission's published versions
+     *
+     * Used when DOIs are deposited or marked registered, which an unpublished version's DOIs must not be.
+     *
+     * @return array<int> DOI IDs
+     */
+    public function getPublishedDoisForSubmission(int $submissionId): array
+    {
+        $submission = Repo::submission()->get($submissionId);
+        return collect($submission->getPublishedPublications())
+            ->flatMap(fn (Publication $publication) => $this->getDoisForPublication($publication))
+            ->unique()
+            ->values()
+            ->all();
+    }
 
     /**
      * Get the latest minor published publication with a DOI for each version stage and major version,

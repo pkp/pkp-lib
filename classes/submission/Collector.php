@@ -70,6 +70,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public ?array $doiStatuses = null;
     public ?bool $hasDois = null;
     public ?bool $onDoiPage = null;
+    public ?bool $inEditingOrPublished = null;
     public ?array $excludeIds = null;
     public bool $isUnassigned = false;
 
@@ -181,6 +182,15 @@ abstract class Collector implements CollectorInterface, ViewsCount
     {
         $this->onDoiPage = $onDoiPage;
         $this->enabledDoiTypes = $enabledDoiTypes;
+        return $this;
+    }
+
+    /**
+     * Limit DOI management page results to submissions in the copyediting or production stage, or with a published publication
+     */
+    public function filterByInEditingOrPublished(?bool $inEditingOrPublished): AppCollector
+    {
+        $this->inEditingOrPublished = $inEditingOrPublished;
         return $this;
     }
 

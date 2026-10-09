@@ -18,7 +18,6 @@ namespace PKP\components\forms\context;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRadioInput;
 use PKP\components\forms\FieldSelect;
@@ -104,6 +103,10 @@ abstract class PKPDoiSetupSettingsForm extends FormComponent
                 'description' => __('doi.manager.settings.doiCreationTime.description'),
                 'groupId' => self::DOI_SETTINGS_GROUP,
                 'options' => [
+                    [
+                        'value' => Repo::doi()::CREATION_TIME_IMMEDIATE,
+                        'label' => __('doi.manager.settings.doiCreationTime.immediate')
+                    ],
                     [
                         'value' => Repo::doi()::CREATION_TIME_COPYEDIT,
                         'label' => __('doi.manager.settings.doiCreationTime.copyedit')

@@ -21,6 +21,8 @@ use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\doi\Doi;
+use PKP\doi\exceptions\DoiException;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\invitation\models\InvitationModel;
@@ -218,6 +220,63 @@ class Repository
 
         $this->dao->update($newReviewAssignment);
         $this->updateReviewRoundStatus($newReviewAssignment);
+
+        if (!$this->canHaveDoi($reviewAssignment) && $this->canHaveDoi($newReviewAssignment)) {
+            $this->assignDoiOnCreation($newReviewAssignment);
+        } elseif ($this->canHaveDoi($reviewAssignment) && !$this->canHaveDoi($newReviewAssignment)) {
+            $this->removeUnregisteredDoi($newReviewAssignment);
+        }
+    }
+
+    /**
+     * Remove the DOI of a review that is no longer confirmed and publicly visible
+     *
+     * It has no public page, so it must not be deposited or marked registered. Deposited DOIs cannot be withdrawn.
+     */
+    protected function removeUnregisteredDoi(ReviewAssignment $reviewAssignment): void
+    {
+        $doiId = $reviewAssignment->getData('doiId');
+        $doi = $doiId ? Repo::doi()->get($doiId) : null;
+        if ($doi?->getStatus() === Doi::STATUS_UNREGISTERED) {
+            Repo::doi()->delete($doi);
+        }
+    }
+
+    /**
+     * Whether the review is confirmed by an editor and publicly visible, see
+     * Collector::filterByIsConfirmedByEditor() and Collector::filterByIsPubliclyVisible()
+     */
+    protected function canHaveDoi(ReviewAssignment $reviewAssignment): bool
+    {
+        return ($reviewAssignment->getDateConsidered() || $reviewAssignment->getDateAcknowledged())
+            && $reviewAssignment->getIsReviewPubliclyVisible();
+    }
+
+    /**
+     * Assign a DOI to a review that has just become confirmed and publicly visible, if DOIs are assigned on item creation
+     */
+    protected function assignDoiOnCreation(ReviewAssignment $reviewAssignment): void
+    {
+        if ($reviewAssignment->getData('doiId') || !$this->canHaveDoi($reviewAssignment)) {
+            return;
+        }
+
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
+        $context = Application::getContextDAO()->getById($submission->getData('contextId'));
+        if (
+            !Repo::doi()->assignOnItemCreation($context)
+            || !$context->isDoiTypeEnabled(Repo::doi()::TYPE_PEER_REVIEW)
+        ) {
+            return;
+        }
+
+        try {
+            $doiId = Repo::doi()->mintDoi($context);
+            $this->edit($reviewAssignment, ['doiId' => $doiId]);
+        } catch (DoiException $exception) {
+            // A DOI error should not prevent saving the review
+            error_log("Could not assign a DOI to review assignment {$reviewAssignment->getId()}: {$exception->getMessage()}");
+        }
     }
 
     /**

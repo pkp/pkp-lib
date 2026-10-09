@@ -392,6 +392,8 @@ abstract class Repository
      * Makes a copy of an existing publication, without the datePublished,
      * and makes copies of all associated objects.
      *
+     * Apps fire the PublicationVersioned event once they have copied their own objects.
+     *
      * @hook Publication::version [[&$newPublication, $publication]]
      */
     public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true, ?int $submissionStatus = null): int
@@ -1253,7 +1255,8 @@ abstract class Repository
     }
 
     /**
-     * Retrieve completed review assignments for publications.
+     * Retrieve the review assignments of publications that can have a DOI:
+     * confirmed by an editor and publicly visible.
      *
      *
      * @throws Exception
@@ -1265,7 +1268,8 @@ abstract class Repository
         return Repo::reviewAssignment()
             ->getCollector()
             ->filterByPublicationIds($publicationIds)
-            ->filterByCompleted(true)
+            ->filterByIsConfirmedByEditor(true)
+            ->filterByIsPubliclyVisible(true)
             ->getMany();
     }
 

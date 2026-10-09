@@ -14,6 +14,7 @@
 
 namespace PKP\controllers\grid\eventLog;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use PKP\core\JSONMessage;
@@ -43,7 +44,14 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
      */
     public function viewReviewChange($args): JSONMessage
     {
+        $submissionId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId();
         $logEntry = Repo::eventLog()->get((int)$args['logEntryId']);
+        $submissionIdForLoggedResource = $logEntry?->getData('submissionId');
+
+        if (!$logEntry || (int)$submissionIdForLoggedResource !== $submissionId) {
+            return new JSONMessage(false, __('api.404.resourceNotFound'));
+        }
+
         return new JSONMessage(true, $this->formatReviewChange($logEntry));
     }
 

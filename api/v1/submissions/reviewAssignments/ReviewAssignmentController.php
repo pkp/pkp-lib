@@ -579,6 +579,7 @@ class ReviewAssignmentController extends PKPBaseController
                     'reviewFormResponseOld' => json_encode($oldReviewFormResponses),
                     'reviewFormResponseNew' => json_encode($updatedReviewFormResponses),
                     'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+                    'submissionId' => $submission->getId(),
                 ]);
                 Repo::eventLog()->add($eventLog);
             }
@@ -618,6 +619,7 @@ class ReviewAssignmentController extends PKPBaseController
                         'reviewerCommentsNew' => $savedComment->getData('comments'),
                         'fieldNameKey' => 'submission.event.review.fieldName.comments',
                         'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+                        'submissionId' => $submission->getId(),
                     ]);
 
                     Repo::eventLog()->add($eventLog);
@@ -680,6 +682,7 @@ class ReviewAssignmentController extends PKPBaseController
                 'reviewerRecommendationOldId' => $oldReviewerRecommendationId,
                 'reviewerRecommendationNewId' => $submittedReviewerRecommendationId,
                 'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+                'submissionId' => $submission->getId(),
             ]);
 
             Repo::eventLog()->add($eventLog);
@@ -700,6 +703,7 @@ class ReviewAssignmentController extends PKPBaseController
                     __('submission.event.review.competingInterestsWithDeclaration', ['competingInterests' => $oldCompetingInterests])
                     : __('submission.event.review.competingInterestsWithNoDeclaration', ['competingInterests' => $oldCompetingInterests]),
                 'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+                'submissionId' => $submission->getId(),
             ]);
 
             Repo::eventLog()->add($eventLog);

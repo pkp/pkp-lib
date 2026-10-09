@@ -290,7 +290,7 @@ class AuthorGridHandler extends GridHandler
         }
 
         // The user may not be allowed to edit the metadata
-        if (Repo::submission()->canEditPublication($submission->getId(), $user->getId())) {
+        if (Repo::submission()->canEditPublication($submission, $user->getId())) {
             return true;
         }
 

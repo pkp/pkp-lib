@@ -82,7 +82,7 @@ class UserGridRow extends GridRow
                 $oldUser = Repo::user()->get((int) $this->getOldUserId(), true);
 
                 // Don't merge a user in itself
-                if ($oldUser && $actionArgs['oldUserId'] != $actionArgs['newUserId']) {
+                if ($oldUser && $actionArgs['oldUserId'] != $actionArgs['newUserId'] && Validation::getAdministrationLevel($actionArgs['newUserId'], $request->getUser()->getId()) == Validation::ADMINISTRATION_FULL) {
                     $this->addAction(
                         new LinkAction(
                             'mergeUser',

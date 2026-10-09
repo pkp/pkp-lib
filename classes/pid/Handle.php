@@ -21,7 +21,7 @@ class Handle extends BasePid
     /** @copydoc BasePid::regexes */
     public const regexes = [
         // handle:12345/abcde hdl:12345/abcde https://hdl.handle.net/12345/abcde
-        '/(?:handle:\s*|hdl:\s*|https?:\/\/hdl\.handle\.net\/)[0-9a-z]+(?:.[0-9a-z]+)*\/.+/i'
+        '/(?:handle:\s*|hdl:\s*|https?:\/\/hdl\.handle\.net\/)[0-9a-z]+(?:\.[0-9a-z]+)*\/\S+/i'
     ];
 
     /** @copydoc BasePid::validationRegexes */

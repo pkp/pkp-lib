@@ -23,7 +23,7 @@ class Ark extends BasePid
     /** @copydoc BasePid::regexes */
     public const regexes = [
         // ark:/12345/abc123 https://n2t.net/ark:/12345/abc123
-        '/(?:https?:\/\/n2t\.net\/)?ark:\/\d{5,}(?:\/.+)+/i'
+        '/(?:https?:\/\/n2t\.net\/)?ark:\/\d{5,}(?:\/\S+)+/i'
     ];
 
     /** @copydoc BasePid::validationRegexes */

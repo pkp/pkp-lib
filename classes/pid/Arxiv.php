@@ -21,12 +21,13 @@ class Arxiv extends BasePid
     /** @copydoc BasePid::regexes */
     public const regexes = [
         // arxiv:2025.12345v2 https://arxiv.org/abs/2025.12345
-        '/(?:arxiv:\s*|https?:\/\/arxiv\.org\/(?:abs|pdf)\/)(?:\d+\.\d+|[a-z.-]+\/\d+)/i'
+        // The version is matched in lower case only, as arXiv writes it.
+        '/(?:arxiv:\s*|https?:\/\/arxiv\.org\/(?:abs|pdf)\/)(?:\d+\.\d+|[a-z.-]+\/\d+)(?-i:v\d+)?/i'
     ];
 
     /** @copydoc BasePid::validationRegexes */
     public const validationRegexes = [
-        '/^(?:\d+\.\d+|[a-z.-]+\/\d+)$/i'
+        '/^(?:\d+\.\d+|[a-z.-]+\/\d+)(?-i:v\d+)?$/i'
     ];
 
     /** @copydoc BasePid::prefix */

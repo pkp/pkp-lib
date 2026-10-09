@@ -18,9 +18,9 @@
 
 namespace PKP\tests\classes\dataCitation;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\dataCitation\Repository;
 use PKP\tests\PKPTestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Repository::class)]
 class DataCitationIdentifierValidationTest extends PKPTestCase
@@ -54,6 +54,11 @@ class DataCitationIdentifierValidationTest extends PKPTestCase
         $this->assertValid('ARXIV', 'arxiv:2301.00001');
         $this->assertValid('ARXIV', 'https://arxiv.org/abs/2301.00001');
         $this->assertValid('ARXIV', 'https://arxiv.org/pdf/2301.00001');
+        $this->assertValid('ARXIV', '2301.00001v2');
+        $this->assertValid('ARXIV', 'arxiv:2301.00001v2');
+        $this->assertValid('ARXIV', 'https://arxiv.org/abs/2301.00001v2');
+        $this->assertValid('ARXIV', 'cs.AI/0601001v1');
+        $this->assertInvalid('ARXIV', '2301.00001V2');
         $this->assertInvalid('ARXIV', 'random-text');
     }
 

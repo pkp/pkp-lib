@@ -1,0 +1,14 @@
+@php
+    $coverImage = $publication->getLocalizedData('coverImage');
+@endphp
+
+@if ($coverImage)
+    <x-metadata-blocks.default
+        slug="cover-image"
+    >
+        <img
+            src="{{ $publication->getLocalizedCoverImageUrl($submission->getData('contextId')) }}"
+            alt="@if($coverImage){{ $coverImage['altText'] }}@endif"
+        >
+    </x-metadata-blocks.default>
+@endif

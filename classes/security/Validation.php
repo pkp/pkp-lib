@@ -156,17 +156,17 @@ class Validation
     /**
      * Redirect to the login page, appending the current URL as the source.
      *
-     * @param string $message Optional name of locale key to add to login page
+     * @param string $messageLocaleKey Optional locale key of message to show on login page
      */
-    public static function redirectLogin($message = null)
+    public static function redirectLogin($messageLocaleKey = null)
     {
         $args = [];
 
         if (isset($_SERVER['REQUEST_URI'])) {
             $args['source'] = $_SERVER['REQUEST_URI'];
         }
-        if ($message !== null) {
-            $args['loginMessage'] = $message;
+        if ($messageLocaleKey !== null) {
+            $args['loginMessage'] = __($messageLocaleKey);
         }
 
         $request = Application::get()->getRequest();

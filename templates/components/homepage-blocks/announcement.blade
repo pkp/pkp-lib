@@ -1,0 +1,11 @@
+@if($announcements && count($announcements))
+    @php $announcement = $announcements[0]; @endphp
+    <x-homepage-blocks.default slug="announcement">
+        <x-notice>
+            <x-announcement-summary
+                :announcement="$announcement"
+                heading="h2"
+            />
+        </x-notice>
+    </x-homepage-blocks.default>
+@endif

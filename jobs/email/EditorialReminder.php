@@ -88,6 +88,16 @@ class EditorialReminder extends BaseJob
 
         /** @var int $submissionId */
         foreach ($submissionIds as $submissionId) {
+            $reviewAssignments = Repo::reviewAssignment()
+                ->getCollector()
+                ->filterBySubmissionIds([$submissionId])
+                ->filterByReviewerIds([$this->editorId])
+                ->getMany();
+
+            if (!$reviewAssignments->isEmpty()) {
+                continue;
+            }
+
             $submission = Repo::submission()->get($submissionId);
             $submissions[$submissionId] = $submission;
 

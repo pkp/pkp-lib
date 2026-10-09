@@ -28,7 +28,10 @@
 		"competingInterests": {
 			"type": "string",
 			"description": "A declaration of potential competing interests.",
-			"multilingual": "true"
+			"multilingual": "true",
+			"validation": [
+				"nullable"
+			]
 		},
 		"country": {
 			"type": "string",

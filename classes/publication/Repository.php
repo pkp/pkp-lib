@@ -305,21 +305,6 @@ abstract class Repository
             $errors['declined'] = __('publication.required.declined');
         }
 
-        // Orcid errors
-        if (OrcidManager::isEnabled()) {
-            $orcidIds = [];
-            foreach ($publication->getData('authors') as $author) {
-                $authorOrcid = $author->getData('orcid');
-                if ($authorOrcid and in_array($authorOrcid, $orcidIds)) {
-                    $errors['hasDuplicateOrcids'] = __('orcid.verify.duplicateOrcidAuthor');
-                } elseif ($authorOrcid && !$author->getData('orcidAccessToken')) {
-                    $errors['hasUnauthenticatedOrcid'] = __('orcid.verify.hasUnauthenticatedOrcid');
-                } else {
-                    $orcidIds[] = $authorOrcid;
-                }
-            }
-        }
-
         Hook::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);
 
         return $errors;
@@ -334,6 +319,22 @@ abstract class Repository
     public function validatePublishWarnings(Publication $publication, Submission $submission, array $allowedLocales, string $primaryLocale): array
     {
         $warnings = [];
+
+        // Orcid warnings
+        if (OrcidManager::isEnabled()) {
+            $orcidIds = [];
+            foreach ($publication->getData('authors') as $author) {
+                $authorOrcid = $author->getData('orcid');
+                if ($authorOrcid and in_array($authorOrcid, $orcidIds)) {
+                    $warnings['hasDuplicateOrcids'] = __('orcid.verify.duplicateOrcidAuthor');
+                } elseif ($authorOrcid && !$author->getData('orcidAccessToken')) {
+                    $warnings['hasUnauthenticatedOrcid'] = __('orcid.verify.hasUnauthenticatedOrcid');
+                } else {
+                    $orcidIds[] = $authorOrcid;
+                }
+            }
+        }
+
         Hook::call('Publication::validatePublishWarnings', [&$warnings, $publication, $submission, $allowedLocales, $primaryLocale]);
         return $warnings;
     }

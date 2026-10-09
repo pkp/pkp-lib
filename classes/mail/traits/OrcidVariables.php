@@ -17,7 +17,6 @@
 namespace PKP\mail\traits;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\mail\Mailable;
 
@@ -25,7 +24,6 @@ trait OrcidVariables
 {
     protected static string $authorOrcidUrl = 'authorOrcidUrl';
     protected static string $orcidAboutUrl = 'orcidAboutUrl';
-    protected static string $principalContactSignature = 'principalContactSignature';
     abstract public function addData(array $data): Mailable;
 
     /**
@@ -46,8 +44,6 @@ trait OrcidVariables
     {
         $request = Application::get()->getRequest();
         $dispatcher = Application::get()->getDispatcher();
-        $principalContact = Repo::user()->getByEmail($context->getData('contactEmail'));
-        $principalContactSignature = $principalContact?->getLocalizedSignature() ?? $context->getContactName();
 
         $this->addData([
             self::$authorOrcidUrl => $oauthUrl,
@@ -59,7 +55,6 @@ trait OrcidVariables
                 op: 'about',
                 urlLocaleForPage: ''
             ),
-            self::$principalContactSignature => $principalContactSignature,
         ]);
     }
 }

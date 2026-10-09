@@ -3999,3 +3999,6 @@ msgstr "Competing Interests declared: YES<br>"
 
 msgid "submission.event.review.field.modified.reviewerCompetingInterests"
 msgstr "The following was modified in this review: Reviewer Competing Interests. Select \"View changes\" to see a detailed summary of all modifications."
+
+msgid "submission.doi.review.title"
+msgstr "Review: \"{$publicationTitle}\" (Round{$revisionNumber}/Review{$reviewNumber})"

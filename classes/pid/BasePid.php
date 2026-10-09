@@ -91,10 +91,12 @@ abstract class BasePid
         $class = get_called_class();
 
         // Only a leading prefix: short alternate prefixes such as "doi" or "hdl" can occur inside an identifier.
-        $string = preg_replace('#^http://#i', 'https://', trim($string));
+        // http:// only for matching the prefix: an identifier that is itself an address (e.g. URI) keeps its scheme.
+        $string = trim($string);
+        $httpsString = preg_replace('#^http://#i', 'https://', $string);
         foreach ($class::getPrefixes() as $prefix) {
-            if (stripos($string, $prefix) === 0) {
-                $string = substr($string, strlen($prefix));
+            if (stripos($httpsString, $prefix) === 0) {
+                $string = substr($httpsString, strlen($prefix));
                 break;
             }
         }
@@ -114,13 +116,15 @@ abstract class BasePid
         /* @var BasePid $class */
         $class = get_called_class();
 
-        return trim(
-            str_replace(
-                array_map(fn ($prefix) => $prefix . $pid, $class::getPrefixes()),
-                '',
-                $string
-            )
+        // Any letter case, and http as well as https, as written in the text.
+        $prefixes = array_map(
+            fn ($prefix) => str_starts_with($prefix, 'https://')
+                ? 'https?:\/\/' . preg_quote(substr($prefix, strlen('https://')), '/')
+                : preg_quote($prefix, '/'),
+            $class::getPrefixes()
         );
+
+        return trim(preg_replace('/(?:' . implode('|', $prefixes) . ')' . preg_quote($pid, '/') . '/i', '', $string));
     }
 
     /**

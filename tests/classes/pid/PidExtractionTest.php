@@ -27,6 +27,8 @@ use PKP\pid\Doi;
 use PKP\pid\Handle;
 use PKP\pid\Orcid;
 use PKP\pid\Pmid;
+use PKP\pid\Purl;
+use PKP\pid\Url;
 use PKP\pid\Urn;
 use PKP\tests\PKPTestCase;
 
@@ -53,6 +55,8 @@ class PidExtractionTest extends PKPTestCase
             [Handle::class, 'Report. https://hdl.handle.net/10419/12345, 2020.', '10419/12345'],
             [Ark::class, 'Map. ark:/12345/abc123, accessed 2020.', 'ark:/12345/abc123'],
             [Urn::class, 'Thesis. urn:nbn:de:101:1-2019072802401757702913, 2019.', 'urn:nbn:de:101:1-2019072802401757702913'],
+            [Url::class, 'See https://example.org/docs/.', 'https://example.org/docs/'],
+            [Url::class, 'See https://example.org/docs.', 'https://example.org/docs'],
         ];
     }
 
@@ -74,6 +78,8 @@ class PidExtractionTest extends PKPTestCase
             [Arxiv::class, 'arxiv:2101.12345v2', '2101.12345v2'],
             [Pmid::class, 'PMID12345678', '12345678'],
             [Orcid::class, 'http://orcid.org/0000-0002-1694-233X', '0000-0002-1694-233X'],
+            [Url::class, 'http://example.com/path?query=1', 'http://example.com/path?query=1'],
+            [Purl::class, 'http://purl.org/dc/elements/1.1/', 'http://purl.org/dc/elements/1.1/'],
         ];
     }
 

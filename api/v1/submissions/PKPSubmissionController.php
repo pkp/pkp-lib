@@ -1780,6 +1780,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $affiliations = $newAffiliationErrors = [];
         foreach ($params['affiliations'] as $position => $affiliationParam) {
+            $affiliationParam['authorId'] = $author->getId();
             $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
             // Map errors to the specific affiliation in the UI using the position = index
             if (!empty($affiliationErrors)) {

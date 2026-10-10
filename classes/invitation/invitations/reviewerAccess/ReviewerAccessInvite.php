@@ -23,6 +23,7 @@ use PKP\invitation\core\contracts\IMailableUrlUpdateable;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
+use PKP\invitation\core\exceptions\SignedInAsDifferentUserException;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\InvitationUIActionRedirectController;
@@ -132,7 +133,7 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         // Check if a different user is already logged in
         $loggedInUserId = Application::get()->getRequest()->getSessionGuard()->getUserId();
         if ($loggedInUserId && $loggedInUserId != $this->invitationModel->userId) {
-            throw new Exception('You are logged in as a different user. Please log out and try the invitation link again.');
+            throw new SignedInAsDifferentUserException('You are logged in as a different user. Please log out and try the invitation link again.');
         }
 
         $reviewSubmission = Repo::submission()->getByBestId($reviewAssignment->getSubmissionId());

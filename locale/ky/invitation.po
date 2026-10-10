@@ -11,13 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "Жок болгон колдонуучулар үчүн ролдорду алып салуу аныкталбайт."
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr ""
-"Бул атрибуттун мааниси бүгүнкү күнгө барабар же андан кийинки болушу керек"
-
 msgid "invitation.validation.error.propertyProhibited"
 msgstr ":attribute талаасы тыюу салынган"
 
@@ -35,12 +28,6 @@ msgstr "Ролго чакыруу"
 
 msgid "invitation.wizard.pageTitle"
 msgstr "Колдонуучуну ролго чакыруу"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Маалыматтарды киргизүү"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Ролдорду карап чыгып чакыруу"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Колдонуучуну издөө"
@@ -74,9 +61,6 @@ msgstr "Жаңы ролду тандоо"
 
 msgid "invitation.role.dateStart"
 msgstr "Башталуу датасы"
-
-msgid "invitation.role.dateEnd"
-msgstr "Аяктоо датасы"
 
 msgid "invitation.role.addRole.button"
 msgstr "Дагы бир роль кошуу"
@@ -161,9 +145,6 @@ msgstr "Баш сөздө көрсөтүлөт"
 msgid "invitation.masthead.hidden"
 msgstr "Баш сөздө көрсөтүлбөйт"
 
-msgid "invitation.role.modifyRole.button"
-msgstr "Ролду өзгөртүү"
-
 msgid "invitation.management.options"
 msgstr "Чакырууну башкаруу параметрлери"
 
@@ -193,14 +174,8 @@ msgstr "Колдонуучу ролдон алынды"
 msgid "acceptInvitation.privacyStatement.validation"
 msgstr "Купуялык билдирүүсүн окуп, макул экениңизди ырастооңузду суранабыз"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Кошуу үчүн жок дегенде бир колдонуучу тобу аныкталышы керек"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Колдонуучу тобу чакырылган колдонуучуга дайындалган"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Алып салуу үчүн жок дегенде бир колдонуучу тобу аныкталышы керек"
 
 msgid "invitation.searchForm.emptyError"
 msgstr "Жок дегенде бир издөө критерийин бериңиз."
@@ -248,9 +223,6 @@ msgstr ""
 "Чакырууну жөнөтүүгө болбойт, анткени сиз эч кандай колдонуучу тобунун "
 "өзгөрүүлөрүн аныктаган жоксуз"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Берилген колдонуучу топторунда кайталанган жазуулар бар."
-
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
 "Колдонуучу аты {$username} менен колдонуучу мурунтан бар. Башкасын тандаңыз."
@@ -265,33 +237,6 @@ msgstr ""
 "Чакырууда электрондук почта ({$email}) дайындалса, бул почта башка "
 "колдонуучу тарабынан колдонулбашы керек."
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Колдонуучу аты берилүүгө тийиш"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Сырсөз берилүүгө тийиш"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Тиешелүүлүк (affiliation) берилүүгө тийиш"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Өлкө берилүүгө тийиш"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Аты берилүүгө тийиш"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Фамилия берилүүгө тийиш"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "Кошулган колдонуучу топтору үчүн колдонуучу тобунун ID берилүүгө тийиш"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "Кошулган колдонуучу топтору үчүн башталуу датасы берилүүгө тийиш"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Кошулган колдонуучу топтору үчүн баш сөз (masthead) берилүүгө тийиш"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Бул чакыруу түрүндө жөнөтүлүүчү электрондук кат аныкталган эмес"
 
@@ -300,9 +245,6 @@ msgstr "Бул чакыруу операциясы ишке ашкан жок"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "Берилген колдонуучу тобунун ID {$userGroupId} жок"
-
-msgid "invitation.validation.required"
-msgstr "{$attribute} талаасы талап кылынат."
 
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
@@ -313,12 +255,6 @@ msgstr "Бул чакырууну жокко чыгарууга болбойт"
 
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "Электрондук почта жана userId экөөнү тең бир убакта бере албайсыз."
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Бул атрибут учурдагы колдонуучулар үчүн жеткиликтүү эмес"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "Бул атрибут жок болгон колдонуучулар үчүн жеткиликтүү эмес"
 
 msgid "invitation.givenName.description"
 msgstr ""
@@ -410,7 +346,7 @@ msgstr "Бул сиз тиешелүү болгон институт жайга�
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"Идентификатор {reviewAssignmentId} жарактуу кароо тапшырмасына туура келбейт"
+"Идентификатор {$reviewAssignmentId} жарактуу кароо тапшырмасына туура келбейт"
 
 msgid "invitation.unavailable.title"
 msgstr "Чакыруу жеткиликсиз"

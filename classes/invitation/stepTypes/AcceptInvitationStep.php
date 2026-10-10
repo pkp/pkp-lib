@@ -1,15 +1,17 @@
 <?php
+
 /**
  * @file classes/invitation/stepType/AcceptInvitationStep.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AcceptInvitationStep
  *
  * @brief create accept invitation steps.
  */
+
 namespace PKP\invitation\stepTypes;
 
 use APP\core\Application;
@@ -39,7 +41,7 @@ class AcceptInvitationStep extends InvitationStepTypes
 
         switch ($user) {
             case !null:
-                if(!$user->hasVerifiedOrcid() && OrcidManager::isEnabled($context)) {
+                if (!$user->hasVerifiedOrcid() && OrcidManager::isEnabled($context)) {
                     $steps[] = $this->verifyOrcidStep();
                 }
                 break;
@@ -78,7 +80,7 @@ class AcceptInvitationStep extends InvitationStepTypes
             'verifyOrcid',
             __('acceptInvitation.verifyOrcid.stepName'),
             __('acceptInvitation.verifyOrcid.stepLabel'),
-            __('userInvitation.verifyOrcid.nextButtonLabel'),
+            __('acceptInvitation.verifyOrcid.nextButtonLabel'),
             'popup',
             __('acceptInvitation.verifyOrcid.stepDescription'),
         );
@@ -96,7 +98,7 @@ class AcceptInvitationStep extends InvitationStepTypes
             __('acceptInvitation.accountDetails.stepName'),
             'form',
             'AcceptInvitationUserAccountDetails',
-            __('userInvitation.accountDetails.stepDescription'),
+            __('acceptInvitation.accountDetails.stepDescription'),
         );
         $sections->addSection(
             null,
@@ -132,14 +134,14 @@ class AcceptInvitationStep extends InvitationStepTypes
             __('acceptInvitation.accountDetails.stepName'),
             'form',
             'AcceptInvitationUserDetailsForms',
-            __('userInvitation.accountDetails.stepDescription'),
+            __('acceptInvitation.accountDetails.stepDescription'),
         );
         $sections->addSection(
             new Form(
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocales($context)),
             ),
             [
                 'validateFields' => [
@@ -181,7 +183,7 @@ class AcceptInvitationStep extends InvitationStepTypes
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocales($context)),
             ),
             [
                 'validateFields' => [],
@@ -203,11 +205,9 @@ class AcceptInvitationStep extends InvitationStepTypes
     }
 
     /**
-     * Get all form locals
-     * @param Context $context
-     * @return array
+     * Get all form locales.
      */
-    private function getFormLocals(Context $context): array
+    private function getFormLocales(Context $context): array
     {
         $supportedFormLocales = $context->getSupportedFormLocales();
         $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();

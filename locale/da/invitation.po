@@ -14,12 +14,6 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Den inviterede bruger har fået tildelt brugergruppen"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "De angivne brugergrupper indeholder dubletter."
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Der skal angives en adgangskode"
-
 msgid "invitation.inviteToRole.btn"
 msgstr "Inviter til en rolle"
 
@@ -53,20 +47,6 @@ msgstr "Se alle brugere"
 msgid "invitation.email.description"
 msgstr "f.eks. aeinstein@example.com"
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Der skal angives et brugernavn"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Mindst én brugergruppe, der skal tilføjes, skal defineres"
-
-msgid "invitation.role.dateEnd"
-msgstr "Slutdato"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr ""
-"Fjernelse af brugerroller kan ikke gennemføres for brugere, der ikke "
-"eksisterer."
-
 msgid "userInvitation.sendMail.nextButtonLabel"
 msgstr "Inviter brugeren til rollen"
 
@@ -83,17 +63,11 @@ msgstr ""
 "Når en invitation har et tilknyttet bruger-id ({$userId}), skal den "
 "tilsvarende bruger eksistere."
 
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Et land skal angives"
-
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Denne invitation kan ikke annulleres"
 
 msgid "invitation.header"
 msgstr "Invitationer"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Gennemgå og invitér til roller"
 
 msgid "invitation.orcid.description"
 msgstr ""
@@ -109,9 +83,6 @@ msgstr ""
 msgid "userInvitation.enterDetails.stepName"
 msgstr "Indtast oplysninger"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Mindst én brugergruppe, der skal fjernes, skal defineres"
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "Invitationen kan ikke sendes, fordi du ikke har defineret nogen ændringer i "
@@ -126,57 +97,24 @@ msgstr "Annuller invitation"
 msgid "invitation.tableHeader.name"
 msgstr "Navn"
 
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Der skal angives en tilknytning"
-
 msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
-"Når en invitation har en tilknyttet e-mail ({email}), må denne e-mail-"
+"Når en invitation har en tilknyttet e-mail ({$email}), må denne e-mail-"
 "adresse ikke være i brug af en anden bruger."
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Der skal angives et fornavn"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "Der skal angives en startdato for tilføjede brugergrupper"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Der skal angives en kolofon for tilføjede brugergrupper"
 
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Denne invitationstype har ikke et defineret mail-indhold"
-
-msgid "invitation.validation.required"
-msgstr "{$attribute}-feltet er påkrævet."
 
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
 "Der blev fundet uventede egenskaber i elementet ved indeks {$attribute}: "
 "{$properties}."
 
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Denne attribut må ikke tilgås af eksisterende brugere"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "Denne attribut må ikke tilgås af ikke-eksisterende brugere"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "Denne attribut skal have en værdi lig med eller efter i dag"
-
 msgid "invitation.step"
 msgstr "TRIN"
 
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Indtast oplysninger"
-
 msgid "userInvitation.searchUser.stepLabel"
 msgstr "{$step} - Søg efter bruger"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Der skal angives et efternavn"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "Der skal angives et brugergruppe-id for tilføjede brugergrupper"
 
 msgid "invitation.api.error.operationFailed"
 msgstr "Denne invitationshandling fejlede"
@@ -185,7 +123,7 @@ msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotE
 msgstr "Det angivne brugergruppe-ID {$userGroupId} eksisterer ikke"
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
-msgstr "ID'et {reviewAssignmentId} svarer ikke til en gyldig bedømmelsesopgave"
+msgstr "ID'et {$reviewAssignmentId} svarer ikke til en gyldig bedømmelsesopgave"
 
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "Du kan ikke angive både e-mail og bruger-ID sammen."
@@ -288,9 +226,6 @@ msgstr "Angiv mindst et søgekriterium."
 
 msgid "invitation.wizard.viewPageTitleDescription"
 msgstr "Du ser {$name}s brugeroplysninger"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Ændr rolle"
 
 msgid "invitation.management.options"
 msgstr "Invitationshåndteringsmuligheder"

@@ -11,14 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr ""
-"Es muss mindestens eine Benutzer/innengruppe zum Entfernen definiert sein"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr ""
-"Es muss mindestens eine Benutzer/innengruppe zum Hinzufügen definiert sein"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr ""
 "Die Benutzer/innengruppe ist dem/der eingeladenen Benutzer/in zugewiesen"
@@ -33,29 +25,13 @@ msgstr ""
 "Wenn eine Einladung eine zugewiesene E-Mail ({$email}) hat, darf diese E-"
 "Mail nicht bereits von einem/einer anderen Benutzer/in verwendet werden."
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr ""
-"Für hinzugefügte Benutzer/innengruppen muss ein Startdatum angegeben werden"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr ""
-"Für hinzugefügte Benutzer/innengruppen muss ein Impressum angegeben werden"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "Die angegebene Benutzer/innengruppen-ID {$userGroupId} existiert nicht"
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"Die ID {reviewAssignmentId} stimmt mit keiner validen Gutachtenzuweisung "
+"Die ID {$reviewAssignmentId} stimmt mit keiner validen Gutachtenzuweisung "
 "überein"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr ""
-"Benutzer/innenrollen entfernen darf nicht für nicht existierende Benutzer/"
-"innen definiert sein."
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Die angegebenen Benutzer/innengruppen enthalten doppelte Einträge."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
@@ -67,36 +43,11 @@ msgstr ""
 "Wenn eine Einladung eine zugewiesene Benutzer/innen-ID ({$userId}) hat, muss "
 "der/die zugehörige Benutzer/in existieren."
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Ein Benutzer/innenname muss angegeben werden"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Ein Passwort muss angegeben werden"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Eine Affiliation muss angegeben werden"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Ein Land muss angegeben werden"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Ein Vorname muss angegeben werden"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Ein Nachname muss angegeben werden"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr ""
-"Für hinzugefügte Benutzer/innengruppen muss eine Gruppen-ID angegeben werden"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Für diesen Einladungstyp ist keine Versandart definiert"
 
 msgid "invitation.api.error.operationFailed"
 msgstr "Diese Einladungsaktion ist fehlgeschlagen"
-
-msgid "invitation.validation.required"
-msgstr "Das {$attribute} Feld ist erforderlich."
 
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
@@ -108,14 +59,8 @@ msgstr "Diese Einladung kann nicht storniert werden"
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "Sie können E-Mail und Benutzer/innen-ID nicht zusammen angeben."
 
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Das Attribut darf für existierende Benutzer/innen nicht zugänglich sein"
-
 msgid "invitation.header"
 msgstr "Einladungen"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Überprüfen & zu Rollen einladen"
 
 msgid "userInvitation.searchUser.stepDescription"
 msgstr ""
@@ -129,14 +74,6 @@ msgstr "Eine neue Rolle auswählen"
 
 msgid "invitation.role.addRole.button"
 msgstr "Eine weitere Rolle hinzufügen"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr ""
-"Das Attribut darf für nicht existierende Benutzer/innen nicht zugänglich sein"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr ""
-"Dieses Attribut muss einen Wert haben, der gleich oder später als heute ist"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "Das :attribute Feld ist nicht zulässig"
@@ -153,9 +90,6 @@ msgstr "Zu einer Rolle einladen"
 
 msgid "invitation.wizard.pageTitle"
 msgstr "Benutzer/in zum Annehmen einer Rolle einladen"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Details eingeben"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Benutzer/in suchen"
@@ -180,9 +114,6 @@ msgstr "Speichern und fortfahren"
 
 msgid "invitation.role.dateStart"
 msgstr "Startdatum"
-
-msgid "invitation.role.dateEnd"
-msgstr "Enddatum"
 
 msgid "userInvitation.roleTable.role"
 msgstr "Rolle"
@@ -379,9 +310,6 @@ msgstr "Im redaktionellem Impressum erscheinen"
 
 msgid "invitation.masthead.hidden"
 msgstr "Erscheint nicht im redaktionellem Impressum"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Rolle modifizieren"
 
 msgid "invitation.management.options"
 msgstr "Optionen zur Verwaltung der Einladungen"

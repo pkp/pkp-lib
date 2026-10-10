@@ -12,23 +12,8 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Потрібно визначити принаймні одну групу користувачів для видалення"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Потрібно визначити принаймні одну групу користувачів для додавання"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Група користувачів призначається запрошеному користувачеві"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "Видалити ролі користувачів неможливо для користувачів, які не існують."
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Потрібно вказати надане ім'я"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Потрібно вказати прізвище"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "Поле :attribute заборонено"
@@ -41,38 +26,15 @@ msgstr ""
 "Якщо запрошенню призначено електронну адресу ({$email}), ця адреса не "
 "повинна використовуватися іншим користувачем."
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Потрібно вказати ім'я користувача"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Потрібно ввести пароль"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Потрібно вказати афілійованість"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Потрібно вказати країну"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr ""
-"Для доданих груп користувачів необхідно вказати ідентифікатор групи "
-"користувачів"
-
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
 "Знайдено неочікувані властивості в елементі за індексом {$attribute}: "
 "{$properties}."
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "Для доданих груп користувачів необхідно вказати дату початку"
-
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"Ідентифікатор {reviewAssignmentId} не відповідає дійсному завданню з "
+"Ідентифікатор {$reviewAssignmentId} не відповідає дійсному завданню з "
 "рецензування"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Для доданих груп користувачів необхідно надати заголовок"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Це запрошення не можна скасувати"
@@ -89,19 +51,6 @@ msgstr "Не вдалося виконати цю операцію запрош�
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "Указаний ідентифікатор групи користувачів {$userGroupId} не існує"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Доступ до атрибута для існуючих користувачів заборонено"
-
-msgid "invitation.validation.required"
-msgstr "Поле {$attribute} обов'язкове для заповнення."
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "Доступ до атрибута не дозволено для неіснуючих користувачів"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr ""
-"Цей атрибут повинен мати значення, що дорівнює або пізніше сьогоднішнього дня"
 
 msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
 msgstr "Потрібне значення локалі '{$primaryLocale}'"
@@ -191,9 +140,6 @@ msgstr ""
 "Запрошення не може бути надіслано, оскільки Ви не визначили жодних змін у "
 "групі користувачів"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Введені групи користувачів містять дублікати записів."
-
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr "Користувач з іменем {$username} уже існує. Спробуйте інше ім'я."
 
@@ -208,20 +154,11 @@ msgstr "Запросити на роль"
 msgid "invitation.wizard.pageTitle"
 msgstr "Запросіть користувача отримати роль"
 
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Введіть деталі"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Огляд і запрошення на ролі"
-
 msgid "userInvitation.searchField.description"
 msgstr "наприклад, aeinstein@example.com або aeinstein чи 0000-0002-1825-0097"
 
 msgid "userInvitation.enterDetails.nextButtonLabel"
 msgstr "Зберегти та продовжити"
-
-msgid "invitation.role.dateEnd"
-msgstr "Дата закінчення"
 
 msgid "userInvitation.roleTable.role"
 msgstr "Роль"
@@ -345,9 +282,6 @@ msgstr "Скасувати запрошення"
 
 msgid "invitation.cancelInvite.actionName"
 msgstr "Скасувати дію запрошення"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Модифікувати роль"
 
 msgid "invitation.management.options"
 msgstr "Варіанти керування запрошенням"

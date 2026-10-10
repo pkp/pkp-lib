@@ -11,9 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Poskytnuté skupiny uživatelů obsahují duplicitní záznamy."
-
 msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
 msgstr ""
 "Pokud má pozvánka přiřazeno uživatelské ID ({$userId}), musí odpovídající "
@@ -24,47 +21,17 @@ msgstr ""
 "Pokud je pozvánka přiřazena k e-mailové adrese ({$email}), tato e-mailová "
 "adresa nesmí být používána jiným uživatelem."
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Je třeba zadat uživatelské jméno"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Je třeba zadat heslo"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Je třeba zadat stát"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Je třeba zadat křestní jméno"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Je třeba zadat příjmení"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "U přidaných skupin uživatelů je třeba zadat datum zahájení"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Pro přidané skupiny uživatelů je třeba zadat tiráž"
-
 msgid "invitation.api.error.operationFailed"
 msgstr "Tato operace s pozvánkou se nezdařila"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "Zadané ID uživatelské skupiny {$userGroupId} neexistuje"
 
-msgid "invitation.validation.required"
-msgstr "Pole {$attribute} je povinné."
-
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
-msgstr "ID {reviewAssignmentId} neodpovídá platnému úkolu k recenzi"
+msgstr "ID {$reviewAssignmentId} neodpovídá platnému úkolu k recenzi"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Tuto pozvánku nejde zrušit"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Atribut není povolen pro přístup stávajících uživatelů"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "Atribut není povolen pro přístup neexistujících uživatelů"
 
 msgid "invitation.header"
 msgstr "Pozvánky"
@@ -144,20 +111,8 @@ msgstr "Přeskočit ověření ORCID"
 msgid "acceptInvitation.verifyOrcid"
 msgstr "Ověřit ORCID iD"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr ""
-"Je nutné definovat alespoň jednu skupinu uživatelů, kterou chcete přidat"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Uživatelská skupina je přiřazena pozvanému uživateli"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr ""
-"Je nutné definovat alespoň jednu skupinu uživatelů, kterou chcete odstranit"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr ""
-"Odstranění uživatelských rolí nelze definovat pro neexistující uživatele."
 
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
@@ -168,12 +123,6 @@ msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
 "Už existuje uživatel s uživatelským jménem {$username}. Zkuste jiné "
 "uživatelské jméno."
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Je třeba uvést afiliaci"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "Pro přidané skupiny uživatelů je třeba zadat id skupiny uživatelů"
 
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Tento typ pozvánky není definována možnost zaslání poštou"
@@ -186,17 +135,11 @@ msgstr ""
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "Nelze zadat současně e-mailovou adresu i uživatelské jméno."
 
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "Tento atribut musí mít hodnotu rovnou nebo pozdější než dnešní datum"
-
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "Pole :attribute je zakázáno"
 
 msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
 msgstr "Je vyžadována hodnota pro lokalizaci '{$primaryLocale}'"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Vložte podrobnosti"
 
 msgid "userInvitation.searchUser.stepLabel"
 msgstr "{$step} - Vyhledat uživatele"
@@ -219,9 +162,6 @@ msgstr "Uložit a pokračovat"
 msgid "acceptInvitation.usernameField.description"
 msgstr "Může se jednat o kombinaci velkých písmen, malých písmen nebo čísel"
 
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Recenze a pozvánka do role"
-
 msgid "userInvitation.enterDetails.stepName"
 msgstr "Vložit podrobnosti"
 
@@ -236,9 +176,6 @@ msgstr "Pozvánka odeslána"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Hledat uživatele"
-
-msgid "invitation.role.dateEnd"
-msgstr "Datum ukončení"
 
 msgid "acceptInvitation.passwordField.description"
 msgstr ""
@@ -315,9 +252,6 @@ msgstr "Zobrazit v tiráži"
 
 msgid "invitation.masthead.hidden"
 msgstr "Nebude zobrazeno v tiráži"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Změnit roli"
 
 msgid "invitation.management.options"
 msgstr "Možnosti správy pozvánek"

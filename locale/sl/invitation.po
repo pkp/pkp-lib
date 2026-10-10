@@ -12,20 +12,8 @@ msgstr ""
 "n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Za dodajanje mora biti določena vsaj ena skupina uporabnikov"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Uporabniška skupina je dodeljena povabljenemu uporabniku"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Določiti morate vsaj eno skupino uporabnikov, ki jo želite odstraniti"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "Vlog uporabnikov ni mogoče odstraniti za neobstoječe uporabnike."
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "V navedenih skupinah uporabnikov so podvojeni vnosi."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr "Uporabnik z imenom {$username} že obstaja. Poskusite z drugim."
@@ -35,48 +23,24 @@ msgstr ""
 "Če je povabilu dodeljen e-poštni naslov ({$email}), ta naslov ne sme biti že "
 "v uporabi pri drugem uporabniku."
 
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Geslo mora biti vnešeno"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Ime je obvezno"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Priimek je obvezen"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "Za dodane uporabniške skupine mora biti določen začetni datum"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Za dodane uporabniške skupine mora biti določen kolofon"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Ta vrsta vabila nima definirane možnosti pošiljanja po pošti"
 
 msgid "invitation.api.error.operationFailed"
 msgstr "Pošiljanje povabila ni uspelo"
 
-msgid "invitation.validation.required"
-msgstr "Polje {$attribute} je obvezno."
-
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
 "Prišlo je do nepričakovane vrednosti atributa {$attribute}: {$properties}."
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
-msgstr "ID {reviewAssignmentId} ne ustreza veljavni recenzijski zahtevi"
+msgstr "ID {$reviewAssignmentId} ne ustreza veljavni recenzijski zahtevi"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Povabila ni možno preklicati"
 
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "Ne morete hkrati vnesti e-poštnega naslova in uporabniškega imena."
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "Dostop do tega atributa ni dovoljen za neobstoječe uporabnike"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "Vrednost atributa mora biti danes ali kasneje"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "Polje :attribute je prepovedano"
@@ -92,12 +56,6 @@ msgstr "Povabila"
 
 msgid "invitation.inviteToRole.btn"
 msgstr "Povabilo k vlogi"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Vnesite podrobnosti"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Preglejte in povabite za vloge"
 
 msgid "userInvitation.searchUser.stepLabel"
 msgstr "{$step} - Išči uporabnika"
@@ -116,9 +74,6 @@ msgstr "Shrani in nadaljuj"
 
 msgid "invitation.role.selectRole"
 msgstr "Izberite novo vlogo"
-
-msgid "invitation.role.dateEnd"
-msgstr "Končni datum"
 
 msgid "invitation.role.addRole.button"
 msgstr "Dodajo dodatno vlogo"
@@ -249,9 +204,6 @@ msgstr "Objava v kolofonu"
 msgid "invitation.masthead.hidden"
 msgstr "Ni objavljeno v kolofonu"
 
-msgid "invitation.role.modifyRole.button"
-msgstr "Spremeni vlogo"
-
 msgid "userInvitation.cancel.message"
 msgstr "Ali res želite preklicati to povabilo?"
 
@@ -341,26 +293,11 @@ msgstr "Išči uporabnika"
 msgid "userInvitation.sendMail.nextButtonLabel"
 msgstr "Povabite uporabnika k vlogi"
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Vnesite uporabniško ime"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Ustanova mora biti določena"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Državo morate določiti"
-
 msgid "userInvitation.searchField.description"
 msgstr "npr. aeinstein@example.com ali aeinstein ali 0000-0002-1825-0097"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "Navedeni ID uporabniške skupine {$userGroupId} ne obstaja"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Dostop do tega atributa ni dovoljen za obstoječe uporabnike"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "Za dodane uporabniške skupine mora biti določen ID uporabniške skupine"
 
 msgid "invitation.orcid.description"
 msgstr ""

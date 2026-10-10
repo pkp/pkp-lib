@@ -11,17 +11,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "En az bir kullanıcı grubu eklenmelidir"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Kullanıcı grubu davet edilen kullanıcıya atanır"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Kaldırılacak en az bir kullanıcı grubu tanımlanmalıdır"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Verilen kullanıcı gruplarında tekrarlanan kayıtlar bulunmaktadır."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
@@ -38,52 +29,22 @@ msgstr ""
 "Davetiyede bir e-posta adresi ({$email}) atanmışsa, bu e-posta adresi başka "
 "bir kullanıcı tarafından kullanılmamalıdır."
 
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Şifre girilmeli"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Kurum girilmeli"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "İsim girilmeli"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Soyisim girilmeli"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "Eklenen kullanıcı grubu için bir başlangıç tarihi belirtilmelidir"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Eklenen kullanıcı grubu için bir ana başlık sağlanmalıdır"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Bu davet türü için tanımlanmış bir posta adresi yok"
 
 msgid "invitation.api.error.operationFailed"
 msgstr "Bu davet işlemi başarısız oldu"
 
-msgid "invitation.validation.required"
-msgstr "{$attribute} alanı zorunludur."
-
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
-"{attribute} indeksindeki ögede beklenmedik özellikler bulundu: {properties}."
+"{$attribute} indeksindeki ögede beklenmedik özellikler bulundu: {$properties}."
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"id {reviewAssignmentId} geçerli bir değerlendirme atamasına karşılık gelmiyor"
+"id {$reviewAssignmentId} geçerli bir değerlendirme atamasına karşılık gelmiyor"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Bu davet iptal edilemez"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Bu öznitelik mevcut kullanıcılar tarafından erişilemez"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "Özellik, mevcut olmayan kullanıcılar tarafından erişilemez"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "Bu öznitelik, bugün veya daha sonraki bir tarihe sahip olmalıdır"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr ":attribute alanı yasaktır"
@@ -96,12 +57,6 @@ msgstr "Davetler"
 
 msgid "invitation.wizard.pageTitle"
 msgstr "Kullanıcıyı rol almaya davet et"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Detayları gir"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Rolleri inceleyin ve davet edin"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Kullanıcı Ara"
@@ -123,9 +78,6 @@ msgstr "Yeni rol seç"
 
 msgid "invitation.role.dateStart"
 msgstr "Başlangıç Tarihi"
-
-msgid "invitation.role.dateEnd"
-msgstr "Bitiş Tarihi"
 
 msgid "invitation.role.addRole.button"
 msgstr "Yeni Rol Ekle"
@@ -235,9 +187,6 @@ msgstr "Künyede görün"
 msgid "invitation.masthead.hidden"
 msgstr "Künyede görünmesin"
 
-msgid "invitation.role.modifyRole.button"
-msgstr "Rolü Düzenle"
-
 msgid "invitation.management.options"
 msgstr "Davet yönetimi seçenekleri"
 
@@ -292,9 +241,6 @@ msgstr ""
 msgid "acceptInvitation.privacyConsent"
 msgstr "Gizlilik Onayı"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "Kullanıcı rolleri, mevcut olmayan kullanıcılar için tanımlanamaz."
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "Herhangi bir kullanıcı grubu değişikliği tanımlamadığınız için davet "
@@ -305,9 +251,6 @@ msgstr ""
 "Mevcut daveti düzenlerseniz veya yeni bir rol eklerseniz, mevcut davet iptal "
 "edilir ve yeni bir davet gönderilir. Devam etmek istediğinizden emin misiniz?"
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Bir kullanıcı adı girilmelidir"
-
 msgid "acceptInvitation.cancel.message"
 msgstr ""
 "İptal etmek istediğinizden emin misiniz? Şimdi iptal ederseniz, rol kabul "
@@ -315,12 +258,6 @@ msgstr ""
 "yeniden başlamanız gerekir. Zaten kullanıcıysanız, kontrol paneline geri "
 "yönlendirilirsiniz. Değilseniz, süreci yeniden başlatmak için davet e-"
 "postasına erişmeniz gerekir."
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Ülke seçilmeli"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "Eklenen kullanıcı grupları için bir kullanıcı grubu id'si sağlanmalıdır"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "Sağlanan kullanıcı grubu id'si {$userGroupId} mevcut değil"
@@ -337,6 +274,7 @@ msgstr "Kullanıcıyı Role Davet Et"
 msgid "userInvitation.searchUser.stepLabel"
 msgstr "{$step} - Kullanıcı Ara"
 
+#, fuzzy
 msgid "userInvitation.searchUser.stepDescription"
 msgstr ""
 "Kullanıcı mevcut değilse, onu rol almaya davet edebilirsiniz. Kullanıcı "

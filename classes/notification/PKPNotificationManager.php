@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/PKPNotificationManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationManager
@@ -479,6 +479,8 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             Decision::DECLINE, Decision::INITIAL_DECLINE => Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE,
             Decision::REVERT_DECLINE => Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE,
             Decision::SEND_TO_PRODUCTION => Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION,
+            Decision::WITHDRAW, Decision::WITHDRAW_REVIEW, Decision::WITHDRAW_COPYEDITING, Decision::WITHDRAW_PRODUCTION => Notification::NOTIFICATION_TYPE_EDITOR_DECISION_WITHDRAW,
+            Decision::REVERT_WITHDRAW, Decision::REVERT_WITHDRAW_REVIEW, Decision::REVERT_WITHDRAW_COPYEDITING, Decision::REVERT_WITHDRAW_PRODUCTION => Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_WITHDRAW,
             default => null
         };
     }
@@ -523,6 +525,8 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             case Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
             case Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
             case Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
+            case Notification::NOTIFICATION_TYPE_EDITOR_DECISION_WITHDRAW:
+            case Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_WITHDRAW:
                 if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type!');
                 }

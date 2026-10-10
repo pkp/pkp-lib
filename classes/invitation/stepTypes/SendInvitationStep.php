@@ -3,8 +3,8 @@
 /**
  * @file classes/invitation/stepType/SendInvitationStep.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SendInvitationStep
@@ -137,10 +137,10 @@ class SendInvitationStep extends InvitationStepTypes
     {
         $sections = new Sections(
             'userInvitedEmail',
-            __('userInvitation.sendMail.stepLabel'),
+            __('userInvitation.sendMail.stepName'),
             'email',
             'UserInvitationEmailComposerStep',
-            __('userInvitation.sendMail.stepName'),
+            __('userInvitation.sendMail.stepDescription'),
         );
         $fakeInvitation = $this->getFakeInvitation();
         $mailable = new UserRoleAssignmentInvitationNotify($context, $fakeInvitation);

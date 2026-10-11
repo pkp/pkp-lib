@@ -98,6 +98,16 @@ class VersionCheck
                     $version['patch'][$patch['from']] = (string) $patch;
                 }
             }
+
+            if (isset($xml->compatibility)) {
+                $version['compatibility'] = [];
+                foreach ($xml->compatibility as $compatibility) {
+                    $application = (string) $compatibility['application'];
+                    foreach ($compatibility->release as $compatibleRelease) {
+                        $version['compatibility'][$application][] = (string) $compatibleRelease;
+                    }
+                }
+            }
             return $version;
         });
 
@@ -144,7 +154,37 @@ class VersionCheck
             }
         }
 
+        if (isset($versionInfo['compatibility'])) {
+            self::checkPluginVersionCompatibility($versionInfo);
+        }
+
         return $pluginVersion;
+    }
+
+    /**
+     * Checks whether the given plugin version is compatible with the current application version.
+     *
+     * @throws Exception if the plugin version is not compatible
+     */
+    public static function checkPluginVersionCompatibility(array $versionInfo): void
+    {
+        $application = Application::get();
+        $compatibility = $versionInfo['compatibility'];
+
+        if (!isset($compatibility[$application->getName()])) {
+            throw new Exception(__('manager.plugins.incompatiblePlugin.application'));
+        }
+
+        $compatibleVersions = $compatibility[$application->getName()];
+        $applicationVersion = $application->getCurrentVersion();
+        foreach ($compatibleVersions as $compatibleVersion) {
+            if ($applicationVersion->isCompatible($compatibleVersion)) {
+                return; // A compatible version was found
+            }
+        }
+
+        // There was no compatible version found.
+        throw new Exception(__('manager.plugins.incompatiblePlugin.version'));
     }
 
     /**

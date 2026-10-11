@@ -24,7 +24,6 @@ use APP\template\TemplateManager;
 use PKP\announcement\Collector;
 use PKP\config\Config;
 use PKP\core\PKPRequest;
-use PKP\security\authorization\ContextRequiredPolicy;
 
 class AnnouncementHandler extends Handler
 {

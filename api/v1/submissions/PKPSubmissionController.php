@@ -345,7 +345,7 @@ class PKPSubmissionController extends PKPBaseController
 
         Route::post('', $this->add(...))
             ->name('submission.add');
-        }
+    }
 
     /**
      * @copydoc \PKP\core\PKPBaseController::authorize()
@@ -357,7 +357,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
-        if($actionName === 'add') {
+        if ($actionName === 'add') {
             // For 'add' endpoint, mark role assignments as checked since the add() method
             // will automatically assign the AUTHOR role to users without roles
             $this->markRoleAssignmentsChecked();
@@ -1367,6 +1367,7 @@ class PKPSubmissionController extends PKPBaseController
         Repo::publication()->publish($publication);
 
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->with(['userGroup'])
             ->get();
 
         foreach ($stageAssignments as $stageAssignment) {

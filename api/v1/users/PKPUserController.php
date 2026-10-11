@@ -431,6 +431,7 @@ class PKPUserController extends PKPBaseController
             ->withUserId($userId)
             ->withContextId($context->getId())
             ->withUserUserGroupId($userUserGroupId)
+            ->with(['userGroup'])
             ->first();
         if (!$userUserGroup) {
             return response()->json([

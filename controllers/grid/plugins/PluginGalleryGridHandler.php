@@ -26,6 +26,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\notification\Notification;
@@ -247,9 +248,12 @@ class PluginGalleryGridHandler extends GridHandler
             default:
                 return throw new Exception('Unexpected gallery state');
         }
+        $releaseLocales = $plugin->getReleaseLocales();
+        $releaseLocaleNames = $releaseLocales === null ? null : Locale::getSubmissionLocaleDisplayNames($releaseLocales);
         $templateMgr->assign([
             'statusKey' => $statusKey,
-            'statusClass' => $statusClass
+            'statusClass' => $statusClass,
+            'releaseLocaleNames' => $releaseLocaleNames,
         ]);
 
         $router = $request->getRouter();

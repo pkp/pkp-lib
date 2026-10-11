@@ -17,6 +17,10 @@ import('lib.pkp.plugins.importexport.native.filter.NativeImportExportFilter');
 
 class NativeExportFilter extends NativeImportExportFilter {
 
+	const SERIALIZATION_MODE_RELATIVE_PATH = 'relative';
+	const SERIALIZATION_MODE_EMBED = 'embed';
+	const SERIALIZATION_MODE_URL = 'url';
+
 	/** @var boolean If set to true no validation (e.g. XML validation) will be done */
 	var $_noValidation = null;
 	var $opts = array();

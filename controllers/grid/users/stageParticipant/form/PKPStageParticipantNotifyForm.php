@@ -197,8 +197,7 @@ class PKPStageParticipantNotifyForm extends Form
         }
 
         // If no template exists, use a default mailable.
-        $mailable = $template ? new TemplateVariables($template->promote($submission), $submission, $context) : new class($submission, $context) extends Mailable
-        {
+        $mailable = $template ? new TemplateVariables($template->promote($submission), $submission, $context) : new class ($submission, $context) extends Mailable {
             use Sender;
             use Recipient;
             use Discussion;
@@ -257,6 +256,7 @@ class PKPStageParticipantNotifyForm extends Form
                 $this->getData('message'),
                 array_intersect_key($mailable->getData(), $additionalVariables)
             ),
+            'isHeadnote' => true,
         ]);
 
         // Send the email
@@ -445,7 +445,6 @@ class PKPStageParticipantNotifyForm extends Form
      * Get the discussion title for the current stage.
      * It's used if no template is available.
      *
-     * @return string
      */
     protected function getDiscussionTitle(?Template $template = null): string
     {

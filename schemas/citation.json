@@ -35,7 +35,11 @@
                         "type": "string"
                     },
                     "orcid": {
-                        "type": "string"
+                        "type": "string",
+                        "validation": [
+                            "nullable",
+                            "orcid"
+                        ]
                     },
                     "openAlex": {
                         "type": "string"

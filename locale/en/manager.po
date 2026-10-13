@@ -428,8 +428,8 @@ msgstr "DOIs"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
-"The following error was returned by {$registrationAgency} and contains "
-"details about the cause of the error:"
+"The deposit to {$registrationAgency} failed. The details below explain the "
+"cause of the error:"
 
 msgid "manager.emails.addEmail"
 msgstr "Add Template"

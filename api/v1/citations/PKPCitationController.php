@@ -341,8 +341,9 @@ class PKPCitationController extends PKPBaseController
 
         $citations = $publication->getData('citations');
         $citationsMapped = [];
+        $context = $this->getRequest()->getContext();
         foreach ($citations as $citation) {
-            Repo::citation()->reprocessCitation($citation);
+            Repo::citation()->reprocessCitation($citation, $context);
             $citationsMapped[] = Repo::citation()->getSchemaMap()->map($citation);
         }
 

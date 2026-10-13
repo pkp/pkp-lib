@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\LazyCollection;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\filter\CitationListTokenizerFilter;
+use PKP\context\Context;
 use PKP\jobs\citation\CrossrefJob;
 use PKP\jobs\citation\ExtractPidsJob;
 use PKP\jobs\citation\IsProcessedJob;
@@ -251,7 +252,7 @@ class Repository
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
                         if ($citationsMetadataLookup && $reprocess) {
-                            $this->reprocessCitation($citation);
+                            $this->reprocessCitation($citation, $context);
                         }
                         $importedCitations[] = $citation;
                     }
@@ -311,7 +312,7 @@ class Repository
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
                         if ($this->request->getContext()->getData('citationsMetadataLookup')) {
-                            $this->reprocessCitation($citation);
+                            $this->reprocessCitation($citation, $this->request->getContext());
                         } else {
                             $rawString = str_ireplace('http://', 'https://', $rawCitationString);
                             $doi = Doi::extractFromString($rawString);
@@ -346,12 +347,16 @@ class Repository
 
     /**
      * Add a new job chain for a citation.
+     *
+     * @param ?Context $context The citation's context, if already known: saves loading it in bulk runs
      */
-    public function reprocessCitation(Citation $citation): void
+    public function reprocessCitation(Citation $citation, ?Context $context = null): void
     {
-        $publication = Repo::publication()->get($citation->getData('publicationId'));
-        $submission = Repo::submission()->get($publication->getData('submissionId'));
-        $context = Application::getContextDAO()->getById($submission->getData('contextId'));
+        if (!$context) {
+            $publication = Repo::publication()->get($citation->getData('publicationId'));
+            $submission = Repo::submission()->get($publication->getData('submissionId'));
+            $context = Application::getContextDAO()->getById($submission->getData('contextId'));
+        }
 
         $contactEmail = $context->getContactEmail();
 

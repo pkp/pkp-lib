@@ -178,7 +178,11 @@ class OrcidManager
         // Overwrite redirect base url if variable is configured
         $customRedirectUrl = self::getCustomRedirectUrl();
         if (!empty($customRedirectUrl)) {
-            $redirectUrl = preg_replace("#^https{0,1}:\/\/(.*)\/#U", $customRedirectUrl, $redirectUrl);
+            $redirectUrl = preg_replace(
+                '#^https?://[^/]+/#',
+                rtrim($customRedirectUrl, '/') . '/',
+                $redirectUrl
+            );
         }
 
         return self::getOauthPath($context) . 'authorize?' . http_build_query(

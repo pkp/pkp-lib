@@ -80,6 +80,13 @@ class I13283_RestoreDegradedOrcidFunctionality extends Migration
             return;
         }
 
+        $existingValue = DB::table('site_settings')
+            ->where('setting_name', 'orcidCustomRedirectBaseUrl')
+            ->value('setting_value');
+        if (!empty($existingValue)) {
+            return;
+        }
+
         DB::table('site_settings')
             ->updateOrInsert(
                 ['setting_name' => 'orcidCustomRedirectBaseUrl'],

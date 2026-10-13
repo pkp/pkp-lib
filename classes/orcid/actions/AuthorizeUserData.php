@@ -229,27 +229,29 @@ class AuthorizeUserData
         $defaultReason = 'ORCID API credentials may be incorrect.';
         $statusCode = $clientException->getResponse()->getStatusCode();
 
-            switch ($statusCode) {
-                case 401:
-                    $errorData = json_decode($clientException->getResponse()->getBody()->getContents(), true);
+        switch ($statusCode) {
+            case 401:
+                $errorData = json_decode($clientException->getResponse()->getBody()->getContents(), true);
 
-                    if (json_last_error() !== JSON_ERROR_NONE) {
-                        $message .= $defaultReason;
-                    }
-
-                    $description =  $errorData['error_description'] ?? '';
-                    $errorReason = $errorData['error'] ?? '';
-
-                    if (empty($description) || empty($errorReason)) {
-                        $message .= $defaultReason;
-                    }
-
-
-                    $message .= $description . '. Reason: ' . $errorReason . '.';
-                    break;
-                default:
+                if (json_last_error() !== JSON_ERROR_NONE || !is_array($errorData)) {
                     $message .= $defaultReason;
-            }
+                    break;
+                }
+
+                $description = $errorData['error_description'] ?? '';
+                $errorReason = $errorData['error'] ?? '';
+
+                if (empty($description) || empty($errorReason)) {
+                    $message .= $defaultReason;
+                    break;
+                }
+
+
+                $message .= $description . '. Reason: ' . $errorReason . '.';
+                break;
+            default:
+                $message .= $defaultReason;
+        }
 
         return $message;
     }

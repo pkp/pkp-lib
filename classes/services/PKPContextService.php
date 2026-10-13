@@ -812,10 +812,11 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      * @param int $userId ID of the user who uploaded the temporary file
      * @param string $localeKey Example: en. Leave empty for a file that is
      *  not localized.
+     * @param boolean $isImage True iff the setting is used to store data about an image (logo/icon).
      *
      * @return string|boolean The new filename or false on failure
      */
-    public function moveTemporaryFile($context, $temporaryFile, $fileNameBase, $userId, $localeKey = '')
+    public function moveTemporaryFile($context, $temporaryFile, $fileNameBase, $userId, $localeKey = '', $isImage = false)
     {
         $publicFileManager = new PublicFileManager();
         $temporaryFileManager = new TemporaryFileManager();
@@ -826,8 +827,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         }
 
         $extension = $publicFileManager->getDocumentExtension($temporaryFile->getFileType());
-        if (!$extension) {
+        if (!$extension || $isImage) {
             $extension = $publicFileManager->getImageExtension($temporaryFile->getFileType());
+            if (!$extension) return false;
         }
         $fileName .= $extension;
 
@@ -901,7 +903,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         }
 
         $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
-        $fileName = $this->moveTemporaryFile($context, $temporaryFile, $settingName, $userId, $localeKey);
+        $fileName = $this->moveTemporaryFile($context, $temporaryFile, $settingName, $userId, $localeKey, $isImage);
 
         if ($fileName) {
             // Get the details for image uploads

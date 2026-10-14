@@ -29,6 +29,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use LibXMLError;
 use PKP\context\Context;
 use PKP\core\DataObject;
 use PKP\core\PKPBaseController;
@@ -449,7 +450,7 @@ class PKPDoiController extends PKPBaseController
 
         if (!empty($submissionsData['xmlErrors'])) {
             return response()->json([
-                'error' => __('api.dois.400.xmlExportFailed')
+                'error' => $this->getXmlExportFailedMessage($submissionsData['xmlErrors'])
             ], Response::HTTP_BAD_REQUEST);
         }
 
@@ -468,7 +469,7 @@ class PKPDoiController extends PKPBaseController
 
             if (!empty($peerReviewsData['xmlErrors'])) {
                 return response()->json([
-                    'error' => __('api.dois.400.xmlExportFailed')
+                    'error' => $this->getXmlExportFailedMessage($peerReviewsData['xmlErrors'])
                 ], Response::HTTP_BAD_REQUEST);
             }
 
@@ -507,6 +508,21 @@ class PKPDoiController extends PKPBaseController
         );
 
         return $agency->exportPeerReviews($peerReviews, $context);
+    }
+
+    /**
+     * Get the XML export failure message listing the validation errors.
+     *
+     * @param array $xmlErrors LibXMLError objects or strings
+     */
+    protected function getXmlExportFailedMessage(array $xmlErrors): string
+    {
+        $messages = array_unique(array_map(
+            fn ($error) => trim($error instanceof LibXMLError ? $error->message : (string) $error),
+            $xmlErrors
+        ));
+        $items = array_map(fn (string $message) => '<li>' . htmlspecialchars($message) . '</li>', $messages);
+        return __('api.dois.400.xmlExportFailed') . '<ul>' . implode('', $items) . '</ul>';
     }
 
     /**

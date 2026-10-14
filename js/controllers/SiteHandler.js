@@ -310,8 +310,10 @@
 		});
 
 		tinyMCEObject.on('deactivate', function(tinyMCEObject) {
-			// Show the placholder when the editor is deactivated
-			if (!tinyMCEObject.target.getContent().length) {
+			// Show the placholder when the editor is deactivated. The editor may
+			// not be initialized yet: TinyMCE makes every new editor the active one.
+			if (tinyMCEObject.target.initialized &&
+					!tinyMCEObject.target.getContent().length) {
 				$('#mcePlaceholder-' + tinyMCEObject.id).show();
 			}
 		});

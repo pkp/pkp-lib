@@ -27,6 +27,7 @@ use PKP\announcement\AnnouncementTypeDAO;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
 use PKP\core\Core;
+use PKP\user\User;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -38,6 +39,7 @@ use PKP\file\FileManager;
 use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
 use PKP\navigationMenu\NavigationMenuDAO;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\navigationMenu\NavigationMenuItemDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -580,12 +582,12 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                 if (!array_key_exists($localeKey, $value)) {
                     continue;
                 }
-                $value[$localeKey] = $this->_saveFileParam($context, $value[$localeKey], $fileUploadProp, $currentUser->getId(), $localeKey, true);
+                $value[$localeKey] = $this->_saveFileParam($context, $value[$localeKey], $fileUploadProp, $currentUser, $localeKey, true);
             }
             $params[$fileUploadProp] = $value;
         }
         if (!empty($params['styleSheet'])) {
-            $params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $currentUser->getId());
+            $params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $currentUser, extension: '.css');
         }
         $context = $this->edit($context, $params, $request);
 
@@ -644,7 +646,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $contextDao = Application::getContextDao();
 
         // Move uploaded files into place and update the params
-        $userId = $request->getUser() ? $request->getUser()->getId() : null;
+        $user = $request->getUser();
         $supportedLocales = $context->getSupportedFormLocales();
         $fileUploadParams = ['favicon', 'homepageImage', 'pageHeaderLogoImage'];
         foreach ($fileUploadParams as $fileUploadParam) {
@@ -655,11 +657,11 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                 if (!array_key_exists($localeKey, $params[$fileUploadParam])) {
                     continue;
                 }
-                $params[$fileUploadParam][$localeKey] = $this->_saveFileParam($context, $params[$fileUploadParam][$localeKey], $fileUploadParam, $userId, $localeKey, true);
+                $params[$fileUploadParam][$localeKey] = $this->_saveFileParam($context, $params[$fileUploadParam][$localeKey], $fileUploadParam, $user, $localeKey, true);
             }
         }
         if (array_key_exists('styleSheet', $params)) {
-            $params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $userId);
+            $params['styleSheet'] = $this->_saveFileParam($context, $params['styleSheet'], 'styleSheet', $user, extension: '.css');
         }
 
         $newContext = $contextDao->newDataObject();
@@ -781,18 +783,14 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     /**
      * Move a temporary file to the context's public directory
      *
-     * @param Context $context
-     * @param TemporaryFile $temporaryFile
-     * @param string $fileNameBase Unique identifier to use for the filename. The
-     *  Extension and locale will be appended.
-     * @param int $userId ID of the user who uploaded the temporary file
-     * @param string $localeKey Example: en. Leave empty for a file that is
-     *  not localized.
+     * @param string $fileNameBase Unique identifier to use for the filename. The extension and locale will be appended.
+     * @param User $user The user who uploaded the temporary file
+     * @param string $localeKey Example: en. Leave empty for a file that is not localized.
      * @param boolean $isImage True iff the setting is used to store data about an image (logo/icon).
-     *
+     * @param ?string $extension When specified, use this extension.
      * @return string|boolean The new filename or false on failure
      */
-    public function moveTemporaryFile($context, $temporaryFile, $fileNameBase, $userId, $localeKey = '', $isImage = false)
+    public function moveTemporaryFile(Context $context, TemporaryFile $temporaryFile, string $fileNameBase, User $user, string $localeKey = '', bool $isImage = false, ?string $extension = null)
     {
         $publicFileManager = new PublicFileManager();
         $temporaryFileManager = new TemporaryFileManager();
@@ -802,10 +800,13 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $fileName .= '_' . $localeKey;
         }
 
-        $extension = $publicFileManager->getDocumentExtension($temporaryFile->getFileType());
-        if (!$extension || $isImage) {
-            $extension = $publicFileManager->getImageExtension($temporaryFile->getFileType());
-            if (!$extension) return false;
+        if ($isImage) {
+            $extension ??= $publicFileManager->getImageExtension($temporaryFile->getFileType());
+            if (!$extension || !$temporaryFileManager->isValidImage($temporaryFile)) {
+                throw new StoreTemporaryFileException($temporaryFile, $fileNameBase, $user, $context);
+            }
+        } else {
+            $extension ??= $publicFileManager->getDocumentExtension($temporaryFile->getFileType());
         }
         $fileName .= $extension;
 
@@ -819,7 +820,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             return false;
         }
 
-        $temporaryFileManager->deleteById($temporaryFile->getId(), $userId);
+        $temporaryFileManager->deleteById($temporaryFile->getId(), $user->getId());
 
         return $fileName;
     }
@@ -850,15 +851,16 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      *  file ID if a new file has been uploaded.
      * @param string $settingName The name of the setting to save, typically used
      *  in the filename.
-     * @param int $userId ID of the user who owns the temporary file
+     * @param User $user The user who owns the temporary file
      * @param string $localeKey Optional. Used in the filename for multilingual
      *  properties.
      * @param bool $isImage Optional. For image files which return alt text,
      *  width, height, etc in the param value.
+     * @param ?string $extension When specified, use the specified file extension.
      *
      * @return string|array|null New param value or null on failure
      */
-    protected function _saveFileParam($context, $value, $settingName, $userId, $localeKey = '', $isImage = false)
+    protected function _saveFileParam($context, $value, $settingName, $user, $localeKey = '', $isImage = false, ?string $extension = null)
     {
         $temporaryFileManager = new TemporaryFileManager();
 
@@ -878,8 +880,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             return $value;
         }
 
-        $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
-        $fileName = $this->moveTemporaryFile($context, $temporaryFile, $settingName, $userId, $localeKey, $isImage);
+        $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $user->getId());
+        $fileName = $this->moveTemporaryFile($context, $temporaryFile, $settingName, $user, $localeKey, $isImage, $extension);
 
         if ($fileName) {
             // Get the details for image uploads

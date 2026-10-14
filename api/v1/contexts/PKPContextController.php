@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\plugins\Plugin;
@@ -411,7 +412,13 @@ class PKPContextController extends PKPBaseController
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
-        $context = $contextService->edit($context, $params, $request);
+        try {
+            $context = $contextService->edit($context, $params, $request);
+        } catch (StoreTemporaryFileException $e) {
+            return response()->json([
+                $e->targetPath => [__('api.400.errorUploadingImage')]
+            ], Response::HTTP_BAD_REQUEST);
+        }
 
         $contextProps = $contextService->getFullProperties($context, [
             'request' => $request,

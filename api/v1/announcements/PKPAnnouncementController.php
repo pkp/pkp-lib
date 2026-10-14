@@ -269,7 +269,6 @@ class PKPAnnouncementController extends PKPBaseController
         try {
             $announcement->update($params);
         } catch (StoreTemporaryFileException $e) {
-            $announcement->delete(); // TODO do we really need to delete an announcement if the image upload fails?
             return response()->json([
                 'image' => [__('api.400.errorUploadingImage')]
             ], Response::HTTP_BAD_REQUEST);

@@ -42,6 +42,7 @@ use PKP\components\forms\publication\PKPPublicationLicenseForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\context\Context;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
@@ -1153,7 +1154,13 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $publication = Repo::publication()->newDataObject($params);
-        $newId = Repo::publication()->add($publication);
+        try {
+            $newId = Repo::publication()->add($publication);
+        } catch (StoreTemporaryFileException $e) {
+            return response()->json([
+                'coverImage' => [__('api.400.errorUploadingImage')]
+            ], Response::HTTP_BAD_REQUEST);
+        }
         $publication = Repo::publication()->get($newId);
 
         $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
@@ -1303,7 +1310,13 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        Repo::publication()->edit($publication, $params);
+        try {
+            Repo::publication()->edit($publication, $params);
+        } catch (StoreTemporaryFileException $e) {
+            return response()->json([
+                'coverImage' => [__('api.400.errorUploadingImage')]
+            ], Response::HTTP_BAD_REQUEST);
+        }
         $publication = Repo::publication()->get($publication->getId());
         event(new MetadataChanged($submission));
 

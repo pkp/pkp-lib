@@ -268,15 +268,18 @@ class Repository
             $image = $highlight->getImage();
             $temporaryFileManager = new TemporaryFileManager();
             $temporaryFile = $temporaryFileManager->getFile((int) $image['temporaryFileId'], $user?->getId());
-            $filepath = $this->getImageSubdirectory() . '/' . $this->getImageFilename($highlight, $temporaryFile);
-            if ($this->storeTemporaryFile($temporaryFile, $filepath, $user?->getId(), $highlight)) {
+            $filePath = $this->getImageSubdirectory() . '/' . $this->getImageFilename($highlight, $temporaryFile);
+            if (!$temporaryFileManager->isValidImage($temporaryFile)) {
+                throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $highlight);
+            }
+            if ($this->storeTemporaryFile($temporaryFile, $filePath, $user?->getId(), $highlight)) {
                 $highlight->setImage(
                     $this->getImageData($highlight, $temporaryFile)
                 );
                 $this->dao->update($highlight);
             } else {
                 $this->delete($highlight);
-                throw new StoreTemporaryFileException($temporaryFile, $filepath, $user, $highlight);
+                throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $highlight);
             }
         }
     }
@@ -286,7 +289,7 @@ class Repository
      *
      * @return bool Whether or not the operation was successful
      */
-    protected function storeTemporaryFile(TemporaryFile $temporaryFile, string $filepath, ?int $userId, Highlight $highlight): bool
+    protected function storeTemporaryFile(TemporaryFile $temporaryFile, string $filePath, ?int $userId, Highlight $highlight): bool
     {
         $publicFileManager = new PublicFileManager();
         $temporaryFileManager = new TemporaryFileManager();
@@ -295,12 +298,12 @@ class Repository
             $result = $publicFileManager->copyContextFile(
                 $highlight->getContextId(),
                 $temporaryFile->getFilePath(),
-                $filepath
+                $filePath
             );
         } else {
             $result = $publicFileManager->copySiteFile(
                 $temporaryFile->getFilePath(),
-                $filepath
+                $filePath
             );
         }
 

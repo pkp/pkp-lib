@@ -28,6 +28,7 @@ use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 
@@ -56,6 +57,8 @@ class ContextGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
         foreach ($roleAssignments as $role => $operations) {

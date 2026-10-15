@@ -39,6 +39,7 @@ use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -105,6 +106,8 @@ class PKPAnnouncementController extends PKPBaseController
     {
         if (!$request->getContext()) {
             $roleAssignments = $this->getSiteRoleAssignments($roleAssignments);
+            // Admin requires reauthentication for site-wide actions
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
         }
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);

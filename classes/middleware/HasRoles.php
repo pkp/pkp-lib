@@ -23,7 +23,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use PKP\security\Role;
-use PKP\db\DAORegistry;
 
 class HasRoles
 {
@@ -50,7 +49,7 @@ class HasRoles
         $user = $request->user(); /** @var \PKP\user\User $user */
 
         if (!$user) {
-            throw new Exception("No user found in `HasRole` middleware. Ensure that `HasUser` middleware is applied before `HasRole`.");
+            throw new Exception('No user found in `HasRole` middleware. Ensure that `HasUser` middleware is applied before `HasRole`.');
         }
 
         // Get all user roles.
@@ -58,9 +57,9 @@ class HasRoles
 
         $matchableRoles = Str::of($matchableRoles)
             ->explode('|')
-            ->map(fn($role) => (int)$role);
+            ->map(fn ($role) => (int)$role);
 
-        $matcher = fn(int $roleId) => $user->hasRole($roleId, $roleId === Role::ROLE_ID_SITE_ADMIN ? Application::SITE_CONTEXT_ID : $context->getId());
+        $matcher = fn (int $roleId) => $user->hasRole($roleId, $roleId === Role::ROLE_ID_SITE_ADMIN ? Application::SITE_CONTEXT_ID : $context?->getId());
         $isAuthorized = match ($rolesMatchingCriteria) {
             static::ROLES_MATCH_LOOSE => $matchableRoles->some($matcher),
             static::ROLES_MATCH_STRICT => $matchableRoles->every($matcher)

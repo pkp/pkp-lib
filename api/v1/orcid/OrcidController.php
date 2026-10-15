@@ -18,17 +18,17 @@
 namespace PKP\API\v1\orcid;
 
 use APP\author\Author;
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\jobs\orcid\SendAuthorMail;
 use PKP\orcid\OrcidManager;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignment;
-use PKP\userGroup\UserGroup;
 
 class OrcidController extends PKPBaseController
 {
@@ -52,7 +52,8 @@ class OrcidController extends PKPBaseController
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
-                Role::ROLE_ID_AUTHOR
+                Role::ROLE_ID_AUTHOR,
+                Role::ROLE_ID_ASSISTANT,
             ]),
         ];
     }
@@ -74,7 +75,6 @@ class OrcidController extends PKPBaseController
      */
     public function requestAuthorVerification(Request $illuminateRequest): JsonResponse
     {
-        $context = $this->getRequest()->getContext();
         $validate = $this->validateRequest($illuminateRequest);
 
         if ($validate['error'] ?? false) {
@@ -84,6 +84,7 @@ class OrcidController extends PKPBaseController
         }
 
         $author = $validate['author']; /** @var Author $author */
+        $context = $validate['context']; /** @var Context $context */
         try {
             $author->setData('orcidVerificationRequested', true);
             Repo::author()->edit($author, ['orcidVerificationRequested']);
@@ -110,10 +111,11 @@ class OrcidController extends PKPBaseController
         }
 
         $author = $validate['author']; /** @var Author $author */
+        $context = $validate['context']; /** @var Context $context */
 
         $author->setOrcid(null);
         $author->setOrcidVerified(false);
-        OrcidManager::removeOrcidAccessToken($author);
+        OrcidManager::removeOrcidAccessToken($author, context: $context);
         Repo::author()->edit($author, []);
 
         return response()->json([], Response::HTTP_OK);
@@ -126,56 +128,6 @@ class OrcidController extends PKPBaseController
     {
         $context = $this->getRequest()->getContext();
         return OrcidManager::isEnabled($context);
-    }
-
-    /**
-     * Check if the current user has editor permissions or is an author on the submission.
-     */
-    private function hasEditPermissions(int $publicationId): bool
-    {
-        $user = $this->getRequest()->getUser();
-        $context = $this->getRequest()->getContext();
-        $currentRoles = array_map(
-            function (Role $role) {
-                return $role->getId();
-            },
-            $user->getRoles($context->getId())
-        );
-
-        if (array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $currentRoles)) {
-            return true;
-        }
-
-        $submissionId = Repo::publication()->get($publicationId)->getData('submissionId');
-
-        // Check if is an editor assigned to this submission
-        $editorAssignment = StageAssignment::withSubmissionIds([$submissionId])
-            ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
-            ->withUserId($user->getId())
-            ->first();
-
-        if ($editorAssignment !== null) {
-            return true;
-        }
-
-        // Checks if user is an author on the submission
-        $authorUserGroupIds = UserGroup::withContextIds([$context->getId()])
-            ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->get()
-            ->map(fn ($userGroup) => $userGroup->id)
-            ->toArray();
-
-        $stageAssignments = StageAssignment::withSubmissionIds([$submissionId])
-            ->withUserId($user->getId())
-            ->get();
-
-        foreach ($stageAssignments as $stageAssignment) {
-            if (in_array($stageAssignment->userGroupId, $authorUserGroupIds)) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**
@@ -202,13 +154,37 @@ class OrcidController extends PKPBaseController
             ];
         }
 
-        if (!$this->hasEditPermissions($author->getData('publicationId'))) {
+        $publication = Repo::publication()->get($author->getData('publicationId'));
+        if (!$publication) {
+            return [
+                'error' => __('api.404.resourceNotFound'),
+                'status' => Response::HTTP_NOT_FOUND
+            ];
+        }
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $submissionContextId = $submission?->getData('contextId');
+        $requestContextId = $this->getRequest()->getContext()->getId();
+
+        if ($submissionContextId !== $requestContextId) {
+            return [
+                'error' => __('api.orcid.404.authorNotFound'),
+                'status' => Response::HTTP_NOT_FOUND
+            ];
+        }
+        $submissionContext = app()->get('context')->get($submissionContextId);
+
+
+        $user = $this->getRequest()->getUser();
+        $isSiteAdmin = $user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::SITE_CONTEXT_ID);
+
+        if (!$isSiteAdmin && !Repo::submission()->canEditPublication($submission->getId(), $user->getId())
+        ) {
             return [
                 'error' => __('api.orcid.403.editWithoutPermission'),
                 'status' => Response::HTTP_FORBIDDEN
             ];
         }
 
-        return ['author' => $author];
+        return ['author' => $author, 'context' => $submissionContext];
     }
 }

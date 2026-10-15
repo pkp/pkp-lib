@@ -11,13 +11,15 @@
  *
  * @ingroup security_authorization
  *
- * @brief Policy to require to reauthenticate when accessing sensitive pages within the application.
- * Currently only applicable to admins.
+ * @brief Policy to require to re-authenticate when accessing sensitive pages within the application.
+ * Currently only applicable to admins. This can also be used to guard administration endpoints and handlers during a session.
  */
 
 namespace PKP\security\authorization;
 
 use APP\core\Application;
+use PKP\core\APIRouter;
+use PKP\core\PKPPageRouter;
 use PKP\core\PKPRequest;
 
 class ReauthenticationRequiredPolicy extends AuthorizationPolicy
@@ -25,7 +27,6 @@ class ReauthenticationRequiredPolicy extends AuthorizationPolicy
     private PKPRequest $request;
 
     /**
-     * @param PKPRequest $request
      */
     public function __construct(PKPRequest $request)
     {
@@ -42,8 +43,28 @@ class ReauthenticationRequiredPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
+        // A request authenticated with an API token has no browser session to protect,
+        // so the re-authentication does not apply to it.
+        if ($this->isAuthenticatedViaApiToken($user)) {
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+        }
+
         if (Application::get()->getRequest()->getSessionGuard()->isElevatedSessionActive()) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+        }
+
+        // Only page requests can be redirected to the Confirm Access page.
+        // Other requests (API, grids, forms, AJAX, etc.) are refused with a message instead.
+        $router = $this->request->getRouter();
+        if (!($router instanceof PKPPageRouter)) {
+            $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.confirmAccess.required');
+            if ($router instanceof APIRouter) {
+                $this->setAdvice(
+                    AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY,
+                    [$router, 'handleAuthorizationFailure', [$this->request, 'user.confirmAccess.required']]
+                );
+            }
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // User needs to re-authenticate
@@ -56,7 +77,21 @@ class ReauthenticationRequiredPolicy extends AuthorizationPolicy
     }
 
     /**
-     * Callback when user needs to re-authenticate. Redirects user to the admin/confirmAccess page.
+     * Whether the request was authenticated with an API token or by session.
+     * Assumes that if no user ID is available in the session, the user was authenticated via API token.
+     */
+    private function isAuthenticatedViaApiToken(\PKP\user\User $user): bool
+    {
+        if (!($this->request->getRouter() instanceof APIRouter)
+            || $this->request->getSessionGuard()->getUserId()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Callback when a user needs to re-authenticate. Redirects user to the admin/confirmAccess page.
      */
     public function callOnDeny(): void
     {

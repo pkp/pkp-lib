@@ -28,6 +28,7 @@ use PKP\core\PKPRequest;
 use PKP\plugins\PluginRegistry;
 use PKP\plugins\ThemePlugin;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -91,6 +92,7 @@ class PKPSiteController extends PKPBaseController
         }
 
         $this->addPolicy($rolePolicy);
+        $this->addPolicy(new ReauthenticationRequiredPolicy($request));
 
         return parent::authorize($request, $args, $roleAssignments);
     }

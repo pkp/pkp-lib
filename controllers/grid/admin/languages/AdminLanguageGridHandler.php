@@ -33,6 +33,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
@@ -72,6 +73,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
         $this->addPolicy($rolePolicy);
+
+        $this->addPolicy(new ReauthenticationRequiredPolicy($request));
 
         return parent::authorize($request, $args, $roleAssignments);
     }

@@ -146,6 +146,20 @@ class PKPSubmissionController extends PKPBaseController
         Role::ROLE_ID_ASSISTANT
     ];
 
+    /** @var string[] ORCID properties that should not be written or edited as part of contributor editor process */
+    public array $orcidWriteForbiddenProps = [
+        'orcidIsVerified',
+        'orcidSandbox',
+        'orcidAccessToken',
+        'orcidAccessScope',
+        'orcidRefreshToken',
+        'orcidAccessExpiresOn',
+        'orcidAccessDenied',
+        'orcidEmailToken',
+        'orcidWorkPutCode',
+        'orcidVerificationRequested',
+    ];
+
     /**
      * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
@@ -1602,6 +1616,11 @@ class PKPSubmissionController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
 
+        // Unset ORCID verification and token properties from Author schema
+        foreach ($this->orcidWriteForbiddenProps as $prop) {
+            unset($params[$prop]);
+        }
+
         // Allows author ORCID request email to be triggered from frontend before author ID exists
         $shouldSendOrcidEmail = false;
         switch ($params['orcid']) {
@@ -1826,7 +1845,9 @@ class PKPSubmissionController extends PKPBaseController
         // Remove ORCID from params because it cannot be set via this endpoint. If there is a desire to update a contributor's
         // ORCiD, the ORCiD should be deleted and an update requested via the `orcid/requestAuthorVerification/{authorId}` endpoint.
         // Validation to prevent editing the ORCID is also done in Repo::author()->validate()
-        unset($params['orcid']);
+        foreach (array_merge($this->orcidWriteForbiddenProps, ['orcid']) as $prop) {
+            unset($params[$prop]);
+        }
 
         Repo::author()->edit($author, $params);
         $author = Repo::author()->get($author->getId());

@@ -20,7 +20,7 @@ use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\doi\Doi;
 use PKP\plugins\Hook;
-use PKP\submission\PKPSubmission;
+use PKP\publication\PKPPublication;
 
 abstract class PKPDoiListPanel extends ListPanel
 {
@@ -123,9 +123,9 @@ abstract class PKPDoiListPanel extends ListPanel
             ],
         ];
         $config['publishedStatuses'] = [
-            'name' => 'status',
-            'published' => [PKPSubmission::STATUS_PUBLISHED],
-            'unpublished' => [PKPSubmission::STATUS_QUEUED, PKPSubmission::STATUS_SCHEDULED],
+            'name' => 'currentPublicationStatus',
+            'published' => [PKPPublication::STATUS_PUBLISHED],
+            'unpublished' => [PKPPublication::STATUS_QUEUED, PKPPublication::STATUS_SCHEDULED],
         ];
 
         // Provide required locale keys

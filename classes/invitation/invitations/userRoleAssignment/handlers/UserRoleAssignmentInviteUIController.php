@@ -19,10 +19,12 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
 use PKP\invitation\stepTypes\SendInvitationStep;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectController
 {
@@ -51,7 +53,6 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             'orcid' => '',
             'givenName' => '',
             'familyName' => '',
-            'orcidValidation' => false,
             'disabled' => false,
             'userGroupsToAdd' => [
                 [
@@ -74,7 +75,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             //send invitation using edit user action in user access table
             $user = Repo::user()->get($userId, true);
             if (!$user) {
-                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+                throw new NotFoundHttpException();
             }
             $invitationPayload = (
             new UserRoleAssignmentInviteResource($this->invitation))

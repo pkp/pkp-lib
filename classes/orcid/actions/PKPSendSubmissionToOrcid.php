@@ -64,7 +64,7 @@ abstract class PKPSendSubmissionToOrcid
                     $authorsWithOrcid[$orcid] = $author;
                 } else {
                     OrcidManager::logError("Token expired on {$orcidAccessExpiresOn} for author " . $author->getId() . ', deleting orcidAccessToken!');
-                    OrcidManager::removeOrcidAccessToken($author);
+                    OrcidManager::removeOrcidAccessToken($author, context: $this->context);
                 }
             }
         }

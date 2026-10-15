@@ -124,14 +124,14 @@ class DepositOrcidSubmission extends BaseJob implements ShouldBeUnique
                 $error = json_decode($response->getBody(), true);
                 if ($error['error'] === 'invalid_token') {
                     OrcidManager::logError($error['error_description'] . ', deleting orcidAccessToken from author');
-                    OrcidManager::removeOrcidAccessToken($this->author);
+                    OrcidManager::removeOrcidAccessToken(identity: $this->author, context: $this->context);
                 }
                 break;
             case 403:
                 OrcidManager::logError('Work update forbidden: ' . $response->getBody());
                 break;
             case 404:
-                // a work has been deleted from a ORCID record. putCode is no longer valid.
+                // A work has been deleted from an ORCID record. putCode is no longer valid.
                 if ($method === 'PUT') {
                     OrcidManager::logError('Work deleted from ORCID record, deleting putCode form author');
                     $this->author->setData('orcidWorkPutCode', null);

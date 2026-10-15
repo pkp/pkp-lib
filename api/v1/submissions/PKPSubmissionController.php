@@ -533,6 +533,10 @@ class PKPSubmissionController extends PKPBaseController
                     $collector->filterByStatus(array_map(intval(...), paramToArray($val)));
                     break;
 
+                case 'currentPublicationStatus':
+                    $collector->filterByCurrentPublicationStatus(array_map(intval(...), paramToArray($val)));
+                    break;
+
                 case 'stageIds':
                     $collector->filterByStageIds(array_map(intval(...), paramToArray($val)));
                     break;

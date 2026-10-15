@@ -26,13 +26,13 @@ use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\LazyCollection;
 use PKP\citation\enum\CitationProcessingStatus;
 use PKP\citation\filter\CitationListTokenizerFilter;
+use PKP\citation\pid\ExtractPidsHelper;
 use PKP\context\Context;
 use PKP\jobs\citation\CrossrefJob;
 use PKP\jobs\citation\ExtractPidsJob;
 use PKP\jobs\citation\IsProcessedJob;
 use PKP\jobs\citation\OpenAlexJob;
 use PKP\jobs\citation\OrcidJob;
-use PKP\pid\Doi;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -208,6 +208,8 @@ class Repository
     /**
      * Import and replace citations from a raw citation list of the particular publication.
      *
+     * @param bool $reprocess Whether to queue the metadata lookup, if the context has it enabled
+     *
      * @hook Citation::importCitations::before [[$publicationId, $existingCitations, $rawCitations]]
      * @hook Citation::importCitations::after [[$publicationId, $existingCitations, $importedCitations]]
      */
@@ -242,12 +244,9 @@ class Repository
                         $citation->setData('publicationId', $publicationId);
                         $citation->setSequence($seq + 1);
                         $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
-                        if (!$citationsMetadataLookup) {
-                            $rawString = str_ireplace('http://', 'https://', $rawCitationString);
-                            $doi = Doi::extractFromString($rawString);
-                            if (!empty($doi)) {
-                                $citation->setData('doi', $doi);
-                            }
+                        // No lookup is queued, so at least extract the PIDs
+                        if (!$citationsMetadataLookup || !$reprocess) {
+                            (new ExtractPidsHelper())->execute($citation);
                         }
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
@@ -309,17 +308,14 @@ class Repository
                         $citation->setData('publicationId', $publicationId);
                         $citation->setSequence($lastSeq);
                         $citation->setProcessingStatus(CitationProcessingStatus::NOT_PROCESSED->value);
+                        $citationsMetadataLookup = $this->request->getContext()->getData('citationsMetadataLookup');
+                        if (!$citationsMetadataLookup) {
+                            (new ExtractPidsHelper())->execute($citation);
+                        }
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
-                        if ($this->request->getContext()->getData('citationsMetadataLookup')) {
+                        if ($citationsMetadataLookup) {
                             $this->reprocessCitation($citation, $this->request->getContext());
-                        } else {
-                            $rawString = str_ireplace('http://', 'https://', $rawCitationString);
-                            $doi = Doi::extractFromString($rawString);
-                            if (!empty($doi)) {
-                                $citation->setData('doi', $doi);
-                                Repo::citation()->edit($citation, []);
-                            }
                         }
                     } else {
                         $rejectedCitations[] = $rawCitationString;

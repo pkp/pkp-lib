@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\invitation\invitations\registrationAccess\RegistrationAccessInvite;
 use PKP\mail\mailables\ValidateEmailContext as ContextMailable;
 use PKP\mail\mailables\ValidateEmailSite as SiteMailable;
@@ -76,7 +77,7 @@ class ValidateRegisteredEmail
         // Create and compile email template
         if (get_class($event) === UserRegisteredContext::class) {
             $mailable = new ContextMailable($event->context);
-            $mailable->from($event->context->getData('supportEmail'), $event->context->getData('supportName'));
+            $mailable->from(...$this->getContextSender($event->context));
 
             $contextId = $event->context->getId();
         } else {
@@ -103,5 +104,27 @@ class ValidateRegisteredEmail
     protected function emailValidationRequired(): bool
     {
         return (bool) Config::getVar('email', 'require_validation');
+    }
+
+    /**
+     * The sender of the validation email. The support contact is optional, so fall
+     * back to the principal contact of the journal and then to the site contact.
+     * Without this the email has no From and sending it throws an exception.
+     *
+     * @return array [email, name]
+     */
+    protected function getContextSender(Context $context): array
+    {
+        if ($context->getData('supportEmail')) {
+            return [$context->getData('supportEmail'), $context->getData('supportName')];
+        }
+
+        if ($context->getData('contactEmail')) {
+            return [$context->getData('contactEmail'), $context->getData('contactName')];
+        }
+
+        $site = Application::get()->getRequest()->getSite();
+
+        return [$site->getLocalizedContactEmail(), $site->getLocalizedContactName()];
     }
 }

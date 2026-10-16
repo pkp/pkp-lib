@@ -41,6 +41,9 @@
 		this.finishUrl_ = options.finishUrl;
 		this.cancelUrl_ = options.cancelUrl;
 
+		// Starts a new wizard run.
+		this.uploadedFileIds_ = [];
+
 		// Bind events of the nested upload forms.
 		this.bind('fileUploaded', this.handleFileUploaded);
 		this.bind('filesRemoved', this.handleRemovedFiles);
@@ -111,12 +114,13 @@
 
 
 	/**
-	 * Information about the file being revised.
+	 * The file ids of every revision uploaded during this wizard run, so that cancelling
+	 * only ever takes back this window's own uploads and never another window's.
 	 * @private
-	 * @type {{fileId: number, name: string, uploaderUserId: number}}
+	 * @type {Array.<number>}
 	 */
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
-			prototype.originalFile_ = null;
+			prototype.uploadedFileIds_ = null;
 
 
 	//
@@ -262,7 +266,7 @@
 				this.uploadedFile_.csrfToken = this.csrfToken_;
 				// Authorization policy expects to find the submissionFileId para
 				this.uploadedFile_.submissionFileId = this.uploadedFile_.id;
-				this.uploadedFile_.originalFile = this.originalFile_;
+				this.uploadedFile_.uploadedFileIds = this.uploadedFileIds_;
 				$.post(this.cancelUrl_, this.uploadedFile_,
 						$.pkp.classes.Helper.curry(this.wizardCancelSuccess, this,
 								wizardElement, event), 'json');
@@ -318,9 +322,10 @@
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.handleFileUploaded = function(callingForm, event, uploadedFile) {
 
-		// Keep the original file data to restore if the wizard is canceled
-		if (this.originalFile_ === null) {
-			this.originalFile_ = uploadedFile.originalFile;
+		// The server records what this upload replaced; the browser only has to say which
+		// revisions this run uploaded, which bounds what a cancel may take back.
+		if (uploadedFile.fileId) {
+			this.uploadedFileIds_.push(uploadedFile.fileId);
 		}
 		delete uploadedFile.originalFile;
 
@@ -374,8 +379,9 @@
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.startWizard = function() {
 
-		// Reset the uploaded and original file.
-		this.uploadedFile_ = this.originalFile_ = null;
+		// Reset the uploaded file and the run's upload history.
+		this.uploadedFile_ = null;
+		this.uploadedFileIds_ = [];
 
 		this.parent('startWizard');
 	};

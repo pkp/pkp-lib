@@ -24,6 +24,8 @@ use APP\facades\Repo;
  */
 class Representation extends \PKP\core\DataObject
 {
+    public const GENERATED_FROM_EDITOR = 'editor';
+
     /**
      * Constructor.
      */

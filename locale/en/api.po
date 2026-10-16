@@ -20,6 +20,12 @@ msgstr "There was an error uploading this image."
 msgid "api.422.routeRequestUnableToProcess"
 msgstr "Unable to process API request."
 
+msgid "api.bodyText.500.errorCreatingHtmlFile"
+msgstr "Unable to create the HTML file."
+
+msgid "api.bodyText.500.errorCreatingPdfGalley"
+msgstr "Unable to create the PDF galley."
+
 msgid "api.417.routeResponseIsNull"
 msgstr "Unable to receive any expected response."
 

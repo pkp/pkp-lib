@@ -11,7 +11,8 @@
  *
  * @ingroup tools
  *
- * @brief CLI tool to queue the metadata lookup of existing citations in bulk, and to monitor it.
+ * @brief CLI tool to queue the metadata lookup of existing citations in bulk, and to monitor it,
+ *   or to only extract the PIDs from their raw text.
  *   It never deletes or re-imports citations; parseCitations.php re-parses the raw citations.
  */
 
@@ -21,6 +22,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\citation\Citation;
 use PKP\citation\enum\CitationProcessingStatus;
+use PKP\citation\pid\ExtractPidsHelper;
 use PKP\context\Context;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
@@ -41,6 +43,12 @@ class CitationLookupTool extends \PKP\cliTool\CommandLineTool
         'failed' => [CitationProcessingStatus::FAILED],
         'queued' => self::IN_FLIGHT,
     ];
+
+    /** Statuses of citations not looked up yet; null for citations from before the lookup existed */
+    protected const NOT_LOOKED_UP = [null, CitationProcessingStatus::NOT_PROCESSED];
+
+    /** Citation properties set by ExtractPidsHelper */
+    protected const PIDS = ['doi', 'arxiv', 'handle', 'url', 'urn'];
 
     protected string $command = '';
 
@@ -73,7 +81,7 @@ class CitationLookupTool extends \PKP\cliTool\CommandLineTool
         }
 
         $this->command = (string) array_shift($positional);
-        if (!in_array($this->command, ['status', 'queue', 'repair'])) {
+        if (!in_array($this->command, ['status', 'queue', 'repair', 'extract'])) {
             $this->usage();
             exit(1);
         }
@@ -87,11 +95,12 @@ class CitationLookupTool extends \PKP\cliTool\CommandLineTool
     {
         echo "Queue the metadata lookup of existing citations in bulk, and monitor it.\n"
             . "Citations are never deleted or re-imported; use parseCitations.php to re-parse the raw citations.\n"
-            . "Contexts with the citation metadata lookup disabled are skipped.\n\n"
+            . "Contexts with the citation metadata lookup disabled are skipped, except by 'extract'.\n\n"
             . "Usage:\n"
             . "\t{$this->scriptName} status [scope]\n"
             . "\t{$this->scriptName} queue [--limit=N] [scope]\n"
-            . "\t{$this->scriptName} repair --status=failed|queued [--force] [scope]\n\n"
+            . "\t{$this->scriptName} repair --status=failed|queued [--force] [scope]\n"
+            . "\t{$this->scriptName} extract [scope]\n\n"
             . "Scope (default: all contexts):\n"
             . "\tcontext <context_id> [...]\n"
             . "\tsubmission <submission_id> [...]\n\n"
@@ -105,6 +114,10 @@ class CitationLookupTool extends \PKP\cliTool\CommandLineTool
             . "\t           instead (jobs.php failed --redispatch), do not also run this.\n"
             . "\tqueued     lookups stranded as queued or running after the job queue was lost. Refused while the\n"
             . "\t           job queue is not empty, as it would queue them twice, unless --force is given.\n\n"
+            . "'extract' only extracts the PIDs (DOI, arXiv ID, handle, URL, URN) from the raw text of the citations\n"
+            . "not looked up yet, e.g. after an import with the lookup disabled. It fills only identifiers that are\n"
+            . "empty, queues no jobs and requests no external services. The citations stay not looked up, so 'queue'\n"
+            . "can still look them up later.\n\n"
             . "The jobs are run by the application's job processing (cron, worker or job runner).\n";
     }
 
@@ -117,6 +130,7 @@ class CitationLookupTool extends \PKP\cliTool\CommandLineTool
             'status' => $this->status(),
             'queue' => $this->queue(),
             'repair' => $this->repair(),
+            'extract' => $this->extract(),
         };
     }
 
@@ -226,8 +240,7 @@ class CitationLookupTool extends \PKP\cliTool\CommandLineTool
         if ($limit !== null && (!ctype_digit((string) $limit) || (int) $limit < 1)) {
             $this->exitWithError('--limit must be a positive number.');
         }
-        // null: citations from before the lookup existed have no status
-        $this->queueCitations([null, CitationProcessingStatus::NOT_PROCESSED], $limit === null ? null : (int) $limit);
+        $this->queueCitations(self::NOT_LOOKED_UP, $limit === null ? null : (int) $limit);
     }
 
     /**
@@ -247,6 +260,54 @@ class CitationLookupTool extends \PKP\cliTool\CommandLineTool
             }
         }
         $this->queueCitations(self::REPAIRABLE[$statusName], null);
+    }
+
+    /**
+     * Extract the PIDs from the raw text of the citations not looked up yet, without queuing the lookup.
+     */
+    protected function extract(): void
+    {
+        $publications = $this->whereStatus($this->citationQuery(array_keys($this->contexts)), self::NOT_LOOKED_UP)
+            ->select('c.publication_id', 's.context_id')
+            ->distinct()
+            ->orderBy('c.publication_id')
+            ->get();
+
+        $extractPids = new ExtractPidsHelper();
+        $counts = [];
+        foreach ($publications as $row) {
+            $citations = Repo::citation()->getByPublicationIds([$row->publication_id])
+                ->filter(fn (Citation $citation) => $this->hasStatus($citation, self::NOT_LOOKED_UP));
+            foreach ($citations as $citation) {
+                $before = array_combine(self::PIDS, array_map(fn (string $pid) => $citation->getData($pid), self::PIDS));
+                $extractPids->execute($citation);
+                $changed = false;
+                foreach ($before as $pid => $value) {
+                    // Only fill empty identifiers: one already set may have been corrected by hand
+                    if (!empty($value)) {
+                        $citation->setData($pid, $value);
+                    } elseif (!empty($citation->getData($pid))) {
+                        $changed = true;
+                    }
+                }
+                if ($changed) {
+                    Repo::citation()->edit($citation, []);
+                }
+                $count = &$counts[$row->context_id];
+                $count['citations'] = ($count['citations'] ?? 0) + 1;
+                $count['changed'] = ($count['changed'] ?? 0) + (int) $changed;
+                $count['doi'] = ($count['doi'] ?? 0) + (int) !empty($citation->getData('doi'));
+                unset($count);
+            }
+        }
+
+        foreach ($counts as $contextId => $count) {
+            echo "Context {$contextId} ({$this->contexts[$contextId]->getPath()}): {$count['citations']} citations checked, "
+                . "{$count['changed']} with new PIDs, {$count['doi']} with a DOI.\n";
+        }
+        if (empty($counts)) {
+            echo "No citations not looked up yet.\n";
+        }
     }
 
     /**

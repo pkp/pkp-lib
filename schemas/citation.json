@@ -14,7 +14,7 @@
             "apiSummary": true,
             "validation": [
                 "nullable",
-                "regex:/^(?:\\d+.\\d+|[a-z-]+.\\d+)/i"
+                "regex:/^(?:\\d+.\\d+|[a-z.-]+.\\d+)/i"
             ]
         },
         "authors": {

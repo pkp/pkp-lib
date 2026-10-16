@@ -19,7 +19,13 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use PKP\context\Context;
+use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
+use PKP\galley\Galley;
+use PKP\submission\Genre;
+use PKP\submission\Representation;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
@@ -177,4 +183,126 @@ class Repository
     {
         return [SubmissionFile::SUBMISSION_FILE_BODY_TEXT];
     }
+
+    /**
+     * Create a PDF galley or add a revision to its existing proof file.
+     */
+    public function createPdfGalley(string $pdf, int $publicationId): Galley
+    {
+        return $this->createGalleyFile($pdf, $publicationId, 'PDF', 'pdf', 'application/pdf');
+    }
+
+    /**
+     * Create an HTML galley or add a revision without changing the editor's JSON document.
+     */
+    public function createHtmlFile(string $html, int $publicationId): Galley
+    {
+        return $this->createGalleyFile($html, $publicationId, 'HTML', 'html', 'text/html');
+    }
+
+    /**
+     * Store generated content as a galley, preserving previous revisions.
+     */
+    protected function createGalleyFile(string $content, int $publicationId, string $label, string $extension, string $mimeType): Galley
+    {
+        $publication = Repo::publication()->get($publicationId);
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $context = Application::get()->getRequest()->getContext();
+        $user = Application::get()->getRequest()->getUser();
+        $primaryGenres = DAORegistry::getDAO('GenreDAO')->getPrimaryByContextId($context->getId())->toArray();
+        $genre = collect($primaryGenres)->first(fn (Genre $genre) => $genre->getKey() === 'SUBMISSION');
+
+        $submissionDir = Repo::submissionFile()->getSubmissionDir(
+            $submission->getData('contextId'),
+            $submission->getId()
+        );
+        $fileId = app()->get('file')->addFromString(
+            $content,
+            $submissionDir . '/' . uniqid() . '.' . $extension,
+            $mimeType
+        );
+
+        $galleyId = DB::transaction(function () use ($fileId, $submission, $publication, $user, $context, $publicationId, $label, $extension, $genre) {
+            DB::table('publications')->where('publication_id', $publicationId)->lockForUpdate()->first();
+            $locale = $publication->getData('locale');
+            $galleys = Repo::galley()->getCollector()->filterByPublicationIds([$publicationId])->getMany()->collect();
+            $galley = $galleys->first(fn (Galley $galley) =>
+                $galley->getData('label') === $label &&
+                $galley->getData('locale') === $locale &&
+                !$galley->getData('urlRemote') &&
+                $galley->getData('generatedFrom') === Representation::GENERATED_FROM_EDITOR);
+
+            $submissionFile = $galley ? Repo::submissionFile()->get($galley->getData('submissionFileId')) : null;
+            $params = ['fileId' => $fileId];
+            if (!$galley || !$submissionFile->getGenreId()) {
+                $params['genreId'] = $genre?->getId();
+            }
+
+            // If the galley didn't exist before
+            if (!$galley) {
+                $params += [
+                    'submissionId' => $submission->getId(),
+                    'uploaderUserId' => $user->getId(),
+                    'fileStage' => SubmissionFile::SUBMISSION_FILE_PROOF,
+                    'name' => [$context->getPrimaryLocale() => 'bodyText-' . $publicationId . '.' . $extension],
+                ];
+            }
+
+            $errors = Repo::submissionFile()->validate(
+                $submissionFile,
+                $params,
+                $context->getData('supportedSubmissionLocales'),
+                $context->getPrimaryLocale()
+            );
+            if (!empty($errors)) {
+                throw new \Exception(json_encode($errors));
+            }
+
+            if ($galley) {
+                Repo::submissionFile()->edit($submissionFile, $params);
+                Repo::galley()->edit($galley, [
+                    'isApproved' => false,
+                    'generatedFrom' => Representation::GENERATED_FROM_EDITOR,
+                ]);
+                return $galley->getId();
+            }
+
+            $submissionFile = Repo::submissionFile()->newDataObject($params);
+            $submissionFileId = Repo::submissionFile()->add($submissionFile);
+
+            $params = [
+                'publicationId' => $publicationId,
+                'label' => $label,
+                'locale' => $locale,
+                'submissionFileId' => $submissionFileId,
+                'isApproved' => false,
+            ];
+            $errors = Repo::galley()->validate(
+                null,
+                $params,
+                $context->getData('supportedSubmissionLocales'),
+                $context->getPrimaryLocale()
+            );
+            if (!empty($errors)) {
+                throw new \Exception(json_encode($errors));
+            }
+
+            $galley = Repo::galley()->newDataObject($params);
+            $galley->setData('generatedFrom', Representation::GENERATED_FROM_EDITOR);
+            $galleyId = Repo::galley()->add($galley);
+            Repo::submissionFile()->edit(Repo::submissionFile()->get($submissionFileId), [
+                'assocType' => PKPApplication::ASSOC_TYPE_REPRESENTATION,
+                'assocId' => $galleyId,
+            ]);
+
+            return $galleyId;
+        });
+
+        if (!$galleyId) {
+            app()->get('file')->delete($fileId);
+        }
+
+        return Repo::galley()->get($galleyId);
+    }
+
 }

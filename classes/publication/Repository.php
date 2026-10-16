@@ -27,6 +27,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\dataCitation\DataCitation;
@@ -53,6 +54,7 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
 use PKP\submissionFile\SubmissionFile;
 use PKP\submissionFile\VariantGroup;
+use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
@@ -358,8 +360,6 @@ abstract class Repository
 
         // Move uploaded files into place and update the settings
         if ($publication->getData('coverImage')) {
-            $userId = $this->request->getUser() ? $this->request->getUser()->getId() : null;
-
             $submissionContext = $this->request->getContext();
             if ($submissionContext->getId() !== $submission->getData('contextId')) {
                 $submissionContext = app()->get('context')->get($submission->getData('contextId'));
@@ -370,7 +370,7 @@ abstract class Repository
                 if (!array_key_exists($localeKey, $publication->getData('coverImage'))) {
                     continue;
                 }
-                $value[$localeKey] = $this->_saveFileParam($publication, $submission, $publication->getData('coverImage', $localeKey), 'coverImage', $userId, $localeKey, true);
+                $value[$localeKey] = $this->_saveFileParam($publication, $submission, $publication->getData('coverImage', $localeKey), 'coverImage', $this->request->getUser(), $localeKey, true);
             }
 
             $this->edit($publication, ['coverImage' => $value]);
@@ -535,7 +535,6 @@ abstract class Repository
     public function edit(Publication $publication, array $params): Publication
     {
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-        $userId = $this->request->getUser()?->getId();
 
         // Move uploaded files into place and update the params
         if (array_key_exists('coverImage', $params)) {
@@ -549,7 +548,7 @@ abstract class Repository
                 if (!array_key_exists($localeKey, $params['coverImage'])) {
                     continue;
                 }
-                $params['coverImage'][$localeKey] = $this->_saveFileParam($publication, $submission, $params['coverImage'][$localeKey], 'coverImage', $userId, $localeKey, true);
+                $params['coverImage'][$localeKey] = $this->_saveFileParam($publication, $submission, $params['coverImage'][$localeKey], 'coverImage', $this->request->getUser(), $localeKey, true);
             }
         }
 
@@ -569,8 +568,8 @@ abstract class Repository
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE,
-            'userId' => Validation::loggedInAs() ?? $userId,
-            'impersonatedUserId' => Validation::loggedInAs() ? $userId : null,
+            'userId' => Validation::loggedInAs() ?? $this->request->getUser()->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $this->request->getUser()->getId() : null,
             'message' => 'submission.event.general.metadataUpdated',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
@@ -1090,7 +1089,6 @@ abstract class Repository
      *  file ID if a new file has been uploaded.
      * @param string $settingName The name of the setting to save, typically used
      *  in the filename.
-     * @param int $userId ID of the user who owns the temporary file
      * @param string $localeKey Optional. Pass if the setting is multilingual
      * @param bool $isImage Optional. For image files which include alt text in value
      *
@@ -1101,7 +1099,7 @@ abstract class Repository
         Submission $submission,
         mixed $value,
         string $settingName,
-        int $userId,
+        User $user,
         string $localeKey = '',
         bool $isImage = false
     ) {
@@ -1142,15 +1140,14 @@ abstract class Repository
         }
 
         $temporaryFileManager = new TemporaryFileManager();
-        $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
-
-        if (!$temporaryFile || ($isImage && !$temporaryFileManager->getImageExtension($temporaryFile->getFileType()))) {
-            // Temporary file must exist, and if it should be an image, ensure that's the case
-            return null;
-        }
+        $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $user->getId());
 
         $fileNameBase = join('_', ['submission', $submission->getId(), $publication->getId(), $settingName]); // eg - submission_1_1_coverImage
-        $fileName = app()->get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $userId, $localeKey);
+        if (!$temporaryFile || ($isImage && !$temporaryFileManager->getImageExtension($temporaryFile->getFileType()))) {
+            // Temporary file must exist, and if it should be an image, ensure that's the case
+            throw new StoreTemporaryFileException($temporaryFile, $fileNameBase, $user, $publication);
+        }
+        $fileName = app()->get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $user, $localeKey, $isImage);
 
         if ($fileName) {
             if ($isImage) {

@@ -114,7 +114,7 @@ class HighlightsController extends PKPBaseController
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
-        $highlight = Repo::highlight()->get((int) $illuminateRequest->route('highlightId'), $this->getRequest()->getContext());
+        $highlight = Repo::highlight()->get((int) $illuminateRequest->route('highlightId'), $this->getRequest()->getContext()->getId());
 
         if (!$highlight) {
             return response()->json([
@@ -179,8 +179,10 @@ class HighlightsController extends PKPBaseController
         try {
             $highlightId = Repo::highlight()->add($highlight);
         } catch (StoreTemporaryFileException $e) {
-            $highlight = Repo::highlight()->get($highlightId, $context?->getId());
-            Repo::highlight()->delete($highlight);
+            if ($highlightId = $e->getDataObjectId()) {
+                $highlight = Repo::highlight()->get($highlightId, $context?->getId());
+                Repo::highlight()->delete($highlight);
+            }
             return response()->json([
                 'image' => __('api.400.errorUploadingImage')
             ], Response::HTTP_BAD_REQUEST);
@@ -221,7 +223,6 @@ class HighlightsController extends PKPBaseController
         try {
             Repo::highlight()->edit($highlight, $params);
         } catch (Exception $e) {
-            Repo::highlight()->delete($highlight);
             return response()->json([
                 'image' => __('api.400.errorUploadingImage')
             ], Response::HTTP_BAD_REQUEST);

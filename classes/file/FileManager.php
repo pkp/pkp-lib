@@ -839,4 +839,26 @@ class FileManager
         }
         throw $lastException;
     }
+
+    /**
+     * Check that temporary file is an image
+     */
+    public function isValidImage(TemporaryFile $temporaryFile): bool
+    {
+        if (getimagesize($temporaryFile->getFilePath()) === false) {
+            return false;
+        }
+        $extension = strtolower(pathinfo($temporaryFile->getOriginalFileName(), PATHINFO_EXTENSION));
+        $extensionFromMimeType = $this->getImageExtension(
+            PKPString::mime_content_type($temporaryFile->getFilePath())
+        );
+        // Special case: Accept .jpeg as a valid JPEG extension
+        if ($extensionFromMimeType === '.jpg' && $extension === 'jpeg') {
+            return true;
+        }
+        if ($extensionFromMimeType === '.' . $extension) {
+            return true;
+        }
+        return false;
+    }
 }

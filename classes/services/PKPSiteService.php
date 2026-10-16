@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\file\PublicFileManager;
 use PKP\core\Core;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
@@ -31,6 +32,7 @@ use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
+use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 use Psr\Log\LogLevel;
 
@@ -209,18 +211,17 @@ class PKPSiteService implements EntityPropertyInterface
         $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
 
         // Move uploaded files into place and update the params
-        $userId = $request->getUser() ? $request->getUser()->getId() : null;
         $supportedLocales = $site->getSupportedLocales();
         if (array_key_exists('pageHeaderTitleImage', $params)) {
             foreach ($supportedLocales as $localeKey) {
                 if (!array_key_exists($localeKey, $params['pageHeaderTitleImage'])) {
                     continue;
                 }
-                $params['pageHeaderTitleImage'][$localeKey] = $this->_saveFileParam($site, $params['pageHeaderTitleImage'][$localeKey], 'pageHeaderTitleImage', $userId, $localeKey, true);
+                $params['pageHeaderTitleImage'][$localeKey] = $this->_saveFileParam($site, $params['pageHeaderTitleImage'][$localeKey], 'pageHeaderTitleImage', $request->getUser(), $localeKey, true);
             }
         }
         if (array_key_exists('styleSheet', $params)) {
-            $params['styleSheet'] = $this->_saveFileParam($site, $params['styleSheet'], 'styleSheet', $userId);
+            $params['styleSheet'] = $this->_saveFileParam($site, $params['styleSheet'], 'styleSheet', $request->getUser(), extension: '.css');
         }
 
         $newSite = $siteDao->newDataObject();
@@ -250,16 +251,15 @@ class PKPSiteService implements EntityPropertyInterface
     /**
      * Move a temporary file to the site's public directory
      *
-     * @param TemporaryFile $temporaryFile
-     * @param string $fileNameBase Unique identifier to use for the filename. The
-     *  Extension and locale will be appended.
-     * @param int $userId ID of the user who uploaded the temporary file
-     * @param string $localeKey Example: en. Leave empty for a file that is
-     *  not localized.
+     * @param $fileNameBase Unique identifier to use for the filename. The extension and locale will be appended.
+     * @param $user The user who uploaded the temporary file
+     * @param $localeKey Example: en. Leave empty for a file that is not localized.
+     * @param $isImage True iff the setting is used to store data about an image (logo/icon).
+     * @param $extension When specified, use this extension.
      *
      * @return string|boolean The new filename or false on failure
      */
-    public function moveTemporaryFile($site, $temporaryFile, $fileNameBase, $userId, $localeKey = '')
+    public function moveTemporaryFile(Site $site, TemporaryFile $temporaryFile, string $fileNameBase, User $user, string $localeKey = '', bool $isImage = false, ?string $extension = null)
     {
         $publicFileManager = new PublicFileManager();
         $temporaryFileManager = new TemporaryFileManager();
@@ -269,9 +269,13 @@ class PKPSiteService implements EntityPropertyInterface
             $fileName .= '_' . $localeKey;
         }
 
-        $extension = $publicFileManager->getDocumentExtension($temporaryFile->getFileType());
-        if (!$extension) {
-            $extension = $publicFileManager->getImageExtension($temporaryFile->getFileType());
+        if ($isImage) {
+            $extension ??= $publicFileManager->getImageExtension($temporaryFile->getFileType());
+            if (!$extension || !$temporaryFileManager->isValidImage($temporaryFile)) {
+                throw new StoreTemporaryFileException($temporaryFile, $fileNameBase, $user, $site);
+            }
+        } else {
+            $extension ??= $publicFileManager->getDocumentExtension($temporaryFile->getFileType());
         }
         $fileName .= $extension;
 
@@ -279,7 +283,7 @@ class PKPSiteService implements EntityPropertyInterface
             return false;
         }
 
-        $temporaryFileManager->deleteById($temporaryFile->getId(), $userId);
+        $temporaryFileManager->deleteById($temporaryFile->getId(), $user->getId());
 
         return $fileName;
     }
@@ -293,20 +297,17 @@ class PKPSiteService implements EntityPropertyInterface
      * This method is protected because all operations which edit the site should
      * go through the editSite method in order to ensure that the appropriate hooks are fired.
      *
-     * @param Site $site The site being edited
-     * @param mixed $value The param value to be saved. Contains the temporary
-     *  file ID if a new file has been uploaded.
-     * @param string $settingName The name of the setting to save, typically used
-     *  in the filename.
-     * @param int $userId ID of the user who owns the temporary file
-     * @param string $localeKey Optional. Used in the filename for multilingual
-     *  properties.
-     * @param bool $isImage Optional. For image files which return alt text,
-     *  width, height, etc in the param value.
+     * @param $site The site being edited
+     * @param $value The param value to be saved. Contains the temporary file ID if a new file has been uploaded.
+     * @param $settingName The name of the setting to save, typically used in the filename.
+     * @param $user ID of the user who owns the temporary file
+     * @param $localeKey Optional. Used in the filename for multilingual properties.
+     * @param $isImage Optional. For image files which return alt text, width, height, etc in the param value.
+     * @param ?string $extension When specified, use the specified file extension.
      *
      * @return string|array|null New param value or null on failure
      */
-    protected function _saveFileParam($site, $value, $settingName, $userId, $localeKey = '', $isImage = false)
+    protected function _saveFileParam(Site $site, mixed $value, string $settingName, User $user, string $localeKey = '', bool $isImage = false, ?string $extension = null)
     {
         $temporaryFileManager = new TemporaryFileManager();
 
@@ -326,8 +327,8 @@ class PKPSiteService implements EntityPropertyInterface
             return $value;
         }
 
-        $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
-        $fileName = $this->moveTemporaryFile($site, $temporaryFile, $settingName, $userId, $localeKey);
+        $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $user->getId());
+        $fileName = $this->moveTemporaryFile($site, $temporaryFile, $settingName, $user, $localeKey, $isImage, $extension);
 
         if ($fileName) {
             // Get the details for image uploads

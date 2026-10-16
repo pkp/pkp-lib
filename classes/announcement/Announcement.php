@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\core\PKPApplication;
-use PKP\core\PKPString;
 use PKP\core\traits\ModelWithSettings;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
@@ -334,7 +333,7 @@ class Announcement extends Model
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFile = $temporaryFileManager->getFile((int) $image->temporaryFileId, $user?->getId());
         $filePath = static::IMAGE_SUBDIRECTORY . '/' . $this->getImageFilename($temporaryFile);
-        if (!$this->isValidImage($temporaryFile)) {
+        if (!$temporaryFileManager->isValidImage($temporaryFile)) {
             throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $this);
         }
 
@@ -376,26 +375,6 @@ class Announcement extends Model
 
         return $this->id
             . $fileManager->getImageExtension($temporaryFile->getFileType());
-    }
-
-    /**
-     * Check that temporary file is an image
-     */
-    protected function isValidImage(TemporaryFile $temporaryFile): bool
-    {
-        if (getimagesize($temporaryFile->getFilePath()) === false) {
-            return false;
-        }
-        $extension = pathinfo($temporaryFile->getOriginalFileName(), PATHINFO_EXTENSION);
-        $fileManager = new FileManager();
-        $extensionFromMimeType = $fileManager->getImageExtension(
-            PKPString::mime_content_type($temporaryFile->getFilePath())
-        );
-        if ($extensionFromMimeType !== '.' . $extension) {
-            return false;
-        }
-
-        return true;
     }
 
     /**

@@ -1121,7 +1121,7 @@ class PKPSubmissionHandler extends APIHandler
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission, $currentUser->getId())) {
             return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
         }
 
@@ -1560,7 +1560,7 @@ class PKPSubmissionHandler extends APIHandler
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission, $currentUser->getId())) {
             return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
         }
 

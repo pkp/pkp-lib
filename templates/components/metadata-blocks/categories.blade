@@ -1,0 +1,22 @@
+@if ($categories)
+    <x-metadata-blocks.default
+        slug="categories"
+        title="{{ __('category.category') }}"
+        :$headingTag
+    >
+        @foreach ($categories as $category)
+            <a
+                class="link"
+                href="{{
+                    ViewHelper::url([
+                        'page' => 'catalog',
+                        'op' => 'category',
+                        'path' => $category->getPath(),
+                    ])
+                }}"
+            >
+                {{ $category->getLocalizedTitle() }}
+            </a>@if(!$loop->last){{ __('common.commaListSeparator') }}@endif
+        @endforeach
+    </x-metadata-blocks.default>
+@endif

@@ -36,7 +36,7 @@ class OpenReviewComponent
     }
 
     /**
-     * Get the locale keys to expose for the PkpOpenReview component.
+     * Get the locale keys to expose for the PkpOpenReviews component.
      */
     public function getLocaleKeys(): array
     {
@@ -54,10 +54,14 @@ class OpenReviewComponent
             'openReview.readResponse',
             'openReview.hideResponse',
             'openReview.sortByReviewRound',
+            'openReview.citeDoi',
             'common.pagination.previous',
             'common.pagination.next',
             'submission.reviewRound.authorResponse',
-            // PkpOpenReviewSummary component locale keys
+            'common.inProgress',
+            'submission.submit.contributorType.anonymous',
+            'manager.userComment.comments',
+            // PkpOpenReview Summary component locale keys
             'openReview.title',
             'openReview.status',
             'openReview.statusInProgress',

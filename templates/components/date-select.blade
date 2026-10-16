@@ -1,0 +1,80 @@
+@props([
+    'prefix',
+    'legend',
+    'currentTime' => '',
+    'startYear',
+    'endYear',
+])
+
+@php
+    $startYear = (int) $startYear;
+    $endYear = (int) $endYear;
+
+    $years = [];
+    $i = $startYear;
+    while ($i <= $endYear) {
+        $years[$i] = $i;
+        $i++;
+    }
+
+    $months = [];
+    for ($i = 1; $i <= 12; $i++) {
+        $months[$i] = date('M', strtotime('2020-' . $i . '-01'));
+    }
+
+    $days = [];
+    for ($i = 1; $i <= 31; $i++) {
+        $days[$i] = $i;
+    }
+
+    $currentYear = $currentMonth = $currentDay = '';
+    if ($currentTime) {
+        $currentYear = (int) substr($currentTime, 0, 4);
+        $currentMonth = (int) substr($currentTime, 5, 2);
+        $currentDay = (int) substr($currentTime, 8, 2);
+    }
+@endphp
+
+<fieldset {{ $attributes->merge(['class' => 'date-select']) }}>
+    <legend>
+        {{ $legend }}
+    </legend>
+    <div class="date-select-fields">
+        <div class="date-select-field date-select-field-year">
+            <label for="{{ $prefix }}Year">
+                {{ __('common.year') }}
+            </label>
+            <select id="{{ $prefix }}Year" name="{{ $prefix }}Year">
+                <option></option>
+                @foreach($years as $year)
+                    @php $selected = $currentYear === $year ? 'selected' : ''; @endphp
+                    <option value="{{ $year }}" {{ $selected }}>{{ $year }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="date-select-field date-select-field-month">
+            <label for="{{ $prefix }}Month">
+                {{ __('common.month') }}
+            </label>
+            <select id="{{ $prefix }}Month" name="{{ $prefix }}Month">
+                <option></option>
+                @foreach($months as $value => $month)
+                    @php $selected = $currentMonth == $value ? 'selected' : ''; @endphp
+                    <option value="{{ $value }}" {{ $selected }}>{{ $month }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="date-select-field date-select-field-day">
+            <label for="{{ $prefix }}Day">
+                {{ __('common.day') }}
+            </label>
+            <select id="{{ $prefix }}Day" name="{{ $prefix }}Day">
+                <option></option>
+                @foreach($days as $day)
+                    @php $selected = $currentDay === $day ? 'selected' : ''; @endphp
+                    <option value="{{ $day }}" {{ $selected }}>{{ $day }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+</fieldset>

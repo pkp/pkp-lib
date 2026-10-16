@@ -94,13 +94,13 @@ class AboutContextHandler extends Handler
                     continue;
                 }
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupIds([$userGroupId])
+                    ->withUserGroupIds([$mastheadUserGroup->id])
                     ->withActive()
                     ->withMasthead()
                     ->first();
                 if ($userUserGroup) {
                     $startDatetime = $userUserGroup->dateStart ? new DateTime($userUserGroup->dateStart) : null;
-                    $mastheadUsers[$userGroupId][$user->getId()] = [
+                    $mastheadUsers[$mastheadUserGroup->id][$user->getId()] = [
                         'user' => $user,
                         'dateStart' => $startDatetime ? $startDatetime->format('Y') : '',
                     ];
@@ -172,7 +172,7 @@ class AboutContextHandler extends Handler
                     continue;
                 }
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupIds([$userGroupId])
+                    ->withUserGroupIds([$mastheadUserGroup->id])
                     ->withEnded()
                     ->withMasthead()
                     ->orderBy('date_start', 'desc')
@@ -187,7 +187,7 @@ class AboutContextHandler extends Handler
                     ];
                 }
                 if (!empty($services)) {
-                    $mastheadUsers[$userGroupId][$user->getId()] = [
+                    $mastheadUsers[$mastheadUserGroup->id][$user->getId()] = [
                         'user' => $user,
                         'services' => $services
                     ];

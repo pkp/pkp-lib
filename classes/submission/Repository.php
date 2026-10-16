@@ -1377,4 +1377,12 @@ abstract class Repository
         }
         return false;
     }
+
+    /**
+     * Update a submission's last_modified timestamp without persisting the entity.
+     */
+    public function stampModified(int $submissionId): void
+    {
+        $this->dao->updateLastModified($submissionId);
+    }
 }

@@ -19,6 +19,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use GuzzleHttp\Exception\ClientException;
+use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\orcid\OrcidManager;
 
 class AuthorizeUserData
@@ -163,13 +164,34 @@ class AuthorizeUserData
                 ';
                 break;
             case 'invitation':
-                if (empty($errorMessages)) {
-                    $orcidData = $this->getOrcidOAuthAccessData($orcidUri, $tokenData);
+                try {
+                    $invitationKey = $this->request->getUserVar('invitationKey');
+                    $invitationId = $this->request->getUserVar('invitationId');
+                    $invitation = Repo::invitation()->getByIdAndKey($invitationId, $invitationKey);
+
+                    if (!$invitation instanceof UserRoleAssignmentInvite) {
+                        throw new \Exception('Invitation could not be found.');
+                    }
+
+                    if (empty($errorMessages)) {
+                        $orcidData = $this->getOrcidOAuthAccessData($orcidUri, $tokenData);
+                        $payload = $invitation->getPayload();
+                        foreach ($orcidData as $field => $value) {
+                            $payload->$field = $value;
+                        }
+                        if (!$invitation->invitationModel->update(['payload' => $payload->toArray()])) {
+                            throw new \Exception('Invitation database update failed.');
+                        }
+                    }
+                } catch (\Exception $exception) {
+                    $errorMessages[] = $exception->getMessage();
                 }
+
+
                 echo '
                     <html><body><script type="text/javascript">' .
                         $this->renderFrontendErrorNotification($errorMessages) .
-                        (empty($errorMessages) ? ('opener.pkp.eventBus.$emit("addOrcidInvitationData", ' . json_encode($orcidData) . ');') : '') .
+                        (empty($errorMessages) ? ('opener.pkp.eventBus.$emit("orcidAddedToInvitation");') : '') .
                         'window.close();
                     </script></body></html>
                 ';

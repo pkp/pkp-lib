@@ -47,10 +47,23 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
     protected array $notAccessibleAfterInvite = [
         'userGroupsToAdd',
+        'orcid',
+        'orcidIsVerified',
+        'orcidAccessDenied',
+        'orcidAccessToken',
+        'orcidAccessScope',
+        'orcidRefreshToken',
+        'orcidAccessExpiresOn',
     ];
 
     protected array $notAccessibleBeforeInvite = [
         'orcid',
+        'orcidIsVerified',
+        'orcidAccessDenied',
+        'orcidAccessToken',
+        'orcidAccessScope',
+        'orcidRefreshToken',
+        'orcidAccessExpiresOn',
         'username',
         'password'
     ];

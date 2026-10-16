@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/invitation/stepType/AcceptInvitationStep.php
  *
@@ -10,6 +11,7 @@
  *
  * @brief create accept invitation steps.
  */
+
 namespace PKP\invitation\stepTypes;
 
 use APP\core\Application;
@@ -37,7 +39,7 @@ class AcceptInvitationStep extends InvitationStepTypes
 
         switch ($user) {
             case !null:
-                if(!$user->hasVerifiedOrcid() && OrcidManager::isEnabled($context)) {
+                if (!$user->hasVerifiedOrcid() && OrcidManager::isEnabled($context)) {
                     $steps[] = $this->verifyOrcidStep();
                 }
                 break;
@@ -64,12 +66,23 @@ class AcceptInvitationStep extends InvitationStepTypes
             'AcceptInvitationVerifyOrcid',
             __('userInvitation.searchUser.stepDescription'),
         );
+
+        $request = Application::get()->getRequest();
+        $id = $request->getUserVar('id') ?: null;
+        $key = $request->getUserVar('key') ?: null;
+
+        $orcidOAuthRedirectParams = [
+            'targetOp' => 'invitation',
+            'invitationId' => $id,
+            'invitationKey' => $key,
+        ];
+
+
         $sections->addSection(
             null,
             [
-                'validateFields' => ['orcid', 'orcidIsVerified', 'orcidAccessDenied', 'orcidAccessToken', 'orcidAccessScope', 'orcidRefreshToken', 'orcidAccessExpiresOn'],
-                'orcidUrl' => OrcidManager::getOrcidUrl(),
-                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => 'invitation']),
+                'validateFields' => [],
+                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', $orcidOAuthRedirectParams),
             ]
         );
         $step = new Step(

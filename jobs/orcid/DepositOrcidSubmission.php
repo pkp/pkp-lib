@@ -124,7 +124,7 @@ class DepositOrcidSubmission extends BaseJob implements ShouldBeUnique
                 $error = json_decode($response->getBody(), true);
                 if ($error['error'] === 'invalid_token') {
                     OrcidManager::logError($error['error_description'] . ', deleting orcidAccessToken from author');
-                    OrcidManager::removeOrcidAccessToken($this->author);
+                    OrcidManager::removeOrcidAccessToken($this->author, context: $this->context);
                 }
                 break;
             case 403:

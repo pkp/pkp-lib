@@ -19,6 +19,7 @@ namespace PKP\pages\invitation;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -27,6 +28,7 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class InitializeInvitationUIHandler extends Handler
 {
@@ -75,7 +77,7 @@ class InitializeInvitationUIHandler extends Handler
     public function create(array $args, Request $request): void
     {
         if (empty($args) || count($args) < 1) {
-            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+            throw new NotFoundHttpException();
         }
 
         $this->setupTemplate($request);
@@ -83,7 +85,7 @@ class InitializeInvitationUIHandler extends Handler
         $arg = $args[0]; // invitation type
 
         if (is_numeric($arg)) {
-            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+            throw new NotFoundHttpException();
         } else {
             // Handle new invitation by type
             $invitationType = $arg;
@@ -102,7 +104,7 @@ class InitializeInvitationUIHandler extends Handler
     public function edit(array $args, Request $request): void
     {
         if (empty($args) || count($args) < 1) {
-            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+            throw new NotFoundHttpException();
         }
 
         $this->setupTemplate($request);
@@ -114,13 +116,16 @@ class InitializeInvitationUIHandler extends Handler
             $invitationId = (int) $arg;
             $invitation = Repo::invitation()->getById($invitationId);
             // An invitation that does not exist, or belongs to another context, is not found here
-            if (!$invitation || !$invitation->belongsToContext($request->getContext()?->getId())) {
-                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+            if (!$invitation
+                || !$invitation->belongsToContext($request->getContext()?->getId())
+                || $invitation->getStatus() !== InvitationStatus::PENDING
+            ) {
+                throw new NotFoundHttpException();
             }
             $invitationHandler = $invitation->getInvitationUIActionRedirectController();
             $invitationHandler->editHandle($request);
         } else {
-            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+            throw new NotFoundHttpException();
         }
     }
 }

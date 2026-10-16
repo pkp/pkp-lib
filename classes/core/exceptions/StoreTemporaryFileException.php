@@ -26,13 +26,13 @@ class StoreTemporaryFileException extends Exception
 {
     public function __construct(public TemporaryFile $temporaryFile, public string $targetPath, public ?User $user, public ?DataObject $dataObject)
     {
-        $message = `Unable to store temporary file {$temporaryFile->getFilePath()} in {$targetPath}.`;
+        $message = 'Unable to store temporary file ' . $temporaryFile->getFilePath() . ' in ' . $targetPath . '.';
         if ($user) {
-            $message .= ` File was uploaded by {$temporaryFile->getUserId()}. The current user is {$user->getId()}.`;
+            $message .= ' File was uploaded by ' . $temporaryFile->getUserId() . '. The current user is ' . $user->getId() . '.';
         }
         if ($dataObject) {
             $class = get_class($dataObject);
-            $message .= ` Handling {$class} id {$dataObject->getId()}.`;
+            $message .= ' Handling ' . $class . ' id ' . $dataObject->getId() . '.';
         }
         parent::__construct($message);
     }

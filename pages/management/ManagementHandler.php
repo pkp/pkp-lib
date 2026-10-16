@@ -103,6 +103,12 @@ class ManagementHandler extends Handler
         if ($request->getRequestedOp() == 'settings' && $requestedArgs != ['announcements'] && $requestedArgs != ['userComments']) {
             $this->addPolicy(new CanAccessSettingsPolicy());
         }
+
+        // Deny access to the comments page if comments are disbaled
+        if ($requestedArgs === ['userComments'] && !$request->getContext()->getData('enablePublicComments')) {
+            return false;
+        }
+
         return parent::authorize($request, $args, $roleAssignments);
     }
 

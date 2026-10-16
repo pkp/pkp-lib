@@ -800,6 +800,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     }
 
     /**
+     * Whether a representation points to a single submission file at a time.
+     *
+     * An OJS/OPS galley tracks one file (submissionFileId), so uploading to a
+     * galley always revises that file. In OMP a publication format holds many
+     * proof files at once, so the file being revised has to be chosen.
+     */
+    public static function hasSingleFileRepresentations(): bool
+    {
+        return true;
+    }
+
+    /**
      * Get the payment manager.
      */
     public function getPaymentManager(Context $context): \PKP\payment\PaymentManager

@@ -23,6 +23,7 @@ use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\galley\Galley;
 use PKP\services\PKPSchemaService;
+use PKP\submission\Representation;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -93,6 +94,20 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
+                case 'generatedFromLabel':
+                    $output[$prop] = $galley->getData('generatedFrom') === Representation::GENERATED_FROM_EDITOR
+                        ? __('galley.generatedFrom.textEditor')
+                        : '';
+                    break;
+                case 'revisionLabel':
+                    $submissionFileId = $galley->getData('submissionFileId');
+                    $revisionNumber = $submissionFileId
+                        ? Repo::submissionFile()->getRevisions($submissionFileId)->count() - 1
+                        : 0;
+                    $output[$prop] = $revisionNumber > 0
+                        ? __('galley.revision', ['revision' => $revisionNumber])
+                        : '';
+                    break;
                 case 'doiObject':
                     if ($galley->getData('doiObject')) {
                         $retVal = Repo::doi()->getSchemaMap()->summarize($galley->getData('doiObject'));

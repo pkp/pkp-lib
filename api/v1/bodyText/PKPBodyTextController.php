@@ -81,6 +81,12 @@ class PKPBodyTextController extends PKPBaseController
             Route::put('', $this->save(...))
                 ->name('publication.bodyText.save');
 
+            Route::post('', $this->createHtmlFile(...))
+                ->name('publication.bodyText.createHtmlFile');
+
+            Route::post('pdf', $this->createPdfGalley(...))
+                ->name('publication.bodyText.createPdfGalley');
+
             Route::delete('', $this->delete(...))
                 ->name('publication.bodyText.delete');
 
@@ -174,6 +180,90 @@ class PKPBodyTextController extends PKPBaseController
         return response()->json(
             Repo::bodyText()->map($bodyTextFile),
             Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Receive a generated PDF and create a publication galley labeled PDF.
+     */
+    public function createPdfGalley(Request $illuminateRequest): JsonResponse
+    {
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($illuminateRequest->getContentTypeFormat() !== 'pdf') {
+            return response()->json([
+                'error' => __('api.400.invalidValue'),
+            ], Response::HTTP_UNSUPPORTED_MEDIA_TYPE);
+        }
+
+        $pdf = $illuminateRequest->getContent();
+        if (!str_starts_with($pdf, '%PDF-')) {
+            return response()->json([
+                'error' => __('api.400.invalidValue'),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        try {
+            $galley = Repo::bodyText()->createPdfGalley($pdf, $publication->getId());
+        } catch (\Exception $exception) {
+            return response()->json([
+                'error' => __('api.422.routeRequestUnableToProcess', ['message' => $exception->getMessage()]),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        return response()->json(
+            Repo::galley()->getSchemaMap($submission, $publication, [])->map($galley),
+            Response::HTTP_CREATED
+        );
+    }
+
+    /**
+     * Create an HTML galley without changing the editor's JSON document.
+     */
+    public function createHtmlFile(Request $illuminateRequest): JsonResponse
+    {
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($illuminateRequest->getContentTypeFormat() !== 'html') {
+            return response()->json([
+                'error' => __('api.400.invalidValue'),
+            ], Response::HTTP_UNSUPPORTED_MEDIA_TYPE);
+        }
+
+        $html = $illuminateRequest->getContent();
+        if (trim($html) === '') {
+            return response()->json([
+                'error' => __('api.400.invalidValue'),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        try {
+            $galley = Repo::bodyText()->createHtmlFile($html, $publication->getId());
+        } catch (\Exception $exception) {
+            return response()->json([
+                'error' => __('api.422.routeRequestUnableToProcess', ['message' => $exception->getMessage()]),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        return response()->json(
+            Repo::galley()->getSchemaMap($submission, $publication, [])->map($galley),
+            Response::HTTP_CREATED
         );
     }
 }

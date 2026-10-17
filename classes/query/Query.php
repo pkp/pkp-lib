@@ -56,7 +56,8 @@ class Query extends Model
     {
         // Delete connected model data when a Query is deleted.
         static::deleted(function (Query $query) {
-            Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
+            // Delete notes one by one so that their model events fire and attached files are removed
+            Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->get()->each->delete();
             Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
         });
     }

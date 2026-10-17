@@ -19,7 +19,9 @@ use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use PKP\core\PKPApplication;
 use PKP\db\DAO;
+use PKP\submissionFile\SubmissionFile;
 
 class Note extends Model
 {
@@ -49,6 +51,18 @@ class Note extends Model
             'dateCreated' => 'datetime',
             'dateModified' => 'datetime'
         ];
+    }
+
+    protected static function booted(): void
+    {
+        // Delete the submission files attached to a note when the note is deleted
+        static::deleted(function (Note $note) {
+            Repo::submissionFile()
+                ->getCollector()
+                ->filterByAssoc(PKPApplication::ASSOC_TYPE_NOTE, [$note->id])
+                ->getMany()
+                ->each(fn (SubmissionFile $submissionFile) => Repo::submissionFile()->delete($submissionFile));
+        });
     }
 
     /**

@@ -207,7 +207,7 @@ class Repository
 
         if (!empty($queryIds)) {
             Query::whereIn('query_id', $queryIds)->delete();
-            Note::whereIn('assoc_id', $queryIds)->delete();
+            Note::where('assoc_type', PKPApplication::ASSOC_TYPE_QUERY)->whereIn('assoc_id', $queryIds)->get()->each->delete();
             Notification::whereIn('assoc_id', $queryIds)->delete();
         }
     }

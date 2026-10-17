@@ -15,30 +15,34 @@
  * @uses $currentTitleKey string Translation key for title of current page.
  *}
 
-<nav class="cmp_breadcrumbs cmp_breadcrumbs_catalog" role="navigation">
+<nav class="cmp_breadcrumbs cmp_breadcrumbs_catalog" >
 	<ol>
 		<li>
 			<a href="{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
 				{translate key="common.homepageNavigationLabel"}
 			</a>
-			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
+			<span class="separator" aria-hidden="true">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
 		{if $parent}
 			<li>
 				<a href="{url op=$type path=$parent->getPath()}">
 					{$parent->getLocalizedTitle()|escape}
 				</a>
-				<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
+				<span class="separator" aria-hidden="true">{translate key="navigation.breadcrumbSeparator"}</span>
 			</li>
 		{/if}
-		<li class="current" aria-current="page">
-			<span aria-current="page">
-				{if $currentTitleKey}
-					{translate key=$currentTitleKey}
-				{else}
-					{$currentTitle|escape}
-				{/if}
-			</span>
+		<li class="current">
+			{if $category}	
+				<a href="{url op=$type path=$category->getPath()}"  aria-current="page">
+			{else }
+				<a href="{url op=$type path=$series->getPath()}"  aria-current="page">
+			{/if}
+					{if $currentTitleKey}
+						{translate key=$currentTitleKey}
+					{else}
+						{$currentTitle|escape}
+					{/if}
+				</a>
 		</li>
 	</ol>
 </nav>

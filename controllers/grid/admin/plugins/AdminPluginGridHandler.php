@@ -22,6 +22,7 @@ use PKP\controllers\grid\plugins\PluginGridRow;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\PluginAccessPolicy;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 
@@ -59,6 +60,8 @@ class AdminPluginGridHandler extends PluginGridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+
         $category = $request->getUserVar('category');
         $pluginName = $request->getUserVar('plugin');
         $verb = $request->getUserVar('verb');

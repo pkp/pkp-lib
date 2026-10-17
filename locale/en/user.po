@@ -908,6 +908,9 @@ msgstr "Confirm Access"
 msgid "user.confirmAccess.description"
 msgstr "Signed in as <strong>{$userFullName}</strong>. Please enter your password to continue."
 
+msgid "user.confirmAccess.required"
+msgstr "Your access to Administration has expired. Reload the page and confirm your password to continue."
+
 msgid "user.lastAction.incomplete"
 msgstr "Your last action was not completed. Please try again."
 

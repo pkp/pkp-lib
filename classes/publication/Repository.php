@@ -735,7 +735,15 @@ abstract class Repository
 
         // Check if there is something to upload
         if (empty($value['temporaryFileId'])) {
-            return $value;
+            // No new file: Keep the stored file and let only its alt text change.
+            $oldValue = $publication->getData($settingName, $localeKey);
+            if (empty($oldValue['uploadName'])) {
+                return null;
+            }
+            if ($isImage && is_array($value) && array_key_exists('altText', $value)) {
+                $oldValue['altText'] = (string) $value['altText'];
+            }
+            return $oldValue;
         }
 
         // Get the submission context

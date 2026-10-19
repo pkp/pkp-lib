@@ -1,8 +1,8 @@
 /**
  * @file cypress/support/commands.js
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  */
@@ -125,7 +125,8 @@ Cypress.Commands.add('install', function() {
 	cy.get('input[id=additionalLocales-en').check();
 	cy.get('input[id=additionalLocales-fr_CA').check();
 
-	// Complete the installation
+	// Complete the installation; the installer downloads and imports the ROR dataset synchronously
+	Cypress.config('pageLoadTimeout', 720000);
 	cy.get('button[id^=submitFormButton-]').click();
 	cy.get('p:contains("has completed successfully.")');
 });

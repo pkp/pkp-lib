@@ -35,7 +35,7 @@ trait ReviewRoundAuthorResponseCommonValidator
                 'required',
                 'integer',
                 function (string $attribute, mixed $value, \Closure $fail) {
-                    if (!$this->reviewRound || (int) $this->reviewRound->getId() !== (int) $value) {
+                    if (!$this->reviewRound || $this->reviewRound->getSubmissionId() !== (int) $this->route('submissionId')) {
                         $fail(__('api.404.resourceNotFound'));
                     }
                 },

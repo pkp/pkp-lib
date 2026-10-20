@@ -29,6 +29,7 @@ use PKP\core\PKPRequest;
 use PKP\highlight\Collector;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -105,6 +106,10 @@ class HighlightsController extends PKPBaseController
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
         $this->addPolicy($rolePolicy);
+
+        if (!$request->getContext()) {
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        }
 
         return parent::authorize($request, $args, $roleAssignments);
     }

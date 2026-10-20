@@ -3,8 +3,8 @@
 /**
  * @file controllers/informationCenter/FileInformationCenterHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileInformationCenterHandler
@@ -24,8 +24,8 @@ use PKP\controllers\informationCenter\form\NewFileNoteForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
+use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -78,7 +78,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
         // Ensure data integrity.
         if (!$this->_submission || !$this->submissionFile || $this->_submission->getId() != $this->submissionFile->getData('submissionId')) {
             throw new \Exception('Unknown or invalid submission or submission file!');
-        };
+        }
     }
 
     /**
@@ -251,7 +251,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
      *
      * @param PKPRequest $request
      */
-    public function setupTemplate($request)
+    public function setupTemplate($request): void
     {
         $templateMgr = TemplateManager::getManager($request);
 
@@ -264,11 +264,11 @@ class FileInformationCenterHandler extends InformationCenterHandler
             $templateMgr->assign('lastEvent', $lastEvent);
 
             // Get the user who created the last event.
-	    $userId = $lastEvent->getUserId();
+            $userId = $lastEvent->getUserId();
             $user = $userId ? Repo::user()->get($userId, true) : null;
             $templateMgr->assign('lastEventUser', $user);
         }
 
-        return parent::setupTemplate($request);
+        parent::setupTemplate($request);
     }
 }

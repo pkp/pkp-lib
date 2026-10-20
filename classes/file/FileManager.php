@@ -390,13 +390,13 @@ class FileManager
     /**
      * Delete a file.
      *
-     * @param string $filePath the location of the file to be deleted
+     * @param $filePath the location of the file to be deleted
      *
-     * @return ?bool returns true if successful
+     * @return true if successful
      *
      * @hook FileManager::deleteFile [[$filePath, &$result]]
      */
-    public function deleteByPath($filePath)
+    public function deleteByPath(string $filePath): bool
     {
         if ($this->fileExists($filePath)) {
             $result = null;

@@ -169,7 +169,6 @@ abstract class Repository
             });
         }
 
-
         // A title must be provided if the submission is not still in progress
         if (!$submission->getData('submissionProgress')) {
             $validator->after(function ($validator) use ($props, $publication, $primaryLocale) {
@@ -224,6 +223,26 @@ abstract class Repository
             $allowedLocales,
             $user ? $user->getId() : null
         );
+
+        // A cover image filename may only be one this submission already holds:
+        // the stored value a form sends back, or a version's copy (pkp/pkp-lib#13560)
+        if (isset($props['coverImage'])) {
+            $validator->after(function ($validator) use ($props, $submission) {
+                if (!is_array($props['coverImage'])) {
+                    $validator->errors()->add('coverImage', __('api.400.errorUploadingImage'));
+                    return;
+                }
+                $specifiedUploadNames = collect($props['coverImage'])
+                    ->map(fn($c) => $c['uploadName'] ?? null)
+                    ->filter()->unique();
+                $existingUploadNames = $submission->getData('publications')
+                    ->flatMap(fn($p) => array_map(fn($c) => $c['uploadName'] ?? null, (array) $p->getData('coverImage')))
+                    ->filter()->unique();
+                if ($specifiedUploadNames->diff($existingUploadNames)->count()) {
+                    $validator->errors()->add('coverImage', __('api.400.errorUploadingImage'));
+                }
+            });
+        }
 
         if ($validator->fails()) {
             $errors = $this->schemaService->formatValidationErrors($validator->errors());

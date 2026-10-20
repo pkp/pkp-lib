@@ -254,6 +254,7 @@ class PKPBodyTextController extends PKPBaseController
         try {
             $galley = Repo::bodyText()->createHtmlFile($html, $publication->getId());
         } catch (\Exception $exception) {
+            error_log('Unable to export body text as HTML for publication ' . $publication->getId() . ': ' . $exception);
             return response()->json([
                 'error' => __('api.422.routeRequestUnableToProcess', ['message' => $exception->getMessage()]),
             ], Response::HTTP_UNPROCESSABLE_ENTITY);

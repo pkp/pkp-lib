@@ -236,12 +236,12 @@ class PKPReviewController extends PKPBaseController
 
         $publicationAbstract = $publication->getData('abstract');
         $publicationKeywords = collect($publication->getData('keywords'))
-                                    ->map(
-                                        fn(array $items): array => collect($items)
-                                            ->pluck("name")
-                                            ->all()
-                                    )
-                                    ->all();
+            ->map(
+                fn (array $items): array => collect($items)
+                    ->pluck('name')
+                    ->all()
+            )
+            ->all();
 
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {
@@ -897,12 +897,12 @@ class PKPReviewController extends PKPBaseController
         $shouldConsiderMinimumRequiredReviews = (bool)$context->getNumReviewsPerSubmission();
 
         $hasMinimumRequiredReviews = $assignments
-                ->filter(fn(ReviewAssignment $assignment) => $assignment->getDateCompleted() !== null)
-                ->count() >= $context->getNumReviewsPerSubmission();
+            ->filter(fn (ReviewAssignment $assignment) => $assignment->getDateCompleted() !== null)
+            ->count() >= $context->getNumReviewsPerSubmission();
 
         $areAllReviewsCompleted = $assignments->isNotEmpty() &&
             $assignments
-                ->every(fn($assignment) => $assignment->getDateCompleted() !== null);
+                ->every(fn ($assignment) => $assignment->getDateCompleted() !== null);
 
         $passesMinimumReviewsCheck = $shouldConsiderMinimumRequiredReviews && $hasMinimumRequiredReviews;
 
@@ -940,6 +940,8 @@ class PKPReviewController extends PKPBaseController
      */
     public function deleteAuthorResponse(Request $illuminateRequest): JsonResponse
     {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
         $reviewRoundId = (int)$illuminateRequest->route('reviewRoundId');
         $responseId = (int)$illuminateRequest->route('responseId');
 
@@ -947,7 +949,7 @@ class PKPReviewController extends PKPBaseController
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
         $reviewRound = $reviewRoundDao->getById($reviewRoundId);
 
-        if (!$reviewRound) {
+        if (!$reviewRound || $reviewRound->getSubmissionId() !== $submission->getId()) {
             return response()->json(
                 [
                     'error' => __('api.404.resourceNotFound')

@@ -21,12 +21,15 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\bodyText\ConversionException;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\core\PKPString;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 
 class PKPBodyTextController extends PKPBaseController
@@ -107,6 +110,16 @@ class PKPBodyTextController extends PKPBaseController
 
         if ($actionName === 'get') {
             $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
+        } elseif (in_array($actionName, ['createHtmlFile', 'createPdfGalley'], true)) {
+            // Align permissions for galleys with the ArticleGalleyGridHandler
+            $this->addPolicy(new WorkflowStageAccessPolicy(
+                $request,
+                $args,
+                $roleAssignments,
+                'submissionId',
+                WORKFLOW_STAGE_ID_PRODUCTION
+            ));
+            $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
         } else {
             $this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
         }
@@ -184,7 +197,7 @@ class PKPBodyTextController extends PKPBaseController
     }
 
     /**
-     * Receive a generated PDF and create a publication galley labeled PDF.
+     * Creates a PDF from body text and imports it as a galley
      */
     public function createPdfGalley(Request $illuminateRequest): JsonResponse
     {
@@ -198,23 +211,21 @@ class PKPBodyTextController extends PKPBaseController
 
         if ($illuminateRequest->getContentTypeFormat() !== 'pdf') {
             return response()->json([
-                'error' => __('api.400.invalidValue'),
+                'error' => __('api.400.invalidValue', ['param' => 'Content-Type']),
             ], Response::HTTP_UNSUPPORTED_MEDIA_TYPE);
         }
 
         $pdf = $illuminateRequest->getContent();
-        if (!str_starts_with($pdf, '%PDF-')) {
+        if (!str_starts_with($pdf, PKPString::PDF_HEADER)) {
             return response()->json([
-                'error' => __('api.400.invalidValue'),
+                'error' => __('api.400.invalidValue', ['param' => 'body']),
             ], Response::HTTP_BAD_REQUEST);
         }
 
         try {
             $galley = Repo::bodyText()->createPdfGalley($pdf, $publication->getId());
-        } catch (\Exception $exception) {
-            return response()->json([
-                'error' => __('api.422.routeRequestUnableToProcess', ['message' => $exception->getMessage()]),
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        } catch (\Throwable $exception) {
+            return $this->conversionErrorResponse($exception, $publication->getId());
         }
 
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
@@ -240,24 +251,21 @@ class PKPBodyTextController extends PKPBaseController
 
         if ($illuminateRequest->getContentTypeFormat() !== 'html') {
             return response()->json([
-                'error' => __('api.400.invalidValue'),
+                'error' => __('api.400.invalidValue', ['param' => 'Content-Type']),
             ], Response::HTTP_UNSUPPORTED_MEDIA_TYPE);
         }
 
         $html = $illuminateRequest->getContent();
         if (trim($html) === '') {
             return response()->json([
-                'error' => __('api.400.invalidValue'),
+                'error' => __('api.400.invalidValue', ['param' => 'body']),
             ], Response::HTTP_BAD_REQUEST);
         }
 
         try {
             $galley = Repo::bodyText()->createHtmlFile($html, $publication->getId());
-        } catch (\Exception $exception) {
-            error_log('Unable to export body text as HTML for publication ' . $publication->getId() . ': ' . $exception);
-            return response()->json([
-                'error' => __('api.422.routeRequestUnableToProcess', ['message' => $exception->getMessage()]),
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        } catch (\Throwable $exception) {
+            return $this->conversionErrorResponse($exception, $publication->getId());
         }
 
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
@@ -266,5 +274,32 @@ class PKPBodyTextController extends PKPBaseController
             Repo::galley()->getSchemaMap($submission, $publication, [])->map($galley),
             Response::HTTP_CREATED
         );
+    }
+
+    /**
+     * Handle exceptions specific to body text conversion.
+     */
+    protected function conversionErrorResponse(\Throwable $exception, int $publicationId): JsonResponse
+    {
+        $translationKey = $exception instanceof ConversionException
+            ? match ($exception->reason) {
+                ConversionException::INVALID_GALLEY_FILE => 'publication.bodyText.error.invalidGalleyFile',
+                ConversionException::IMAGE_NOT_ATTACHED => 'publication.bodyText.error.imageNotAttached',
+                ConversionException::IMAGE_NOT_EXPORTABLE => 'publication.bodyText.error.imageNotExportable',
+                default => null,
+            }
+        : null;
+
+        if ($translationKey !== null) {
+            return response()->json([
+                'error' => __($translationKey),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        error_log('Unable to export body text for publication ' . $publicationId . ': ' . $exception);
+
+        return response()->json([
+            'error' => __('api.422.routeRequestUnableToProcess'),
+        ], Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 }

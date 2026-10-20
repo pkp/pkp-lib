@@ -7,7 +7,7 @@
  * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Tests for galley revision labels.
+ * @brief Tests for galley revision counts.
  */
 
 namespace PKP\tests\classes\galley\maps;
@@ -34,14 +34,14 @@ class SchemaTest extends PKPTestCase
         return [Repository::class];
     }
 
-    #[DataProvider('revisionLabelProvider')]
-    public function testRevisionLabel(bool $generated, int $revisionNumber, bool $showLabel): void
+    #[DataProvider('revisionCountProvider')]
+    public function testRevisionCount(bool $generated, int $revisions): void
     {
         $repository = $this->createMock(Repository::class);
         $repository->expects($this->once())
             ->method('getRevisions')
             ->with(123)
-            ->willReturn(new Collection(range(0, $revisionNumber)));
+            ->willReturn(new Collection(range(1, $revisions)));
         app()->instance(Repository::class, $repository);
 
         $publication = $this->createMock(Publication::class);
@@ -59,7 +59,7 @@ class SchemaTest extends PKPTestCase
             $context,
             $schemaService
         );
-        $map->props = ['revisionLabel'];
+        $map->props = ['revisionCount'];
 
         $galley = new Galley();
         $galley->setData('label', 'PDF');
@@ -69,23 +69,18 @@ class SchemaTest extends PKPTestCase
         }
 
         $output = $map->map($galley);
-        $this->assertSame(
-            $showLabel ? __('galley.revision', ['revision' => $revisionNumber]) : '',
-            $output['revisionLabel']
-        );
+        $this->assertSame($revisions, $output['revisionCount']);
     }
 
-    public static function revisionLabelProvider(): array
+    public static function revisionCountProvider(): array
     {
         return [
-            'manual PDF original' => [false, 0, false],
-            'manual PDF revision 1' => [false, 1, false],
-            'manual PDF revision 2' => [false, 2, true],
-            'manual PDF revision 3' => [false, 3, true],
-            'generated PDF original' => [true, 0, false],
-            'generated PDF revision 1' => [true, 1, false],
-            'generated PDF revision 2' => [true, 2, true],
-            'generated PDF revision 3' => [true, 3, true],
+            'manual original' => [false, 1],
+            'manual one revision' => [false, 2],
+            'manual two revisions' => [false, 3],
+            'generated original' => [true, 1],
+            'generated one revision' => [true, 2],
+            'generated two revisions' => [true, 3],
         ];
     }
 }

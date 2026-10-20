@@ -112,11 +112,13 @@ abstract class PKPPublicFileManager extends FileManager
      *
      * @param int $contextId Context ID
      * @param string $fileName the target file name
-     *
-     * @return bool
      */
-    public function removeContextFile(int $contextId, $fileName)
+    public function removeContextFile(int $contextId, string $fileName): bool
     {
+        // Only a file directly in the context's folder
+        if ($fileName !== basename($fileName) || in_array($fileName, ['', '.', '..'])) {
+            return false;
+        }
         return $this->deleteByPath($this->getContextFilesPath($contextId) . '/' . $fileName);
     }
 

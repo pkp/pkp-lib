@@ -189,7 +189,9 @@ class Repository
     }
 
     /**
-     * Create a PDF galley or add a revision to its existing proof file.
+     * Create a PDF galley or add a revision.
+     *
+     * @throws \Throwable
      */
     public function createPdfGalley(string $pdf, int $publicationId): Galley
     {
@@ -197,7 +199,9 @@ class Repository
     }
 
     /**
-     * Create an HTML galley or add a revision without changing the editor's JSON document.
+     * Create an HTML galley or add a revision.
+     *
+     * @throws \Throwable
      */
     public function createHtmlFile(string $html, int $publicationId): Galley
     {
@@ -223,8 +227,6 @@ class Repository
         $createdPaths = [];
         try {
             $galleyId = DB::transaction(function () use ($content, $mimeType, $submissionDir, &$createdPaths, $submission, $publication, $user, $context, $publicationId, $label, $extension, $genre) {
-                // Serialize concurrent exports so they cannot create duplicate galleys.
-                DB::table('publications')->where('publication_id', $publicationId)->lockForUpdate()->first();
 
                 // Catch the images referenced in the HTML and rewrite their src attributes to point to the new image supplement file.
                 $images = [];
@@ -294,15 +296,44 @@ class Repository
                         'assocId' => $galleyId,
                     ]);
                 } else {
-                    // Update the existing file, preserving its previous revisions.
                     $submissionFileId = $galley->getData('submissionFileId');
-                    $submissionFile = Repo::submissionFile()->get($submissionFileId);
+                    $submissionFile = $submissionFileId
+                        ? Repo::submissionFile()->get($submissionFileId)
+                        : null;
+                    if (
+                        !$submissionFile ||
+                        (int) $submissionFile->getData('submissionId') !== (int) $submission->getId()
+                    ) {
+                        throw new ConversionException(ConversionException::INVALID_GALLEY_FILE);
+                    }
+
+                    /**
+                     * New version of the publication clones galleys and retains their submission files.
+                     * Changes in the submission file of the cloned galley will affect the original galley of the previous publication version.
+                     * If there is already another galley with the same submission file ID, create a new submission file.
+                     */
+                    $isShared = Repo::galley()->getCollector()
+                        ->filterBySubmissionFileIds([$submissionFileId])
+                        ->getMany()
+                        ->contains(fn (Galley $other) => $other->getId() !== $galley->getId());
+
                     $params = ['fileId' => $fileId];
-                    if (!$submissionFile->getGenreId() && $genre) {
-                        $params['genreId'] = $genre->getId();
+                    $genreId = $submissionFile->getGenreId() ?: $genre?->getId();
+                    if ($genreId !== null) {
+                        $params['genreId'] = $genreId;
+                    }
+                    if ($isShared) {
+                        $params += [
+                            'submissionId' => $submission->getId(),
+                            'uploaderUserId' => $user->getId(),
+                            'fileStage' => SubmissionFile::SUBMISSION_FILE_PROOF,
+                            'name' => $submissionFile->getData('name'),
+                            'assocType' => PKPApplication::ASSOC_TYPE_REPRESENTATION,
+                            'assocId' => $galley->getId(),
+                        ];
                     }
                     $errors = Repo::submissionFile()->validate(
-                        $submissionFile,
+                        $isShared ? null : $submissionFile,
                         $params,
                         $context->getData('supportedSubmissionLocales'),
                         $context->getPrimaryLocale()
@@ -311,11 +342,27 @@ class Repository
                         throw new Exception(json_encode($errors));
                     }
 
-                    Repo::submissionFile()->edit($submissionFile, $params);
-                    Repo::galley()->edit($galley, [
-                        'isApproved' => false,
-                        'generatedFrom' => Representation::GENERATED_FROM_EDITOR,
-                    ]);
+                    $galleyParams = ['isApproved' => false];
+                    if ($isShared) {
+                        $submissionFile = Repo::submissionFile()->newDataObject($params);
+                        $submissionFileId = Repo::submissionFile()->add($submissionFile);
+                        $galleyParams['submissionFileId'] = $submissionFileId;
+                    } else {
+                        // Only this galley uses the file, so normal revision handling is safe.
+                        Repo::submissionFile()->edit($submissionFile, $params);
+                    }
+
+                    $errors = Repo::galley()->validate(
+                        $galley,
+                        $galleyParams,
+                        $context->getData('supportedSubmissionLocales'),
+                        $context->getPrimaryLocale()
+                    );
+                    if (!empty($errors)) {
+                        throw new Exception(json_encode($errors));
+                    }
+                    $galleyParams['generatedFrom'] = Representation::GENERATED_FROM_EDITOR;
+                    Repo::galley()->edit($galley, $galleyParams);
                     $galleyId = $galley->getId();
                 }
                 $this->attachHtmlImages($submissionFile, $images, $submissionDir, $context, $user, $createdPaths);
@@ -386,10 +433,10 @@ class Repository
                 parse_str($uri->getQuery(), $query);
                 $base = new Uri($baseUrl);
                 if (isset($query['submissionFileId']) && $uri->getScheme() === $base->getScheme() && $uri->getAuthority() === $base->getAuthority()) {
-                    throw new Exception('The HTML references an image that is not attached to this publication\'s body text.');
+                    throw new ConversionException(ConversionException::IMAGE_NOT_ATTACHED);
                 }
                 if (!in_array($uri->getScheme(), ['http', 'https'], true)) {
-                    throw new Exception('The HTML references an image that cannot be exported.');
+                    throw new ConversionException(ConversionException::IMAGE_NOT_EXPORTABLE);
                 }
                 // Explicit external/public image URLs are left unchanged.
                 continue;
@@ -468,7 +515,10 @@ class Repository
             }
             $errors = Repo::submissionFile()->validate(null, $params, $context->getData('supportedSubmissionLocales'), $context->getPrimaryLocale());
             if ($errors) {
-                throw new Exception(json_encode($errors));
+                throw new \RuntimeException(
+                    'Unable to validate a generated HTML image attachment: '
+                    . json_encode($errors)
+                );
             }
             Repo::submissionFile()->add(Repo::submissionFile()->newDataObject($params));
         }

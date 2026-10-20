@@ -35,6 +35,7 @@ use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -133,6 +134,12 @@ class PluginGalleryGridHandler extends GridHandler
         $this->addPolicy($rolePolicy);
         $this->addPolicy(new CanAccessSettingsPolicy());
 
+        $context = $request->getContext();
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+        if ($contextId === PKPApplication::SITE_CONTEXT_ID) {
+            // Admin requires reauthentication for site-wide actions
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        }
         return parent::authorize($request, $args, $roleAssignments);
     }
 
@@ -232,7 +239,7 @@ class PluginGalleryGridHandler extends GridHandler
                 } else {
                     $statusKey = 'manager.plugins.galleryUpgradesDisabled';
                 }
-                
+
                 break;
             case GalleryPlugin::PLUGIN_GALLERY_STATE_CURRENT:
                 $statusKey = 'manager.plugins.installedVersionNewest';
@@ -248,7 +255,7 @@ class PluginGalleryGridHandler extends GridHandler
                 } else {
                     $statusKey = 'manager.plugins.galleryInstallsDisabled';
                 }
-                
+
                 break;
             case GalleryPlugin::PLUGIN_GALLERY_STATE_INCOMPATIBLE:
                 $statusKey = 'manager.plugins.noCompatibleVersion';

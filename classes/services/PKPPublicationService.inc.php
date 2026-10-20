@@ -304,6 +304,44 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			});
 		}
 
+		// A cover image filename may only be one this submission already holds:
+		// the stored value a form sends back, or a version's copy (pkp/pkp-lib#13560)
+		if (isset($props['coverImage'])) {
+			$validator->after(function ($validator) use ($props, $action) {
+				// If there is no submissionId the validator will throw it back anyway
+				if ($action === VALIDATE_ACTION_ADD && !empty($props['submissionId'])) {
+					$submission = Services::get('submission')->get($props['submissionId']);
+				} elseif ($action === VALIDATE_ACTION_EDIT) {
+					$publication = Services::get('publication')->get($props['id']);
+					$submission = Services::get('submission')->get($publication->getData('submissionId'));
+				}
+
+				if (!is_array($props['coverImage'])) {
+					$validator->errors()->add('coverImage', __('api.400.errorUploadingImage'));
+					return;
+				}
+				$specifiedUploadNames = [];
+				foreach ($props['coverImage'] as $c) {
+					if (!isset($c['uploadName'])) continue;
+					$specifiedUploadNames[] = $c['uploadName'];
+				}
+				$specifiedUploadNames = array_unique($specifiedUploadNames);
+
+				$existingUploadNames = [];
+				foreach ($submission->getData('publications') as $p) {
+					foreach ((array) $p->getData('coverImage') as $c) {
+						if (!isset($c['uploadName'])) continue;
+						$existingUploadNames[] = $c['uploadName'];
+					}
+				}
+				$existingUploadNames = array_unique($existingUploadNames);
+
+				if (count(array_diff($specifiedUploadNames, $existingUploadNames))) {
+					$validator->errors()->add('coverImage', __('api.400.errorUploadingImage'));
+				}
+			});
+		}
+
 		// The urlPath must not be used in a publication attached to
 		// any submission other than this publication's submission
 		if (!empty($props['urlPath'])) {
@@ -746,7 +784,7 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 		if (!$temporaryFile || ($isImage && !$temporaryFileManager->getImageExtension($temporaryFile->getFileType()))) {
 			// Temporary file must exist, and if it should be an image, ensure that's the case
 			return null;
-        }
+		}
 		$fileNameBase = join('_', ['submission', $submission->getId(), $publication->getId(), $settingName]); // eg - submission_1_1_coverImage
 		$fileName = Services::get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $userId, $localeKey);
 

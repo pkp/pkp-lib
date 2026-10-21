@@ -359,7 +359,7 @@ class PKPSubmissionFileHandler extends APIHandler {
 		$params = $this->convertStringsToSchema(SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
 
 		// Don't allow these properties to be modified
-		unset($params['submissionId'], $params['fileId'], $params['uploaderUserId']);
+    	unset($params['submissionId'], $params['fileId'], $params['uploaderUserId'], $params['id'], $params['fileStage'], $params['assocType'], $params['assocId']);
 
 		if (empty($params) && empty($_FILES['file'])) {
 			return $response->withStatus(400)->withJsonError('api.submissionsFiles.400.noParams');

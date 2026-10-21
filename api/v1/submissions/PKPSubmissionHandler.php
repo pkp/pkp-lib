@@ -1127,6 +1127,7 @@ class PKPSubmissionHandler extends APIHandler
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $slimRequest->getParsedBody());
         $params['id'] = $publication->getId();
+        $params['submissionId'] = $submission->getId();
 
         // Don't allow the status to be modified through the API. The `/publish` and /unpublish endpoints
         // should be used instead.
@@ -1548,6 +1549,7 @@ class PKPSubmissionHandler extends APIHandler
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $slimRequest->getParsedBody());
         $params['id'] = $author->getId();
+        $params['submissionId'] = $submission->getId();
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {

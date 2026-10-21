@@ -162,10 +162,17 @@ abstract class Repository
             $this->getErrorMessageOverrides(),
         );
 
+        $requiredProps = $this->schemaService->getRequiredProps($this->dao->schema);
+
+        // A required plain language summary is checked by validateSubmit() while the submission is in progress
+        if ($context->getData('plainLanguageSummary') == Context::METADATA_REQUIRE && !$submission->getData('submissionProgress')) {
+            $requiredProps[] = 'plainLanguageSummary';
+        }
+
         ValidatorFactory::required(
             $validator,
             $publication,
-            $this->schemaService->getRequiredProps($this->dao->schema),
+            $requiredProps,
             $this->schemaService->getMultilingualProps($this->dao->schema),
             $allowedLocales,
             $primaryLocale
@@ -226,15 +233,6 @@ abstract class Repository
                 }
             });
         }
-
-        // validate the requirement of Plain language summary
-        $validator->after(function ($validator) use ($props, $context, $primaryLocale) {
-            if ($context->getData('plainLanguageSummary') === Context::METADATA_REQUIRE) {
-                if (empty($props['plainLanguageSummary']) || !isset($props['plainLanguageSummary'][$primaryLocale])) {
-                    $validator->errors()->add('plainLanguageSummary.' . $primaryLocale, __('validator.required'));
-                }
-            }
-        });
 
         // If a new file has been uploaded, check that the temporary file exists and
         // the current user owns it

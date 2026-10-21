@@ -238,6 +238,9 @@ class Repository
 
         // insert, update
         foreach ($affiliations as $affiliation) {
+            if (($affiliationId = $affiliation->getId()) && !$this->exists($affiliationId, $authorId)) {
+                continue; // Submitted id does not belong to this author; do not update.
+            }
             if (empty($affiliation->getData('authorId'))) {
                 $affiliation->setData('authorId', $authorId);
             }

@@ -449,7 +449,7 @@ class PKPSubmissionFileController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $illuminateRequest->input());
 
         // Don't allow these properties to be modified
-        unset($params['submissionId'], $params['fileId'], $params['uploaderUserId']);
+        unset($params['submissionId'], $params['fileId'], $params['uploaderUserId'], $params['id'], $params['fileStage'], $params['assocType'], $params['assocId']);
 
         if (empty($params) && empty($_FILES['file'])) {
             return response()->json([

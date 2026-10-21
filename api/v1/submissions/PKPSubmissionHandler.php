@@ -1549,7 +1549,7 @@ class PKPSubmissionHandler extends APIHandler
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $slimRequest->getParsedBody());
         $params['id'] = $author->getId();
-        $params['submissionId'] = $submission->getId();
+        $params['publicationId'] = $publication->getId();
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {

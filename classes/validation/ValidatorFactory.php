@@ -3,8 +3,8 @@
 /**
  * @file classes/validation/ValidatorFactory.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorFactory
@@ -198,7 +198,7 @@ class ValidatorFactory
                 // required in the primary locale
                 if (in_array($requiredProp, $multilingualProps)) {
                     if (is_null($object)) {
-                        if (self::isEmpty($props[$requiredProp]) || self::isEmpty($props[$requiredProp][$primaryLocale])) {
+                        if (self::isEmpty($props[$requiredProp] ?? null) || self::isEmpty($props[$requiredProp][$primaryLocale] ?? null)) {
                             $validator->errors()->add($requiredProp . '.' . $primaryLocale, __('validator.required'));
                         }
                     } else {

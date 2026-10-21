@@ -1290,6 +1290,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
+        $params['submissionId'] = $submission->getId();
 
         // Don't allow the status to be modified through the API. The `/publish` and /unpublish endpoints
         // should be used instead.
@@ -1756,6 +1757,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
         $params['id'] = $author->getId();
+        $params['publicationId'] = $publication->getId();
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {

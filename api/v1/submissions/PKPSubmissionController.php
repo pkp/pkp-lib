@@ -1362,6 +1362,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
+        $params['submissionId'] = $submission->getId();
 
         $writeDisabledErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_PUBLICATION, $params);
         if (!empty($writeDisabledErrors)) {
@@ -1873,6 +1874,7 @@ class PKPSubmissionController extends PKPBaseController
         // Remove extra data that is irrelevant to the selected contributor type
         $this->removeIrrelevantContributorTypeData($params, $submissionContext);
         $params['id'] = $author->getId();
+        $params['publicationId'] = $publication->getId();
 
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
             $submissionContext = app()->get('context')->get($submission->getData('contextId'));

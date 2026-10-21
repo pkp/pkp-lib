@@ -22,6 +22,7 @@ use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
@@ -30,6 +31,7 @@ use PKP\navigationMenu\NavigationMenuItemDAO;
 use PKP\notification\Notification;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 
@@ -71,6 +73,11 @@ class NavigationMenuItemsGridHandler extends GridHandler
         }
         $this->addPolicy($rolePolicy);
         $this->addPolicy(new CanAccessSettingsPolicy());
+
+        if ($contextId === PKPApplication::SITE_CONTEXT_ID) {
+            // Admin requires reauthentication for site-wide actions
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        }
 
         $navigationMenuItemId = $request->getUserVar('navigationMenuItemId');
         if ($navigationMenuItemId) {

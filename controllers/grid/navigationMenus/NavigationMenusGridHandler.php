@@ -21,6 +21,7 @@ use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
@@ -29,6 +30,7 @@ use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\Notification;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 
@@ -60,7 +62,7 @@ class NavigationMenusGridHandler extends GridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+        $contextId = $context ? $context->getId() : PKPApplication::SITE_CONTEXT_ID;
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
@@ -69,6 +71,11 @@ class NavigationMenusGridHandler extends GridHandler
         }
         $this->addPolicy($rolePolicy);
         $this->addPolicy(new CanAccessSettingsPolicy());
+
+        if ($contextId === PKPApplication::SITE_CONTEXT_ID) {
+            // Admin requires reauthentication for site-wide actions
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        }
 
         $navigationMenuId = $request->getUserVar('navigationMenuId');
         if ($navigationMenuId) {
@@ -152,7 +159,7 @@ class NavigationMenusGridHandler extends GridHandler
     {
         $context = $request->getContext();
 
-        $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+        $contextId = PKPApplication::SITE_CONTEXT_ID;
         if ($context) {
             $contextId = $context->getId();
         }
@@ -186,7 +193,7 @@ class NavigationMenusGridHandler extends GridHandler
         $context = $request->getContext();
 
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO'); /** @var NavigationMenuDAO $navigationMenuDao */
-        $navigationMenu = $navigationMenuDao->getById($navigationMenuId, $context ? $context->getId() : \PKP\core\PKPApplication::SITE_CONTEXT_ID);
+        $navigationMenu = $navigationMenuDao->getById($navigationMenuId, $context ? $context->getId() : PKPApplication::SITE_CONTEXT_ID);
         if ($navigationMenu && $request->checkCSRF()) {
             $navigationMenuDao->deleteObject($navigationMenu);
 

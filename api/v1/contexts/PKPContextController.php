@@ -34,6 +34,7 @@ use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -127,6 +128,14 @@ class PKPContextController extends PKPBaseController
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
         $this->addPolicy($rolePolicy);
+
+        // Admins require elevated session for site-wide actions
+        $contextId = $request->getContext()?->getId();
+        /** @var Request $illuminateRequest */
+        $illuminateRequest = $args[0];
+        if (in_array(static::getRouteActionName($illuminateRequest), ['add', 'delete']) || !$contextId) {
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        }
 
         return parent::authorize($request, $args, $roleAssignments);
     }

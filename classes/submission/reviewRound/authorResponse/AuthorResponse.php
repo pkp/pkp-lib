@@ -41,13 +41,17 @@ class AuthorResponse extends Model
         'reviewRoundId',
         'userId',
         'authorResponse',
-        'doiId'
+        'doiId',
+        'dateCompleted',
+        'dateReverted'
     ];
 
     protected $casts = [
         'reviewRoundId' => 'int',
         'userId' => 'int',
-        'doiId' => 'int'
+        'doiId' => 'int',
+        'dateCompleted' => 'datetime',
+        'dateReverted' => 'datetime'
     ];
 
     /**

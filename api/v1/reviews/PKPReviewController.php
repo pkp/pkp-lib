@@ -29,6 +29,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use Mpdf\Mpdf;
 use PKP\API\v1\reviews\formRequests\AddResponse;
+use PKP\API\v1\reviews\formRequests\ChangeResponseCompletion;
 use PKP\API\v1\reviews\formRequests\EditResponse;
 use PKP\API\v1\reviews\formRequests\RequestAuthorResponse;
 use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
@@ -116,6 +117,28 @@ class PKPReviewController extends PKPBaseController
                 ])
             ]);
 
+
+        Route::put('{submissionId}/{reviewRoundId}/authorResponse/{responseId}/markCompleted', $this->markAuthorResponseCompleted(...))
+            ->name('review.authorResponse.markCompleted')
+            ->whereNumber(['submissionId', 'reviewRoundId', 'responseId'])
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                ])
+            ]);
+
+        Route::put('{submissionId}/{reviewRoundId}/authorResponse/{responseId}/revertCompletion', $this->revertAuthorResponseCompletion(...))
+            ->name('review.authorResponse.revertCompletion')
+            ->whereNumber(['submissionId', 'reviewRoundId', 'responseId'])
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                ])
+            ]);
 
         Route::delete('{submissionId}/{reviewRoundId}/authorResponse/{responseId}', $this->deleteAuthorResponse(...))
             ->name('review.authorResponse.deleteAuthorResponse')
@@ -867,6 +890,37 @@ class PKPReviewController extends PKPBaseController
 
         $associatedAuthorIds = $validated['associatedAuthorIds'];
         $existingResponse->associateAuthorsToResponse($associatedAuthorIds);
+
+        return response()->json(new ReviewRoundAuthorResponseResource($existingResponse->refresh()), Response::HTTP_OK);
+    }
+
+    /**
+     * Mark the author response as completed.
+     */
+    public function markAuthorResponseCompleted(ChangeResponseCompletion $illuminateRequest): JsonResponse
+    {
+        /** @var AuthorResponse $existingResponse */
+        $existingResponse = $illuminateRequest->validated()['existingResponse'];
+
+        $existingResponse->update([
+            'dateCompleted' => now(),
+        ]);
+
+        return response()->json(new ReviewRoundAuthorResponseResource($existingResponse->refresh()), Response::HTTP_OK);
+    }
+
+    /**
+     * Revert the completion of the author response.
+     */
+    public function revertAuthorResponseCompletion(ChangeResponseCompletion $illuminateRequest): JsonResponse
+    {
+        /** @var AuthorResponse $existingResponse */
+        $existingResponse = $illuminateRequest->validated()['existingResponse'];
+
+        $existingResponse->update([
+            'dateCompleted' => null,
+            'dateReverted' => now(),
+        ]);
 
         return response()->json(new ReviewRoundAuthorResponseResource($existingResponse->refresh()), Response::HTTP_OK);
     }

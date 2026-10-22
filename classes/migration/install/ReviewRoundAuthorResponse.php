@@ -44,6 +44,8 @@ class ReviewRoundAuthorResponse extends \PKP\migration\Migration
             $table->bigInteger('review_round_id')->comment('ID of the review round the response belongs to.');
             $table->bigInteger('user_id')->comment('User ID of the assigned author participant that is submitting the response.');
             $table->bigInteger('doi_id')->nullable()->comment('DOI ID for the DOI assigned to the author response');
+            $table->datetime('date_completed')->nullable()->comment('Date the author response was marked as completed; null if not completed.');
+            $table->datetime('date_reverted')->nullable()->comment('Date the author response was last reverted from completed to not completed; null if never reverted.');
             $table->timestamps();
 
             $table->foreign('review_round_id')

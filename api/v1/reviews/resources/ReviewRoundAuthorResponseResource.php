@@ -52,6 +52,8 @@ class ReviewRoundAuthorResponseResource extends JsonResource
             ],
             'isPublic' => $response->isPublic,
             'createdAt' => $response->created_at?->format('Y-m-d H:i:s'),
+            'dateCompleted' => $response->dateCompleted?->format('Y-m-d H:i:s'),
+            'dateReverted' => $response->dateReverted?->format('Y-m-d H:i:s'),
         ];
     }
 }

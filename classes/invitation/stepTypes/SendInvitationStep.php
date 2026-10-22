@@ -112,6 +112,7 @@ class SendInvitationStep extends InvitationStepTypes
             [
                 'validateFields' => [],
                 'userGroups' => $this->getAllUserGroups($context),
+                'enableEnrollmentMasthead' => $context->getData('enableEnrollmentMasthead'),
             ]
         );
         $step = new Step(

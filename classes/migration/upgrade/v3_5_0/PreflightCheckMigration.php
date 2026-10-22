@@ -14,6 +14,7 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
+use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
 use Throwable;
 
@@ -25,6 +26,11 @@ class PreflightCheckMigration extends \PKP\migration\Migration
     public function up(): void
     {
         try {
+            // Non-blocking heads-up if the database would end up with a mix of charsets
+            // (MySQL/MariaDB) or is not UTF8 (PostgreSQL). See pkp/pkp-lib#11563.
+            if ($warning = PKPContainer::getDatabaseCharsetWarning()) {
+                $this->_installer->log($warning);
+            }
         } catch (Throwable $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to {$fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

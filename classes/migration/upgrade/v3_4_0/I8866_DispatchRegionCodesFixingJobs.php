@@ -61,19 +61,12 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
             }
         }
 
-        // temporarily add an index on (country, region) to speed up the region code updates
+        // Temporary index for FixRegionCodes, which converts the rows per submission and country.
+        // The monthly table does not need one, because its unique key starts with context_id, submission_id, country.
         Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
             $sm = Schema::getConnection()->getDoctrineSchemaManager();
-            $indexesFound = $sm->listTableIndexes('metrics_submission_geo_daily');
-            if (!array_key_exists('metrics_submission_geo_daily_tmp_index', $indexesFound)) {
-                $table->index(['country', 'region'], 'metrics_submission_geo_daily_tmp_index');
-            }
-        });
-        Schema::table('metrics_submission_geo_monthly', function (Blueprint $table) {
-            $sm = Schema::getConnection()->getDoctrineSchemaManager();
-            $indexesFound = $sm->listTableIndexes('metrics_submission_geo_monthly');
-            if (!array_key_exists('metrics_submission_geo_monthly_tmp_index', $indexesFound)) {
-                $table->index(['country', 'region'], 'metrics_submission_geo_monthly_tmp_index');
+            if (!array_key_exists('msgd_tmp_submission_country', $sm->listTableIndexes('metrics_submission_geo_daily'))) {
+                $table->index(['submission_id', 'country'], 'msgd_tmp_submission_country');
             }
         });
 

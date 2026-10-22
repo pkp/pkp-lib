@@ -200,9 +200,8 @@ class AcceptInvitationStep extends InvitationStepTypes
                 new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
             ),
             [
-                'validateFields' => [
-
-                ]
+                'validateFields' => [],
+                'enableEnrollmentMasthead' => $context->getData('enableEnrollmentMasthead'),
             ]
         );
         $step = new Step(

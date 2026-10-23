@@ -30,6 +30,7 @@ class UserCommentResource extends JsonResource
         $requestQueryParams = $request->query();
 
         $publication = $this->publication; /** @var Publication $publication */
+        $isModerator = $request->user() && Repo::userComment()->isModerator($request->user());
 
         $results = [
             'id' => $this->id,
@@ -54,13 +55,13 @@ class UserCommentResource extends JsonResource
                 'fullTitle' => $publication->getLocalizedFullTitle(),
             ],
             // Fields only available to moderators
-            $this->mergeWhen($request->user() && Repo::userComment()->isModerator($request->user()), [
+            $this->mergeWhen($isModerator, [
                 'approvedAt' => $this->approvedAt,
                 'approvedByUserName' => $this->approvedByUserId ? Repo::user()->get($this->approvedByUserId)->getFullName() : null,
             ]),
         ];
 
-        if (key_exists('includeReports', $requestQueryParams)) {
+        if ($isModerator && key_exists('includeReports', $requestQueryParams)) {
             $results['reports'] = UserCommentReportResource::collection($this->reports);
         }
 

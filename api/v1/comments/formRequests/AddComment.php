@@ -14,13 +14,13 @@
 
 namespace PKP\API\v1\comments\formRequests;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 use PKP\core\PKPString;
+use PKP\publication\PKPPublication;
 
 class AddComment extends FormRequest
 {
@@ -59,9 +59,15 @@ class AddComment extends FormRequest
                     $publicationId = (int)$this->input('publicationId');
                     $publication = Repo::publication()->get($publicationId);
                     $submissionId = $publication->getData('submissionId');
-                    $submission = Repo::submission()->get((int)$submissionId);
+                    $context = Application::get()->getRequest()->getContext();
+                    $submission = Repo::submission()->get((int)$submissionId, $context->getId());
 
-                    if (!$submission || $submission->getCurrentPublication()->getId() !== $publicationId) {
+                    if (!$submission) {
+                        $validator->errors()->add('publicationId', __('api.404.resourceNotFound'));
+                        return;
+                    }
+
+                    if ($submission->getCurrentPublication()->getId() !== $publicationId || $publication->getData('status') !== PKPPublication::STATUS_PUBLISHED) {
                         $validator->errors()->add('publicationId', __('api.userComments.400.cannotCommentOnPublicationVersion'));
                     }
                 }
@@ -80,14 +86,6 @@ class AddComment extends FormRequest
             'publicationId.exists' => __('api.404.resourceNotFound'),
             'commentText.required' => __('api.userComments.form.400.required.commentText'),
         ];
-    }
-
-    /**
-     * Override the default `failedValidation` method to return a JSON response consistent with existing error responses in codebase.
-     */
-    public function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
     }
 
     /** @inheritdoc  */

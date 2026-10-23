@@ -54,7 +54,8 @@ class AddReport extends FormRequest
     protected function passedValidation(): void
     {
         $commentId = $this->route('commentId');
-        $comment = UserComment::query()->find($commentId);
+        $comment = UserComment::withContextIds([Application::get()->getRequest()->getContext()->getId()])
+            ->find($commentId);
 
         if (!$comment) {
             throw new HttpResponseException(response()->json([
@@ -66,8 +67,8 @@ class AddReport extends FormRequest
 
         if (!Repo::userComment()->isModerator($user) && !$comment->isApproved) {
             throw new HttpResponseException(response()->json([
-                'error' => __('api.403.unauthorized'),
-            ], Response::HTTP_FORBIDDEN));
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND));
         }
     }
 

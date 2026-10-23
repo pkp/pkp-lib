@@ -106,7 +106,8 @@ class EditorialTask extends Model
     {
         // Delete connected model data when an Editorial Task is deleted.
         static::deleted(function (EditorialTask $task) {
-            Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $task->id)->delete();
+            // Delete notes one by one so that their model events fire and attached files are removed
+            Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $task->id)->get()->each->delete();
             Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $task->id)->delete();
         });
     }

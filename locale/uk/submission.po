@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2026-07-13 17:35+0000\n"
+"PO-Revision-Date: 2026-10-23 17:13+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/uk/>\n"
@@ -2978,9 +2978,8 @@ msgstr ""
 "Перевірку було завершено {$date} з такою рекомендацією: "
 "<b>{$recommendation}</b>"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Редактор скасував цей запит на перевірку <b>{$date}</b>."
+msgstr "Редактор скасував цей запит на рецензування <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.action.cancelReviewer"
 msgstr "Скасувати Рецензента"
@@ -3193,7 +3192,6 @@ msgstr "Триває перевірка – запит прийнято"
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Перегляд затримано на {$days} днів"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Цей рецензент не завершив рецензування. Рецензія мала бути надіслана до "
@@ -3208,9 +3206,8 @@ msgstr "Відгук підтверджено редактором"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Рецензія була прийнята редактором <b>{$date}</b>."
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Редактор скасував запит на перевірку"
+msgstr "Редактор скасував запит на рецензування"
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Очікується відповідь від рецензента"
@@ -3272,3 +3269,6 @@ msgstr "Конфлікт інтересів"
 
 msgid "ror.invalidRorId"
 msgstr "Будь ласка, укажіть дійсний ROR ID."
+
+msgid "publication.publish.warning"
+msgstr "Виявлено наведені нижче проблеми, проте вони не завадять опублікуванню"

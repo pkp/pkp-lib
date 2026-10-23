@@ -3,13 +3,14 @@
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2024.
 # Elisabeth Sawatzky <ejournals.ojs@uni-muenster.de>, 2026.
+# Oliver Krüger <oliver.krueger@sub.uni-hamburg.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2026-08-21 10:46+0000\n"
-"Last-Translator: Elisabeth Sawatzky <ejournals.ojs@uni-muenster.de>\n"
+"PO-Revision-Date: 2026-10-23 08:52+0000\n"
+"Last-Translator: Oliver Krüger <oliver.krueger@sub.uni-hamburg.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/de/>"
 "\n"
 "Language: de\n"
@@ -810,13 +811,12 @@ msgstr "Benutzer/innen-Name oder E-Mail"
 msgid "user.affiliations.translationActionsAriaLabel"
 msgstr "Anklicken, um zu bearbeiten oder zu löschen"
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
-"Geben Sie unterhalb den vollen Namen der Institution ein. Vermeiden Sie "
+"Geben Sie unten den vollen Namen der Institution ein. Vermeiden Sie dabei "
 "Abkürzungen. Wählen Sie den Namen aus dem Dropdown-Menü aus und klicken Sie "
-"\"Hinzufügen\", um die Affiliation in Ihr Profil aufzunehmen. (z.B. \"Simon "
-"Fraser University\")"
+"auf \"Hinzufügen\", um die Affiliation in Ihr Profil aufzunehmen (z. B. "
+"\"Simon Fraser University\")."
 
 msgid "user.affiliations.institution"
 msgstr "Institution"

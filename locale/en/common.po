@@ -1098,9 +1098,6 @@ msgstr "View {$name}"
 msgid "common.viewProfile"
 msgstr "View Profile"
 
-msgid "common.weeks"
-msgstr "weeks"
-
 msgid "common.width"
 msgstr "Width"
 
@@ -2174,12 +2171,6 @@ msgstr "Expand"
 msgid "list.collapse"
 msgstr "Collapse"
 
-msgid "showAll"
-msgstr "Show All"
-
-msgid "showLess"
-msgstr "Show Less"
-
 msgid "validation.invalidOption"
 msgstr "This is not a valid option."
 
@@ -2446,9 +2437,6 @@ msgstr "View more details"
 
 msgid "common.saveOrdering"
 msgstr "Save Order"
-
-msgid "common.order"
-msgstr "Order"
 
 msgid "common.openLinkNewTab"
 msgstr "Open link in a new tab."

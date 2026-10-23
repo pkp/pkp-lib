@@ -3,13 +3,14 @@
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023, 2024.
 # Kristin Ameis <kristin.ameis@sub.uni-hamburg.de>, 2026.
+# Frauke Ziedorn <frauke.ziedorn@tib.eu>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
 "PO-Revision-Date: 2026-10-23 08:52+0000\n"
-"Last-Translator: Kristin Ameis <kristin.ameis@sub.uni-hamburg.de>\n"
+"Last-Translator: Frauke Ziedorn <frauke.ziedorn@tib.eu>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
 "Language: de\n"
@@ -4050,3 +4051,13 @@ msgstr "Gutachter/innen-Vorschlag bei Einreichung"
 
 msgid "doi.manager.settings.doiSuffixPattern.required"
 msgstr "Ein DOI-Suffix-Muster ist erforderlich."
+
+msgid "plugins.importexport.user.error.invalidRoleDate"
+msgstr ""
+"Die Rolle \"{$userGroup}\" des Nutzers/der Nutzerin \"{$username}\" wurde "
+"nicht importiert, weil\"{$date}\" kein erlaubtes Datum ist."
+
+msgid "plugins.importexport.user.error.invalidRolePeriod"
+msgstr ""
+"Die Rolle \"{$userGroup}\" des Nutzers/der Nutzerin \"{$username}\" wurde "
+"nicht importiert, weil das Startdatum nicht vor dem Enddatum liegt."

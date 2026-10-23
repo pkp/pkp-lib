@@ -50,6 +50,13 @@
 			<element name="package" type="anyURI" minOccurs="1" maxOccurs="1" />
 			<element name="compatibility" type="pkp:compatibilityType" minOccurs="1" maxOccurs="unbounded" />
 			<element name="certification" type="pkp:certificationType" minOccurs="0" maxOccurs="unbounded" />
+			<element name="locales" minOccurs="0" maxOccurs="1">
+				<complexType>
+					<sequence>
+						<element name="locale" type="pkp:locale" minOccurs="1" maxOccurs="unbounded" />
+					</sequence>
+				</complexType>
+			</element>
 			<element name="description" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 		</sequence>
 		<attribute name="date" type="date" use="required" />
@@ -106,7 +113,7 @@
 	<!-- Identifies a particular I18N locale, e.g. en -->
 	<simpleType name="locale">
 		<restriction base="string">
-			<pattern value="[a-z][a-z](_[A-Z][A-Z])?" />
+			<pattern value="([A-Za-z]{2,4})(([_-][A-Za-z]{4,5}|[0-9]{4})?([_-]([A-Za-z]{2}|[0-9]{3}))?)(@[a-z]{2,30})?" />
 		</restriction>
 	</simpleType>
 

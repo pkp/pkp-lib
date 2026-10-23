@@ -16,6 +16,8 @@ use APP\core\Application;
 use PKP\components\forms\invitation\AcceptUserDetailsForm;
 use PKP\context\Context;
 use PKP\facades\Locale;
+use APP\facades\Repo;
+use PKP\security\Role;
 use PKP\i18n\LocaleMetadata;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\sections\Form;
@@ -184,6 +186,8 @@ class AcceptInvitationStep extends InvitationStepTypes
             [
                 'validateFields' => [],
                 'enableEnrollmentMasthead' => $context->getData('enableEnrollmentMasthead'),
+                'enableEnrollmentMastheadReviewers' => $context->getData('enableEnrollmentMastheadReviewers'),
+                'reviewerUserGroupIds' => Repo::userGroup()->getByRoleIds([Role::ROLE_ID_REVIEWER], $context->getId())->map(fn($u) => $u->userGroupId)->all(),
             ]
         );
         $step = new Step(

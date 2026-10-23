@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-04 07:18+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2026-10-23 08:52+0000\n"
+"Last-Translator: Kristin Ameis <kristin.ameis@sub.uni-hamburg.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/de/>\n"
 "Language: de\n"
@@ -439,3 +439,12 @@ msgstr "Der/die Benutzer/in ist derzeit deaktiviert."
 
 msgid "acceptInvitation.privacyConsent"
 msgstr "Einwilligung zum Datenschutz"
+
+msgid "invitation.unavailable.title"
+msgstr "Einladung nicht verfügbar"
+
+msgid "invitation.unavailable.description"
+msgstr ""
+"Diese Einladung ist nicht mehr verfügbar. Möglicherweise wurde sie bereits "
+"angenommen, abgelehnt oder ist abgelaufen. Bitte kontaktieren Sie den/die "
+"Zeitschriftenverwalter/in für weitere Unterstützung."

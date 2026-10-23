@@ -315,7 +315,7 @@ class Installer
      */
     public function updateVersion()
     {
-        if ($this->newVersion->compare($this->currentVersion) > 0) {
+        if (!$this->isPlugin && $this->newVersion->compare($this->currentVersion) > 0) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
             if (!$versionDao->insertVersion($this->newVersion)) {
                 return false;

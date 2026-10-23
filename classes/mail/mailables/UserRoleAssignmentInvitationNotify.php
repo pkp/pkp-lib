@@ -139,7 +139,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         }
 
         $sectionMastheadAppear = '';
-        if ($context->getData('enableEnrollmentMasthead')) {
+        if ($context->getData('enableEnrollmentMasthead') && ($userGroup->roleId != Role::ROLE_ID_REVIEWER || $context->getData('enableEnrollmentMastheadReviewers'))) {
             if (isset($userUserGroup->masthead) && $userUserGroup->masthead) {
                 $sectionMastheadAppear = __(
                     'emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear',

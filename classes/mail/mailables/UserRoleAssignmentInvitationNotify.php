@@ -138,22 +138,25 @@ class UserRoleAssignmentInvitationNotify extends Mailable
             );
         }
 
-        $sectionMastheadAppear = __(
-            'emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear',
-            [
-                'contextName' => $context->getName($locale),
-                'sectionName' => $userGroup->getLocalizedData('name', $locale)
-            ]
-        );
-
-        if (isset($userUserGroup->masthead) && $userUserGroup->masthead) {
-            $sectionMastheadAppear = __(
-                'emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear',
-                [
-                    'contextName' => $context->getName($locale),
-                    'sectionName' => $userGroup->getLocalizedData('name', $locale)
-                ]
-            );
+        $sectionMastheadAppear = '';
+        if ($context->getData('enableEnrollmentMasthead')) {
+            if (isset($userUserGroup->masthead) && $userUserGroup->masthead) {
+                $sectionMastheadAppear = __(
+                    'emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear',
+                    [
+                        'contextName' => $context->getName($locale),
+                        'sectionName' => $userGroup->getLocalizedData('name', $locale)
+                    ]
+                );
+            } else {
+                $sectionMastheadAppear = __(
+                    'emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear',
+                    [
+                        'contextName' => $context->getName($locale),
+                        'sectionName' => $userGroup->getLocalizedData('name', $locale)
+                    ]
+                );
+            }
         }
 
         return __(

@@ -3141,6 +3141,48 @@ msgstr "Body Text"
 msgid "publication.bodyText.documentPanel"
 msgstr "Document Edit"
 
+msgid "publication.bodyText.exportToHTML"
+msgstr "Export to HTML"
+
+msgid "publication.bodyText.pdf.preview"
+msgstr "Publication: Preview: PDF"
+
+msgid "publication.bodyText.pdf.publication"
+msgstr "Publication:"
+
+msgid "galley.generatedFrom.textEditor"
+msgstr "Generated from text editor"
+
+msgid "galley.revision"
+msgstr "Revision {$revision}"
+
+msgid "publication.bodyText.error.invalidGalleyFile"
+msgstr "The galley does not have a valid submission file."
+
+msgid "publication.bodyText.error.imageNotAttached"
+msgstr "The HTML references an image that is not attached to this publication's body text."
+
+msgid "publication.bodyText.error.imageNotExportable"
+msgstr "The HTML references an image that cannot be exported."
+
+msgid "publication.bodyText.pdf.generate"
+msgstr "Create PDF"
+
+msgid "publication.bodyText.pdf.generating"
+msgstr "Generating PDF…"
+
+msgid "publication.bodyText.pdf.saving"
+msgstr "Saving PDF galley…"
+
+msgid "publication.bodyText.pdf.galleyCreated"
+msgstr "PDF galley saved."
+
+msgid "publication.bodyText.pdf.failed"
+msgstr "Unable to generate or save the PDF galley. Please try again."
+
+msgid "publication.bodyText.exportedToHTML"
+msgstr "HTML galley saved."
+
 msgid "publication.bodyText.selectedElement"
 msgstr "Selected Element"
 

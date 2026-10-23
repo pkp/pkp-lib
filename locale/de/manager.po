@@ -1,4 +1,4 @@
-# Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
+# Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021, 2026.
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023, 2025, 2026.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023, 2024.
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2026-10-23 09:19+0000\n"
-"Last-Translator: Frauke Ziedorn <frauke.ziedorn@tib.eu>\n"
+"PO-Revision-Date: 2026-10-23 10:01+0000\n"
+"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
 "Language: de\n"
@@ -1389,10 +1389,10 @@ msgstr ""
 "zulassen."
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr "Sind Sie sicher, dass Sie diese Sektion deaktivieren wollen?"
+msgstr "Sind Sie sicher, dass Sie diese Rubrik deaktivieren wollen?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr "Sind Sie sicher, dass Sie diese Sektion aktivieren wollen?"
+msgstr "Sind Sie sicher, dass Sie diese Rubrik aktivieren wollen?"
 
 msgid "manager.sections.form.assignEditors"
 msgstr "Redaktionsaufgaben"
@@ -3350,7 +3350,7 @@ msgstr "Empfehlung gegeben"
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
 "Diese Nachricht benachrichtigt eine/n leitende/n Redakteurin oder "
-"Sektionsredakteur/in, dass eine redaktionelle Empfehlung für eine ihm/ihr "
+"Rubrikredakteur/in, dass eine redaktionelle Empfehlung für eine ihm/ihr "
 "zugewiesene Einreichung abgegeben wurde. Diese Nachricht wird verwendet, "
 "wenn ein/e Redakteur/in nur eine redaktionelle Entscheidung empfehlen darf "
 "und eine/n autorisierte/n Redakteur/in benötigt, um redaktionelle "

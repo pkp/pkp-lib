@@ -38,6 +38,7 @@ class PKPIndexHandler extends Handler
     {
         $enableAnnouncements = $contextOrSite->getData('enableAnnouncements');
         $numAnnouncementsHomepage = $contextOrSite->getData('numAnnouncementsHomepage');
+        $announcements = null;
         if ($enableAnnouncements && $numAnnouncementsHomepage) {
             $announcements = Announcement::withActiveByDate()->limit((int) $numAnnouncementsHomepage)->orderBy(Announcement::CREATED_AT, 'desc');
 
@@ -45,11 +46,12 @@ class PKPIndexHandler extends Handler
             is_a($contextOrSite, Context::class) ? $contextIds[] = $contextOrSite->getId() : $contextIds[] = PKPApplication::SITE_CONTEXT_ID;
             $announcements->withContextIds($contextIds);
 
-            $templateMgr->assign([
-                'announcements' => $announcements->get(),
-                'numAnnouncementsHomepage' => $numAnnouncementsHomepage,
-            ]);
+            $announcements = $announcements->get();
         }
+        $templateMgr->assign([
+            'announcements' => $announcements,
+            'numAnnouncementsHomepage' => $numAnnouncementsHomepage,
+        ]);
     }
 
     /**

@@ -152,6 +152,40 @@ class GenreDAO extends DAO
     }
 
     /**
+     * Get genre ids by various conditions
+     *
+     * @param int[] $contextIds
+     */
+    public function getIdsBy(
+        ?array $contextIds = null,
+        ?bool $dependent = null,
+        ?bool $supplementary = null,
+        ?bool $enabled = null,
+        ?bool $required = null,
+    ) {
+        $query = DB::table('genres');
+        if (!is_null($contextIds)) {
+            $query->whereIn('context_id', $contextIds);
+        }
+        if (!is_null($dependent)) {
+            $query->where('dependent', $dependent ? 1 : 0);
+        }
+        if (!is_null($supplementary)) {
+            $query->where('supplementary', $supplementary ? 1 : 0);
+        }
+        if (!is_null($enabled)) {
+            $query->where('enabled', $enabled ? 1 : 0);
+        }
+        if (!is_null($required)) {
+            $query->where('required', $required ? 1 : 0);
+        }
+        return $query->get('genre_id')
+            ->map(function(object $row) {
+                return $row->genre_id;
+            });
+    }
+
+    /**
      * Get genres that are required for a new
      * submission in a context
      */

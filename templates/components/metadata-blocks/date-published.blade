@@ -1,0 +1,13 @@
+@if ($publication->getData('datePublished'))
+    <x-metadata-blocks.default
+        slug="date-published"
+        title="{{
+            $publication->getData('versionStage') === APP\publication\enums\VersionStage::VERSION_OF_RECORD
+                ? __('submissions.published')
+                : __('announcement.posted')
+        }}"
+        :$headingTag
+    >
+        {{ ViewHelper::dateFormat($publication->getData('datePublished'), $dateFormatLong) }}
+    </x-metadata-blocks.default>
+@endif

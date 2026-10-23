@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2026-10-23 08:52+0000\n"
+"PO-Revision-Date: 2026-10-23 09:19+0000\n"
 "Last-Translator: Oliver Krüger <oliver.krueger@sub.uni-hamburg.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/de/>"
 "\n"
@@ -836,11 +836,9 @@ msgstr "Alle Übersetzungen verfügbar"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} von {$total} Sprachen komplett"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Geben Sie den Namen des Instituts in {$language} ein"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
 msgstr "Name des Instituts in {$language}"
 
@@ -850,7 +848,6 @@ msgstr "Sind Sie sicher?"
 msgid "user.affiliations.deleteModal.message"
 msgstr "Die Affiliation <strong>{$affiliation}</strong> wird gelöscht."
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Geben Sie den Namen des Instituts in {$language} ein"
 
@@ -904,7 +901,6 @@ msgstr "ORCID-Funktionalitäten aktivieren"
 msgid "orcid.field.verification.request"
 msgstr "Verifikation anfordern"
 
-#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
 "Sind Sie sicher, dass Sie diese Rolle dauerhaft entfernen wollen? Diese "
@@ -976,18 +972,40 @@ msgstr ""
 msgid "user.futureRole.notification.message"
 msgstr "Ihre Rolle wird am {$roleStartDate} starten"
 
-#, fuzzy
 msgid "user.affiliations.error.rorApiRateLimited"
 msgstr ""
 "Es wurden zu viele Anfragen an die ROR-API gesendet. Bitte warten Sie einen "
 "Moment, bevor Sie die Suche fortsetzen."
 
-#, fuzzy
 msgid "user.affiliations.error.rorApiDeprecated"
 msgstr ""
-"Der ROR-API-Service ist in dieser Installation veraltet. Bitte kontaktieren "
+"Der ROR-API-Dienst ist in dieser Installation veraltet. Bitte kontaktieren "
 "Sie Ihren Systemadministrator."
 
-#, fuzzy
 msgid "user.affiliations.error.rorApi"
 msgstr "ROR-API-Fehler"
+
+msgid "user.masthead.update.title"
+msgstr "Änderung der Sichtbarkeit des Impressums bestätigen"
+
+msgid "user.masthead.update.message"
+msgstr ""
+"Dadurch wird festgelegt, ob dieser Benutzer in der Zeitschrift in der "
+"ausgewählten Rolle im Impressum angezeigt wird. Der Benutzer wird über diese "
+"Änderung benachrichtigt."
+
+msgid "orcid.manager.siteWide.orcidCustomRedirectBaseUrl"
+msgstr "Benutzerdefinierte Basis-URL für Weiterleitungen"
+
+msgid "orcid.manager.siteWide.orcidCustomRedirectBaseUrl.description"
+msgstr ""
+"Eine benutzerdefinierte Basis-URL, die beim Erstellen von ORCID-"
+"Weiterleitungs-URLs verwendet wird. Diese Einstellung kann systemweit "
+"angewendet werden, ohne die oben genannte systemweite Überschreibung der "
+"ORCID-Einstellungen aktivieren zu müssen, da sie ausschließlich auf "
+"Systemebene gilt."
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"Der ROR-API-Dienst steht derzeit nicht zur Verfügung. Bitte aktualisieren "
+"Sie die Seite oder versuchen Sie es später erneut."

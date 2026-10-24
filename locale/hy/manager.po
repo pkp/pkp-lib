@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-08-20 12:54+0000\n"
+"PO-Revision-Date: 2026-10-24 11:25+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -3914,8 +3914,9 @@ msgstr ""
 
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
 msgstr ""
-"Գրախոսները կցուցադրվեն ստանդարտացված ձևաչափով, որպեսզի պահպանեն "
-"միատեսակությունը և ապահովեն այս բաժնում հեշտ հայտնաբերելիությունը:"
+"Նախորդ օրացուցային տարում գրախոսություն ավարտած գրախոսները կհաշվարկվեն "
+"ստանդարտացված ձևաչափով՝ այս բաժնում միատարրությունը պահպանելու և հեշտ "
+"հայտնաբերելիությունն ապահովելու համար։"
 
 msgid "manager.setup.reviewOptions.reminders"
 msgstr "Սահմանեք հիշեցումներ գրախոսման համար"
@@ -3966,3 +3967,27 @@ msgid "mailable.changeProfileEmailInvitationNotify.description"
 msgstr ""
 "Օգտատերերը, ովքեր իրենց օգտատիրոջ էջում խնդրում են փոխել էլեկտրոնային փոստի "
 "իրենց հասցեն, կստանան այս հաստատման հարցումը։"
+
+msgid "plugins.importexport.user.error.invalidRolePeriod"
+msgstr ""
+"\"{$username}\" օգտատիրոջ \"{$userGroup}\" դերը չի ներմուծվել, քանի որ դրա "
+"մեկնարկի ամսաթիվը չի գերազանցում ավարտի ամսաթիվը։"
+
+msgid "plugins.importexport.user.error.roleOverlap"
+msgstr ""
+"\"{$username}\" օգտատիրոջ \"{$userGroup}\" դերը չի ներմուծվել, քանի որ "
+"օգտատերն արդեն իսկ ունի այս դերը համընկնող ժամանակահատվածում։"
+
+msgid "manager.setup.enableEnrollmentMastheadReviewers.enable"
+msgstr "Միացնել գրախոսողների թվարկումը վերնագրում"
+
+msgid "plugins.importexport.user.error.invalidRoleDate"
+msgstr ""
+"\"{$username}\" օգտատիրոջ \"{$userGroup}\" դերը չի ներմուծվել, քանի որ \""
+"{$date}\"-ը վավեր ամսաթիվ չէ։"
+
+msgid "manager.setup.enableEnrollmentMasthead"
+msgstr "Գրանցման վրա հիմնված Գլխ-վերնագիր"
+
+msgid "manager.setup.enableEnrollmentMasthead.enable"
+msgstr "Ներկայացրեք գլխ-վերնագիր՝ հիմնված օգտատերերի գրանցումների վրա"

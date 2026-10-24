@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2026-10-24 08:02+0000\n"
+"PO-Revision-Date: 2026-10-24 11:25+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -2877,11 +2877,9 @@ msgstr "Recenze byla potvrzena redaktorem"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Recenze byla přijata redakcí dne <b>{$date}</b>."
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Žádost o recenzi byla zrušena redaktorem"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Redaktor tuto žádost o recenzi zrušil dne <b>{$date}</b>."
 
@@ -3247,3 +3245,6 @@ msgstr "Střet zájmů"
 
 msgid "ror.invalidRorId"
 msgstr "Zadejte prosím platné ID ROR."
+
+msgid "publication.publish.warning"
+msgstr "Byly zjištěny následující problémy, které však nezabrání zveřejnění"

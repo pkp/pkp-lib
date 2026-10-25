@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-07-26 10:51+0000\n"
+"PO-Revision-Date: 2026-10-26 03:06+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk/>\n"
@@ -3032,11 +3032,10 @@ msgstr ""
 "Поднесокот премина во следниот круг на преглед, беше прифатен и моментално е "
 "во фаза на {$stage}."
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Овој рецензент не ја завршил својата рецензија. Рецензијата требаше да се "
-"добие на <b>{$date}</b>."
+"Овој рецензент ја нема завршено својата рецензија. Рецензијата беше "
+"предвидена на <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Рецензијата беше прифатена од уредникот на <b>{$date}</b>."
@@ -3044,9 +3043,8 @@ msgstr "Рецензијата беше прифатена од уреднико
 msgid "workflow.submissionInNextReviewRound"
 msgstr "Поднесокот е префрлен во следниот круг на рецензија"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Уредникот го откажа барањето за рецензија"
+msgstr "Барањето за преглед е откажано од уредникот"
 
 msgid "dashboard.reviewAssignment.action.viewDetails"
 msgstr "Погледнете детали"
@@ -3163,9 +3161,8 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusComplete.title"
 msgstr "Рецензијата беше потврдена од уредникот"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Уредникот го откажа ова барање за рецензија на <b>{$date}</b>."
+msgstr "Уредникот ја откажa оваа прегледувачка барање на <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Се чека одговор од рецензентот"
@@ -3206,3 +3203,6 @@ msgstr "Судир на интереси"
 
 msgid "ror.invalidRorId"
 msgstr "Ве молиме наведете важечки ROR ID."
+
+msgid "publication.publish.warning"
+msgstr "Пронајдени се следните проблеми, но тие нема да спречат објавување"

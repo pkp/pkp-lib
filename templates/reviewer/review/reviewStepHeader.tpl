@@ -11,7 +11,7 @@
 
 {block name="page"}
 	<h1 class="app__pageHeading">
-		{$pageTitle}
+		{$pageTitle|escape}
 	</h1>
 
 	<script type="text/javascript">

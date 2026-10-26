@@ -290,7 +290,7 @@ class Template extends Model
         }
 
         if ($typeFilter !== null) {
-            $query->filterByType($typeFilter);
+            $query->withType($typeFilter);
         }
 
         if ($keywords) {

@@ -16,6 +16,7 @@
 namespace PKP\API\v1\reviews\resources;
 
 use APP\author\Author;
+use APP\facades\Repo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\facades\Locale;
@@ -52,8 +53,26 @@ class ReviewRoundAuthorResponseResource extends JsonResource
             ],
             'isPublic' => $response->isPublic,
             'createdAt' => $response->created_at?->format('Y-m-d H:i:s'),
-            'dateCompleted' => $response->dateCompleted?->format('Y-m-d H:i:s'),
+            'dateConfirmed' => $response->dateConfirmed?->format('Y-m-d H:i:s'),
             'dateReverted' => $response->dateReverted?->format('Y-m-d H:i:s'),
+            'confirmationChangedByUser' => $response->confirmationChangedByUserId ? $this->getEditorInfo($response->confirmationChangedByUserId) : null,
+        ];
+    }
+
+    /**
+     * Get editor info for a given editor ID.
+     */
+    private function getEditorInfo(int $editorId): ?array
+    {
+        $user = Repo::user()->get($editorId, true);
+
+        if (!$user) {
+            return null;
+        }
+
+        return [
+            'userId' => $user->getId(),
+            'fullName' => $user->getFullName(),
         ];
     }
 }

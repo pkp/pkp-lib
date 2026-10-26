@@ -11,7 +11,7 @@
 
 {block name="page"}
 	<h1 class="app__pageHeading">
-		{$pageTitle}
+		{$pageTitle|escape}
 	</h1>
 
 	<!-- rest of this template will be moved inside this component in future -->

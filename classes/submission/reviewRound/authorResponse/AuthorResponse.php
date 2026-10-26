@@ -42,16 +42,17 @@ class AuthorResponse extends Model
         'userId',
         'authorResponse',
         'doiId',
-        'dateCompleted',
-        'dateReverted'
+        'dateConfirmed',
+        'dateReverted',
     ];
 
     protected $casts = [
         'reviewRoundId' => 'int',
         'userId' => 'int',
         'doiId' => 'int',
-        'dateCompleted' => 'datetime',
-        'dateReverted' => 'datetime'
+        'dateConfirmed' => 'datetime',
+        'dateReverted' => 'datetime',
+        'confirmationChangedByUserId' => 'int',
     ];
 
     /**
@@ -69,6 +70,7 @@ class AuthorResponse extends Model
     {
         return [
             'authorResponse',
+            'confirmationChangedByUserId',
         ];
     }
     /**
@@ -139,6 +141,18 @@ class AuthorResponse extends Model
                 return $visibility->isNotEmpty() && $visibility->every(fn ($visibility) => (bool) $visibility);
             }
         )->shouldCache();
+    }
+
+    /**
+     * Whether this author response has been confirmed by an Editor.
+     */
+    protected function isConfirmed(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                return !!$this->dateConfirmed;
+            }
+        );
     }
 
     /**

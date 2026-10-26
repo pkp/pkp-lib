@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2026-08-07 08:28+0000\n"
+"PO-Revision-Date: 2026-10-26 06:57+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da/>\n"
@@ -3066,7 +3066,6 @@ msgstr "Bedømmelsen er forsinket med {$days} dage"
 msgid "dashboard.reviewAssignment.statusAccepted.title"
 msgstr "Igangværende bedømmelse - anmodning accepteret"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Denne bedømmer har ikke afsluttet bedømmelsen. Bedømmelsen skulle være "
@@ -3086,7 +3085,6 @@ msgstr "Bedømmelse blev bekræftet af redaktøren"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Bedømmelsen blev accepteret af redaktøren den <b>{$date}</b>."
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Anmodning om bedømmelse annulleret af redaktøren"
 

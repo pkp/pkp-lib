@@ -560,9 +560,9 @@ class Repository
 
     /**
      * Create a title for a review assignment.
-     * Title format: Review: "{publicationTitle}" (Round{revisionNumber}/Review{reviewNumber}).
+     * Title format: Review: "{publicationTitle}" (Round {roundNumber}, Review {reviewNumber}).
      *
-     * Where `{publicationTitle}` is the title of the publication, `{revisionNumber}` is the round number of the review round,
+     * Where `{publicationTitle}` is the title of the publication, `{roundNumber}` is the round number of the review round,
      * and `{reviewNumber}` is the position of the given review assignment in the round based on the date the reviews were completed by the reviewers.
      *
      * @param ReviewAssignment[] $allReviewsInRound - The review assignments belonging to the same round as the given assignment, including the given assignment itself. Incomplete reviews in this list will be ignored.
@@ -571,8 +571,7 @@ class Repository
      */
     public function getReviewTitle(ReviewAssignment $reviewAssignment, ReviewRound $reviewRound, array $allReviewsInRound, Publication $publication, string $locale): ?string
     {
-        // Get Revision Number (round of review)
-        $revisionNumber = $reviewRound->getRound();
+        $roundNumber = $reviewRound->getRound();
         $reviewNumber = $this->getReviewPositionInRound($reviewAssignment, $allReviewsInRound);
 
         // Translate locale using Locale::getBundle()->translateSingular so that a `null` value is returned for missing locale instead of the ##locale.key## format.
@@ -580,7 +579,7 @@ class Repository
         return Locale::getBundle($locale)
             ->translateSingular('submission.doi.review.title', [
                 'publicationTitle' => $publication->getLocalizedTitle($locale),
-                'revisionNumber' => $revisionNumber,
+                'roundNumber' => $roundNumber,
                 'reviewNumber' => $reviewNumber,
             ]);
     }

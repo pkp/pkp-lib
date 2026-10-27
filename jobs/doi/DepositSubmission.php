@@ -69,16 +69,6 @@ class DepositSubmission extends BaseJob
 
         $this->agency->depositSubmissions([$submission], $this->context);
 
-        $publicationsCache = collect();
-        if (!$this->context->getData(Context::SETTING_DOI_VERSIONING)) {
-            $currentPublication = $submission->getCurrentPublication();
-            $publicationsCache->put($currentPublication->getId(), $currentPublication);
-        }
-
-        $roundsCache = collect();
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-
         // Deposit Submission's associated Peer Review if Peer Review DOIs are enabled in Context and Agency, and the associated Publication DOI was successfully deposited.
         if (
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $this->agency->getAllowedDoiTypes()) &&
@@ -86,6 +76,11 @@ class DepositSubmission extends BaseJob
         ) {
             $depositablePeerReviewIds = Repo::reviewAssignment()
                 ->getExportableDOIsPeerReviewIds($this->context->getId(), $this->context->getData(Context::SETTING_DOI_VERSIONING), [$this->submissionId]);
+
+            $publicationsCache = collect();
+            $roundsCache = collect();
+            /** @var ReviewRoundDAO $reviewRoundDao */
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 
             foreach ($depositablePeerReviewIds as $peerReviewId) {
                 $review = Repo::reviewAssignment()->get($peerReviewId);
@@ -96,7 +91,6 @@ class DepositSubmission extends BaseJob
                     $roundsCache->put($round->getId(), $round);
                 }
 
-                $publication = null;
                 if ($this->context->getData(Context::SETTING_DOI_VERSIONING)) {
                     if (!$publicationsCache->has($round->getPublicationId())) {
                         $publicationsCache->put($round->getPublicationId(), Repo::publication()->get($round->getPublicationId()));
@@ -104,10 +98,17 @@ class DepositSubmission extends BaseJob
                 }
 
                 /** @var Publication $publication */
-                $publication = $publicationsCache->get($round->getPublicationId());
-                $doiId = $publication->getData('doiId');
+                $publication = $this->context->getData(Context::SETTING_DOI_VERSIONING)
+                    ? $publicationsCache->get($round->getPublicationId())
+                    : $submission->getCurrentPublication();
 
-                if ($doiId && Repo::doi()->get($doiId)->getStatus() === Doi::STATUS_REGISTERED) {
+                $doiId = $publication->getData('doiId');
+                $doi = $doiId ? Repo::doi()->get($doiId) : null;
+                if (
+                    $doi?->getStatus() === Doi::STATUS_REGISTERED ||
+                    // When in test mode, some agencies keep the submission's DOI status as Doi::STATUS_SUBMITTED after a successful deposit
+                    ($this->agency->getSetting($this->context->getId(), 'testMode') && $doi?->getStatus() === Doi::STATUS_SUBMITTED)
+                ) {
                     dispatch(new DepositPeerReview($peerReviewId, $this->context->getId(), $this->submissionId));
                 }
             }

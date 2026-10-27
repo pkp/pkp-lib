@@ -394,6 +394,25 @@ class PKPSubmissionFileController extends PKPBaseController
             }
         }
 
+        // A galley or publication format named in assocId must belong to this submission,
+        // and the user must still be allowed to change it
+        if (($params['assocType'] ?? null) == Application::ASSOC_TYPE_REPRESENTATION) {
+            $representation = empty($params['assocId']) ? null : Application::getRepresentationDAO()->getById((int) $params['assocId']);
+            $publication = $representation ? Repo::publication()->get((int) $representation->getData('publicationId')) : null;
+            if (!$publication || $publication->getData('submissionId') != $submission->getId()) {
+                app()->get('file')->delete($fileId);
+                return response()->json([
+                    'error' => __('api.404.resourceNotFound'),
+                ], Response::HTTP_BAD_REQUEST);
+            }
+            if (!Repo::submission()->canEditRepresentations($publication, $request->getUser())) {
+                app()->get('file')->delete($fileId);
+                return response()->json([
+                    'error' => __('api.submissionFiles.403.unauthorizedFileStageIdWrite'),
+                ], Response::HTTP_FORBIDDEN);
+            }
+        }
+
         $submissionFile = Repo::submissionFile()
             ->newDataObject($params);
 

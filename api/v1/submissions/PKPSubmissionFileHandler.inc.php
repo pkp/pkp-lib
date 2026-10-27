@@ -329,6 +329,21 @@ class PKPSubmissionFileHandler extends APIHandler {
 			}
 		}
 
+		// A galley or publication format named in assocId must belong to this submission,
+		// and the user must still be allowed to change it
+		if (($params['assocType'] ?? null) == ASSOC_TYPE_REPRESENTATION) {
+			$representation = empty($params['assocId']) ? null : Application::get()->getRepresentationDAO()->getById((int) $params['assocId']);
+			$publication = $representation ? Services::get('publication')->get((int) $representation->getData('publicationId')) : null;
+			if (!$publication || $publication->getData('submissionId') != $submission->getId()) {
+				Services::get('file')->delete($fileId);
+				return $response->withStatus(400)->withJsonError('api.404.resourceNotFound');
+			}
+			if (!Services::get('submission')->canEditRepresentations($publication, $request->getUser())) {
+				Services::get('file')->delete($fileId);
+				return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageIdWrite');
+			}
+		}
+
 		$submissionFile = DAORegistry::getDao('SubmissionFileDAO')->newDataObject();
 		$submissionFile->setAllData($params);
 

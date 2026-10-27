@@ -147,6 +147,13 @@ class SubmissionFileAccessPolicy extends ContextPolicy {
 			// Add the rules from 3)
 			$authorFileAccessPolicy->addPolicy($authorFileAccessOptionsPolicy);
 
+			// 4) ...and, to modify the file of a galley or publication format, if they may
+			// still edit its publication (never once it is published or scheduled)
+			if ($mode & SUBMISSION_FILE_ACCESS_MODIFY) {
+				import('lib.pkp.classes.security.authorization.internal.SubmissionFileRepresentationEditablePolicy');
+				$authorFileAccessPolicy->addPolicy(new SubmissionFileRepresentationEditablePolicy($request, $submissionFileId));
+			}
+
 			$fileAccessPolicy->addPolicy($authorFileAccessPolicy);
 		}
 

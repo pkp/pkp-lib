@@ -792,6 +792,43 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	}
 
 	/**
+	 * Check if a user can change the representations (galleys, publication formats)
+	 * of a publication and their files
+	 *
+	 * Editorial users keep the access their stage assignments give them. A user who
+	 * takes part in the submission only as an author may change them while the
+	 * submission has not been submitted, and after that only when they may edit the
+	 * publication's metadata and it is not published or scheduled.
+	 *
+	 * @param Publication $publication
+	 * @param User $user
+	 * @return boolean
+	 */
+	public function canEditRepresentations($publication, $user) {
+		$submission = $this->get($publication->getData('submissionId'));
+		if (!$submission) return false;
+
+		if ($user->hasRole([ROLE_ID_SITE_ADMIN], CONTEXT_SITE)
+			|| $this->_canUserAccessUnassignedSubmissions($submission->getData('contextId'), $user->getId())) {
+			return true;
+		}
+
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $user->getId(), null)->toArray();
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
+		foreach ($stageAssignments as $stageAssignment) {
+			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId());
+			if ($userGroup && $userGroup->getRoleId() != ROLE_ID_AUTHOR) return true;
+		}
+
+		if (!$submission->getData('dateSubmitted')) return true;
+
+		if (in_array($publication->getData('status'), [STATUS_PUBLISHED, STATUS_SCHEDULED])) return false;
+
+		return $this->canEditPublication($submission, $user->getId());
+	}
+
+	/**
 	 * Check if a user can edit a publications metadata
 	 *
 	 * @param Submission $submission

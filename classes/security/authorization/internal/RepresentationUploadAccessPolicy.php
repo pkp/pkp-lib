@@ -88,7 +88,11 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // Representations can not be modified on published publications
+        // Authors may not change the representations of a publication they can no longer edit
+        $user = $this->_request->getUser();
+        if (!$user || !Repo::submission()->canEditRepresentations($publication, $user)) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
+        }
 
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION, $representation);
 

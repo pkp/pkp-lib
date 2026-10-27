@@ -16,6 +16,7 @@ namespace PKP\announcement;
 use APP\core\Application;
 use APP\core\Request;
 use PKP\context\Context;
+use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -74,6 +75,20 @@ class Repository
 
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $this->schemaService->getMultilingualProps($schema), $allowedLocales);
+
+        // A new image must be the current user's upload and an image the announcement
+        // can store; check it here, before Announcement::save() writes anything
+        $validator->after(function ($validator) use ($props) {
+            $temporaryFileId = $props['image']['temporaryFileId'] ?? null;
+            if (!$temporaryFileId || $validator->errors()->get('image')) {
+                return;
+            }
+            $temporaryFileManager = new TemporaryFileManager();
+            $temporaryFile = $temporaryFileManager->getFile((int) $temporaryFileId, $this->request->getUser()?->getId());
+            if (!$temporaryFile || !$temporaryFileManager->isValidImage($temporaryFile)) {
+                $validator->errors()->add('image', __('api.400.errorUploadingImage'));
+            }
+        });
 
         $errors = [];
 

@@ -11,50 +11,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Gutxienez gehitu beharreko erabiltzaile-talde bat definitu behar da"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Erabiltzaile-taldea gonbidatutako erabiltzaileari esleitzen zaio"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Gutxienez ezabatu beharreko erabiltzaile-talde bat definitu behar da"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Emandako erabiltzaile-taldeek bikoiztutako sarrerak dituzte."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
 "Dagoeneko badago erabiltzaile bat {$username} erabiltzaile-izena duena. "
 "Saiatu beste batekin."
-
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Erabiltzaile-izen bat eman behar da"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Pasahitz bat eman behar da"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Filiazio bat eman behar da"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Herrialde bat eman behar da"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Izena eman behar da"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Abizen bat eman behar da"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr ""
-"Gehitutako erabiltzaile-taldeentzat, erabiltzaile-taldearen IDa eman behar da"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "Gehitutako erabiltzaile-taldeentzat, hasiera-data bat eman behar da"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Gehitutako erabiltzaile-taldeentzat, goiburu bat eman behar da"
 
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Gonbidapen-mota honek ez du posta bidezko helbiderik definituta"
@@ -67,12 +30,6 @@ msgstr "Gonbidapenak"
 
 msgid "invitation.inviteToRole.btn"
 msgstr "Rol batera gonbidatu"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Sartu xehetasunak"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Rolak berrikusi eta gonbidatu"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Bilatu erabiltzailea"
@@ -88,9 +45,6 @@ msgstr "Gorde eta jarraitu"
 
 msgid "invitation.role.dateStart"
 msgstr "Hasiera-data"
-
-msgid "invitation.role.dateEnd"
-msgstr "Amaiera-data"
 
 msgid "invitation.role.addRole.button"
 msgstr "Gehitu beste rol bat"
@@ -172,9 +126,6 @@ msgstr "'{$primaryLocale}' eskualdeko balioa beharrezkoa da"
 msgid "invitation.wizard.pageTitle"
 msgstr "Gonbidatu erabiltzailea rol bat hartzera"
 
-msgid "invitation.validation.required"
-msgstr "{$attribute} eremua derrigorrezkoa da."
-
 msgid "invitation.step"
 msgstr "URRATSA"
 
@@ -236,12 +187,6 @@ msgstr "Erabiltzailearen xehetasunak"
 msgid "acceptInvitation.modal.button"
 msgstr "Ikusi bidalketa guztiak"
 
-msgid "invitation.role.modifyRole.button"
-msgstr "Aldatu rola"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "Existitzen ez den erabiltzaileari ezin zaio rolik ezabatu."
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "Gonbidapena ezin da bidali, ez baituzu erabiltzaile-taldeen aldaketarik "
@@ -259,18 +204,7 @@ msgstr ""
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"{reviewAssignmentId} IDa ez dator bat baliozko berrikuspen-esleipen batekin"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr ""
-"Atributu hori atzitzea ez dago baimenduta existitzen diren erabiltzaileetan"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr ""
-"Atributua ez dago baimenduta ez dauden erabiltzaileentzat sarbidea izateko"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "Atributu honek gaurko balio berdina edo geroagokoa izan behar du"
+"{$reviewAssignmentId} IDa ez dator bat baliozko berrikuspen-esleipen batekin"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr ":attribute eremua debekatuta dago"

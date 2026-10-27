@@ -502,6 +502,48 @@ abstract class Repository
     }
 
     /**
+     * Check if a user can change the representations (galleys, publication formats)
+     * of a publication and their files
+     *
+     * Editorial users keep the access their stage assignments give them. A user who
+     * takes part in the submission only as an author may change them while the
+     * submission has not been submitted, and after that only when they may edit the
+     * publication's metadata and it is not published or scheduled.
+     */
+    public function canEditRepresentations(Publication $publication, User $user): bool
+    {
+        $submissionId = $publication->getData('submissionId');
+        $submission = $this->get($submissionId);
+        if (!$submission) {
+            return false;
+        }
+
+        if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE)
+            || $this->_canUserAccessUnassignedSubmissions($submission->getData('contextId'), $user->getId())) {
+            return true;
+        }
+
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submissionId, $user->getId(), null)->toArray();
+        foreach ($stageAssignments as $stageAssignment) {
+            $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
+            if ($userGroup && $userGroup->getRoleId() != Role::ROLE_ID_AUTHOR) {
+                return true;
+            }
+        }
+
+        if (!$submission->getData('dateSubmitted')) {
+            return true;
+        }
+
+        if (in_array($publication->getData('status'), [Submission::STATUS_PUBLISHED, Submission::STATUS_SCHEDULED])) {
+            return false;
+        }
+
+        return $this->canEditPublication($submissionId, $user->getId());
+    }
+
+    /**
      * Checks if this user is granted reader access to pre-publication submissions
      * based on their roles in the context (i.e. Manager, Editor, etc).
      */

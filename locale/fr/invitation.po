@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-10-02 15:20+0000\n"
+"PO-Revision-Date: 2026-10-28 08:25+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/fr/>\n"
@@ -308,10 +308,10 @@ msgstr ""
 "chiffres, sans espaces"
 
 msgid "acceptInvitation.userDetailsForm.givenName.description"
-msgstr "Prénom"
+msgstr "Prénom."
 
 msgid "acceptInvitation.userDetailsForm.familyName.description"
-msgstr "Nom de famille"
+msgstr "Nom de famille."
 
 msgid "acceptInvitation.userDetailsForm.affiliation.description"
 msgstr "Affiliation"
@@ -414,8 +414,8 @@ msgstr ""
 
 msgid "userInvitation.searchField"
 msgstr ""
-"Rechercher une personne à l'aide de son courriel, de son nom d'utilisateur "
-"ou son identifiant ORCID."
+"Rechercher un/e utilisateur/ice soit par son courriel, son identifiant ou "
+"son ORCID."
 
 msgid "userInvitation.user.disableTitle"
 msgstr "Cet/te utilisateur/ice a été désactivée."
@@ -441,3 +441,6 @@ msgstr ""
 
 msgid "invitation.unavailable.title"
 msgstr "Invitation indisponible"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotInContext"
+msgstr "Ce groupe d'utilisateur/ices ne fait pas partie de ce type d'invitation"

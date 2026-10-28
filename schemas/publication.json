@@ -333,7 +333,7 @@
 		},
 		"reviewDoiItems": {
 			"type": "array",
-			"description": "Information about review-related DOI object for open peer reviews and author responses.",
+			"description": "Information about review-related DOI object for open peer reviews.",
 			"readOnly": true,
 			"apiSummary": true,
 			"items": {
@@ -341,11 +341,11 @@
 				"properties": {
 					"pubObjectType": {
 						"type": "string",
-						"description": "One of Repo::doi()::TYPE_PEER_REVIEW or Repo::doi()::TYPE_AUTHOR_RESPONSE"
+						"description": "Type of Repo::doi()::TYPE_PEER_REVIEW"
 					},
 					"pubObjectId": {
 						"type": "integer",
-						"description": "Either a ReviewAssignment or AuthorResponse ID"
+						"description": "The ReviewAssignment ID"
 					},
 					"doiObject": {
 						"type": "object",

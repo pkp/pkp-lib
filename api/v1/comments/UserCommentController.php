@@ -19,8 +19,6 @@ namespace PKP\API\v1\comments;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
-use PKP\core\PKPRequest;
-use PKP\notification\Notification;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -30,7 +28,10 @@ use PKP\API\v1\comments\formRequests\AddReport;
 use PKP\API\v1\comments\resources\UserCommentReportResource;
 use PKP\API\v1\comments\resources\UserCommentResource;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
+use PKP\notification\Notification;
+use PKP\publication\PKPPublication;
 use PKP\security\authorization\PublicAccessPolicy;
 use PKP\security\Role;
 use PKP\userComment\relationships\UserCommentReport;
@@ -50,6 +51,13 @@ class UserCommentController extends PKPBaseController
         return ['has.context'];
     }
 
+    public function publicRoutes(): array
+    {
+        return [
+            'getManyPublic',
+        ];
+    }
+
     /** @copydoc */
     public function getGroupRoutes(): void
     {
@@ -57,13 +65,14 @@ class UserCommentController extends PKPBaseController
          * This route does not have the 'has.user' middleware to allow unauthenticated users to fetch public comments for a publication. Consequently, authenticated users won't have
          * user context in their requests. Therefore, a separate authenticated endpoint exists for moderators(admins/managers) to fetch comments.
          */
-        Route::get('public', $this->getManyPublicComments(...))
+        Route::get('public', $this->getManyPublic(...))
             ->name('comment.getManyPublic');
 
         // Routes accessible only to authenticated users
         Route::middleware([
             'has.user',
         ])->group(function () {
+            // Routes accessible to all signed-in users
             Route::post('', $this->submit(...))
                 ->name('comment.submit');
 
@@ -120,7 +129,18 @@ class UserCommentController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
-        $this->addPolicy(new PublicAccessPolicy());
+        $context = $request->getContext();
+
+        // All /comments endpoints should be inaccessible if comments are disabled.
+        if (!$context->getData('enablePublicComments')) {
+            return false;
+        }
+
+        /** @var Request $illuminateRequest */
+        $illuminateRequest = $args[0];
+        if (in_array(static::getRouteActionName($illuminateRequest), $this->publicRoutes())) {
+            $this->addPolicy(new PublicAccessPolicy());
+        }
         return parent::authorize($request, $args, $roleAssignments);
     }
 
@@ -130,7 +150,7 @@ class UserCommentController extends PKPBaseController
      * publicationIds(required, array) publication IDs to fetch comments for.
      * page(integer) - The pagination page to retrieve records from.
      */
-    public function getManyPublicComments(Request $illuminateRequest): JsonResponse
+    public function getManyPublic(Request $illuminateRequest): JsonResponse
     {
         $publicationIdsRaw = paramToArray($illuminateRequest->query('publicationIds') ?? []);
 
@@ -139,6 +159,8 @@ class UserCommentController extends PKPBaseController
         }
 
         $publicationIds = [];
+        $publicationCache = collect();
+
         foreach ($publicationIdsRaw as $id) {
             if (!filter_var($id, FILTER_VALIDATE_INT)) {
                 return response()->json([
@@ -146,24 +168,42 @@ class UserCommentController extends PKPBaseController
                 ], Response::HTTP_BAD_REQUEST);
             }
 
-            $publicationIds[] = (int)$id;
+            $id = (int)$id;
+            $publication = $publicationCache->get($id);
+
+            if (!$publication) {
+                $publication = Repo::publication()->get($id);
+
+                if ($publication) {
+                    $publicationCache->put($id, $publication);
+                }
+            }
+
+            if (!$publication || $publication->getData('status') !== PKPPublication::STATUS_PUBLISHED) {
+                return response()->json([
+                    'error' => __('api.404.resourceNotFound'),
+                ], Response::HTTP_NOT_FOUND);
+            }
+
+            $publicationIds[] = $id;
         }
-
-        $query = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
-            ->withIsApproved(true);
-
 
         $user = $this->getRequest()->getUser();
 
-        // Allow logged-in user to see their own unapproved comments.
-        if ($user) {
-            $query->orWhere(function ($query) use ($user) {
-                $query->where('user_id', $user->getId())
-                    ->where('is_approved', false);
-            });
-        }
+        $query = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
+            ->withPublicationIds($publicationIds)
+            ->where(function ($query) use ($user) {
+                $query->where('is_approved', true);
 
-        $query->withPublicationIds($publicationIds);
+                // Allow logged-in user to see their own unapproved comments.
+                if ($user) {
+                    $query->orWhere(function ($query) use ($user) {
+                        $query->where('user_id', $user->getId())
+                            ->where('is_approved', false);
+                    });
+                }
+            });
+
         $paginatedInfo = Repo::userComment()
             ->setPage($illuminateRequest->query('page') ?? 1)
             ->getPaginatedData($query);
@@ -235,6 +275,7 @@ class UserCommentController extends PKPBaseController
                             ], Response::HTTP_BAD_REQUEST);
                         }
 
+
                         $publicationIds[] = (int)$id;
                     }
                     $query->withPublicationIds($publicationIds);
@@ -256,7 +297,9 @@ class UserCommentController extends PKPBaseController
     public function get(Request $illuminateRequest): JsonResponse
     {
         $commentId = (int)$illuminateRequest->route('commentId');
-        $comment = UserComment::query()->find($commentId);
+
+        $comment = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
+            ->find($commentId);
 
         if (!$comment) {
             return response()->json(['error' => __('api.404.resourceNotFound')], Response::HTTP_NOT_FOUND);
@@ -301,7 +344,8 @@ class UserCommentController extends PKPBaseController
         $commentId = (int)$illuminateRequest->route('commentId');
         $request = $this->getRequest();
         $user = $request->getUser();
-        $comment = UserComment::query()->find($commentId);
+        $comment = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
+            ->find($commentId);
 
         if (!$comment) {
             return response()->json([
@@ -350,7 +394,7 @@ class UserCommentController extends PKPBaseController
         }
 
         $commentId = (int)$illuminateRequest->route('commentId');
-        $comment = UserComment::query()->find($commentId);
+        $comment = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])->find($commentId);
 
         if (!$comment) {
             return response()->json([
@@ -373,7 +417,14 @@ class UserCommentController extends PKPBaseController
         $requestBody = $illuminateRequest->validated();
         $note = $requestBody['note'];
         $commentId = (int)$illuminateRequest->route('commentId');
-        $comment = UserComment::query()->find($commentId);
+        $comment = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])->find($commentId);
+
+        if (!$comment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
         $reportId = Repo::userComment()->addReport($comment, $this->getRequest()->getUser(), $note);
         $report = UserCommentReport::query()->find($reportId);
 
@@ -391,6 +442,15 @@ class UserCommentController extends PKPBaseController
     {
         $reportId = (int)$illuminateRequest->route('reportId');
         $commentId = (int)$illuminateRequest->route('commentId');
+
+        $comment = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
+            ->find($commentId);
+
+        if (!$comment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         $report = UserCommentReport::withCommentIds([$commentId])
             ->withReportIds([$reportId])
@@ -418,7 +478,8 @@ class UserCommentController extends PKPBaseController
     public function deleteReports(Request $illuminateRequest): JsonResponse
     {
         $commentId = (int)$illuminateRequest->route('commentId');
-        $comment = UserComment::query()->find($commentId);
+        $comment = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
+            ->find($commentId);
 
         if (!$comment) {
             return response()->json([
@@ -427,7 +488,7 @@ class UserCommentController extends PKPBaseController
         }
 
         $reportIds = $comment->reports()->pluck('user_comment_report_id')->all();
-        UserCommentReport::withReportIds([$reportIds])->delete();
+        UserCommentReport::withReportIds($reportIds)->delete();
 
         // Delete notifications associated with the reports
         Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT_REPORT)
@@ -442,6 +503,15 @@ class UserCommentController extends PKPBaseController
     {
         $reportId = (int)$illuminateRequest->route('reportId');
         $commentId = (int)$illuminateRequest->route('commentId');
+
+        $comment = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
+            ->find($commentId);
+
+        if (!$comment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         $report = UserCommentReport::query()
             ->withCommentIds([$commentId])
@@ -467,7 +537,7 @@ class UserCommentController extends PKPBaseController
     public function getReports(Request $illuminateRequest): JsonResponse
     {
         $commentId = (int)$illuminateRequest->route('commentId');
-        $comment = UserComment::query()->find($commentId);
+        $comment = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])->find($commentId);
 
         if (!$comment) {
             return response()->json([

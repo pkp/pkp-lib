@@ -22,7 +22,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -34,7 +33,6 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
-use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 
 class PKPBackendDoiController extends PKPBaseController
 {
@@ -72,9 +70,6 @@ class PKPBackendDoiController extends PKPBaseController
         Route::put('peerReviews/{reviewId}', $this->editPeerReview(...))
             ->name('_doi.backend.peerReview.edit')
             ->whereNumber('reviewId');
-        Route::put('authorResponses/{responseId}', $this->editAuthorResponse(...))
-            ->name('_doi.backend.authorResponse.edit')
-            ->whereNumber('responseId');
     }
 
     /**
@@ -185,31 +180,4 @@ class PKPBackendDoiController extends PKPBaseController
         );
     }
 
-    /**
-     * Edit AuthorResponse to add DOI
-     */
-    public function editAuthorResponse(Request $illuminateRequest): JsonResponse
-    {
-        $authorResponse = AuthorResponse::find($illuminateRequest->route('responseId'));
-        if (!$authorResponse) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound'),
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        $doi = Repo::doi()->get((int) $illuminateRequest->input('doiId'));
-        if (!$doi) {
-            return response()->json([
-                'error' => __('api.dois.404.doiNotFound'),
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        $authorResponse->doiId = $doi->getId();
-        $authorResponse->save();
-
-        return response()->json(
-            new ReviewRoundAuthorResponseResource($authorResponse),
-            Response::HTTP_OK
-        );
-    }
 }

@@ -574,6 +574,43 @@ abstract class Repository
     }
 
     /**
+     * Check if a user can change the representations (galleys, publication formats)
+     * of a publication and their files
+     *
+     * Editorial users keep the access their stage assignments give them. A user who
+     * takes part in the submission only as an author may change them while the
+     * submission has not been submitted, and after that only when they may edit the
+     * publication's metadata, which they never may once it is published or scheduled.
+     */
+    public function canEditRepresentations(Publication $publication, User $user): bool
+    {
+        $submissionId = $publication->getData('submissionId');
+        $submission = $this->get($submissionId);
+        if (!$submission) {
+            return false;
+        }
+
+        if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::SITE_CONTEXT_ID)
+            || $this->_canUserAccessUnassignedSubmissions($submission->getData('contextId'), $user->getId())) {
+            return true;
+        }
+
+        $hasEditorialAssignment = StageAssignment::withSubmissionIds([$submissionId])
+            ->withUserId($user->getId())
+            ->get()
+            ->contains(fn (StageAssignment $sa) => $sa->userGroup && $sa->userGroup->roleId != Role::ROLE_ID_AUTHOR);
+        if ($hasEditorialAssignment) {
+            return true;
+        }
+
+        if (!$submission->getData('dateSubmitted')) {
+            return true;
+        }
+
+        return $this->canEditPublication($publication, $user);
+    }
+
+    /**
      * Checks if this user is granted reader access to pre-publication submissions
      * based on their roles in the context (i.e. Manager, Editor, etc).
      */

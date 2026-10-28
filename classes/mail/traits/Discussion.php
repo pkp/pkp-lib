@@ -26,7 +26,7 @@ trait Discussion
 
     protected function addFooter(string $locale): self
     {
-        $this->setupUnsubscribeFooter($locale, $this->context);
+        $this->setupUnsubscribeFooter($locale, $this->context, submission: $this->submission);
         return $this;
     }
 

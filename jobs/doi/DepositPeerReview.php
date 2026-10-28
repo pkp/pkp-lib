@@ -28,22 +28,20 @@ class DepositPeerReview extends BaseJob
     protected int $reviewId;
     protected int $submissionId;
     protected int $contextId;
-
     /**
-     * @var IDoiRegistrationAgency The configured DOI registration agency
+     * @var ?IDoiRegistrationAgency The configured DOI registration agency
      */
-    protected IDoiRegistrationAgency $agency;
+    protected ?IDoiRegistrationAgency $agency;
 
     /**
      * Create a new job instance.
      *
      */
-    public function __construct(int $reviewId, int $contextId, IDoiRegistrationAgency $agency, int $submissionId)
+    public function __construct(int $reviewId, int $contextId, int $submissionId)
     {
         parent::__construct();
 
         $this->reviewId = $reviewId;
-        $this->agency = $agency;
         $this->submissionId = $submissionId;
         $this->contextId = $contextId;
     }
@@ -52,6 +50,8 @@ class DepositPeerReview extends BaseJob
     {
         /** @var Context $context */
         $context = Application::getContextDAO()->getById($this->contextId);
+
+        $this->agency = $context->getConfiguredDoiAgency();
 
         $depositablePeerReviewIds = Repo::reviewAssignment()
             ->getExportableDOIsPeerReviewIds($context->getId(), $context->getData(Context::SETTING_DOI_VERSIONING), [$this->submissionId]);

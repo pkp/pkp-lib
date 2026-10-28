@@ -3934,9 +3934,6 @@ msgstr "Respond to Reviews"
 msgid "submission.reviewRound.authorResponse"
 msgstr "Author Response"
 
-msgid "submission.reviewRound.authorResponse.identified"
-msgstr "Author Response {$identifier}"
-
 msgid "editor.submission.reviewRound.requestAuthorResponse"
 msgstr "Request Author Response"
 

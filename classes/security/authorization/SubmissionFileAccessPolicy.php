@@ -18,6 +18,7 @@
 namespace PKP\security\authorization;
 
 use PKP\core\PKPRequest;
+use PKP\plugins\Hook;
 use PKP\security\authorization\internal\ContextPolicy;
 use PKP\security\authorization\internal\SubmissionFileAssignedQueryAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileAssignedReviewerAccessPolicy;
@@ -25,13 +26,13 @@ use PKP\security\authorization\internal\SubmissionFileAuthorEditorPolicy;
 use PKP\security\authorization\internal\SubmissionFileMatchesSubmissionPolicy;
 use PKP\security\authorization\internal\SubmissionFileMatchesWorkflowStageIdPolicy;
 use PKP\security\authorization\internal\SubmissionFileNotQueryAccessPolicy;
+use PKP\security\authorization\internal\SubmissionFileRepresentationEditablePolicy;
 use PKP\security\authorization\internal\SubmissionFileRequestedRevisionRequiredPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageRequiredPolicy;
 use PKP\security\authorization\internal\SubmissionFileUploaderAccessPolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
-use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
 
@@ -73,7 +74,7 @@ class SubmissionFileAccessPolicy extends ContextPolicy
      * @param int $mode bitfield
      * @param int $submissionFileId
      * @param string $submissionParameterName
-     * 
+     *
      * @hook SubmissionFileAccessPolicy::authorFileAccess ['request' => $request, 'mode' => $mode, 'submissionFileId' => $submissionFileId, 'authorFileAccessOptionsPolicy' => &$authorFileAccessOptionsPolicy]
      */
     public function buildFileAccessPolicy($request, $args, $roleAssignments, $mode, $submissionFileId, $submissionParameterName)
@@ -172,6 +173,12 @@ class SubmissionFileAccessPolicy extends ContextPolicy
 
             // Add the rules from 3)
             $authorFileAccessPolicy->addPolicy($authorFileAccessOptionsPolicy);
+
+            // 4) ...and, to modify the file of a galley or publication format, if they may
+            // still edit its publication (never once it is published or scheduled)
+            if ($mode & self::SUBMISSION_FILE_ACCESS_MODIFY) {
+                $authorFileAccessPolicy->addPolicy(new SubmissionFileRepresentationEditablePolicy($request, $submissionFileId));
+            }
 
             $fileAccessPolicy->addPolicy($authorFileAccessPolicy);
         }

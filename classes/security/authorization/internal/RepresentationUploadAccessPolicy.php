@@ -21,12 +21,10 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-use PKP\publication\PKPPublication;
 use APP\facades\Repo;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
-use PKP\submission\PKPSubmission;
 use PKP\submissionFile\SubmissionFile;
 
 class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
@@ -87,6 +85,12 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
         // Publication and submission must match
         if ($publication->getData('submissionId') !== $submission->getId()) {
             $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.authorization.invalidPublication');
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
+        }
+
+        // Authors may not change the representations of a publication they can no longer edit
+        $user = $this->_request->getUser();
+        if (!$user || !Repo::submission()->canEditRepresentations($publication, $user)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

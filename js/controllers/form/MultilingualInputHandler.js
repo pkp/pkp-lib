@@ -167,7 +167,7 @@
 		// Track current values in the tinyMCE control
 		if (this.getHtmlElement().find('.richContent').length) {
 			$popover.find('textarea').each(function() {
-				// #13180 - A rendering editor has no serializer yet; read the textarea.
+				// pkp/pkp-lib#13180 - A rendering editor has no serializer yet; read the textarea.
 				var $textarea = $(this),
 						editor = tinyMCE.EditorManager.get(/** @type {string} */(
 								$textarea.attr('id'))),

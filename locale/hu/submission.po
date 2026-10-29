@@ -1,12 +1,13 @@
 # Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021, 2022.
 # Fülöp Tiffany <tiffany.fulop@ek.szte.hu>, 2025.
+# Marton Horvath <horvath.marton.g@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2025-04-22 14:31+0000\n"
-"Last-Translator: Fülöp Tiffany <tiffany.fulop@ek.szte.hu>\n"
+"PO-Revision-Date: 2026-10-29 09:00+0000\n"
+"Last-Translator: Marton Horvath <horvath.marton.g@gmail.com>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hu/>\n"
 "Language: hu\n"
@@ -31,13 +32,12 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Új lektori véleményeket küldtek be, hogy a szerkesztő átnézhesse."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Egy vagy több bíráló elmulasztotta a határidőt. A szerkesztőséget "
-"értesítettük, és intézkedni fog a bírálatok befejezése érdekében. Önnek "
-"jelenleg nem kell semmilyen intézkedést tennie. Értesítjük, ha döntés "
-"született."
+"Egy vagy több bíráló nem tartotta be a határidőt. A szerkesztőség tud a "
+"késedelemről, és gondoskodik a lektorálási folyamat befejezéséről. Önnek "
+"egyelőre nincs teendője. Amint megszületik a szerkesztői döntés, értesítést "
+"kap."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Beküldés mint"
@@ -49,15 +49,15 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Válasszon szerkesztői szerepkört, ha saját maga szeretné szerkeszteni és "
+"megjelentetni ezt a kéziratot."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Beküldési előírások"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
-"El kell olvasnia és jelölnie kell, hogy teljesítette az előírásokat mielőtt "
-"folytatná."
+"Minden beküldött kéziratnak meg kell felelnie az alábbi követelményeknek."
 
 msgid "submission.submit.submissionChecklistConfirm"
 msgstr "Igen, a kéziratom megfelel az összes felsorolt követelménynek."
@@ -611,12 +611,16 @@ msgstr "Naplóbejegyzés törlése"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"A döntésről szóló, \"{$subject}\" tárgyú e-mailt elküldtük {$recipientCount} "
+"lektornak."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Eredeti fájl beküldése kész."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$filename} ({$username}) elfogadta a kézirat beküldésére vonatkozó szerzői "
+"jogi feltételeket."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -670,9 +674,13 @@ msgstr "Szakmai Lektori által véleményezett fájl frissült"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} emlékeztetőt küldött {$recipientName} részére a lektori "
+"megbízásával kapcsolatban"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"A rendszer automatikus emlékeztető e-mailt küldött {$recipientName} részére "
+"a lektori megbízásával kapcsolatban"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Email elküldve:"
@@ -702,10 +710,10 @@ msgstr ""
 "nem módosíthatóak."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Első megjelenés"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "A szerkesztők számára"
 
 msgid "submission.galley"
 msgstr "Megjelentetési formátum"
@@ -2981,3 +2989,44 @@ msgstr "Beküldési fájl"
 
 msgid "reviewer.competingInterests"
 msgstr "Összeférhetetlenség"
+
+msgid "author.authorNotFound"
+msgstr "Nem található az intézményi hovatartozáshoz tartozó szerző."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Adjon meg egy ROR-azonosítóval rendelkező intézményi hovatartozást vagy "
+"legalább egy intézménynevet."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Adja meg az intézményi hovatartozás nevét a kézirat elsődleges nyelvén."
+
+msgid "ror.nameRequired"
+msgstr "A ROR-adatbázisban szereplő intézménynév megadása kötelező."
+
+msgid "ror.displayLocaleRequired"
+msgstr "A ROR-adatok megjelenítési nyelvének megadása kötelező."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "A kézirat beküldése megszakítva"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Figyelmeztetés: Ez a verzió már megjelent. Módosítása hatással lehet a "
+"közzétett tartalomra."
+
+msgid "submission.authors.label"
+msgstr "Szerzők"
+
+msgid "submission.author.list"
+msgstr "A beküldött kézirat szerzőinek listája"
+
+msgid "ror.invalidRorId"
+msgstr "Adjon meg egy érvényes ROR-azonosítót."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Kézirat beküldésének megszakítása"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"A kézirat beküldése megszakadt, és az összes kapcsolódó adat törlésre került."

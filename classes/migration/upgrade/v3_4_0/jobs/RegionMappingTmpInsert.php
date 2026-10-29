@@ -28,9 +28,6 @@ class RegionMappingTmpInsert extends BaseJob
      */
     public function handle(): void
     {
-        // clear any partial data from a previous failed run before re-inserting
-        DB::table('region_mapping_tmp')->delete();
-
         // read all FIPS to ISO mappings
         $mappings = include Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/regionMapping.php';
 
@@ -51,6 +48,11 @@ class RegionMappingTmpInsert extends BaseJob
         if (empty($inserts)) {
             throw new Exception('No FIPS-ISO mappings found in regionMapping.php — cannot proceed.');
         }
-        DB::table('region_mapping_tmp')->insert($inserts);
+        // in one transaction, so that a FixRegionCodes job running at the same time never sees an empty or incomplete mapping
+        DB::transaction(function () use ($inserts) {
+            // clear any partial data from a previous failed run before re-inserting
+            DB::table('region_mapping_tmp')->delete();
+            DB::table('region_mapping_tmp')->insert($inserts);
+        });
     }
 }

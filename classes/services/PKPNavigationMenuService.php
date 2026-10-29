@@ -782,12 +782,12 @@ class PKPNavigationMenuService
     /**
      * Get unassigned items for the context
      *
-     * @param int $contextId The context ID
+     * @param ?int $contextId The context ID (null for the site)
      * @param int $navigationMenuId The navigation menu ID
      * @param NavigationMenu $navigationMenu The navigation menu object
      * @return array List of unassigned menu items
      */
-    public function getUnassignedItems(int $contextId, int $navigationMenuId, NavigationMenu $navigationMenu): array
+    public function getUnassignedItems(?int $contextId, int $navigationMenuId, NavigationMenu $navigationMenu): array
     {
         /** @var NavigationMenuItemDAO $menuItemDao */
         $menuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
@@ -822,10 +822,10 @@ class PKPNavigationMenuService
     /**
      * Get all menu items for a context (for new menu creation)
      *
-     * @param int $contextId The context ID
+     * @param ?int $contextId The context ID (null for the site)
      * @return array List of all menu items mapped for API response
      */
-    public function getAllMenuItems(int $contextId): array
+    public function getAllMenuItems(?int $contextId): array
     {
         /** @var NavigationMenuItemDAO $menuItemDao */
         $menuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
@@ -845,20 +845,16 @@ class PKPNavigationMenuService
      */
     public function getNavigationAreas($context): array
     {
-        $areas = [];
+        // The site has menus of its own: ThemePlugin::isActive() reads the site's theme there.
+        $themePlugins = PluginRegistry::loadCategory('themes', true);
 
-        if ($context) {
-            $themePlugins = PluginRegistry::loadCategory('themes', true);
-
-            foreach ($themePlugins as $themePlugin) {
-                if ($themePlugin->isActive()) {
-                    $areas = $themePlugin->getMenuAreas();
-                    break;
-                }
+        foreach ($themePlugins as $themePlugin) {
+            if ($themePlugin->isActive()) {
+                return $themePlugin->getMenuAreas();
             }
         }
 
-        return $areas;
+        return [];
     }
 
     /**

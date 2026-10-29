@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/category/CategoryCategoryGridHandler.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2003-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CategoryCategoryGridHandler
@@ -319,16 +319,18 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
      * Handle file deletion for cover images for Categories.
      *
      * @param array $args
-     *    `name` string Filename of the cover image to be deleted.
-     *    `thumbnailName` string Filename of the cover image thumbnail to be deleted.
      *    `categoryId` int ID of the category this cover image is attached to.
      *
      * @throws \Exception
      */
     public function deleteImage(array $args, PKPRequest $request): JSONMessage
     {
-        if (empty($args['name']) || empty($args['thumbnailName']) || empty($args['categoryId'])) {
-            throw new \Exception('File name, thumbnail name, or category ID not provided');
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
+
+        if (empty($args['categoryId'])) {
+            throw new \Exception('Category ID not provided');
         }
 
         // Check that the category exists and is in the current context.
@@ -338,6 +340,11 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
             return new JSONMessage(false, __('manager.categories.form.removeCoverImageOnDifferentContextNowAllowed'));
         }
 
+        $image = $category->getImage();
+        if (!$image) {
+            return new JSONMessage(false, __('manager.categories.form.removeCoverImageFileNotFound'));
+        }
+
         // Remove the image from the category.
         $category->setImage(null);
         Repo::category()->edit($category, []);
@@ -345,11 +352,9 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
         // Remove the image files.
         $contextFileManager = new ContextFileManager($category->getContextId());
         $basePath = $contextFileManager->getBasePath() . '/categories/';
-        $name = $args['name'];
-        $thumbnailName = $args['thumbnailName'];
         if (
-            $contextFileManager->deleteByPath($basePath . $thumbnailName) &&
-            $contextFileManager->deleteByPath($basePath . $name)
+            $contextFileManager->deleteByPath($basePath . basename($image['thumbnailName'])) &&
+            $contextFileManager->deleteByPath($basePath . basename($image['name']))
         ) {
             $json = new JSONMessage(true);
             $json->setEvent('fileDeleted');

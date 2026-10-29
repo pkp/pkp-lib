@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2026-10-29 12:44+0000\n"
+"PO-Revision-Date: 2026-10-29 18:02+0000\n"
 "Last-Translator: Marton Horvath <horvath.marton.g@gmail.com>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/hu/>\n"
@@ -17,46 +17,46 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "default.groups.name.siteAdmin"
-msgstr "Oldal adminisztrátor"
+msgstr "Rendszergazda"
 
 msgid "default.groups.plural.siteAdmin"
-msgstr "Oldal adminisztrátorok"
+msgstr "Rendszergazdák"
 
 msgid "default.groups.name.productionEditor"
-msgstr "Megjelenés szerkesztő"
+msgstr "Tördelőszerkesztő"
 
 msgid "default.groups.plural.productionEditor"
-msgstr "Megjelenés szerkesztők"
+msgstr "Tördelőszerkesztők"
 
 msgid "default.groups.abbrev.productionEditor"
 msgstr "Tördelőszerk."
 
 msgid "default.groups.name.copyeditor"
-msgstr "Technikai szerkesztő"
+msgstr "Nyelvi szerkesztő"
 
 msgid "default.groups.plural.copyeditor"
-msgstr "Technikai szerkesztők"
+msgstr "Nyelvi szerkesztők"
 
 msgid "default.groups.abbrev.copyeditor"
-msgstr "TechSz"
+msgstr "NyelviSz"
 
 msgid "default.groups.name.proofreader"
-msgstr "Korrektúrázó"
+msgstr "Korrektor"
 
 msgid "default.groups.plural.proofreader"
-msgstr "Korrektúrázók"
+msgstr "Korrektorok"
 
 msgid "default.groups.abbrev.proofreader"
-msgstr "KO"
+msgstr "Korr"
 
 msgid "default.groups.name.designer"
-msgstr "Tervező"
+msgstr "Grafikai tervező"
 
 msgid "default.groups.plural.designer"
-msgstr "Tervezők"
+msgstr "Grafikai tervezők"
 
 msgid "default.groups.abbrev.designer"
-msgstr "Tervezés"
+msgstr "Grafikai tervezés"
 
 msgid "default.groups.name.internalReviewer"
 msgstr "Belső lektor"
@@ -65,13 +65,13 @@ msgid "default.groups.plural.internalReviewer"
 msgstr "Belső lektorok"
 
 msgid "default.groups.abbrev.internalReviewer"
-msgstr "BB"
+msgstr "BL"
 
 msgid "default.groups.name.marketing"
-msgstr "Marketing és értékesítési koordinátor"
+msgstr "Marketing- és értékesítési koordinátor"
 
 msgid "default.groups.plural.marketing"
-msgstr "Marketing és értékesítési koordinátorok"
+msgstr "Marketing- és értékesítési koordinátorok"
 
 msgid "default.groups.abbrev.marketing"
 msgstr "MÉ"
@@ -95,13 +95,13 @@ msgid "default.groups.abbrev.indexer"
 msgstr "IND"
 
 msgid "default.groups.name.layoutEditor"
-msgstr "Tördelő szerkesztő"
+msgstr "Tördelő"
 
 msgid "default.groups.plural.layoutEditor"
-msgstr "Tördelő szerkesztők"
+msgstr "Tördelők"
 
 msgid "default.groups.abbrev.layoutEditor"
-msgstr "TSZ"
+msgstr "Törd."
 
 msgid "default.groups.name.author"
 msgstr "Szerző"

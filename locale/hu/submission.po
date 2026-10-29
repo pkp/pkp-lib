@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2026-10-29 09:00+0000\n"
+"PO-Revision-Date: 2026-10-29 12:44+0000\n"
 "Last-Translator: Marton Horvath <horvath.marton.g@gmail.com>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hu/>\n"
@@ -989,7 +989,7 @@ msgid "submission.review"
 msgstr "Szakmai lektorálás"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Ellenőrzés és beküldés"
 
 msgid "submission.reviewed"
 msgstr "Szakmailag lektorált"
@@ -1089,11 +1089,8 @@ msgstr "További finomítások"
 msgid "submission.submit.submissionLocale"
 msgstr "A beküldött anyag nyelve"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Ez a folyóirat többnyelvű cikkeket is fogad. Válassza ki a beküldés "
-"elsődleges nyelvét a legördülő listából."
+msgstr "Válassza ki a kézirat elsődleges nyelvét."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Beküldött fájlok"
@@ -1203,7 +1200,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Kérjük, adja meg a hivatkozásokat."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Adja meg a kutatási adatok hozzáférhetőségére vonatkozó nyilatkozatot."
 
 msgid "submission.form.name"
 msgstr "A fájl neve (pl., Kézirat; Tálázat 1)"
@@ -1324,17 +1321,17 @@ msgstr "Jelenleg nincs felülvizsgálandó fájl Önnek."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Felülvizsgálat szükséges."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Felülvizsgálat elküldve."
+msgstr "A javított kéziratot benyújtották, és szerkesztői döntés szükséges."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "A beküldés újabb lektorálásához annak ismételt benyújtása szükséges."
+msgstr ""
+"A szerzőtől javított kéziratot kértek, amelyet újabb lektorálási fordulóban "
+"kell elbírálni."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Beküldés került újra benyújtásra egy ismételt lektorálási körhöz."
+msgstr ""
+"A javított kéziratot benyújtották. Új lektorálási fordulót kell indítani."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Külső szakmai lektorálásra küldés."
@@ -1354,9 +1351,8 @@ msgstr "Szakmai lektor véleményére vár."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Új szakmai lektori véleményeket töltöttek fel."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Szakmai lektorálások készen vannak."
+msgstr "Minden lektori véleményt jóváhagytak, és szerkesztői döntés szükséges."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "A szakmai lektorálás határideje lejárt."
@@ -1372,9 +1368,10 @@ msgstr "Minden javaslat beérkezett, döntés szükséges."
 
 msgid "editor.submission.status.inactiveDaysInStage"
 msgstr ""
+"Több mint {$days} napja nem történt előrelépés a(z) {$stage} szakaszban."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "Egy új kézirat vár lektorálásra küldésre vagy elutasításra."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Résztvevők"
@@ -1445,15 +1442,19 @@ msgstr "Szerzők értesítése"
 msgid "editor.submission.decision.notifyReviewers"
 msgstr "Szakmai lektorok értesítése"
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
-"E-mail küldése a szakmai lektoroknak, köszönettel a bírálataikért és "
-"értesítéssel arról, hogy a döntés megszületett."
+"Küldjön e-mailt a lektoroknak, amelyben megköszöni munkájukat, és "
+"tájékoztatja őket a szerkesztői döntés megszületéséről. A névtelenségük "
+"megőrzése érdekében minden lektor külön e-mailt kap. Az üzenetben a "
+"{$recipientName} változó használatával biztonságosan beilleszthető az egyes "
+"lektorok neve."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Küldjön e-mailt a kijelölt lektoroknak, amelyben tájékoztatja őket lektori "
+"megbízásuk visszavonásáról."
 
 msgid "editor.submission.decision.accept"
 msgstr "Beküldött anyag elfogadása"
@@ -1471,25 +1472,31 @@ msgstr ""
 msgid "editor.submission.decision.accept.completed"
 msgstr "Kézirat elfogadva"
 
-#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
-"A kézirat, {$title}, el lett fogadva közlésre és el lett küldve az "
-"olvasószerkesztői szakaszba."
+"A(z) \"{$title}\" című kéziratot elfogadták közlésre, és továbbították a "
+"nyelvi szerkesztés szakaszába. Az összes értesítést elküldtük, kivéve "
+"azokat, amelyek küldését Ön kihagyta."
 
-#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
-"E-mail küldése a szerzőknek arról, hogy a kéziratuk el lett fogadva közlésre."
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket arról, hogy "
+"kéziratukat elfogadták közlésre. Az e-mailt a rendszer csak a döntés "
+"rögzítése után küldi el."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket a lektorálási "
+"forduló lezárásáról. Az e-mailt a rendszer csak a döntés rögzítése után "
+"küldi el."
 
 msgid "editor.submission.decision.decline"
 msgstr "Beküldött anyag elutasítása"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"A kéziratot elutasítják, így nem kerül közlésre. A lektorálási szakasz "
+"lezárul, a kéziratot pedig archiválják."
 
 msgid "editor.submission.decision.decline.log"
 msgstr "{$editorName} visszautasította ezt a kéziratot."
@@ -1497,14 +1504,15 @@ msgstr "{$editorName} visszautasította ezt a kéziratot."
 msgid "editor.submission.decision.decline.completed"
 msgstr "Kézirat visszautasítva"
 
-#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "A kézirat, {$title}, vissza lett utasítva, majd archiválva lett."
+msgstr ""
+"A(z) \"{$title}\" című kéziratot elutasították és archiválták. Az összes "
+"értesítést elküldtük, kivéve azokat, amelyek küldését Ön kihagyta."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
-"E-mail küldése a szerzőknek arról, hogy a kéziratuk vissza lett utasítva."
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket kéziratuk "
+"elutasításáról. Az e-mailt a rendszer csak a döntés rögzítése után küldi el."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
@@ -1523,15 +1531,16 @@ msgstr "{$editorName} létrehozott egy új bírálati szakaszt ehhez a kézirath
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Bírálati szakasz létrehozva"
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr "Egy új bírálati szakasz létrehozva ehhez a kézirathoz, {$title}."
+msgstr ""
+"Új lektorálási forduló indult a(z) \"{$title}\" című kézirathoz. A szerzőt "
+"értesítettük, kivéve, ha Ön kihagyta az e-mail elküldését."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
-"E-mail küldése a szerzőknek arról, hogy kéziratuk egy újabb bírálati "
-"szakaszba lett küldve."
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket arról, hogy "
+"kéziratukat újabb lektorálási fordulóra küldték. Az e-mailt a rendszer csak "
+"a döntés rögzítése után küldi el."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Fájlok kiválasztása az olvasószerkesztői szakaszhoz."
@@ -1556,48 +1565,74 @@ msgstr "{$editorName} átdolgozást igényelt ennél a kéziratnál."
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Átdolgozás igényelve"
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Átdolgozás igényelve ehhez a kézirathoz, {$title},."
+msgstr ""
+"A(z) \"{$title}\" című kézirat átdolgozását kértük. Az összes értesítést "
+"elküldtük, kivéve azokat, amelyek küldését Ön kihagyta."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket arról, hogy "
+"kéziratuk közlésre való elfogadásához átdolgozás szükséges. Az üzenet "
+"tartalmazzon minden olyan információt, amelyre a szerzőknek szükségük van a "
+"kézirat átdolgozásához. Szükség esetén ügyeljen a lektori megjegyzések "
+"anonimizálására. Az e-mailt a rendszer csak a döntés rögzítése után küldi el."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Lektorálási forduló megszakítása"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Az aktuális lektorálási forduló megszakítása és a kézirat visszaküldése az "
+"előző lektorálási fordulóba. Ha ez az első lektorálási forduló, a kézirat "
+"visszakerül a beküldési szakaszba."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} megszakította a lektorálási fordulót."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "A legutóbbi lektorálási forduló megszakítva."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"A(z) \"{$title}\" című kézirat lektorálási fordulóját megszakították. Az "
+"összes értesítést elküldtük, kivéve azokat, amelyek küldését Ön kihagyta."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"A lektorálási forduló csak akkor szakítható meg, ha az ahhoz rendelt "
+"lektorok egyike sem fejezte be vagy nyújtotta be a lektori véleményét."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Újra lektorálásra küldés"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"A kézirat közlésre való elfogadásához a szerzőnek átdolgozott változatot "
+"kell benyújtania, amelyet újabb lektorálási fordulóban bírálnak el."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} a kézirat átdolgozását kérte, amelyet újabb lektorálási "
+"fordulóban kell elbírálni."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Átdolgozás igényelve"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"A(z) \"{$title}\" című kézirat átdolgozását kértük. Rögzítettük a döntést, "
+"amely szerint az átdolgozott kéziratot újabb lektorálási fordulóban kell "
+"elbírálni. Az összes értesítést elküldtük, kivéve azokat, amelyek küldését "
+"Ön kihagyta."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket arról, hogy "
+"kéziratukat át kell dolgozniuk, és az átdolgozott változatot újabb "
+"lektorálási fordulóban bírálják el. Az üzenet tartalmazzon minden olyan "
+"információt, amelyre a szerzőknek szükségük van a kézirat átdolgozásához. "
+"Szükség esetén ügyeljen a lektori megjegyzések anonimizálására."
 
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Szakmai lektorálásra küldés"
@@ -1606,13 +1641,15 @@ msgid "editor.submission.decision.sendExternalReview.description"
 msgstr "Ez a kézirat szakmai lektorálásra alkalmas."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} lektorálásra küldte a kéziratot."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Lektorálásra küldve"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"A(z) \"{$title}\" című kéziratot lektorálásra küldtük. A szerzőt "
+"értesítettük, kivéve, ha Ön kihagyta az e-mail elküldését."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Új lektorálási kör"
@@ -1622,72 +1659,104 @@ msgstr "Megjelentetésre küldés"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Küldje a kéziratot a tördelési szakaszba a megjelentetés előkészítéséhez."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} továbbította a kéziratot a tördelési szakaszba."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Tördelésre küldve"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"A(z) \"{$title}\" című kéziratot továbbítottuk a tördelési szakaszba. A "
+"szerzőt értesítettük, kivéve, ha Ön kihagyta az e-mail elküldését."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket arról, hogy "
+"kéziratukat továbbították a tördelési szakaszba. Az e-mailt a rendszer csak "
+"a döntés rögzítése után küldi el."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Nyelvi szerkesztés megszakítása"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Küldje vissza a kéziratot a nyelvi szerkesztési szakaszból."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
+"{$editorName} visszaküldte a kéziratot a nyelvi szerkesztési szakaszból."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Visszaküldve a nyelvi szerkesztési szakaszból"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"A(z) \"{$title}\" című kéziratot visszaküldtük a nyelvi szerkesztési "
+"szakaszból. A szerzőt értesítettük, kivéve, ha Ön kihagyta az e-mail "
+"elküldését."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket arról, hogy a "
+"nyelvi szerkesztést megszakították, és kéziratukat további szerkesztői "
+"vizsgálatnak vetik alá."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Vissza a nyelvi szerkesztéshez"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "Küldje vissza a kéziratot a nyelvi szerkesztési szakaszba."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr ""
+msgstr "{$editorName} visszaküldte a kéziratot a nyelvi szerkesztési szakaszba."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Nyelvi szerkesztési szakaszba visszaküldve"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
+"A(z) \"{$title}\" című kéziratot visszaküldtük a nyelvi szerkesztési "
+"szakaszba. A szerzőt értesítettük, kivéve, ha Ön kihagyta az e-mail "
+"elküldését."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket arról, hogy "
+"kéziratukat visszaküldték a nyelvi szerkesztési szakaszba. Ismertesse a "
+"döntés okát, és tájékoztassa a szerzőket arról, hogy milyen további "
+"szerkesztési munkálatok szükségesek, mielőtt a kézirat továbbítható a "
+"tördelési szakaszba."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Elfogadás, és a lektorlálás kihagyása"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"Fogadja el a kéziratot közlésre a lektorálási szakasz kihagyásával. A döntés "
+"rögzítése után a kézirat a nyelvi szerkesztési szakaszba kerül."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName} kihagyta a lektorálási szakaszt, és továbbította a kéziratot a "
+"nyelvi szerkesztési szakaszba."
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "Lektorálás kihagyva"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"A(z) \"{$title}\" című kézirat a lektorálási szakasz kihagyásával a nyelvi "
+"szerkesztési szakaszba került. A szerzőt értesítettük, kivéve, ha Ön "
+"kihagyta az e-mail elküldését."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket arról, hogy "
+"kéziratukat lektorálás nélkül elfogadták közlésre, és továbbították a nyelvi "
+"szerkesztési szakaszba. Az e-mailt a rendszer csak a döntés rögzítése után "
+"küldi el."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Belső szakmai lektorálásra küldés"
@@ -1710,72 +1779,97 @@ msgstr "Visszautasítás visszaállítása"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"A kézirat elutasításáról hozott korábbi döntés visszavonása és a kézirat "
+"visszahelyezése az aktív szerkesztőségi munkafolyamatba. A szerzőt "
+"értesítettük, kivéve, ha Ön kihagyta az e-mail elküldését."
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} visszavonta a kézirat elutasításáról hozott döntést."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Kézirat újraaktiválva"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
 msgstr ""
+"A(z) \"{$title}\" című kézirat ismét aktív, és a lektorálási szakaszba "
+"került."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
+"Küldjön e-mailt a szerzőknek, amelyben tájékoztatja őket arról, hogy "
+"visszavonták a kéziratuk elutasításáról hozott korábbi döntést. Ismertesse a "
+"döntés visszavonásának okát, és tájékoztassa a szerzőket arról, hogy várható-"
+"e a kézirat további lektorálása."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"A(z) \"{$title}\" című kézirat ismét aktív, és a beküldési szakaszba került. "
+"A szerzőt értesítettük, kivéve, ha Ön kihagyta az e-mail elküldését."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
-"Rendeljen hozzá egy szerkesztőt, úgy hogy szerkesztőségi döntésre lehetősége "
-"legyen ebben a szakaszban."
+"Rendeljen szerkesztőt a kézirathoz, hogy ebben a szakaszban meghozhatók "
+"legyenek a szerkesztői döntések."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Küldjön üzenetet a döntéshozatalra jogosult szerkesztőknek, amelyben "
+"ismerteti a javaslatát. Indokolja meg a javaslatot a lektorok által "
+"benyújtott ajánlások és megjegyzések figyelembevételével."
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Elfogadásra vonatkozó javaslat"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Javasolja a kézirat közlésre való elfogadását és továbbítását a nyelvi "
+"szerkesztési szakaszba."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} a kézirat elfogadását és a nyelvi szerkesztési szakaszba való "
+"továbbítását javasolta."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Javaslat benyújtva"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Javaslatát rögzítettük, és értesítettük a döntéshozatalra jogosult "
+"szerkesztő(ke)t."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Átdolgozásra vonatkozó javaslat"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Javasolja, hogy a kézirat közlésre való elfogadása előtt kérjenek "
+"átdolgozást a szerzőtől."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} a kézirat átdolgozásának kérését javasolta."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Átdolgozás és újabb lektorálás javaslata"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Javasolja, hogy kérjék fel a szerzőt a kézirat átdolgozására, és az "
+"átdolgozott változatot újabb lektorálási fordulóban bírálják el."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} a kézirat átdolgozásának kérését és az átdolgozott változat "
+"újabb lektorálási fordulóban történő elbírálását javasolta."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Elutasításra vonatkozó javaslat"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Javasolja a kézirat elutasítását."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} a kézirat elutasítását javasolta."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Javaslat tétel"
@@ -1791,6 +1885,8 @@ msgstr "Javaslatok: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Addig nem tehet javaslatot, amíg a kézirathoz nem rendelnek olyan "
+"szerkesztőt, aki jogosult a szerkesztői döntés rögzítésére."
 
 msgid "editor.submission.recommendation"
 msgstr "Javaslat"
@@ -1977,6 +2073,8 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"A(z) {$submissionid} azonosítójú kézirat {$round}. lektorálási fordulójára "
+"szóló felkérést újra elküldtük {$reviewerName} részére."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
@@ -2078,7 +2176,7 @@ msgid "submission.copyright"
 msgstr "Copyright"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Igen, elfogadom a szerzői jogi nyilatkozatban foglaltakat."
 
 msgid "submission.copyrightHolder"
 msgstr "Copyright jogok birtokosa"
@@ -3030,3 +3128,33 @@ msgstr "Kézirat beküldésének megszakítása"
 msgid "submission.wizard.submissionCancelled.description"
 msgstr ""
 "A kézirat beküldése megszakadt, és az összes kapcsolódó adat törlésre került."
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Visszaküldve lektorálásra."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Ön már megtette a javaslatát."
+
+msgid "submission.query.allowedEditTime"
+msgstr "A megbeszélést {$allowedEditTimeNoticeLimit} percig módosíthatja."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Lektorjavaslathoz"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Javasolt lektorok"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "A szerző által javasolt lektorok"
+
+msgid "submission.review.status.viewed"
+msgstr "A szerkesztő megtekintette a lektori véleményt."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "A kézirat jelenlegi nyelve:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Módosítás"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "A kézirat nyelvének módosítása"

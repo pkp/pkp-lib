@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2026-10-28 21:58+0000\n"
+"PO-Revision-Date: 2026-10-29 06:20+0000\n"
 "Last-Translator: Marton Horvath <horvath.marton.g@gmail.com>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/hu/>\n"
@@ -360,7 +360,7 @@ msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} pixels"
+msgstr "{$width}&times;{$height} pixel"
 
 msgid "common.discardChanges"
 msgstr "Nem, a nem mentett módosítások elvetése"
@@ -536,7 +536,7 @@ msgid "common.lastSaved"
 msgstr "Utolsó mentés: {$when}"
 
 msgid "common.lastActivity"
-msgstr "Utolsó tevékenység rögzítve: {$date}"
+msgstr "Utolsó tevékenység rögzítve: {$date}."
 
 msgid "common.less"
 msgstr "Kevesebb"
@@ -1195,8 +1195,8 @@ msgstr "Ez a filetípus nem tölthető fel."
 
 msgid "form.dropzone.dictResponseError"
 msgstr ""
-"A szerver a {{statusCode}}  kóddal válaszolt. Kérjük, vegy fel a kapcsolatot "
-"a rendszergazdával."
+"A szerver {{statusCode}} állapotkóddal válaszolt. Ha a probléma továbbra is "
+"fennáll, forduljon a rendszergazdához."
 
 msgid "form.dropzone.dictCancelUpload"
 msgstr "Feltöltés megszakítása"
@@ -1205,7 +1205,7 @@ msgid "form.dropzone.dictUploadCanceled"
 msgstr "Feltöltés megszakítva"
 
 msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Biztosan meg szeretné szakítani a  feltöltést?"
+msgstr "Biztosan meg szeretné szakítani a feltöltést?"
 
 msgid "form.dropzone.dictRemoveFile"
 msgstr "File eltávolítása"
@@ -1573,7 +1573,7 @@ msgid "notification.addedQuery"
 msgstr "Párbeszéd hozzáadása"
 
 msgid "notification.reviewAcknowledged"
-msgstr "Szakmai lektorálás jelölése elismertként.  Email nem ment."
+msgstr "Szakmai lektorálás jelölése elismertként. Email nem ment."
 
 msgid "notification.reviewerThankedEmail"
 msgstr "Köszönő e-mail elküldve a szakmai lektornak."
@@ -1658,7 +1658,7 @@ msgid "search.abstract"
 msgstr "Absztrakt"
 
 msgid "search.advancedFilters"
-msgstr "Bővített szűrők"
+msgstr "Speciális szűrők"
 
 msgid "search.advancedSearchMore"
 msgstr "További keresési beállítások"
@@ -1887,7 +1887,7 @@ msgid "notification.type.pendingRevisions.title"
 msgstr "Feltöltött átdolgozások a {$stage} szakaszban."
 
 msgid "notification.type.reviewerComment"
-msgstr "Egy szakmai lektor megjegyzést tett a  \"{$title}\" címhez."
+msgstr "Egy lektor megjegyzést fűzött a(z) \"{$title}\" című kézirathoz."
 
 msgid "notification.signedFile"
 msgstr "A fájl átnézett."
@@ -1954,7 +1954,7 @@ msgid "notification.type.roundStatusTitle"
 msgstr "{$round} fordulói státusz"
 
 msgid "notification.type.editorialReport"
-msgstr "Statisztikai riport összesítője. "
+msgstr "Statisztikai riport összesítője."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
@@ -1965,7 +1965,7 @@ msgid "notification.type.editorialReminder"
 msgstr "Heti e-mailes összefoglaló a függőben lévő feladatokról"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Navigációs menü sikeresen frissítve lett"
@@ -2022,7 +2022,7 @@ msgid "list.viewMore"
 msgstr "Mutasson több részletet {$name}-ról/ről"
 
 msgid "list.viewLess"
-msgstr "Mutasson kevesebb részletet {$name}-ról/ről."
+msgstr "Mutasson kevesebb részletet róla: {$name}"
 
 msgid "list.expandAll"
 msgstr "Összes kibontása"
@@ -2208,13 +2208,14 @@ msgid "validator.required_without"
 msgstr "Ez a mező szükséges, amikor {$values} nincs jelen van."
 
 msgid "validator.required_without_all"
-msgstr "Ez a mező szükséges, amikor egyik sincs jelen innen: {$values}"
+msgstr ""
+"Ez a mező kötelező, ha a következő értékek egyike sincs megadva: {$values}."
 
 msgid "validator.same"
 msgstr "A {$attribute} és {$other}-nak/nek egyezni kell."
 
 msgid "validator.size.numeric"
-msgstr "Ekkorának kell lennie: {$size}"
+msgstr "Ekkorának kell lennie: {$size}."
 
 msgid "validator.size.file"
 msgstr "{$size} kilobyte-nak kell lennie."

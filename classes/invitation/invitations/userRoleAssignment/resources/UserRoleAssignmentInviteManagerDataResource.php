@@ -46,12 +46,7 @@ class UserRoleAssignmentInviteManagerDataResource extends BaseUserRoleAssignment
         // Return specific fields from the UserRoleAssignmentInvite
         return array_merge($baseData, [
             'orcid' => $payload->orcid,
-            'orcidAccessDenied' => $payload->orcidAccessDenied,
-            'orcidAccessExpiresOn' => $payload->orcidAccessExpiresOn,
-            'orcidAccessScope' => $payload->orcidAccessScope,
-            'orcidAccessToken' => $payload->orcidAccessToken,
             'orcidIsVerified' => $payload->orcidIsVerified,
-            'orcidRefreshToken' => $payload->orcidRefreshToken,
             'givenName' => $payload->givenName,
             'familyName' => $payload->familyName,
             'affiliation' => $payload->affiliation,

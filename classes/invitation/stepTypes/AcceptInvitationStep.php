@@ -15,21 +15,25 @@
 namespace PKP\invitation\stepTypes;
 
 use APP\core\Application;
+use APP\facades\Repo;
+use Illuminate\Support\Str;
 use PKP\components\forms\invitation\AcceptUserDetailsForm;
 use PKP\context\Context;
 use PKP\facades\Locale;
-use APP\facades\Repo;
-use PKP\security\Role;
 use PKP\i18n\LocaleMetadata;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\sections\Form;
 use PKP\invitation\sections\Sections;
 use PKP\invitation\steps\Step;
 use PKP\orcid\OrcidManager;
+use PKP\orcid\traits\HasOrcidNonce;
+use PKP\security\Role;
 use PKP\user\User;
 
 class AcceptInvitationStep extends InvitationStepTypes
 {
+    use HasOrcidNonce;
+
     /**
      * get accept invitation steps
      *
@@ -42,12 +46,12 @@ class AcceptInvitationStep extends InvitationStepTypes
         switch ($user) {
             case !null:
                 if (!$user->hasVerifiedOrcid() && OrcidManager::isEnabled($context)) {
-                    $steps[] = $this->verifyOrcidStep();
+                    $steps[] = $this->verifyOrcidStep($invitation);
                 }
                 break;
             default:
                 if (OrcidManager::isEnabled($context)) {
-                    $steps[] = $this->verifyOrcidStep();
+                    $steps[] = $this->verifyOrcidStep($invitation);
                 }
                 $steps[] = $this->userAccountDetailsStep();
                 $steps[] = $this->userDetailsStep($context);
@@ -59,7 +63,7 @@ class AcceptInvitationStep extends InvitationStepTypes
     /**
      * user orcid verification step
      */
-    private function verifyOrcidStep(): \stdClass
+    private function verifyOrcidStep(Invitation $invitation): \stdClass
     {
         $sections = new Sections(
             'userVerifyOrcid',
@@ -67,12 +71,25 @@ class AcceptInvitationStep extends InvitationStepTypes
             'popup',
             'AcceptInvitationVerifyOrcid',
         );
+
+        // Create a nonce to pass with ORCID OAuth callback so invitation key remains on server
+        $invitationNonce = $this->getCachedNonce((string) $invitation->getId());
+        if (!$invitationNonce) {
+            $invitationNonce = Str::random(40);
+            $this->setCachedValues($invitationNonce, (string) $invitation->getId());
+        }
+
+        $orcidOAuthRedirectParams = [
+            'targetOp' => 'invitation',
+            'invitationNonce' => $invitationNonce,
+        ];
+
         $sections->addSection(
             null,
             [
-                'validateFields' => ['orcid', 'orcidIsVerified', 'orcidAccessDenied', 'orcidAccessToken', 'orcidAccessScope', 'orcidRefreshToken', 'orcidAccessExpiresOn'],
+                'validateFields' => [],
                 'orcidUrl' => OrcidManager::getOrcidUrl(),
-                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => 'invitation']),
+                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', $orcidOAuthRedirectParams),
             ]
         );
         $step = new Step(

@@ -30,23 +30,43 @@ class Repository
         return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
     }
 
-    public function getByIdAndKey(int $id, string $key): ?Invitation
+    /**
+     * Get an invitation by ID, check that it is both pending and not expired
+     */
+    public function getValidPendingById(int $id): ?Invitation
     {
         $invitationModel = InvitationModel::notHandled()
             ->notExpired()
             ->find($id);
 
-        if (is_null($invitationModel)) {
-            return null;
-        }
-
-        if (!password_verify($key, $invitationModel->keyHash)) {
+        if ($invitationModel === null) {
             return null;
         }
 
         return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
     }
 
+    /**
+     * Get an invitation by ID and key, checking that it is both pending and not expired
+     */
+    public function getByIdAndKey(int $id, string $key): ?Invitation
+    {
+        $invitation = $this->getValidPendingById($id);
+
+        if ($invitation === null) {
+            return null;
+        }
+
+        if (!password_verify($key, $invitation->invitationModel->keyHash)) {
+            return null;
+        }
+
+        return $invitation;
+    }
+
+    /**
+     * Get an invitation by key, checking that it is both pending and not expired
+     */
     public function getByKey($key): ?Invitation
     {
         $keyHash = md5($key);

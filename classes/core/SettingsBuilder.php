@@ -30,6 +30,11 @@ class SettingsBuilder extends Builder
     use EntityUpdate;
 
     /**
+     * The maximum number of IDs to use in a single query
+     */
+    protected const ID_CHUNK_SIZE = 1000;
+
+    /**
      * Get the hydrated models without eager loading.
      *
      * @param  array|string  $columns
@@ -63,6 +68,10 @@ class SettingsBuilder extends Builder
         if ($settingValues->isEmpty()) {
             return parent::update($primaryValues->toArray());
         }
+
+        // Resolve the models to update before the primary values are updated,
+        // as that can change which rows the query matches
+        $modelIds = $this->getTargetModelIds();
 
         if ($primaryValues->isNotEmpty()) {
             $count = parent::update($primaryValues->toArray());
@@ -111,13 +120,12 @@ class SettingsBuilder extends Builder
             }
         }
 
-        $this->updateSettings(
-            $settingValues->toArray(),
-            $this->model->getKey(),
-            !is_null($schema) ? json_decode(json_encode($schema)) : null
-        );
+        $schema = !is_null($schema) ? json_decode(json_encode($schema)) : null;
+        foreach ($modelIds as $modelId) {
+            $this->updateSettings($settingValues->toArray(), $modelId, $schema);
+        }
 
-        return $count ?? 0;
+        return $count ?? count($modelIds);
     }
 
     /**
@@ -162,10 +170,11 @@ class SettingsBuilder extends Builder
         // Delete the child settings rows first, then the main row. Child-before-parent
         // is the correct relational-integrity discipline: it works on any schema,
         // cascade or not, and doesn't depend on the FK constraint as a safety net.
-        DB::table($this->getSettingsTable())->where(
-            $this->getPrimaryKeyName(),
-            $this->model->getRawOriginal($this->getPrimaryKeyName()) ?? $this->model->getKey()
-        )->delete();
+        foreach (array_chunk($this->getTargetModelIds(), static::ID_CHUNK_SIZE) as $modelIds) {
+            DB::table($this->getSettingsTable())
+                ->whereIn($this->getPrimaryKeyName(), $modelIds)
+                ->delete();
+        }
 
         return parent::delete();
     }
@@ -282,6 +291,37 @@ class SettingsBuilder extends Builder
     }
 
     /**
+     * Get the IDs of the models the query applies to
+     *
+     * When the builder belongs to a hydrated model (e.g. Model::find($id)->update()) that is the model itself,
+     * otherwise (e.g. Model::query()->whereKey($id)->update()) these are the models the query matches.
+     *
+     * @return int[]
+     */
+    protected function getTargetModelIds(): array
+    {
+        $modelId = $this->model->getRawOriginal($this->getPrimaryKeyName()) ?? $this->model->getKey();
+        if (!is_null($modelId)) {
+            return [(int) $modelId];
+        }
+
+        return array_map(
+            intval(...),
+            (clone $this)->pluck($this->getPrimaryKeyName())->all()
+        );
+    }
+
+    /**
+     * Whether the columns are a plain list of column names, i.e. not "*", an expression or an alias
+     */
+    protected function isColumnProjection(array $columns): bool
+    {
+        return !empty($columns) && collect($columns)->every(
+            fn (mixed $column) => is_string($column) && preg_match('/^\w+(\.\w+)?$/', $column)
+        );
+    }
+
+    /**
      * @see \PKP\core\traits\EntityUpdate::getSettingsTable()
      */
     public function getSettingsTable(): ?string
@@ -329,7 +369,25 @@ class SettingsBuilder extends Builder
         // First, get all Model columns from the main table
         $primaryKey = $this->model->getKeyName();
 
-        $collection = $this->query->get();
+        // The columns set with select() take precedence, the same as in the query builder
+        $selectedColumns = Arr::wrap($this->query->columns ?? $columns);
+        $settingColumns = null;
+
+        $query = clone $this->query;
+        if ($this->isColumnProjection($selectedColumns)) {
+            // Only the columns of the main table can be selected from it,
+            // the primary key is needed to attach the settings to the rows
+            $columns = array_map(fn (string $column) => Arr::last(explode('.', $column)), $selectedColumns);
+            [$settingColumns, $primaryColumns] = collect($columns)->partition(
+                fn (string $column) => $this->isSetting($column)
+            );
+            if (!$primaryColumns->contains($primaryKey)) {
+                $primaryColumns->push($primaryKey);
+            }
+            $query->columns = $primaryColumns->values()->all();
+        }
+
+        $collection = $query->get();
         if ($collection->isEmpty()) {
             return $collection->all();
         }
@@ -348,9 +406,12 @@ class SettingsBuilder extends Builder
             $rowIndexesById[$row->{$primaryKey}][] = $index;
         }
 
-        $settings = DB::table($this->model->getSettingsTable())
-            ->whereIn($primaryKey, $uniqueIds)
-            ->get();
+        // Don't get the settings that weren't selected
+        $settingsQuery = DB::table($this->model->getSettingsTable())->whereIn($primaryKey, $uniqueIds);
+        if ($settingColumns) {
+            $settingsQuery->whereIn('setting_name', $settingColumns->values()->all());
+        }
+        $settings = $settingColumns?->isEmpty() ? collect() : $settingsQuery->get();
 
         $settings->each(function (stdClass $setting) use (&$rows, $rowIndexesById, $primaryKey) {
             $settingModelId = $setting->{$primaryKey};

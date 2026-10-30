@@ -408,7 +408,10 @@ class PKPPageRouter extends PKPRouter
             return $request->url(Application::SITE_CONTEXT_PATH, 'index');
         }
 
-        $user = Auth::user(); /** @var \PKP\user\User $user */
+        $user = Auth::user(); /** @var ?\PKP\user\User $user */
+        if (!$user) {
+            return $request->url(null, 'index');
+        }
         $userId = $user->getId();
         // fetch user groups for the user in the current context
         $userGroups = UserGroup::query()

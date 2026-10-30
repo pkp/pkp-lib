@@ -29,6 +29,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use Mpdf\Mpdf;
 use PKP\API\v1\reviews\formRequests\AddResponse;
+use PKP\API\v1\reviews\formRequests\EditAuthorReviewResponseConfirmation;
 use PKP\API\v1\reviews\formRequests\EditResponse;
 use PKP\API\v1\reviews\formRequests\RequestAuthorResponse;
 use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
@@ -48,6 +49,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
@@ -105,6 +107,18 @@ class PKPReviewController extends PKPBaseController
                 ])
             ]);
 
+        Route::get('{submissionId}/{reviewRoundId}/authorResponse/{responseId}', $this->getAuthorResponse(...))
+            ->name('review.authorResponse.getAuthorResponse')
+            ->whereNumber(['submissionId', 'reviewRoundId', 'responseId'])
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                    Role::ROLE_ID_AUTHOR,
+                ])
+            ]);
+
         Route::put('{submissionId}/{reviewRoundId}/authorResponse/{responseId}', $this->editAuthorResponse(...))
             ->name('review.authorResponse.editAuthorResponse')
             ->whereNumber(['submissionId', 'reviewRoundId', 'responseId'])
@@ -116,6 +130,17 @@ class PKPReviewController extends PKPBaseController
                 ])
             ]);
 
+
+        Route::put('{submissionId}/{reviewRoundId}/authorResponse/{responseId}/confirmation', $this->editAuthorResponseConfirmation(...))
+            ->name('review.authorResponse.editAuthorResponseConfirmation')
+            ->whereNumber(['submissionId', 'reviewRoundId', 'responseId'])
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                ])
+            ]);
 
         Route::delete('{submissionId}/{reviewRoundId}/authorResponse/{responseId}', $this->deleteAuthorResponse(...))
             ->name('review.authorResponse.deleteAuthorResponse')
@@ -853,6 +878,75 @@ class PKPReviewController extends PKPBaseController
     }
 
     /**
+     * Get an author response by ID.
+     */
+    public function getAuthorResponse(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $user = $this->getRequest()->getUser();
+        $submissionId = (int) $illuminateRequest->route('submissionId');
+
+        $submission = Repo::submission()->get($submissionId, $context->getId());
+        if (!$submission) {
+            return response()->json(
+                [
+                    'error' => __('api.404.resourceNotFound')
+                ],
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        $reviewRoundId = (int) $illuminateRequest->route('reviewRoundId');
+
+        /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $reviewRound = $reviewRoundDao->getById($reviewRoundId);
+
+        if (!$reviewRound || $reviewRound->getSubmissionId() !== $submission->getId()) {
+            return response()->json(
+                [
+                    'error' => __('api.404.resourceNotFound')
+                ],
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        $isManager = $user->hasRole([Role::ROLE_ID_MANAGER], $request->getContext()->getId()) ||
+            $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
+
+        $canView = $isManager ||
+            StageAssignment::withSubmissionIds([$reviewRound->getSubmissionId()])
+                ->withRoleIds([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR])
+                ->withStageIds([$reviewRound->getStageId()])
+                ->withUserId($user->getId())
+                ->exists();
+
+        if (!$canView) {
+            return response()->json(
+                [
+                    'error' => __('api.403.unauthorized')
+                ],
+                Response::HTTP_FORBIDDEN
+            );
+        }
+
+        $responseId = (int) $illuminateRequest->route('responseId');
+        $response = AuthorResponse::withReviewRoundIds([$reviewRound->getId()])->find($responseId);
+
+        if (!$response) {
+            return response()->json(
+                [
+                    'error' => __('api.404.resourceNotFound')
+                ],
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        return response()->json(new ReviewRoundAuthorResponseResource($response), Response::HTTP_OK);
+    }
+
+    /**
      * Edit review response.
      */
     public function editAuthorResponse(EditResponse $illuminateRequest): JsonResponse
@@ -868,6 +962,52 @@ class PKPReviewController extends PKPBaseController
         $associatedAuthorIds = $validated['associatedAuthorIds'];
         $existingResponse->associateAuthorsToResponse($associatedAuthorIds);
 
+        return response()->json(new ReviewRoundAuthorResponseResource($existingResponse->refresh()), Response::HTTP_OK);
+    }
+
+    /**
+     * Mark the author response as confirmed or revert its confirmation.
+     */
+    public function editAuthorResponseConfirmation(EditAuthorReviewResponseConfirmation $illuminateRequest): JsonResponse
+    {
+        $validated = $illuminateRequest->validated();
+        /** @var AuthorResponse $existingResponse */
+        $existingResponse = $validated['existingResponse'];
+
+        $data = [
+            'confirmationChangedByUserId' => $this->getRequest()->getUser()->getId(),
+        ];
+
+        if ($validated['markAs'] === EditAuthorReviewResponseConfirmation::STATUS_CONFIRMED) {
+            // If response was confirmed then no need to update DB again. Return early
+            if ($existingResponse->dateConfirmed) {
+                return response()->json(new ReviewRoundAuthorResponseResource($existingResponse), Response::HTTP_OK);
+            }
+
+            $data = array_merge($data, [
+                'dateConfirmed' => now(),
+                'dateReverted' => null,
+            ]);
+        } else {
+            // If a confirmation was already reverted then no need to update DB again. Return early
+            if ($existingResponse->dateReverted) {
+                return response()->json(new ReviewRoundAuthorResponseResource($existingResponse), Response::HTTP_OK);
+            }
+
+            // A response can only be reverted if it was already confirmed.
+            if (!$existingResponse->dateConfirmed) {
+                return response()->json([
+                    'error' => __('api.reviewRound.422.authorResponse.revert')
+                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+
+            $data = array_merge($data, [
+                'dateConfirmed' => null,
+                'dateReverted' => now(),
+            ]);
+        }
+
+        $existingResponse->update($data);
         return response()->json(new ReviewRoundAuthorResponseResource($existingResponse->refresh()), Response::HTTP_OK);
     }
 

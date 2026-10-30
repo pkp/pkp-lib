@@ -132,6 +132,7 @@ class OrcidHandler extends Handler
 
         $templateMgr->assign('orcidIcon', OrcidManager::getIcon());
         $templateMgr->assign('isMemberApi', OrcidManager::isMemberApiEnabled($context));
+        $templateMgr->assign('pageTitle', 'orcid.about.title');
         $templateMgr->display(self::ABOUT_TEMPLATE_PATH);
 
     }

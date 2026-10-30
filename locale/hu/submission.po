@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2026-10-29 22:35+0000\n"
+"PO-Revision-Date: 2026-10-30 17:23+0000\n"
 "Last-Translator: Marton Horvath <horvath.marton.g@gmail.com>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hu/>\n"
@@ -3469,3 +3469,166 @@ msgstr "Lektorálás folyamatban - a felkérés elfogadva"
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Lektorálás befejezve: {$date}"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"A szükséges számú lektori vélemény beérkezését megerősítették. Döntés "
+"szükséges."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Folytatja a szükséges számú megerősített lektori vélemény nélkül?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Még nem érkezett be a szükséges számú megerősített lektori vélemény. Ennek "
+"ellenére folytatja a szerkesztői döntés meghozatalát?"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Szerkesztői javaslat érkezett"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Csak szerkesztői döntésre vonatkozó javaslatot tehet"
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"A kézirat újabb lektorálási fordulóba került, majd elfogadták, és jelenleg "
+"a(z) {$stage} szakaszban van."
+
+msgid "workflow.reviewRoundN"
+msgstr "{$number}. lektorálási forduló"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Ezek a lektorálási szakaszból származó, nyelvi szerkesztésre váró fájlok"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Válassza ki a törölni kívánt befejezetlen kéziratbeküldéseket."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Befejezetlen kéziratbeküldések törlése"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "A lektorálás befejezésének dátuma: {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Részletek megtekintése"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Minden szerkesztői javaslat beérkezett, döntés szükséges."
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Folyóirat-menedzserként nem férhet hozzá ehhez a kézirathoz, mivel Ön a "
+"szerzője. A megtekintéséhez lépjen a \"Saját kéziratok\" menüpontra"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "A szerkesztő visszavonta a lektorálási felkérést"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "A szerkesztő visszavonta a lektorálási felkérést: <b>{$date}</b>."
+
+msgid "publication.publish.warning"
+msgstr "Az alábbi problémákat észleltük, de ezek nem akadályozzák a közzétételt"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr ""
+"A megerősített lektori vélemények minimálisan szükséges száma: {$number}."
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "A lektori véleményt a szerkesző jóváhagyta"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Elküldi a lektorálás adatait a lektor ORCID-profiljába?"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Folyóirat-menedzserként nem férhet hozzá ehhez a kézirathoz, mivel Ön a "
+"lektora. A megtekintéséhez lépjen a \"Lektori megbízások\" menüpontra"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Ezeket a fájlokat küldjük el a lektoroknak elbírálásra"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Ezek a szerkesztett fájlok kerülnek tovább a tördelési szakaszba"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"A lektorálás {$date} napján fejeződött be, a következő javaslattal: "
+"<b>{$recommendation}\\</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "A lektori véleményt a szerkesztő elfogadta: <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "A lektor válaszára vár"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"A lektorálási felkérést ismét elküldtük a lektornak. A válasz {$days} nap "
+"múlva, {$date} napon esedékes"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Lektorálási felkérés újraküldése"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Lektori megbízás visszavonása"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Hozzárendelés megszüntetése"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Határidő módosítása"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Lektori javaslat megtekintése"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Olvasatlan lektori javaslat megtekintése"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Lektorálás adatainak elküldése az ORCID-nek"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Elutasítva a(z) {$stageName} szakaszban."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr "A felelős szerkesztők javaslatára vár"
+
+msgid "workflow.stageNotStarted"
+msgstr "A(z) {$stage} szakasz még nem kezdődött el."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "A kézirat jelenleg a(z) {$stage} szakaszban van."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "A kézirat a következő lektorálási fordulóba került"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "A kézirat benyújtásakor feltöltött fájlok"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Átdolgozott fájlok feltöltve"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Ezeket a fájlokat a szerző az átdolgozásra vonatkozó kérés után nyújtotta be"
+
+msgid "fileManager.filesForReview"
+msgstr "Lektorálásra szánt fájlok"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Nyelvileg szerkesztett fájlok"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Ezeket a fájlokat küldjük tovább közzétételre"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Lektorálás állapota"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Befejezetlen kéziratbeküldések törlésének megerősítése"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Biztosan törölni szeretné a kijelölt elemeket? A művelet nem vonható vissza. "
+"A folytatáshoz erősítse meg a törlést."

@@ -47,12 +47,25 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
     protected array $notAccessibleAfterInvite = [
         'userGroupsToAdd',
+        'orcid',
+        'orcidIsVerified',
+        'orcidAccessDenied',
+        'orcidAccessToken',
+        'orcidAccessScope',
+        'orcidRefreshToken',
+        'orcidAccessExpiresOn',
     ];
 
     protected array $notAccessibleBeforeInvite = [
         'orcid',
+        'orcidIsVerified',
+        'orcidAccessDenied',
+        'orcidAccessToken',
+        'orcidAccessScope',
+        'orcidRefreshToken',
+        'orcidAccessExpiresOn',
         'username',
-        'password'
+        'password',
     ];
 
     /**
@@ -288,7 +301,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             $this->invitationModel->userId = $invitationUserByEmail->getId();
             $this->invitationModel->email = null;
 
-            $result =  $this->invitationModel->save();
+            $result = $this->invitationModel->save();
 
             if ($result) {
                 $this->getPayload()->shouldUseInviteData = true;

@@ -320,9 +320,10 @@ class OrcidManager
      * @param bool $updateDb If true, update the underlying fields in the database.
      *      Use only if not called from a function, which will already update the object.
      */
-    public static function removeOrcidAccessToken(Author|User $identity, bool $updateDb = false): void
+    public static function removeOrcidAccessToken(Author|User $identity, bool $updateDb = false, ?Context $context = null): void
     {
-        dispatch(new RevokeOrcidToken(Application::get()->getRequest()->getContext(), $identity));
+        $context ??= Application::get()->getRequest()->getContext();
+        dispatch(new RevokeOrcidToken($context, $identity));
 
         $identity->setData('orcidAccessToken', null);
         $identity->setData('orcidAccessScope', null);

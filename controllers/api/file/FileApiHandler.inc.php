@@ -86,7 +86,7 @@ class FileApiHandler extends Handler {
 			}
 		}
 		if (!$file) {
-			throw new Exception('File ' . $fileId . ' is not a revision of submission file ' . $submissionFile->getId());
+			$request->getDispatcher()->handle404();
 		}
 		if (!Services::get('file')->fs->has($file->path)) {
 			$request->getDispatcher()->handle404();

@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-07-16 12:25+0000\n"
+"PO-Revision-Date: 2026-10-24 11:25+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy/>\n"
@@ -3052,7 +3052,6 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Գրախոսումն ուշացել է {$days} օրով"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Այս գրախոսը չի ավարտել իր վերանայումը: Վերանայումը պետք է տրվեր "
@@ -3072,11 +3071,9 @@ msgstr "Գրախոսությունը հաստատվել է խմբագրի կող
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Գրախոսությունն ընդունվել է խմբագրի կողմից <b>{$date}</b>-ին:"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Խմբագիրը չեղարկել է վերանայման հարցումը"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Խմբագիրը չեղարկել է այս վերանայման հարցումը <b>{$date}</b>-ին:"
 
@@ -3244,3 +3241,6 @@ msgstr "Շահերի բախում"
 
 msgid "ror.invalidRorId"
 msgstr "Խնդրում ենք տրամադրել վավեր ROR ID:"
+
+msgid "publication.publish.warning"
+msgstr "Հայտնաբերվել են հետևյալ խնդիրները, բայց դրանք չեն խանգարի հրապարակմանը"

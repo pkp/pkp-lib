@@ -1,4 +1,4 @@
-# Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2026.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024, 2026.
 # Alberto Simoes <ambs@zbr.pt>, 2026.
@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2026-02-25 15:45+0000\n"
-"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"PO-Revision-Date: 2026-10-30 17:23+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "pt/>\n"
 "Language: pt\n"
@@ -782,13 +782,11 @@ msgstr "Instituição"
 msgid "user.affiliations.translationsAllAvailable"
 msgstr "Todas as traduções disponíveis"
 
-#, fuzzy
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
-msgstr "Indique o nome do instituto em {$language}"
+msgstr "Indique o nome da instituição em {$language}"
 
-#, fuzzy
 msgid "user.affiliations.translationNameInLanguage"
-msgstr "Nome do instituto em {$language}"
+msgstr "Nome da instituição em {$language}"
 
 msgid "user.affiliations.deleteModal.title"
 msgstr "Tem a certeza?"
@@ -811,19 +809,17 @@ msgstr "Clique para editar ou excluir"
 msgid "user.affiliations.translationsSomeAvailable"
 msgstr "{$count} de {$total} idiomas concluídos"
 
-#, fuzzy
 msgid "user.affiliations.searchPhraseLabel"
-msgstr "Indique o nome do instituto em {$language}"
+msgstr "Indique o nome da instituição em {$language}"
 
 msgid "user.affiliations.searchPhraseNothingFound"
 msgstr "Não foi possível encontrar a frase pesquisada"
 
-#, fuzzy
 msgid "user.affiliations.description"
 msgstr ""
-"Introduza o nome completo da instituição, evitando siglas. Selecione o nome "
-"a partir do menu clique em \"Adicionar\" para incluir a afiliação no seu "
-"perfil. (Ex.: \"Universidade de Aveiro\")"
+"Insira o nome completo da instituição, evitando siglas. Selecione o nome a "
+"partir do menu e clique em \"Adicionar\" para incluir a afiliação no seu "
+"perfil. (Ex.: \"Universidade de Aveiro\")."
 
 msgid "user.affiliations.primaryLocaleRequired"
 msgstr "O idioma principal {$primaryLocale} é obrigatório"
@@ -849,12 +845,10 @@ msgstr ""
 "Pretende enviar um e-mail a este autor a solicitar a verificação do seu "
 "ORCID?"
 
-#, fuzzy
 msgid "user.removeRole.message"
 msgstr ""
-"Tem a certeza de que pretende remover permanentemente esta função? Esta "
-"acção irá revogar o acesso do utilizador a todas as informações e permissões "
-"associadas a esta função."
+"Deseja realmente remover este papel? O utilizador irá perder acesso e "
+"permissões associadas a este papel."
 
 msgid "orcid.manager.siteWide.description"
 msgstr ""
@@ -942,3 +936,41 @@ msgstr ""
 
 msgid "user.disabledModal.description"
 msgstr "Funções actuais: {$roles}"
+
+msgid "user.masthead.update.message"
+msgstr ""
+"Esta ação irá atualizar a visibilidade deste utilizador no cabeçalho da "
+"revista para o papel selecionado. O utilizador será notificado desta "
+"alteração."
+
+msgid "user.masthead.update.title"
+msgstr "Confirmar alteração da visibilidade no cabeçalho"
+
+msgid "user.affiliations.error.rorApiRateLimited"
+msgstr ""
+"Foram enviadas demasiadas solicitações à API do ROR. Por favor, aguarde um "
+"momento antes de continuar a pesquisa."
+
+msgid "orcid.manager.siteWide.orcidCustomRedirectBaseUrl"
+msgstr "URL base de redirecionamento personalizada"
+
+msgid "orcid.manager.siteWide.orcidCustomRedirectBaseUrl.description"
+msgstr ""
+"Um URL de base personalizado utilizado na criação de URLs de "
+"redirecionamento ORCID. Esta configuração pode ser aplicada a todo o site "
+"sem ser necessário ativar a substituição das definições ORCID para todo o "
+"site acima referida, uma vez que esta definição só é aplicável ao nível do "
+"site."
+
+msgid "user.affiliations.error.rorApi"
+msgstr "Erro da API ROR"
+
+msgid "user.affiliations.error.rorApiUnavailable"
+msgstr ""
+"O serviço da API ROR está indisponível de momento. Atualize a página ou "
+"tente novamente mais tarde."
+
+msgid "user.affiliations.error.rorApiDeprecated"
+msgstr ""
+"O serviço da API ROR nesta instalação está obsoleto. Entre em contacto com o "
+"administrador do sistema."

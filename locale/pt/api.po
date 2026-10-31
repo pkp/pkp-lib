@@ -1,11 +1,11 @@
-# Carla Marques <carla.marques@usdb.uminho.pt>, 2023.
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2023, 2026.
 # Carlos Costa <carlos.costa@uc.pt>, 2023.
 # José Carvalho <jcarvalho@keep.pt>, 2023, 2024, 2026.
 # Alberto Simoes <ambs@zbr.pt>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-25 15:45+0000\n"
-"Last-Translator: Alberto Simoes <ambs@zbr.pt>\n"
+"PO-Revision-Date: 2026-10-30 17:23+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "pt/>\n"
 "Language: pt\n"
@@ -428,3 +428,25 @@ msgstr ""
 msgid "api.orcid.403.orcidNotEnabled"
 msgstr ""
 "Não é possível realizar esta operação com a funcionalidade ORCID inativa."
+
+msgid "api.400.invalidMastheadParameter"
+msgstr "Parâmetro de cabeçalho inválido."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr ""
+"A visibilidade no cabeçalho para o papel de revisor não pode ser alterada."
+
+msgid "api.rors.429.tooManyRequests"
+msgstr ""
+"Existem demasiados pedidos de pesquisa ROR. Por favor, aguarde um momento e "
+"tente novamente."
+
+msgid "api.rors.429.rorApiRateLimited"
+msgstr ""
+"O registo ROR (ror.org) encontra-se de momento limitado aos nossos pedidos. "
+"Aguarde uns minutos e tente de novo."
+
+msgid "api.rors.429.globalRateLimited"
+msgstr ""
+"Estão a ser processados demasiados pedidos de consulta ROR neste momento. "
+"Por favor, aguarde um momento e tente novamente."

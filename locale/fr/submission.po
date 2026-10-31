@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2026-10-02 15:20+0000\n"
+"PO-Revision-Date: 2026-10-28 08:25+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr/>\n"
@@ -1113,9 +1113,7 @@ msgid "submission.submit.submissionLocaleDescription"
 msgstr "Choisissez la langue principale de la soumission."
 
 msgid "submission.submit.submissionFiles"
-msgstr ""
-"Fichiers soumis\n"
-"Vérifier l'anonymat si besoin"
+msgstr "Fichiers soumis"
 
 msgid "submission.submit.dependentFiles"
 msgstr "Fichiers dépendants"
@@ -1124,7 +1122,7 @@ msgid "submission.manageDependentFiles"
 msgstr "Gestion des fichiers dépendants"
 
 msgid "submission.upload.instructions"
-msgstr "Glisser-déposer vos fichiers ici"
+msgstr "Glisser-déposer vos fichiers ici."
 
 msgid "submission.upload.percentComplete"
 msgstr "Chargement complété à {$percent} %"
@@ -1297,7 +1295,7 @@ msgstr "Veuillez sélectionner le fichier que vous souhaitez réviser."
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
 "Pour remplacer un fichier, sélectionner le fichier à remplacer dans la liste "
-"déroulante"
+"déroulante."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Sélectionner le fichier à remplacer"
@@ -1342,13 +1340,13 @@ msgid "submission.upload.noAvailableReviewFiles"
 msgstr "Vous n'avez aucun fichier à examiner pour le moment."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
-msgstr "Révisions mineures requises"
+msgstr "Révisions mineures requises."
 
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Des révisions ont été soumises et une décision est nécessaire."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Révisions majeures requises"
+msgstr "Révisions majeures requises."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
@@ -1994,12 +1992,13 @@ msgstr ""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"« {$userFullName} » ({$username}) n'est plus vérificateur du fichier « {$filename} »."
+"« {$userFullName} » ({$username}) n'est plus vérificateur/ice du fichier « "
+"{$filename}. »"
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
 "« {$userFullName} » ({$username}) a terminé la vérification et chargé le "
-"fichier « {$filename} »."
+"fichier « {$filename}. »"
 
 msgid "submission.event.signoffSignoff"
 msgstr ""
@@ -2125,7 +2124,7 @@ msgstr ""
 "la soumission {$submissionId}."
 
 msgid "submission.review.status.awaitingResponse"
-msgstr "En attente de réponse de l'évaluateur/ice"
+msgstr "En attente de réponse de l'évaluateur/ice."
 
 msgid "submission.review.status.declined"
 msgstr "L'évaluateur/ice a décliné la demande d'évaluation."
@@ -2946,7 +2945,6 @@ msgstr "Programmées pour publication"
 msgid "fileManager.copyeditedFiles"
 msgstr "Fichiers édités"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Demande d'évaluation annulée par le rédacteur ou la rédactrice"
 
@@ -3263,7 +3261,6 @@ msgstr "En attente de la réponse de l'évaluateur/ice"
 msgid "dashboard.reviewAssignment.statusDeclined.description"
 msgstr "L'évaluateur/ice a refusé d'évaluer la soumission le <b>{$date}</b>"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr ""
 "Le rédacteur ou la rédactrice a annulé cette demande d'évaluation le "
@@ -3404,10 +3401,9 @@ msgstr ""
 "L'évaluateur/ice n'a pas répondu à la sollicitation. La réponse était "
 "attendue pour le <b>{$date}</b>"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"L'évaluation n'a pas été reçue. Elle était attendue pour le <b>{$date}.</b>"
+"L'évaluation n'a pas été reçue. Elle était attendue pour le <b>{$date}</b>."
 
 msgid "dashboard.noAccessBeingAuthor"
 msgstr ""
@@ -3445,3 +3441,8 @@ msgstr "Conflits d'intérêts"
 
 msgid "ror.invalidRorId"
 msgstr "Merci de fournir un identifiant ROR valide."
+
+msgid "publication.publish.warning"
+msgstr ""
+"Les problèmes suivants on été détectés. Ils n'empêchent cependant pas la "
+"publication"

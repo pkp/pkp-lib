@@ -5,13 +5,14 @@
 # Klaus Rummler <klaus@oapublishing.ch>, 2025.
 # Ralf Weber <ralf@weberr.de>, 2025.
 # Raphael Thiele <rthiele1@uni-koeln.de>, 2026.
+# Elisabeth Sawatzky <ejournals.ojs@uni-muenster.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2026-05-07 10:48+0000\n"
-"Last-Translator: Raphael Thiele <rthiele1@uni-koeln.de>\n"
+"PO-Revision-Date: 2026-10-23 10:01+0000\n"
+"Last-Translator: Elisabeth Sawatzky <ejournals.ojs@uni-muenster.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/de/>\n"
 "Language: de\n"
@@ -76,7 +77,7 @@ msgid "submission.submit.genre.label"
 msgstr "Welche Art von Datei ist dies?"
 
 msgid "submission.submit.genre.description"
-msgstr "Wählen Sie die Option, die die Datei am besten beschreibt."
+msgstr "Wählen Sie die Option, die diese Datei am besten beschreibt."
 
 msgid "submission.submit.removeConfirm"
 msgstr "Sind Sie sicher, dass diese Datei entfernt werden soll?"
@@ -1127,7 +1128,7 @@ msgstr "Abhängige Dateien verwalten"
 
 msgid "submission.upload.instructions"
 msgstr ""
-"Laden Sie hier alle Dateien hoch, die die Redaktion zur Bewertung Ihrer "
+"Laden Sie hier alle Dateien hoch, die das Redaktionsteam zur Bewertung Ihrer "
 "Einreichung benötigt."
 
 msgid "submission.upload.percentComplete"
@@ -1605,12 +1606,12 @@ msgstr ""
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
-"Eine E-Mail an die Autor/innen schicken um sie darüber zu informieren, dass "
-"ihre Einreichung Überarbeitungen benötigt, bevor sie zur Veröffentlichung "
-"angenommen wird. Geben Sie alle Einzelheiten an, die die Autor/innen für die "
-"Überarbeitung der Einreichung benötigen. Denken Sie gegebenenfalls daran, "
+"Senden Sie den Autor/innen eine E-Mail, um ihnen mitzuteilen, dass "
+"Überarbeitungen erforderlich sind, bevor dieser Beitrag zur Veröffentlichung "
+"angenommen werden kann. Teilen Sie alle Details mit, die die Autor/innen "
+"benötigen, um den Beitrag zu überarbeiten. Denken Sie gegebenenfalls daran, "
 "die Kommentare der Gutachter/innen zu anonymisieren. Diese E-Mail wird erst "
-"versandt, wenn die Entscheidung festgehalten wurde."
+"versendet, wenn die Entscheidung festgehalten wurde."
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Gutachtenrunde abbrechen"
@@ -1664,11 +1665,11 @@ msgstr ""
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
-"Eine E-Mail an die Autor/innen schicken um sie darüber zu informieren, dass "
-"ihre Einreichung Überarbeitungen benötigt und dann in eine neue "
-"Gutachtenrunde geschickt wird. Geben Sie alle Einzelheiten an, die die Autor/"
-"innen für die Überarbeitung der Einreichung benötigen. Denken Sie "
-"gegebenenfalls daran, die Kommentare der Gutachter/innen zu anonymisieren."
+"Senden Sie den Autor/innen eine E-Mail, um ihnen mitzuteilen, dass "
+"Überarbeitungen erforderlich sind und für eine weitere Begutachtungsrunde "
+"eingereicht werden müssen. Teilen Sie alle Details mit, die die Autor/innen "
+"benötigen, um den Beitrag zu überarbeiten. Denken Sie gegebenenfalls daran, "
+"die Kommentare der Gutachter/innen zu anonymisieren."
 
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "In die Begutachtung schicken"
@@ -2811,7 +2812,6 @@ msgstr "Die Rezension wurde vom Herausgeber bestätigt"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Die Rezension wurde vom Herausgeber am <b>{$date}</b> angenommen."
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Gutachtenanfrage von der Redaktion storniert"
 
@@ -3142,7 +3142,6 @@ msgstr "Bewertung eingereicht am {$date}"
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
 msgstr "Warten auf Antwort des Rezensenten"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr "Die Redaktion hat diese Gutachtenanfrage am <b>{$date}</b> storniert."
 
@@ -3192,7 +3191,6 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Gutachten ist {$days} Tage überfällig"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Diese/r Gutachter/in hat das Gutachten noch nicht abgeschlossen. Das "
@@ -3323,3 +3321,11 @@ msgstr "Hochgeladene Überarbeitungen"
 
 msgid "reviewer.competingInterests"
 msgstr "Interessenkonflikte"
+
+msgid "ror.invalidRorId"
+msgstr "Bitte geben Sie eine gültige ROR-ID an."
+
+msgid "publication.publish.warning"
+msgstr ""
+"Es wurden folgende Probleme festgestellt, die einer Veröffentlichung jedoch "
+"nicht im Wege stehen"

@@ -1,12 +1,13 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023, 2025, 2026.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
+# Oliver Krüger <oliver.krueger@sub.uni-hamburg.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2026-02-04 12:57+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2026-10-23 10:01+0000\n"
+"Last-Translator: Oliver Krüger <oliver.krueger@sub.uni-hamburg.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/api/de/>"
 "\n"
 "Language: de\n"
@@ -464,3 +465,26 @@ msgstr ""
 
 msgid "api.orcid.404.authorNotFound"
 msgstr "Der/die angeforderte Autor/in konnte nicht gefunden werden"
+
+msgid "api.rors.429.globalRateLimited"
+msgstr ""
+"Es werden derzeit zu viele ROR-Suchanfragen verarbeitet. Bitte warten Sie "
+"einen Moment und versuchen Sie es erneut."
+
+msgid "api.400.reviewerMastheadCannotBeChanged"
+msgstr ""
+"Die Sichtbarkeit im Impressum für die Rolle „externe/r Gutachter/in“ kann "
+"nicht geändert werden."
+
+msgid "api.rors.429.tooManyRequests"
+msgstr ""
+"Zu viele ROR-Suchanfragen. Bitte warten Sie einen Moment und versuchen Sie "
+"es erneut."
+
+msgid "api.rors.429.rorApiRateLimited"
+msgstr ""
+"Die ROR-Datenbank (ror.org) begrenzt derzeit die Anzahl unserer Anfragen. "
+"Bitte warten Sie einige Minuten und versuchen Sie es erneut."
+
+msgid "api.400.invalidMastheadParameter"
+msgstr "Ungültiger Impressumsparameter."

@@ -1,19 +1,20 @@
 # Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
+# Marton Horvath <horvath.marton.g@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2021-09-22 08:06+0000\n"
-"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
+"PO-Revision-Date: 2026-10-29 06:20+0000\n"
+"Last-Translator: Marton Horvath <horvath.marton.g@gmail.com>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/hu_HU/>\n"
-"Language: hu_HU\n"
+"common/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -131,22 +132,22 @@ msgid "common.add"
 msgstr "Hozzáadás"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Másolat / Titkos másolat hozzáadása"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Fájlok hozzáadása"
 
 msgid "common.addSelf"
 msgstr "Önmaga hozzáadása"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Csatolt fájlok"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Fájlok csatolása"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Kijelöltek csatolása"
 
 msgid "common.name"
 msgstr "Név"
@@ -344,7 +345,7 @@ msgid "common.deleteSelection"
 msgstr "A kiválasztott törlése"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Kijelölés megszüntetése"
 
 msgid "common.designation"
 msgstr "Kijelöl"
@@ -353,19 +354,19 @@ msgid "common.description"
 msgstr "Leírás"
 
 msgid "common.details"
-msgstr ""
+msgstr "Részletek"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} pixels"
+msgstr "{$width}&times;{$height} pixel"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Nem, a nem mentett módosítások elvetése"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Nincs kapcsolat"
 
 msgid "common.disable"
 msgstr "Kikapcsolás"
@@ -386,13 +387,13 @@ msgid "common.downloadPdf"
 msgstr "PDF Letöltés"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Jelentés letöltése"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Húzza ide a fájlokat."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Vagy töltsön fel egy fájlt"
 
 msgid "common.edit"
 msgstr "Szerkesztés"
@@ -401,7 +402,7 @@ msgid "common.editItem"
 msgstr "Szerkesztés {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "E-mail-sablonok"
 
 msgid "common.enable"
 msgstr "Engedélyezés"
@@ -472,13 +473,13 @@ msgid "common.filterRemove"
 msgstr "Szűrő törlése: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Sablon keresése"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Formázás"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Földrajzi"
 
 msgid "common.go"
 msgstr "Go"
@@ -511,10 +512,10 @@ msgid "common.insert"
 msgstr "Beszúrás"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Tartalom beszúrása"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Beszúrandó tartalom keresése"
 
 msgid "common.itemsPerPage"
 msgstr "Tételek száma oldalanként"
@@ -523,7 +524,7 @@ msgid "common.keywords"
 msgstr "Kulcsszavak"
 
 msgid "common.label"
-msgstr ""
+msgstr "Címke"
 
 msgid "common.language"
 msgstr "Nyelv"
@@ -532,10 +533,10 @@ msgid "common.languages"
 msgstr "Nyelvek"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Utolsó mentés: {$when}"
 
 msgid "common.lastActivity"
-msgstr "Utolsó tevékenység rögzítve: {$date}"
+msgstr "Utolsó tevékenység rögzítve: {$date}."
 
 msgid "common.less"
 msgstr "Kevesebb"
@@ -547,7 +548,7 @@ msgid "common.lessThanOnly"
 msgstr "Kisebb, mint"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Munka folytatása"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -589,10 +590,10 @@ msgid "common.none"
 msgstr "Semelyik"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Nincs kijelölve semmi"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Nincs megadva"
 
 msgid "common.no"
 msgstr "Nem"
@@ -637,7 +638,7 @@ msgid "common.noMatches"
 msgstr "Nincs találat"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} további"
 
 msgid "common.off"
 msgstr "Kikapcsol"
@@ -736,7 +737,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Tobb információ a {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Kapcsolat helyreállítása"
 
 msgid "common.record"
 msgstr "Beállít"
@@ -786,10 +787,10 @@ msgid "common.reset"
 msgstr "Visszaállítás"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "{$round}. forduló"
 
 msgid "common.role"
-msgstr ""
+msgstr "Szerep"
 
 msgid "common.saveAndContinue"
 msgstr "Mentés és folytatás"
@@ -807,10 +808,10 @@ msgid "common.search"
 msgstr "Keresés"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Keresőkifejezés"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Keresés folyamatban"
 
 msgid "common.searchQuery"
 msgstr "Keresési lekérdezés"
@@ -840,10 +841,10 @@ msgid "common.sendEmail"
 msgstr "Email küldés"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Összes lépés megjelenítése"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} lépés"
 
 msgid "common.size"
 msgstr "Méret"
@@ -870,10 +871,10 @@ msgid "common.suggest"
 msgstr "Javaslat"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Váltás erre:"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Switch erre: {$name}"
 
 msgid "common.title"
 msgstr "Cím"
@@ -891,10 +892,10 @@ msgid "common.type"
 msgstr "Típus"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Feltöltötte: {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Feltöltötte: {$name} ({$date})"
 
 msgid "common.component"
 msgstr "Összetevő"
@@ -909,10 +910,14 @@ msgid "common.unread"
 msgstr "Olvasatlan"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Nem mentett módosítások"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"{$when} időpontból nem mentett módosításokat találtunk. Ez akkor fordulhat "
+"elő, ha munka közben megszakad a kapcsolat a szerverrel. A módosítások "
+"visszaállítása felülírhatja az azóta végzett változtatásokat. Szeretné most "
+"visszaállítani ezeket a módosításokat?"
 
 msgid "common.untitled"
 msgstr "Névtelen"
@@ -939,7 +944,7 @@ msgid "common.upload.addFile"
 msgstr "Fájl feltöltés"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Fájl feltöltése a számítógépéről."
 
 msgid "common.upload.restore"
 msgstr "Eredeti visszaállítása"
@@ -966,7 +971,7 @@ msgid "common.view"
 msgstr "Megtekintés"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Hiba megtekintése"
 
 msgid "common.viewWithName"
 msgstr "Megtekintés {$name}"
@@ -1035,28 +1040,30 @@ msgid "email.addAttachment"
 msgstr "Csatolt fájl hozzáadása"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Beküldött kézirat fájljainak csatolása"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "A szerző által a kézirat beküldésekor feltöltött fájlok csatolása."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"A szerkesztőségi munkafolyamat során feltöltött fájlok, például a javított "
+"kéziratok vagy a lektorálásra szánt fájlok csatolása."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Fájltárban található fájlok"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Fájltárban található fájlok csatolása"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Fájlok csatolása a kéziratok fájltárából és a kiadói fájltárból."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Lektorálási fájlok csatolása"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "A lektorok által feltöltött fájlok csatolása"
 
 msgid "email.addBccRecipient"
 msgstr "BCC hozzáadása"
@@ -1071,7 +1078,7 @@ msgid "email.attachments"
 msgstr "Csatolások"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "A(z) {$fileName} fájlt nem sikerült csatolni."
 
 msgid "email.bcc"
 msgstr "BCC"
@@ -1087,6 +1094,8 @@ msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Biztosan a(z) {$localeName} nyelvre szeretne váltani az e-mail megírásához? "
+"Az e-mail tárgyában és szövegében végzett módosításai elvesznek."
 
 msgid "email.compose"
 msgstr "Email küldés"
@@ -1186,8 +1195,8 @@ msgstr "Ez a filetípus nem tölthető fel."
 
 msgid "form.dropzone.dictResponseError"
 msgstr ""
-"A szerver a {{statusCode}}  kóddal válaszolt. Kérjük, vegy fel a kapcsolatot "
-"a rendszergazdával."
+"A szerver {{statusCode}} állapotkóddal válaszolt. Ha a probléma továbbra is "
+"fennáll, forduljon a rendszergazdához."
 
 msgid "form.dropzone.dictCancelUpload"
 msgstr "Feltöltés megszakítása"
@@ -1196,7 +1205,7 @@ msgid "form.dropzone.dictUploadCanceled"
 msgstr "Feltöltés megszakítva"
 
 msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Biztosan meg szeretné szakítani a  feltöltést?"
+msgstr "Biztosan meg szeretné szakítani a feltöltést?"
 
 msgid "form.dropzone.dictRemoveFile"
 msgstr "File eltávolítása"
@@ -1403,9 +1412,12 @@ msgstr ""
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Engedélyek"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Ez a személy szerkesztheti a cikk részleteit."
+msgstr ""
+"Engedélyezze, hogy ez a személy módosíthassa a publikáció adatait, például a "
+"címet, az absztraktot, a metaadatokat és a publikáció egyéb részleteit. Ezt "
+"a jogosultságot érdemes visszavonni, ha a kézirat végső ellenőrzése "
+"megtörtént, és készen áll a megjelentetésre."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Résztvevő"
@@ -1549,7 +1561,7 @@ msgid "navigation.viewFrontend"
 msgstr "Oldal megtekintése"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Intézmények"
 
 msgid "notification.addedAuditor"
 msgstr "Hozzáadott ellenőr."
@@ -1561,7 +1573,7 @@ msgid "notification.addedQuery"
 msgstr "Párbeszéd hozzáadása"
 
 msgid "notification.reviewAcknowledged"
-msgstr "Szakmai lektorálás jelölése elismertként.  Email nem ment."
+msgstr "Szakmai lektorálás jelölése elismertként. Email nem ment."
 
 msgid "notification.reviewerThankedEmail"
 msgstr "Köszönő e-mail elküldve a szakmai lektornak."
@@ -1640,13 +1652,13 @@ msgid "notification.sendNotificationConfirmation"
 msgstr "Küldjön e-mailt erről minden regisztrált felhasználónak."
 
 msgid "search.author"
-msgstr "Szerző által"
+msgstr "Keresés szerző szerint"
 
 msgid "search.abstract"
 msgstr "Absztrakt"
 
 msgid "search.advancedFilters"
-msgstr "Bővített szűrök"
+msgstr "Speciális szűrők"
 
 msgid "search.advancedSearchMore"
 msgstr "További keresési beállítások"
@@ -1676,10 +1688,10 @@ msgid "search.date"
 msgstr "Publikációs dátum"
 
 msgid "search.dateFrom"
-msgstr "Publikált ez után"
+msgstr "A megadott dátum után publikált"
 
 msgid "search.dateTo"
-msgstr "Publikált ez előtt"
+msgstr "A megadott dátum előtt publikált"
 
 msgid "search.deleteFilter"
 msgstr "Törlés"
@@ -1817,7 +1829,7 @@ msgid "notification.reinstatedReviewer"
 msgstr "Szakmai lektor ismételten felkérve."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "A lektori megbízás újragondolására vonatkozó kérést elküldtük."
 
 msgid "notification.addedStageParticipant"
 msgstr "Felhasználó hozzáadva, mint résztvevő ebben a szakaszban."
@@ -1854,13 +1866,13 @@ msgid "notification.type.pendingRevisions.title"
 msgstr "Feltöltött átdolgozások a {$stage} szakaszban."
 
 msgid "notification.type.reviewerComment"
-msgstr "Egy szakmai lektor megjegyzést tett a  \"{$title}\" címhez."
+msgstr "Egy lektor megjegyzést fűzött a(z) \"{$title}\" című kézirathoz."
 
 msgid "notification.signedFile"
 msgstr "A fájl átnézett."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Időzóna"
 
 msgid "user.email"
 msgstr "E-mail cím"
@@ -1921,17 +1933,18 @@ msgid "notification.type.roundStatusTitle"
 msgstr "{$round} fordulói státusz"
 
 msgid "notification.type.editorialReport"
-msgstr "Statisztikai riport összesítője. "
+msgstr "Statisztikai riport összesítője."
 
-#, fuzzy
 msgid "notification.type.editorialReport.contents"
-msgstr "Kérjük, tekintse át folyóirata állapotát a szerkesztői riportban."
+msgstr ""
+"Ezúton szeretnénk emlékeztetni, hogy a szerkesztőségi jelentés segítségével "
+"ellenőrizze folyóirata működését."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Heti e-mailes összefoglaló a függőben lévő feladatokról"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Navigációs menü sikeresen frissítve lett"
@@ -1988,13 +2001,13 @@ msgid "list.viewMore"
 msgstr "Mutasson több részletet {$name}-ról/ről"
 
 msgid "list.viewLess"
-msgstr "Mutasson kevesebb részletet {$name}-ról/ről."
+msgstr "Mutasson kevesebb részletet róla: {$name}"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Összes kibontása"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Összes összecsukása"
 
 msgid "validation.invalidOption"
 msgstr "Ez nem egy érvényes lehetőség."
@@ -2051,6 +2064,9 @@ msgstr "Ez nem egy érvényes ország."
 
 msgid "validator.country.regex"
 msgstr ""
+"Érvénytelen országkód. Az országot kétbetűs nemzetközi országkóddal kell "
+"megadni. Az érvényes kódok listája itt található: https://en.wikipedia.org/"
+"wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Nem megfelelő pénznem."
@@ -2171,13 +2187,14 @@ msgid "validator.required_without"
 msgstr "Ez a mező szükséges, amikor {$values} nincs jelen van."
 
 msgid "validator.required_without_all"
-msgstr "Ez a mező szükséges, amikor egyik sincs jelen innen: {$values}"
+msgstr ""
+"Ez a mező kötelező, ha a következő értékek egyike sincs megadva: {$values}."
 
 msgid "validator.same"
 msgstr "A {$attribute} és {$other}-nak/nek egyezni kell."
 
 msgid "validator.size.numeric"
-msgstr "Ekkorának kell lennie: {$size}"
+msgstr "Ekkorának kell lennie: {$size}."
 
 msgid "validator.size.file"
 msgstr "{$size} kilobyte-nak kell lennie."
@@ -2201,10 +2218,10 @@ msgid "validator.url"
 msgstr "Nem érvényes URL."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Sortörés nem engedélyezett."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Csak a következő HTML-címkék engedélyezettek: {$tags}."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
@@ -2220,7 +2237,7 @@ msgid "filter.import.error.couldNotImportNode"
 msgstr "Nem sikerült XML csomópontot importálni"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Ismeretlen parancs: {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2338,3 +2355,115 @@ msgstr "Szerző szerkesztett."
 
 #~ msgid "common.average"
 #~ msgstr "Átlagos"
+
+msgid "navigation.reviewAssignments"
+msgstr "Lektori megbízásaim"
+
+msgid "common.yesContinue"
+msgstr "Igen, folytatás"
+
+msgid "showLess"
+msgstr "Kevesebb megjelenítése"
+
+msgid "showAll"
+msgstr "Összes megjelenítése"
+
+msgid "validator.date.comparison"
+msgstr "A összehasonlításhoz megadott dátumok érvénytelenek."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "sz."
+
+msgid "common.refreshingData"
+msgstr "Adatok frissítése folyamatban"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "A <a href=\"{$url}\">Szerkesztési előzmények</a> megtekintése"
+
+msgid "common.moreActions"
+msgstr "További műveletek"
+
+msgid "common.editorialMasthead"
+msgstr "Szerkesztőség"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Az előző évben lektorálást végző szakértők"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Az elmúlt években lektorálást végző szakértők"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"A szerkesztők köszönetüket fejezik ki az alább felsorolt szakértőknek a "
+"{$year}. évben végzett lektori munkájukért."
+
+msgid "common.editorialHistory"
+msgstr "Szerkesztőségi előzmények"
+
+msgid "common.editorialHistory.page"
+msgstr "Szerkesztőségi előzmények oldala"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Ez a szakasz a korábbi közreműködőket sorolja fel."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "{$name} ORCID-profiljának megtekintése"
+
+msgid "common.filtersClear"
+msgstr "Szűrők törlése"
+
+msgid "navigation.mySubmissions"
+msgstr "Szerzőként beküldött kézirataim"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "A lektori vélemény benyújtásának dátuma:"
+
+msgid "common.viewMoreDetails"
+msgstr "További részletek megtekintése"
+
+msgid "common.highlight"
+msgstr "Kiemelés"
+
+msgid "common.highlights"
+msgstr "Kiemelések"
+
+msgid "common.changeLanguage"
+msgstr "Nyelv módosítása"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "navigation.dashboards"
+msgstr "Szerkesztői vezérlőpult"
+
+msgid "common.showingXofX"
+msgstr ""
+"Összes {$total} elemből <strong>{$start}–{$finish}</strong> megjelenítve"
+
+msgid "common.loaded"
+msgstr "Betöltve"
+
+msgid "form.errorSummaryOne"
+msgstr "1 hibát észleltünk! A folytatás előtt javítsa ki az alábbi hibát."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} hibát észleltünk! A folytatás előtt javítsa ki az alábbi hibákat."
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "A lektori felkérés elfogadásának dátuma:"
+
+msgid "validator.multilingual"
+msgstr "A mező nem felel meg a többnyelvűségi követelményeknek."
+
+msgid "common.sandbox"
+msgstr "Az alkalmazás tesztkörnyezetben fut."
+
+msgid "common.openLinkNewTab"
+msgstr "Hivatkozás megnyitása új lapon."
+
+msgid "common.assignments"
+msgstr "Megbízások"

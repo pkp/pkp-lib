@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2026-08-20 08:15+0000\n"
+"PO-Revision-Date: 2026-10-23 17:13+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -3903,8 +3903,9 @@ msgstr "Визначте порядок редакційних ролей заг
 
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
 msgstr ""
-"Рецензенти відображатимуться в стандартизованому форматі, щоб підтримувати "
-"однаковість і забезпечити легкість виявлення в цьому розділі."
+"Рецензентів, які підготували рецензію в попередньому календарному році, буде "
+"зазначено у стандартизованому форматі – це дозволить зберегти єдиний стиль і "
+"забезпечити легкий пошук у цьому розділі."
 
 msgid "manager.language.submissionLanguages"
 msgstr "Мови подання"
@@ -3986,3 +3987,27 @@ msgid "mailable.changeProfileEmailInvitationNotify.description"
 msgstr ""
 "Користувачі, які запитують зміну адреси електронної пошти у своєму профілі "
 "користувача, отримають цей запит для підтвердження."
+
+msgid "plugins.importexport.user.error.roleOverlap"
+msgstr ""
+"Роль «{$userGroup}» для користувача «{$username}» не було імпортовано, "
+"оскільки користувач уже має цю роль протягом періоду, що перетинається."
+
+msgid "manager.setup.enableEnrollmentMasthead"
+msgstr "Редакційний банер на основі реєстрації"
+
+msgid "manager.setup.enableEnrollmentMasthead.enable"
+msgstr "Представте Редакційний банер на основі реєстрацій користувачів"
+
+msgid "manager.setup.enableEnrollmentMastheadReviewers.enable"
+msgstr "Активуйте представлення рецензентів на Редакційному банері"
+
+msgid "plugins.importexport.user.error.invalidRoleDate"
+msgstr ""
+"Роль «{$userGroup}» користувача «{$username}» не було імпортовано, оскільки "
+"«{$date}» не є коректною датою."
+
+msgid "plugins.importexport.user.error.invalidRolePeriod"
+msgstr ""
+"Роль «{$userGroup}» користувача «{$username}» не було імпортовано, оскільки "
+"її дата початку не передує даті завершення."

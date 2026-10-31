@@ -22,6 +22,7 @@ use APP\file\LibraryFileManager;
 use APP\handler\Handler;
 use PKP\context\LibraryFileDAO;
 use PKP\db\DAORegistry;
+use PKP\handler\PKPHandler;
 use PKP\security\Role;
 
 class LibraryFileHandler extends Handler
@@ -91,7 +92,7 @@ class LibraryFileHandler extends Handler
             $allowedAccess = false;
 
             // Managers are always allowed access.
-            if ($this->_callingHandler) {
+            if ($this->_callingHandler instanceof PKPHandler) {
                 $userRoles = $this->_callingHandler->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
                 if (array_intersect($userRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
                     $allowedAccess = true;
@@ -105,14 +106,15 @@ class LibraryFileHandler extends Handler
 
             $user = $request->getUser();
             foreach ($assignedUsers as $assignedUser) {
-                if ($assignedUser->getId() == $user->getId()) {
+                if ($user && $assignedUser->getId() == $user->getId()) {
                     $allowedAccess = true;
                     break;
                 }
             }
         } else {
             // this is a Context submission document; rely on the calling handler's access policy, but ensure there is one.
-            $allowedAccess = $this->_callingHandler ? true : false;
+            // (The page router constructs page handlers with the Request, so a truthy check is not enough.)
+            $allowedAccess = $this->_callingHandler instanceof PKPHandler;
         }
 
         if ($allowedAccess) {

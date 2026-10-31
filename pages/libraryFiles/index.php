@@ -15,7 +15,6 @@
 
 switch ($op) {
     case 'downloadPublic':
-    case 'downloadLibraryFile':
         define('HANDLER_CLASS', 'PKP\pages\libraryFiles\LibraryFileHandler');
         break;
 }

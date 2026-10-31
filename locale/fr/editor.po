@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2026-10-02 14:17+0000\n"
+"PO-Revision-Date: 2026-10-08 14:02+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "fr/>\n"
@@ -148,7 +148,7 @@ msgstr ""
 "d'une enveloppe rouge s'affichera à titre de rappel pour les évaluateur/ices."
 
 msgid "editor.submission.addReviewer"
-msgstr "Ajouter un évaluateur"
+msgstr "Ajouter une évaluation"
 
 msgid "editor.submission.findAndSelectReviewer"
 msgstr "Trouver un/e évaluateur/ice"
@@ -170,10 +170,10 @@ msgid "editor.submission.backToSearch"
 msgstr "Revenir en mode de recherche simple"
 
 msgid "editor.review.createReviewer"
-msgstr "Créer un nouvel évaluateur"
+msgstr "Ajouter un rôle d'évaluateur/ice à une personne"
 
 msgid "editor.review.enrollReviewer.short"
-msgstr "Rechercher un évaluateur externe à la revue"
+msgstr "Demander à un/e évaluateur/ice externe"
 
 msgid "editor.review.unassignReviewer"
 msgstr "Décommander l'évaluateur/ice"
@@ -221,7 +221,7 @@ msgid "editor.review.anonymousReviewer"
 msgstr "Évaluateur/ice anonyme"
 
 msgid "editor.review.personalMessageToReviewer"
-msgstr "Envoyer un courriel à l'évaluateur"
+msgstr "Courriel pour l'évaluateur/ice"
 
 msgid "editor.review.importantDates"
 msgstr "Dates importantes"
@@ -273,7 +273,7 @@ msgid "editor.review.thankReviewerError"
 msgstr "Erreur d'envoi du remerciement à l'évaluateur/ice"
 
 msgid "editor.review.skipEmail"
-msgstr "Ne pas envoyer de courriel à l'évaluateur"
+msgstr "Ne pas envoyer de courriel à l'évaluateur/ice"
 
 msgid "editor.review.sendReminder"
 msgstr "Envoyer un rappel"
@@ -399,7 +399,7 @@ msgid "editor.submission.selectCopyedingFiles"
 msgstr "Fichiers de travail éditorial"
 
 msgid "editor.submission.selectReviewer"
-msgstr "Choisir un/e évaluateur/ice"
+msgstr "Demander à cette personne"
 
 msgid "editor.submission.taskDueDate"
 msgstr "Date d'échéance de la tâche"
@@ -527,7 +527,7 @@ msgstr ""
 "ci-dessous."
 
 msgid "editor.submission.selectedReviewer"
-msgstr "Évaluateur sélectionné"
+msgstr "Évaluateur/ice sélectionnée"
 
 msgid "editor.submission.proofreading.approveProof"
 msgstr "Approuver la preuve"

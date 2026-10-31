@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-05-29 07:24+0000\n"
+"PO-Revision-Date: 2026-10-29 06:20+0000\n"
 "Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/eu/>\n"
@@ -91,7 +91,7 @@ msgid "acceptInvitation.userDetails.nextButtonLabel"
 msgstr "Gorde eta jarraitu"
 
 msgid "acceptInvitation.detailsReview.stepLabel"
-msgstr "{$step} - Berrikusi eta sortu kontua"
+msgstr "{$step} - Ebaluatu eta sortu kontua"
 
 msgid "acceptInvitation.skipVerifyOrcid"
 msgstr "Saltatu ORCID egiaztapena"
@@ -145,7 +145,7 @@ msgid "userInvitation.roleTable.role"
 msgstr "Rola"
 
 msgid "userInvitation.sendMail.stepName"
-msgstr "Rolak berrikusi eta gonbidatu"
+msgstr "Ebaluatu eta roletarako gonbidatu"
 
 msgid "userInvitation.sendMail.stepLabel"
 msgstr "{$step} - Erabiltzailearekin partekatutako posta elektronikoa aldatu"
@@ -170,7 +170,7 @@ msgid "acceptInvitation.userDetails.form.name"
 msgstr "Gonbidapenak eta erabiltzailearen xehetasunak onartzeko inprimakia"
 
 msgid "acceptInvitation.detailsReview.stepName"
-msgstr "Berrikusi eta sortu kontua"
+msgstr "Ebaluatu eta sortu kontua"
 
 msgid "acceptInvitation.verifyOrcid"
 msgstr "Egiaztatu ORCID IDa"

@@ -74,7 +74,7 @@ class LibraryFileHandler extends Handler {
 				$allowedAccess = false;
 
 				// Managers are always allowed access.
-				if ($this->_callingHandler) {
+				if ($this->_callingHandler instanceof PKPHandler) {
 					$userRoles = $this->_callingHandler->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
 					if (array_intersect($userRoles, array(ROLE_ID_MANAGER))) $allowedAccess = true;
 				}
@@ -84,13 +84,15 @@ class LibraryFileHandler extends Handler {
 				$userStageAssignmentDao = DAORegistry::getDAO('UserStageAssignmentDAO'); /* @var $userStageAssignmentDao UserStageAssignmentDAO */
 				$assignedUsers = $userStageAssignmentDao->getUsersBySubmissionAndStageId($libraryFile->getSubmissionId(), WORKFLOW_STAGE_ID_SUBMISSION);
 				while ($assignedUser = $assignedUsers->next()) {
-					if ($assignedUser->getId()  == $user->getId()) {
+					if ($user && $assignedUser->getId() == $user->getId()) {
 						$allowedAccess = true;
 						break;
 					}
 				}
 			} else {
-				$allowedAccess = true; // this is a Context submission document, default to access policy.
+				// this is a Context submission document; rely on the calling handler's access policy, but ensure there is one.
+				// (The page router constructs page handlers with the Request, so a truthy check is not enough.)
+				$allowedAccess = $this->_callingHandler instanceof PKPHandler;
 			}
 
 			if ($allowedAccess) {

@@ -509,6 +509,9 @@ msgstr "The review assignment has already been considered and cannot be consider
 msgid "api.reviews.assignments.422.missingOrInvalidConsideredValue"
 msgstr "The `considered` field is missing or contains an invalid value."
 
+msgid "api.reviews.assignments.422.reviewNotSubmitted"
+msgstr "This review has not been submitted yet and cannot be marked as complete."
+
 msgid "api.submissions.reviews.422.invalidRecommendation"
 msgstr "The submitted reviewer recommendation ID is not a valid for this Context."
 

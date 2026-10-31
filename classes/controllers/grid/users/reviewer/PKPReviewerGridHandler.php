@@ -822,7 +822,12 @@ class PKPReviewerGridHandler extends GridHandler
 
         if (!$reviewAssignment->getDateCompleted()) {
             // Editor completes the review.
-            $newReviewData['dateConfirmed'] = $newReviewData['dateCompleted'] = Core::getCurrentDate();
+            $now = Core::getCurrentDate();
+            $newReviewData['dateCompleted'] = $now;
+            $newReviewData['step'] = 4;
+            if (!$reviewAssignment->getDateConfirmed()) {
+                $newReviewData['dateConfirmed'] = $now;
+            }
         }
 
         // Trigger an update of the review round status

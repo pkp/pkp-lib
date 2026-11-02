@@ -216,8 +216,13 @@ class Repository
         $publication = Repo::publication()->get($publicationId);
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         $context = Application::get()->getRequest()->getContext();
+        if (!$context) {
+            $contextDao = Application::get()->getContextDAO();
+            $context = $contextDao->getById($submission->getData('contextId'));
+        }
         $user = Application::get()->getRequest()->getUser();
         $primaryGenres = DAORegistry::getDAO('GenreDAO')->getPrimaryByContextId($context->getId())->toArray();
+        // retrieve the submission genre, if it exists in the genres.xml file
         $genre = collect($primaryGenres)->first(fn (Genre $genre) => $genre->getKey() === 'SUBMISSION');
 
         $submissionDir = Repo::submissionFile()->getSubmissionDir(
@@ -318,7 +323,7 @@ class Repository
                         ->contains(fn (Galley $other) => $other->getId() !== $galley->getId());
 
                     $params = ['fileId' => $fileId];
-                    $genreId = $submissionFile->getGenreId() ?: $genre?->getId();
+                    $genreId = $submissionFile->getData('genreId') ?: $genre?->getId();
                     if ($genreId !== null) {
                         $params['genreId'] = $genreId;
                     }
@@ -479,6 +484,7 @@ class Repository
         if (!$images) {
             return;
         }
+        // retrieve the image genre, if it exists in the genres.xml file
         $imageGenre = DAORegistry::getDAO('GenreDAO')->getByKey('IMAGE', $context->getId());
         $existingNames = Repo::submissionFile()->getCollector()
             ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$htmlFile->getId()])
@@ -509,7 +515,7 @@ class Repository
                 'assocId' => $htmlFile->getId(),
                 'name' => array_fill_keys($context->getData('supportedSubmissionLocales'), $name),
             ];
-            $genreId = $source->getGenreId() ?: $imageGenre?->getId();
+            $genreId = $source->getData('genreId') ?: $imageGenre?->getId();
             if ($genreId !== null) {
                 $params['genreId'] = $genreId;
             }

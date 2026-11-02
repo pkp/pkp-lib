@@ -282,13 +282,8 @@ class PKPBodyTextController extends PKPBaseController
     protected function conversionErrorResponse(\Throwable $exception, int $publicationId): JsonResponse
     {
         $translationKey = $exception instanceof ConversionException
-            ? match ($exception->reason) {
-                ConversionException::INVALID_GALLEY_FILE => 'publication.bodyText.error.invalidGalleyFile',
-                ConversionException::IMAGE_NOT_ATTACHED => 'publication.bodyText.error.imageNotAttached',
-                ConversionException::IMAGE_NOT_EXPORTABLE => 'publication.bodyText.error.imageNotExportable',
-                default => null,
-            }
-        : null;
+            ? $exception->getTranslationKey()
+            : null;
 
         if ($translationKey !== null) {
             return response()->json([
@@ -296,7 +291,10 @@ class PKPBodyTextController extends PKPBaseController
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        error_log('Unable to export body text for publication ' . $publicationId . ': ' . $exception);
+        report(new \RuntimeException(
+            message: 'Unable to export body text for publication ' . $publicationId . ': ' . $exception->getMessage(),
+            previous: $exception
+        ));
 
         return response()->json([
             'error' => __('api.422.routeRequestUnableToProcess'),

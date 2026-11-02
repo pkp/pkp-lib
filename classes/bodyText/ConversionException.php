@@ -7,7 +7,7 @@
  * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief An expected body-text conversion refusal, localized by the API controller.
+ * @brief Represents the error during conversion of article full-text into HTML and PDF
  */
 
 namespace PKP\bodyText;
@@ -21,5 +21,18 @@ class ConversionException extends \RuntimeException
     public function __construct(public readonly string $reason)
     {
         parent::__construct($reason);
+    }
+
+    /**
+     * Get the translation key for a known conversion refusal.
+     */
+    public function getTranslationKey(): ?string
+    {
+        return match ($this->reason) {
+            self::INVALID_GALLEY_FILE => 'publication.bodyText.error.invalidGalleyFile',
+            self::IMAGE_NOT_ATTACHED => 'publication.bodyText.error.imageNotAttached',
+            self::IMAGE_NOT_EXPORTABLE => 'publication.bodyText.error.imageNotExportable',
+            default => null,
+        };
     }
 }

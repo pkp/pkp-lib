@@ -3,8 +3,8 @@
 /**
  * @file components/listPanels/PKPSubmissionsListPanel.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionsListPanel
@@ -178,6 +178,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
             'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
             'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
+            'STATUS_WITHDRAWN' => PKPSubmission::STATUS_WITHDRAWN,
             'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
             'WORKFLOW_STAGE_ID_SUBMISSION' => WORKFLOW_STAGE_ID_SUBMISSION,
             'WORKFLOW_STAGE_ID_INTERNAL_REVIEW' => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,

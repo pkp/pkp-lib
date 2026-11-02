@@ -1279,7 +1279,7 @@ abstract class Repository
 
     /**
      * Retrieve the review assignments of publications that can have a DOI:
-     * confirmed by an editor and publicly visible.
+     * completed (confirmed by an editor) and publicly visible.
      *
      *
      * @throws Exception

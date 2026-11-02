@@ -20,9 +20,13 @@ namespace PKP\jobs\doi;
 
 use APP\facades\Repo;
 use APP\plugins\IDoiRegistrationAgency;
+use APP\publication\Publication;
 use PKP\context\Context;
+use PKP\db\DAORegistry;
+use PKP\doi\Doi;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class DepositSubmission extends BaseJob
 {
@@ -63,19 +67,50 @@ class DepositSubmission extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        $submissionDepositResults = $this->agency->depositSubmissions([$submission], $this->context);
+        $this->agency->depositSubmissions([$submission], $this->context);
 
-        // Deposit Submission's associated Peer Review if Peer Review DOIs are enabled in Context and Agency, and the Submission was successfully deposited.
+        // Deposit Submission's associated Peer Review if Peer Review DOIs are enabled in Context and Agency, and the associated Publication DOI was successfully deposited.
         if (
-            empty($submissionDepositResults['hasErrors']) &&
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $this->agency->getAllowedDoiTypes()) &&
             in_array(Repo::doi()::TYPE_PEER_REVIEW, $this->context->getData(Context::SETTING_ENABLED_DOI_TYPES))
         ) {
             $depositablePeerReviewIds = Repo::reviewAssignment()
                 ->getExportableDOIsPeerReviewIds($this->context->getId(), $this->context->getData(Context::SETTING_DOI_VERSIONING), [$this->submissionId]);
 
+            $publicationsCache = collect();
+            $roundsCache = collect();
+            /** @var ReviewRoundDAO $reviewRoundDao */
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+
             foreach ($depositablePeerReviewIds as $peerReviewId) {
-                dispatch(new DepositPeerReview($peerReviewId, $this->context->getId(), $this->agency, $this->submissionId));
+                $review = Repo::reviewAssignment()->get($peerReviewId);
+                $round = $roundsCache->get($review->getReviewRoundId());
+
+                if (!$round) {
+                    $round = $reviewRoundDao->getById($review->getReviewRoundId());
+                    $roundsCache->put($round->getId(), $round);
+                }
+
+                if ($this->context->getData(Context::SETTING_DOI_VERSIONING)) {
+                    if (!$publicationsCache->has($round->getPublicationId())) {
+                        $publicationsCache->put($round->getPublicationId(), Repo::publication()->get($round->getPublicationId()));
+                    }
+                }
+
+                /** @var Publication $publication */
+                $publication = $this->context->getData(Context::SETTING_DOI_VERSIONING)
+                    ? $publicationsCache->get($round->getPublicationId())
+                    : $submission->getCurrentPublication();
+
+                $doiId = $publication->getData('doiId');
+                $doi = $doiId ? Repo::doi()->get($doiId) : null;
+                if (
+                    $doi?->getStatus() === Doi::STATUS_REGISTERED ||
+                    // When in test mode, some agencies keep the submission's DOI status as Doi::STATUS_SUBMITTED after a successful deposit
+                    ($this->agency->getSetting($this->context->getId(), 'testMode') && $doi?->getStatus() === Doi::STATUS_SUBMITTED)
+                ) {
+                    dispatch(new DepositPeerReview($peerReviewId, $this->context->getId(), $this->submissionId));
+                }
             }
         }
     }

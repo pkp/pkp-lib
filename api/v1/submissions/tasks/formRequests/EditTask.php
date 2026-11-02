@@ -288,6 +288,12 @@ class EditTask extends FormRequest
                         return false;
                     }
 
+                    // Unless the submissionFileId is already an attached file (uploaded by author during task/discussion creation or a previous edit)
+                    $submissionFileIds = array_filter(Arr::wrap($this->input('submissionFileIds')), 'is_scalar');
+                    if (empty(array_diff($submissionFileIds, $this->getHeadnoteFileIds()))) {
+                        return false;
+                    }
+
                     $isAssignedEditor = false;
                     foreach ($this->stageAssignments as $stageAssignment) {
                         if ($stageAssignment->userId == $currentUser->getId() && in_array($stageAssignment->userGroup->roleId, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_SUB_EDITOR])) {
@@ -331,5 +337,21 @@ class EditTask extends FormRequest
     protected function getCreatorId(): ?int
     {
         return $this->task->createdBy;
+    }
+
+    /**
+     * Get the IDs of the submission files attached to the task's first message
+     */
+    protected function getHeadnoteFileIds(): array
+    {
+        $headnote = $this->task?->notes()->withHeadnote()->first();
+        if (!$headnote) {
+            return [];
+        }
+
+        return Repo::submissionFile()->getCollector()
+            ->filterByAssoc(Application::ASSOC_TYPE_NOTE, [$headnote->id])
+            ->getIds()
+            ->all();
     }
 }

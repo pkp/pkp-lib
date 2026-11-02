@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/FieldControlledVocab.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldControlledVocab
@@ -25,12 +25,16 @@ class FieldControlledVocab extends FieldBaseAutosuggest
     /** @var array Key/value list of languages this field should support. Key = locale code. Value = locale name */
     public $locales = [];
 
+    /** @var bool Whether free-text entries may be added alongside suggested ones */
+    public $allowCustom = true;
+
     /**
      * @copydoc Field::getConfig()
      */
     public function getConfig()
     {
         $config = parent::getConfig();
+        $config['allowCustom'] = $this->allowCustom;
 
         if ($this->isMultilingual) {
             $config['selected'] = [];

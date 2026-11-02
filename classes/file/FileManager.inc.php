@@ -462,9 +462,6 @@ class FileManager {
 			case 'image/x-ico':
 			case 'image/ico':
 				return '.ico';
-			case 'image/svg+xml':
-			case 'image/svg':
-				return '.svg';
 			case 'application/x-shockwave-flash':
 				return '.swf';
 			case 'video/x-flv':
@@ -483,8 +480,6 @@ class FileManager {
 				return '.mov';
 			case 'video/mp4':
 				return '.mp4';
-			case 'text/javascript':
-				return '.js';
 			default:
 				return false;
 		}

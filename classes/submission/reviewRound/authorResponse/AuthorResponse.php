@@ -33,6 +33,9 @@ class AuthorResponse extends Model
 {
     use ModelWithSettings;
 
+    public const STATUS_CONFIRMED = 'confirmed';
+    public const STATUS_REVERTED = 'reverted';
+
     protected $table = 'review_round_author_responses';
     protected $primaryKey = 'response_id';
     protected string $settingsTable = 'review_round_author_response_settings';
@@ -156,6 +159,18 @@ class AuthorResponse extends Model
     }
 
     /**
+     * Whether this author response has been reverted by an Editor.
+     */
+    protected function isReverted(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                return !!$this->dateReverted;
+            }
+        );
+    }
+
+    /**
      * Authors associated with this response.
      */
     protected function associatedAuthors(): Attribute
@@ -192,7 +207,7 @@ class AuthorResponse extends Model
 
     public function associateAuthorsToResponse(array $authorIds): bool
     {
-        // First delete any existing associations
+        // First, delete any existing associations
         DB::table('review_round_author_response_authors')
             ->where('response_id', $this->id)
             ->delete();

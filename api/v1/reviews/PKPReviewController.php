@@ -49,7 +49,6 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
@@ -912,15 +911,7 @@ class PKPReviewController extends PKPBaseController
             );
         }
 
-        $isManager = $user->hasRole([Role::ROLE_ID_MANAGER], $request->getContext()->getId()) ||
-            $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
-
-        $canView = $isManager ||
-            StageAssignment::withSubmissionIds([$reviewRound->getSubmissionId()])
-                ->withRoleIds([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR])
-                ->withStageIds([$reviewRound->getStageId()])
-                ->withUserId($user->getId())
-                ->exists();
+        $canView = $reviewRound->canUserAccessAuthorResponses($user, [Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR], $context);
 
         if (!$canView) {
             return response()->json(
@@ -978,9 +969,9 @@ class PKPReviewController extends PKPBaseController
             'confirmationChangedByUserId' => $this->getRequest()->getUser()->getId(),
         ];
 
-        if ($validated['markAs'] === EditAuthorReviewResponseConfirmation::STATUS_CONFIRMED) {
-            // If response was confirmed then no need to update DB again. Return early
-            if ($existingResponse->dateConfirmed) {
+        if ($validated['markAs'] === AuthorResponse::STATUS_CONFIRMED) {
+            // If the response was confirmed, then no need to update DB again. Return early
+            if ($existingResponse->isConfirmed) {
                 return response()->json(new ReviewRoundAuthorResponseResource($existingResponse), Response::HTTP_OK);
             }
 
@@ -989,18 +980,10 @@ class PKPReviewController extends PKPBaseController
                 'dateReverted' => null,
             ]);
         } else {
-            // If a confirmation was already reverted then no need to update DB again. Return early
-            if ($existingResponse->dateReverted) {
+            // If a confirmation was already reverted, then no need to update DB again. Return early
+            if ($existingResponse->isReverted) {
                 return response()->json(new ReviewRoundAuthorResponseResource($existingResponse), Response::HTTP_OK);
             }
-
-            // A response can only be reverted if it was already confirmed.
-            if (!$existingResponse->dateConfirmed) {
-                return response()->json([
-                    'error' => __('api.reviewRound.422.authorResponse.revert')
-                ], Response::HTTP_UNPROCESSABLE_ENTITY);
-            }
-
             $data = array_merge($data, [
                 'dateConfirmed' => null,
                 'dateReverted' => now(),

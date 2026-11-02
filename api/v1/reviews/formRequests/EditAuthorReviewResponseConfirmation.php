@@ -24,15 +24,11 @@ use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
 
 class EditAuthorReviewResponseConfirmation extends FormRequest
 {
-    public const STATUS_CONFIRMED = 'confirmed';
-    public const STATUS_REVERTED = 'reverted';
-
     protected ?ReviewRound $reviewRound = null;
     protected ?AuthorResponse $existingResponse = null;
     protected ?Submission $submission = null;
@@ -56,7 +52,7 @@ class EditAuthorReviewResponseConfirmation extends FormRequest
         }
 
         return [
-            'markAs' => ['required', 'string', Rule::in([self::STATUS_CONFIRMED, self::STATUS_REVERTED])],
+            'markAs' => ['required', 'string', Rule::in([AuthorResponse::STATUS_CONFIRMED, AuthorResponse::STATUS_REVERTED])],
             'reviewRoundId' => [
                 'required',
                 function (string $attribute, mixed $value, \Closure $fail) {
@@ -93,20 +89,21 @@ class EditAuthorReviewResponseConfirmation extends FormRequest
         $user = $request->getUser();
 
         // Only assigned editors, managers, or admins may change the completion status of an author response.
-        $isManager = $user->hasRole([Role::ROLE_ID_MANAGER], $request->getContext()->getId()) ||
-            $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
-
-        $canUpdate = $isManager ||
-            StageAssignment::withSubmissionIds([$this->reviewRound->getSubmissionId()])
-                ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
-                ->withStageIds([$this->reviewRound->getStageId()])
-                ->withUserId($user->getId())
-                ->exists();
+        $canUpdate = $this->reviewRound->canUserAccessAuthorResponses($user, [Role::ROLE_ID_SUB_EDITOR], $request->getContext());
 
         if (!$canUpdate) {
             throw new HttpResponseException(response()->json([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN));
+        }
+
+        // Only allow request to revert if the response is:
+        // - Currently confirmed; or
+        // - Already reverted. In this case the API will not change anything.
+        if ($this->input('markAs') === AuthorResponse::STATUS_REVERTED && !$this->existingResponse->isConfirmed && !$this->existingResponse->isReverted) {
+            throw new HttpResponseException(response()->json([
+                'error' => __('api.reviewRound.422.authorResponse.revert'),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY));
         }
     }
 

@@ -24,6 +24,7 @@ use Illuminate\Routing\RoutingServiceProvider;
 use Illuminate\Support\Facades\Response;
 use PKP\middleware\AllowCrossOrigin;
 use PKP\middleware\DecodeApiTokenWithValidation;
+use PKP\middleware\EmitCsrfCookie;
 use PKP\middleware\HasContext;
 use PKP\middleware\HasRoles;
 use PKP\middleware\HasUser;
@@ -49,6 +50,7 @@ class PKPRoutingProvider extends RoutingServiceProvider
         SetupContextBasedOnRequestUrl::class,
         DecodeApiTokenWithValidation::class,
         ValidateCsrfToken::class,
+        EmitCsrfCookie::class,
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,

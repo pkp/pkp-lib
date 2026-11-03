@@ -256,7 +256,7 @@ class Repository
                     $params = [
                         'fileId' => $fileId,
                         'submissionId' => $submission->getId(),
-                        'uploaderUserId' => $user->getId(),
+                        'uploaderUserId' => $user?->getId(),
                         'fileStage' => SubmissionFile::SUBMISSION_FILE_PROOF,
                         'name' => [$context->getPrimaryLocale() => 'bodyText-' . $publicationId . '.' . $extension],
                     ];
@@ -330,7 +330,7 @@ class Repository
                     if ($isShared) {
                         $params += [
                             'submissionId' => $submission->getId(),
-                            'uploaderUserId' => $user->getId(),
+                            'uploaderUserId' => $user?->getId(),
                             'fileStage' => SubmissionFile::SUBMISSION_FILE_PROOF,
                             'name' => $submissionFile->getData('name'),
                             'assocType' => PKPApplication::ASSOC_TYPE_REPRESENTATION,
@@ -479,7 +479,7 @@ class Repository
      * @param array<string, SubmissionFile> $images
      * @param string[] $createdPaths Paths to remove if the conversion rolls back
      */
-    protected function attachHtmlImages(SubmissionFile $htmlFile, array $images, string $submissionDir, Context $context, User $user, array &$createdPaths): void
+    protected function attachHtmlImages(SubmissionFile $htmlFile, array $images, string $submissionDir, Context $context, ?User $user, array &$createdPaths): void
     {
         if (!$images) {
             return;
@@ -509,7 +509,7 @@ class Repository
             $params = [
                 'fileId' => $fileId,
                 'submissionId' => $htmlFile->getData('submissionId'),
-                'uploaderUserId' => $user->getId(),
+                'uploaderUserId' => $user?->getId(),
                 'fileStage' => SubmissionFile::SUBMISSION_FILE_DEPENDENT,
                 'assocType' => Application::ASSOC_TYPE_SUBMISSION_FILE,
                 'assocId' => $htmlFile->getId(),

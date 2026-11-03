@@ -237,7 +237,7 @@ class PKPBodyTextController extends PKPBaseController
     }
 
     /**
-     * Create an HTML galley without changing the editor's JSON document.
+     * Create an HTML galley received from the editor's JSON document.
      */
     public function createHtmlFile(Request $illuminateRequest): JsonResponse
     {

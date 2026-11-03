@@ -304,6 +304,58 @@ class PKPPublicationService implements EntityPropertyInterface, EntityReadInterf
 			});
 		}
 
+		// A cover image filename may only be one this submission already holds:
+		// the stored value a form sends back, or a version's copy (pkp/pkp-lib#13560)
+		if (isset($props['coverImage'])) {
+			$validator->after(function($validator) use ($props, $action) {
+				// If there is no submissionId the validator will throw it back anyway
+				$submission = null;
+				if ($action === VALIDATE_ACTION_ADD && !empty($props['submissionId'])) {
+					$submission = Services::get('submission')->get($props['submissionId']);
+				} elseif ($action === VALIDATE_ACTION_EDIT && !empty($props['id'])) {
+					$publication = Services::get('publication')->get($props['id']);
+					if ($publication) {
+						$submission = Services::get('submission')->get($publication->getData('submissionId'));
+					}
+				}
+
+				if (!is_array($props['coverImage'])) {
+					$validator->errors()->add('coverImage', __('api.publicFiles.400.invalidImage'));
+					return;
+				}
+				$specifiedUploadNames = [];
+				foreach ($props['coverImage'] as $c) {
+					if (!isset($c['uploadName'])) continue;
+					$specifiedUploadNames[] = $c['uploadName'];
+				}
+				$specifiedUploadNames = array_unique($specifiedUploadNames);
+
+				// A new upload only carries temporaryFileId; nothing stored to compare
+				if (!$specifiedUploadNames) {
+					return;
+				}
+
+				// Fail closed when the filename cannot be tied to this submission
+				if (!$submission) {
+					$validator->errors()->add('coverImage', __('api.publicFiles.400.invalidImage'));
+					return;
+				}
+
+				$existingUploadNames = [];
+				foreach ((array) $submission->getData('publications') as $p) {
+					foreach ((array) $p->getData('coverImage') as $c) {
+						if (!isset($c['uploadName'])) continue;
+						$existingUploadNames[] = $c['uploadName'];
+					}
+				}
+				$existingUploadNames = array_unique($existingUploadNames);
+
+				if (count(array_diff($specifiedUploadNames, $existingUploadNames))) {
+					$validator->errors()->add('coverImage', __('api.publicFiles.400.invalidImage'));
+				}
+			});
+		}
+
 		// The urlPath must not be used in a publication attached to
 		// any submission other than this publication's submission
 		if (!empty($props['urlPath'])) {

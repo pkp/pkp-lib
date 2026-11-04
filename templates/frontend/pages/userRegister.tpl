@@ -70,8 +70,8 @@
 			{/foreach}
 			{if $userCanRegisterReviewer}
 				<fieldset class="reviewer">
-					{if $userCanRegisterReviewer > 1}
-						<legend>
+					{if $userCanRegisterReviewer >= 1}
+						<legend class="pkp_screen_reader">
 							{translate key="user.reviewerPrompt"}
 						</legend>
 						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.userGroup{/capture}

@@ -87,15 +87,9 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
 
                     // Special handling to catch readOnly, writeOnly and apiSummary props in objects
                     if (!empty($propSchema->{'$ref'})) {
-                        if (empty($propSchema->readOnly) || empty($propSchema->writeDisabledInApi)) {
-                            $editPropSchema->properties = $propSchema;
-                        }
-                        if (empty($propSchema->writeOnly)) {
-                            $readPropSchema->properties = $propSchema;
-                        }
-                        if (!empty($propSchema->apiSummary)) {
-                            $summaryPropSchema->properties = $propSchema;
-                        }
+                        $editPropSchema = (object) ['$ref' => $propSchema->{'$ref'}];
+                        $readPropSchema = (object) ['$ref' => $propSchema->{'$ref'}];
+                        $summaryPropSchema = (object) ['$ref' => $propSchema->{'$ref'}];
                     } elseif ($propSchema->type === 'object') {
                         $subPropsEdit = $subPropsRead = $subPropsSummary = [];
                         foreach ($propSchema->properties as $subPropName => $subPropSchema) {

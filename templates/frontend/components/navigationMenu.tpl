@@ -19,16 +19,27 @@
 			{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 				{continue}
 			{/if}
-			<li class="{$liClass|escape}">
-				<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+
+			{* Check if menu item has submenu *}
+			{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
+				{assign var=hasSubmenu value=true}
+			{else}
+				{assign var=hasSubmenu value=false}
+			{/if}
+			{* Check if is current page for aria-current parameter*}
+			{assign var="isActive" value={default_item_active item=$navigationMenuItemAssignment->navigationMenuItem}}
+
+		<li class="{$liClass|escape} main-menu__nav-item{if $hasSubmenu} dropdown{/if} {default_item_active item=$navigationMenuItemAssignment->navigationMenuItem}" >
+				<a {if $isActive} aria-current="page" {/if}{if $hasSubmenu} aria-current="true"{/if} href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
 					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 				</a>
 				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
 					<ul>
 						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+							{assign var="isActive2" value={default_item_active item=$childNavigationMenuItemAssignment->navigationMenuItem}}
 							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-								<li class="{$liClass|escape}">
-									<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+								<li class="{$liClass|escape} {default_item_active item=$childNavigationMenuItemAssignment->navigationMenuItem}">
+									<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" {if $isActive2} aria-current="page" {/if} >
 										{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 									</a>
 								</li>

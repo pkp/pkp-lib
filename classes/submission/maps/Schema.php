@@ -679,6 +679,7 @@ class Schema extends \PKP\core\maps\Schema
                 'dateConfirmed' => $dateConfirmed,
                 'dateCompleted' => $dateCompleted,
                 'dateConsidered' => $dateConsidered,
+                'isConfirmedByEditor' => $reviewAssignment->isConfirmedByEditor(),
                 'dateAssigned' => $dateAssigned,
                 'competingInterests' => $reviewAssignment->getCompetingInterests(),
                 'competingInterestsDeclared' => $reviewAssignment->getCompetingInterestsDeclared(),

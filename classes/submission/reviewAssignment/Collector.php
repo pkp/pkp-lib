@@ -495,11 +495,7 @@ class Collector implements CollectorInterface, ViewsCount
 
         $q->when(
             !is_null($this->isConfirmedByEditor),
-            fn (Builder $q) => $q->where(
-                fn (Builder $q) => $this->isConfirmedByEditor
-                    ? $q->whereNotNull('ra.date_considered')->orWhereNotNull('ra.date_acknowledged')
-                    : $q->whereNull('ra.date_considered')->whereNull('ra.date_acknowledged')
-            )
+            fn (Builder $q) => $this->dao::whereConfirmedByEditor($q, 'ra', $this->isConfirmedByEditor)
         );
 
         $q->when(
@@ -667,8 +663,9 @@ class Collector implements CollectorInterface, ViewsCount
             $q->where('ra.is_review_publicly_visible', $this->isPubliclyVisible ? 1 : 0)
         );
 
-        $q->when($this->isAccepted,
-            fn(Builder $q) => $q->whereNotNull('ra.date_confirmed')
+        $q->when(
+            $this->isAccepted,
+            fn (Builder $q) => $q->whereNotNull('ra.date_confirmed')
                 ->where('ra.declined', '<>', 1)
                 ->where('ra.cancelled', '<>', 1)
         );

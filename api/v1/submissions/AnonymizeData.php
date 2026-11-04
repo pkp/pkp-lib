@@ -67,7 +67,8 @@ trait AnonymizeData
                 if ($currentUserReviewAssignment->isNotEmpty() && $currentUserReviewAssignment->has($reviewId)) {
                     return false;
                 }
-                return $reviewAssignment->getReviewMethod() !== ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN;
+                $reviewIsOpenAndConsidered = $reviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN && $reviewAssignment->isConfirmedByEditor();
+                return !$reviewIsOpenAndConsidered;
             })->filter()->keys()->toArray();
         }
 

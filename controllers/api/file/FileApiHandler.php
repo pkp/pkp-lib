@@ -108,7 +108,9 @@ class FileApiHandler extends Handler
             }
         }
         if (!$file) {
-            throw new Exception('File ' . $fileId . ' is not a revision of submission file ' . $submissionFile->getId());
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException(
+                'File ' . $fileId . ' is not a revision of submission file ' . $submissionFile->getId()
+            );
         }
         if (!app()->get('file')->fs->has($file->path)) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();

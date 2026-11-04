@@ -27,7 +27,6 @@ use PKP\db\DAORegistry;
 /**
  * @method static Builder withReviewRoundIds(array $reviewRoundIds) Filter responses by review round IDs.
  * @method static Builder withUserId(int $userId) Filter responses by user ID.
- * @method static Builder withDoiIds(array $doiIds) Filter responses by DOI IDs.
  */
 class AuthorResponse extends Model
 {
@@ -41,13 +40,11 @@ class AuthorResponse extends Model
         'reviewRoundId',
         'userId',
         'authorResponse',
-        'doiId'
     ];
 
     protected $casts = [
         'reviewRoundId' => 'int',
         'userId' => 'int',
-        'doiId' => 'int'
     ];
 
     /**
@@ -94,16 +91,6 @@ class AuthorResponse extends Model
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
                 return $reviewRoundDao->getById($this->reviewRoundId);
             }
-        )->shouldCache();
-    }
-
-    /**
-     * DOI associated with this response.
-     */
-    protected function doi(): Attribute
-    {
-        return Attribute::make(
-            get: fn () => $this->doiId !== null ? Repo::doi()->get($this->doiId) : null
         )->shouldCache();
     }
 
@@ -165,11 +152,6 @@ class AuthorResponse extends Model
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
         return $query->where('user_id', $userId);
-    }
-
-    public function scopeWithDoiIds(Builder $query, array $doiIds): Builder
-    {
-        return $query->whereIn('doi_id', $doiIds);
     }
 
     public function associateAuthorsToResponse(array $authorIds): bool

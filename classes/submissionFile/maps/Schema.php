@@ -24,6 +24,7 @@ use PKP\core\maps\Schema as BaseSchema;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submissionFile\SubmissionFile;
+use PKP\user\Collector;
 use PKP\user\User;
 
 class Schema extends BaseSchema
@@ -227,7 +228,7 @@ class Schema extends BaseSchema
 
             if ($prop === 'uploaderUserName') {
                 $userId = $submissionFile->getData('uploaderUserId');
-                $output[$prop] = $userId ? $uploaderUsernames[$userId] : ''; // userId can be null, see pkp/pkp-lib#8493
+                $output[$prop] = $userId ? ($uploaderUsernames[$userId] ?? '') : ''; // userId can be null, see pkp/pkp-lib#8493
 
                 continue;
             }
@@ -278,6 +279,6 @@ class Schema extends BaseSchema
     {
         $userIds = $collection->map(fn (SubmissionFile $submissionFile) => $submissionFile->getUploaderUserId())
             ->unique()->filter()->toArray();
-        return $userIds ? Repo::user()->getCollector()->filterByUserIds($userIds)->getUsernames()->all() : [];
+        return $userIds ? Repo::user()->getCollector()->filterByUserIds($userIds)->filterByStatus(Collector::STATUS_ALL)->getUsernames()->all() : [];
     }
 }

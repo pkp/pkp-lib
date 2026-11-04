@@ -545,6 +545,153 @@ class SettingsBuilderTest extends PKPTestCase
     }
 
     //
+    // update() / delete() through Model::query() tests
+    //
+
+    public function testQueryUpdateOfSettingsUpdatesMatchedModelsOnly(): void
+    {
+        $matchedId = $this->seedSchemaModel(['en' => 'English']);
+        $otherId = $this->seedSchemaModel(['en' => 'Other']);
+
+        $count = TestSettingsSchemaModel::query()->whereKey($matchedId)->update(['title' => ['en' => 'Updated']]);
+
+        $this->assertSame(1, $count);
+        $this->assertSame('Updated', $this->getSettingRows('test_settings_schema_entity_settings', $matchedId, 'title')[0]->setting_value);
+        $this->assertSame('Other', $this->getSettingRows('test_settings_schema_entity_settings', $otherId, 'title')[0]->setting_value);
+    }
+
+    public function testQueryUpdateOfSettingsAndPrimaryValuesUsesModelsMatchedBeforeTheUpdate(): void
+    {
+        $firstId = $this->seedSchemaModel(['en' => 'First']);
+        $secondId = $this->seedSchemaModel(['en' => 'Second']);
+        $unmatchedId = $this->seedSchemaModel(['en' => 'Unmatched']);
+        DB::table('test_settings_schema_entity')->where('test_id', $unmatchedId)->update(['parent_id' => 5]);
+
+        // The updated rows don't match the query after the primary values are updated
+        $count = TestSettingsSchemaModel::query()->where('parent_id', 1)->update(['parent_id' => 2, 'title' => ['en' => 'Updated']]);
+
+        $this->assertSame(2, $count);
+        foreach ([$firstId, $secondId] as $modelId) {
+            $this->assertSame('Updated', $this->getSettingRows('test_settings_schema_entity_settings', $modelId, 'title')[0]->setting_value);
+        }
+        $this->assertSame('Unmatched', $this->getSettingRows('test_settings_schema_entity_settings', $unmatchedId, 'title')[0]->setting_value);
+    }
+
+    public function testNonSchemaQueryUpdateOfSettings(): void
+    {
+        $matchedId = $this->seedPureModel(['en' => 'English']);
+        $otherId = $this->seedPureModel(['en' => 'Other']);
+
+        TestSettingsPureModel::query()->whereKey($matchedId)->update(['familyName' => ['en' => 'Updated']]);
+
+        $this->assertSame('Updated', $this->getSettingRows('test_settings_pure_entity_settings', $matchedId, 'familyName')[0]->setting_value);
+        $this->assertSame('Other', $this->getSettingRows('test_settings_pure_entity_settings', $otherId, 'familyName')[0]->setting_value);
+    }
+
+    public function testQueryDeleteRemovesSettingsOfMatchedModelsOnly(): void
+    {
+        $matchedId = $this->seedSchemaModel(['en' => 'English', 'fr_CA' => 'Français']);
+        $otherMatchedId = $this->seedSchemaModel(['en' => 'Other']);
+        $survivorId = $this->seedSchemaModel(['en' => 'Survivor']);
+        DB::table('test_settings_schema_entity')->where('test_id', $survivorId)->update(['parent_id' => 5]);
+
+        // The settings tables of the test models have no ON DELETE CASCADE
+        $count = TestSettingsSchemaModel::query()->where('parent_id', 1)->delete();
+
+        $this->assertSame(2, $count);
+        foreach ([$matchedId, $otherMatchedId] as $modelId) {
+            $this->assertSame(0, DB::table('test_settings_schema_entity')->where('test_id', $modelId)->count());
+            $this->assertSame(0, DB::table('test_settings_schema_entity_settings')->where('test_id', $modelId)->count());
+        }
+        $this->assertSame(1, DB::table('test_settings_schema_entity')->where('test_id', $survivorId)->count());
+        $this->assertSettingRowCount('test_settings_schema_entity_settings', $survivorId, 'title', 1);
+    }
+
+    public function testNonSchemaQueryDeleteRemovesSettings(): void
+    {
+        $modelId = $this->seedPureModel(['en' => 'English', 'fr_CA' => 'Français']);
+
+        TestSettingsPureModel::query()->whereKey($modelId)->delete();
+
+        $this->assertSame(0, DB::table('test_settings_pure_entity')->where('test_id', $modelId)->count());
+        $this->assertSame(0, DB::table('test_settings_pure_entity_settings')->where('test_id', $modelId)->count());
+    }
+
+    //
+    // select() tests
+    //
+
+    public function testSelectSettingColumn(): void
+    {
+        $modelId = $this->seedSchemaModel(['en' => 'English', 'fr_CA' => 'Français']);
+
+        $model = TestSettingsSchemaModel::query()->select(['title'])->find($modelId);
+
+        $this->assertSame(['en' => 'English', 'fr_CA' => 'Français'], $model->getAttribute('title'));
+        // Only the selected columns are kept
+        $this->assertSame(['title'], array_keys($model->getAttributes()));
+    }
+
+    public function testSelectPrimaryKeyAndSettingColumn(): void
+    {
+        $modelId = $this->seedSchemaModel(['en' => 'English']);
+
+        $model = TestSettingsSchemaModel::query()->select(['test_id', 'title'])->find($modelId);
+
+        $this->assertSame($modelId, (int) $model->getKey());
+        $this->assertSame(['en' => 'English'], $model->getAttribute('title'));
+        $this->assertArrayNotHasKey('parent_id', $model->getAttributes());
+    }
+
+    public function testSelectNonSchemaSettingColumn(): void
+    {
+        $modelId = $this->seedPureModel(['en' => 'English']);
+
+        $model = TestSettingsPureModel::query()->select(['familyName'])->find($modelId);
+
+        $this->assertSame(['en' => 'English'], $model->getAttribute('familyName'));
+    }
+
+    public function testSelectPrimaryColumnWithoutPrimaryKeyDoesNotLoadSettings(): void
+    {
+        $modelId = $this->seedSchemaModel(['en' => 'English']);
+        $warnings = [];
+        set_error_handler(function (int $errno, string $errstr) use (&$warnings) {
+            $warnings[] = $errstr;
+            return true;
+        });
+
+        try {
+            $model = TestSettingsSchemaModel::query()->select(['parent_id'])->whereKey($modelId)->first();
+        } finally {
+            restore_error_handler();
+        }
+
+        $this->assertSame([], $warnings);
+        $this->assertSame(['parent_id'], array_keys($model->getAttributes()));
+        $this->assertSame(1, (int) $model->getAttribute('parent_id'));
+    }
+
+    public function testSelectWithTheColumnsOfTheGetCallStillFiltersAttributes(): void
+    {
+        $modelId = $this->seedSchemaModel(['en' => 'English']);
+
+        $model = TestSettingsSchemaModel::query()->whereKey($modelId)->first(['title']);
+
+        $this->assertSame(['title'], array_keys($model->getAttributes()));
+    }
+
+    public function testSelectAllColumnsOfTheTableKeepsPrimaryColumnsAndSettings(): void
+    {
+        $modelId = $this->seedSchemaModel(['en' => 'English']);
+
+        $model = TestSettingsSchemaModel::query()->select('test_settings_schema_entity.*')->find($modelId);
+
+        $this->assertSame(1, (int) $model->getAttribute('parent_id'));
+        $this->assertSame(['en' => 'English'], $model->getAttribute('title'));
+    }
+
+    //
     // Simple delegators
     //
 

@@ -760,6 +760,19 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
+     * Whether an editor has "signed off" on a review.
+     * Used for confirming if review should be made broadly accessible if it is open/public.
+     */
+    public function isConfirmedByEditor(): bool
+    {
+        if ($this->getConsidered() === self::REVIEW_ASSIGNMENT_UNCONSIDERED) {
+            return false;
+        }
+
+        return $this->getDateConsidered() || $this->getDateAcknowledged();
+    }
+
+    /**
      * Get the translation key for the current status
      *
      * @param int $status Optionally pass a status to retrieve a specific key.

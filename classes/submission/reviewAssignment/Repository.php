@@ -248,8 +248,7 @@ class Repository
      */
     protected function canHaveDoi(ReviewAssignment $reviewAssignment): bool
     {
-        return ($reviewAssignment->getDateConsidered() || $reviewAssignment->getDateAcknowledged())
-            && $reviewAssignment->getIsReviewPubliclyVisible();
+        return $reviewAssignment->isConfirmedByEditor() && $reviewAssignment->getIsReviewPubliclyVisible();
     }
 
     /**

@@ -90,7 +90,7 @@ class SubmissionPeerReviewResource extends JsonResource
 
         // Only confirmed reviews are to be exposed; however, all accepted reviews are to be considered when preparing summary further down
         $confirmedReviewAssignments = $acceptedReviewAssignments->filter(
-            fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getDateConsidered() !== null || $reviewAssignment->getDateAcknowledged() !== null
+            fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->isConfirmedByEditor()
         );
 
         $confirmedReviewsGroupedByRoundId = $confirmedReviewAssignments

@@ -250,7 +250,15 @@ class Dispatcher {
 	 */
 	function handle404() {
 		header('HTTP/1.0 404 Not Found');
-		fatalError('404 Not Found');
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_API);
+		$templateMgr = TemplateManager::getManager(Application::get()->getRequest());
+		$templateMgr->assign([
+				'pageTitle' => 'api.404.resourceNotFound',
+				'errorMsg' => '',
+				'errorParams' => [],
+		]);
+		$templateMgr->display('frontend/pages/error.tpl');
+		die();
 	}
 }
 

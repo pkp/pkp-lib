@@ -33,6 +33,7 @@ use PKP\identity\Identity;
 use PKP\plugins\Hook;
 use PKP\publication\PublicationCategory;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\DAO as ReviewAssignmentsDAO;
 use PKP\submission\reviewRound\ReviewRound;
 
 /**
@@ -896,11 +897,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                                 )
                                 ->whereColumn('ra.round', '=', 'agrr.current_round')
                                 ->whereColumn('ra.stage_id', '=', 'agrr.stage_id')
-                                ->where(
-                                    fn (Builder $q) => $q
-                                        ->whereNotNull('ra.date_considered')
-                                        ->orWhereNotNull('ra.date_acknowledged') // Considered reviews can be null, see pkp/pkp-lib#11401
-                                ),
+                                ->where(fn (Builder $q) => ReviewAssignmentsDAO::whereConfirmedByEditor($q)),
                             'rw',
                             fn (JoinClause $join) => $join->on('s.submission_id', '=', 'rw.submission_id')
                         )

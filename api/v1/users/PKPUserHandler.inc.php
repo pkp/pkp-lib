@@ -105,14 +105,14 @@ class PKPUserHandler extends APIHandler {
 	 */
 	public function getUser($slimRequest, $response, $args) {
 		$request = $this->getRequest();
-		$context = $request->getContext();
 		$userService = ServicesContainer::instance()->get('user');
 
-		if (!empty($args['userId'])) {
-			$user = $userService->getUser((int) $args['userId']);
+		$userId = isset($args['userId']) ? $args['userId'] : null;
+		if (Validation::canAdminister($userId, $request->getUser()->getId())) {
+			$user = $userService->getUser((int) $userId);
 		}
 
-		if (!$user) {
+		if (!isset($user)) {
 			return $response->withStatus(404)->withJsonError('api.submissions.404.resourceNotFound');
 		}
 

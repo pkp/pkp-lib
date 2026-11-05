@@ -138,6 +138,9 @@ class QueryNoteForm extends Form
         $user = $request->getUser();
 
         $note = Note::find($this->_noteId);
+        if (!$note) {
+            return null;
+        }
         $note->userId = $request->getUser()->getId();
         $note->contents = $this->getData('comment');
         $note->save();

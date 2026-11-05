@@ -20,6 +20,7 @@ use Carbon\Carbon;
 use Exception;
 use PKP\identity\Identity;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -324,15 +325,31 @@ abstract class Invitation
 
         $this->invitationModel->save();
 
-        InvitationModel::byStatus(InvitationStatus::PENDING)
+        $invitationIds = $this->getInvitationsToDelete()
+            ->pluck('id')
+            ->all();
+
+        InvitationModel::query()
+            ->whereIn('invitation_id', $invitationIds)
+            ->delete();
+
+        return true;
+    }
+
+    /**
+     * Pending related invitations, delete when invitation is dispatched.
+     *
+     * @return Collection<int,InvitationModel>
+     */
+    protected function getInvitationsToDelete(): Collection
+    {
+        return InvitationModel::byStatus(InvitationStatus::PENDING)
             ->byType($this->getType())
             ->byNotId($this->getId())
             ->when(isset($this->invitationModel->userId), fn (Builder $q) => $q->byUserId($this->invitationModel->userId))
             ->when(!isset($this->invitationModel->userId) && $this->invitationModel->email, fn (Builder $q) => $q->byEmail($this->invitationModel->email))
             ->when(isset($this->invitationModel->contextId), fn (Builder $q) => $q->byContextId($this->invitationModel->contextId))
-            ->delete();
-
-        return true;
+            ->get();
     }
 
     public function getInviter(): ?User

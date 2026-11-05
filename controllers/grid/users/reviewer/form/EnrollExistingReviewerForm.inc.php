@@ -23,7 +23,12 @@ class EnrollExistingReviewerForm extends ReviewerForm {
 		parent::__construct($submission, $reviewRound);
 		$this->setTemplate('controllers/grid/users/reviewer/form/enrollExistingReviewerForm.tpl');
 
-		$this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
+		$this->addCheck(new FormValidatorCustom($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired', function($userGroupId) {
+			$context = Application::get()->getRequest()->getContext();
+			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+			$userGroup = $userGroupDao->getById($userGroupId, $context->getId());
+			return $userGroup && $userGroup->getRoleId() == ROLE_ID_REVIEWER;
+		}));
 		$this->addCheck(new FormValidator($this, 'userId', 'required', 'manager.people.existingUserRequired'));
 	}
 

@@ -19,6 +19,7 @@
 namespace PKP\session;
 
 use Exception;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAO;
 
@@ -141,7 +142,34 @@ class SessionDAO extends DAO
      */
     public function deleteById($sessionId)
     {
-        $this->update('DELETE FROM sessions WHERE session_id = ?', [$sessionId]);
+        for ($attempt = 0; $attempt < 2; $attempt++) {
+            try {
+                $this->update('DELETE FROM sessions WHERE session_id = ?', [$sessionId]);
+                return;
+            } catch (QueryException $exception) {
+                if (!$this->isDeadlock($exception)) {
+                    throw $exception;
+                }
+                if ($attempt > 0) {
+                    error_log('Session could not be deleted because of a database deadlock: ' . $exception->getMessage());
+                    return;
+                }
+            }
+        }
+    }
+
+    /**
+     * Check whether a database exception was caused by a deadlock.
+     */
+    protected function isDeadlock(QueryException $exception): bool
+    {
+        if ((string) $exception->getCode() === '40001') {
+            return true;
+        }
+        if (isset($exception->errorInfo[1]) && (int) $exception->errorInfo[1] === 1213) {
+            return true;
+        }
+        return stripos($exception->getMessage(), 'Deadlock found') !== false;
     }
 
     /**

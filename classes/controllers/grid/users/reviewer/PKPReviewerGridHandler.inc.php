@@ -319,7 +319,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return string Serialized JSON object
 	 */
 	function createReviewer($args, $request) {
-		return $this->updateReviewer($args, $request);
+		return $this->saveReviewerForm(REVIEWER_SELECT_CREATE, $request);
 	}
 
 	/**
@@ -329,7 +329,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return string Serialized JSON object
 	 */
 	function enrollReviewer($args, $request) {
-		return $this->updateReviewer($args, $request);
+		return $this->saveReviewerForm(REVIEWER_SELECT_ENROLL_EXISTING, $request);
 	}
 
 	/**
@@ -339,7 +339,16 @@ class PKPReviewerGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function updateReviewer($args, $request) {
-		$selectionType = $request->getUserVar('selectionType');
+		return $this->saveReviewerForm(REVIEWER_SELECT_ADVANCED_SEARCH, $request);
+	}
+
+	/**
+	 * Save the designated reviewer form.
+	 * @param $selectionType int REVIEWER_SELECT_...
+	 * @param $request PKPRequest
+	 * @return JSONMessage JSON object
+	 */
+	function saveReviewerForm($selectionType, $request) {
 		$formClassName = $this->_getReviewerFormClassName($selectionType);
 
 		// Form handling

@@ -126,10 +126,10 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     public function scopeWithActiveAndActiveInFuture(Builder $query): Builder
     {
         $currentDateTime = Core::getCurrentDate();
-        return $query->whereNotNull('user_user_groups.date_start')
+        return $query
             ->where(function ($q) use ($currentDateTime) {
                 $q->where(function ($q) use ($currentDateTime) {
-                    $q->where('user_user_groups.date_start', '<=', $currentDateTime) // Active ones
+                    $q->where(fn ($q) => $q->whereNull('user_user_groups.date_start')->orWhere('user_user_groups.date_start', '<=', $currentDateTime)) // Active ones (no start date = assigned before 3.5)
                         ->where(function ($q) use ($currentDateTime) {
                             $q->whereNull('user_user_groups.date_end') // No end date means still active
                                 ->orWhere('user_user_groups.date_end', '>=', $currentDateTime); // End date in the future

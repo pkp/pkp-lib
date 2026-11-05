@@ -123,7 +123,35 @@ class SessionDAO extends DAO {
 	 * @param $sessionId string
 	 */
 	function deleteById($sessionId) {
-		$this->update('DELETE FROM sessions WHERE session_id = ?', [$sessionId]);
+		for ($attempt = 0; $attempt < 2; $attempt++) {
+			try {
+				$this->update('DELETE FROM sessions WHERE session_id = ?', [$sessionId]);
+				return;
+			} catch (\Illuminate\Database\QueryException $exception) {
+				if (!$this->_isDeadlock($exception)) {
+					throw $exception;
+				}
+				if ($attempt > 0) {
+					error_log('Session could not be deleted because of a database deadlock: ' . $exception->getMessage());
+					return;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Check whether a database exception was caused by a deadlock.
+	 * @param $exception \Illuminate\Database\QueryException
+	 * @return boolean
+	 */
+	function _isDeadlock($exception) {
+		if ((string) $exception->getCode() === '40001') {
+			return true;
+		}
+		if (isset($exception->errorInfo[1]) && (int) $exception->errorInfo[1] === 1213) {
+			return true;
+		}
+		return stripos($exception->getMessage(), 'Deadlock found') !== false;
 	}
 
 	/**

@@ -276,6 +276,9 @@ class Validation {
 					return md5($valueToEncrypt);
 			}
 		} else {
+			if (is_string($password) && strpos($password, "\0") !== false) {
+				$password = str_replace("\0", '', $password);
+			}
 			return password_hash($password, PASSWORD_BCRYPT);
 		}
 	}

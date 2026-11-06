@@ -3,8 +3,8 @@
 /**
  * @file classes/ror/Ror.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Ror
@@ -19,6 +19,7 @@
 namespace PKP\ror;
 
 use PKP\core\DataObject;
+use PKP\i18n\LocaleConversion;
 
 class Ror extends DataObject
 {
@@ -64,6 +65,16 @@ class Ror extends DataObject
     public function getName(?string $locale = null): string|array|null
     {
         return $this->getData('name', $locale);
+    }
+
+    /**
+     * Get the name for an application locale, falling back to the display locale.
+     */
+    public function getNameForLocale(string $locale): ?string
+    {
+        $rorLocale = LocaleConversion::getIso1FromLocale($locale);
+        return ($rorLocale ? $this->getName($rorLocale) : null)
+            ?? $this->getName($this->getDisplayLocale());
     }
 
     /**

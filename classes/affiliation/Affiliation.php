@@ -3,8 +3,8 @@
 /**
  * @file classes/affiliation/Affiliation.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2025-2026 Simon Fraser University
+ * Copyright (c) 2025-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Affiliation
@@ -19,7 +19,7 @@
 namespace PKP\affiliation;
 
 use PKP\core\DataObject;
-use PKP\i18n\LocaleConversion;
+use PKP\facades\Locale;
 use PKP\ror\Ror;
 
 class Affiliation extends DataObject
@@ -85,13 +85,11 @@ class Affiliation extends DataObject
                 // try to map ROR locales to all submission locales
                 $names = [];
                 foreach ($allowedLocales as $allowedLocale) {
-                    $rorLocale = LocaleConversion::getIso1FromLocale($allowedLocale);
-                    $names[$allowedLocale] = $rorObject->getName($rorLocale) ?? $rorObject->getName($rorObject->getDisplayLocale());
+                    $names[$allowedLocale] = $rorObject->getNameForLocale($allowedLocale);
                 }
                 return $names;
             }
-            $rorLocale = LocaleConversion::getIso1FromLocale($locale);
-            return $rorObject->getName($rorLocale) ?? $rorObject->getName($rorObject->getDisplayLocale());
+            return $rorObject->getNameForLocale($locale);
         }
         return $this->getData('name', $locale);
     }
@@ -117,10 +115,8 @@ class Affiliation extends DataObject
      */
     public function getLocalizedName(?string $preferredLocale = null): string|null
     {
-        $rorObject = $this->getRorObject();
-        if ($rorObject) {
-            $preferredLocale = $preferredLocale ? LocaleConversion::getIso1FromLocale($preferredLocale) : $preferredLocale;
-            return $rorObject->getLocalizedName($preferredLocale);
+        if ($rorObject = $this->getRorObject()) {
+            return $rorObject->getNameForLocale($preferredLocale ?? Locale::getLocale());
         }
         return $this->getLocalizedData('name', $preferredLocale);
     }

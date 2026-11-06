@@ -78,7 +78,6 @@ class NativeXmlSubmissionFilter extends NativeImportFilter {
 
 		import('lib.pkp.classes.workflow.WorkflowStageDAO');
 		$submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
-		$submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));
 
 		// Handle any additional attributes etc.
 		$submission = $this->populateObject($submission, $node);

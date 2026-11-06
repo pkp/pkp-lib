@@ -174,7 +174,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         break;
                     case 'country': $author->setCountry($n->textContent);
                         break;
-                    case 'email': $author->setEmail($n->textContent);
+                    case 'email': $author->setEmail($n->textContent ?: null);
                         break;
                     case 'url':
                         if ($author->getData('contributorType') === ContributorType::ANONYMOUS->getName()) {
@@ -243,16 +243,6 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                     ])
                 );
             }
-        }
-
-        if ($author->getData('contributorType') !== ContributorType::ANONYMOUS->getName() && !$author->getData('email')) {
-            $deployment->addError(
-                Application::ASSOC_TYPE_SUBMISSION,
-                $publication->getId(),
-                __('plugins.importexport.common.error.missingEmail', [
-                    'authorName' => $authorName,
-                ])
-            );
         }
 
         if ($author->getData('contributorType') !== ContributorType::ANONYMOUS->getName() && !$author->getData('country')) {

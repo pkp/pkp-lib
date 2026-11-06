@@ -4079,9 +4079,6 @@ msgstr "Back to Contributor Roles"
 msgid "plugins.importexport.common.error.missingContributorType"
 msgstr "Missing contributor type; defaults to person."
 
-msgid "plugins.importexport.common.error.missingEmail"
-msgstr "The author {$authorName} does not have an email."
-
 msgid "plugins.importexport.common.error.missingCountry"
 msgstr "The author {$authorName} does not have a country."
 

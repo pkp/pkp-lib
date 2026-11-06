@@ -144,7 +144,9 @@ class DAOResultFactory extends ItemIterator {
 	 * @return int
 	 */
 	function getPageCount() {
-		return ceil($this->getCount() / $this->rangeInfo->getCount());
+		$itemsPerPage = $this->rangeInfo->getCount();
+		if (!is_numeric($itemsPerPage) || $itemsPerPage < 1) return 1;
+		return ceil($this->getCount() / $itemsPerPage);
 	}
 
 	/**

@@ -737,7 +737,9 @@ abstract class PKPWorkflowHandler extends Handler {
 		$stageId = $args[1];
 
 		// Translate the operation to a workflow stage identifier.
-		assert(WorkflowStageDAO::getPathFromId($stageId) !== null);
+		if (WorkflowStageDAO::getPathFromId($stageId) === null) {
+			$request->getDispatcher()->handle404();
+		}
 		return $stageId;
 	}
 

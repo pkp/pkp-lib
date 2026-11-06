@@ -131,6 +131,7 @@ class ArrayItemIterator extends ItemIterator {
 	 * @return int
 	 */
 	function getPageCount() {
+		if ($this->itemsPerPage < 1) return 1;
 		return max(1, ceil($this->count / $this->itemsPerPage));
 	}
 

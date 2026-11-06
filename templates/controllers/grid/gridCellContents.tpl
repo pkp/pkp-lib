@@ -34,7 +34,7 @@
 {/if}
 
 {if $_label != ''}
-	<span class="label{if count($actions) gt 0} before_actions{/if}">
+	<span class="label{if $actions && count($actions) gt 0} before_actions{/if}">
 		{if $column->hasFlag('maxLength')}
 			{assign var="maxLength" value=$column->getFlag('maxLength')}
 			{$_label|truncate:$maxLength}
@@ -44,7 +44,7 @@
 	</span>
 {/if}
 
-{if count($actions) gt 0}
+{if $actions && count($actions) gt 0}
 	{foreach from=$actions item=action}
 		{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId anyhtml=$column->hasFlag('anyhtml')}
 	{/foreach}

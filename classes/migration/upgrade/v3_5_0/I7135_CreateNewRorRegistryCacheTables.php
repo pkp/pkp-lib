@@ -183,14 +183,14 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
         }
 
         // just in case: strip surrounding whitespace or a trailing slash so an otherwise-valid id still passes the check below
-        $value = rtrim(trim($value), '/');
-        $value = preg_replace('#^http://#i', 'https://', $value);
+        $value = strtolower(rtrim(trim($value), '/'));
+        $value = preg_replace('#^http://#', 'https://', $value);
 
         // accept a bare id as well as the full URL both plugin versions stored
-        if (preg_match('#^0[^ILOU]{6}\d{2}$#', $value)) {
+        if (preg_match('#^0[a-hj-km-np-tv-z0-9]{6}\d{2}$#', $value)) {
             $value = 'https://ror.org/' . $value;
         }
 
-        return preg_match('#^https://ror\.org/0[^ILOU]{6}\d{2}$#', $value) ? $value : null;
+        return preg_match('#^https://ror\.org/0[a-hj-km-np-tv-z0-9]{6}\d{2}$#', $value) ? $value : null;
     }
 }

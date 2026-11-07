@@ -191,7 +191,7 @@ class PKPRorController extends PKPBaseController
     {
         $ror = (string) $illuminateRequest->input('ror');
 
-        if (!preg_match('#^https://ror\.org/(0[^ILOU]{6}\d{2})$#', $ror, $matches)) {
+        if (!preg_match('#^https://ror\.org/(0[a-hj-km-np-tv-z0-9]{6}\d{2})$#', $ror, $matches)) {
             return response()->json([
                 'ror' => [__('ror.invalidRorId')],
             ], Response::HTTP_BAD_REQUEST);

@@ -3937,6 +3937,15 @@ msgstr "Ready to invite author"
 msgid "editor.submission.reviewRound.authorResponse.editorCanRequest"
 msgstr "Editor can now request the author's response."
 
+msgid "editor.submission.reviewRound.authorResponse.responseRequested"
+msgstr "Response Requested"
+
+msgid "editor.submission.reviewRound.authorResponse.awaitingResponse"
+msgstr "Waiting for the author to respond."
+
+msgid "editor.submission.reviewRound.authorResponse.noActiveAuthors"
+msgstr "No active authors are assigned to this submission, so a response cannot be requested."
+
 msgid "submission.reviewRound.authorResponse.note"
 msgstr ""
 "All reviews for your submission have been completed. Please review the comments and provide a written response to the reviewers. "
@@ -3948,7 +3957,43 @@ msgstr ""
 "If you would like any changes, please contact the assigned editor."
 
 msgid "submission.reviewRound.authorResponse.noteForEditor"
-msgstr "The following response was submitted by the author, {$userFullName}. Editors may review the response and make edits if necessary."
+msgstr "The following response was submitted by the author. Editors may review the response and make edits if necessary."
+
+msgid "submission.reviewRound.authorResponse.readConfirmation"
+msgstr "Once you have read this response, press \"Mark as Complete\"."
+
+msgid "submission.reviewRound.authorResponse.submittedOn"
+msgstr "Submitted on"
+
+msgid "submission.reviewRound.authorResponse.modify"
+msgstr "Modify Response"
+
+msgid "submission.reviewRound.authorResponse.modifyAuthorResponse"
+msgstr "Modify Author Response"
+
+msgid "submission.reviewRound.authorResponse.modify.description"
+msgstr "You are modifying a submitted response. All modifications will be recorded in the activity log."
+
+msgid "submission.reviewRound.authorResponse.modify.confirmTitle"
+msgstr "Modify this author response?"
+
+msgid "submission.reviewRound.authorResponse.modify.confirmMessage"
+msgstr "You are about to modify the response submitted by author - {$userFullName}. All modifications will be recorded in the activity log."
+
+msgid "submission.reviewRound.authorResponse.markAsComplete.title"
+msgstr "Mark this author response as complete?"
+
+msgid "submission.reviewRound.authorResponse.markAsComplete.message"
+msgstr "You can still modify this response after marking it as complete."
+
+msgid "submission.reviewRound.authorResponse.markAsComplete.message.publiclyVisible"
+msgstr "This response will be made publicly visible alongside the reviews."
+
+msgid "submission.reviewRound.authorResponse.saveChanges.title"
+msgstr "Save changes to this author response?"
+
+msgid "submission.reviewRound.authorResponse.saveChanges.message"
+msgstr "This author response is publicly visible. Saving your changes will update it immediately on the public article page. All modifications will be recorded in the activity log."
 
 msgid "submission.reviewRound.submitYourResponse"
 msgstr "Submit Your Response to Reviewer Feedback"

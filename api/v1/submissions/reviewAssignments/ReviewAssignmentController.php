@@ -251,6 +251,12 @@ class ReviewAssignmentController extends PKPBaseController
             ], Response::HTTP_CONFLICT);
         }
 
+        if ($considered === ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED && !$reviewAssignment->getDateCompleted()) {
+            return response()->json([
+                'error' => __('api.reviews.assignments.422.reviewNotSubmitted'),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         $updatedReviewAssignment = match ($considered) {
             ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED => $this->markReviewViewed($reviewAssignment),
             ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED => $this->markReviewConsidered($reviewAssignment, $submission),
@@ -296,11 +302,6 @@ class ReviewAssignmentController extends PKPBaseController
             // Set the date when the editor confirms the review
             'dateConsidered' => Core::getCurrentDate(),
         ];
-
-        if (!$reviewAssignment->getDateCompleted()) {
-            // Editor completes the review.
-            $newReviewData['dateConfirmed'] = $newReviewData['dateCompleted'] = Core::getCurrentDate();
-        }
 
         // Trigger an update of the review round status
         Repo::reviewAssignment()->edit($reviewAssignment, $newReviewData);
@@ -647,7 +648,8 @@ class ReviewAssignmentController extends PKPBaseController
             }
         }
 
-        if ($isReviewUpdated) {
+        // Saving stands in for the reviewer's submit, so it completes the review even with $isReviewUpdated false: OMP has no recommendation, so the form can save with nothing changed
+        if ($isReviewUpdated || !$reviewAssignment->getDateCompleted()) {
             $newAssignmentData['lastModifiedById'] = Validation::loggedInAs() ?? $user->getId();
 
             if (!$reviewAssignment->getDateCompleted()) {

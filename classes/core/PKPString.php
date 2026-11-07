@@ -29,6 +29,9 @@ class PKPString
     /** @var int Camel case for method names */
     public const CAMEL_CASE_HEAD_DOWN = 2;
 
+    /** @var string PDF file starts with this header */
+    public const PDF_HEADER = '%PDF-';
+
     /**
      * Perform initialization required for the string wrapper library.
      */

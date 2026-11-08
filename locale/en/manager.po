@@ -2705,7 +2705,7 @@ msgid "manager.navigationMenus.remoteUrl.description"
 msgstr "Link to any URL on another site, like https://pkp.sfu.ca."
 
 msgid "manager.navigationMenus.home.description"
-msgstr "Link to the journal home page."
+msgstr "Link to the home page."
 
 msgid "manager.navigationMenus.about.description"
 msgstr ""

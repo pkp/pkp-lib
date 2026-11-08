@@ -123,12 +123,13 @@ class LocaleTest extends PKPTestCase
 
     public function testLocaleMetadataCountryAndScriptDescribeInstanceLocale(): void
     {
-        $metadata = new LocaleMetadata('sr_Cyrl_RS');
+        $countryMetadata = new LocaleMetadata('pt_BR');
+        $scriptMetadata = new LocaleMetadata('sr_Cyrl');
 
-        self::assertSame('Serbia', $metadata->getCountry('en'));
-        self::assertSame('Cyrillic', $metadata->getScript('en'));
-        self::assertNotNull($metadata->getCountry());
-        self::assertNotNull($metadata->getScript());
+        self::assertSame('Brazil', $countryMetadata->getCountry('en'));
+        self::assertSame('Cyrillic', $scriptMetadata->getScript('en'));
+        self::assertNotNull($countryMetadata->getCountry());
+        self::assertNotNull($scriptMetadata->getScript());
     }
 
     public function testGet3LetterFrom2LetterIsoLanguage()

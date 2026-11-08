@@ -161,7 +161,7 @@ class LocaleMetadata
      */
     public function getCountry(?string $locale = null): ?string
     {
-        return \Locale::getDisplayRegion($locale) ?: null;
+        return \Locale::getDisplayRegion($this->locale, $locale) ?: null;
     }
 
     /**
@@ -169,7 +169,7 @@ class LocaleMetadata
      */
     public function getScript(?string $locale = null): ?string
     {
-        return \Locale::getDisplayScript($locale) ?: null;
+        return \Locale::getDisplayScript($this->locale, $locale) ?: null;
     }
 
     /**

@@ -907,7 +907,7 @@ msgid "manager.setup.advanced"
 msgstr ""
 
 msgid "manager.setup.copyrightNotice"
-msgstr ""
+msgstr "ئاگادارکردنەوەی وردبینی"
 
 msgid "manager.setup.copyrightNotice.description"
 msgstr ""

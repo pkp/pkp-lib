@@ -806,7 +806,7 @@ msgid "manager.setup.dois.registration"
 msgstr ""
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "Prefix DOI"
 
 msgid "doi.manager.setup.automaticDeposit"
 msgstr ""

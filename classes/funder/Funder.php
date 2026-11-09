@@ -22,7 +22,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Queue\Events\Looping;
 use PKP\context\Context;
 use PKP\core\traits\ModelWithSettings;
-use PKP\i18n\LocaleConversion;
 use PKP\ror\Ror;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
@@ -165,9 +164,7 @@ class Funder extends Model
                 }
                 $names = [];
                 foreach ($locales as $locale) {
-                    $rorLocale = LocaleConversion::getIso1FromLocale($locale);
-                    $names[$locale] = $rorObject->getName($rorLocale)
-                        ?? $rorObject->getName($rorObject->getDisplayLocale());
+                    $names[$locale] = $rorObject->getNameForLocale($locale);
                 }
                 return empty($names) ? $value : $names;
             },

@@ -744,7 +744,7 @@ msgid "manager.setup.dois.registration"
 msgstr ""
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "DOI префикс"
 
 msgid "doi.manager.setup.automaticDeposit"
 msgstr ""
@@ -855,7 +855,7 @@ msgid "manager.setup.advanced"
 msgstr ""
 
 msgid "manager.setup.copyrightNotice"
-msgstr ""
+msgstr "Зохиогчийн эрхийн мэдэгдэл"
 
 msgid "manager.setup.copyrightNotice.description"
 msgstr ""

@@ -3162,6 +3162,9 @@ msgstr "The HTML references an image that is not attached to this publication's 
 msgid "publication.bodyText.error.imageNotExportable"
 msgstr "The HTML references an image that cannot be exported."
 
+msgid "publication.bodyText.error.unresolvedReferences"
+msgstr "Unable to export references. Missing reference IDs: {$ids}. Citations with invalid or empty sources: {$count}."
+
 msgid "publication.bodyText.pdf.generate"
 msgstr "Create PDF"
 
@@ -3188,6 +3191,9 @@ msgstr "Document Outline"
 
 msgid "publication.bodyText.references.dragHint"
 msgstr "Drag references into the editor to place an in-text citation."
+
+msgid "publication.bodyText.references.link"
+msgstr "Reference {$id}"
 
 msgid "publication.bodyText.import.importing"
 msgstr "Importing document"

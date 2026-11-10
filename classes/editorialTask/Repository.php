@@ -237,7 +237,7 @@ class Repository
 
         if (!empty($taskIds)) {
             EditorialTask::whereIn($primaryKeyName, $taskIds)->delete();
-            Note::whereIn('assoc_id', $taskIds)->where('assoc_type', PKPApplication::ASSOC_TYPE_QUERY)->delete();
+            Note::whereIn('assoc_id', $taskIds)->where('assoc_type', PKPApplication::ASSOC_TYPE_QUERY)->get()->each->delete();
             Notification::whereIn('assoc_id', $taskIds)->where('assoc_type', PKPApplication::ASSOC_TYPE_QUERY)->delete();
         }
     }

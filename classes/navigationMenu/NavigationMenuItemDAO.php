@@ -436,32 +436,4 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
             }
         }
     }
-
-    /**
-     * Port static page as a Custom NMI
-     */
-    public function portStaticPage(\APP\plugins\generic\staticPages\classes\StaticPage $staticPage): ?int
-    {
-        $path = $staticPage->getPath();
-        $contextId = $staticPage->getContextId();
-
-        $existingNMIWithPath = $this->getByPath($contextId, $path);
-
-        $retNavigationMenuItemId = null;
-
-        if (!isset($existingNMIWithPath)) {
-            $navigationMenuItem = $this->newDataObject();
-
-            $navigationMenuItem->setPath($path);
-            $navigationMenuItem->setContextId($contextId);
-            $navigationMenuItem->setType(NavigationMenuItem::NMI_TYPE_CUSTOM);
-
-            $navigationMenuItem->setTitle($staticPage->getTitle(null), null);
-            $navigationMenuItem->setContent($staticPage->getContent(null), null);
-
-            $retNavigationMenuItemId = $this->insertObject($navigationMenuItem);
-        }
-
-        return $retNavigationMenuItemId;
-    }
 }

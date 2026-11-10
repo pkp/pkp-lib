@@ -47,7 +47,6 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 
 class PKPDoiController extends PKPBaseController
 {
@@ -817,7 +816,6 @@ class PKPDoiController extends PKPBaseController
             Repo::doi()::TYPE_PUBLICATION => Repo::publication(),
             Repo::doi()::TYPE_REPRESENTATION => Repo::galley(),
             Repo::doi()::TYPE_PEER_REVIEW => Repo::reviewAssignment(),
-            Repo::doi()::TYPE_AUTHOR_RESPONSE => AuthorResponse::class,
             default => null,
         };
     }

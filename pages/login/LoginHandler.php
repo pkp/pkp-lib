@@ -79,19 +79,7 @@ class LoginHandler extends Handler
             'source' => $request->getUserVar('source'),
         ]);
 
-        // For force_login_ssl with base_url[...]: make sure SSL used for login form
-        $loginUrl = $request->url(null, 'login', 'signIn');
-        if (Config::getVar('security', 'force_login_ssl')) {
-            $loginUrl = preg_replace('/^http:/', 'https:', $loginUrl);
-        }
-        $templateMgr->assign('loginUrl', $loginUrl);
-
-        $isCaptchaEnabled = Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_login');
-        if ($isCaptchaEnabled) {
-            $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
-        }
-
-        $this->_generateAltchaComponent('altcha_on_login', $templateMgr);
+        $this->_assignLoginFormData($request, $templateMgr);
         $templateMgr->display('frontend/pages/userLogin.tpl');
     }
 
@@ -147,7 +135,7 @@ class LoginHandler extends Handler
                 'error' => 'user.login.loginError',
                 'reason' => null,
             ]);
-            $this->_generateAltchaComponent('altcha_on_login', $templateMgr);
+            $this->_assignLoginFormData($request, $templateMgr);
             $templateMgr->display('frontend/pages/userLogin.tpl');
             return;
         }
@@ -155,7 +143,6 @@ class LoginHandler extends Handler
         $error = null;
         $isCaptchaEnabled = Config::getVar('captcha', 'captcha_on_login') && Config::getVar('captcha', 'recaptcha');
         if ($isCaptchaEnabled) {
-            $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
             try {
                 FormValidatorReCaptcha::validateResponse($request->getUserVar('g-recaptcha-response'), $request->getRemoteAddr(), $request->getServerHost());
             } catch (Exception $exception) {
@@ -230,7 +217,7 @@ class LoginHandler extends Handler
             'reason' => htmlspecialchars($reason),
         ]);
 
-        $this->_generateAltchaComponent('altcha_on_login', $templateMgr);
+        $this->_assignLoginFormData($request, $templateMgr);
         $templateMgr->display('frontend/pages/userLogin.tpl');
     }
 
@@ -600,6 +587,25 @@ class LoginHandler extends Handler
             }
         }
         return null;
+    }
+
+    /**
+     * Assign the template data required to render the login form
+     */
+    private function _assignLoginFormData(PKPRequest $request, TemplateManager $templateMgr): void
+    {
+        // For force_login_ssl with base_url[...]: make sure SSL used for login form
+        $loginUrl = $request->url(null, 'login', 'signIn');
+        if (Config::getVar('security', 'force_login_ssl')) {
+            $loginUrl = preg_replace('/^http:/', 'https:', $loginUrl);
+        }
+        $templateMgr->assign('loginUrl', $loginUrl);
+
+        if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_login')) {
+            $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+        }
+
+        $this->_generateAltchaComponent('altcha_on_login', $templateMgr);
     }
 
     /**

@@ -27,14 +27,16 @@ class StoreTemporaryFileException extends Exception
 {
     public function __construct(public TemporaryFile $temporaryFile, public string $targetPath, public ?User $user, public DataObject|Model|null $dataObject)
     {
-        $message = `Unable to store temporary file {$temporaryFile->getFilePath()} in {$targetPath}.`;
+        $message = "Unable to store temporary file {$temporaryFile->getFilePath()} in {$targetPath}.";
         if ($user) {
-            $message .= ` File was uploaded by {$temporaryFile->getUserId()}. The current user is {$user->getId()}.`;
+            $message .= " File was uploaded by {$temporaryFile->getUserId()}. The current user is {$user->getId()}.";
         }
         if ($dataObject) {
-            $class = get_class($dataObject);
-            $id = is_a($class, DataObject::class) ? $dataObject->getId() : $dataObject->id;
-            $message .= ` Handling {$class} id {$id}.`;
+            $id = match(true) {
+                $dataObject instanceof DataObject => $dataObject->getId(),
+                $dataObject instanceof Model => $dataObject->id,
+            };
+            $message .= ' Handling ' . get_class($dataObject) . " {$id}.";
         }
         parent::__construct($message);
     }
@@ -45,8 +47,9 @@ class StoreTemporaryFileException extends Exception
             return null;
         }
 
-        return is_a(get_class($this->dataObject), DataObject::class) ?
-            $this->dataObject->getId() :
-            $this->dataObject->getKey();
+        return match(true) {
+            $this->dataObject instanceof DataObject => $this->dataObject->getId(),
+            $this->dataObject instanceof Model => $this->dataObject->getKey()
+        };
     }
 }

@@ -1,18 +1,22 @@
 <?php
+
 /**
  * @file classes/invitation/stepType/AcceptInvitationStep.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2000-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AcceptInvitationStep
  *
  * @brief create accept invitation steps.
  */
+
 namespace PKP\invitation\stepTypes;
 
 use APP\core\Application;
+use APP\facades\Repo;
+use Illuminate\Support\Str;
 use PKP\components\forms\invitation\AcceptUserDetailsForm;
 use PKP\context\Context;
 use PKP\facades\Locale;
@@ -22,10 +26,14 @@ use PKP\invitation\sections\Form;
 use PKP\invitation\sections\Sections;
 use PKP\invitation\steps\Step;
 use PKP\orcid\OrcidManager;
+use PKP\orcid\traits\HasOrcidNonce;
+use PKP\security\Role;
 use PKP\user\User;
 
 class AcceptInvitationStep extends InvitationStepTypes
 {
+    use HasOrcidNonce;
+
     /**
      * get accept invitation steps
      *
@@ -37,13 +45,13 @@ class AcceptInvitationStep extends InvitationStepTypes
 
         switch ($user) {
             case !null:
-                if(!$user->hasVerifiedOrcid() && OrcidManager::isEnabled($context)) {
-                    $steps[] = $this->verifyOrcidStep();
+                if (!$user->hasVerifiedOrcid() && OrcidManager::isEnabled($context)) {
+                    $steps[] = $this->verifyOrcidStep($invitation);
                 }
                 break;
             default:
                 if (OrcidManager::isEnabled($context)) {
-                    $steps[] = $this->verifyOrcidStep();
+                    $steps[] = $this->verifyOrcidStep($invitation);
                 }
                 $steps[] = $this->userAccountDetailsStep();
                 $steps[] = $this->userDetailsStep($context);
@@ -55,28 +63,40 @@ class AcceptInvitationStep extends InvitationStepTypes
     /**
      * user orcid verification step
      */
-    private function verifyOrcidStep(): \stdClass
+    private function verifyOrcidStep(Invitation $invitation): \stdClass
     {
         $sections = new Sections(
             'userVerifyOrcid',
             __('acceptInvitation.verifyOrcid.stepName'),
             'popup',
             'AcceptInvitationVerifyOrcid',
-            __('userInvitation.searchUser.stepDescription'),
         );
+
+        // Create a nonce to pass with ORCID OAuth callback so invitation key remains on server
+        $invitationNonce = $this->getCachedNonce((string) $invitation->getId());
+        if (!$invitationNonce) {
+            $invitationNonce = Str::random(40);
+            $this->setCachedValues($invitationNonce, (string) $invitation->getId());
+        }
+
+        $orcidOAuthRedirectParams = [
+            'targetOp' => 'invitation',
+            'invitationNonce' => $invitationNonce,
+        ];
+
         $sections->addSection(
             null,
             [
-                'validateFields' => ['orcid', 'orcidIsVerified', 'orcidAccessDenied', 'orcidAccessToken', 'orcidAccessScope', 'orcidRefreshToken', 'orcidAccessExpiresOn'],
+                'validateFields' => [],
                 'orcidUrl' => OrcidManager::getOrcidUrl(),
-                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => 'invitation']),
+                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', $orcidOAuthRedirectParams),
             ]
         );
         $step = new Step(
             'verifyOrcid',
             __('acceptInvitation.verifyOrcid.stepName'),
             __('acceptInvitation.verifyOrcid.stepLabel'),
-            __('userInvitation.verifyOrcid.nextButtonLabel'),
+            __('acceptInvitation.verifyOrcid.nextButtonLabel'),
             'popup',
             __('acceptInvitation.verifyOrcid.stepDescription'),
         );
@@ -94,7 +114,7 @@ class AcceptInvitationStep extends InvitationStepTypes
             __('acceptInvitation.accountDetails.stepName'),
             'form',
             'AcceptInvitationUserAccountDetails',
-            __('userInvitation.accountDetails.stepDescription'),
+            __('acceptInvitation.accountDetails.stepDescription'),
         );
         $sections->addSection(
             null,
@@ -130,14 +150,14 @@ class AcceptInvitationStep extends InvitationStepTypes
             __('acceptInvitation.accountDetails.stepName'),
             'form',
             'AcceptInvitationUserDetailsForms',
-            __('userInvitation.accountDetails.stepDescription'),
+            __('acceptInvitation.accountDetails.stepDescription'),
         );
         $sections->addSection(
             new Form(
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocales($context)),
             ),
             [
                 'validateFields' => [
@@ -171,20 +191,20 @@ class AcceptInvitationStep extends InvitationStepTypes
             'userCreateRoles',
             '',
             'table',
-            'AcceptInvitationReview',
-            ''
+            'AcceptInvitationReview'
         );
         $sections->addSection(
             new Form(
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocales($context)),
             ),
             [
-                'validateFields' => [
-
-                ]
+                'validateFields' => [],
+                'enableEnrollmentMasthead' => $context->getData('enableEnrollmentMasthead'),
+                'enableEnrollmentMastheadReviewers' => $context->getData('enableEnrollmentMastheadReviewers'),
+                'reviewerUserGroupIds' => Repo::userGroup()->getByRoleIds([Role::ROLE_ID_REVIEWER], $context->getId())->map(fn ($u) => $u->userGroupId)->all(),
             ]
         );
         $step = new Step(
@@ -200,11 +220,9 @@ class AcceptInvitationStep extends InvitationStepTypes
     }
 
     /**
-     * Get all form locals
-     * @param Context $context
-     * @return array
+     * Get all form locales.
      */
-    private function getFormLocals(Context $context): array
+    private function getFormLocales(Context $context): array
     {
         $supportedFormLocales = $context->getSupportedFormLocales();
         $sitePrimaryLocale = Application::get()->getRequest()->getSite()->getPrimaryLocale();

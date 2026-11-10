@@ -674,9 +674,13 @@ class UserGridHandler extends GridHandler
         $oldUserId = (int) $request->getUserVar('oldUserId');
         $user = $request->getUser();
 
-        // if there is a $newUserId, this is the second time through, so merge the users.
-        if ($newUserId > 0 && $oldUserId > 0 && Validation::getAdministrationLevel($oldUserId, $user->getId()) === Validation::ADMINISTRATION_FULL) {
-            if (!$request->checkCSRF()) {
+        if ($newUserId > 0 && $oldUserId > 0) {
+            // if there is a $newUserId, this is the second time through, so merge the users.
+            if (
+                Validation::getAdministrationLevel($oldUserId, $user->getId()) != Validation::ADMINISTRATION_FULL ||
+                Validation::getAdministrationLevel($newUserId, $user->getId()) != Validation::ADMINISTRATION_FULL ||
+                !$request->checkCSRF()
+            ) {
                 return new JSONMessage(false);
             }
             Repo::user()->mergeUsers($oldUserId, $newUserId);
@@ -687,8 +691,8 @@ class UserGridHandler extends GridHandler
             ]);
             return $json;
 
-            // Otherwise present the grid for selecting the user to merge into
         } else {
+            // Otherwise present the grid for selecting the user to merge into
             $userGrid = new UserGridHandler();
             $userGrid->initialize($request);
             $userGrid->setTitle('grid.user.mergeUsers.mergeIntoUser');

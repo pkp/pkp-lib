@@ -12,7 +12,7 @@
  * @ingroup jobs
  *
  * @brief Job for queueing one ORCID lookup per citation author carrying an iD. Makes no request
- * of its own, so it extends BaseJob rather than CitationLookupJob. The queued jobs run in the
+ * of its own, so it extends CitationJob rather than CitationLookupJob. The queued jobs run in the
  * chain, so a citation's author writes stay ordered and IsProcessedJob still waits for them.
  */
 
@@ -20,12 +20,9 @@ namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
 use PKP\citation\enum\CitationProcessingStatus;
-use PKP\jobs\BaseJob;
 
-class OrcidJob extends BaseJob
+class OrcidJob extends CitationJob
 {
-    protected int $contextId;
-    protected int $citationId;
     protected string $contactEmail;
 
     public function __construct(int $contextId, int $citationId, string $contactEmail)

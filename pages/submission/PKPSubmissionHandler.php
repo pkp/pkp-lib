@@ -33,6 +33,7 @@ use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\dataCitation\DataCitationEditForm;
 use PKP\components\forms\funder\FunderEditForm;
 use PKP\components\forms\publication\PKPDataAvailabilityForm;
+use PKP\components\forms\publication\PKPFundingStatementForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\CommentsForTheEditors;
 use PKP\components\forms\submission\ConfirmSubmission;
@@ -826,14 +827,39 @@ abstract class PKPSubmissionHandler extends Handler
             ], $dataSection);
         }
 
+        $fundingSections = [];
+
         $fundersSetting = $request->getContext()->getData('funders');
         if (in_array($fundersSetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
-            $sections[] = [
+            $fundingSections[] = [
                 'id' => 'funders',
-                'name' => __('submission.funders'),
                 'type' => self::SECTION_TYPE_FUNDERS,
-                'description' => '',
             ];
+        }
+
+        $fundingStatementSetting = $request->getContext()->getData('fundingStatement');
+        if (in_array($fundingStatementSetting, [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
+            $fundingStatementForm = new PKPFundingStatementForm(
+                $publicationApiUrl,
+                $locales,
+                $publication,
+                true,
+                $fundingStatementSetting === Context::METADATA_REQUIRE
+            );
+            $this->removeButtonFromForm($fundingStatementForm);
+            $fundingSections[] = [
+                'id' => $fundingStatementForm->id,
+                'type' => self::SECTION_TYPE_FORM,
+                'form' => $this->getLocalizedForm($fundingStatementForm, $submission->getData('locale'), $locales),
+            ];
+        }
+
+        // The "Funding" heading is shown once, above whichever funding section comes first
+        foreach ($fundingSections as $index => $fundingSection) {
+            $sections[] = array_merge([
+                'name' => $index === 0 ? __('submission.funding') : '',
+                'description' => '',
+            ], $fundingSection);
         }
 
         return [

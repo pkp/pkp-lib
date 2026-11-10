@@ -743,7 +743,9 @@ msgid "common.replaceFile"
 msgstr "Cuir an àite an fhaidhle"
 
 msgid "common.requiredField"
-msgstr "* Tha seo a’ comharradh raon riatanach"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> Tha seo a’ comharradh "
+"raon riatanach"
 
 msgid "common.required"
 msgstr "Riatanach"

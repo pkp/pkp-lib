@@ -146,6 +146,10 @@
                 {/if}
             {/if}
 
+            {if in_array($currentContext->getData('fundingStatement'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
+                {include file="/submission/review-publication-field.tpl" prop="fundingStatement" inLocale=$localeKey name="{translate key="submission.fundingStatement"}" type="html"}
+            {/if}
+
             {call_hook name="Template::SubmissionWizard::Section::Review::Details" submission=$submission step=$step.id}
         </div>
     </div>

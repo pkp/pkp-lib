@@ -197,7 +197,7 @@ class CategoryCategoryController extends PKPBaseController
             $filenameBase = $categoryId . '-category';
             $originalFileName = $temporaryFile->getOriginalFileName();
             // Moves the temporary file to the public directory
-            $fileName = app()->get('context')->moveTemporaryFile($context, $temporaryFile, $filenameBase, $user->getId());
+            $fileName = app()->get('context')->moveTemporaryFile($context, $temporaryFile, $filenameBase, $user);
             $imageData = [
                 'name' => $originalFileName,
                 'thumbnailName' => $thumbnail['thumbnailName'],

@@ -798,7 +798,7 @@ msgid "manager.setup.dois.registration"
 msgstr ""
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "DOI előtag"
 
 msgid "doi.manager.setup.automaticDeposit"
 msgstr ""

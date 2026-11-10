@@ -378,42 +378,35 @@ class PKPReviewerGridHandler extends GridHandler
 
     /**
      * Create a new user as reviewer.
-     *
-     * @param array $args
-     * @param Request $request
-     *
-     * @return JSONMessage Serialized JSON object
      */
-    public function createReviewer($args, $request)
+    public function createReviewer($args, $request): JSONMessage
     {
-        return $this->updateReviewer($args, $request);
+        return $this->saveReviewerForm(self::REVIEWER_SELECT_CREATE, $request);
     }
 
     /**
      * Enroll an existing user as reviewer.
-     *
-     * @param array $args
-     * @param Request $request
-     *
-     * @return JSONMessage Serialized JSON object
      */
-    public function enrollReviewer($args, $request)
+    public function enrollReviewer(array $args, PKPRequest $request): JSONMessage
     {
-        return $this->updateReviewer($args, $request);
+        return $this->saveReviewerForm(self::REVIEWER_SELECT_ENROLL_EXISTING, $request);
     }
 
     /**
      * Edit a reviewer
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
      */
-    public function updateReviewer($args, $request)
+    public function updateReviewer(array $args, PKPRequest $request): JSONMessage
     {
-        $selectionType = $request->getUserVar('selectionType');
+        return $this->saveReviewerForm(self::REVIEWER_SELECT_ADVANCED_SEARCH, $request);
+    }
 
+    /**
+     * Save the designated reviewer form.
+     *
+     * @param $selectionType int self::REVIEWER_...
+     */
+    protected function saveReviewerForm(int $selectionType, PKPRequest $request): JSONMessage
+    {
         $reviewerForm = $this->getReviewerForm($selectionType, $request);
         $reviewerForm->readInputData();
 
@@ -1195,7 +1188,7 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function _getReviewerFormClassName(int $selectionType): string
     {
-        return match ((int)$selectionType) {
+        return match ($selectionType) {
             static::REVIEWER_SELECT_ADVANCED_SEARCH => AdvancedSearchReviewerForm::class,
             static::REVIEWER_SELECT_CREATE => CreateReviewerForm::class,
             static::REVIEWER_SELECT_ENROLL_EXISTING => EnrollExistingReviewerForm::class,
@@ -1336,8 +1329,9 @@ class PKPReviewerGridHandler extends GridHandler
         $formClassName = $this->_getReviewerFormClassName($selectionType);
 
         if ($request->getUserVar('reviewerSuggestionId')) {
-
-            $reviewerSuggestion = ReviewerSuggestion::find($request->getUserVar('reviewerSuggestionId'));
+            $reviewerSuggestion = ReviewerSuggestion::query()
+                ->withSubmissionIds([$this->getSubmission()->getId()])
+                ->find($request->getUserVar('reviewerSuggestionId'));
 
             if (!$reviewerSuggestion) {
                 throw new Exception('Given reviewer suggestion ID is invalid');

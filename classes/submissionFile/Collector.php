@@ -339,7 +339,8 @@ class Collector implements CollectorInterface
             $qb->where('sf.file_stage', '!=', SubmissionFile::SUBMISSION_FILE_DEPENDENT);
         }
 
-        $qb->orderBy('sf.created_at', 'desc');
+        $qb->orderBy('sf.created_at', 'desc')
+            ->orderBy('sf.submission_file_id', 'desc'); // for stable sort order
 
         if ($this->count !== null) {
             $qb->limit($this->count);

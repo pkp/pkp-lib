@@ -15,27 +15,6 @@ msgstr ""
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "لا يمكنك إعطاء كلاً من عنوان البريد الالكتروني ومُعرَّف المستخدم."
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "ينبغي تعريف مجموعة مستخدمين واحدة على الأقل لإزالتها"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "ينبغي إعطاء كلمة المرور"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "ينبغي إعطاء الانتماء"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "ينبغي إعطاء البلد"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "ينبغي إعطاء الاسم"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "بالنسبة إلى مجموعات المستخدمين المضافة، ينبغي إعطاء مُعرَّف المجموعة"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "بالنسبة إلى مجموعات المستخدمين المضافة، ينبغي إعطاء البيانات الإدارية"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "ليس لنوع الدعوة هذا عنوان مراسلة معروف"
 
@@ -43,19 +22,10 @@ msgid "invitation.api.error.operationFailed"
 msgstr "عملية الدعوة هذه قد فشلت"
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
-msgstr "إن المُعرَّف {reviewAssignmentId} لا يرتبط بمهمة تحكيم صحيحة"
+msgstr "إن المُعرَّف {$reviewAssignmentId} لا يرتبط بمهمة تحكيم صحيحة"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "لا يمكن إلغاء هذه الدعوة"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "لا يمكن السماح بالوصول إلى السمة للمستخدمين الموجودين"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "لا يمكن السماح بالوصول إلى السمة للمستخدمين غير الموجودين"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "ينبغي أن تكون للسمة قيمة مساوية لليوم أو ما بعده"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "إن حقل السمة :attribute محظور"
@@ -68,12 +38,6 @@ msgstr "الدعوة إلى دور"
 
 msgid "invitation.wizard.pageTitle"
 msgstr "دعوة المستخدم لتولي دور"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "أدخل التفاصيل"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "المراجعة والدعوة إلى الأدوار"
 
 msgid "userInvitation.searchUser.stepLabel"
 msgstr "{$step} - البحث في المستخدمين"
@@ -89,9 +53,6 @@ msgstr "إختر دورًا جديدًا"
 
 msgid "invitation.role.dateStart"
 msgstr "تاريخ البدء"
-
-msgid "invitation.role.dateEnd"
-msgstr "تاريخ الانتهاء"
 
 msgid "invitation.role.addRole.button"
 msgstr "إضافة دور جديد"
@@ -118,20 +79,11 @@ msgid "invitation.decline.confirm.description"
 msgstr ""
 "هل أنت متأكد من رفضك لهذه الدعوة؟ أكد رفضك من خلال النقر على الزر أدناه."
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "ينبغي تعريف مجموعة مستخدمين واحدة على الأقل لإضافتها"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "مجموعة المستخدمين معينة إلى المستخدم المدعو"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "لا يمكن تعريف إزالة أدوار المستخدمين لمستخدم غير موجود."
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr "لا يمكن إرسال الدعوة لأنك لم تحدد أي تغييرات في مجموعة المستخدمين"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "مجموعات المستخدمين المعطاة تتضمن إدخالات مكررة."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr "يوجد مسبقًا من يمتلك اسم المستخدم {$username}. حاول مع اسم آخر."
@@ -170,20 +122,8 @@ msgstr ""
 "عندما يكون عنوان البريد الالكتروني ({$email}) معينًا في الدعوة، ينبغي أن لا "
 "يكون ذلك العنوان مستعملاً من قبل مستخدم آخر."
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "ينبغي إعطاء اسم المستخدم"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "ينبغي إعطاء اسم العائلة"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "بالنسبة إلى مجموعات المستخدمين المضافة، ينبغي إعطاء تاريخ البدء"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "مجموعة المستخدمين المعطاة {$userGroupId} غير موجودة"
-
-msgid "invitation.validation.required"
-msgstr "إن الحقل {$attribute} مطلوب."
 
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
@@ -347,9 +287,6 @@ msgid "invitation.cancelInvite.message"
 msgstr ""
 "إلغاء الدعوة المرسلة إلى  {$givenName} {$familyName} سيؤدي إلى تعطيل رابط "
 "القبول المرسل عبر البريد الالكتروني. إليك تفاصيل الدعوة: "
-
-msgid "invitation.role.modifyRole.button"
-msgstr "تعديل الدور"
 
 msgid "invitation.management.options"
 msgstr "خيارات إدارة الدعوة"

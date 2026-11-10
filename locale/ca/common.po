@@ -775,8 +775,8 @@ msgstr "Reemplaça el fitxer"
 
 msgid "common.requiredField"
 msgstr ""
-"Els camps obligatoris estan marcats amb un asterisc: <abbr class=\"required\""
-" title=\"required\">*</abbr>"
+"Els camps obligatoris estan marcats amb un asterisc: <span "
+"class=\"required\" aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Obligatori"

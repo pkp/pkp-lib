@@ -173,6 +173,12 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
+		"isConfirmedByEditor": {
+			"type": "boolean",
+			"description": "Whether an editor has 'signed off' on a review. Used for confirming if review should be made broadly accessible if it is open/public.",
+			"readOnly": true,
+			"apiSummary": true
+		},
 		"lastModified": {
 			"type": "string",
 			"description": "Date of the most recent assignment update",

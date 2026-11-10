@@ -100,9 +100,16 @@ class ManagementHandler extends Handler
         // The "settings" operation is off limits to managers who don't have access to settings,
         // EXCEPT for the "announcements" and "userComments" areas, which were moved out of settings without changing their URL.
         $requestedArgs = $request->getRequestedArgs();
-        if ($request->getRequestedOp() == 'settings' && $requestedArgs != ['announcements'] && $requestedArgs != ['userComments']) {
+        $firstPageArg = $requestedArgs[0] ?? null;
+        if ($request->getRequestedOp() == 'settings' && !in_array($firstPageArg, ['announcements', 'userComments'])) {
             $this->addPolicy(new CanAccessSettingsPolicy());
         }
+
+        // Deny access to the comments page if comments are disabled
+        if ($firstPageArg === 'userComments' && $request->getContext() && !$request->getContext()->getData('enablePublicComments')) {
+            return false;
+        }
+
         return parent::authorize($request, $args, $roleAssignments);
     }
 

@@ -1,15 +1,16 @@
-# Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
+# Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021, 2026.
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023, 2025, 2026.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023, 2024.
 # Kristin Ameis <kristin.ameis@sub.uni-hamburg.de>, 2026.
+# Frauke Ziedorn <frauke.ziedorn@tib.eu>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2026-08-21 09:19+0000\n"
-"Last-Translator: Kristin Ameis <kristin.ameis@sub.uni-hamburg.de>\n"
+"PO-Revision-Date: 2026-10-23 10:01+0000\n"
+"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
 "Language: de\n"
@@ -858,11 +859,11 @@ msgstr "Berichte"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
-"Das System erstellt Berichte, die die Details der Verarbeitung von Beiträgen "
-"aus der Perspektive von Beiträgen, Redakteur/innen, Gutachter/innen sowie "
-"Rubriken über einen festgelegten Zeitraum nachzeichnen. Die Berichte werden "
-"im CSV-Format erstellt, die mit einer Tabellenkalkulation betrachtet werden "
-"können."
+"Das System erstellt Berichte, in denen die Details der Verarbeitung von "
+"Beiträgen aus der Perspektive von Beiträgen, Redakteur/innen, Gutachter/"
+"innen sowie Rubriken über einen festgelegten Zeitraum erfasst werden. Die "
+"Berichte werden im CSV-Format erstellt, die mit einer Tabellenkalkulation "
+"betrachtet werden können."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Benutzen Sie das YYYYMM-Format."
@@ -1383,10 +1384,10 @@ msgstr ""
 "zulassen."
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr "Sind Sie sicher, dass Sie diese Sektion deaktivieren wollen?"
+msgstr "Sind Sie sicher, dass Sie diese Rubrik deaktivieren wollen?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr "Sind Sie sicher, dass Sie diese Sektion aktivieren wollen?"
+msgstr "Sind Sie sicher, dass Sie diese Rubrik aktivieren wollen?"
 
 msgid "manager.sections.form.assignEditors"
 msgstr "Redaktionsaufgaben"
@@ -1681,7 +1682,7 @@ msgstr "Upgrade Plugin"
 msgid "manager.plugins.upgradeDescription"
 msgstr ""
 "Dieses Formular ermöglicht ein Upgrade für ein Plugin. Bitte stellen Sie "
-"sicher, das das Plugin als .tar.gz-Datei komprimiert ist."
+"sicher, dass das Plugin als .tar.gz-Datei komprimiert ist."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Upgrade gescheitert. {$errorString}"
@@ -3343,7 +3344,7 @@ msgstr "Empfehlung gegeben"
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
 "Diese Nachricht benachrichtigt eine/n leitende/n Redakteurin oder "
-"Sektionsredakteur/in, dass eine redaktionelle Empfehlung für eine ihm/ihr "
+"Rubrikredakteur/in, dass eine redaktionelle Empfehlung für eine ihm/ihr "
 "zugewiesene Einreichung abgegeben wurde. Diese Nachricht wird verwendet, "
 "wenn ein/e Redakteur/in nur eine redaktionelle Entscheidung empfehlen darf "
 "und eine/n autorisierte/n Redakteur/in benötigt, um redaktionelle "
@@ -3713,7 +3714,7 @@ msgid "mailable.submissionAckOtherAuthors.name"
 msgstr "Einreichungsbestätigung an weitere Autor/innen"
 
 msgid "mailable.editorAssigned.name"
-msgstr "Gutachter/in zugewiesen (Automatisch)"
+msgstr "Redakteur/in zugewiesen (Automatisch)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
@@ -3939,9 +3940,10 @@ msgstr "Link zu einer Seite, die das aktuelle redaktionelle Impressum anzeigt."
 
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
 msgstr ""
-"Gutachter/innen werden in einem standardisierten Format angezeigt, um die "
-"Einheitlichkeit zu gewähren und eine einfache Auffindbarkeit in diesem "
-"Abschnitt zu ermöglichen."
+"Gutachter/innen, die im vorherigen Kalenderjahr ein Gutachten erstellt "
+"haben, werden in diesem Abschnitt in einem standardisierten Format "
+"aufgeführt, um die Einheitlichkeit zu gewähren und eine einfache "
+"Auffindbarkeit zu ermöglichen."
 
 msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
 msgstr "Erforderliches Minimum bestätigter Gutachten"
@@ -4045,3 +4047,30 @@ msgstr "Keine Erinnerung eingestellt"
 
 msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
 msgstr "Gutachter/innen-Vorschlag bei Einreichung"
+
+msgid "doi.manager.settings.doiSuffixPattern.required"
+msgstr "Ein DOI-Suffix-Muster ist erforderlich."
+
+msgid "plugins.importexport.user.error.invalidRoleDate"
+msgstr ""
+"Die Rolle \"{$userGroup}\" des Nutzers/der Nutzerin \"{$username}\" wurde "
+"nicht importiert, weil \"{$date}\" kein erlaubtes Datum ist."
+
+msgid "plugins.importexport.user.error.invalidRolePeriod"
+msgstr ""
+"Die Rolle \"{$userGroup}\" des Nutzers/der Nutzerin \"{$username}\" wurde "
+"nicht importiert, weil das Startdatum nicht vor dem Enddatum liegt."
+
+msgid "mailable.changeProfileEmailInvitationNotify.description"
+msgstr ""
+"Nutzer/innen, die in ihrem Benutzerprofil eine Änderung ihrer E-Mail-Adresse "
+"beantragen, erhalten diese Aufforderung zur Bestätigung des Antrags."
+
+msgid "manager.setup.enableEnrollmentMastheadReviewers.enable"
+msgstr "Auflistung von Gutachter/innen im Impressum aktivieren"
+
+msgid "plugins.importexport.user.error.roleOverlap"
+msgstr ""
+"Die Rolle \"{$userGroup}\" des Nutzers/der Nutzerin \"{$username}\" wurde "
+"nicht importiert, weil der Nutzer/die Nutzerin diese Rolle bereits in einem "
+"überlappenden Zeitraum innehatte."

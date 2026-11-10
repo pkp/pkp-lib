@@ -428,8 +428,8 @@ msgstr "DOIs"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
-"The following error was returned by {$registrationAgency} and contains "
-"details about the cause of the error:"
+"The deposit to {$registrationAgency} failed. The details below explain the "
+"cause of the error:"
 
 msgid "manager.emails.addEmail"
 msgstr "Add Template"
@@ -963,6 +963,12 @@ msgstr "Automatic DOI Assignment"
 msgid "doi.manager.settings.doiCreationTime.description"
 msgstr "When should a submission be assigned a DOI?"
 
+msgid "doi.manager.settings.doiCreationTime.immediate"
+msgstr "Immediately, when an item is created (only with the default DOI suffix)"
+
+msgid "doi.manager.settings.doiCreationTime.immediate.requiresDefaultSuffix"
+msgstr "Immediate DOI assignment is only possible with the default DOI suffix. Please choose the default suffix or a different time for automatic DOI assignment."
+
 msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr "Upon publication"
 
@@ -1048,6 +1054,9 @@ msgstr "DOIs for all versions"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr "The DOI contains invalid characters."
+
+msgid "manager.setup.publisherLocation"
+msgstr "Publisher Location"
 
 msgid "manager.setup.publishing"
 msgstr "Publishing Details"

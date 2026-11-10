@@ -43,6 +43,7 @@ use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\contributorRole\ContributorType;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPDataAvailabilityForm;
+use PKP\components\forms\publication\PKPFundingStatementForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
@@ -50,6 +51,7 @@ use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -123,6 +125,7 @@ class PKPSubmissionController extends PKPBaseController
         'addDecision',
         'returnToDone',
         'getPublicationDataAvailabilityForm',
+        'getPublicationFundingStatementForm',
         'getPublicationMetadataForm',
         'getPublicationIdentifierForm',
         'getPublicationLicenseForm',
@@ -157,6 +160,20 @@ class PKPSubmissionController extends PKPBaseController
         Role::ROLE_ID_MANAGER,
         Role::ROLE_ID_SUB_EDITOR,
         Role::ROLE_ID_ASSISTANT
+    ];
+
+    /** @var string[] ORCID properties that should not be written or edited as part of contributor editor process */
+    public array $orcidWriteForbiddenProps = [
+        'orcidIsVerified',
+        'orcidSandbox',
+        'orcidAccessToken',
+        'orcidAccessScope',
+        'orcidRefreshToken',
+        'orcidAccessExpiresOn',
+        'orcidAccessDenied',
+        'orcidEmailToken',
+        'orcidWorkPutCode',
+        'orcidVerificationRequested',
     ];
 
     /**
@@ -330,6 +347,7 @@ class PKPSubmissionController extends PKPBaseController
             Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {
                 Route::get('metadata', $this->getPublicationMetadataForm(...))->name('submission.publication._components.metadata');
                 Route::get('dataAvailability', $this->getPublicationDataAvailabilityForm(...))->name('submission.publication._components.dataAvailability');
+                Route::get('fundingStatement', $this->getPublicationFundingStatementForm(...))->name('submission.publication._components.fundingStatement');
                 Route::get('titleAbstract', $this->getPublicationTitleAbstractForm(...))->name('submission.publication._components.titleAbstract');
                 Route::get('changeLanguageMetadata', $this->getChangeLanguageMetadata(...))->name('submission.publication._components.changeLanguageMetadata');
             })->whereNumber(['submissionId', 'publicationId']);
@@ -417,6 +435,7 @@ class PKPSubmissionController extends PKPBaseController
             $actionName,
             [
                 'getPublicationDataAvailabilityForm',
+                'getPublicationFundingStatementForm',
                 'getPublicationMetadataForm',
                 'getPublicationIdentifierForm',
                 'getPublicationLicenseForm',
@@ -529,6 +548,10 @@ class PKPSubmissionController extends PKPBaseController
                     $collector->filterByStatus(array_map(intval(...), paramToArray($val)));
                     break;
 
+                case 'currentPublicationStatus':
+                    $collector->filterByCurrentPublicationStatus(array_map(intval(...), paramToArray($val)));
+                    break;
+
                 case 'stageIds':
                     $collector->filterByStageIds(array_map(intval(...), paramToArray($val)));
                     break;
@@ -568,6 +591,9 @@ class PKPSubmissionController extends PKPBaseController
                     break;
                 case 'onDoiPage':
                     $collector->filterByOnDoiPage((bool) $val, $context->getEnabledDoiTypes());
+                    break;
+                case 'inEditingOrPublished':
+                    $collector->filterByInEditingOrPublished((bool) $val);
                     break;
                 case 'isUnassigned':
                     $collector->filterByisUnassigned(true);
@@ -1244,6 +1270,12 @@ class PKPSubmissionController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
+
+        $writeDisabledErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_PUBLICATION, $params);
+        if (!empty($writeDisabledErrors)) {
+            return response()->json($writeDisabledErrors, Response::HTTP_BAD_REQUEST);
+        }
+
         $params['submissionId'] = $submission->getId();
 
         $submissionContext = $request->getContext();
@@ -1258,7 +1290,13 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $publication = Repo::publication()->newDataObject($params);
-        $newId = Repo::publication()->add($publication);
+        try {
+            $newId = Repo::publication()->add($publication);
+        } catch (StoreTemporaryFileException $e) {
+            return response()->json([
+                'coverImage' => [__('api.400.errorUploadingImage')]
+            ], Response::HTTP_BAD_REQUEST);
+        }
         $publication = Repo::publication()->get($newId);
 
         /** @var GenreDAO $genreDao */
@@ -1345,6 +1383,12 @@ class PKPSubmissionController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
+        $params['submissionId'] = $submission->getId();
+
+        $writeDisabledErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_PUBLICATION, $params);
+        if (!empty($writeDisabledErrors)) {
+            return response()->json($writeDisabledErrors, Response::HTTP_BAD_REQUEST);
+        }
 
         if (array_key_exists('status', $params) && is_null($params['status'])) {
             unset($params['status']);
@@ -1416,7 +1460,13 @@ class PKPSubmissionController extends PKPBaseController
             }
         }
 
-        Repo::publication()->edit($publication, $params);
+        try {
+            Repo::publication()->edit($publication, $params);
+        } catch (StoreTemporaryFileException $e) {
+            return response()->json([
+                'coverImage' => [__('api.400.errorUploadingImage')]
+            ], Response::HTTP_BAD_REQUEST);
+        }
         $publication = Repo::publication()->get($publication->getId());
         event(new MetadataChanged($submission));
 
@@ -1698,6 +1748,11 @@ class PKPSubmissionController extends PKPBaseController
         // Remove extra data that is irrelevant to the selected contributor type
         $this->removeIrrelevantContributorTypeData($params, $submissionContext);
 
+        // Unset ORCID verification and token properties from Author schema
+        foreach ($this->orcidWriteForbiddenProps as $prop) {
+            unset($params[$prop]);
+        }
+
         // Allows author ORCID request email to be triggered from frontend before author ID exists
         $shouldSendOrcidEmail = false;
         switch ($params['orcid'] ?? null) {
@@ -1851,6 +1906,7 @@ class PKPSubmissionController extends PKPBaseController
         // Remove extra data that is irrelevant to the selected contributor type
         $this->removeIrrelevantContributorTypeData($params, $submissionContext);
         $params['id'] = $author->getId();
+        $params['publicationId'] = $publication->getId();
 
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
             $submissionContext = app()->get('context')->get($submission->getData('contextId'));
@@ -1884,6 +1940,12 @@ class PKPSubmissionController extends PKPBaseController
 
         $affiliations = $newAffiliationErrors = [];
         foreach (($params['affiliations'] ?? []) as $position => $affiliationParam) {
+            if ($affiliationParam['authorId'] != $author->getId()) {
+                return response()->json([
+                    'affiliations' => [__('author.authorNotFound')]
+                ], Response::HTTP_BAD_REQUEST);
+            }
+
             $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
             // Map errors to the specific affiliation in the UI using the position = index
             if (!empty($affiliationErrors)) {
@@ -1909,7 +1971,9 @@ class PKPSubmissionController extends PKPBaseController
         // Remove ORCID from params because it cannot be set via this endpoint. If there is a desire to update a contributor's
         // ORCiD, the ORCiD should be deleted and an update requested via the `orcid/requestAuthorVerification/{authorId}` endpoint.
         // Validation to prevent editing the ORCID is also done in Repo::author()->validate()
-        unset($params['orcid']);
+        foreach (array_merge($this->orcidWriteForbiddenProps, ['orcid']) as $prop) {
+            unset($params[$prop]);
+        }
 
         Repo::author()->edit($author, $params);
         $author = Repo::author()->get($author->getId());
@@ -2152,6 +2216,32 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json($this->getLocalizedForm($dataAvailabilityForm, $submissionLocale, $locales), Response::HTTP_OK);
 
+    }
+
+    /**
+     * Get Publication Funding Statement Form component
+     */
+    protected function getPublicationFundingStatementForm(Request $illuminateRequest): JsonResponse
+    {
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $context = $data['context']; /** @var Context $context*/
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+
+        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+
+        $submissionLocale = $submission->getData('locale');
+        $locales = $this->getPublicationFormLocales($context, $submission);
+        $fundingStatementSetting = (bool) $context->getData('fundingStatement');
+
+        $fundingStatementForm = new PKPFundingStatementForm($publicationApiUrl, $locales, $publication, $fundingStatementSetting);
+
+        return response()->json($this->getLocalizedForm($fundingStatementForm, $submissionLocale, $locales), Response::HTTP_OK);
     }
 
     /**

@@ -780,8 +780,8 @@ msgstr "Substituir documento"
 
 msgid "common.requiredField"
 msgstr ""
-"Os campos obrigatórios são marcados com um asterisco: <abbr class=\"required"
-"\" title=\"required\">*</abbr>"
+"Os campos obrigatórios são marcados com um asterisco: <span "
+"class=\"required\" aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Obrigatório"

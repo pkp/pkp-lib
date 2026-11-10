@@ -739,7 +739,9 @@ msgid "common.replaceFile"
 msgstr "Zamijenite datoteku"
 
 msgid "common.requiredField"
-msgstr "* označuje obavezno polje"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> označuje obavezno "
+"polje"
 
 msgid "common.required"
 msgstr "Obavezno"

@@ -778,7 +778,9 @@ msgid "common.replaceFile"
 msgstr "Sostituisci il file"
 
 msgid "common.requiredField"
-msgstr "* indica i campi obbligatori"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> indica i campi "
+"obbligatori"
 
 msgid "common.required"
 msgstr "Obbligatorio"

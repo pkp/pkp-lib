@@ -25,6 +25,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\context\Context;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -34,6 +35,7 @@ use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -127,6 +129,14 @@ class PKPContextController extends PKPBaseController
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
         $this->addPolicy($rolePolicy);
+
+        // Admins require elevated session for site-wide actions
+        $contextId = $request->getContext()?->getId();
+        /** @var Request $illuminateRequest */
+        $illuminateRequest = $args[0];
+        if (in_array(static::getRouteActionName($illuminateRequest), ['add', 'delete']) || !$contextId) {
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        }
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -415,7 +425,13 @@ class PKPContextController extends PKPBaseController
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
-        $context = $contextService->edit($context, $params, $request);
+        try {
+            $context = $contextService->edit($context, $params, $request);
+        } catch (StoreTemporaryFileException $e) {
+            return response()->json([
+                $e->targetPath => [__('api.400.errorUploadingImage')]
+            ], Response::HTTP_BAD_REQUEST);
+        }
 
         $contextProps = $contextService->getFullProperties($context, [
             'request' => $request,

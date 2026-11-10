@@ -408,7 +408,12 @@ class PKPPageRouter extends PKPRouter
             return $request->url(Application::SITE_CONTEXT_PATH, 'index');
         }
 
-        $user = Auth::user(); /** @var \PKP\user\User $user */
+        $user = Auth::user(); /** @var ?\PKP\user\User $user */
+        if (!$user) {
+            // Same as Validation::redirectLogin(): return to the original page after login
+            $args = isset($_SERVER['REQUEST_URI']) ? ['source' => $_SERVER['REQUEST_URI']] : [];
+            return $request->url(null, 'login', null, null, $args);
+        }
         $userId = $user->getId();
         // fetch user groups for the user in the current context
         $userGroups = UserGroup::query()

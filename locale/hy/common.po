@@ -774,8 +774,8 @@ msgstr "Տեղափոխել ֆայլը"
 
 msgid "common.requiredField"
 msgstr ""
-"Պահանջվող դաշտերը նշված են աստղանիշով՝ <abbr class=\"required\" title="
-"\"required\">*</abbr>"
+"Պահանջվող դաշտերը նշված են աստղանիշով՝ <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Պահանջված"

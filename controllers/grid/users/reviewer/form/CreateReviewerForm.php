@@ -31,6 +31,7 @@ use PKP\form\validation\FormValidatorUsername;
 use PKP\mail\mailables\ReviewerRegister;
 use PKP\notification\Notification;
 use PKP\security\Validation;
+use PKP\security\Role;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\ReviewRound;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -68,7 +69,11 @@ class CreateReviewerForm extends ReviewerForm
         $this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email) {
             return !Repo::user()->getByEmail($email, true);
         }));
-        $this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
+        $this->addCheck(new FormValidatorCustom($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired', function ($userGroupId) {
+            $context = Application::get()->getRequest()->getContext();
+            $userGroup = Repo::userGroup()->get($userGroupId, $context->getId());
+            return $userGroup && $userGroup->roleId == Role::ROLE_ID_REVIEWER;
+        }));
     }
 
     /**

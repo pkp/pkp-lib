@@ -773,8 +773,8 @@ msgstr "Ersätt fil"
 
 msgid "common.requiredField"
 msgstr ""
-"Obligatoriska fält markeras med en asterisk: <abbr class=\"required\" title="
-"\"required\">*</abbr>"
+"Obligatoriska fält markeras med en asterisk: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Obligatoriskt"

@@ -772,8 +772,8 @@ msgstr "Korvaa tiedosto"
 
 msgid "common.requiredField"
 msgstr ""
-"Pakolliset kentät on merkitty tähdellä: <abbr class=\"required\" title="
-"\"required\">*</abbr>"
+"Pakolliset kentät on merkitty tähdellä: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Vaaditaan"

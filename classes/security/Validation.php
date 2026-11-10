@@ -57,9 +57,22 @@ class Validation
             return false; // Failed CSRF check
         }
 
-        return Auth::attempt(['username' => $username, 'password' => $password], $remember)
-            ? static::registerUserSession(Auth::user(), $reason)
-            : false;
+        // A disabled account is refused before anything is written to the session; with the
+        // correct password, registerUserSession() still reports why it was refused
+        $disabledUser = null;
+        $signedIn = Auth::attemptWhen(
+            ['username' => $username, 'password' => $password],
+            function (User $user) use (&$disabledUser) {
+                if ($user->getDisabled()) {
+                    $disabledUser = $user;
+                    return false;
+                }
+                return true;
+            },
+            $remember
+        );
+
+        return static::registerUserSession($signedIn ? Auth::user() : $disabledUser, $reason);
     }
 
     /**

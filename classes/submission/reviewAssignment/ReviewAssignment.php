@@ -47,7 +47,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     public const REVIEW_ASSIGNMENT_STATUS_RECEIVED = 7; // review has been submitted
     public const REVIEW_ASSIGNMENT_STATUS_COMPLETE = 8; // review has been confirmed by an editor
     public const REVIEW_ASSIGNMENT_STATUS_THANKED = 9; // reviewer has been thanked
-    public const REVIEW_ASSIGNMENT_STATUS_CANCELLED = 10; // reviewer cancelled review request
+    public const REVIEW_ASSIGNMENT_STATUS_CANCELLED = 10; // editor cancelled review request
     public const REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND = 11; // request resent to reviewer after they declined
     public const REVIEW_ASSIGNMENT_STATUS_VIEWED = 12; // editor has viewed the review assignment, intermediate status between received and complete
     /**
@@ -757,6 +757,19 @@ class ReviewAssignment extends \PKP\core\DataObject
         }
 
         return false;
+    }
+
+    /**
+     * Whether an editor has "signed off" on a review.
+     * Used for confirming if review should be made broadly accessible if it is open/public.
+     */
+    public function isConfirmedByEditor(): bool
+    {
+        if ($this->getConsidered() === self::REVIEW_ASSIGNMENT_UNCONSIDERED) {
+            return false;
+        }
+
+        return $this->getDateConsidered() || $this->getDateAcknowledged();
     }
 
     /**

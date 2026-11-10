@@ -39,6 +39,7 @@ use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -116,6 +117,11 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         $this->addPolicy($rolePolicy);
+
+        if (!$request->getContext()) {
+            // Admin requires reauthentication for site-wide actions
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        }
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -269,7 +275,6 @@ class PKPAnnouncementController extends PKPBaseController
         try {
             $announcement->update($params);
         } catch (StoreTemporaryFileException $e) {
-            $announcement->delete(); // TODO do we really need to delete an announcement if the image upload fails?
             return response()->json([
                 'image' => [__('api.400.errorUploadingImage')]
             ], Response::HTTP_BAD_REQUEST);

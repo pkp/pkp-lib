@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\App;
+use PKP\doi\exceptions\DoiException;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -173,7 +174,39 @@ class Repository
         $id = $this->dao->insert($galley);
         Hook::call('Galley::add', [$galley]);
 
+        $this->assignDoiOnCreation($galley);
+
         return $id;
+    }
+
+    /**
+     * Assign a DOI to a galley of a submitted submission, if DOIs are assigned on item creation
+     */
+    protected function assignDoiOnCreation(Galley $galley): void
+    {
+        if ($galley->getData('doiId')) {
+            return;
+        }
+
+        $publication = Repo::publication()->get($galley->getData('publicationId'));
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        // Galleys added during the submission wizard get their DOIs on submit
+        if ($submission->getData('submissionProgress')) {
+            return;
+        }
+
+        $context = Application::getContextDAO()->getById($submission->getData('contextId'));
+        if (!Repo::doi()->assignOnItemCreation($context) || !$context->isDoiTypeEnabled(Repo::doi()::TYPE_REPRESENTATION)) {
+            return;
+        }
+
+        try {
+            $doiId = Repo::doi()->mintGalleyDoi($galley, $publication, $submission, $context);
+            $this->edit($galley, ['doiId' => $doiId]);
+        } catch (DoiException $exception) {
+            // A DOI error should not prevent adding the galley
+            error_log("Could not assign a DOI to galley {$galley->getId()}: {$exception->getMessage()}");
+        }
     }
 
     /** @copydoc DAO::update() */

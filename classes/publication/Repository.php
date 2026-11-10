@@ -27,6 +27,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\dataCitation\DataCitation;
@@ -53,6 +54,7 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
 use PKP\submissionFile\SubmissionFile;
 use PKP\submissionFile\VariantGroup;
+use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
 abstract class Repository
@@ -160,10 +162,17 @@ abstract class Repository
             $this->getErrorMessageOverrides(),
         );
 
+        $requiredProps = $this->schemaService->getRequiredProps($this->dao->schema);
+
+        // A required plain language summary is checked by validateSubmit() while the submission is in progress
+        if ($context->getData('plainLanguageSummary') == Context::METADATA_REQUIRE && !$submission->getData('submissionProgress')) {
+            $requiredProps[] = 'plainLanguageSummary';
+        }
+
         ValidatorFactory::required(
             $validator,
             $publication,
-            $this->schemaService->getRequiredProps($this->dao->schema),
+            $requiredProps,
             $this->schemaService->getMultilingualProps($this->dao->schema),
             $allowedLocales,
             $primaryLocale
@@ -182,7 +191,6 @@ abstract class Repository
                 }
             });
         }
-
 
         // A title must be provided if the submission is not still in progress
         if (!$submission->getData('submissionProgress')) {
@@ -226,15 +234,6 @@ abstract class Repository
             });
         }
 
-        // validate the requirement of Plain language summary
-        $validator->after(function ($validator) use ($props, $context, $primaryLocale) {
-            if ($context->getData('plainLanguageSummary') === Context::METADATA_REQUIRE) {
-                if (empty($props['plainLanguageSummary']) || !isset($props['plainLanguageSummary'][$primaryLocale])) {
-                    $validator->errors()->add('plainLanguageSummary.' . $primaryLocale, __('validator.required'));
-                }
-            }
-        });
-
         // If a new file has been uploaded, check that the temporary file exists and
         // the current user owns it
         $user = Application::get()->getRequest()->getUser();
@@ -267,6 +266,26 @@ abstract class Repository
             }
         });
 
+
+        // A cover image filename may only be one this submission already holds:
+        // the stored value a form sends back, or a version's copy (pkp/pkp-lib#13560)
+        if (isset($props['coverImage'])) {
+            $validator->after(function ($validator) use ($props, $submission) {
+                if (!is_array($props['coverImage'])) {
+                    $validator->errors()->add('coverImage', __('api.400.errorUploadingImage'));
+                    return;
+                }
+                $specifiedUploadNames = collect($props['coverImage'])
+                    ->map(fn ($c) => $c['uploadName'] ?? null)
+                    ->filter()->unique();
+                $existingUploadNames = $submission->getData('publications')
+                    ->flatMap(fn ($p) => array_map(fn ($c) => $c['uploadName'] ?? null, (array) $p->getData('coverImage')))
+                    ->filter()->unique();
+                if ($specifiedUploadNames->diff($existingUploadNames)->count()) {
+                    $validator->errors()->add('coverImage', __('api.400.errorUploadingImage'));
+                }
+            });
+        }
 
         if ($validator->fails()) {
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
@@ -305,21 +324,6 @@ abstract class Repository
             $errors['declined'] = __('publication.required.declined');
         }
 
-        // Orcid errors
-        if (OrcidManager::isEnabled()) {
-            $orcidIds = [];
-            foreach ($publication->getData('authors') as $author) {
-                $authorOrcid = $author->getData('orcid');
-                if ($authorOrcid and in_array($authorOrcid, $orcidIds)) {
-                    $errors['hasDuplicateOrcids'] = __('orcid.verify.duplicateOrcidAuthor');
-                } elseif ($authorOrcid && !$author->getData('orcidAccessToken')) {
-                    $errors['hasUnauthenticatedOrcid'] = __('orcid.verify.hasUnauthenticatedOrcid');
-                } else {
-                    $orcidIds[] = $authorOrcid;
-                }
-            }
-        }
-
         Hook::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);
 
         return $errors;
@@ -334,6 +338,22 @@ abstract class Repository
     public function validatePublishWarnings(Publication $publication, Submission $submission, array $allowedLocales, string $primaryLocale): array
     {
         $warnings = [];
+
+        // Orcid warnings
+        if (OrcidManager::isEnabled()) {
+            $orcidIds = [];
+            foreach ($publication->getData('authors') as $author) {
+                $authorOrcid = $author->getData('orcid');
+                if ($authorOrcid and in_array($authorOrcid, $orcidIds)) {
+                    $warnings['hasDuplicateOrcids'] = __('orcid.verify.duplicateOrcidAuthor');
+                } elseif ($authorOrcid && !$author->getData('orcidAccessToken')) {
+                    $warnings['hasUnauthenticatedOrcid'] = __('orcid.verify.hasUnauthenticatedOrcid');
+                } else {
+                    $orcidIds[] = $authorOrcid;
+                }
+            }
+        }
+
         Hook::call('Publication::validatePublishWarnings', [&$warnings, $publication, $submission, $allowedLocales, $primaryLocale]);
         return $warnings;
     }
@@ -357,8 +377,6 @@ abstract class Repository
 
         // Move uploaded files into place and update the settings
         if ($publication->getData('coverImage')) {
-            $userId = $this->request->getUser() ? $this->request->getUser()->getId() : null;
-
             $submissionContext = $this->request->getContext();
             if ($submissionContext->getId() !== $submission->getData('contextId')) {
                 $submissionContext = app()->get('context')->get($submission->getData('contextId'));
@@ -369,7 +387,7 @@ abstract class Repository
                 if (!array_key_exists($localeKey, $publication->getData('coverImage'))) {
                     continue;
                 }
-                $value[$localeKey] = $this->_saveFileParam($publication, $submission, $publication->getData('coverImage', $localeKey), 'coverImage', $userId, $localeKey, true);
+                $value[$localeKey] = $this->_saveFileParam($publication, $submission, $publication->getData('coverImage', $localeKey), 'coverImage', $this->request->getUser(), $localeKey, true);
             }
 
             $this->edit($publication, ['coverImage' => $value]);
@@ -391,6 +409,8 @@ abstract class Repository
      *
      * Makes a copy of an existing publication, without the datePublished,
      * and makes copies of all associated objects.
+     *
+     * Apps fire the PublicationVersioned event once they have copied their own objects.
      *
      * @hook Publication::version [[&$newPublication, $publication]]
      */
@@ -426,6 +446,8 @@ abstract class Repository
 
         if ($context->getData(Context::SETTING_DOI_VERSIONING) && !$isMinorVersion) {
             $newPublication->setData('doiId', null);
+            // Clear identity so a new-DOI version is re-stamped on publish; others inherit.
+            $newPublication->clearIdentityMetadata();
         }
 
         $citations = $newPublication->getData('citations');
@@ -530,7 +552,6 @@ abstract class Repository
     public function edit(Publication $publication, array $params): Publication
     {
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-        $userId = $this->request->getUser()?->getId();
 
         // Move uploaded files into place and update the params
         if (array_key_exists('coverImage', $params)) {
@@ -544,7 +565,7 @@ abstract class Repository
                 if (!array_key_exists($localeKey, $params['coverImage'])) {
                     continue;
                 }
-                $params['coverImage'][$localeKey] = $this->_saveFileParam($publication, $submission, $params['coverImage'][$localeKey], 'coverImage', $userId, $localeKey, true);
+                $params['coverImage'][$localeKey] = $this->_saveFileParam($publication, $submission, $params['coverImage'][$localeKey], 'coverImage', $this->request->getUser(), $localeKey, true);
             }
         }
 
@@ -564,8 +585,8 @@ abstract class Repository
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submission->getId(),
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE,
-            'userId' => Validation::loggedInAs() ?? $userId,
-            'impersonatedUserId' => Validation::loggedInAs() ? $userId : null,
+            'userId' => Validation::loggedInAs() ?? $this->request->getUser()->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $this->request->getUser()->getId() : null,
             'message' => 'submission.event.general.metadataUpdated',
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
@@ -602,7 +623,16 @@ abstract class Repository
         // Set the copyright and license information
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
+        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
+        ? Application::get()->getRequest()->getContext()
+        : app()->get('context')->get($submission->getData('contextId'));
+
         $itsPublished = ($newPublication->getData('status') === PKPPublication::STATUS_PUBLISHED);
+
+        // Stamp identity on first publication, only when empty so versions inherit (see version()).
+        if ($itsPublished && !$newPublication->hasContextIdentity()) {
+            $newPublication->stampContextIdentity($context);
+        }
 
         if ($itsPublished && !$newPublication->getData('copyrightHolder')) {
             $newPublication->setData(
@@ -680,10 +710,6 @@ abstract class Repository
             'dateLogged' => Core::getCurrentDate()
         ]);
         Repo::eventLog()->add($eventLog);
-
-        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
-        ? Application::get()->getRequest()->getContext()
-        : app()->get('context')->get($submission->getData('contextId'));
 
         // Mark DOIs stale (if applicable).
         if ($newPublication->getData('status') === Publication::STATUS_PUBLISHED) {
@@ -1080,7 +1106,6 @@ abstract class Repository
      *  file ID if a new file has been uploaded.
      * @param string $settingName The name of the setting to save, typically used
      *  in the filename.
-     * @param int $userId ID of the user who owns the temporary file
      * @param string $localeKey Optional. Pass if the setting is multilingual
      * @param bool $isImage Optional. For image files which include alt text in value
      *
@@ -1091,7 +1116,7 @@ abstract class Repository
         Submission $submission,
         mixed $value,
         string $settingName,
-        int $userId,
+        User $user,
         string $localeKey = '',
         bool $isImage = false
     ) {
@@ -1122,7 +1147,15 @@ abstract class Repository
 
         // Check if there is something to upload
         if (empty($value['temporaryFileId'])) {
-            return $value;
+            // No new file: Keep the stored file and let only its alt text change.
+            $oldValue = $publication->getData($settingName, $localeKey);
+            if (empty($oldValue['uploadName'])) {
+                return null;
+            }
+            if ($isImage && is_array($value) && array_key_exists('altText', $value)) {
+                $oldValue['altText'] = (string) $value['altText'];
+            }
+            return $oldValue;
         }
 
         // Get the submission context
@@ -1132,15 +1165,14 @@ abstract class Repository
         }
 
         $temporaryFileManager = new TemporaryFileManager();
-        $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
-
-        if (!$temporaryFile || ($isImage && !$temporaryFileManager->getImageExtension($temporaryFile->getFileType()))) {
-            // Temporary file must exist, and if it should be an image, ensure that's the case
-            return null;
-        }
+        $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $user->getId());
 
         $fileNameBase = join('_', ['submission', $submission->getId(), $publication->getId(), $settingName]); // eg - submission_1_1_coverImage
-        $fileName = app()->get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $userId, $localeKey);
+        if (!$temporaryFile || ($isImage && !$temporaryFileManager->getImageExtension($temporaryFile->getFileType()))) {
+            // Temporary file must exist, and if it should be an image, ensure that's the case
+            throw new StoreTemporaryFileException($temporaryFile, $fileNameBase, $user, $publication);
+        }
+        $fileName = app()->get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $user, $localeKey, $isImage);
 
         if ($fileName) {
             if ($isImage) {
@@ -1246,7 +1278,8 @@ abstract class Repository
     }
 
     /**
-     * Retrieve completed review assignments for publications.
+     * Retrieve the review assignments of publications that can have a DOI:
+     * confirmed by an editor and publicly visible.
      *
      *
      * @throws Exception
@@ -1258,7 +1291,8 @@ abstract class Repository
         return Repo::reviewAssignment()
             ->getCollector()
             ->filterByPublicationIds($publicationIds)
-            ->filterByCompleted(true)
+            ->filterByIsConfirmedByEditor(true)
+            ->filterByIsPubliclyVisible(true)
             ->getMany();
     }
 

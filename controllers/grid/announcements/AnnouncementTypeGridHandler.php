@@ -29,6 +29,7 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PKPSiteAccessPolicy;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\Role;
 
 class AnnouncementTypeGridHandler extends GridHandler
@@ -64,6 +65,8 @@ class AnnouncementTypeGridHandler extends GridHandler
             $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         } else {
             $this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
+            // Admin requires reauthentication for site-wide actions
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
         }
 
         $announcementTypeId = $request->getUserVar('announcementTypeId');

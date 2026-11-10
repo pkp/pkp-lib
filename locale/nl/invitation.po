@@ -11,22 +11,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Ten minste één toe te voegen gebruikersgroep moet worden omschreven"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "De gebruikersgroep is toegekend aan de uitgenodigde gebruiker"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Ten minste één te verwijderen gebruikersgroep moet worden omschreven"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr ""
-"Verwijdering van de gebruikersrollen kan niet worden omschreven voor niet-"
-"bestaande gebruikers."
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "De vereiste gebruikersgroepen bevatten dubbele ingangen."
 
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
@@ -48,33 +34,11 @@ msgstr ""
 "Wanneer aan een uitnodiging een e-mail ({$email}) is gekoppeld, mag deze e-"
 "mail niet in gebruik zijn bij een andere gebruiker."
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Een gebruikersnaam is vereist"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Een wachtwoord is vereist"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Vermelding van een affiliatie is vereist"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Vermelding van een land is vereist"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Vermelding van een achternaam is vereist"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr ""
-"Voor toegevoegde gebruikersgroepen, is vermelding van een begindatum vereist"
-
 msgid "invitation.api.error.operationFailed"
 msgstr "Deze uitnodigingswerkzaamheid is niet gelukt"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "De vereiste gebruikersgroep-ID {$userGroupId bestaat niet"
-
-msgid "invitation.validation.required"
-msgstr "Het {$attribute}-veld is vereist."
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Deze uitnodiging kan niet worden geannuleerd"
@@ -82,38 +46,18 @@ msgstr "Deze uitnodiging kan niet worden geannuleerd"
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "U kunt niet zowel e-mail als gebruikers-ID tegelijk verstrekken."
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Voor toegevoegde gebruikersgroepen, is een colofon vereist"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Dit type uitnodiging heeft geen omschreven e-mailmogelijkheid"
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr ""
-"De ID {reviewAssignmentId} correspondeert niet met een geldig "
+"De ID {$reviewAssignmentId} correspondeert niet met een geldig "
 "recensietoekenning"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Vermelding van een verstrekte naam is vereist"
 
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
 "Er zijn in het item onverwachte kenmerken gevonden bij de index {$attribute}:"
 " {$properties}."
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "Voor toegevoegde groepen, is vermelding van een gebruikersgroep vereist"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Het gegevenskenmerk wordt niet toegelaten voor bestaande gebruikers"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr ""
-"Het gegevenskenmerk wordt niet toegelaten voor niet-bestaande gebruikers"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr ""
-"Dit gegevenskenmerk moet een waarde hebben die gelijk is aan vandaag of later"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "Het :specifieke veld is niet toegelaten"
@@ -126,12 +70,6 @@ msgstr "Uitnodigingen"
 
 msgid "invitation.inviteToRole.btn"
 msgstr "Uitnodiging voor een rol"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Voer details in"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Beoordelen & uitnodigen voor rollen"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Zoek gebruiker"
@@ -167,9 +105,6 @@ msgstr "Kies een nieuwe rol"
 
 msgid "invitation.role.dateStart"
 msgstr "Begindatum"
-
-msgid "invitation.role.dateEnd"
-msgstr "Einddatum"
 
 msgid "userInvitation.roleTable.role"
 msgstr "Rol"
@@ -325,9 +260,6 @@ msgstr "Wordt niet in het colofon vermeld"
 
 msgid "invitation.masthead.show"
 msgstr "Vermeld in het colofon"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Bewerkingsrol"
 
 msgid "invitation.management.options"
 msgstr "Verschillende beheersopties m.b.t. uitnodiging"

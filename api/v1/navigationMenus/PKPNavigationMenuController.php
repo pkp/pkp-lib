@@ -27,6 +27,7 @@ use PKP\db\DAORegistry;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\navigationMenu\resources\NavigationMenuResource;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -98,6 +99,11 @@ class PKPNavigationMenuController extends PKPBaseController
         }
 
         $this->addPolicy($rolePolicy);
+
+        if (!$request->getContext()) {
+            // Admin requires reauthentication for site-wide actions
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        }
 
         return parent::authorize($request, $args, $roleAssignments);
     }

@@ -23,13 +23,13 @@ use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
 use PKP\invitation\stepTypes\SendInvitationStep;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectController
 {
     protected Invitation $invitation;
 
     /**
-     * @param Invitation $invitation
      */
     public function __construct(Invitation $invitation)
     {
@@ -38,9 +38,9 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
 
     /**
      * Create new invitations for users
-     * @param Request $request
-     * @param $userId
-     * @return void
+     *
+     * @param null|mixed $userId
+     *
      * @throws \Exception
      */
     public function createHandle(Request $request, $userId = null): void
@@ -51,7 +51,6 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             'orcid' => '',
             'givenName' => '',
             'familyName' => '',
-            'orcidValidation' => false,
             'disabled' => false,
             'userGroupsToAdd' => [
                 [
@@ -74,11 +73,14 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             //send invitation using edit user action in user access table
             $user = Repo::user()->get($userId, true);
             if (!$user) {
-                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+                throw new NotFoundHttpException();
             }
             $invitationPayload = (
             new UserRoleAssignmentInviteResource($this->invitation))
-                ->transformInvitationPayload($userId, $user->getAllData(), $request->getContext()
+                ->transformInvitationPayload(
+                    $userId,
+                    $user->getAllData(),
+                    $request->getContext()
                 );
             $invitationMode = 'editUser';
         }
@@ -138,8 +140,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
 
     /**
      * Edit invitations
-     * @param Request $request
-     * @return void
+     *
      * @throws \Exception
      */
     public function editHandle(Request $request): void
@@ -150,7 +151,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
         $payload['email'] = $invitationModel['email'];
         $payloadDataToBeTransform = [];
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId'], true) : null;
-        if($user){
+        if ($user) {
             // if edit an invitation for existing user, used user data as invitation payload
             $payloadDataToBeTransform = $user->getAllData();
             $payloadDataToBeTransform['userGroupsToAdd'] = $payload['userGroupsToAdd'];
@@ -209,8 +210,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             'pageTitle' =>
                 ($invitationPayload->givenName && $invitationPayload->familyName) ?
                     $invitationPayload->givenName[Locale::getLocale()] . ' '
-                    . $invitationPayload->familyName[Locale::getLocale()] : $invitationPayload->inviteeEmail
-            ,
+                    . $invitationPayload->familyName[Locale::getLocale()] : $invitationPayload->inviteeEmail,
             'pageTitleDescription' =>
                 __(
                     'invitation.wizard.viewPageTitleDescription',

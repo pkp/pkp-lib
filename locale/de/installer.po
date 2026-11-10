@@ -1,12 +1,13 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023, 2025.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
+# Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2025-12-31 07:26+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2026-10-23 10:01+0000\n"
+"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/de/>\n"
 "Language: de\n"
@@ -278,16 +279,16 @@ msgstr ""
 
 msgid "installer.appKey.keyVariable.missing.instruction"
 msgstr ""
-"Bitte fügen Sie die config Variable `app_key` unter der `general`Sektion "
+"Bitte fügen Sie die config-Variable `app_key` unter der Rubrik `general` "
 "manuell hinzu oder führen Sie den Befehl `php lib/pkp/tools/appKey.php "
 "configure`aus."
 
 msgid "installer.appKey.keyVariable.missing.error"
-msgstr "Config Variable `app_key` nicht in der `general` Sektion definiert. "
+msgstr "Config-Variable `app_key` nicht in der Rubirk `general` definiert. "
 
 msgid "installer.appKey.keyVariable.alreadyExist.notice"
 msgstr ""
-"Config Variable `app_key` ist bereits in der `general` Sektion definiert. "
+"Config-Variable `app_key` ist bereits in der Rubrik `general` definiert. "
 
 msgid "installer.appKey.keyVariable.configFile.read.error"
 msgstr ""
@@ -302,5 +303,5 @@ msgstr "Der app key konnte nicht in die config-Datei geschrieben werden."
 
 msgid "installer.appKey.set.value"
 msgstr ""
-"Den Wert von `app_key` in der `general` Sektion in der `config.inc.php`-"
-"Datei zu {$key} setzen."
+"Den Wert von `app_key` in der Rubrik `general` in der `config.inc.php`-Datei "
+"zu {$key} setzen."

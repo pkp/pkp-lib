@@ -9,6 +9,6 @@
  *}
 
 <label{if !$FBV_suppressId} for="{$FBV_name|default:""|escape}"{/if}{if $FBV_class} class="{$FBV_class|default:""|escape}"{/if} >
-	{$FBV_label}{if $FBV_required}<span class="req">*</span>{/if}
+	{$FBV_label}{if $FBV_required}<span class="req" aria-hidden="true">*</span>{/if}
 </label>
 

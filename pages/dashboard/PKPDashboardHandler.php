@@ -197,6 +197,7 @@ abstract class PKPDashboardHandler extends Handler
                     'supportsDataCitations' => !!$context->getData('dataCitations'),
                     'supportsDataAvailability' => !!$context->getData('dataAvailability'),
                     'supportsFunders' => !!$context->getData('funders'),
+                    'supportsFundingStatement' => !!$context->getData('fundingStatement'),
                     'identifiersEnabled' => $identifiersEnabled,
                     'isReviewerSuggestionEnabled' => (bool)$context->getData('reviewerSuggestionEnabled'),
                     'isCompetingInterestsRequested' => $context->isReviewCompetingInterestRequired(),
@@ -339,6 +340,7 @@ abstract class PKPDashboardHandler extends Handler
             'SUBMISSION_LOG_TASK_NOTE_POSTED' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_TASK_NOTE_POSTED,
 
             'citationProcessingStatus' => [
+                'QUEUED' => CitationProcessingStatus::QUEUED->value,
                 'FAILED' => CitationProcessingStatus::FAILED->value,
                 'NOT_PROCESSED' => CitationProcessingStatus::NOT_PROCESSED->value,
                 'PID_EXTRACTED' => CitationProcessingStatus::PID_EXTRACTED->value,

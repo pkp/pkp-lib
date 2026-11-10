@@ -781,8 +781,8 @@ msgstr "Datei ersetzen"
 
 msgid "common.requiredField"
 msgstr ""
-"Erforderliche Felder sind mit einem Sternchen gekennzeichnet: <abbr class="
-"\"required\" title=\"required\">*</abbr>"
+"Erforderliche Felder sind mit einem Sternchen gekennzeichnet: <span "
+"class=\"required\" aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Erforderlich"

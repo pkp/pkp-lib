@@ -152,6 +152,9 @@ class Schema extends \PKP\core\maps\Schema
                         ];
                     }
                     break;
+                case 'isConfirmedByEditor':
+                    $output[$prop] = $item->isConfirmedByEditor();
+                    break;
                 default:
                     $output[$prop] = $item->getData($prop);
                     break;

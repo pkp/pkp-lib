@@ -832,7 +832,9 @@ msgid "common.replaceFile"
 msgstr "फ़ाइल बदलें"
 
 msgid "common.requiredField"
-msgstr "आवश्यक फ़ील्ड तारांकन के साथ चिह्नित हैं: <abbr class=\"required\" title=\"required\">*</abbr>"
+msgstr ""
+"आवश्यक फ़ील्ड तारांकन के साथ चिह्नित हैं: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "आवश्यक"
@@ -1037,9 +1039,6 @@ msgstr "{$name} देखें"
 
 msgid "common.viewProfile"
 msgstr "प्रोफ़ाइल देखें"
-
-msgid "common.weeks"
-msgstr "सप्ताह"
 
 msgid "common.width"
 msgstr "चौड़ाई"
@@ -2025,12 +2024,6 @@ msgstr "विस्तार करें"
 msgid "list.collapse"
 msgstr "संक्षिप्त करें"
 
-msgid "showAll"
-msgstr "सभी दिखाएं"
-
-msgid "showLess"
-msgstr "कम दिखाएं"
-
 msgid "validation.invalidOption"
 msgstr "यह एक मान्य विकल्प नहीं है।"
 
@@ -2288,9 +2281,6 @@ msgstr "अनुमत उपयोगकर्ता समूह"
 
 msgid "common.saveOrdering"
 msgstr "क्रम सहेजें"
-
-msgid "common.order"
-msgstr "क्रम"
 
 msgid "common.openLinkNewTab"
 msgstr "लिंक को नए टैब में खोलें।"

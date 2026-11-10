@@ -3,8 +3,8 @@
 /**
  * @file classes/invitation/invitations/userRoleAssignment/resources/UserRoleAssignmentInviteManagerDataResource.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2024-2026 Simon Fraser University
+ * Copyright (c) 2024-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserRoleAssignmentInviteManagerDataResource
@@ -46,18 +46,13 @@ class UserRoleAssignmentInviteManagerDataResource extends BaseUserRoleAssignment
         // Return specific fields from the UserRoleAssignmentInvite
         return array_merge($baseData, [
             'orcid' => $payload->orcid,
-            'orcidAccessDenied' => $payload->orcidAccessDenied,
-            'orcidAccessExpiresOn' => $payload->orcidAccessExpiresOn,
-            'orcidAccessScope' => $payload->orcidAccessScope,
-            'orcidAccessToken' => $payload->orcidAccessToken,
             'orcidIsVerified' => $payload->orcidIsVerified,
-            'orcidRefreshToken' => $payload->orcidRefreshToken,
             'givenName' => $payload->givenName,
             'familyName' => $payload->familyName,
             'affiliation' => $payload->affiliation,
             'country' => $payload->userCountry,
-            'emailSubject' => $payload->emailSubject,
-            'emailBody' => $payload->emailBody,
+            'emailSubject' => $payload->emailComposer['subject'] ?? null,
+            'emailBody' => $payload->emailComposer['body'] ?? null,
             'userGroupsToAdd' => $this->transformUserGroups($payload->userGroupsToAdd),
             'username' => $payload->username,
             'sendEmailAddress' => $payload->sendEmailAddress,

@@ -13,23 +13,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "追加するユーザーグループを少なくとも1つ指定してください。"
-
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "このユーザーグループは招待対象ユーザーにすでに割り当てられています。"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "削除するユーザーグループを少なくとも1つ指定してください。"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "存在しないユーザーから役割を削除することはできません。"
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr "ユーザーグループの変更が指定されていないため、招待を送信できません。"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "指定されたユーザーグループに重複があります。"
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr "ユーザー名 {$username} はすでに使用されています。別のユーザー名を指定してください。"
@@ -40,33 +28,6 @@ msgstr "招待にユーザーID（{$userId}）が指定されている場合、�
 msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr "招待にメールアドレス（{$email}）が指定されている場合、そのメールアドレスは他のユーザーで使用されていてはいけません。"
 
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "ユーザー名を入力してください。"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "パスワードを入力してください。"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "所属を入力してください。"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "国を入力してください。"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "名を入力してください。"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "姓を入力してください。"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "追加するユーザーグループにはユーザーグループIDが必要です。"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "追加するユーザーグループには開始日が必要です。"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "追加するユーザーグループには誌面掲載設定が必要です。"
-
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "この招待種別には送信用メールが定義されていません。"
 
@@ -76,29 +37,17 @@ msgstr "招待操作に失敗しました。"
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "指定されたユーザーグループID {$userGroupId} は存在しません。"
 
-msgid "invitation.validation.required"
-msgstr "{$attribute} フィールドは必須です。"
-
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr "インデックス {$attribute} の項目に予期しないプロパティがあります: {$properties}。"
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
-msgstr "ID {reviewAssignmentId} は有効な査読割当を示していません。"
+msgstr "ID {$reviewAssignmentId} は有効な査読割当を示していません。"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "この招待はキャンセルできません。"
 
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "メールアドレスとユーザーIDを同時に指定することはできません。"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "既存ユーザーに対してこの属性へアクセスすることは許可されていません。"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "存在しないユーザーに対してこの属性へアクセスすることは許可されていません。"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "この属性には本日以降の日付を指定してください。"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr ":attribute フィールドは禁止されています。"
@@ -117,12 +66,6 @@ msgstr "役割に招待"
 
 msgid "invitation.wizard.pageTitle"
 msgstr "ユーザーを役割に招待"
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "詳細を入力"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "確認して役割に招待"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "ユーザー検索"
@@ -153,9 +96,6 @@ msgstr "新しい役割を選択"
 
 msgid "invitation.role.dateStart"
 msgstr "開始日"
-
-msgid "invitation.role.dateEnd"
-msgstr "終了日"
 
 msgid "invitation.role.addRole.button"
 msgstr "別の役割を追加"
@@ -309,9 +249,6 @@ msgstr "誌面情報に表示"
 
 msgid "invitation.masthead.hidden"
 msgstr "誌面情報に表示しない"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "役割を変更"
 
 msgid "invitation.management.options"
 msgstr "招待管理オプション"

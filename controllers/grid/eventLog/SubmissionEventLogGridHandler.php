@@ -232,16 +232,17 @@ class SubmissionEventLogGridHandler extends GridHandler
     }
 
     /**
-     * Get the contents of the email
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
+     * Get the contents of an email
      */
-    public function viewEmail($args, $request)
+    public function viewEmail(array $args, PKPRequest $request) : JSONMessage
     {
-        $emailLogEntry = EmailLogEntry::find((int) $args['emailLogEntryId']);
+        $emailLogEntry = EmailLogEntry::withAssocType(Application::ASSOC_TYPE_SUBMISSION)
+            ->withAssocId($this->getSubmission()->getId())
+            ->find((int) $args['emailLogEntryId']);
+
+        if (!$emailLogEntry) {
+            return new JSONMessage(false, __('api.404.resourceNotFound'));
+        }
         return new JSONMessage(true, $this->_formatEmail($emailLogEntry));
     }
 

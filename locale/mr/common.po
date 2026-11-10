@@ -876,8 +876,9 @@ msgstr "\"{$pluginName}\" हे प्लगइन कार्यान्व�
 
 msgid "common.requiredField"
 msgstr ""
-"आवश्यक फील्ड ताराचिन्हाने (*) दर्शविले आहेत :<abbr class=\"required\" title="
-"\"required\">*</abbr>"
+"आवश्यक फील्ड ताराचिन्हाने <span class=\"required\" "
+"aria-hidden=\"true\">(*)</span> दर्शविले आहेत :<span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.true"
 msgstr "TRUE (खरे)"

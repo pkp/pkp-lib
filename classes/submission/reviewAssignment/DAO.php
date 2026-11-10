@@ -200,22 +200,61 @@ class DAO extends EntityDAO
             ->when($submissionIds, fn (Builder $q) => $q->whereIn('submissions.submission_id', $submissionIds))
             ->whereNotNull('review_assignments.doi_id')
             ->whereNotNull('review_assignments.date_completed')
+            // Only reviews confirmed by an editor are public, see Collector::filterByIsConfirmedByEditor()
+            ->where(fn (Builder $q) => static::whereConfirmedByEditor($q, 'review_assignments'))
             ->where('submissions.context_id', $contextId)
             ->where('is_review_publicly_visible', true)
+            // The review's page only exists once the publication it is linked with has been published
+            ->join('review_rounds', 'review_rounds.review_round_id', '=', 'review_assignments.review_round_id')
+            ->join('publications as review_publications', 'review_publications.publication_id', '=', 'review_rounds.publication_id')
+            ->where('review_publications.status', '=', Publication::STATUS_PUBLISHED)
             ->when(
                 // When single DOI is used for all publication versions then ensure the current version is published and has a DOI.
                 // When depositing the review, it will be linked to that DOI that is used for all versions instead of a version-specific DOI.
                 !$doiVersioning,
                 fn (Builder $q) => $q
                     ->join('publications', 'publications.publication_id', '=', 'submissions.current_publication_id')
-                    ->whereNotNull('publications.doi_id'),
-                // When not using single DOI for all publication versions, ensure that the publication that the review is linked with has been published
-                fn (Builder $q) => $q->whereNotNull('publications.doi_id')
-                    ->join('review_rounds', 'review_rounds.review_round_id', '=', 'review_assignments.review_round_id')
-                    ->join('publications', 'publications.publication_id', '=', 'review_rounds.publication_id')
+                    ->whereNotNull('publications.doi_id')
+                    ->where('publications.status', '=', Publication::STATUS_PUBLISHED),
+                fn (Builder $q) => $q->whereNotNull('review_publications.doi_id')
             )
-            ->where('publications.status', '=', Publication::STATUS_PUBLISHED)
             ->pluck('review_assignments.review_id')
             ->toArray();
+    }
+
+    /**
+     * Whether an editor has "signed off" on a review.
+     * Used for confirming if review should be made broadly accessible if it is open/public.
+     *
+     * @param string $alias Alias used for `review_assignments` table
+     * @param bool $confirmed Whether query should check if editor has "signed off" on a reviewer or not.
+     */
+    public static function whereConfirmedByEditor(Builder $q, string $alias = 'ra', bool $confirmed = true): Builder
+    {
+        $considered = "{$alias}.considered";
+        $notRevoked = fn (Builder $q) => $q
+            ->whereNull($considered)
+            ->orWhereNot($considered, ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED);
+
+        if ($confirmed) {
+            // Confirmed path checks if not previously revoked and either date_considered or date_acknowledged is set.
+            return $q->where($notRevoked)
+                ->where(
+                    fn (Builder $q) => $q
+                        ->whereNotNull("{$alias}.date_considered")
+                        ->orWhereNotNull("{$alias}.date_acknowledged")
+                );
+        } else {
+            // Unconfirmed path should check if unconsidered or if date_considered and date_acknowledged are not set.
+            return $q->where(
+                fn (Builder $q) => $q
+                    ->where($considered, '=', ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED)
+                    ->orWhere(
+                        fn (Builder $q) => $q
+                            ->whereNull("{$alias}.date_considered")
+                            ->whereNull("{$alias}.date_acknowledged")
+                    )
+            );
+        }
     }
 }

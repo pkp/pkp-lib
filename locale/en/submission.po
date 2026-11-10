@@ -60,9 +60,6 @@ msgstr "Authors"
 msgid "submission.submit.availableUserGroups"
 msgstr "Submit As"
 
-msgid "submission.authors.label"
-msgstr "Authors"
-
 msgid "submission.author.list"
 msgstr "Submission Author List"
 
@@ -502,6 +499,9 @@ msgstr "The above references have been organised here in a structured format."
 msgid "submission.citations.structured.noStructuredInformationFound"
 msgstr "No structured information found"
 
+msgid "submission.citations.structured.lookupFailed"
+msgstr "Metadata lookup failed"
+
 msgid "submission.citations.structured.enableCitationsMetadataLookup"
 msgstr "Enable Metadata Lookup"
 
@@ -547,6 +547,15 @@ msgstr "All {$total} references successfully processed"
 
 msgid "submission.citations.structured.processed.description"
 msgstr "All references have been processed and added below. You can review, edit or remove them at any time."
+
+msgid "submission.citations.structured.processedWithFailures.title"
+msgstr "{$processed} of {$total} references processed, {$failed} failed"
+
+msgid "submission.citations.structured.processedWithFailures.description"
+msgstr ""
+"The metadata lookup could not be completed for some references, usually because an external "
+"service was temporarily unavailable. They are marked below - you can edit them by hand, or use "
+"Reprocess to try again."
 
 msgid "submission.citations.structured.deleteDialog.title"
 msgstr "Delete this structured citation."
@@ -2838,6 +2847,9 @@ msgstr "The date must be in the format YYYY-MM-DD, such as 2019-01-01."
 msgid "publication.event.versionCreated"
 msgstr "A new version was created."
 
+msgid "publication.identityAtPublication.description"
+msgstr "This metadata was recorded at the time of publication and will not change if the publisher updates its identity settings. To correct it, use the CLI batch tool."
+
 msgid "publication.publicationLicense"
 msgstr "Permissions & Disclosure"
 
@@ -3126,6 +3138,48 @@ msgstr "Body Text"
 msgid "publication.bodyText.documentPanel"
 msgstr "Document Edit"
 
+msgid "publication.bodyText.exportToHTML"
+msgstr "Export to HTML"
+
+msgid "publication.bodyText.pdf.preview"
+msgstr "Publication: Preview: PDF"
+
+msgid "publication.bodyText.pdf.publication"
+msgstr "Publication:"
+
+msgid "galley.generatedFrom.textEditor"
+msgstr "Generated from text editor"
+
+msgid "galley.revision"
+msgstr "Revision {$revision}"
+
+msgid "publication.bodyText.error.invalidGalleyFile"
+msgstr "The galley does not have a valid submission file."
+
+msgid "publication.bodyText.error.imageNotAttached"
+msgstr "The HTML references an image that is not attached to this publication's body text."
+
+msgid "publication.bodyText.error.imageNotExportable"
+msgstr "The HTML references an image that cannot be exported."
+
+msgid "publication.bodyText.pdf.generate"
+msgstr "Create PDF"
+
+msgid "publication.bodyText.pdf.generating"
+msgstr "Generating PDF…"
+
+msgid "publication.bodyText.pdf.saving"
+msgstr "Saving PDF galley…"
+
+msgid "publication.bodyText.pdf.galleyCreated"
+msgstr "PDF galley saved."
+
+msgid "publication.bodyText.pdf.failed"
+msgstr "Unable to generate or save the PDF galley. Please try again."
+
+msgid "publication.bodyText.exportedToHTML"
+msgstr "HTML galley saved."
+
 msgid "publication.bodyText.selectedElement"
 msgstr "Selected Element"
 
@@ -3152,6 +3206,18 @@ msgstr "Converting…"
 
 msgid "publication.bodyText.import.uploadingImages"
 msgstr "Uploading images…"
+
+msgid "publication.bodyText.import.importedWithWarnings"
+msgstr "Imported with warnings"
+
+msgid "publication.bodyText.import.warnings"
+msgstr "{$count} part(s) of the document need attention. Unconverted blocks are marked in the document."
+
+msgid "publication.bodyText.import.missingImage"
+msgstr "The image {$path} could not be extracted from the document and was replaced by a placeholder."
+
+msgid "publication.bodyText.import.uploadFailed"
+msgstr "The image {$path} could not be uploaded ({$error}) and was replaced by a placeholder."
 
 msgid "publication.jats.confirmDeleteFileTitle"
 msgstr "Confirm deleting JATS XML"
@@ -3302,7 +3368,7 @@ msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Review overdue by {$days} days"
 
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
-msgstr "This reviewer has not completed their review. A response was due on <b>{$date}.</b>"
+msgstr "This reviewer has not completed their review. The review was due on <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Review completed on {$date}"
@@ -3320,10 +3386,10 @@ msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "The review was accepted by the editor on <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Reviewer cancelled review request"
+msgstr "Review request cancelled by editor"
 
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Reviewer has cancelled the review request on <b>{$date}</b>."
+msgstr "The editor cancelled this review request on <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Awaiting Response from the reviewer"
@@ -3497,7 +3563,7 @@ msgid "publication.required.versionStage.alreadyAssignment"
 msgstr "The publication version is \"{$versionString}\""
 
 msgid "publication.versionStage.authorOriginal"
-msgstr "Author Original"
+msgstr "Author's Original"
 
 msgid "publication.versionStage.publishedManuscriptUnderReview"
 msgstr "Published Manuscript Under Review"
@@ -3531,6 +3597,9 @@ msgstr "Display"
 
 msgid "publication.access"
 msgstr "Access"
+
+msgid "publication.identity"
+msgstr "Identity"
 
 msgid "publication.insertContent.empty"
 msgstr "No saved summaries found for this submission's review revisions."

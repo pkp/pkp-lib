@@ -177,6 +177,7 @@ class UserGroupForm extends Form
         $templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
         $templateMgr->assign('permitSettingsRoleIds', $this->getPermitSettingsRoles());
         $templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
+        $templateMgr->assign('enableEnrollmentMasthead', $request->getContext()->getData('enableEnrollmentMasthead'));
         $repository = Repo::userGroup();
         $templateMgr->assign('notChangeMetadataEditPermissionRoles', $repository::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES);
         return parent::fetch($request, $template, $display);
@@ -242,6 +243,9 @@ class UserGroupForm extends Form
             }
 
             $userGroup->recommendOnly = $this->getData('recommendOnly') && in_array($userGroup->roleId, $this->getRecommendOnlyRoles());
+
+            // The masthead checkbox will not be present on the form if the masthead feature is disabled; this will
+            // result in a false value here, which is correct.
             $userGroup->masthead = (bool) $this->getData('masthead');
 
             // set localized fields
@@ -296,7 +300,13 @@ class UserGroupForm extends Form
             }
 
             $userGroup->recommendOnly = $this->getData('recommendOnly') && in_array($userGroup->roleId, $this->getRecommendOnlyRoles());
-            $userGroup->masthead = (bool) $this->getData('masthead');
+
+            // The masthead checkbox on the user group is only presented when the feature is enabled; do not change it otherwise.
+            $contextDao = Application::get()->getContextDAO();
+            $context = $contextDao->getById($this->getContextId());
+            if ($context->getData('enableEnrollmentMasthead')) {
+                $userGroup->masthead = (bool) $this->getData('masthead');
+            }
             $userGroup->save();
 
             $changedPermissions = array_values(array_filter(

@@ -13,28 +13,16 @@ msgstr ""
 "1 : 2);\n"
 "X-Generator: Weblate 4.18.2\n"
 
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
-msgstr "Turi būti nurodyta bent viena pridėtina naudotojų grupė"
-
 msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
 msgstr ""
 "Jei pakvietimui priskirtas naudotojo ID ({$userId}), atitinkamas naudotojas "
 "turi egzistuoti."
-
-msgid "userInvitation.enterDetailsLabel"
-msgstr "Įveskite duomenis"
-
-msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Peržiūrėti ir kviesti į vaidmenis"
 
 msgid "userInvitation.searchUser.stepName"
 msgstr "Ieškoti naudotojo"
 
 msgid "invitation.role.dateStart"
 msgstr "Pradžios data"
-
-msgid "invitation.role.dateEnd"
-msgstr "Pabaigos data"
 
 msgid "invitation.role.addRole.button"
 msgstr "Pridėti kitą vaidmenį"
@@ -86,21 +74,10 @@ msgstr "Privatumo sutikimas"
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
 msgstr "Naudotojų grupė priskirta pakviestam naudotojui"
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
-msgstr "Turi būti nurodyta bent viena pašalintina naudotojų grupė"
-
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr ""
-"Negalima nurodyti pašalinamų naudotojo vaidmenų neegzistuojantiems "
-"naudotojams."
-
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
 "Pakvietimo išsiųsti nepavyksta, nes nenurodyti jokie naudotojų grupių "
 "pakeitimai"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Pateiktose naudotojų grupėse yra pasikartojančių įrašų."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr "Naudotojas su vardu {$username} jau egzistuoja. Pabandykite kitą."
@@ -109,33 +86,6 @@ msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
 "Jei pakvietimui priskirtas el. paštas ({$email}), jis negali būti naudojamas "
 "kito naudotojo."
-
-msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
-msgstr "Turi būti nurodytas naudotojo vardas"
-
-msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
-msgstr "Turi būti nurodytas slaptažodis"
-
-msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
-msgstr "Turi būti nurodyta afiliacija (organizacija)"
-
-msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
-msgstr "Turi būti nurodyta šalis"
-
-msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
-msgstr "Turi būti nurodytas vardas"
-
-msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
-msgstr "Turi būti nurodyta pavardė"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
-msgstr "Pridedamoms naudotojų grupėms turi būti nurodytas grupės ID"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
-msgstr "Pridedamoms naudotojų grupėms turi būti nurodyta pradžios data"
-
-msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
-msgstr "Pridedamoms naudotojų grupėms turi būti nurodyta, ar rodyti antraštėje"
 
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "Šiam pakvietimo tipui nenustatytas el. laiško šablonas"
@@ -146,30 +96,18 @@ msgstr "Pakvietimo operacijos nepavyko"
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "Pateiktas naudotojų grupės ID {$userGroupId} neegzistuoja"
 
-msgid "invitation.validation.required"
-msgstr "Laukas {$attribute} yra privalomas."
-
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr ""
 "Elemente, kurio indeksas {$attribute}, rasta netikėtų savybių: {$properties}."
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
-msgstr "ID {reviewAssignmentId} neatitinka galiojančio recenzijos priskyrimo"
+msgstr "ID {$reviewAssignmentId} neatitinka galiojančio recenzijos priskyrimo"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
 msgstr "Šio pakvietimo atšaukti negalima"
 
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "Negalite kartu pateikti ir el. pašto, ir userId."
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Esamiems naudotojams šis atributas neleidžiamas"
-
-msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "Neegzistuojantiems naudotojams šis atributas neleidžiamas"
-
-msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
-msgstr "Atributo reikšmė turi būti šiandienos ar vėlesnė"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "Laukas :attribute yra neleidžiamas"
@@ -343,9 +281,6 @@ msgstr ""
 
 msgid "invitation.masthead.hidden"
 msgstr "Nerodyti leidinio antraštėje"
-
-msgid "invitation.role.modifyRole.button"
-msgstr "Keisti vaidmenį"
 
 msgid "invitation.management.options"
 msgstr "Pakvietimų valdymo parinktys"

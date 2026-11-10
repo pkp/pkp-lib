@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file api/v1/site/PKPSiteController.php
  *
@@ -21,11 +22,13 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\plugins\PluginRegistry;
 use PKP\plugins\ThemePlugin;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -89,6 +92,7 @@ class PKPSiteController extends PKPBaseController
         }
 
         $this->addPolicy($rolePolicy);
+        $this->addPolicy(new ReauthenticationRequiredPolicy($request));
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -157,7 +161,13 @@ class PKPSiteController extends PKPBaseController
         if (!empty($errors)) {
             return response()->json($errors, REsponse::HTTP_BAD_REQUEST);
         }
-        $site = $siteService->edit($site, $params, $request);
+        try {
+            $site = $siteService->edit($site, $params, $request);
+        } catch (StoreTemporaryFileException $e) {
+            return response()->json([
+                $e->targetPath => [__('api.400.errorUploadingImage')]
+            ], Response::HTTP_BAD_REQUEST);
+        }
 
         $siteProps = $siteService->getFullProperties($site, [
             'request' => $request,

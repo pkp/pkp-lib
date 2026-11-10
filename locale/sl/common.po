@@ -772,8 +772,8 @@ msgstr "Zamenjaj datoteko"
 
 msgid "common.requiredField"
 msgstr ""
-"Obvezno polje je označno z zvezdico: <abbr class=\"required\" title=\"obvezno"
-"\">*</abbr>"
+"Obvezno polje je označno z zvezdico: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Obvezno"

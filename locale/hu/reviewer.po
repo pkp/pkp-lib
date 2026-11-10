@@ -1,19 +1,20 @@
 # Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021.
+# Marton Horvath <horvath.marton.g@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2021-09-18 14:06+0000\n"
-"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
+"PO-Revision-Date: 2026-10-30 13:03+0000\n"
+"Last-Translator: Marton Horvath <horvath.marton.g@gmail.com>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"reviewer/hu_HU/>\n"
-"Language: hu_HU\n"
+"reviewer/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Kérés"
@@ -143,3 +144,75 @@ msgid "user.authorization.submissionReviewer"
 msgstr ""
 "Az aktuális felhasználó nincs hozzárendelve szakmai lektorként a kért "
 "dokumentumhoz."
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr ""
+"{$round}. lektorálási forduló: a lektori vélemény benyújtásának dátuma: "
+"{$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "{$round}. forduló lektori véleményének megtekintése"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Lektori megjegyzések"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Szerkesztőknek és szerzőknek"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Csak a szerkesztőknek"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "{$index}. megjegyzés: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Az elutasítás indoklása e-mailben elküldve"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Elutasítás dátuma"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "A cikk metaadatai"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Típus"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Absztrakt"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Kulcsszavak"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Általános információk"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Csatolmányok"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Ezeket a fájlokat a lektori véleményéhez csatolta"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Lektorálásra szánt fájlok"
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Korábbi lektorálások"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr ""
+"Az Ön által a(z) {$round}. lektorálási fordulóban benyújtott lektori "
+"vélemény a következő kéziratról"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "A lektorálási felkérés elutasítását nem indokolták meg."
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Ezeket a fájlokat lektorálásra küldtük Önnek"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "A lektori vélemény még nem készült el."
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Néhány kötelező mező nincs kitöltve. Kérjük, töltse ki ezeket a lektori "
+"vélemény benyújtása előtt."

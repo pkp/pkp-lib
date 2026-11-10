@@ -599,6 +599,14 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $templateId = $request->getUserVar('template');
         $context = $request->getContext();
         $user = $request->getUser();
+
+        if (!$templateId) {
+            return new JSONMessage(
+                true,
+                ['body' => '']
+            );
+        }
+
         $template = Template::with('userGroups')->withContextId($context->getId())->find($templateId);
         if ($template && Repo::editorialTask()->isTemplateAccessibleToUser($template, $user)) {
             $submission = $this->getSubmission();

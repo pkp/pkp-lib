@@ -771,7 +771,9 @@ msgid "common.replaceFile"
 msgstr "Înlocuire fișier"
 
 msgid "common.requiredField"
-msgstr "* Reprezintă câmp obligatoriu"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> Reprezintă câmp "
+"obligatoriu"
 
 msgid "common.required"
 msgstr "Necesar"

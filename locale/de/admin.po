@@ -3,13 +3,14 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2024.
 # Ralf Weber <ralf@weberr.de>, 2025.
 # Emma U <emmaupkp@gmail.com>, 2026.
+# Oliver Krüger <oliver.krueger@sub.uni-hamburg.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2026-06-11 16:32+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2026-10-23 12:22+0000\n"
+"Last-Translator: Oliver Krüger <oliver.krueger@sub.uni-hamburg.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/de/"
 ">\n"
 "Language: de\n"
@@ -1106,3 +1107,74 @@ msgstr ""
 "Führen Sie eine bestimmte geplante Aufgabe aus der Liste aus oder verwenden "
 "Sie den --name, um eine bestimmte auszuführen. Legen Sie das flag --no-"
 "scroll fest, um die vollständige Liste ohne Scrollen anzuzeigen."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksum"
+msgstr ""
+"Die ROR-Datenbank konnte aufgrund einer Abweichung bei der Prüfsumme nicht "
+"aktualisiert werden. Erwartete Prüfsumme: {$expected}. Tatsächliche "
+"Prüfsumme: {$actual}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumVerify"
+msgstr ""
+"Die Prüfsumme der heruntergeladenen ZIP-Datei mit dem ROR-Datenbank konnte "
+"nicht verifiziert werden."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.extract"
+msgstr "Die ZIP-Datei mit der ROR-Datenbank konnte nicht entpackt werden."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.missingFields"
+msgstr ""
+"Der ROR-Datenbankeintrag mit der ID \"{$id}\" enthält eines oder mehrere "
+"erforderliche Felder (id, names, status) nicht und wurde daher übersprungen."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.missingNameValue"
+msgstr ""
+"Der ROR-Datenbankeintrag \"{$id}\" enthält einen Namenseintrag mit den Typen "
+"[{$types}], bei dem das erforderliche Feld 'value' fehlt. Der Eintrag wurde "
+"daher übersprungen."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.checksumAlgorithm"
+msgstr ""
+"Die ZIP-Datei mit der ROR-Datenbank konnte nicht überprüft werden, da der "
+"Prüfsummenalgorithmus nicht unterstützt wird. Unterstützt werden nur MD5 und "
+"SHA-256."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.statusCode"
+msgstr ""
+"Die Metadaten der ROR-Datenbank konnten nicht abgerufen werden. Unerwarteter "
+"HTTP-Statuscode: {$statusCode}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noDownloadFile"
+msgstr ""
+"Die Metadaten der ROR-Datenbank konnten nicht abgerufen werden. Die API-"
+"Antwort enthält keine Download-Datei."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.download"
+msgstr ""
+"Die ZIP-Datei mit der ROR-Datenbank konnte nicht heruntergeladen werden."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.zipOpen"
+msgstr ""
+"Die ZIP-Datei mit der ROR-Datenbank konnte nicht geöffnet werden. Fehlercode:"
+" {$code}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.jsonNotFound"
+msgstr ""
+"Im entpackten Datensatz aus der ROR-Datenbank wurde keine JSON-Datei mit der "
+"Schemaversion {$version} gefunden."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.schemaVersionRead"
+msgstr ""
+"Die Schemaversion konnte nicht aus der JSON-Datei der ROR-Datenbank {$file} "
+"ausgelesen werden. Fehler: {$error}."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.error.noRecordsProcessed"
+msgstr ""
+"Es wurden keine Einträge aus dem Datensatz der ROR-Datenbank verarbeitet. "
+"Der Datensatz ist möglicherweise leer oder bei allen Einträgen ist die "
+"Validierung fehlgeschlagen."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset.warning.noValidName"
+msgstr ""
+"Der ROR-Datenbankeintrag \"{$id}\" enthält keinen gültigen Namen und wurde "
+"daher übersprungen."

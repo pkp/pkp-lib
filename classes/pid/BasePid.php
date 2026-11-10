@@ -90,10 +90,18 @@ abstract class BasePid
         /* @var BasePid $class */
         $class = get_called_class();
 
-        return trim(
-            str_ireplace($class::getPrefixes(), '', $string),
-            $class::defaultTrimCharacters
-        );
+        // Only a leading prefix: short alternate prefixes such as "doi" or "hdl" can occur inside an identifier.
+        // http:// only for matching the prefix: an identifier that is itself an address (e.g. URI) keeps its scheme.
+        $string = trim($string);
+        $httpsString = preg_replace('#^http://#i', 'https://', $string);
+        foreach ($class::getPrefixes() as $prefix) {
+            if (stripos($httpsString, $prefix) === 0) {
+                $string = substr($httpsString, strlen($prefix));
+                break;
+            }
+        }
+
+        return trim($string, $class::defaultTrimCharacters);
     }
 
     /**
@@ -108,13 +116,15 @@ abstract class BasePid
         /* @var BasePid $class */
         $class = get_called_class();
 
-        return trim(
-            str_replace(
-                array_map(fn($prefix) => $prefix . $pid, $class::getPrefixes()),
-                '',
-                $string
-            )
+        // Any letter case, and http as well as https, as written in the text.
+        $prefixes = array_map(
+            fn ($prefix) => str_starts_with($prefix, 'https://')
+                ? 'https?:\/\/' . preg_quote(substr($prefix, strlen('https://')), '/')
+                : preg_quote($prefix, '/'),
+            $class::getPrefixes()
         );
+
+        return trim(preg_replace('/(?:' . implode('|', $prefixes) . ')' . preg_quote($pid, '/') . '/i', '', $string));
     }
 
     /**
@@ -133,7 +143,7 @@ abstract class BasePid
 
         $match = '';
         foreach ($class::regexes as $regex) {
-            if (preg_match($regex, $string, $matches)) {
+            if (preg_match($regex, $string ?? '', $matches)) {
                 $match = $matches[0];
                 break;
             }
@@ -143,7 +153,25 @@ abstract class BasePid
             return '';
         }
 
-        return trim($class::removePrefix($match), $class::defaultTrimCharacters);
+        return trim($class::removePrefix(static::trimTrailingPunctuation($match)), $class::defaultTrimCharacters);
+    }
+
+    /**
+     * Remove the punctuation that follows an identifier in running text: ".", ",", ";" or ":",
+     * and a ")" that closes a parenthesis opened before the identifier. Identifiers may contain
+     * all of these (e.g. SICI DOIs), so one that really ends in them cannot be told apart.
+     */
+    public static function trimTrailingPunctuation(string $string): string
+    {
+        while ($string !== '') {
+            $char = substr($string, -1);
+            $closesOuterParenthesis = $char === ')' && substr_count($string, ')') > substr_count($string, '(');
+            if (!in_array($char, ['.', ',', ';', ':']) && !$closesOuterParenthesis) {
+                break;
+            }
+            $string = substr($string, 0, -1);
+        }
+        return $string;
     }
 
     /**
@@ -151,7 +179,6 @@ abstract class BasePid
      *
      * @param string|null $value e.g. 10.123/tib123 (bare, no prefix)
      *
-     * @return bool
      *
      */
     public static function isValid(?string $value): bool
@@ -187,11 +214,11 @@ abstract class BasePid
             [$class::prefix, $class::prefix . ' '],
             [$class::urlPrefix],
             $class::alternatePrefixes,
-            array_map(fn($value) => trim($value) . ' ', $class::alternatePrefixes)
+            array_map(fn ($value) => trim($value) . ' ', $class::alternatePrefixes)
         );
-        $prefixes = array_filter($prefixes, fn($value) => !empty(trim($value)));
+        $prefixes = array_filter($prefixes, fn ($value) => !empty(trim($value)));
         $prefixes = array_unique($prefixes);
-        usort($prefixes, fn($a, $b) => strlen($b) - strlen($a));
+        usort($prefixes, fn ($a, $b) => strlen($b) - strlen($a));
 
         return $prefixes;
     }

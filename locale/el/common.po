@@ -782,7 +782,9 @@ msgid "common.replaceFile"
 msgstr "Αντικατάσταση αρχείου"
 
 msgid "common.requiredField"
-msgstr "(*) Δηλώνει απαιτούμενο πεδίο"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">(*)</span> Δηλώνει απαιτούμενο "
+"πεδίο"
 
 msgid "common.required"
 msgstr "Απαιτείται"

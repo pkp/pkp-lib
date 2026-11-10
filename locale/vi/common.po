@@ -769,8 +769,8 @@ msgstr "Thay thế tệp"
 
 msgid "common.requiredField"
 msgstr ""
-"Các trường bắt buộc được đánh dấu bằng dấu hoa thị: <abbr class=\"required\" "
-"title=\"required\">*</abbr>"
+"Các trường bắt buộc được đánh dấu bằng dấu hoa thị: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Bắt buộc"

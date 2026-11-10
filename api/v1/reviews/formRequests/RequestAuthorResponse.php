@@ -37,7 +37,7 @@ class RequestAuthorResponse extends FormRequest
     {
         $this->submission = Repo::submission()->get(
             $this->route('submissionId'),
-            $this->get('context')->getId(),
+            Application::get()->getRequest()->getContext()->getId(),
         );
 
         /** @var ReviewRoundDAO $reviewRoundDao */
@@ -58,7 +58,7 @@ class RequestAuthorResponse extends FormRequest
                 'required',
                 'integer',
                 function (string $attribute, mixed $value, \Closure $fail) {
-                    if (!$this->reviewRound || (int)$this->reviewRound->getId() !== (int)$value) {
+                    if (!$this->reviewRound || $this->reviewRound->getSubmissionId() !== (int) $this->route('submissionId')) {
                         $fail(__('api.404.resourceNotFound'));
                     }
                 }

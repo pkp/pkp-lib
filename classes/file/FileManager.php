@@ -390,13 +390,13 @@ class FileManager
     /**
      * Delete a file.
      *
-     * @param string $filePath the location of the file to be deleted
+     * @param $filePath the location of the file to be deleted
      *
-     * @return ?bool returns true if successful
+     * @return true if successful
      *
      * @hook FileManager::deleteFile [[$filePath, &$result]]
      */
-    public function deleteByPath($filePath)
+    public function deleteByPath(string $filePath): bool
     {
         if ($this->fileExists($filePath)) {
             $result = null;
@@ -838,5 +838,27 @@ class FileManager
             }
         }
         throw $lastException;
+    }
+
+    /**
+     * Check that temporary file is an image
+     */
+    public function isValidImage(TemporaryFile $temporaryFile): bool
+    {
+        if (getimagesize($temporaryFile->getFilePath()) === false) {
+            return false;
+        }
+        $extension = strtolower(pathinfo($temporaryFile->getOriginalFileName(), PATHINFO_EXTENSION));
+        $extensionFromMimeType = $this->getImageExtension(
+            PKPString::mime_content_type($temporaryFile->getFilePath())
+        );
+        // Special case: Accept .jpeg as a valid JPEG extension
+        if ($extensionFromMimeType === '.jpg' && $extension === 'jpeg') {
+            return true;
+        }
+        if ($extensionFromMimeType === '.' . $extension) {
+            return true;
+        }
+        return false;
     }
 }

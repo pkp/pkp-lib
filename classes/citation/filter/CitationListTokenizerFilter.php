@@ -52,6 +52,9 @@ class CitationListTokenizerFilter extends Filter
             return $newCitation;
         }, $citations);
 
+        // 5) Drop lines that held only whitespace, or they never match the stored citations.
+        $citations = array_values(array_filter($citations, fn (string $citation) => $citation !== ''));
+
         return $citations;
     }
 }

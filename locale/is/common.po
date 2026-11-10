@@ -769,7 +769,9 @@ msgid "common.replaceFile"
 msgstr "Skipta út skrá"
 
 msgid "common.requiredField"
-msgstr "* Gefur til kynna skilyrt svæði"
+msgstr ""
+"<span class=\"required\" aria-hidden=\"true\">*</span> Gefur til kynna "
+"skilyrt svæði"
 
 msgid "common.required"
 msgstr "Skilyrt"

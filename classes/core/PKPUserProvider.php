@@ -14,6 +14,7 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 use Illuminate\Contracts\Auth\UserProvider;
@@ -56,7 +57,13 @@ class PKPUserProvider implements UserProvider
      */
     public function retrieveById($id)
     {
-        return Repo::user()->get((int) $id, true);
+        // If the request has already been initialized with the user object, use it.
+        if (($user = Application::get()->getRequest()->getUser()) && $user->getId() == $id) {
+            return $user;
+        }
+
+        // A disabled account is only resolved for "Login As"
+        return Repo::user()->get($id, Validation::isLoggedInAs());
     }
 
     /**
@@ -93,16 +100,16 @@ class PKPUserProvider implements UserProvider
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
      * @param  string  $token
-     *
      */
     public function updateRememberToken(UserContract $user, $token)
     {
-        if ($user->getRememberToken() === $token) {
-            return;
-        }
-
+        // The guard sets the new token on the user before calling this, so always store it
         $user->setRememberToken($token);
-        Repo::user()->edit($user);
+
+        $this->connection
+            ->table($this->table)
+            ->where($user->getAuthIdentifierName(), $user->getAuthIdentifier())
+            ->update([$user->getRememberTokenName() => $token]);
     }
 
     /**
@@ -145,8 +152,6 @@ class PKPUserProvider implements UserProvider
 
     /**
      * Rehash the user's password if required and supported.
-     *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
      */
     public function rehashPasswordIfRequired(UserContract $user, #[\SensitiveParameter] array $credentials, bool $force = false)
     {
@@ -162,7 +167,6 @@ class PKPUserProvider implements UserProvider
 
     /**
      * Create a new instance of the \PKP\user\User
-     *
      */
     public function createUserInstance(): User
     {
@@ -171,7 +175,6 @@ class PKPUserProvider implements UserProvider
 
     /**
      * Gets the hasher implementation.
-     *
      */
     public function getHasher(): HasherContract
     {

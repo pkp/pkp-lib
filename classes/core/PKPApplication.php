@@ -21,7 +21,6 @@ use DateTime;
 use DateTimeZone;
 use Exception;
 use GuzzleHttp\Client;
-use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MariaDbConnection;
 use Illuminate\Database\MySqlConnection;
@@ -369,7 +368,7 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
                     // below is already recorded there by PHP's native fatal handler, so reporting
                     // it here too would duplicate the entry, so skip logging in PHP's error_log
                     if (!PKPExceptionHandler::usesErrorLogChannel()) {
-                        app(ExceptionHandler::class)->report($t);
+                        report($t);
                     }
                     throw $t;
                 }

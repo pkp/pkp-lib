@@ -50,9 +50,11 @@
 		}
 	{/fbvFormSection}
 
-	{fbvFormSection title="manager.setup.masthead" list=true}
-		{fbvElement type="checkbox" id="masthead" checked=true label="invitation.masthead.show" translate="true" disabled="true"}
-	{/fbvFormSection}
+	{if $currentContext->getData('enableEnrollmentMasthead') && $currentContext->getData('enableEnrollmentMastheadReviewers')}
+		{fbvFormSection title="manager.setup.masthead" list=true}
+			{fbvElement type="checkbox" id="masthead" checked=true label="invitation.masthead.show" translate="true" disabled="true"}
+		{/fbvFormSection}
+	{/if}
 
 	{if $reviewerSuggestionId}
 		{fbvElement type="hidden" id="reviewerSuggestionId" name="reviewerSuggestionId" value=$reviewerSuggestionId}

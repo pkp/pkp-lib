@@ -23,6 +23,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\Role;
 
 class PKPJobController extends PKPBaseController
@@ -54,6 +56,15 @@ class PKPJobController extends PKPBaseController
                 Role::ROLE_ID_SITE_ADMIN
             ]),
         ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**

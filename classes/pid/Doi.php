@@ -24,7 +24,7 @@ class Doi extends BasePid
     /** @copydoc BasePid::regexes */
     public const regexes = [
         // doi:10.1002/tox.20155 https://doi.org/10.1002/tox.20155
-        '/(?:doi:\s*|https?:\/\/doi\.org\/)10[.][0-9]{4,}\/[^\s"<>]+/i'
+        '/(?:doi:\s*|https?:\/\/(?:dx\.|www\.)?doi\.org\/)10[.][0-9]{4,}\/[^\s"<>]+/i'
     ];
 
     /** @copydoc BasePid::validationRegexes */
@@ -46,6 +46,7 @@ class Doi extends BasePid
         'dx.doi.org',
         'dx.doi.org:',
         'https://dx.doi.org/',
-        'http://dx.doi.org/'
+        'http://dx.doi.org/',
+        'https://www.doi.org/'
     ];
 }

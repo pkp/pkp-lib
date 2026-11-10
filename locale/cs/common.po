@@ -777,8 +777,8 @@ msgstr "Nahradit soubor"
 
 msgid "common.requiredField"
 msgstr ""
-"Povinná pole jsou označena hvězdičkou: <abbr class=\"požadováno\" title="
-"\"požadováno\">*</abbr>"
+"Povinná pole jsou označena hvězdičkou: <span class=\"required\" "
+"aria-hidden=\"true\">*</span>"
 
 msgid "common.required"
 msgstr "Povinný"

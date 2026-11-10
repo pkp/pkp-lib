@@ -18,7 +18,6 @@ use APP\facades\Repo;
 use APP\orcid\actions\SendReviewToOrcid;
 use APP\publication\Publication;
 use Carbon\Carbon;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use PKP\context\Context;
 use PKP\jobs\orcid\DepositOrcidSubmission;
 use PKP\orcid\OrcidManager;
@@ -64,7 +63,7 @@ abstract class PKPSendSubmissionToOrcid
                     $authorsWithOrcid[$orcid] = $author;
                 } else {
                     OrcidManager::logError("Token expired on {$orcidAccessExpiresOn} for author " . $author->getId() . ', deleting orcidAccessToken!');
-                    OrcidManager::removeOrcidAccessToken($author);
+                    OrcidManager::removeOrcidAccessToken(identity: $author, context: $this->context);
                 }
             }
         }

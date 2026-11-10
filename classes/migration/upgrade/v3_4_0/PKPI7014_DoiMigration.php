@@ -205,7 +205,7 @@ abstract class PKPI7014_DoiMigration extends Migration
 
         $insertData = $this->prepareSuffixPatternsForInsert($data, $insertData);
 
-        DB::table($this->getContextSettingsTable())->insert($insertData);
+        DB::table($this->getContextSettingsTable())->insertOrIgnore($insertData);
 
         // Add minimum required DOI settings to context if DOI plugin not previously enabled
         $missingDoiSettingsInsertStatement = DB::table($this->getContextTable())

@@ -3044,11 +3044,13 @@ msgstr "Toimittaja vahvisti arvioinnin"
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "Toimittaja hyväksyi arvioinnin <b>{$date}</b>."
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Arvioija perui arviointipyynnön"
+msgstr "Toimittaja perui arviointipyynnön"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Arvioija perui arviointipyynnön <b>{$date}</b>."
+msgstr "Toimittaja perui tämän arviointipyynnön <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Odotetaan arvioijan vastausta"
@@ -3229,6 +3231,7 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Arviointi myöhässä {$days} päivää"
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Arvioija ei ole viimeistellyt arviointiaan. Arvioinnin määräaika oli "

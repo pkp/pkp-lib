@@ -27,7 +27,7 @@ class ExtractPidsHelper
 {
     public function execute(Citation $citation): Citation
     {
-        $raw = str_ireplace('http://', 'https://', $citation->getRawCitation());
+        $raw = $citation->getRawCitation();
 
         // doi
         $doi = Doi::extractFromString($raw);

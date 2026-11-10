@@ -84,12 +84,6 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
-                case '_href':
-                    $output[$prop] = $this->getApiUrl(
-                        'citations/' . $item->getId(),
-                        $this->context->getData('urlPath')
-                    );
-                    break;
                 case 'authors':
                     $authors = [];
                     foreach (is_array($item->getData($prop)) ? $item->getData($prop) : [] as $author) {

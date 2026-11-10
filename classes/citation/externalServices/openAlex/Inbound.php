@@ -64,8 +64,8 @@ class Inbound
             switch ($key) {
                 case 'authors':
                     $newValue = [];
-                    $authorships = ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey);
-                    foreach ($authorships as $index => $authorship) {
+                    $authorships = ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey) ?? [];
+                    foreach ($authorships as $authorship) {
                         $newValue[] = $this->getAuthor($authorship);
                     }
                     break;
@@ -125,6 +125,9 @@ class Inbound
         if (count($authorDisplayNameParts) > 1) {
             $author['familyName'] = array_pop($authorDisplayNameParts);
             $author['givenName'] = implode(' ', $authorDisplayNameParts);
+        } elseif (trim($displayName) !== '') {
+            // A mononym or an organisation: as for PKP authors, the given name is the required one.
+            $author['givenName'] = trim($displayName);
         }
 
         return $author;

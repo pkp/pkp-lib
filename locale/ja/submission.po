@@ -2883,6 +2883,7 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr ""
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 
@@ -2902,9 +2903,11 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr ""
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr ""
 
+#, fuzzy
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr ""
 

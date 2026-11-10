@@ -355,6 +355,7 @@ abstract class Repository
     ): void {
         $newSubmissionFile = clone $submissionFile;
         $newSubmissionFile->setAllData(array_merge($newSubmissionFile->_data, $params));
+        $newSubmissionFile->setId($submissionFile->getId());
 
         Hook::call(
             'SubmissionFile::edit',

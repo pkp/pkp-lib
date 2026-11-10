@@ -1,11 +1,12 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2025.
+# Oliver Krüger <oliver.krueger@sub.uni-hamburg.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2025-12-31 07:26+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2026-10-23 10:01+0000\n"
+"Last-Translator: Oliver Krüger <oliver.krueger@sub.uni-hamburg.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "de/>\n"
 "Language: de\n"
@@ -204,3 +205,8 @@ msgstr "Dateien für das Gutachten"
 
 msgid "reviewer.submission.reviewRound.files.description"
 msgstr "Diese Dateien wurden Ihnen für das Gutachten geschickt"
+
+msgid "reviewer.submission.reviewFormResponse.form.notFilledIn"
+msgstr ""
+"Einige Pflichtfelder sind noch nicht ausgefüllt. Bitte füllen Sie diese aus, "
+"bevor Sie Ihr Gutachten einreichen."

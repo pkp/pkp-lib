@@ -22,6 +22,7 @@ use APP\submission\Submission;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
 {
@@ -65,7 +66,15 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
 
         // If reviewMethods is defined, check that the assignment uses the defined method(s)
         if ($this->_reviewMethods) {
-            if (!in_array($reviewAssignment->getReviewMethod(), $this->_reviewMethods)) {
+            $reviewMethod = $reviewAssignment->getReviewMethod();
+            if (!in_array($reviewMethod, $this->_reviewMethods)) {
+                return AuthorizationPolicy::AUTHORIZATION_DENY;
+            }
+
+            if (
+                $reviewMethod === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN
+                && !$reviewAssignment->isConfirmedByEditor()
+            ) {
                 return AuthorizationPolicy::AUTHORIZATION_DENY;
             }
         }

@@ -93,6 +93,12 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
+                case 'revisionCount':
+                    $submissionFileId = $galley->getData('submissionFileId');
+                    $output[$prop] = $submissionFileId
+                        ? Repo::submissionFile()->getRevisions($submissionFileId)->count()
+                        : 0;
+                    break;
                 case 'doiObject':
                     if ($galley->getData('doiObject')) {
                         $retVal = Repo::doi()->getSchemaMap()->summarize($galley->getData('doiObject'));

@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use PKP\components\forms\FieldControlledVocab;
-use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
@@ -127,15 +126,6 @@ class PKPMetadataForm extends FormComponent
                 'tooltip' => __('manager.setup.metadata.type.description'),
                 'isMultilingual' => true,
                 'value' => $publication->getData('type'),
-            ]));
-        }
-
-        if ($this->enabled('fundingStatement')) {
-            $this->addField(new FieldRichTextarea('fundingStatement', [
-                'label' => __('submission.fundingStatement'),
-                'tooltip' => __('manager.setup.metadata.fundingStatement.description'),
-                'isMultilingual' => true,
-                'value' => $publication->getData('fundingStatement'),
             ]));
         }
 

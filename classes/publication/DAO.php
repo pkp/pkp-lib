@@ -519,8 +519,18 @@ class DAO extends EntityDAO
             )
             ->where('s.context_id', '=', $contextId)
             ->where('p.status', '=', Publication::STATUS_PUBLISHED)
-            ->whereNotNull('p.doi_id')
+            ->where(fn (Builder $q) => $this->whereHasDoi($q))
+            ->distinct()
             ->pluck('p.submission_id')
             ->all();
+    }
+
+    /**
+     * Restrict a query on publications (aliased `p`) to those that have a DOI to export,
+     * on the publication itself or on one of its app-specific child objects.
+     */
+    protected function whereHasDoi(Builder $q): Builder
+    {
+        return $q->whereNotNull('p.doi_id');
     }
 }

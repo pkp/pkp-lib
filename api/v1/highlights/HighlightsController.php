@@ -29,6 +29,7 @@ use PKP\core\PKPRequest;
 use PKP\highlight\Collector;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\ReauthenticationRequiredPolicy;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -106,6 +107,10 @@ class HighlightsController extends PKPBaseController
         }
         $this->addPolicy($rolePolicy);
 
+        if (!$request->getContext()) {
+            $this->addPolicy(new ReauthenticationRequiredPolicy($request));
+        }
+
         return parent::authorize($request, $args, $roleAssignments);
     }
 
@@ -114,7 +119,7 @@ class HighlightsController extends PKPBaseController
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
-        $highlight = Repo::highlight()->get((int) $illuminateRequest->route('highlightId'), $this->getRequest()->getContext());
+        $highlight = Repo::highlight()->get((int) $illuminateRequest->route('highlightId'), $this->getRequest()->getContext()->getId());
 
         if (!$highlight) {
             return response()->json([
@@ -179,8 +184,10 @@ class HighlightsController extends PKPBaseController
         try {
             $highlightId = Repo::highlight()->add($highlight);
         } catch (StoreTemporaryFileException $e) {
-            $highlight = Repo::highlight()->get($highlightId, $context?->getId());
-            Repo::highlight()->delete($highlight);
+            if ($highlightId = $e->getDataObjectId()) {
+                $highlight = Repo::highlight()->get($highlightId, $context?->getId());
+                Repo::highlight()->delete($highlight);
+            }
             return response()->json([
                 'image' => __('api.400.errorUploadingImage')
             ], Response::HTTP_BAD_REQUEST);
@@ -221,7 +228,6 @@ class HighlightsController extends PKPBaseController
         try {
             Repo::highlight()->edit($highlight, $params);
         } catch (Exception $e) {
-            Repo::highlight()->delete($highlight);
             return response()->json([
                 'image' => __('api.400.errorUploadingImage')
             ], Response::HTTP_BAD_REQUEST);

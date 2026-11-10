@@ -72,9 +72,10 @@ class PKPBackendDoiController extends PKPBaseController
         Route::put('peerReviews/{reviewId}', $this->editPeerReview(...))
             ->name('_doi.backend.peerReview.edit')
             ->whereNumber('reviewId');
-        Route::put('authorResponses/{responseId}', $this->editAuthorResponse(...))
-            ->name('_doi.backend.authorResponse.edit')
-            ->whereNumber('responseId');
+        // Not currently supported but preserved here until related code is integrated or fully removed.
+        // Route::put('authorResponses/{responseId}', $this->editAuthorResponse(...))
+        //     ->name('_doi.backend.authorResponse.edit')
+        //     ->whereNumber('responseId');
     }
 
     /**
@@ -152,11 +153,20 @@ class PKPBackendDoiController extends PKPBaseController
      */
     public function editPeerReview(Request $illuminateRequest): JsonResponse
     {
+        $context = $this->getRequest()->getContext();
+
         $reviewAssignment = Repo::reviewAssignment()->get($illuminateRequest->route('reviewId'));
         if (!$reviewAssignment) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound')
             ], Response::HTTP_NOT_FOUND);
+        }
+
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
+        if ($submission->getData('contextId') !== $context->getId()) {
+            return response()->json([
+                'error' => __('api.dois.403.editItemOutOfContext'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         if (!$reviewAssignment->getIsReviewPubliclyVisible()) {
@@ -190,12 +200,15 @@ class PKPBackendDoiController extends PKPBaseController
      */
     public function editAuthorResponse(Request $illuminateRequest): JsonResponse
     {
+        $context = $this->getRequest()->getContext();
         $authorResponse = AuthorResponse::find($illuminateRequest->route('responseId'));
         if (!$authorResponse) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
         }
+
+        $user = $authorResponse->submitted_by;
 
         $doi = Repo::doi()->get((int) $illuminateRequest->input('doiId'));
         if (!$doi) {

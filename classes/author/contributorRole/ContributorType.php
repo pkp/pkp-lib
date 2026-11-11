@@ -3,8 +3,8 @@
 /**
  * @file classes/author/contributorRole/ContributorType.php
  *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
+ * Copyright (c) 2026 Simon Fraser University
+ * Copyright (c) 2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContributorType
@@ -28,5 +28,10 @@ enum ContributorType
     public static function getTypes(): array
     {
         return array_map(fn (self $case): string => $case->name, self::cases());
+    }
+
+    public static function getTypesWithOrcid(): array
+    {
+        return [self::PERSON->name];
     }
 }

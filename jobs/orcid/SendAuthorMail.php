@@ -20,6 +20,7 @@ use APP\author\Author;
 use APP\facades\Repo;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Support\Facades\Mail;
+use PKP\author\contributorRole\ContributorType;
 use PKP\context\Context;
 use PKP\jobs\BaseJob;
 use PKP\mail\mailables\OrcidCollectAuthorId;
@@ -50,6 +51,10 @@ class SendAuthorMail extends BaseJob implements ShouldBeUnique
         }
 
         if (!OrcidManager::isEnabled($this->context)) {
+            return;
+        }
+
+        if (!in_array($this->author->getData('contributorType'), ContributorType::getTypesWithOrcid()) || !$this->author->getEmail()) {
             return;
         }
 

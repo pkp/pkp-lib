@@ -24,6 +24,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\author\contributorRole\ContributorType;
 use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\jobs\orcid\SendAuthorMail;
@@ -85,6 +86,13 @@ class OrcidController extends PKPBaseController
 
         $author = $validate['author']; /** @var Author $author */
         $context = $validate['context']; /** @var Context $context */
+
+        if (!in_array($author->getData('contributorType'), ContributorType::getTypesWithOrcid())) {
+            return response()->json([
+                'error' => __('api.orcid.400.personOnly'),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
         try {
             $author->setData('orcidVerificationRequested', true);
             Repo::author()->edit($author, ['orcidVerificationRequested']);
@@ -180,6 +188,13 @@ class OrcidController extends PKPBaseController
             return [
                 'error' => __('api.orcid.403.editWithoutPermission'),
                 'status' => Response::HTTP_FORBIDDEN
+            ];
+        }
+
+        if (!$author->getEmail()) {
+            return [
+                'error' => __('api.orcid.400.authorEmailRequired'),
+                'status' => Response::HTTP_BAD_REQUEST
             ];
         }
 

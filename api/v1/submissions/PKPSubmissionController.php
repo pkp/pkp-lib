@@ -1782,6 +1782,11 @@ class PKPSubmissionController extends PKPBaseController
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
+
+        if ($shouldSendOrcidEmail && !in_array($params['contributorType'] ?? null, ContributorType::getTypesWithOrcid())) {
+            return response()->json(['orcid' => [__('api.orcid.400.personOnly')]], Response::HTTP_BAD_REQUEST);
+        }
+
         $affiliationParams = $params['affiliations'] ?? [];
         unset($params['affiliations']);
 

@@ -110,7 +110,7 @@ class ContributorForm extends FormComponent
         ]));
         $this->addField(new FieldText('email', [
                 'label' => __('user.email'),
-                'isRequired' => $showWhenPersOrg,
+                'isRequired' => $showWhenPerson,
             ]))
             ->addField(new FieldSelect('country', [
                 'label' => __('common.country'),
@@ -130,7 +130,7 @@ class ContributorForm extends FormComponent
         if (OrcidManager::isEnabled()) {
             $this->addField(new FieldOrcid('orcid', [
                 'label' => __('user.orcid'),
-                'showWhen' => $showWhenPerson,
+                'showWhen' => ['contributorType', ContributorType::getTypesWithOrcid()],
                 'tooltip' => __('orcid.about.orcidExplanation'),
             ]), [FIELD_POSITION_AFTER, 'url']);
         }

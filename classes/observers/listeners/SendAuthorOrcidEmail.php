@@ -20,6 +20,7 @@ use APP\decision\Decision;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use Illuminate\Events\Dispatcher;
+use PKP\author\contributorRole\ContributorType;
 use PKP\jobs\orcid\SendAuthorMail;
 use PKP\observers\events\DecisionAdded;
 use PKP\orcid\OrcidManager;
@@ -61,6 +62,9 @@ class SendAuthorOrcidEmail
                     ->getMany();
 
                 foreach ($authors as $author) {
+                    if (!in_array($author->getData('contributorType'), ContributorType::getTypesWithOrcid())) {
+                        continue;
+                    }
                     $orcidAccessExpiresOn = Carbon::parse($author->getData('orcidAccessExpiresOn'));
                     if ($author->getData('orcidAccessToken') == null || $orcidAccessExpiresOn->isPast()) {
                         dispatch(new SendAuthorMail($author, $context, true));

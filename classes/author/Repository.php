@@ -132,7 +132,7 @@ class Repository
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
-        $validator->after(function ($validator) use ($props, $submission, $context, $primaryLocale) {
+        $validator->after(function ($validator) use ($author, $props, $submission, $context, $primaryLocale) {
             // publicationId must match an existing publication that is not yet published
             if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
                 $publication = Repo::publication()->get($props['publicationId']);
@@ -149,6 +149,13 @@ class Repository
                         __('api.submission.400.emptyContributorRoles')
                     );
                 }
+            }
+
+            // Persons require an email
+            $contributorType = $props['contributorType'] ?? $author?->getData('contributorType');
+            $email = array_key_exists('email', $props) ? $props['email'] : $author?->getEmail();
+            if ($contributorType === ContributorType::PERSON->getName() && empty($email) && !$validator->errors()->get('email')) {
+                $validator->errors()->add('email', __('validator.required'));
             }
 
             // Author CI statement required?

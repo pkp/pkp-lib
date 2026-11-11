@@ -59,7 +59,9 @@ abstract class I10620_EditorialBoardMemberRole extends Migration
             ]);
 
             foreach ($installedLocales as $locale) {
-                $translatedNameKey = __($nameKey, [], $locale);
+                // The locale code is only renamed later, by I9707, but the translations exist only under the new one
+                $translationLocale = I9707_WeblateUILocales::getAffectedLocales()[$locale] ?? $locale;
+                $translatedNameKey = __($nameKey, [], $translationLocale);
                 if ((!str_starts_with($translatedNameKey, '##') && !str_ends_with($translatedNameKey, '##')) ||
                     ($locale == $context->primary_locale)) {
 
@@ -67,7 +69,7 @@ abstract class I10620_EditorialBoardMemberRole extends Migration
                         ['user_group_id' => $userGroupId, 'locale' => $locale, 'setting_name' => 'name', 'setting_value' => $translatedNameKey],
                     ]);
                 }
-                $translatedAbbrevKey = __($abbrevKey, [], $locale);
+                $translatedAbbrevKey = __($abbrevKey, [], $translationLocale);
                 if ((!str_starts_with($translatedAbbrevKey, '##') && !str_ends_with($translatedAbbrevKey, '##')) ||
                     ($locale == $context->primary_locale)) {
 

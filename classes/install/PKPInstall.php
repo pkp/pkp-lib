@@ -64,6 +64,14 @@ class PKPInstall extends Installer
         return false;
     }
 
+    // Legacy defaults when config is missing (upgrade consistency)
+    public const LEGACY_CHARSET = 'utf8';
+    public const LEGACY_MYSQL_COLLATION = 'utf8_general_ci';
+
+    // Recommended defaults for new installs (full Unicode / emoji support)
+    public const DEFAULT_CHARSET = 'utf8mb4';
+    public const DEFAULT_MYSQL_COLLATION = 'utf8mb4_unicode_ci';
+
     /**
      * Pre-installation.
      *
@@ -89,7 +97,8 @@ class PKPInstall extends Installer
 
         $config = FacadesConfig::get('database');
         $config['default'] = $driver;
-        $config['connections'][$driver] = [
+
+        $connection = array_merge([
             'driver' => $driver,
             'host' => $this->getParam('databaseHost'),
             'port' => $this->getParam('databasePort'),
@@ -97,9 +106,14 @@ class PKPInstall extends Installer
             'database' => $this->getParam('databaseName'),
             'username' => $this->getParam('databaseUsername'),
             'password' => $this->getParam('databasePassword'),
-            'charset' => 'utf8',
-            'collation' => 'utf8_general_ci',
-        ];
+        ], self::resolveConnectionParams(
+            $driver,
+            Config::getVar('i18n', 'connection_charset'),
+            Config::getVar('database', 'collation')
+        ));
+
+        $config['connections'][$driver] = $connection;
+
         FacadesConfig::set('database', $config);
 
         // Need to register the `DatabaseServiceProvider` as when the `SessionServiceProvider`
@@ -115,6 +129,66 @@ class PKPInstall extends Installer
         }
 
         return $result;
+    }
+
+    /**
+     * Resolve and validate the DB connection charset and collation for a given driver.
+     *
+     * Single authoritative function for all charset/collation logic:
+     * - Normalizes charset (lowercased, trimmed)
+     * - PostgreSQL: maps any utf8* variant to 'utf8'; returns null collation
+     *   (encoding is a DB-level property on PostgreSQL, not a connection param)
+     * - MySQL / MariaDB: pairs charset with collation and auto-resolves mismatches
+     *   in either direction to keep the pair compatible:
+     *     utf8 + utf8mb4_*  → charset upgraded to utf8mb4 (collation wins)
+     *     utf8mb4 + utf8_*  → collation upgraded to utf8mb4_unicode_ci (charset wins)
+     *
+     * @param string  $driver       Normalized driver name (mysql|mysqli|mariadb|pgsql)
+     * @param ?string $rawCharset   Raw charset from config (e.g. 'utf8mb4', 'utf8', null)
+     * @param ?string $rawCollation Raw collation from config (MySQL/MariaDB only; pass null for pgsql)
+     *
+     * @return array{charset: string, collation?: string}
+     */
+    public static function resolveConnectionParams(
+        string $driver,
+        ?string $rawCharset,
+        ?string $rawCollation = null
+    ): array {
+        // Normalize charset
+        if ($rawCharset === null || trim($rawCharset) === '') {
+            $charset = self::LEGACY_CHARSET;
+        } else {
+            $charset = strtolower(trim($rawCharset));
+        }
+
+        // PostgreSQL: always map utf8* variants to 'utf8'; collation is not a per-connection
+        // setting in PostgreSQL so it is not included in the returned array.
+        if ($driver === 'pgsql') {
+            if (str_starts_with($charset, 'utf8')) {
+                $charset = self::LEGACY_CHARSET;
+            }
+            return ['charset' => $charset];
+        }
+
+        // MySQL / MariaDB: determine collation and resolve any charset/collation mismatch.
+        // Two mismatches are possible — both are auto-resolved so the pair is always compatible:
+        //
+        //   utf8 charset  + utf8mb4_* collation  → upgrade charset  to utf8mb4 (collation first)
+        //   utf8mb4 charset + utf8_* collation   → upgrade collation to utf8mb4_unicode_ci (charset first)
+        $collation = $rawCollation ?? self::LEGACY_MYSQL_COLLATION;
+
+        if ($charset === self::LEGACY_CHARSET && str_starts_with($collation, self::DEFAULT_CHARSET . '_')) {
+            // utf8 + utf8mb4_* → upgrade charset
+            $charset = self::DEFAULT_CHARSET;
+        } elseif ($charset === self::DEFAULT_CHARSET
+            && str_starts_with($collation, self::LEGACY_CHARSET . '_')
+            && !str_starts_with($collation, self::DEFAULT_CHARSET . '_')
+        ) {
+            // utf8mb4 + utf8_* (e.g. utf8_general_ci) → upgrade collation
+            $collation = self::DEFAULT_MYSQL_COLLATION;
+        }
+
+        return ['charset' => $charset, 'collation' => $collation];
     }
 
     //
@@ -192,6 +266,24 @@ class PKPInstall extends Installer
     public function createConfig()
     {
         $request = Application::get()->getRequest();
+
+        // Normalize driver so resolveConnectionParams() applies correct DB-specific rules.
+        $driver = PKPContainer::getDatabaseDriverName(strtolower($this->getParam('databaseDriver')));
+
+        $connectionParams = self::resolveConnectionParams(
+            $driver,
+            Config::getVar('i18n', 'connection_charset'),
+            Config::getVar('database', 'collation')
+        );
+
+        $databaseParams = array_merge([
+            'driver' => $this->getParam('databaseDriver'),
+            'host' => $this->getParam('databaseHost'),
+            'username' => $this->getParam('databaseUsername'),
+            'password' => $this->getParam('databasePassword'),
+            'name' => $this->getParam('databaseName'),
+        ], $connectionParams);
+
         return $this->updateConfig(
             [
                 'general' => [
@@ -202,16 +294,10 @@ class PKPInstall extends Installer
                     'allowed_hosts' => json_encode([$request->getServerHost(null, false)]),
                     'time_zone' => $this->getParam('timeZone')
                 ],
-                'database' => [
-                    'driver' => $this->getParam('databaseDriver'),
-                    'host' => $this->getParam('databaseHost'),
-                    'username' => $this->getParam('databaseUsername'),
-                    'password' => $this->getParam('databasePassword'),
-                    'name' => $this->getParam('databaseName')
-                ],
+                'database' => $databaseParams,
                 'i18n' => [
                     'locale' => $this->getParam('locale'),
-                    'connection_charset' => 'utf8',
+                    'connection_charset' => $connectionParams['charset'],
                 ],
                 'files' => [
                     'files_dir' => $this->getParam('filesDir')

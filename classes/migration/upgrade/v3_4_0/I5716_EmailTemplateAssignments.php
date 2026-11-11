@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Schema;
 use PKP\db\XMLDAO;
 use PKP\facades\Locale;
 use PKP\migration\Migration;
+use PKP\migration\upgrade\v3_5_0\I9707_WeblateUILocales;
 use stdClass;
 
 abstract class I5716_EmailTemplateAssignments extends Migration
@@ -232,12 +233,14 @@ abstract class I5716_EmailTemplateAssignments extends Migration
         Locale::setMissingKeyHandler(fn (string $key): string => '');
 
         foreach ($locales as $locale) {
-            Locale::setLocale($locale);
+            // The locale code is only renamed later, by I9707, but the translations exist only under the new one
+            $translationLocale = I9707_WeblateUILocales::getAffectedLocales()[$locale] ?? $locale;
+            Locale::setLocale($translationLocale);
 
             foreach ($data['email'] as $entry) {
                 $key = $entry['attributes']['key'];
                 $name = $entry['attributes']['name'];
-                $name = __($name, [], $locale);
+                $name = __($name, [], $translationLocale);
                 DB::table('email_templates_default_data')
                     ->where('email_key', $key)
                     ->where('locale', $locale)

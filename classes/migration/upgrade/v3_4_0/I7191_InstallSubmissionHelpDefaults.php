@@ -20,6 +20,7 @@ use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\facades\Locale;
+use PKP\migration\upgrade\v3_5_0\I9707_WeblateUILocales;
 use stdClass;
 
 abstract class I7191_InstallSubmissionHelpDefaults extends \PKP\migration\Migration
@@ -48,7 +49,8 @@ abstract class I7191_InstallSubmissionHelpDefaults extends \PKP\migration\Migrat
                 'cst.setting_value as supportedLocales'])
             ->each(function (stdClass $row) {
                 foreach (json_decode($row->supportedLocales) as $locale) {
-                    Locale::setLocale($locale);
+                    // The locale code is only renamed later, by I9707, but the translations exist only under the new one
+                    Locale::setLocale(I9707_WeblateUILocales::getAffectedLocales()[$locale] ?? $locale);
                     $localizationParams = $this->getLocalizationParams($row, $locale);
                     DB::table($this->CONTEXT_SETTINGS_TABLE)
                         ->insert(

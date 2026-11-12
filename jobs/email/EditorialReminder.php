@@ -31,7 +31,6 @@ use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
-use PKP\user\User;
 use PKP\workflow\WorkflowStageDAO;
 
 class EditorialReminder extends BaseJob
@@ -73,7 +72,7 @@ class EditorialReminder extends BaseJob
         // Don't use the request locale because this job is
         // run during a scheduled task
         $requestLocale = Locale::getLocale();
-        Locale::setLocale($this->getLocale($editor, $context));
+        Locale::setLocale(Repo::user()->getEmailLocale($editor, $context));
 
         $submissionIds = Repo::submission()
             ->getCollector()
@@ -209,31 +208,5 @@ class EditorialReminder extends BaseJob
         );
 
         return !in_array(Notification::NOTIFICATION_TYPE_EDITORIAL_REMINDER, $blockedEmails);
-    }
-
-    /**
-     * Get the locale to use with this email
-     *
-     * Returns the context's primary locale, or the first locale
-     * supported by the context and the user.
-     *
-     * @return string Locale key. Example: en
-     */
-    protected function getLocale(User $editor, Context $context): string
-    {
-        $locale = $context->getPrimaryLocale();
-
-        // A user's locales may not be an array due to bug with data structure
-        // See: https://github.com/pkp/pkp-lib/issues/8023
-        if ($editor->getLocales() === false) {
-            return $locale;
-        }
-
-        $locales = array_intersect($editor->getLocales(), $context->getSupportedLocales());
-        if (!empty($locales) && !in_array($context->getPrimaryLocale(), $locales)) {
-            $locale = $locales[0];
-        }
-
-        return $locale;
     }
 }

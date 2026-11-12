@@ -438,6 +438,39 @@ class Repository
     }
 
     /**
+     * Get the locale to use when sending an email to a user from a context
+     *
+     * Returns the context's primary locale if the user has it as a working
+     * language, or if the user has no working language supported by the
+     * context. Otherwise returns the first working language of the user
+     * that is supported by the context.
+     *
+     * @return string Locale key. Example: en
+     */
+    public function getEmailLocale(User $user, Context $context): string
+    {
+        $primaryLocale = $context->getPrimaryLocale();
+        $userLocales = $user->getLocales();
+
+        // A user's locales may not be an array due to bug with data structure, return the primary locale in that case
+        // See: https://github.com/pkp/pkp-lib/issues/8023
+        if (!is_array($userLocales)) {
+            return $primaryLocale;
+        }
+
+        // Include only user locales that are supported by the Context.
+        $locales = array_values(array_intersect($userLocales, $context->getSupportedLocales()));
+
+        // If no user language is supported by the Context, return the primary locale
+        // If the primary locale is not supported by the user, return the first supported user locale
+        if (!empty($locales) && !in_array($primaryLocale, $locales)) {
+            return $locales[0];
+        } 
+
+        return $primaryLocale;
+    }
+
+    /**
      * Delete unvalidated expired users
      *
      * @param Carbon $dateTillValid The dateTime till before which user will consider expired

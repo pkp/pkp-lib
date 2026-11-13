@@ -1703,6 +1703,7 @@ class PKPTemplateManager extends Smarty
                 'datetimeFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_long')),
                 'timeFormat' => PKPString::convertStrftimeFormat(Config::getVar('general', 'time_format')),
                 'supportedLocales' => !PKPSessionGuard::isSessionDisable() ? $request->getSite()->getSupportedLocaleNames(LocaleMetadata::LANGUAGE_LOCALE_ONLY) : [],
+                'supportedFormLocales' => !PKPSessionGuard::isSessionDisable() ? $request->getSite()->getSupportedLocaleNames() : [],
             ]);
         }
 

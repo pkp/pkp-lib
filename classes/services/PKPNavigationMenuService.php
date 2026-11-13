@@ -48,6 +48,10 @@ class PKPNavigationMenuService
     public function getMenuItemTypes()
     {
         $types = [
+            NavigationMenuItem::NMI_TYPE_HOME => [
+                'title' => __('navigation.home'),
+                'description' => __('manager.navigationMenus.home.description'),
+            ],
             NavigationMenuItem::NMI_TYPE_CUSTOM => [
                 'title' => __('manager.navigationMenus.customPage'),
                 'description' => __('manager.navigationMenus.customPage.description'),
@@ -221,6 +225,16 @@ class PKPNavigationMenuService
 
             // Set the URL
             switch ($menuItemType) {
+                case NavigationMenuItem::NMI_TYPE_HOME:
+                    $navigationMenuItem->setUrl($dispatcher->url(
+                        $request,
+                        PKPApplication::ROUTE_PAGE,
+                        null,
+                        'index',
+                        null,
+                        null
+                    ));
+                    break;
                 case NavigationMenuItem::NMI_TYPE_ANNOUNCEMENTS:
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,

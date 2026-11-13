@@ -18,6 +18,7 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use PKP\facades\Locale;
 use PKP\install\DowngradeNotSupportedException;
+use PKP\migration\upgrade\v3_5_0\I9707_WeblateUILocales;
 use stdClass;
 
 abstract class I7191_SubmissionChecklistMigration extends \PKP\migration\Migration
@@ -61,7 +62,8 @@ abstract class I7191_SubmissionChecklistMigration extends \PKP\migration\Migrati
                     $textList[] = $item['content'];
                 }
 
-                Locale::setLocale($row->locale);
+                // The locale code is only renamed later, by I9707, but the translations exist only under the new one
+                Locale::setLocale(I9707_WeblateUILocales::getAffectedLocales()[$row->locale] ?? $row->locale);
 
                 $newValue = '<p>'
                     . __('submission.submit.submissionChecklistDescription')

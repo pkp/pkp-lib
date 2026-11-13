@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use PKP\db\XMLDAO;
 use PKP\facades\Locale;
 use PKP\migration\Migration;
+use PKP\migration\upgrade\v3_5_0\I9707_WeblateUILocales;
 
 abstract class InstallEmailTemplates extends Migration
 {
@@ -65,9 +66,11 @@ abstract class InstallEmailTemplates extends Migration
             Locale::setMissingKeyHandler(fn (string $key): string => '');
 
             foreach ($locales as $locale) {
-                $translatedName = $name ? __($name, [], $locale) : $attrs['key'];
-                $translatedSubject = __($subject, [], $locale);
-                $translatedBody = __($body, [], $locale);
+                // The locale code is only renamed later, by I9707, but the translations exist only under the new one
+                $translationLocale = I9707_WeblateUILocales::getAffectedLocales()[$locale] ?? $locale;
+                $translatedName = $name ? __($name, [], $translationLocale) : $attrs['key'];
+                $translatedSubject = __($subject, [], $translationLocale);
+                $translatedBody = __($body, [], $translationLocale);
 
                 DB::table('email_templates_default_data')->insert([
                     'email_key' => $attrs['key'],

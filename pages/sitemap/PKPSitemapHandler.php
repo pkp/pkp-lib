@@ -121,6 +121,8 @@ class PKPSitemapHandler extends Handler
         }
         // About: submissions
         $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'about', 'submissions')));
+        // About: editorial masthead
+        $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'about', 'editorialMasthead')));
         // About: contact
         if (!empty($context->getData('mailingAddress')) || !empty($context->getData('contactName'))) {
             $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'about', 'contact')));

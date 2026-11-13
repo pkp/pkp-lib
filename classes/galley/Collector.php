@@ -52,6 +52,12 @@ class Collector implements CollectorInterface
         return $this->dao->getIds($this);
     }
 
+    /** @copydoc DAO::getBestIds() */
+    public function getBestIds(): Collection
+    {
+        return $this->dao->getBestIds($this);
+    }
+
     /**
      * @copydoc DAO::getMany()
      *

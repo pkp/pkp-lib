@@ -194,7 +194,7 @@ class NotificationsGridHandler extends GridHandler
         $selectedElements = (array) $request->getUserVar('selectedElements');
         foreach ($selectedElements as $notificationId) {
             $notification = Notification::find($notificationId);
-            if ($notification->userId == $user->getId()) {
+            if ($notification && $notification->userId == $user->getId()) {
                 $notification->dateRead = null;
                 $notification->update();
             }
@@ -221,14 +221,15 @@ class NotificationsGridHandler extends GridHandler
         $user = $request->getUser();
 
         $selectedElements = (array) $request->getUserVar('selectedElements');
+        $notification = null;
         foreach ($selectedElements as $notificationId) {
             $notification = Notification::find($notificationId);
-            if ($notification->userId == $user->getId()) {
+            if ($notification && $notification->userId == $user->getId()) {
                 $notification->dateRead = Carbon::now();
                 $notification->update();
             }
         }
-        if ($request->getUserVar('redirect')) {
+        if ($request->getUserVar('redirect') && $notification) {
             // In this case, the user has clicked on a notification
             // and wants to view it. Mark it read first and redirect
             $notificationMgr = new NotificationManager();

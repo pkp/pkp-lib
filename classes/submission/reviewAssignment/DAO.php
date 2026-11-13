@@ -188,7 +188,7 @@ class DAO extends EntityDAO
      * Get all review IDs for which DOIs can be exported.
      * If the same DOI is used for all publication versions: the current publication of the submission the review was assigned to needs to have a DOI and is published.
      * If different DOIs are used for different publication versions, the publication the review is linked to must have a DOI and is published.
-     * Additionally, a review must be publicly visible and completed to be eligible for DOI export.
+     * Additionally, a review must be publicly visible, completed by the reviewer, and confirmed by an editor to be eligible for DOI export.
      *
      * @param bool $doiVersioning - whether different doi is used per publication version.
      * @param array|null $submissionIds - Optional submission IDs to limit the results to.
@@ -209,7 +209,7 @@ class DAO extends EntityDAO
             ->join('publications as review_publications', 'review_publications.publication_id', '=', 'review_rounds.publication_id')
             ->where('review_publications.status', '=', Publication::STATUS_PUBLISHED)
             ->when(
-                // When single DOI is used for all publication versions then ensure the current version is published and has a DOI.
+                // When a single DOI is used for all publication versions, then ensure the current version is published and has a DOI.
                 // When depositing the review, it will be linked to that DOI that is used for all versions instead of a version-specific DOI.
                 !$doiVersioning,
                 fn (Builder $q) => $q

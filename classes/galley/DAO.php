@@ -112,6 +112,29 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     }
 
     /**
+     * Get the publication id, best id and file mimetype of the galleys matching the configured query,
+     * without loading the galleys (see Galley::getBestGalleyId())
+     *
+     * @return Collection<int,object{publicationId:int,bestId:int|string,mimetype:?string}> Keyed by galley id
+     */
+    public function getBestIds(Collector $query): Collection
+    {
+        return $query
+            ->getQueryBuilder()
+            ->leftJoin('submission_files AS sf', 'sf.submission_file_id', '=', 'g.submission_file_id')
+            ->leftJoin('files AS f', 'f.file_id', '=', 'sf.file_id')
+            ->select(['g.galley_id', 'g.publication_id', 'g.url_path', 'f.mimetype'])
+            ->get()
+            ->mapWithKeys(fn (object $row) => [
+                (int) $row->galley_id => (object) [
+                    'publicationId' => (int) $row->publication_id,
+                    'bestId' => strlen((string) $row->url_path) ? $row->url_path : (int) $row->galley_id,
+                    'mimetype' => $row->mimetype,
+                ],
+            ]);
+    }
+
+    /**
      * Get a collection of galleys matching the configured query
      *
      * @return LazyCollection<int,T>

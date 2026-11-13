@@ -540,7 +540,7 @@ abstract class Repository
             return false;
         }
 
-        if ($assignments->contains(fn($sa) => $sa->canChangeMetadata)) {
+        if ($assignments->contains(fn ($sa) => $sa->canChangeMetadata)) {
             return true;
         }
         return false;

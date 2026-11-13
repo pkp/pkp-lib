@@ -17,9 +17,11 @@
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
+use APP\core\Application;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\config\Config;
 use PKP\submission\PKPSubmission;
 
 class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
@@ -39,12 +41,11 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
     {
         parent::__construct($argv);
 
-        $this->outDir = getcwd();
+        // the files directory, as the application root is usually the web root and the reports hold unpublished data
+        $this->outDir = rtrim(Config::getVar('files', 'files_dir'), '/');
         foreach ($this->argv as $arg) {
             if ($arg === '--commit') {
                 $this->commit = true;
-            } elseif (str_starts_with($arg, '--out=')) {
-                $this->outDir = rtrim(substr($arg, strlen('--out=')), '/');
             } elseif (str_starts_with($arg, '--exclude=')) {
                 $ids = array_map('trim', explode(',', substr($arg, strlen('--exclude='))));
                 if (in_array(false, array_map('ctype_digit', $ids), true)) {
@@ -58,7 +59,7 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
         }
 
         if (!is_dir($this->outDir) || !is_writable($this->outDir)) {
-            fwrite(STDERR, "The output directory {$this->outDir} is not writable.\n");
+            fwrite(STDERR, "The files directory {$this->outDir} (files_dir in config.inc.php) is not writable; run the tool as the user that owns it.\n");
             exit(1);
         }
         $this->stamp = date('Ymd-His');
@@ -68,16 +69,23 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
     {
         echo "Repair author affiliations wrongly migrated to RORs by the 3.5.0 upgrade.\n"
             . "Only authors whose affiliations are unchanged since the upgrade are repaired;\n"
-            . "the others that carry a name-derived ROR are listed for manual review.\n\n"
-            . "Usage: {$this->scriptName} [--commit] [--exclude=<author ids>] [--out=<directory>]\n"
+            . "the others that may still need a fix are listed for manual review.\n"
+            . "Run it on 3.5, before upgrading to 3.6. The CSV and SQL files are written to the files directory (files_dir).\n\n"
+            . "Usage: {$this->scriptName} [--commit] [--exclude=<author ids>]\n"
             . "  (no option)  write a CSV report of the affected authors and change nothing\n"
             . "  --commit     also apply the repair and write an SQL file that reverts it\n"
-            . "  --exclude    comma-separated author ids not to repair, e.g. --exclude=12,345\n"
-            . "  --out        directory for the CSV and SQL files (default: current directory)\n";
+            . "  --exclude    comma-separated author ids not to repair, e.g. --exclude=12,345\n";
     }
 
     public function execute(): void
     {
+        // from 3.6 on, rorId is also an organization contributor's own ROR ID, which this tool would take for the ROR plugin's
+        $version = Application::get()->getCurrentVersion();
+        if ($version->getMajor() !== 3 || $version->getMinor() !== 5) {
+            fwrite(STDERR, 'This tool only runs on 3.5; this installation is ' . $version->getVersionString() . ".\n");
+            exit(1);
+        }
+
         if (!Schema::hasTable('author_affiliations') || !Schema::hasTable('rors')) {
             fwrite(STDERR, "The author_affiliations or rors table does not exist; is this a 3.5 installation?\n");
             exit(1);
@@ -114,8 +122,8 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
             ->all();
 
         $csvFile = "{$this->outDir}/repairRorAffiliations-{$this->stamp}.csv";
-        $csv = fopen($csvFile, 'w');
-        fputcsv($csv, ['action', 'author_id', 'publication_id', 'submission_id', 'published', 'legacy_affiliation', 'legacy_ror_id', 'current_affiliations', 'repaired_affiliations']);
+        $csv = $this->openPrivate($csvFile);
+        fputcsv($csv, ['action', 'review_reason', 'author_id', 'publication_id', 'submission_id', 'published', 'legacy_affiliation', 'legacy_ror_id', 'current_affiliations', 'repaired_affiliations']);
 
         $toRepair = [];
         $counts = ['repair' => 0, 'review' => 0, 'excluded' => 0];
@@ -131,6 +139,7 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
                 $counts[$result['action']]++;
                 fputcsv($csv, [
                     $result['action'],
+                    $result['reason'],
                     $result['authorId'],
                     $result['publicationId'],
                     $result['submissionId'],
@@ -206,9 +215,16 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
             $matchedRors = $nameMatches->get($authorId, []);
             $plugInRor = $plugInRors->get($authorId);
 
-            $buggy = $matchedRors
-                ? array_map(fn ($ror) => ['ror' => $ror, 'name' => []], $matchedRors)
-                : [['ror' => null, 'name' => $affiliationRows->pluck('setting_value', 'locale')->all()]];
+            $legacyNames = $affiliationRows->pluck('setting_value', 'locale')->all();
+            $buggyShapes = [
+                // names only: no name matched, or the ROR registry download failed during the upgrade
+                [['ror' => null, 'name' => $legacyNames]],
+                // 3.5.0-0 and 3.5.0-1 split a non-ROR affiliation into one per locale (pkp/pkp-lib#11675)
+                array_map(fn ($locale, $name) => ['ror' => null, 'name' => [$locale => $name]], array_keys($legacyNames), $legacyNames),
+            ];
+            if ($matchedRors) {
+                $buggyShapes[] = array_map(fn ($ror) => ['ror' => $ror, 'name' => []], $matchedRors);
+            }
 
             // the same rules as I7135_CreateNewRorRegistryCacheTables::migrateAffiliations()
             $ror = $plugInRor;
@@ -216,9 +232,9 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
             if ($ror !== null && !$rorIsKnown) {
                 $ror = null;
             }
-            $repaired = [['ror' => $ror, 'name' => $rorIsKnown ? [] : $affiliationRows->pluck('setting_value', 'locale')->all()]];
+            $repaired = [['ror' => $ror, 'name' => $rorIsKnown ? [] : $legacyNames]];
 
-            $buggy = $this->canonical($buggy);
+            $buggyShapes = array_map(fn (array $shape) => $this->canonical($shape), $buggyShapes);
             $repaired = $this->canonical($repaired);
             $currentRows = $current->get($authorId, []);
             $currentCanonical = $this->canonical($currentRows);
@@ -227,26 +243,38 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
                 continue;
             }
 
-            if ($currentCanonical === $buggy) {
+            if (in_array($currentCanonical, $buggyShapes, true)) {
                 $action = 'repair';
+                $reasons = [];
             } else {
-                // edited since the upgrade: only report it if a name-derived ROR is still there
+                // edited since the upgrade, or a ROR name changed since the upgrade's registry:
+                // only report it if a name-derived ROR is still there or the plugin ROR is missing
+                $currentRors = array_column($currentCanonical, 'ror');
                 $guessed = array_diff($matchedRors, [$plugInRor]);
-                $stillGuessed = array_intersect($guessed, array_column($currentCanonical, 'ror'));
-                if (empty($stillGuessed)) {
+                $stillGuessed = array_intersect($guessed, $currentRors);
+                $plugInRorMissing = $rorIsKnown && !in_array($plugInRor, $currentRors, true);
+                // derived from a name ROR has changed since the upgrade, or chosen later by hand
+                $unexplained = array_diff(array_filter($currentRors), $matchedRors, [$plugInRor]);
+                if (empty($stillGuessed) && !$plugInRorMissing && empty($unexplained)) {
                     continue;
                 }
                 $action = 'review';
+                $reasons = array_filter([
+                    !empty($stillGuessed) ? 'name-derived ROR still present' : null,
+                    $plugInRorMissing ? 'ROR plugin ROR missing' : null,
+                    !empty($unexplained) ? 'ROR not explained by the legacy data' : null,
+                ]);
             }
 
             $publication = $publications->get($authorId);
             $results[] = [
                 'action' => $action,
+                'reason' => implode('; ', $reasons),
                 'authorId' => $authorId,
                 'publicationId' => $publication?->publication_id,
                 'submissionId' => $publication?->submission_id,
                 'published' => $publication && (int) $publication->status === PKPSubmission::STATUS_PUBLISHED,
-                'legacyAffiliation' => $affiliationRows->pluck('setting_value', 'locale')->all(),
+                'legacyAffiliation' => $legacyNames,
                 'legacyRorId' => $legacyRows->firstWhere('setting_name', 'rorId')?->setting_value,
                 'current' => $currentCanonical,
                 'repaired' => $repaired,
@@ -351,7 +379,7 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
         $pdo = DB::getPdo();
         $quote = fn ($value) => $value === null ? 'NULL' : $pdo->quote((string) $value);
 
-        $sql = fopen($file, 'w');
+        $sql = $this->openPrivate($file);
         fwrite($sql, "-- Reverts repairRorAffiliations.php run {$this->stamp}\nSTART TRANSACTION;\n");
         foreach (array_chunk($authorIds, self::CHUNK_SIZE) as $authorIdChunk) {
             $idList = implode(',', array_map('intval', $authorIdChunk));
@@ -372,6 +400,23 @@ class RepairRorAffiliationsTool extends \PKP\cliTool\CommandLineTool
         }
         fwrite($sql, "COMMIT;\n");
         fclose($sql);
+    }
+
+    /**
+     * Open a new file for writing, readable only by its owner.
+     *
+     * @return resource
+     */
+    private function openPrivate(string $file)
+    {
+        $umask = umask(0077);
+        $handle = fopen($file, 'x');
+        umask($umask);
+        if ($handle === false) {
+            fwrite(STDERR, "Could not create {$file}.\n");
+            exit(1);
+        }
+        return $handle;
     }
 
     /**

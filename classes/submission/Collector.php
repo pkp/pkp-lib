@@ -446,6 +446,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
             case self::ORDERBY_SEQUENCE:
                 $q->addSelect(['po.seq']);
                 $q->orderBy('po.seq', $this->orderDirection);
+                $q->orderBy('s.submission_id', $this->orderDirection);
                 break;
             case self::ORDERBY_TITLE:
                 $locale = Locale::getLocale();

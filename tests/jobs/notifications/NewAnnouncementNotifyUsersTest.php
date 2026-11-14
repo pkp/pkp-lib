@@ -106,6 +106,8 @@ class NewAnnouncementNotifyUsersTest extends DatabaseTestCase
                 'getId' => 1,
                 'getData' => '',
                 'getLocalizedData' => '',
+                'getSupportedLocales' => ['en'],
+                'getPrimaryLocale' => 'en',
             ])
             ->withAnyArgs()
             ->getMock();

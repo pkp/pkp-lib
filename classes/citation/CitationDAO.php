@@ -22,6 +22,8 @@ use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
+use PKP\observers\events\CitationMetadataChanged;
+use App\facades\Repo;
 
 class CitationDAO extends \PKP\db\DAO
 {
@@ -58,7 +60,11 @@ class CitationDAO extends \PKP\db\DAO
             ]
         );
         $citation->setId($this->getInsertId());
+
         $this->_updateObjectMetadata($citation);
+
+        event(new CitationMetadataChanged((int) $citation->getData('publicationId')));
+
         return $citation->getId();
     }
 
@@ -175,6 +181,8 @@ class CitationDAO extends \PKP\db\DAO
             ]
         );
         $this->_updateObjectMetadata($citation);
+
+        event(new CitationMetadataChanged((int) $citation->getData('publicationId')));
     }
 
     /**
@@ -186,7 +194,11 @@ class CitationDAO extends \PKP\db\DAO
      */
     public function deleteObject($citation)
     {
-        return $this->deleteById($citation->getId());
+        $result = $this->deleteById($citation->getId());
+
+        event(new CitationMetadataChanged((int) $citation->getData('publicationId')));
+
+        return $result;
     }
 
     /**
@@ -212,6 +224,9 @@ class CitationDAO extends \PKP\db\DAO
         foreach ($citations as $citation) {
             $this->deleteById($citation->getId());
         }
+
+        event(new CitationMetadataChanged((int) $publicationId));
+
         return true;
     }
 
@@ -254,6 +269,7 @@ class CitationDAO extends \PKP\db\DAO
     {
         $this->updateDataObjectSettings('citation_settings', $citation, ['citation_id' => $citation->getId()]);
     }
+
 }
 
 if (!PKP_STRICT_MODE) {

@@ -301,8 +301,6 @@ class DAO extends EntityDAO
         Repo::citation()->deleteByPublicationId($publicationId);
         Notification::withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationId)->delete();
 
-        UserComment::withPublicationIds([$publicationId])->delete();
-
         // Deleting a publication will cascade delete associated comments and reports, so we need to delete any orphaned notifications for those as well.
         if ($associatedComments) {
             $reportIds = UserCommentReport::withCommentIds($associatedComments)->pluck('user_comment_report_id')->all();

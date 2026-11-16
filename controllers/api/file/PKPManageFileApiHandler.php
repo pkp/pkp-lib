@@ -147,7 +147,12 @@ abstract class PKPManageFileApiHandler extends Handler
         Repo::submissionFile()->deleteRevisionLogEntries($submissionFile, $fileIdToCancel);
 
         // Remove uploaded file
-        app()->get('file')->delete($fileIdToCancel);
+        if ($previousRevision) {
+            app()->get('file')->delete($fileIdToCancel);
+        } else {
+            // Only revision: deleting the file alone would break submission_files_file_id_foreign.
+            Repo::submissionFile()->delete($submissionFile);
+        }
 
         $this->setupTemplate($request);
         return \PKP\db\DAO::getDataChangedEvent();

@@ -231,10 +231,48 @@ abstract class PKPManageFileApiHandler extends Handler {
 			$submissionFileDao->updateObject($submissionFile);
 		}
 
-		// Remove uploaded file
-		Services::get('file')->delete($revisedFileId);
+		// Remove the upload without breaking submission_files_file_id_foreign.
+		try {
+			switch (self::decideCancelAction($submissionFile, $revisedFileId, count($revisionIds))) {
+				case 'delete-submission-file':
+					Services::get('submissionFile')->delete($submissionFile);
+					break;
+				case 'delete-file':
+					Services::get('file')->delete($revisedFileId);
+					break;
+				default:
+					return new JSONMessage(false, __('common.error'));
+			}
+		} catch (Throwable $e) {
+			error_log(sprintf(
+				'cancelFileUpload: could not remove file %d (submission file %d): %s',
+				$revisedFileId,
+				$submissionFile->getId(),
+				$e->getMessage()
+			));
+			return new JSONMessage(false, __('common.error'));
+		}
 		$this->setupTemplate($request);
 		return DAO::getDataChangedEvent();
+	}
+
+	/**
+	 * Decide which part of a cancelled upload may be removed without breaking
+	 * submission_files_file_id_foreign.
+	 *
+	 * @return string 'delete-submission-file', 'delete-file' or 'refuse'
+	 */
+	public static function decideCancelAction($submissionFile, $revisedFileId, $revisionCount)
+	{
+		if ((int) $submissionFile->getData('fileId') !== (int) $revisedFileId) {
+			return 'delete-file';
+		}
+
+		if ((int) $revisionCount <= 1) {
+			return 'delete-submission-file';
+		}
+
+		return 'refuse';
 	}
 
 	/**

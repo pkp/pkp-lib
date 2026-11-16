@@ -8,7 +8,7 @@
  *
  * @class I11322_AddPeerReviewDois.php
  *
- * @brief Add the doi_id column to review_assignments and review_round_author_responses tables.
+ * @brief Add the doi_id column to the review_assignments table.
  */
 
 namespace PKP\migration\upgrade\v3_6_0;
@@ -19,22 +19,15 @@ use PKP\migration\Migration;
 
 class I11332_AddPeerReviewDois extends Migration
 {
-
     /**
      * @inheritDoc
      */
     public function up(): void
     {
         Schema::table('review_assignments', function (Blueprint $table) {
-           $table->bigInteger('doi_id')->nullable();
-           $table->foreign('doi_id')->references('doi_id')->on('dois')->nullOnDelete();
-           $table->index(['doi_id'], 'review_assignments_doi_id');
-        });
-
-        Schema::table('review_round_author_responses', function (Blueprint $table) {
             $table->bigInteger('doi_id')->nullable();
             $table->foreign('doi_id')->references('doi_id')->on('dois')->nullOnDelete();
-            $table->index(['doi_id'], 'review_round_author_responses_doi_id');
+            $table->index(['doi_id'], 'review_assignments_doi_id');
         });
     }
 
@@ -46,12 +39,6 @@ class I11332_AddPeerReviewDois extends Migration
         Schema::table('review_assignments', function (Blueprint $table) {
             $table->dropForeign(['doi_id']);
             $table->dropIndex('review_assignments_doi_id');
-            $table->dropColumn('doi_id');
-        });
-
-        Schema::table('review_round_author_responses', function (Blueprint $table) {
-            $table->dropForeign(['doi_id']);
-            $table->dropIndex('review_round_author_responses_doi_id');
             $table->dropColumn('doi_id');
         });
     }

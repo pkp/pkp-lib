@@ -71,7 +71,6 @@ use PKP\publication\helpers\PublicationVersionInfoResource;
 use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
-use PKP\security\authorization\internal\DecisionAllowedPolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
@@ -428,7 +427,7 @@ class PKPSubmissionController extends PKPBaseController
 
         if ($actionName === 'returnToDone') {
             $this->addPolicy(new SubmissionCompletePolicy($request, $args));
-            $this->addPolicy(new DecisionAllowedPolicy($request->getUser()));
+            $this->addPolicy(new DecisionWritePolicy($request, $args, Decision::RETURN_TO_DONE, $request->getUser()));
         }
 
         if (in_array(

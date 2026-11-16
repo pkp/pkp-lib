@@ -213,7 +213,7 @@ class DAO extends EntityDAO
             ->where('p.publication_id', '=', $publicationId)
             ->max('a.seq');
 
-        if ($seq) {
+        if ($seq !== null) {
             $nextSeq = $seq + 1;
         }
 

@@ -178,14 +178,16 @@ class SubmissionFile extends \PKP\core\DataObject
     }
 
     /**
-     * Return the "best" file ID -- If a public ID is set,
-     * use it; otherwise use the internal ID and revision.
+     * Return the "best" file ID, which is the ID used in the file's URL.
      *
-     * @return string
+     * Submission files have no URL path, and the publisher ID is plain
+     * metadata (see pkp/pkp-lib#5430), so this is always the file ID.
+     *
+     * @return int
      */
     public function getBestId()
     {
-        return strlen($publisherId = (string) $this->getStoredPubId('publisher-id')) ? $publisherId : $this->getId();
+        return $this->getId();
     }
 
     /**

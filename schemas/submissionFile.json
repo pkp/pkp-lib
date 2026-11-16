@@ -189,6 +189,13 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
+		"pub-id::publisher-id": {
+			"type": "string",
+			"description": "A unique ID provided by the publisher. It is stored as metadata and is not used in the file's URL, which always uses the `id`.",
+			"validation": [
+				"nullable"
+			]
+		},
 		"publisher": {
 			"type": "string",
 			"multilingual": true,

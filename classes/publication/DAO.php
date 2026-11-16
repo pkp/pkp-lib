@@ -291,7 +291,11 @@ class DAO extends EntityDAO
      */
     public function deleteById(int $publicationId): int
     {
-        $associatedComments = UserComment::withPublicationIds([$publicationId])->pluck('user_comment_id')->all();
+        $associatedCommentsId = UserComment::withPublicationIds([$publicationId])->pluck('user_comment_id')->all();
+        $reportIds = !empty($associatedCommentsId)
+            ? UserCommentReport::withCommentIds($associatedCommentsId)->pluck('user_comment_report_id')->all()
+            : [];
+
         $affectedRows = parent::deleteById($publicationId);
 
         $this->deleteAuthors($publicationId);
@@ -302,10 +306,7 @@ class DAO extends EntityDAO
         Notification::withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationId)->delete();
 
         // Deleting a publication will cascade delete associated comments and reports, so we need to delete any orphaned notifications for those as well.
-        if ($associatedComments) {
-            $reportIds = UserCommentReport::withCommentIds($associatedComments)->pluck('user_comment_report_id')->all();
-            Repo::userComment()->deleteNotifications($associatedComments, $reportIds);
-        }
+        Repo::userComment()->deleteNotifications($associatedCommentsId, $reportIds);
 
         return $affectedRows;
     }

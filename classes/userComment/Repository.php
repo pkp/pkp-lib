@@ -16,6 +16,7 @@
 
 namespace PKP\userComment;
 
+use APP\core\Application;
 use APP\core\Request;
 use APP\notification\Notification;
 use Illuminate\Database\Eloquent\Builder;

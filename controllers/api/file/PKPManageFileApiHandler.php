@@ -156,8 +156,27 @@ abstract class PKPManageFileApiHandler extends Handler
         }
 
 
-        // Remove uploaded file
-        Services::get('file')->delete($fileIdToCancel);
+        // Remove the upload without breaking submission_files_file_id_foreign.
+        try {
+            switch (self::decideCancelAction($submissionFile, $fileIdToCancel, count($revisionIds))) {
+                case 'delete-submission-file':
+                    Repo::submissionFile()->delete($submissionFile);
+                    break;
+                case 'delete-file':
+                    Services::get('file')->delete($fileIdToCancel);
+                    break;
+                default:
+                    return new JSONMessage(false, __('common.error'));
+            }
+        } catch (Throwable $e) {
+            error_log(sprintf(
+                'cancelFileUpload: could not remove file %d (submission file %d): %s',
+                $fileIdToCancel,
+                $submissionFile->getId(),
+                $e->getMessage()
+            ));
+            return new JSONMessage(false, __('common.error'));
+        }
 
         $this->setupTemplate($request);
         return \PKP\db\DAO::getDataChangedEvent();
@@ -269,6 +288,25 @@ abstract class PKPManageFileApiHandler extends Handler
     protected function getUpdateNotifications()
     {
         return [PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS];
+    }
+
+    /**
+     * Decide which part of a cancelled upload may be removed without breaking
+     * submission_files_file_id_foreign.
+     *
+     * @return string 'delete-submission-file', 'delete-file' or 'refuse'
+     */
+    public static function decideCancelAction($submissionFile, $fileIdToCancel, $revisionCount)
+    {
+        if ((int) $submissionFile->getData('fileId') !== (int) $fileIdToCancel) {
+            return 'delete-file';
+        }
+
+        if ((int) $revisionCount <= 1) {
+            return 'delete-submission-file';
+        }
+
+        return 'refuse';
     }
 
     /**

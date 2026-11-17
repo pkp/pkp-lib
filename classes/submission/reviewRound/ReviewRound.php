@@ -24,10 +24,13 @@ namespace PKP\submission\reviewRound;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
+use PKP\context\Context;
+use PKP\core\PKPApplication;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
+use PKP\user\User;
 
 class ReviewRound extends \PKP\core\DataObject
 {
@@ -362,7 +365,6 @@ class ReviewRound extends \PKP\core\DataObject
      * Gets public review status along with relevant dates.
      *
      * @param Enumerable<int, ReviewAssignment> $assignments Review assignments to include, typically only publicly visible ones
-     * @return PublicReviewStatusData
      */
     public function getPublicReviewStatusByAssignments(Enumerable $assignments): PublicReviewStatusData
     {
@@ -385,5 +387,22 @@ class ReviewRound extends \PKP\core\DataObject
     public function getAuthorResponse(): ?AuthorResponse
     {
         return AuthorResponse::withReviewRoundIds([$this->getId()])->first();
+    }
+
+    /**
+     * Check if a user can access author responses with the given roles.
+     */
+    public function canUserAccessAuthorResponses(User $user, array $roles, Context $context): bool
+    {
+        $isManager = $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) ||
+            $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
+
+        return $isManager ||
+            StageAssignment::withSubmissionIds([$this->getSubmissionId()])
+                ->withContextId($context->getId())
+                ->withRoleIds($roles)
+                ->withStageIds([$this->getStageId()])
+                ->withUserId($user->getId())
+                ->exists();
     }
 }

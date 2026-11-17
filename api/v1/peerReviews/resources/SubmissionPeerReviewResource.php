@@ -126,6 +126,8 @@ class SubmissionPeerReviewResource extends JsonResource
             );
             $reviewStatusData = $reviewRound->getPublicReviewStatusByAssignments($acceptedReviewsInRound);
 
+            $canShowAuthorResponse = $currentRoundResponse?->isPublic && $currentRoundResponse?->isConfirmed;
+
             $roundsData->add([
                 'roundId' => $reviewRound->getId(),
                 'roundNumber' => $roundNumber,
@@ -138,7 +140,7 @@ class SubmissionPeerReviewResource extends JsonResource
                 ],
                 ...$reviewStatusData->toArray(),
                 'reviews' => $this->getReviewAssignmentPeerReviews($assignments, $context)->toArray(),
-                'authorResponse' => $currentRoundResponse ? (new ReviewRoundAuthorResponseResource($currentRoundResponse))->resolve() : null,
+                'authorResponse' => $canShowAuthorResponse ? (new ReviewRoundAuthorResponseResource($currentRoundResponse))->resolve() : null,
             ]);
         }
 

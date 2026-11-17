@@ -2749,8 +2749,22 @@ class PKPTemplateManager extends Smarty
         }
 
 
+        $navigationMenuCurrentUrl = $this->_request->getRequestUrl();
+        // The home page is served both at the context root and at /index. Compare against the same index URL the Home item uses.
+        if (in_array($this->_request->getRequestedPage(), ['', 'index'], true)) {
+            $navigationMenuCurrentUrl = $this->_request->getDispatcher()->url(
+                $this->_request,
+                PKPApplication::ROUTE_PAGE,
+                null,
+                'index',
+                null,
+                null
+            );
+        }
+
         $this->assign([
             'navigationMenu' => $navigationMenu,
+            'navigationMenuCurrentUrl' => $navigationMenuCurrentUrl,
             'id' => $params['id'],
             'ulClass' => $params['ulClass'] ?? '',
             'liClass' => $params['liClass'] ?? '',

@@ -19,6 +19,7 @@ namespace PKP\navigationMenu;
 class NavigationMenuItem extends \PKP\core\DataObject
 {
     // Types for all default navigationMenuItems
+    public const NMI_TYPE_HOME = 'NMI_TYPE_HOME';
     public const NMI_TYPE_ABOUT = 'NMI_TYPE_ABOUT';
     public const NMI_TYPE_SUBMISSIONS = 'NMI_TYPE_SUBMISSIONS';
     public const NMI_TYPE_MASTHEAD = 'NMI_TYPE_MASTHEAD';

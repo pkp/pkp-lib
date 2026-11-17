@@ -70,6 +70,12 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    public function filterBySubmissionFileIds(?array $submissionFileIds): self
+    {
+        $this->submissionFileIds = $submissionFileIds;
+        return $this;
+    }
+
     public function filterByContextIds(?array $contextIds): self
     {
         $this->contextIds = $contextIds;
@@ -94,6 +100,9 @@ class Collector implements CollectorInterface
             ->select(['g.*'])
             ->when(!is_null($this->publicationIds), function (Builder $qb) {
                 $qb->whereIn('g.publication_id', $this->publicationIds);
+            })
+            ->when(!is_null($this->submissionFileIds), function (Builder $qb) {
+                $qb->whereIn('g.submission_file_id', $this->submissionFileIds);
             })
             ->when(!is_null($this->contextIds), function (Builder $qb) {
                 $qb->join('publications as p', 'p.publication_id', '=', 'g.publication_id')

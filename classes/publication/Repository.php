@@ -48,7 +48,6 @@ use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\traits\HasWordCountValidation;
@@ -1297,26 +1296,6 @@ abstract class Repository
     }
 
     /**
-     * Retrieve author responses associated with review rounds of the specified publications
-     *
-     *
-     * @throws Exception
-     *
-     * @return Enumerable - Author responses
-     */
-    public function getReviewAuthorResponses(array $publicationIds): Enumerable
-    {
-        /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRounds = $reviewRoundDao->getByPublicationIds($publicationIds);
-
-        $reviewRoundsKeyedById = collect($reviewRounds->toArray())->keyBy(fn ($item) => $item->getId());
-        $roundIds = $reviewRoundsKeyedById->keys()->all();
-
-        return AuthorResponse::withReviewRoundIds($roundIds)->get();
-    }
-
-    /**
      * Get review-related DOI data grouped by publication ID.
      *
      * @param int[] $publicationIds
@@ -1364,20 +1343,6 @@ abstract class Repository
                     'pubObjectType' => Repo::doi()::TYPE_PEER_REVIEW,
                     'pubObjectId' => (int) $assignment->getId(),
                     'doiObject' => $assignment->getData('doiObject'),
-                ];
-            }
-        }
-
-        // AuthorResponses with DOIs
-        $authorResponses = AuthorResponse::withReviewRoundIds($roundIds)->get();
-
-        foreach ($authorResponses as $response) {
-            $pubId = $roundToPublication[$response->reviewRoundId] ?? null;
-            if ($pubId !== null) {
-                $result[$pubId][] = [
-                    'pubObjectType' => Repo::doi()::TYPE_AUTHOR_RESPONSE,
-                    'pubObjectId' => (int) $response->id,
-                    'doiObject' => $response->doi,
                 ];
             }
         }

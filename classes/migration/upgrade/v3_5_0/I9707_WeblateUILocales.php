@@ -15,6 +15,7 @@
 namespace PKP\migration\upgrade\v3_5_0;
 
 use DateInterval;
+use Illuminate\Contracts\Database\Query\Expression;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -53,9 +54,7 @@ abstract class I9707_WeblateUILocales extends Migration
                 fn ($column) =>
                 DB::table($tableName)
                     ->whereIn($column['name'], array_keys($affectedLocales))
-                    ->update([$column['name'] => DB::raw(
-                        "CASE {$column['name']} " . implode(' ', array_map(fn ($oldLocale, $newLocale) => "WHEN '{$oldLocale}' THEN '{$newLocale}'", array_keys($affectedLocales), array_values($affectedLocales))) . ' END'
-                    )])
+                    ->update([$column['name'] => static::getLocaleMappingExpression($column['name'])])
             );
         }
 
@@ -67,16 +66,10 @@ abstract class I9707_WeblateUILocales extends Migration
         $this->updateArrayLocale('users', 'locales');
 
         // context supported locales
-        $supportedDefaultSubmissionLocale = DB::table($this->getContextSettingsTable())
+        DB::table($this->getContextSettingsTable())
             ->where('setting_name', '=', 'supportedDefaultSubmissionLocale')
-            ->get()
-            ->pluck('setting_value')
-            ->first();
-        if (in_array($supportedDefaultSubmissionLocale, array_keys($affectedLocales))) {
-            DB::table($this->getContextSettingsTable())
-                ->where('setting_name', '=', 'supportedDefaultSubmissionLocale')
-                ->update(['setting_value' => $affectedLocales[$supportedDefaultSubmissionLocale]]);
-        }
+            ->whereIn('setting_value', array_keys($affectedLocales))
+            ->update(['setting_value' => static::getLocaleMappingExpression('setting_value')]);
 
         $contextLocaleSettingNames = [
             'supportedFormLocales',
@@ -133,6 +126,19 @@ abstract class I9707_WeblateUILocales extends Migration
             'uz@latin' => 'uz_Latn',
             'zh_CN' => 'zh_Hans',
         ];
+    }
+
+    /**
+     * SQL CASE expression mapping each affected locale in the column to its new locale
+     */
+    public static function getLocaleMappingExpression(string $columnName): Expression
+    {
+        $affectedLocales = static::getAffectedLocales();
+        return DB::raw(
+            "CASE {$columnName} "
+            . implode(' ', array_map(fn ($oldLocale, $newLocale) => "WHEN '{$oldLocale}' THEN '{$newLocale}'", array_keys($affectedLocales), array_values($affectedLocales)))
+            . ' END'
+        );
     }
 
     /**

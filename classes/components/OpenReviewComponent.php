@@ -17,8 +17,7 @@
 namespace PKP\components;
 
 use APP\submission\Submission;
-use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewResource;
-use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewSummaryResource;
+use PKP\peerReview\PeerReviewResourceBuilder;
 use PKP\submission\reviewer\recommendation\enums\ReviewerRecommendationType;
 
 class OpenReviewComponent
@@ -28,10 +27,11 @@ class OpenReviewComponent
 
     public function __construct(Submission $submission)
     {
-        $this->submissionPeerReviews = (new SubmissionPeerReviewResource($submission))
+        $this->submissionPeerReviews = PeerReviewResourceBuilder::fromSubmission($submission)
+            ->make()
             ->resolve();
-
-        $this->submissionPeerReviewSummary = (new SubmissionPeerReviewSummaryResource($submission))
+        $this->submissionPeerReviewSummary = PeerReviewResourceBuilder::fromSubmission($submission)
+            ->makeSummary()
             ->resolve();
     }
 

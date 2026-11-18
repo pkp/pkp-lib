@@ -21,7 +21,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
@@ -56,8 +55,9 @@ trait ReviewerRecommendationSummary
      *  - Incomplete reviews (no completion date) are excluded
      *
      * @param Enumerable $reviewAssignments The Review Assignments to create summary from.
+     * @param Collection<int, ReviewerRecommendation> $recommendationTypes keyed by reviewerRecommendationId
      */
-    private function getReviewerRecommendationsSummary(Enumerable $reviewAssignments, Context $context): array
+    private function getReviewerRecommendationsSummary(Enumerable $reviewAssignments, Collection $recommendationTypes): array
     {
         $reviewAssignmentsGroupedByRoundId = $reviewAssignments
             ->groupBy(fn (ReviewAssignment $ra) => $ra->getReviewRoundId())
@@ -66,19 +66,15 @@ trait ReviewerRecommendationSummary
             )
             ->sortKeys();
 
-        return $this->getSummaryCountForReviewerRecommendation($reviewAssignmentsGroupedByRoundId, $context);
+        return $this->getSummaryCountForReviewerRecommendation($reviewAssignmentsGroupedByRoundId, $recommendationTypes);
     }
 
     /**
      * Get the summary count for reviews.
      */
-    private function getSummaryCountForReviewerRecommendation(Enumerable $reviewAssignmentsGroupedByRoundId, Context $context): array
+    private function getSummaryCountForReviewerRecommendation(Enumerable $reviewAssignmentsGroupedByRoundId, Collection $recommendationTypes): array
     {
         $responses = collect();
-
-        $availableRecommendationTypes = ReviewerRecommendation::withContextId($context->getId())
-            ->get()
-            ->keyBy('reviewerRecommendationId');
 
         foreach ($reviewAssignmentsGroupedByRoundId as $reviews) {
             /** @var ReviewAssignment $review */
@@ -86,12 +82,12 @@ trait ReviewerRecommendationSummary
                 // For each review in each round, record the reviewer's decision, overriding any decision from previous rounds, keeping their latest recommendation
                 $responses->put(
                     $review->getReviewerId(),
-                    $availableRecommendationTypes->get($review->getReviewerRecommendationId())->type,
+                    $recommendationTypes->get($review->getReviewerRecommendationId())->type,
                 );
             }
         }
 
-        return $this->buildSummaryCount($responses->countBy(), $availableRecommendationTypes);
+        return $this->buildSummaryCount($responses->countBy(), $recommendationTypes);
     }
 
     /**
@@ -144,34 +140,5 @@ trait ReviewerRecommendationSummary
             'versionString' => $latestVersion->getData('versionString'),
             'datePublished' => $latestVersion->getData('datePublished'),
         ] : null;
-    }
-
-    /**
-     * Gets array of review round status date info
-     *
-     * @param Enumerable $reviewAssignments All public assignments, not limited by round
-     * @param array $reviewRounds Iterative array keyed by review round ID
-     * @return list<array{roundId: int, round: int, status: string, dateStarted: ?string, dateInProgress: ?string, dateCompleted: ?string}>
-     */
-    private function getReviewRoundsStatusData(Enumerable $reviewAssignments, array $reviewRounds): array
-    {
-        $assignmentsByRound = $reviewAssignments
-            ->groupBy(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId())
-            ->sortKeys();
-
-        $roundsData = [];
-        /** @var ReviewRound $reviewRound */
-        foreach ($reviewRounds as $roundId => $reviewRound) {
-            $roundAssignments = $assignmentsByRound->get($roundId, collect());
-            $reviewStatusData = $reviewRound->getPublicReviewStatusByAssignments($roundAssignments);
-
-            $roundsData[] = [
-                'roundId' => $reviewRound->getId(),
-                'round' => $reviewRound->getRound(),
-                ...$reviewStatusData->toArray(),
-            ];
-        }
-
-        return $roundsData;
     }
 }

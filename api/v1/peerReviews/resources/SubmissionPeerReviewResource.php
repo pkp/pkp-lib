@@ -124,7 +124,7 @@ class SubmissionPeerReviewResource extends JsonResource
             $acceptedReviewsInRound = $acceptedReviewAssignments->filter(
                 fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId() === $reviewRound->getId()
             );
-            $reviewStatusData = $reviewRound->getPublicReviewStatusByAssignments($acceptedReviewsInRound);
+            $reviewStatusData = $reviewRound->getPeerReviewStatusByAssignments($acceptedReviewsInRound, $context->getNumReviewsPerSubmission());
 
             $canShowAuthorResponse = $currentRoundResponse?->isPublic && $currentRoundResponse?->isConfirmed;
 
@@ -147,7 +147,7 @@ class SubmissionPeerReviewResource extends JsonResource
         return [
             'submissionId' => $submission->getId(),
             'reviewRounds' => $roundsData->toArray(),
-            'reviewerRecommendationsSummary' => $this->getReviewerRecommendationsSummary($acceptedReviewAssignments, $context),
+            'reviewerRecommendationsSummary' => $this->getReviewerRecommendationsSummary($acceptedReviewAssignments, $this->getAvailableReviewerRecommendations($context)),
         ];
     }
 
@@ -181,7 +181,7 @@ class SubmissionPeerReviewResource extends JsonResource
      */
     private function getReviewAssignmentPeerReviews(Enumerable $assignments, Context $context): Enumerable
     {
-        $this->availableReviewerRecommendations = $this->availableReviewerRecommendations ?: ReviewerRecommendation::withContextId($context->getId())->get()->keyBy('reviewerRecommendationId');
+        $this->availableReviewerRecommendations = $this->getAvailableReviewerRecommendations($context);
         $recommendationTypesTypeLabels = Repo::reviewerRecommendation()->getRecommendationTypeLabels();
 
         // Preload all review form data for use in class
@@ -406,5 +406,18 @@ class SubmissionPeerReviewResource extends JsonResource
     private function getReviewAssignmentComments(ReviewAssignment $assignment): array
     {
         return $this->reviewerCommentsCache->get($assignment->getId(), []);
+    }
+
+    /**
+     * Lazily get reviewer recommendations by context
+     *
+     * @return Collection<int, ReviewerRecommendation> keyed by reviewerRecommendationId
+     */
+    private function getAvailableReviewerRecommendations(Context $context): Collection
+    {
+        return $this->availableReviewerRecommendations ??=
+            ReviewerRecommendation::withContextId($context->getId())
+                ->get()
+                ->keyBy('reviewerRecommendationId');
     }
 }

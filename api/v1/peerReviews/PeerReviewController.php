@@ -24,9 +24,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewResource;
-use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewSummaryResource;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\peerReview\ReviewResourceBuilder;
 use PKP\security\authorization\PublicAccessPolicy;
 
 class PeerReviewController extends PKPBaseController
@@ -157,8 +157,9 @@ class PeerReviewController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $resource = ReviewResourceBuilder::fromSubmission($submission)->makeSummary();
         return response()->json(
-            new SubmissionPeerReviewSummaryResource($submission),
+            $resource,
             Response::HTTP_OK
         );
     }
@@ -194,8 +195,10 @@ class PeerReviewController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $resourceCollection = ReviewResourceBuilder::fromSubmissions($submissions, $context->getId())
+            ->makeSummaryCollection();
         return response()->json(
-            SubmissionPeerReviewSummaryResource::collection($submissions),
+            $resourceCollection,
             Response::HTTP_OK
         );
     }

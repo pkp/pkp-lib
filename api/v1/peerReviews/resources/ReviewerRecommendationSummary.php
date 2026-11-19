@@ -21,7 +21,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
@@ -57,7 +56,7 @@ trait ReviewerRecommendationSummary
      *
      * @param Enumerable $reviewAssignments The Review Assignments to create summary from.
      */
-    private function getReviewerRecommendationsSummary(Enumerable $reviewAssignments, Context $context): array
+    private function getReviewerRecommendationsSummary(Enumerable $reviewAssignments, int $contextId): array
     {
         $reviewAssignmentsGroupedByRoundId = $reviewAssignments
             ->groupBy(fn (ReviewAssignment $ra) => $ra->getReviewRoundId())
@@ -66,17 +65,17 @@ trait ReviewerRecommendationSummary
             )
             ->sortKeys();
 
-        return $this->getSummaryCountForReviewerRecommendation($reviewAssignmentsGroupedByRoundId, $context);
+        return $this->getSummaryCountForReviewerRecommendation($reviewAssignmentsGroupedByRoundId, $contextId);
     }
 
     /**
      * Get the summary count for reviews.
      */
-    private function getSummaryCountForReviewerRecommendation(Enumerable $reviewAssignmentsGroupedByRoundId, Context $context): array
+    private function getSummaryCountForReviewerRecommendation(Enumerable $reviewAssignmentsGroupedByRoundId, int $contextId): array
     {
         $responses = collect();
 
-        $availableRecommendationTypes = ReviewerRecommendation::withContextId($context->getId())
+        $availableRecommendationTypes = ReviewerRecommendation::withContextId($contextId)
             ->get()
             ->keyBy('reviewerRecommendationId');
 
@@ -151,6 +150,7 @@ trait ReviewerRecommendationSummary
      *
      * @param Enumerable $reviewAssignments All public assignments, not limited by round
      * @param array $reviewRounds Iterative array keyed by review round ID
+     *
      * @return list<array{roundId: int, round: int, status: string, dateStarted: ?string, dateInProgress: ?string, dateCompleted: ?string}>
      */
     private function getReviewRoundsStatusData(Enumerable $reviewAssignments, array $reviewRounds): array

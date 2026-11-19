@@ -112,27 +112,21 @@ abstract class I7191_InstallSubmissionHelpDefaults extends \PKP\migration\Migrat
     /**
      * Get the name of a context
      *
-     * Sorts all names with preferred locale first and primary locale
-     * second. Chooses top name after the sort.
+     * Uses the name in the preferred locale, then in the primary locale, then any name.
      */
     protected function getContextName(int $contextId, string $preferredLocale, string $primaryLocale): string
     {
-        $rows = DB::table($this->CONTEXT_SETTINGS_TABLE)
+        $names = DB::table($this->CONTEXT_SETTINGS_TABLE)
             ->where($this->CONTEXT_COLUMN, $contextId)
             ->where('setting_name', 'name')
             ->whereNotNull('setting_value')
-            ->get(['locale', 'setting_value'])
-            ->toArray();
+            ->where('setting_value', '<>', '')
+            ->pluck('setting_value', 'locale');
 
-        if (empty($rows)) {
+        if ($names->isEmpty()) {
             throw new Exception('Upgrade failed because no name was found for context ' . $contextId);
         }
 
-        usort($rows, function ($a, $b) use ($preferredLocale, $primaryLocale) {
-            return $a->locale === $preferredLocale
-                || ($a->locale === $primaryLocale && $b->locale !== $preferredLocale);
-        });
-
-        return $rows[0]->setting_value;
+        return $names[$preferredLocale] ?? $names[$primaryLocale] ?? $names->first();
     }
 }

@@ -96,6 +96,12 @@ class Collector implements CollectorInterface
         return $this->dao->getIds($this);
     }
 
+    /** @copydoc DAO::getBestIds() */
+    public function getBestIds(): Collection
+    {
+        return $this->dao->getBestIds($this);
+    }
+
     /**
      * @copydoc DAO::getMany()
      *
@@ -213,7 +219,6 @@ class Collector implements CollectorInterface
 
     /**
      * @param array<MediaVariantType>|null $mediaVariantTypes
-     * @return self
      */
     public function filterByMediaVariantTypes(?array $mediaVariantTypes): self
     {
@@ -223,7 +228,6 @@ class Collector implements CollectorInterface
 
     /**
      * @param array<int>|null $variantGroupIds
-     * @return self
      */
     public function filterByVariantGroupIds(array $variantGroupIds): self
     {

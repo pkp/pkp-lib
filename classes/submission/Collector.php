@@ -105,6 +105,12 @@ abstract class Collector implements CollectorInterface, ViewsCount
         return $this->dao->getIds($this);
     }
 
+    /** @copydoc DAO::getBestIds() */
+    public function getBestIds(): Collection
+    {
+        return $this->dao->getBestIds($this);
+    }
+
     /**
      * @copydoc DAO::getMany()
      *

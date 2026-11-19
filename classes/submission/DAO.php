@@ -126,6 +126,26 @@ class DAO extends EntityDAO
     }
 
     /**
+     * Get the current publication id and best id of the submissions matching the configured query,
+     * without loading the submissions (see Submission::getBestId())
+     *
+     * @return Collection<int,object{currentPublicationId:?int,bestId:int|string}> Keyed by submission id
+     */
+    public function getBestIds(Collector $query): Collection
+    {
+        return $query
+            ->getQueryBuilder()
+            ->select(['s.submission_id', 's.current_publication_id', 'po.url_path'])
+            ->get()
+            ->mapWithKeys(fn (object $row) => [
+                (int) $row->submission_id => (object) [
+                    'currentPublicationId' => $row->current_publication_id === null ? null : (int) $row->current_publication_id,
+                    'bestId' => strlen((string) $row->url_path) ? $row->url_path : (int) $row->submission_id,
+                ],
+            ]);
+    }
+
+    /**
      * Get the submission id by its url path
      */
     public function getIdByUrlPath(string $urlPath, int $contextId): ?int

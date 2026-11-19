@@ -34,6 +34,8 @@ use PKP\security\RoleDAO;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\user\interest\UserInterest;
+use PKP\userComment\relationships\UserCommentReport;
+use PKP\userComment\UserComment;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\workflow\WorkflowStageDAO;
 use Psr\Log\LogLevel;
@@ -417,6 +419,16 @@ class Repository
                 $stageAssignment->delete();
             }
         }
+
+        // Transfer public comments made on publications
+        UserComment::query()
+            ->where('user_id', $oldUserId)
+            ->update(['user_id' => $newUserId]);
+
+        // Transfer public comment reports
+        UserCommentReport::query()
+            ->where('user_id', $oldUserId)
+            ->update(['user_id' => $newUserId]);
 
         AuditLog::log(AuditEvent::USER_MERGED, LogLevel::NOTICE, ['oldUserId' => $oldUserId, 'newUserId' => $newUserId]);
 

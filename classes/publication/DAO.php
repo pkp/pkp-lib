@@ -31,6 +31,8 @@ use PKP\core\traits\EntityWithParent;
 use PKP\dataCitation\DataCitation;
 use PKP\notification\Notification;
 use PKP\services\PKPSchemaService;
+use PKP\userComment\relationships\UserCommentReport;
+use PKP\userComment\UserComment;
 
 /**
  * @template T of Publication
@@ -289,6 +291,11 @@ class DAO extends EntityDAO
      */
     public function deleteById(int $publicationId): int
     {
+        $associatedCommentsId = UserComment::withPublicationIds([$publicationId])->pluck('user_comment_id')->all();
+        $reportIds = !empty($associatedCommentsId)
+            ? UserCommentReport::withCommentIds($associatedCommentsId)->pluck('user_comment_report_id')->all()
+            : [];
+
         $affectedRows = parent::deleteById($publicationId);
 
         $this->deleteAuthors($publicationId);
@@ -297,6 +304,9 @@ class DAO extends EntityDAO
         $this->deleteDataCitations($publicationId);
         Repo::citation()->deleteByPublicationId($publicationId);
         Notification::withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationId)->delete();
+
+        // Deleting a publication will cascade delete associated comments and reports, so we need to delete any orphaned notifications for those as well.
+        Repo::userComment()->deleteNotifications($associatedCommentsId, $reportIds);
 
         return $affectedRows;
     }

@@ -364,14 +364,7 @@ class UserCommentController extends PKPBaseController
         $reportIds = $comment->reports()->pluck('user_comment_report_id')->all();
         $comment->delete();
 
-        // Delete notifications associated with the comment and its reports
-        Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT)
-            ->where('assoc_id', $commentId)
-            ->delete();
-
-        Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT_REPORT)
-            ->whereIn('assoc_id', $reportIds)
-            ->delete();
+        Repo::userComment()->deleteNotifications([$commentId], $reportIds);
 
         return response()->json([], Response::HTTP_OK);
     }
@@ -465,10 +458,7 @@ class UserCommentController extends PKPBaseController
         $report->delete();
 
         // Delete notifications associated with the report
-        Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT_REPORT)
-            ->where('assoc_id', $reportId)
-            ->delete();
-
+        Repo::userComment()->deleteNotifications(reportIds: [$reportId]);
         return response()->json([], Response::HTTP_OK);
     }
 
@@ -491,9 +481,7 @@ class UserCommentController extends PKPBaseController
         UserCommentReport::withReportIds($reportIds)->delete();
 
         // Delete notifications associated with the reports
-        Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT_REPORT)
-            ->whereIn('assoc_id', $reportIds)
-            ->delete();
+        Repo::userComment()->deleteNotifications(reportIds: $reportIds);
 
         return response()->json([], Response::HTTP_OK);
     }

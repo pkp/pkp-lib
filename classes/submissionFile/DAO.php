@@ -302,12 +302,16 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     }
 
     /**
-     * Retrieve file by public ID or submissionFileId
+     * Retrieve file by submissionFileId, or by publisher ID
+     *
+     * The publisher ID is metadata and is no longer used in URLs
+     * (see pkp/pkp-lib#5430), but URLs created before 3.3.0 may still
+     * contain it, so it is looked up when $bestId is not a file ID.
      *
      * Returns null for a non-numeric $bestId that is not a publisher ID
      * (rather than raising a TypeError from the int-typed get()).
      *
-     * @param string|int $bestId Publisher id or submissionFileId
+     * @param string|int $bestId submissionFileId or, for old URLs, publisher id
      */
     public function getByBestId(
         $bestId,
@@ -315,12 +319,12 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     ): ?SubmissionFile {
         $submissionFile = null;
 
-        if ($bestId != '') {
-            $submissionFile = $this->getByPubId('publisher-id', $bestId, $submissionId, null);
+        if (ctype_digit((string) $bestId)) {
+            $submissionFile = $this->get((int) $bestId);
         }
 
-        if (!isset($submissionFile) && ctype_digit((string) $bestId)) {
-            $submissionFile = $this->get((int) $bestId);
+        if (!isset($submissionFile) && $bestId != '') {
+            $submissionFile = $this->getByPubId('publisher-id', $bestId, $submissionId, null);
         }
 
         if (

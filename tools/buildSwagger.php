@@ -112,17 +112,17 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                         if (!empty($propSchema->multilingual)) {
                             $subPropsSchemaEdit = $subPropsSchemaRead = $subPropsSchemaSummary = [
                                 'type' => 'object',
-                                'properties' => [],
+                                'properties' => (object) [],
                             ];
                             foreach ($locales as $localeKey) {
-                                $subPropsSchemaEdit[$localeKey]['properties'] = $subPropsEdit;
-                                $subPropsSchemaRead[$localeKey]['properties'] = $subPropsRead;
-                                $subPropsSchemaSummary[$localeKey]['properties'] = $subPropsSummary;
+                                $subPropsSchemaEdit[$localeKey]['properties'] = (object) $subPropsEdit;
+                                $subPropsSchemaRead[$localeKey]['properties'] = (object) $subPropsRead;
+                                $subPropsSchemaSummary[$localeKey]['properties'] = (object) $subPropsSummary;
                             }
                         } else {
-                            $subPropsSchemaEdit = $subPropsEdit;
-                            $subPropsSchemaRead = $subPropsRead;
-                            $subPropsSchemaSummary = $subPropsSummary;
+                            $subPropsSchemaEdit = (object) $subPropsEdit;
+                            $subPropsSchemaRead = (object) $subPropsRead;
+                            $subPropsSchemaSummary = (object) $subPropsSummary;
                         }
                         if (empty($propSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {
                             $editPropSchema->properties = $subPropsSchemaEdit;
@@ -143,13 +143,13 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                                     $subProperties[$localeKey] = $propSchema->items;
                                 }
                                 if (empty($propSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {
-                                    $editPropSchema->properties = $subProperties;
+                                    $editPropSchema->properties = (object) $subProperties;
                                 }
                                 if (empty($propSchema->writeOnly)) {
-                                    $readPropSchema->properties = $subProperties;
+                                    $readPropSchema->properties = (object) $subProperties;
                                 }
                                 if (!empty($propSchema->apiSummary)) {
-                                    $summaryPropSchema->properties = $subProperties;
+                                    $summaryPropSchema->properties = (object) $subProperties;
                                 }
                             } else {
                                 if (empty($propSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {

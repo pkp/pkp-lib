@@ -89,7 +89,7 @@ class ReviewerGridRow extends GridRow
                         'readReview',
                         new AjaxModal(
                             $router->url($request, null, null, 'readReview', null, $actionArgs),
-                            __('editor.review.reviewDetails') . ': ' . $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
+                            __('editor.review.reviewDetails') . ': ' . htmlspecialchars($submission->getCurrentPublication()->getLocalizedTitle()),
                             'modal_information'
                         ),
                         __('editor.review.reviewDetails'),

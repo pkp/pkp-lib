@@ -1125,17 +1125,21 @@ abstract class Repository
                         ['status' => [PKPSubmission::STATUS_DECLINED], 'assignedWithRoles' => $assignedWithRoles]
                     );
                 case DashboardView::TYPE_REVISIONS_REQUESTED:
+                    $assignedWithRoles = $canAccessUnassignedSubmission ? null : $selectedRoleIds;
+
+                    $collector = Repo::submission()->getCollector()
+                        ->filterByContextIds([$context->getId()])
+                        ->filterByRevisionsRequested(true)
+                        ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
                     return new DashboardView(
                         $key,
                         __('submission.dashboard.view.revisionsRequested'),
-                        [Role::ROLE_ID_AUTHOR],
-                        Repo::submission()->getCollector()
-                            ->assignedTo([$user->getId()], $selectedRoleIds)
-                            ->filterByContextIds([$context->getId()])
-                            ->filterByRevisionsRequested(true)
-                            ->filterByStatus([PKPSubmission::STATUS_QUEUED]),
+                        [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                        $canAccessUnassignedSubmission
+                            ? $collector
+                            : $collector->assignedTo([$user->getId()], $assignedWithRoles),
                         'reviews',
-                        ['revisionsRequested' => true, 'assignedWithRoles' => $selectedRoleIds]
+                        ['revisionsRequested' => true, 'assignedWithRoles' => $assignedWithRoles]
                     );
                 case DashboardView::TYPE_REVISIONS_SUBMITTED:
                     $assignedWithRoles = $canAccessUnassignedSubmission ? null : $selectedRoleIds;

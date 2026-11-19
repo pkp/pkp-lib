@@ -179,16 +179,16 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                 if (!empty($editDefinition['properties'])) {
                     $definitionEditableName = $definitionName . 'Editable';
                     ksort($editDefinition['properties']);
-                    $apiSchema->definitions->{$definitionEditableName} = $this->setEnum($editDefinition);
+                    $apiSchema->definitions->{$definitionEditableName} = $this->stripNonSwaggerKeywords($this->setEnum($editDefinition));
                 }
                 if (!empty($readDefinition['properties'])) {
                     ksort($readDefinition['properties']);
-                    $apiSchema->definitions->{$definitionName} = $this->setEnum($readDefinition);
+                    $apiSchema->definitions->{$definitionName} = $this->stripNonSwaggerKeywords($this->setEnum($readDefinition));
                 }
                 if (!empty($summaryDefinition['properties'])) {
                     $definitionSummaryName = $definitionName . 'Summary';
                     ksort($summaryDefinition['properties']);
-                    $apiSchema->definitions->{$definitionSummaryName} = $this->setEnum($summaryDefinition);
+                    $apiSchema->definitions->{$definitionSummaryName} = $this->stripNonSwaggerKeywords($this->setEnum($summaryDefinition));
                 }
             }
 
@@ -221,6 +221,56 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
         }
 
         return $definition;
+    }
+
+    /**
+     * Remove every keyword that is not valid in a Swagger 2.0 schema
+     * (e.g. `apiSummary`, `validation`, `multilingual`) from a generated
+     * schema, recursing into sub-schemas. Works on stdClass objects and
+     * arrays, preserving the type of each node. `x-` extensions are kept.
+     *
+     * Values of `enum`, `default` and `example` are literal data and are
+     * not inspected.
+     */
+    protected function stripNonSwaggerKeywords(mixed $schema): mixed
+    {
+        if (!is_object($schema) && !is_array($schema)) {
+            return $schema;
+        }
+
+        $allowedKeywords = [
+            'type', 'format', 'description', 'properties', 'items', 'enum', 'default',
+            '$ref', 'readOnly', 'required', 'example', 'title', 'additionalProperties',
+            'allOf', 'minimum', 'maximum', 'exclusiveMinimum', 'exclusiveMaximum',
+            'minLength', 'maxLength', 'pattern', 'minItems', 'maxItems', 'uniqueItems',
+            'multipleOf', 'minProperties', 'maxProperties', 'discriminator', 'xml',
+            'externalDocs',
+        ];
+
+        $stripped = [];
+        foreach ((array) $schema as $key => $value) {
+            $key = (string) $key;
+            if (str_starts_with($key, 'x-')) {
+                $stripped[$key] = $value;
+            } elseif (!in_array($key, $allowedKeywords, true)) {
+                continue;
+            } elseif ($key === 'properties' && (is_object($value) || is_array($value))) {
+                // Property names are map keys, not keywords: only their schemas are stripped
+                $properties = [];
+                foreach ((array) $value as $propName => $propSchema) {
+                    $properties[$propName] = $this->stripNonSwaggerKeywords($propSchema);
+                }
+                $stripped[$key] = is_object($value) ? (object) $properties : $properties;
+            } elseif ($key === 'allOf' && is_array($value)) {
+                $stripped[$key] = array_map($this->stripNonSwaggerKeywords(...), $value);
+            } elseif ($key === 'items' || $key === 'additionalProperties') {
+                $stripped[$key] = $this->stripNonSwaggerKeywords($value);
+            } else {
+                $stripped[$key] = $value;
+            }
+        }
+
+        return is_object($schema) ? (object) $stripped : $stripped;
     }
 
     /**

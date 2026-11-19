@@ -78,11 +78,13 @@
                         <submission-files-list-panel
                             v-else-if="section.type === 'files'"
                             v-bind="components.submissionFiles"
+                            heading-level="h3"
                             @set="set"
                         ></submission-files-list-panel>
                         <contributors-list-panel
                             v-else-if="section.type === 'contributors'"
                             v-bind="components.contributors"
+                            heading-level="h3"
                             :items="publication.authors"
                             :publication="publication"
                             @updated:contributors="setContributors"
@@ -91,6 +93,7 @@
                         <reviewer-suggestions-list-panel
                             v-else-if="section.type === 'reviewerSuggestions'"
                             v-bind="components.reviewerSuggestions"
+                            heading-level="h3"
                             :items="submission.reviewerSuggestions"
                             :submission="submission"
                             :publication="publication"

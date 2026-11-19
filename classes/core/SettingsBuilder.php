@@ -170,13 +170,21 @@ class SettingsBuilder extends Builder
         // Delete the child settings rows first, then the main row. Child-before-parent
         // is the correct relational-integrity discipline: it works on any schema,
         // cascade or not, and doesn't depend on the FK constraint as a safety net.
-        foreach (array_chunk($this->getTargetModelIds(), static::ID_CHUNK_SIZE) as $modelIds) {
+        $targetModelIds = $this->getTargetModelIds();
+        foreach (array_chunk($targetModelIds, static::ID_CHUNK_SIZE) as $modelIds) {
             DB::table($this->getSettingsTable())
                 ->whereIn($this->getPrimaryKeyName(), $modelIds)
                 ->delete();
         }
 
-        return parent::delete();
+        $count = 0;
+        foreach (array_chunk($targetModelIds, static::ID_CHUNK_SIZE) as $modelIds) {
+            $count += DB::table($this->model->getTable())
+                ->whereIn($this->getPrimaryKeyName(), $modelIds)
+                ->delete();
+        }
+
+        return $count;
     }
 
     /**

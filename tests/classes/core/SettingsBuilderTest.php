@@ -613,6 +613,33 @@ class SettingsBuilderTest extends PKPTestCase
         $this->assertSettingRowCount('test_settings_schema_entity_settings', $survivorId, 'title', 1);
     }
 
+    public function testQueryDeleteBySettingColumnRemovesMainRowAndSettings(): void
+    {
+        $matchedId = $this->seedSchemaModel(['en' => 'Target', 'fr_CA' => 'Target']);
+        $survivorId = $this->seedSchemaModel(['en' => 'Survivor']);
+
+        $count = TestSettingsSchemaModel::query()->where('title', 'Target')->delete();
+
+        $this->assertSame(1, $count);
+        $this->assertSame(0, DB::table('test_settings_schema_entity')->where('test_id', $matchedId)->count());
+        $this->assertSame(0, DB::table('test_settings_schema_entity_settings')->where('test_id', $matchedId)->count());
+        $this->assertSame(1, DB::table('test_settings_schema_entity')->where('test_id', $survivorId)->count());
+        $this->assertSettingRowCount('test_settings_schema_entity_settings', $survivorId, 'title', 1);
+    }
+
+    public function testNonSchemaQueryDeleteBySettingColumnRemovesMainRowAndSettings(): void
+    {
+        $matchedId = $this->seedPureModel(['en' => 'Target']);
+        $survivorId = $this->seedPureModel(['en' => 'Survivor']);
+
+        $count = TestSettingsPureModel::where('familyName', 'Target')->delete();
+
+        $this->assertSame(1, $count);
+        $this->assertSame(0, DB::table('test_settings_pure_entity')->where('test_id', $matchedId)->count());
+        $this->assertSame(0, DB::table('test_settings_pure_entity_settings')->where('test_id', $matchedId)->count());
+        $this->assertSame(1, DB::table('test_settings_pure_entity')->where('test_id', $survivorId)->count());
+    }
+
     public function testNonSchemaQueryDeleteRemovesSettings(): void
     {
         $modelId = $this->seedPureModel(['en' => 'English', 'fr_CA' => 'Français']);

@@ -20,6 +20,6 @@
 switch ($op) {
     case 'index':
     case 'view':
-        define('HANDLER_CLASS', 'PKP\pages\announcement\AnnouncementHandler');
+        define('HANDLER_CLASS', \PKP\pages\announcement\AnnouncementHandler::class);
         break;
 }

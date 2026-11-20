@@ -53,7 +53,7 @@ class PKPUserHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->displaySystemMessage(
             title: __('common.error'),
-            message: $authorizationMessage,
+            message: __($authorizationMessage),
         );
     }
 }

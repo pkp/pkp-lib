@@ -326,6 +326,10 @@
 
 		// Save the uploaded file information
 		this.uploadedFile_ = uploadedFile;
+
+		// The file now exists on the server, so signal a data change to reload
+		// the file list even if the user closes the modal before finishing.
+		this.trigger('dataChanged', uploadedFile);
 	};
 
 

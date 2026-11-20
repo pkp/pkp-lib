@@ -634,6 +634,22 @@ class SettingsBuilderTest extends PKPTestCase
         $this->assertSame(1, DB::table('test_settings_pure_entity')->where('test_id', $survivorId)->count());
     }
 
+    public function testQueryDeleteWithJoinRemovesMainRowAndSettings(): void
+    {
+        $matchedId = $this->seedSchemaModel(['en' => 'Target']);
+        $survivorId = $this->seedSchemaModel(['en' => 'Survivor']);
+
+        $count = TestSettingsSchemaModel::query()
+            ->join('test_settings_schema_entity_settings as s', 's.test_id', '=', 'test_settings_schema_entity.test_id')
+            ->where('s.setting_value', 'Target')
+            ->delete();
+
+        $this->assertSame(1, $count);
+        $this->assertSame(0, DB::table('test_settings_schema_entity')->where('test_id', $matchedId)->count());
+        $this->assertSame(0, DB::table('test_settings_schema_entity_settings')->where('test_id', $matchedId)->count());
+        $this->assertSame(1, DB::table('test_settings_schema_entity')->where('test_id', $survivorId)->count());
+    }
+
     public function testNonSchemaQueryDeleteRemovesSettings(): void
     {
         $modelId = $this->seedPureModel(['en' => 'English', 'fr_CA' => 'Français']);
@@ -697,6 +713,46 @@ class SettingsBuilderTest extends PKPTestCase
         $this->assertSame([], $warnings);
         $this->assertSame(['parent_id'], array_keys($model->getAttributes()));
         $this->assertSame(1, (int) $model->getAttribute('parent_id'));
+    }
+
+    public function testSelectPrimaryColumnDistinct(): void
+    {
+        $this->seedSchemaModel(['en' => 'One']);
+        $this->seedSchemaModel(['en' => 'Two']);
+        $otherParentId = $this->seedSchemaModel(['en' => 'Three']);
+        DB::table('test_settings_schema_entity')->where('test_id', $otherParentId)->update(['parent_id' => 5]);
+
+        $models = TestSettingsSchemaModel::query()->select('parent_id')->distinct()->get();
+
+        $this->assertCount(2, $models);
+    }
+
+    public function testSelectPrimaryColumnGroupBy(): void
+    {
+        $this->seedSchemaModel(['en' => 'One']);
+        $this->seedSchemaModel(['en' => 'Two']);
+        $otherParentId = $this->seedSchemaModel(['en' => 'Three']);
+        DB::table('test_settings_schema_entity')->where('test_id', $otherParentId)->update(['parent_id' => 5]);
+
+        $models = TestSettingsSchemaModel::query()->select('parent_id')->groupBy('parent_id')->get();
+
+        $this->assertCount(2, $models);
+    }
+
+    public function testSelectQualifiedPrimaryColumnsWithJoin(): void
+    {
+        $modelId = $this->seedSchemaModel(['en' => 'Target']);
+        $this->seedSchemaModel(['en' => 'Survivor']);
+
+        $models = TestSettingsSchemaModel::query()
+            ->join('test_settings_schema_entity_settings as s', 's.test_id', '=', 'test_settings_schema_entity.test_id')
+            ->where('s.setting_value', 'Target')
+            ->select(['test_settings_schema_entity.test_id', 'test_settings_schema_entity.parent_id'])
+            ->get();
+
+        $this->assertCount(1, $models);
+        $this->assertSame($modelId, (int) $models->first()->getKey());
+        $this->assertSame(1, (int) $models->first()->getAttribute('parent_id'));
     }
 
     public function testSelectWithTheColumnsOfTheGetCallStillFiltersAttributes(): void

@@ -214,7 +214,9 @@ class PKPRouter {
 
 		// Return the full context, then retrieve the requested context path
 		$contextPaths = $this->getRequestedContextPaths($request);
-		assert(isset($this->_contextPaths[$requestedContextLevel - 1]));
+		if (!isset($this->_contextPaths[$requestedContextLevel - 1])) {
+			return null;
+		}
 		return $this->_contextPaths[$requestedContextLevel - 1];
 	}
 

@@ -426,7 +426,7 @@ class PKPHandler {
 		}
 
 		if ($context) $count = $context->getData('itemsPerPage');
-		if (!isset($count)) $count = Config::getVar('interface', 'items_per_page');
+		if (empty($count)) $count = Config::getVar('interface', 'items_per_page');
 
 		import('lib.pkp.classes.db.DBResultRange');
 

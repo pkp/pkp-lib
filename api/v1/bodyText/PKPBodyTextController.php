@@ -143,10 +143,24 @@ class PKPBodyTextController extends PKPBaseController
 
         $bodyTextFile = Repo::bodyText()->getBodyTextFile($publication->getId());
 
-        return response()->json(
-            Repo::bodyText()->map($bodyTextFile),
-            Response::HTTP_OK
-        );
+        /*
+         * Add context name and PDF labels in the publication primary locale,
+         * TODO revise after introduction of language switcher for the body text editor
+         */
+        $content = Repo::bodyText()->map($bodyTextFile);
+        $locale = $publication->getData('locale');
+        $content['contextName'] = $publication->getContextName($locale, $this->getRequest()->getContext());
+        foreach ([
+            'common.abstract',
+            'common.keywords',
+            'issue.vol',
+            'issue.no',
+            'issue.pagesAbbreviated',
+            'submission.submit.contributorType.anonymous',
+        ] as $key) {
+            $content['pdfLabels'][$key] = __($key, locale: $locale);
+        }
+        return response()->json($content, Response::HTTP_OK);
     }
 
     /**

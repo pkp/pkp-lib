@@ -130,7 +130,7 @@
 						</div>
 					</div>
 					<div class="sr-only">
-						<table class="-screenReader" role="region" aria-live="polite">
+						<table class="-screenReader">
 							<caption v-if="timelineType === 'files'">{translate key="stats.publications.totalGalleyViews.timelineInterval"}</caption>
 							<caption v-else>{translate key="stats.publications.totalAbstractViews.timelineInterval"}</caption>
 							<thead>

@@ -72,7 +72,7 @@
 						</div>
 					</div>
 					<div class="sr-only">
-						<table class="-screenReader" role="region" aria-live="polite">
+						<table class="-screenReader">
 							<caption>{translate key="stats.views.timelineInterval"}</caption>
 							<thead>
 								<tr>

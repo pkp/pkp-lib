@@ -156,6 +156,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
 
             if (in_array($submissionFile->getData('fileStage'), $excludedFileStages)) {
                 $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileSkipped', ['id' => $submissionFile->getId()]));
+                $deployment->addExcludedSubmissionFileId($submissionFile->getId());
                 continue;
             }
             $currentFilter = PKPImportExportFilter::getFilter('SubmissionFile=>native-xml', $this->getDeployment(), $this->opts);

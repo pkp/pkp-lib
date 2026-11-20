@@ -98,8 +98,8 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $submissionFileNode->setAttribute('id', $submissionFile->getId());
         $submissionFileNode->setAttribute('created_at', date('Y-m-d', strtotime($submissionFile->getData('createdAt'))));
         if (($dateCreated = $submissionFile->getData('dateCreated')) !== null) {
-	    $submissionFileNode->setAttribute('date_created', $dateCreated);
-	}
+            $submissionFileNode->setAttribute('date_created', $dateCreated);
+        }
         $submissionFileNode->setAttribute('file_id', $submissionFile->getData('fileId'));
         $submissionFileNode->setAttribute('stage', $stageToName[$submissionFile->getFileStage()]);
         $submissionFileNode->setAttribute('updated_at', date('Y-m-d', strtotime($submissionFile->getData('updatedAt'))));
@@ -126,7 +126,12 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
             $submissionFileNode->setAttribute('sales_type', $salesType);
         }
         if ($sourceSubmissionFileId = $submissionFile->getData('sourceSubmissionFileId')) {
-            $submissionFileNode->setAttribute('source_submission_file_id', $sourceSubmissionFileId);
+            $excludedIds = $deployment->getExcludedSubmissionFileIds() ?? [];
+
+            // Only export the attribute if it's not excluded
+            if (!in_array($sourceSubmissionFileId, $excludedIds, true)) {
+                $submissionFileNode->setAttribute('source_submission_file_id', $sourceSubmissionFileId);
+            }
         }
         if ($terms = $submissionFile->getData('terms')) {
             $submissionFileNode->setAttribute('terms', $terms);

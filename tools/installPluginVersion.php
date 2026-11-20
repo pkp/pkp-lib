@@ -19,6 +19,7 @@ require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 use APP\core\Application;
 use APP\install\Upgrade;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\plugins\PluginRegistry;
 use PKP\site\VersionCheck;
 
@@ -86,6 +87,7 @@ class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
         $plugin = PluginRegistry::getPlugin($matches[1], $plugin->getName());
 
         $installer = new Upgrade([]);
+        $installer->installedLocales = array_keys(Locale::getLocales());
         $result = true;
         $param = [&$installer, &$result];
 

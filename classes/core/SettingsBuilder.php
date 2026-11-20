@@ -316,7 +316,7 @@ class SettingsBuilder extends Builder
 
         return array_map(
             intval(...),
-            (clone $this)->pluck($this->getPrimaryKeyName())->all()
+            (clone $this)->pluck($this->model->getQualifiedKeyName())->all()
         );
     }
 
@@ -387,16 +387,25 @@ class SettingsBuilder extends Builder
             // Only the columns of the main table can be selected from it,
             // the primary key is needed to attach the settings to the rows
             $columns = array_map(fn (string $column) => Arr::last(explode('.', $column)), $selectedColumns);
-            [$settingColumns, $primaryColumns] = collect($columns)->partition(
-                fn (string $column) => $this->isSetting($column)
-            );
-            if (!$primaryColumns->contains($primaryKey)) {
-                $primaryColumns->push($primaryKey);
+            $settingColumns = collect($columns)->filter(fn (string $column) => $this->isSetting($column))->values();
+            $primaryColumns = collect($selectedColumns)
+                ->reject(fn (string $column) => $this->isSetting(Arr::last(explode('.', $column))))
+                ->values();
+            if ($settingColumns->isNotEmpty() && !in_array($primaryKey, $columns)) {
+                $primaryColumns->push($this->model->getQualifiedKeyName());
             }
-            $query->columns = $primaryColumns->values()->all();
+            $query->columns = $primaryColumns->all();
         }
 
-        $rows = $query->get()->keyBy($primaryKey);
+        $collection = $query->get();
+        if ($settingColumns?->isEmpty()) {
+            foreach ($collection as $row) {
+                $this->filterRow($row, $columns);
+            }
+            return $collection->all();
+        }
+
+        $rows = $collection->keyBy($primaryKey);
         if ($rows->isEmpty()) {
             return $rows->all();
         }
@@ -408,7 +417,7 @@ class SettingsBuilder extends Builder
         if ($settingColumns) {
             $settingsQuery->whereIn('setting_name', $settingColumns->values()->all());
         }
-        $settings = $settingColumns?->isEmpty() ? collect() : $settingsQuery->get();
+        $settings = $settingsQuery->get();
 
         $rows = $rows->all();
 

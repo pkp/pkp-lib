@@ -193,12 +193,13 @@ class NotificationsGridHandler extends GridHandler {
 		$user = $request->getUser();
 
 		$selectedElements = (array) $request->getUserVar('selectedElements');
+		$notification = null;
 		foreach ($selectedElements as $notificationId) {
 			if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
 				$notificationDao->setDateRead($notificationId, Core::getCurrentDate());
 			}
 		}
-		if ($request->getUserVar('redirect')) {
+		if ($request->getUserVar('redirect') && $notification) {
 			// In this case, the user has clicked on a notification
 			// and wants to view it. Mark it read first and redirect
 			$notificationMgr = new NotificationManager();

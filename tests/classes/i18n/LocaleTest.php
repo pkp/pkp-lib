@@ -144,4 +144,13 @@ class LocaleTest extends PKPTestCase
         self::assertEquals('por', LocaleConversion::get3LetterIsoFromLocale('pt'));
         self::assertNull(LocaleConversion::get3LetterIsoFromLocale('xx_XX'));
     }
+
+    public function testIsRightToLeft()
+    {
+        self::assertTrue((new LocaleMetadata('ar'))->isRightToLeft());
+        self::assertTrue((new LocaleMetadata('ckb'))->isRightToLeft());
+        self::assertTrue((new LocaleMetadata('ku'))->isRightToLeft());
+        self::assertFalse((new LocaleMetadata('en'))->isRightToLeft());
+        self::assertFalse((new LocaleMetadata('pt_BR'))->isRightToLeft());
+    }
 }

@@ -261,7 +261,7 @@ class XSLTransformer
                 $resultDOM->recover = true;
 
                 // Load the XML and return the DOM
-                $resultDOM->loadXML($resultXML, LIBXML_NONET | LIBXML_NOENT);
+                $resultDOM->loadXML($resultXML, LIBXML_NONET);
                 return $resultDOM;
 
             default:
@@ -300,11 +300,11 @@ class XSLTransformer
             // Load the XML based on its type
             switch ($xmlType) {
                 case self::XSL_TRANSFORMER_DOCTYPE_FILE:
-                    $xmlDOM->load($xml, LIBXML_NONET | LIBXML_NOENT);
+                    $xmlDOM->load($xml, LIBXML_NONET);
                     break;
 
                 case self::XSL_TRANSFORMER_DOCTYPE_STRING:
-                    $xmlDOM->loadXML($xml, LIBXML_NONET | LIBXML_NOENT);
+                    $xmlDOM->loadXML($xml, LIBXML_NONET);
                     break;
 
                 default:
@@ -324,11 +324,11 @@ class XSLTransformer
             // Load the XSL based on its type
             switch ($xslType) {
                 case self::XSL_TRANSFORMER_DOCTYPE_FILE:
-                    $xslDOM->load($xsl, LIBXML_NONET | LIBXML_NOENT);
+                    $xslDOM->load($xsl, LIBXML_NONET);
                     break;
 
                 case self::XSL_TRANSFORMER_DOCTYPE_STRING:
-                    $xslDOM->loadXML($xsl, LIBXML_NONET | LIBXML_NOENT);
+                    $xslDOM->loadXML($xsl, LIBXML_NONET);
                     break;
 
                 default:

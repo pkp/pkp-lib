@@ -529,13 +529,15 @@ abstract class Repository
         }
 
         // Only allow admins and journal managers to delete submissions, except
-        // for authors who can delete their own incomplete submissions
+        // for authors who can delete their own incomplete submissions.
+        // The author check is not limited to a workflow stage, because the stages
+        // an author user group is linked to differ between applications (e.g. OPS
+        // has no submission stage) and an incomplete submission is not yet in the workflow.
         return ($currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::SITE_CONTEXT_ID))
             || (
                 $submission->getData('submissionProgress') &&
                 StageAssignment::withSubmissionIds([$submission->getId()])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
-                    ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
                     ->withUserId($currentUser->getId())
                     ->get()
                     ->isNotEmpty()

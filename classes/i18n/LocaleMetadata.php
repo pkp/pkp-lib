@@ -176,7 +176,7 @@ class LocaleMetadata
         $locale = $this->_parse();
         $language = strtolower($locale->language ?? '');
         $script = strtolower($locale->script ?? '');
-        $rightToLeftLanguages = array_fill_keys(['ar', 'dv', 'fa', 'he', 'ku', 'nqo', 'prs', 'ps', 'sd', 'syr', 'ug', 'ur', 'yi'], true);
+        $rightToLeftLanguages = array_fill_keys(['ar', 'ckb', 'dv', 'fa', 'he', 'ku', 'nqo', 'prs', 'ps', 'sd', 'syr', 'ug', 'ur', 'yi'], true);
         $languageScriptExceptions = ['sd-deva' => false, 'tzm-arab' => true, 'pa-arab' => true];
         return $languageScriptExceptions["{$language}-{$script}"]
             ?? $rightToLeftLanguages[$language]

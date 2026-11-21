@@ -32,7 +32,7 @@ use PKP\navigationMenu\NavigationMenuItemDAO;
 use PKP\navigationMenu\resources\NavigationMenuItemResource;
 use PKP\pages\navigationMenu\NavigationMenuItemHandler;
 use PKP\plugins\Hook;
-use PKP\plugins\PluginRegistry;
+use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
 use PKP\security\Validation;
 
@@ -859,16 +859,7 @@ class PKPNavigationMenuService
      */
     public function getNavigationAreas($context): array
     {
-        // The site has menus of its own: ThemePlugin::isActive() reads the site's theme there.
-        $themePlugins = PluginRegistry::loadCategory('themes', true);
-
-        foreach ($themePlugins as $themePlugin) {
-            if ($themePlugin->isActive()) {
-                return $themePlugin->getMenuAreas();
-            }
-        }
-
-        return [];
+        return ThemePlugin::getActive()?->getMenuAreas() ?? [];
     }
 
     /**

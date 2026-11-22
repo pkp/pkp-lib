@@ -16,6 +16,7 @@ namespace PKP\tests\classes\template;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
 
@@ -46,5 +47,26 @@ class TemplateManagerHelpUrlTest extends PKPTestCase
         });
 
         $this->assertSame('https://help.example.org/', $this->templateManager()->getHelpUrl());
+    }
+
+    public static function invalidHelpUrls(): array
+    {
+        return [
+            'null' => [null],
+            'empty string' => [''],
+            'integer' => [42],
+        ];
+    }
+
+    #[DataProvider('invalidHelpUrls')]
+    public function testInvalidHookValueFallsBackToApplicationHelpUrl(mixed $invalidHelpUrl): void
+    {
+        Hook::add('TemplateManager::helpUrl', function (string $hookName, array $args) use ($invalidHelpUrl): bool {
+            $helpUrl = &$args[0];
+            $helpUrl = $invalidHelpUrl;
+            return Hook::CONTINUE;
+        });
+
+        $this->assertSame(Application::get()->getHelpUrl(), $this->templateManager()->getHelpUrl());
     }
 }

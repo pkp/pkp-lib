@@ -927,15 +927,16 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * Get the URL the backend Help link opens.
+     * Get the URL the backend Help link opens. A hook value that is not a non-empty string is ignored.
      *
      * @hook TemplateManager::helpUrl [[&$helpUrl]]
      */
     public function getHelpUrl(): string
     {
-        $helpUrl = Application::get()->getHelpUrl();
+        $defaultHelpUrl = Application::get()->getHelpUrl();
+        $helpUrl = $defaultHelpUrl;
         Hook::call('TemplateManager::helpUrl', [&$helpUrl]);
-        return $helpUrl;
+        return is_string($helpUrl) && $helpUrl !== '' ? $helpUrl : $defaultHelpUrl;
     }
 
     /**

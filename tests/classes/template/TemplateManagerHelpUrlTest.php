@@ -49,11 +49,21 @@ class TemplateManagerHelpUrlTest extends PKPTestCase
         $this->assertSame('https://help.example.org/', $this->templateManager()->getHelpUrl());
     }
 
+    public function testHookCanHideHelpLinkWithEmptyUrl(): void
+    {
+        Hook::add('TemplateManager::helpUrl', function (string $hookName, array $args): bool {
+            $helpUrl = &$args[0];
+            $helpUrl = '';
+            return Hook::CONTINUE;
+        });
+
+        $this->assertSame('', $this->templateManager()->getHelpUrl());
+    }
+
     public static function invalidHelpUrls(): array
     {
         return [
             'null' => [null],
-            'empty string' => [''],
             'integer' => [42],
         ];
     }

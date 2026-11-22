@@ -108,6 +108,19 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertTrue($this->router->supports($this->request));
     }
 
+    public function testRouteWithComponentFileThatDoesNotExistThrowsNotFound()
+    {
+        $this->_setUpMockEnvironment();
+
+        $_SERVER = [
+            'SCRIPT_NAME' => '/index.php',
+            'PATH_INFO' => '/context1/$$$call$$$/inexistent/component/fetch-grid'
+        ];
+
+        $this->expectException(\Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class);
+        $this->router->route($this->request);
+    }
+
     public function testGetRequestedComponentWithPathinfo()
     {
         $mockApplication = $this->_setUpMockEnvironment();

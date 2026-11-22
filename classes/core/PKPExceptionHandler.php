@@ -19,6 +19,7 @@ namespace PKP\core;
 use APP\core\Application;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Log;
 use PKP\config\Config;
 use Throwable;
@@ -30,7 +31,7 @@ class PKPExceptionHandler implements ExceptionHandler
      */
     public function shouldReport(Throwable $exception)
     {
-        return true;
+        return !$exception instanceof ValidationException;
     }
 
     /**
@@ -61,7 +62,7 @@ class PKPExceptionHandler implements ExceptionHandler
         $pkpRouter = Application::get()->getRequest()->getRouter();
 
         if ($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
-            if ($exception instanceof \Illuminate\Validation\ValidationException) {
+            if ($exception instanceof ValidationException) {
                 return response()
                     ->json($exception->errors(), $exception->status);
             }

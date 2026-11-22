@@ -97,6 +97,9 @@ msgstr ""
 msgid "user.authorization.loginRequired"
 msgstr "Login required."
 
+msgid "user.authorization.userRequired"
+msgstr "You must be logged in to access this operation."
+
 msgid "user.authorization.privateOperation"
 msgstr "The operation you tried to access is either private or doesn't exist."
 
@@ -732,6 +735,9 @@ msgstr "You denied access to your ORCID record."
 
 msgid "orcid.authFailure"
 msgstr "The ORCID authorization link has already been used or is invalid."
+
+msgid "orcid.authDenied"
+msgstr "You denied access to your ORCID record."
 
 msgid "orcid.invalidClient"
 msgstr "Invalid client credentials"

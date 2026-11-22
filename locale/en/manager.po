@@ -1436,6 +1436,9 @@ msgstr "Select the editorial users who should be assigned automatically to all n
 msgid "manager.sections.form.assignEditorAs"
 msgstr "Assign {$name} as {$role}"
 
+msgid "manager.sections.noContext"
+msgstr "The context of this section could not be found."
+
 msgid "manager.categories.form.assignEditors.description"
 msgstr "Select the editorial users who should be assigned automatically to all new submissions to this category."
 
@@ -2476,6 +2479,9 @@ msgid "manager.navigationMenus.form.duplicatePath"
 msgstr "This path already exists for another navigation menu item."
 
 msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "This title already exists for another navigation menu."
+
+msgid "manager.navigationMenus.form.duplicateTitle"
 msgstr "This title already exists for another navigation menu."
 
 msgid "manager.navigationMenus.form.titleRequired"

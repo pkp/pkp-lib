@@ -218,6 +218,12 @@ msgstr "You do not have enough space in your user directory. The file you are up
 msgid "api.publicFiles.500.badFilesDir"
 msgstr "The public files directory was not found or files can not be saved to it. Please contact your administrator to resolve this issue."
 
+msgid "api.sections.400.contextsNotMatched"
+msgstr "The section you requested does not belong to this context."
+
+msgid "api.sections.404.sectionNotFound"
+msgstr "The section you requested was not found."
+
 msgid "api.stats.400.wrongDateFormat"
 msgstr "The date must be in the format YYYY-MM-DD."
 

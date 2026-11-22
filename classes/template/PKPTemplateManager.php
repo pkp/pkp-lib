@@ -927,6 +927,18 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
+     * Get the URL the backend Help link opens.
+     *
+     * @hook TemplateManager::helpUrl [[&$helpUrl]]
+     */
+    public function getHelpUrl(): string
+    {
+        $helpUrl = Application::get()->getHelpUrl();
+        Hook::call('TemplateManager::helpUrl', [&$helpUrl]);
+        return $helpUrl;
+    }
+
+    /**
      * Register JavaScript data used by the core JS library
      *
      * This function registers script data that is required by the core JS
@@ -1679,7 +1691,7 @@ class PKPTemplateManager extends Smarty
                 'action',
                 null,
             ),
-            'helpUrl' => Application::get()->getHelpUrl(),
+            'helpUrl' => $this->getHelpUrl(),
             'timeZone' => Config::getVar('general', 'time_zone'),
             'navigationMenuMaxDepth' => (int) Config::getVar('interface', 'navigation_menu_max_depth', PKPNavigationMenuController::DEFAULT_MAX_DEPTH),
             'featureFlags' => []

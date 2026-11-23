@@ -1929,6 +1929,19 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
+        // While ORCID is disabled the ORCID cannot be removed in the form, so remove it here
+        // when the contributor type is changed to one that can't have an ORCID.
+        // This has to happen before the affiliations below are set as an array,
+        // because the token revoke job expects a collection.
+        if ($author->getOrcid()
+            && !OrcidManager::isEnabled($submissionContext)
+            && isset($params['contributorType'])
+            && !in_array($params['contributorType'], ContributorType::getTypesWithOrcid())) {
+            $author->setOrcid(null);
+            $author->setOrcidVerified(false);
+            OrcidManager::removeOrcidAccessToken(identity: $author, context: $submissionContext);
+        }
+
         $affiliations = $newAffiliationErrors = [];
         foreach (($params['affiliations'] ?? []) as $position => $affiliationParam) {
             if ($affiliationParam['authorId'] != $author->getId()) {

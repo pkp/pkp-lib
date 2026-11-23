@@ -24,6 +24,7 @@ use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\contributorRole\ContributorType;
 use PKP\context\Context;
 use PKP\identity\Identity;
+use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -158,8 +159,10 @@ class Repository
                 $validator->errors()->add('email', __('validator.required'));
             }
 
-            // An ORCID has to be removed before the contributor type is changed to one that can't have an ORCID
+            // An ORCID has to be removed before the contributor type is changed to one that can't have an ORCID.
+            // While ORCID is disabled it cannot be removed, so editContributor() removes it with the type change.
             if ($author?->getOrcid()
+                && OrcidManager::isEnabled($context)
                 && isset($props['contributorType'])
                 && !in_array($props['contributorType'], ContributorType::getTypesWithOrcid())
                 && !$validator->errors()->get('contributorType')) {

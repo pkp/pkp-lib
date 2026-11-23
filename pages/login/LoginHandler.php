@@ -71,9 +71,12 @@ class LoginHandler extends Handler
             $request->redirectSSL();
         }
 
+        $loginMessageKey = $request->getUserVar('loginMessage');
+        $loginMessage = is_string($loginMessageKey) && preg_match('/^[a-zA-Z0-9.]+$/', $loginMessageKey) ? __($loginMessageKey) : null;
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'loginMessage' => $request->getUserVar('loginMessage'),
+            'loginMessage' => $loginMessage,
             'username' => $request->getSession()->get('email') ?? $request->getSession()->get('username'),
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),

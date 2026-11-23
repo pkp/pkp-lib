@@ -179,7 +179,7 @@ class Validation
             $args['source'] = $_SERVER['REQUEST_URI'];
         }
         if ($messageLocaleKey !== null) {
-            $args['loginMessage'] = __($messageLocaleKey);
+            $args['loginMessage'] = $messageLocaleKey;
         }
 
         $request = Application::get()->getRequest();

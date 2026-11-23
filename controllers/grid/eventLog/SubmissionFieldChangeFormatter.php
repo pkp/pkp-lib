@@ -72,9 +72,9 @@ class SubmissionFieldChangeFormatter
                 $isFieldNameKey = !array_key_exists('labelIsKey', $fieldName) || (bool)($fieldName['labelIsKey']);
                 $filedNameLabel = $isFieldNameKey ? __($fieldName['label']) : $fieldName['label'];
 
-                $html .= '<div class="mt-4"><strong>' .
+                $html .= '<div class="mt-4"><h3>' .
                     htmlspecialchars($isFieldNameKey ? __($sectionLabel, ['fieldName' => $filedNameLabel]) : $filedNameLabel) .
-                    '</strong><div>' . $body . '</div></div>';
+                    '</h3><div>' . $body . '</div></div>';
             }
         }
 

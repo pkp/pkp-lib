@@ -410,6 +410,30 @@
 				"validation": [
 					"nullable"
 				]
+		},
+		"authorResponseId": {
+			"type": "integer",
+			"description": "The ID of the author response associated with the logged event.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"reviewRoundNumber": {
+			"type": "integer",
+			"description": "The number of the review round associated with the logged event.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"reviewRoundId": {
+			"type": "integer",
+			"description": "The ID of the review round associated with the logged event.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
 		}
 	}
 }

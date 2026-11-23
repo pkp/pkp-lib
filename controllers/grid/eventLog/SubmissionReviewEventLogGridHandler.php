@@ -60,6 +60,10 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
      */
     protected function formatReviewChange(EventLogEntry $logEntry): string
     {
+        if (in_array($logEntry->getEventType(), $this->authorResponseEventTypes())) {
+            return (new SubmissionFieldChangeFormatter())->format($this->dataFor($logEntry));
+        }
+
         $results = '';
         if ($logEntry->getEventType() === PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED) {
             $results = '<form class="pkp_form">' . $this->formatReviewerRecommendationChange($logEntry) . '</form>';
@@ -72,6 +76,16 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
         }
 
         return $results;
+    }
+
+    protected function dataFor(EventLogEntry $entry): array
+    {
+        return match ($entry->getEventType()) {
+            default => json_decode((string)$entry->getData('data'), true) ?: [],
+            // If an event requires extra steps to fetch and fully prepare the data to be displayed, a custom formatter can be used.
+            // Example: PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED => $this->recommendationData($entry)
+            // The above would call a method named recommendationData() that would fetch the data and return it in the format expected by the SubmissionFieldChangeFormatter.
+        };
     }
 
     /**
@@ -257,5 +271,20 @@ class SubmissionReviewEventLogGridHandler extends SubmissionEventLogGridHandler
 
         return '<div class="' . ($elementType === ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD ? 'pkp_helpers_quarter' : '') . '">'
             . '<input class="field text" disabled type="text" value="' . PKPString::html2text($answer) . '"></div>';
+    }
+
+    /**
+     * Get author response event types
+     */
+    private function authorResponseEventTypes(): array
+    {
+        return [
+            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_CONFIRMED,
+            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_UNCONFIRMED,
+            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_DELETED,
+            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_MODIFIED,
+            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_REQUESTED,
+            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_SUBMITTED,
+        ];
     }
 }

@@ -4050,3 +4050,33 @@ msgstr "Competing Interests declared: YES<br>"
 
 msgid "submission.event.review.field.modified.reviewerCompetingInterests"
 msgstr "The following was modified in this review: Reviewer Competing Interests. Select \"View changes\" to see a detailed summary of all modifications."
+
+msgid "submission.event.review.authorResponse.requested"
+msgstr "An author response was requested for review round {$reviewRoundNumber}."
+
+msgid "submission.event.review.authorResponse.submitted"
+msgstr "The author response was submitted for review round {$reviewRoundNumber}. Select \"View changes\" to see the response."
+
+msgid "submission.event.review.authorResponse.modified"
+msgstr "The author response was modified for review round {$reviewRoundNumber}. Select \"View changes\" to see a detailed summary of all modifications."
+
+msgid "submission.event.review.authorResponse.confirmed"
+msgstr "The author response was for review round {$reviewRoundNumber} confirmed."
+
+msgid "submission.event.review.authorResponse.reverted"
+msgstr "The author response confirmation was reverted for review round {$reviewRoundNumber}."
+
+msgid "submission.event.review.authorResponse.deleted"
+msgstr "The author response for review round {$reviewRoundNumber} was deleted. Select \"View changes\" to see the deleted response."
+
+msgid "submission.event.field.previous"
+msgstr "Previous {$fieldName}"
+
+msgid "submission.event.field.updated"
+msgstr "Updated {$fieldName}"
+
+msgid "submission.event.field.authorResponse"
+msgstr "Author Response"
+
+msgid "submission.event.field.associatedAuthors"
+msgstr "Associated Authors"

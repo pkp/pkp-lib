@@ -443,8 +443,8 @@ msgstr "A circular reference was detected while building the category tree."
 msgid "api.userComments.400.cannotCommentOnUnpublishedSubmission"
 msgstr "You can not comment on this submission because no published version is available."
 
-msgid "api.userComments.400.missingPublicationParam"
-msgstr "The request is missing the required `publicationIds` query parameter."
+msgid "api.userComments.400.missingParam"
+msgstr "The request is missing a required query parameter. The request must include either a `publicationIds` or `submissionIds` query parameter."
 
 msgid "api.userComments.400.invalidPublicationId"
 msgstr "An invalid publication ID was provided: `{$publicationId}`."

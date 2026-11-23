@@ -146,33 +146,46 @@ class UserCommentController extends PKPBaseController
 
     /**
      * Gets the publicly accessible comments for a publication.
+     * One of either `publicationIds` or `submissionIds` is required.
+     * If both are passed, `publicationIds` takes precedence.
      * Accepts the following query parameters:
-     * submissionIds(required, array) publication IDs to fetch comments for.
+     * publicationIds(required, array) publication IDs to fetch comments for.
+     * submissionIds(required, array) submission IDs to fetch comments for.
      * page(integer) - The pagination page to retrieve records from.
      */
     public function getManyPublic(Request $illuminateRequest): JsonResponse
     {
+        $publicationIdsRaw = paramToArray($illuminateRequest->query('publicationIds') ?? []);
         $submissionIdsRaw = paramToArray($illuminateRequest->query('submissionIds') ?? []);
 
-        if (empty($submissionIdsRaw)) {
-            return response()->json(['error' => __('api.userComments.400.missingPublicationParam')], Response::HTTP_BAD_REQUEST);
-        }
-
-        $submissionIds = [];
-        foreach ($submissionIdsRaw as $id) {
-            if (!filter_var($id, FILTER_VALIDATE_INT)) {
-                return response()->json([
-                    'error' => __('api.userComments.400.invalidSubmissionId', ['submissionId' => $id])
-                ], Response::HTTP_BAD_REQUEST);
+        if (!empty($publicationIdsRaw)) {
+            $publicationIds = [];
+            foreach ($publicationIdsRaw as $id) {
+                if (!filter_var($id, FILTER_VALIDATE_INT)) {
+                    return response()->json([
+                        'error' => __('api.userComments.400.invalidPublicationId', ['publicationId' => $id])
+                    ], Response::HTTP_BAD_REQUEST);
+                }
+                $publicationIds[] = (int) $id;
             }
+        } elseif (!empty($submissionIdsRaw)) {
+            $submissionIds = [];
+            foreach ($submissionIdsRaw as $id) {
+                if (!filter_var($id, FILTER_VALIDATE_INT)) {
+                    return response()->json([
+                        'error' => __('api.userComments.400.invalidSubmissionId', ['submissionId' => $id])
+                    ], Response::HTTP_BAD_REQUEST);
+                }
 
-            $submissionIds[] = (int)$id;
+                $submissionIds[] = (int) $id;
+            }
+            $publicationIds = Repo::publication()
+                ->getCollector()
+                ->filterBySubmissionIds($submissionIds)
+                ->getIds();
+        } else {
+            return response()->json(['error' => __('api.userComments.400.missingParam')], Response::HTTP_BAD_REQUEST);
         }
-
-        $publicationIds = Repo::publication()
-            ->getCollector()
-            ->filterBySubmissionIds($submissionIds)
-            ->getIds();
 
         $query = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
             ->withIsApproved(true);

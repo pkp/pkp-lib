@@ -13,6 +13,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "userComment.discussionClosed"
+msgstr "Discussion is closed on this version, please comment on the latest version above."
+
 msgid "userComment.awaitingApprovalNotice"
 msgstr "Your comment will be visible to everyone once a moderator approves it."
 
@@ -24,6 +27,9 @@ msgstr "Please tell us why you think this comment from <strong>{$name}</strong> 
 
 msgid "userComment.reportCommentByUserWithAffiliation"
 msgstr "Please tell us why you think this comment from <strong>{$name}, {$affiliation}</strong> is inappropriate. Our moderators will review your message."
+
+msgid "userComment.report"
+msgstr "Report"
 
 msgid "userComment.reportComment"
 msgstr "Report inappropriate comment"
@@ -57,6 +63,27 @@ msgstr "Sign in to leave a comment"
 
 msgid "userComment.commentsOnThisPublication"
 msgstr "Comments on this publication"
+
+msgid "userComment.allComments"
+msgstr "All Comments ({$commentCount})"
+
+msgid "userComment.versionWithCount"
+msgstr "{$versionLabel} ({$versionCommentsCount})"
+
+msgid "userComment.deleteComment"
+msgstr "Delete Comment"
+
+msgid "userComment.deleteCommentConfirmation"
+msgstr "Are you sure you want to delete the following comment? <br/><br/> <strong>{$comment}</strong>"
+
+msgid "userComment.comments"
+msgstr "Comments"
+
+msgid "userComment.reportComment"
+msgstr "Report Comment"
+
+msgid "userComment.addYourComment"
+msgstr "What do you think about this publication? Type your comments here."
 
 msgid "userComment.addCommentPrompt"
 msgstr "Do you want to contribute to the scholarly discussion of this publication?"

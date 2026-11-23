@@ -28,6 +28,8 @@ class UserCommentComponent
     private int $allCommentsCount;
     private Enumerable $publishedPublication;
 
+    private array $commentsCountPerPublication;
+
     private Submission $submission;
     private Request $request;
 
@@ -76,6 +78,12 @@ class UserCommentComponent
             ->select(['publication_id', 'is_approved'])
             ->get();
 
+        $this->commentsCountPerPublication = $commentsForAllPublications
+            ->groupBy('publication_id')
+            ->map
+            ->count()
+            ->toArray();
+
         $this->allCommentsCount = $commentsForAllPublications
             ->filter(fn($comment) => $comment->is_approved)
             ->count();
@@ -109,7 +117,15 @@ class UserCommentComponent
             'common.details',
             'common.loading',
             'common.sending',
+            'form.submit',
             'manager.userComment.comments',
+            'userComment.discussionClosed',
+            'userComment.report',
+            'userComment.commentOnThisPublication',
+            'userComment.versionWithCount',
+            'userComment.addYourComment',
+            'userComment.allComments',
+            'userComment.comments',
             'userComment.awaitingApprovalNotice',
             'userComment.report.reason',
             'userComment.reportCommentBy',
@@ -150,7 +166,7 @@ class UserCommentComponent
                 'login',
                 null,
                 null,
-                ['source' => $this->request->getRequestPath() . '?section=comments']
+                ['source' => $this->request->getRequestPath() . '#public-comments']
             );
     }
 
@@ -168,6 +184,7 @@ class UserCommentComponent
             'itemsPerPage' => Repo::userComment()->getPerPage(),
             'loginUrl' => $this->getLoginUrl(),
             'allCommentsCount' => $this->allCommentsCount,
+            'commentsCountPerPublication' => $this->commentsCountPerPublication,
         ];
     }
 

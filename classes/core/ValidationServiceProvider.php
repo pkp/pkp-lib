@@ -14,24 +14,23 @@
 
 namespace PKP\core;
 
-use PKP\facades\Locale;
-use Illuminate\Support\Str;
-use PKP\validation\MultilingualInput;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Validator as ValidationValidator;
+use Illuminate\Support\Str;
 use Illuminate\Translation\CreatesPotentiallyTranslatedStrings;
+use Illuminate\Validation\Validator as ValidationValidator;
+use PKP\facades\Locale;
+use PKP\validation\MultilingualInput;
 
 class ValidationServiceProvider extends \Illuminate\Validation\ValidationServiceProvider
 {
     use CreatesPotentiallyTranslatedStrings;
-    
+
     /**
      * Boot service provider
-     * 
+     *
      * A good place to add any custom validation rules which will be availbale once the
      * service provider get registered
-     * 
-     * @return void
+     *
      */
     public function boot()
     {
@@ -62,7 +61,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
 
         Validator::extend('email_or_localhost', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
             $validationFactory = app()->get('validator'); /** @var \Illuminate\Validation\Factory $validationFactory */
-            
+
             $emailValidator = $validationFactory->make(
                 ['value' => $value],
                 ['value' => 'email']
@@ -125,7 +124,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
 
             $orcidRegexValidator = $validationFactory->make(
                 ['value' => $value],
-                ['value' => 'regex:/^https:\/\/(sandbox\.)?orcid.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])$/']
+                ['value' => 'regex:/^https:\/\/(sandbox\.)?orcid\.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])\z/']
             );
 
             if ($orcidRegexValidator->fails()) {
@@ -160,23 +159,20 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
     /**
      * Register the validation factory.
      *
-     * @return void
      */
     protected function registerValidationFactory()
     {
         $this->app->singleton('validator', function ($app) {
-            $validator = new class($app['translator'], $app) extends \Illuminate\Validation\Factory
-            {    
+            $validator = new class ($app['translator'], $app) extends \Illuminate\Validation\Factory {
                 /**
                  * @see \Illuminate\Validation\Factory::resolve()
                  */
                 protected function resolve(array $data, array $rules, array $messages, array $attributes)
                 {
                     if (is_null($this->resolver)) {
-                        return new class ($this->translator, $data, $rules, $messages, $attributes) extends \Illuminate\Validation\Validator
-                        {
+                        return new class ($this->translator, $data, $rules, $messages, $attributes) extends \Illuminate\Validation\Validator {
                             /*
-                             * Rehydrate the validation error messages with predefined translated 
+                             * Rehydrate the validation error messages with predefined translated
                              * messages mapped to validation rules
                              */
                             protected function rehydrateValidationErrorMessages(): void
@@ -187,7 +183,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                             /**
                              * This override the core Validator's message construction system
                              * that allows multilingual support for validation error message
-                             * 
+                             *
                              * @see \Illuminate\Validation\Concerns\FormatsMessages::getMessage()
                              */
                             protected function getMessage($attribute, $rule)
@@ -195,7 +191,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                                 $this->rehydrateValidationErrorMessages();
 
                                 $attributeWithPlaceholders = $attribute;
-                                
+
                                 $attribute = $this->replacePlaceholderInString($attribute);
 
                                 $inlineMessage = $this->getInlineMessage($attribute, $rule);
@@ -213,14 +209,14 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
 
                                 $customMessage = $this->getCustomMessageFromTranslator(
                                     in_array($rule, $this->sizeRules)
-                                        ? [$customKey.".{$this->getAttributeType($attribute)}", $customKey]
+                                        ? [$customKey . ".{$this->getAttributeType($attribute)}", $customKey]
                                         : $customKey
                                 );
 
                                 // First we check for a custom defined validation message for the attribute
                                 // and rule. This allows the developer to specify specific messages for
                                 // only some attributes and rules that need to get specially formed.
-                                if ($customMessage !== '##'.$customKey.'##') {
+                                if ($customMessage !== '##' . $customKey . '##') {
                                     return $customMessage;
                                 }
 
@@ -237,8 +233,8 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                                 $key = "validator.{$lowerRule}";
 
                                 $translatedValue = $this->translator->get(
-                                    $key, 
-                                    $customMessage === '##'.$customKey.'##' ? ['attribute' => $attribute] : []
+                                    $key,
+                                    $customMessage === '##' . $customKey . '##' ? ['attribute' => $attribute] : []
                                 );
 
                                 if ($key !== $translatedValue) {
@@ -246,7 +242,9 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                                 }
 
                                 return $this->getFromLocalArray(
-                                    $attribute, $lowerRule, $this->fallbackMessages
+                                    $attribute,
+                                    $lowerRule,
+                                    $this->fallbackMessages
                                 ) ?: $key;
                             }
                         };

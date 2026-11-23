@@ -72,6 +72,9 @@ class RegistrationForm extends Form
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [Repo::user(), 'getByEmail'], [true], true));
 
+        // Check ORCID if provided
+        $this->addCheck(new \PKP\form\validation\FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
+
         $this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
         if ($this->captchaEnabled) {
             $request = Application::get()->getRequest();

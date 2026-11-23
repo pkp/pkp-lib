@@ -37,9 +37,6 @@ class MailTemplate extends Mail {
 	/** @var array List of errors to display to the user */
 	var $errorMessages;
 
-	/** @var boolean whether or not to bcc the sender */
-	var $bccSender;
-
 	/** @var boolean Whether or not email fields are disabled */
 	var $addressFieldsEnabled;
 
@@ -63,9 +60,6 @@ class MailTemplate extends Mail {
 		$this->includeSignature = $includeSignature;
 		// Use current user's locale if none specified
 		$this->locale = isset($locale) ? $locale : AppLocale::getLocale();
-
-		// Record whether or not to BCC the sender when sending message
-		$this->bccSender = $request->getUserVar('bccSender');
 
 		$this->addressFieldsEnabled = true;
 
@@ -204,10 +198,6 @@ class MailTemplate extends Mail {
 
 		$request = Application::get()->getRequest();
 		$user = defined('SESSION_DISABLE_INIT')?null:$request->getUser();
-
-		if ($user && $this->bccSender) {
-			$this->addBcc($user->getEmail(), $user->getFullName());
-		}
 
 		// Replace variables in message with values
 		$this->replaceParams();

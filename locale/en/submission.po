@@ -3228,6 +3228,9 @@ msgstr "Please disclose any competing interests this author may have with the re
 msgid "author.competingInterests.required"
 msgstr "A competing interest statement is required."
 
+msgid "author.contributorType.orcidMustBeRemoved"
+msgstr "This contributor has an ORCID iD. Remove the ORCID iD before changing the contributor type."
+
 msgid "reviewerSuggestion.suggestionReason"
 msgstr "Reasons for suggesting reviewer"
 

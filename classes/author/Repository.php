@@ -24,6 +24,7 @@ use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\contributorRole\ContributorType;
 use PKP\context\Context;
 use PKP\identity\Identity;
+use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -132,7 +133,7 @@ class Repository
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
-        $validator->after(function ($validator) use ($props, $submission, $context, $primaryLocale) {
+        $validator->after(function ($validator) use ($author, $props, $submission, $context, $primaryLocale) {
             // publicationId must match an existing publication that is not yet published
             if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
                 $publication = Repo::publication()->get($props['publicationId']);
@@ -149,6 +150,23 @@ class Repository
                         __('api.submission.400.emptyContributorRoles')
                     );
                 }
+            }
+
+            // Persons require an email
+            $contributorType = array_key_exists('contributorType', $props) ? $props['contributorType'] : $author?->getData('contributorType');
+            $email = array_key_exists('email', $props) ? $props['email'] : $author?->getEmail();
+            if ($contributorType === ContributorType::PERSON->getName() && empty($email) && !$validator->errors()->get('email')) {
+                $validator->errors()->add('email', __('validator.required'));
+            }
+
+            // An ORCID has to be removed before the contributor type is changed to one that can't have an ORCID.
+            // While ORCID is disabled it cannot be removed, so editContributor() removes it with the type change.
+            if ($author?->getOrcid()
+                && OrcidManager::isEnabled($context)
+                && isset($props['contributorType'])
+                && !in_array($props['contributorType'], ContributorType::getTypesWithOrcid())
+                && !$validator->errors()->get('contributorType')) {
+                $validator->errors()->add('contributorType', __('author.contributorType.orcidMustBeRemoved'));
             }
 
             // Author CI statement required?

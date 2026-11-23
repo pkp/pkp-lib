@@ -26,8 +26,8 @@
 			]
 		},
 		"data": {
-			"type": "Object",
-			"description": "Additional data attached to this event log.",
+			"type": "string",
+			"description": "JSON representation of additional, generic, data attached to this event log.",
 			"validation": [
 				"nullable"
 			]

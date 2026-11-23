@@ -85,13 +85,6 @@ class FilterHelper
         $filterClassName = $filterNode->getAttribute('class');
         $isTemplate = $filterNode->getAttribute('isTemplate');
 
-        // We have to include the filter class before going on
-        // so that all required constants are defined before they
-        // might be used in settings.
-        if (preg_match('/^[a-zA-Z0-9.]+$/', $filterClassName)) {
-            import($filterClassName);
-        }
-
         // Go through the filter sub-nodes. This can be nested
         // filters or filter settings.
         $subNodes = $filterNode->getChildren();

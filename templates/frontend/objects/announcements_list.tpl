@@ -11,7 +11,7 @@
  * @uses $announcements Announcement[] The list of announcements
  *}
 
-{if $numAnnouncements && !empty($announcements)}
+{if $numAnnouncements && $announcements && $announcements|@count}
     <section class="cmp_announcements highlight_first">
         <a id="homepageAnnouncements"></a>
         <h2>

@@ -797,7 +797,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				$query = $queryDao->getById($note->getAssocId());
 				return $query ? $query->getStageId() : null;
 		}
-		throw new \Exception('Could not determine the workflow stage id from submission file ' . $submissionFile->getId() . ' with file stage ' . $submissionFile->getData('fileStage'));
+		return null;
 	}
 
 	/**

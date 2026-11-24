@@ -40,22 +40,24 @@ class Repository
     }
 
     /**
-     * Get the recommendation types mapped as value => typeLocaleKey
+     * Get the recommendation types mapped as value => label
+     *
+     * @param ?string $locale Locale of the labels, the current locale if not given
      */
-    public function getRecommendationTypeLabels(): array
+    public function getRecommendationTypeLabels(?string $locale = null): array
     {
         return [
-            ReviewerRecommendationType::APPROVED->value => __('manager.reviewerRecommendations.type.approved'),
-            ReviewerRecommendationType::NOT_APPROVED->value => __('manager.reviewerRecommendations.type.notApproved'),
-            ReviewerRecommendationType::REVISIONS_REQUESTED->value => __('manager.reviewerRecommendations.type.revisionsRequested'),
-            ReviewerRecommendationType::WITH_COMMENTS->value => __('manager.reviewerRecommendations.type.withComments'),
+            ReviewerRecommendationType::APPROVED->value => __('manager.reviewerRecommendations.type.approved', locale: $locale),
+            ReviewerRecommendationType::NOT_APPROVED->value => __('manager.reviewerRecommendations.type.notApproved', locale: $locale),
+            ReviewerRecommendationType::REVISIONS_REQUESTED->value => __('manager.reviewerRecommendations.type.revisionsRequested', locale: $locale),
+            ReviewerRecommendationType::WITH_COMMENTS->value => __('manager.reviewerRecommendations.type.withComments', locale: $locale),
         ];
     }
 
     /**
      * Get the default recommendations mapped to machine-readable type as recommendation defaultTranslationKey => machine-readable type
      */
-    private  function getDefaultRecommendationsMappedToMachineReadableType(): array
+    private function getDefaultRecommendationsMappedToMachineReadableType(): array
     {
         return [
             'reviewer.article.decision.accept' => ReviewerRecommendationType::APPROVED->value,

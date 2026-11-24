@@ -106,11 +106,12 @@ class CategoryDAO extends DAO {
 	/**
 	 * Check if a category exists with a specified path.
 	 * @param $path the path for the category
+	 * @param $contextId int
 	 * @return boolean
 	 */
-	function categoryExistsByPath($path) {
+	function categoryExistsByPath($path, $contextId) {
 		$result = $this->retrieve(
-			'SELECT COUNT(*) AS row_count FROM categories WHERE path = ?', [$path]
+			'SELECT COUNT(*) AS row_count FROM categories WHERE path = ? AND context_id = ?', [$path, (int) $contextId]
 		);
 		$row = $result->current();
 		return $row ? (boolean) $row->row_count : false;

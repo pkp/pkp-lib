@@ -31,9 +31,6 @@ msgstr "Please tell us why you think this comment from <strong>{$name}, {$affili
 msgid "userComment.report"
 msgstr "Report"
 
-msgid "userComment.reportComment"
-msgstr "Report inappropriate comment"
-
 msgid "userComment.sendReport"
 msgstr "Send Report"
 
@@ -73,9 +70,6 @@ msgstr "{$versionLabel} ({$versionCommentsCount})"
 msgid "userComment.deleteComment"
 msgstr "Delete Comment"
 
-msgid "userComment.deleteCommentConfirmation"
-msgstr "Are you sure you want to delete the following comment? <br/><br/> <strong>{$comment}</strong>"
-
 msgid "userComment.comments"
 msgstr "Comments"
 
@@ -102,9 +96,6 @@ msgstr "Submit comment"
 
 msgid "userComment.deleteCommentConfirmation"
 msgstr "Are you sure you want to delete your comment?"
-
-msgid "userComment.deleteComment"
-msgstr "Delete comment"
 
 msgid "userComment.copyLink"
 msgstr "Copy link to comment"

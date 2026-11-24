@@ -82,6 +82,8 @@ class Collector implements CollectorInterface
     public ?int $count = null;
     public ?int $offset = null;
     public UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE;
+    /** Whether the role status was set explicitly through filterByUserUserGroupStatus() */
+    protected bool $userUserGroupStatusIsSet = false;
     public UserMastheadStatus $userMastheadStatus = UserMastheadStatus::STATUS_ALL;
 
     /**
@@ -295,6 +297,7 @@ class Collector implements CollectorInterface
     public function filterByUserUserGroupStatus(UserUserGroupStatus $userUserGroupStatus): self
     {
         $this->userUserGroupStatus = $userUserGroupStatus;
+        $this->userUserGroupStatusIsSet = true;
         return $this;
     }
 
@@ -509,9 +512,10 @@ class Collector implements CollectorInterface
         }
 
         $currentDateTime = Core::getCurrentDate();
-        if ($this->status === self::STATUS_ALL) {
-            $this->userUserGroupStatus = UserUserGroupStatus::STATUS_ALL;
-        }
+        // STATUS_ALL refers to the account (enabled or disabled), not to the role. When no role status was requested
+        // explicitly, return current and future role holders, but never users whose role has ended. A role status set
+        // explicitly (e.g. by the editorial masthead and editorial history) is always respected.
+        $includeFutureRoles = $this->status === self::STATUS_ALL && !$this->userUserGroupStatusIsSet;
 
         $subQuery = DB::table('user_user_groups as uug')
             ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
@@ -528,10 +532,14 @@ class Collector implements CollectorInterface
             ->when(
                 $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ACTIVE,
                 fn (Builder $subQuery) =>
-                $subQuery->where(
+                $subQuery->when(
+                    !$includeFutureRoles,
                     fn (Builder $subQuery) =>
-                    $subQuery->where('uug.date_start', '<=', $currentDateTime)
-                        ->orWhereNull('uug.date_start')
+                    $subQuery->where(
+                        fn (Builder $subQuery) =>
+                        $subQuery->where('uug.date_start', '<=', $currentDateTime)
+                            ->orWhereNull('uug.date_start')
+                    )
                 )
                     ->where(
                         fn (Builder $subQuery) =>

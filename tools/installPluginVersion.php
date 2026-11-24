@@ -72,6 +72,7 @@ class InstallPluginVersionTool extends CommandLineTool {
 
 		import('classes.install.Upgrade');
 		$installer = new Upgrade(array());
+		$installer->installedLocales = array_keys(AppLocale::getAllLocales());
 		$result = true;
 		$param = [&$installer, &$result];
 

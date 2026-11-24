@@ -114,6 +114,9 @@ class QueryNoteForm extends Form {
 		// Create a new note.
 		$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */
 		$note = $noteDao->getById($this->_noteId);
+		if (!$note) {
+			return null;
+		}
 		$note->setUserId($request->getUser()->getId());
 		$note->setContents($this->getData('comment'));
 		$noteDao->updateObject($note);

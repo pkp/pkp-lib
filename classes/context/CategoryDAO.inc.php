@@ -103,7 +103,6 @@ class CategoryDAO extends DAO {
 		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 
-
 	/**
 	 * Check if a category exists with a specified path.
 	 * @param $path the path for the category

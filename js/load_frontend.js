@@ -39,6 +39,7 @@ import PkpDropdownMenu from '@/frontend/components/PkpDropdownMenu/PkpDropdownMe
 import PkpIcon from '@/frontend/components/PkpIcon/PkpIcon.vue';
 import PkpScrollToComments from '@/frontend/components/PkpComments/PkpScrollToComments.vue';
 import PkpComments from '@/frontend/components/PkpComments/PkpComments.vue';
+import PkpCommentReportDialog from '@/frontend/components/PkpComments/PkpCommentReportDialog.vue';
 import PkpCommentsSection from '@/frontend/components/PkpCommentsSection/PkpCommentsSection.vue';
 import PkpOpenReview from '@/frontend/components/PkpOpenReview/PkpOpenReview.vue';
 import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenReviewSummary.vue';
@@ -119,7 +120,7 @@ VueRegistry.registerDirective('strip-unsafe-html', stripUnsafeHtml);
 // Register frontend Pinia stores for lookup via pkp.registry.getPiniaStore()
 VueRegistry.registerStore('pkpModal', usePkpModalStore);
 VueRegistry.registerStore('pkpComments', usePkpCommentsStore);
-VueRegistry.registerStore('PkpOpenReview', usePkpOpenReviewStore);
+VueRegistry.registerStore('pkpOpenReview', usePkpOpenReviewStore);
 VueRegistry.registerStore('pkpCite', usePkpCiteStore);
 VueRegistry.registerStore('pkpUsageChart', usePkpUsageChartStore);
 
@@ -131,6 +132,7 @@ VueRegistry.registerComponent('PkpDropdownMenu', PkpDropdownMenu);
 VueRegistry.registerComponent('PkpIcon', PkpIcon);
 VueRegistry.registerComponent('PkpScrollToComments', PkpScrollToComments);
 VueRegistry.registerComponent('PkpComments', PkpComments);
+VueRegistry.registerComponent('PkpCommentReportDialog', PkpCommentReportDialog);
 VueRegistry.registerComponent('PkpCommentsSection', PkpCommentsSection);
 VueRegistry.registerComponent('PkpOpenReview', PkpOpenReview);
 VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);

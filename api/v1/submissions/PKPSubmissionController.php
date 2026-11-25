@@ -1745,7 +1745,7 @@ class PKPSubmissionController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
         $submissionContext = $request->getContext();
         // Remove extra data that is irrelevant to the selected contributor type
-        $this->removeIrrelevantContributorTypeData($params, $submissionContext);
+        $this->removeIrrelevantContributorTypeData($params, $submission, $submissionContext);
 
         // Unset ORCID verification and token properties from Author schema
         foreach ($this->orcidWriteForbiddenProps as $prop) {
@@ -1908,7 +1908,7 @@ class PKPSubmissionController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
         $submissionContext = $request->getContext();
         // Remove extra data that is irrelevant to the selected contributor type
-        $this->removeIrrelevantContributorTypeData($params, $submissionContext);
+        $this->removeIrrelevantContributorTypeData($params, $submission, $submissionContext, $author->getData('contributorType'));
         $params['id'] = $author->getId();
         $params['publicationId'] = $publication->getId();
 
@@ -1955,35 +1955,38 @@ class PKPSubmissionController extends PKPBaseController
             OrcidManager::removeOrcidAccessToken(identity: $author, context: $submissionContext);
         }
 
-        $affiliations = $newAffiliationErrors = [];
-        foreach (($params['affiliations'] ?? []) as $position => $affiliationParam) {
-            if ($affiliationParam['authorId'] != $author->getId()) {
-                return response()->json([
-                    'affiliations' => [__('author.authorNotFound')]
-                ], Response::HTTP_BAD_REQUEST);
+        // Leave the affiliations unchanged when they are not sent; an empty list removes them
+        if (array_key_exists('affiliations', $params)) {
+            $affiliations = $newAffiliationErrors = [];
+            foreach ($params['affiliations'] ?? [] as $position => $affiliationParam) {
+                if ($affiliationParam['authorId'] != $author->getId()) {
+                    return response()->json([
+                        'affiliations' => [__('author.authorNotFound')]
+                    ], Response::HTTP_BAD_REQUEST);
+                }
+
+                $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
+                // Map errors to the specific affiliation in the UI using the position = index
+                if (!empty($affiliationErrors)) {
+                    $newAffiliationErrors['affiliations'][$position] = $affiliationErrors;
+                }
+                // Create a new affiliation object even if an existing affiliation is edited.
+                // This way we will have the list of all actual affiliations from the edited form.
+                // Later, in Repo::affiliation()->saveAffiliations(), we compare this list with
+                // the author affiliations that exist in the DB, to see if any was removed in the edited form.
+                $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
+                $affiliations[] = $affiliation;
             }
 
-            $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
-            // Map errors to the specific affiliation in the UI using the position = index
-            if (!empty($affiliationErrors)) {
-                $newAffiliationErrors['affiliations'][$position] = $affiliationErrors;
+            if (!empty($newAffiliationErrors)) {
+                return response()->json($newAffiliationErrors, Response::HTTP_BAD_REQUEST);
             }
-            // Create a new affiliation object even if an existing affiliation is edited.
-            // This way we will have the list of all actual affiliations from the edited form.
-            // Later, in Repo::affiliation()->saveAffiliations(), we compare this list with
-            // the author affiliations that exist in the DB, to see if any was removed in the edited form.
-            $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
-            $affiliations[] = $affiliation;
-        }
 
-        if (!empty($newAffiliationErrors)) {
-            return response()->json($newAffiliationErrors, Response::HTTP_BAD_REQUEST);
+            $author->setAffiliations($affiliations);
+            // remove affiliations parameters because we have already set them properly for the author
+            // so that they are not considered once again when editing the author below
+            unset($params['affiliations']);
         }
-
-        $author->setAffiliations($affiliations);
-        // remove affiliations parameters because we have already set them properly for the author
-        // so that they are not considered once again when editing the author below
-        unset($params['affiliations']);
 
         // Remove ORCID from params because it cannot be set via this endpoint. If there is a desire to update a contributor's
         // ORCiD, the ORCiD should be deleted and an update requested via the `orcid/requestAuthorVerification/{authorId}` endpoint.
@@ -2557,10 +2560,16 @@ class PKPSubmissionController extends PKPBaseController
     /** Remove irrelevant data based on the selected contributor type.
      * Set them as null to be removed from db.
      */
-    protected function removeIrrelevantContributorTypeData(array &$params, Context $context): void
+    protected function removeIrrelevantContributorTypeData(array &$params, Submission $submission, Context $context, ?string $currentContributorType = null): void
     {
-        $contributorType = $params['contributorType'];
-        $nulledMProp = Arr::mapWithKeys($context->getSupportedFormLocales(), fn (string $l) => [$l => null]);
+        // A missing type is reported by the validation when adding a contributor
+        $contributorType = $params['contributorType'] ?? $currentContributorType;
+        if ($contributorType === null) {
+            return;
+        }
+        // The languages the author validation accepts
+        $locales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
+        $nulledMProp = Arr::mapWithKeys($locales, fn (string $l) => [$l => null]);
         $typeFields = Author::CONTRIBUTOR_TYPE_FORM_FIELDS;
         $selectedTypeField = Arr::pull($typeFields, $contributorType);
         $dataToRemove = collect($typeFields)

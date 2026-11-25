@@ -162,6 +162,10 @@ class LoginHandler extends Handler {
 	 * Send a request to reset a user's password
 	 */
 	function requestResetPassword($args, $request) {
+		if (Validation::isLoggedIn()) {
+			$this->sendHome($request);
+		}
+
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 

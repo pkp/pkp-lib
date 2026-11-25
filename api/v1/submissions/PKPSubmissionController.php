@@ -42,8 +42,8 @@ use PKP\components\forms\publication\PKPPublicationLicenseForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\context\Context;
-use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\core\Core;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -360,7 +360,7 @@ class PKPSubmissionController extends PKPBaseController
 
         Route::post('', $this->add(...))
             ->name('submission.add');
-        }
+    }
 
     /**
      * @copydoc \PKP\core\PKPBaseController::authorize()
@@ -372,7 +372,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
-        if($actionName === 'add') {
+        if ($actionName === 'add') {
             // For 'add' endpoint, mark role assignments as checked since the add() method
             // will automatically assign the AUTHOR role to users without roles
             $this->markRoleAssignmentsChecked();
@@ -1623,7 +1623,7 @@ class PKPSubmissionController extends PKPBaseController
 
         // Allows author ORCID request email to be triggered from frontend before author ID exists
         $shouldSendOrcidEmail = false;
-        switch ($params['orcid']) {
+        switch ($params['orcid'] ?? null) {
             case null:
                 unset($params['orcid']);
                 break;
@@ -1656,7 +1656,7 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $affiliationParams = $params['affiliations'];
+        $affiliationParams = $params['affiliations'] ?? [];
         unset($params['affiliations']);
         $author = Repo::author()->newDataObject($params);
         $newId = Repo::author()->add($author);
@@ -1812,35 +1812,38 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $affiliations = $newAffiliationErrors = [];
-        foreach ($params['affiliations'] as $position => $affiliationParam) {
-            if ($affiliationParam['authorId'] != $author->getId()) {
-                return response()->json([
-                    'affiliations' => [__('author.authorNotFound')]
-                ], Response::HTTP_BAD_REQUEST);
+        // Leave the affiliations unchanged when they are not sent; an empty list removes them
+        if (array_key_exists('affiliations', $params)) {
+            $affiliations = $newAffiliationErrors = [];
+            foreach ($params['affiliations'] as $position => $affiliationParam) {
+                if ($affiliationParam['authorId'] != $author->getId()) {
+                    return response()->json([
+                        'affiliations' => [__('author.authorNotFound')]
+                    ], Response::HTTP_BAD_REQUEST);
+                }
+
+                $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
+                // Map errors to the specific affiliation in the UI using the position = index
+                if (!empty($affiliationErrors)) {
+                    $newAffiliationErrors['affiliations'][$position] = $affiliationErrors;
+                }
+                // Create a new affiliation object even if an existing affiliation is edited.
+                // This way we will have the list of all actual affiliations from the edited form.
+                // Later, in Repo::affiliation()->saveAffiliations(), we compare this list with
+                // the author affiliations that exist in the DB, to see if any was removed in the edited form.
+                $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
+                $affiliations[] = $affiliation;
             }
 
-            $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
-            // Map errors to the specific affiliation in the UI using the position = index
-            if (!empty($affiliationErrors)) {
-                $newAffiliationErrors['affiliations'][$position] = $affiliationErrors;
+            if (!empty($newAffiliationErrors)) {
+                return response()->json($newAffiliationErrors, Response::HTTP_BAD_REQUEST);
             }
-            // Create a new affiliation object even if an existing affiliation is edited.
-            // This way we will have the list of all actual affiliations from the edited form.
-            // Later, in Repo::affiliation()->saveAffiliations(), we compare this list with
-            // the author affiliations that exist in the DB, to see if any was removed in the edited form.
-            $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
-            $affiliations[] = $affiliation;
-        }
 
-        if (!empty($newAffiliationErrors)) {
-            return response()->json($newAffiliationErrors, Response::HTTP_BAD_REQUEST);
+            $author->setAffiliations($affiliations);
+            // remove affiliations parameters because we have already set them properly for the author
+            // so that they are not considered once again when editing the author below
+            unset($params['affiliations']);
         }
-
-        $author->setAffiliations($affiliations);
-        // remove affiliations parameters because we have already set them properly for the author
-        // so that they are not considered once again when editing the author below
-        unset($params['affiliations']);
 
         // Remove ORCID from params because it cannot be set via this endpoint. If there is a desire to update a contributor's
         // ORCiD, the ORCiD should be deleted and an update requested via the `orcid/requestAuthorVerification/{authorId}` endpoint.

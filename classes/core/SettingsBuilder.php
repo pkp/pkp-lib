@@ -20,8 +20,10 @@ use Illuminate\Contracts\Database\Query\Expression;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use LogicException;
 use PKP\core\traits\EntityUpdate;
 use stdClass;
 
@@ -299,24 +301,41 @@ class SettingsBuilder extends Builder
     }
 
     /**
-     * Get the IDs of the models the query applies to
+     * Get the IDs of the models the query matches
      *
-     * When the builder belongs to a hydrated model (e.g. Model::find($id)->update()) that is the model itself,
-     * otherwise (e.g. Model::query()->whereKey($id)->update()) these are the models the query matches.
+     * The selected columns are replaced by the primary key of the main table, as they don't have to include it
+     * and a joined table can have a column with the same name. A join can also match a model more than once.
+     *
+     * @throws LogicException if the query has a having clause
      *
      * @return int[]
      */
     protected function getTargetModelIds(): array
     {
-        $modelId = $this->model->getRawOriginal($this->getPrimaryKeyName()) ?? $this->model->getKey();
-        if (!is_null($modelId)) {
-            return [(int) $modelId];
+        $key = $this->model->getQualifiedKeyName();
+        $query = clone $this;
+
+        // The groups can't be resolved to IDs, some databases would return any ID of a group
+        if (!empty($this->query->havings)) {
+            throw new LogicException('Models with settings cannot be updated or deleted with a having clause');
         }
 
-        return array_map(
-            intval(...),
-            (clone $this)->pluck($this->model->getQualifiedKeyName())->all()
-        );
+        // Without a having clause the groups don't change which rows match
+        $query->getQuery()->groups = null;
+        $query->getQuery()->bindings['groupBy'] = [];
+
+        // The order only matters with a limit or an offset, and it can use an alias of the replaced columns
+        if (is_null($this->query->limit) && is_null($this->query->offset)) {
+            $query->reorder();
+        }
+
+        return $query
+            ->select($key)
+            ->pluck($key)
+            ->map(fn (mixed $id) => (int) $id)
+            ->unique()
+            ->values()
+            ->all();
     }
 
     /**
@@ -327,6 +346,16 @@ class SettingsBuilder extends Builder
         return !empty($columns) && collect($columns)->every(
             fn (mixed $column) => is_string($column) && preg_match('/^\w+(\.\w+)?$/', $column)
         );
+    }
+
+    /**
+     * Whether the selected column is a setting of the model, i.e. not a column of a joined table with the same name
+     */
+    protected function isSettingColumn(string $column): bool
+    {
+        $table = Str::contains($column, '.') ? Str::before($column, '.') : $this->model->getTable();
+
+        return $table === $this->model->getTable() && $this->isSetting(Str::afterLast($column, '.'));
     }
 
     /**
@@ -377,21 +406,25 @@ class SettingsBuilder extends Builder
         // First, get all Model columns from the main table
         $primaryKey = $this->model->getKeyName();
 
-        // The columns set with select() take precedence, the same as in the query builder
-        $selectedColumns = Arr::wrap($this->query->columns ?? $columns);
+        // The columns set with select() take precedence, the same as in the query builder.
+        // The columns of get() only filter the attributes, so they don't have to be columns of the main table.
+        $selectedColumns = $this->query->columns ?? [];
         $settingColumns = null;
+        $rowKey = $primaryKey;
 
         $query = clone $this->query;
         if ($this->isColumnProjection($selectedColumns)) {
             // Only the columns of the main table can be selected from it,
             // the primary key is needed to attach the settings to the rows
             $columns = array_map(fn (string $column) => Arr::last(explode('.', $column)), $selectedColumns);
-            $settingColumns = collect($columns)->filter(fn (string $column) => $this->isSetting($column))->values();
-            $primaryColumns = collect($selectedColumns)
-                ->reject(fn (string $column) => $this->isSetting(Arr::last(explode('.', $column))))
-                ->values();
-            if ($settingColumns->isNotEmpty() && !in_array($primaryKey, $columns)) {
-                $primaryColumns->push($this->model->getQualifiedKeyName());
+            [$settingColumns, $primaryColumns] = collect($selectedColumns)
+                ->partition(fn (string $column) => $this->isSettingColumn($column))
+                ->map(fn (Collection $columns) => $columns->values());
+            $settingColumns = $settingColumns->map(fn (string $column) => Str::afterLast($column, '.'));
+            if ($settingColumns->isNotEmpty()) {
+                // Use an alias, as a selected column of a joined table can have the name of the primary key
+                $rowKey = 'settings_model_id';
+                $primaryColumns->push($this->model->getQualifiedKeyName() . ' as ' . $rowKey);
             }
             $query->columns = $primaryColumns->all();
         }
@@ -412,14 +445,14 @@ class SettingsBuilder extends Builder
 
         // the main query may return multiple rows per primary key. map settings to all rows sharing the same primary key.
         $ids = array_map(
-            fn ($row) => $row->{$primaryKey},
+            fn ($row) => $row->{$rowKey},
             $rows
         );
         $uniqueIds = array_values(array_unique($ids));
 
         $rowIndexesById = [];
         foreach ($rows as $index => $row) {
-            $rowIndexesById[$row->{$primaryKey}][] = $index;
+            $rowIndexesById[$row->{$rowKey}][] = $index;
         }
 
         // Don't get the settings that weren't selected

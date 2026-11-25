@@ -26,6 +26,7 @@ import * as usePkpDate from '@/frontend/composables/usePkpDate';
 import * as usePkpStyles from '@/frontend/composables/usePkpStyles.js';
 import * as usePkpPageData from '@/frontend/composables/usePkpPageData.js';
 import * as usePkpVueComponentStyles from '@/frontend/composables/usePkpVueComponentStyles.js';
+import * as usePkpEscapeHtml from '@/frontend/composables/usePkpEscapeHtml.js';
 
 // Directives
 import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
@@ -266,6 +267,7 @@ export default {
 		usePkpStyles,
 		usePkpPageData,
 		usePkpVueComponentStyles,
+		usePkpEscapeHtml,
 	},
 	pkpCreateVueApp,
 	createApp,

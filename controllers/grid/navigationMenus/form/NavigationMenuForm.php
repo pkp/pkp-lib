@@ -210,7 +210,7 @@ class NavigationMenuForm extends Form
 
         $navigationMenu = $navigationMenuDao->getByTitle($this->_contextId, $this->getData('title'));
         if (isset($navigationMenu) && $navigationMenu->getId() != $this->_navigationMenuId) {
-            $this->addError('path', __('manager.navigationMenus.form.duplicateTitle'));
+            $this->addError('path', __('manager.navigationMenus.form.duplicateTitles'));
         }
 
         if ($this->getData('areaName') != '') {

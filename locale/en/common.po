@@ -1940,9 +1940,6 @@ msgstr "The stage assignment has been changed."
 msgid "notification.type.newAnnouncement"
 msgstr "New announcement."
 
-msgid "notification.type.configurePaymentMethod"
-msgstr "A configured payment method is required before payments can be used."
-
 msgid "notification.type.reviewAssignment"
 msgstr "Review pending."
 

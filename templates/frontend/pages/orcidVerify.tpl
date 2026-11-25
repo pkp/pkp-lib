@@ -49,7 +49,7 @@
                 {elseif $duplicateOrcid}
                     {translate key="orcid.verify.duplicateOrcid"}
                 {elseif $denied}
-                    {translate key="orcid.authDenied"}
+                    {translate key="orcid.verify.denied"}
                 {elseif $authFailure}
                     {translate key="orcid.authFailure"}
                 {else}

@@ -2481,9 +2481,6 @@ msgstr "This path already exists for another navigation menu item."
 msgid "manager.navigationMenus.form.duplicateTitles"
 msgstr "This title already exists for another navigation menu."
 
-msgid "manager.navigationMenus.form.duplicateTitle"
-msgstr "This title already exists for another navigation menu."
-
 msgid "manager.navigationMenus.form.titleRequired"
 msgstr "The title is required"
 

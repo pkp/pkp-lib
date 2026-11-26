@@ -927,6 +927,19 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
+     * Get the URL the backend Help link opens. An empty string hides the link. A hook value that is not a string is ignored.
+     *
+     * @hook TemplateManager::helpUrl [[&$helpUrl]]
+     */
+    public function getHelpUrl(): string
+    {
+        $defaultHelpUrl = Application::get()->getHelpUrl();
+        $helpUrl = $defaultHelpUrl;
+        Hook::call('TemplateManager::helpUrl', [&$helpUrl]);
+        return is_string($helpUrl) ? $helpUrl : $defaultHelpUrl;
+    }
+
+    /**
      * Register JavaScript data used by the core JS library
      *
      * This function registers script data that is required by the core JS
@@ -1679,7 +1692,7 @@ class PKPTemplateManager extends Smarty
                 'action',
                 null,
             ),
-            'helpUrl' => Application::get()->getHelpUrl(),
+            'helpUrl' => $this->getHelpUrl(),
             'timeZone' => Config::getVar('general', 'time_zone'),
             'navigationMenuMaxDepth' => (int) Config::getVar('interface', 'navigation_menu_max_depth', PKPNavigationMenuController::DEFAULT_MAX_DEPTH),
             'featureFlags' => []

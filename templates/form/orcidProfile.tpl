@@ -13,7 +13,7 @@
 {capture name=orcidButton assign=orcidButton}
 
     {if $orcid && !$orcidAuthenticated }
-        <a href="{$orcid}" target="_blank" class='flex gap-2 mb-4'>{$orcidUnauthenticatedIcon}{$orcidDisplayValue}</a>
+        <a href="{$orcid|escape}" target="_blank" class='flex gap-2 mb-4'>{$orcidUnauthenticatedIcon}{$orcidDisplayValue|escape}</a>
         <button id="connect-orcid-button" class="pkp_button" onclick="return openORCID();">
             {$orcidIcon}{translate key='orcid.authorise'}
         </button>
@@ -29,7 +29,7 @@
 
 {capture name=orcidLink assign=orcidLink}
     {if $orcidAuthenticated}
-        <a href="{$orcid}" target="_blank" id='orcid-link'>{$orcidIcon}{$orcidDisplayValue}</a>
+        <a href="{$orcid|escape}" target="_blank" id='orcid-link'>{$orcidIcon}{$orcidDisplayValue|escape}</a>
     {else}
         {$orcidButton}
     {/if}

@@ -2524,6 +2524,9 @@ msgstr "The content of the submission file '{$fileName}' could not be retrieved.
 msgid "author.competingInterests"
 msgstr "Competing Interests"
 
+msgid "author.competingInterests.required"
+msgstr "A competing interest statement is required."
+
 msgid "author.competingInterests.description"
 msgstr "Please disclose any competing interests this author may have with the research subject."
 

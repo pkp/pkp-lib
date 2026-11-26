@@ -525,9 +525,6 @@ msgstr "Go"
 msgid "common.height"
 msgstr "Height"
 
-msgid "common.help"
-msgstr "Help"
-
 msgid "common.highlight"
 msgstr "Highlight"
 

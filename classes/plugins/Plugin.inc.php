@@ -585,10 +585,11 @@ abstract class Plugin {
 		$installer =& $args[0]; /* @var $installer Installer */
 		$result =& $args[1];
 
-		// Load email template data as required from the locale files.
+		// Like the core templates: data for the site's installed locales, others are added by installLocale()
+		$siteDao = DAORegistry::getDAO('SiteDAO'); /* @var $siteDao SiteDAO */
 		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$emailTemplateLocales = [];
-		foreach ($installer->installedLocales as $locale) {
+		foreach ($siteDao->getSite()->getInstalledLocales() as $locale) {
 			$emailFile = $this->getPluginPath() . "/locale/$locale/emails.po";
 			if (!file_exists($emailFile)) continue;
 			AppLocale::registerLocaleFile($locale, $emailFile);

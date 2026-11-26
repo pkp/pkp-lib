@@ -97,9 +97,6 @@ msgstr ""
 msgid "user.authorization.loginRequired"
 msgstr "Login required."
 
-msgid "user.authorization.userRequired"
-msgstr "You must be logged in to access this operation."
-
 msgid "user.authorization.privateOperation"
 msgstr "The operation you tried to access is either private or doesn't exist."
 

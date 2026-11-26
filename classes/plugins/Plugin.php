@@ -61,6 +61,7 @@ use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\install\Installer;
 use PKP\observers\events\PluginSettingChanged;
+use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
 use PKP\template\PKPTemplateResource;
@@ -283,6 +284,7 @@ abstract class Plugin
      * Subclasses using email templates should override this.
      *
      * @deprecated Starting with OJS/OMP 3.2, localized content should be specified via getInstallEmailTemplatesFile(). (pkp/pkp-lib#5461)
+     *
      * @return string
      */
     public function getInstallEmailTemplateDataFile()
@@ -589,9 +591,11 @@ abstract class Plugin
         $installer = & $args[0]; /** @var Installer $installer */
         $result = & $args[1];
 
-        // Load email template data as required from the locale files.
+        // Like the core templates: data for the site's installed locales, others are added by installLocale()
+        /** @var SiteDAO $siteDao */
+        $siteDao = DAORegistry::getDAO('SiteDAO');
         $locales = [];
-        foreach ($installer->installedLocales as $locale) {
+        foreach ($siteDao->getSite()->getInstalledLocales() as $locale) {
             if (file_exists($this->getPluginPath() . "/locale/{$locale}/emails.po")) {
                 $locales[] = $locale;
             }

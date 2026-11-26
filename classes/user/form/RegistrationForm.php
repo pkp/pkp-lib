@@ -29,15 +29,16 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
+use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorAltcha;
 use PKP\form\validation\FormValidatorCSRF;
-use PKP\form\validation\FormValidatorPost;
-use PKP\form\validation\FormValidatorReCaptcha;
 use PKP\form\validation\FormValidatorCustom;
 use PKP\form\validation\FormValidatorEmail;
-use PKP\form\validation\FormValidatorUsername;
-use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorORCID;
 use PKP\form\validation\FormValidatorPassword;
-use PKP\form\validation\FormValidatorAltcha;
+use PKP\form\validation\FormValidatorPost;
+use PKP\form\validation\FormValidatorReCaptcha;
+use PKP\form\validation\FormValidatorUsername;
 use PKP\orcid\OrcidManager;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -78,6 +79,9 @@ class RegistrationForm extends Form
         // Email checks
         $this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
         $this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', [Repo::user(), 'getByEmail'], [true], true));
+
+        // Check if ORCID is provided
+        $this->addCheck(new FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
 
         $this->captchaEnabled = Config::getVar('captcha', 'captcha_on_register') && Config::getVar('captcha', 'recaptcha');
         if ($this->captchaEnabled) {

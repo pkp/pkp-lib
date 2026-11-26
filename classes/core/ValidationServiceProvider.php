@@ -46,7 +46,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
             $isEnabled = $site?->getData('passwordUncompromisedEnabled') ?? false;
 
             if (!$isEnabled) {
-                return new class implements UncompromisedVerifier {
+                return new class () implements UncompromisedVerifier {
                     /**
                      * @see \Illuminate\Contracts\Validation\UncompromisedVerifier::verify()
                      */
@@ -166,7 +166,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
 
             $orcidRegexValidator = $validationFactory->make(
                 ['value' => $value],
-                ['value' => 'regex:/^https:\/\/(sandbox\.)?orcid.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])$/']
+                ['value' => 'regex:/^https:\/\/(sandbox\.)?orcid\.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])\z/']
             );
 
             if ($orcidRegexValidator->fails()) {

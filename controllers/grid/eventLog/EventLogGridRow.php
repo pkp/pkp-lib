@@ -88,7 +88,7 @@ class EventLogGridRow extends GridRow
                     if (!$isRevision) {
                         break;
                     }
-                    
+
                     $filename = $logEntry->getLocalizedData('filename') ?? $submissionFile->getLocalizedData('name');
                     if ($submissionFile) {
                         $anonymousAuthor = false;
@@ -113,6 +113,9 @@ class EventLogGridRow extends GridRow
                 case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_RECOMMENDATION_MODIFIED:
                 case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_FORM_RESPONSE_MODIFIED:
                 case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REVIEWER_COMPETING_INTERESTS_MODIFIED:
+                case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_SUBMITTED:
+                case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_MODIFIED:
+                case PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_DELETED:
                     if (!$this->_isCurrentUserAssignedAuthor) {
                         $this->addAction(
                             new ReviewChangeLinkAction(

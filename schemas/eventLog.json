@@ -26,8 +26,8 @@
 			]
 		},
 		"data": {
-			"type": "Object",
-			"description": "Additional data attached to this event log.",
+			"type": "string",
+			"description": "JSON representation of additional, generic, data attached to this event log.",
 			"validation": [
 				"nullable"
 			]
@@ -410,6 +410,30 @@
 				"validation": [
 					"nullable"
 				]
+		},
+		"authorResponseId": {
+			"type": "integer",
+			"description": "The ID of the author response associated with the logged event.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"reviewRoundNumber": {
+			"type": "integer",
+			"description": "The number of the review round associated with the logged event.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"reviewRoundId": {
+			"type": "integer",
+			"description": "The ID of the review round associated with the logged event.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
 		}
 	}
 }

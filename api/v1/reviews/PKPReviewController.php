@@ -17,6 +17,7 @@
 
 namespace PKP\API\v1\reviews;
 
+use APP\author\Author;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\orcid\actions\SendReviewToOrcid;
@@ -33,6 +34,7 @@ use PKP\API\v1\reviews\formRequests\EditAuthorReviewResponseConfirmation;
 use PKP\API\v1\reviews\formRequests\EditResponse;
 use PKP\API\v1\reviews\formRequests\RequestAuthorResponse;
 use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
+use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -40,6 +42,7 @@ use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
 use PKP\log\EmailLogEntry;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\EmailData;
 use PKP\reviewForm\ReviewFormElement;
@@ -49,6 +52,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
@@ -853,6 +857,16 @@ class PKPReviewController extends PKPBaseController
     }
 
     /**
+     * Get the full names of the authors associated with an author response.
+     *
+     * @return string[]
+     */
+    protected function authorNames(AuthorResponse $response): array
+    {
+        return array_map(fn (Author $author) => $author->getFullName(), array_values($response->associatedAuthors));
+    }
+
+    /**
      * Submit review response.
      */
     public function submitAuthorResponse(AddResponse $illuminateRequest): JsonResponse
@@ -872,6 +886,38 @@ class PKPReviewController extends PKPBaseController
 
         $associatedAuthorIds = $validated['associatedAuthorIds'];
         $reviewResponse->associateAuthorsToResponse($associatedAuthorIds);
+
+        Repo::eventLog()->add(Repo::eventLog()->newDataObject([
+            'assocType' => Application::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $reviewRound->getSubmissionId(),
+            'submissionId' => $reviewRound->getSubmissionId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_SUBMITTED,
+            'message' => 'submission.event.review.authorResponse.submitted',
+            'reviewRoundNumber' => $reviewRound->getRound(),
+            'authorResponseId' => $reviewResponse->id,
+            'isTranslated' => false,
+            'userId' => Validation::loggedInAs() ?? $user->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+            'dateLogged' => Core::getCurrentDate(),
+            'data' => json_encode([
+                'fieldName' => [
+                    'label' => 'submission.event.field.authorResponse',
+                    'labelIsKey' => true,   // optional, defaults to true; false means the label is literal text
+                ],
+                'data' => [
+                    [
+                        'type' => 'text',
+                        'new' => $reviewResponse->authorResponse,
+                    ],
+                    [
+                        'label' => 'submission.event.field.associatedAuthors',
+                        'labelIsKey' => true,   // optional
+                        'type' => 'list',
+                        'new' => $this->authorNames($reviewResponse),
+                    ],
+                ],
+            ]),
+        ]));
 
         return response()->json(new ReviewRoundAuthorResponseResource($reviewResponse), Response::HTTP_OK);
     }
@@ -946,14 +992,54 @@ class PKPReviewController extends PKPBaseController
         /** @var AuthorResponse $existingResponse */
         $existingResponse = $validated['existingResponse'];
 
+        $user = $this->getRequest()->getUser();
+        $reviewRound = $existingResponse->reviewRound;
+        $oldText = $existingResponse->authorResponse;
+        $oldNames = $this->authorNames($existingResponse);
+
         $existingResponse->update([
             'authorResponse' => $validated['authorResponse']
         ]);
 
         $associatedAuthorIds = $validated['associatedAuthorIds'];
         $existingResponse->associateAuthorsToResponse($associatedAuthorIds);
+        $existingResponse->refresh();
 
-        return response()->json(new ReviewRoundAuthorResponseResource($existingResponse->refresh()), Response::HTTP_OK);
+        Repo::eventLog()->add(Repo::eventLog()->newDataObject([
+            'assocType' => Application::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $reviewRound->getSubmissionId(),
+            'submissionId' => $reviewRound->getSubmissionId(),
+            'reviewRoundNumber' => $reviewRound->getRound(),
+            'authorResponseId' => $existingResponse->id,
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_MODIFIED,
+            'message' => 'submission.event.review.authorResponse.modified',
+            'isTranslated' => false,
+            'userId' => Validation::loggedInAs() ?? $user->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+            'dateLogged' => Core::getCurrentDate(),
+            'data' => json_encode([
+                'fieldName' => [
+                    'label' => 'submission.event.field.authorResponse',
+                    'labelIsKey' => true,   // optional, defaults to true; false means the label is literal text
+                ],
+                'data' => [
+                    [
+                        'type' => 'text',
+                        'old' => $oldText,
+                        'new' => $existingResponse->authorResponse,
+                    ],
+                    [
+                        'label' => 'submission.event.field.associatedAuthors',
+                        'labelIsKey' => true,   // optional
+                        'type' => 'list',
+                        'old' => $oldNames,
+                        'new' => $this->authorNames($existingResponse),
+                    ],
+                ],
+            ]),
+        ]));
+
+        return response()->json(new ReviewRoundAuthorResponseResource($existingResponse), Response::HTTP_OK);
     }
 
     /**
@@ -991,6 +1077,30 @@ class PKPReviewController extends PKPBaseController
         }
 
         $existingResponse->update($data);
+
+        $user = $this->getRequest()->getUser();
+        $reviewRound = $existingResponse->reviewRound;
+        $confirmed = $validated['markAs'] === AuthorResponse::STATUS_CONFIRMED;
+
+        Repo::eventLog()->add(Repo::eventLog()->newDataObject([
+            'assocType' => Application::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $reviewRound->getSubmissionId(),
+            'submissionId' => $reviewRound->getSubmissionId(),
+            'reviewRoundId' => $reviewRound->getId(),
+            'authorResponseId' => $existingResponse->id,
+            'reviewRoundNumber' => $reviewRound->getRound(),
+            'eventType' => $confirmed
+                ? PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_CONFIRMED
+                : PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_UNCONFIRMED,
+            'message' => $confirmed
+                ? 'submission.event.review.authorResponse.confirmed'
+                : 'submission.event.review.authorResponse.reverted',
+            'isTranslated' => false,
+            'userId' => Validation::loggedInAs() ?? $user->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+            'dateLogged' => Core::getCurrentDate(),
+        ]));
+
         return response()->json(new ReviewRoundAuthorResponseResource($existingResponse->refresh()), Response::HTTP_OK);
     }
 
@@ -1054,6 +1164,21 @@ class PKPReviewController extends PKPBaseController
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
         $reviewRound->setData('isAuthorResponseRequested', true);
         $reviewRoundDao->updateObject($reviewRound);
+        $user = $request->getUser();
+
+        Repo::eventLog()->add(Repo::eventLog()->newDataObject([
+            'assocType' => Application::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $reviewRound->getSubmissionId(),
+            'submissionId' => $reviewRound->getSubmissionId(),
+            'reviewRoundId' => $reviewRound->getId(),
+            'reviewRoundNumber' => $reviewRound->getRound(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_REQUESTED,
+            'message' => 'submission.event.review.authorResponse.requested',
+            'isTranslated' => false,
+            'userId' => Validation::loggedInAs() ?? $user->getId(),
+            'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+            'dateLogged' => Core::getCurrentDate(),
+        ]));
 
         return response()->json([], Response::HTTP_OK);
     }
@@ -1081,9 +1206,46 @@ class PKPReviewController extends PKPBaseController
             );
         }
 
+        $user = $this->getRequest()->getUser();
+        $response = AuthorResponse::withReviewRoundIds([$reviewRoundId])->find($responseId);
+        $oldText = $response?->authorResponse;
+        $oldNames = $response ? $this->authorNames($response) : null;
+
         AuthorResponse::withReviewRoundIds([$reviewRoundId])
             ->where('response_id', '=', $responseId)
             ->delete();
+
+        if ($response) {
+            Repo::eventLog()->add(Repo::eventLog()->newDataObject([
+                'assocType' => Application::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'submissionId' => $submission->getId(),
+                'authorResponseId' => $responseId,
+                'reviewRoundNumber' => $reviewRound->getRound(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_AUTHOR_RESPONSE_DELETED,
+                'message' => 'submission.event.review.authorResponse.deleted',
+                'isTranslated' => false,
+                'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'impersonatedUserId' => Validation::loggedInAs() ? $user->getId() : null,
+                'dateLogged' => Core::getCurrentDate(),
+                'data' => json_encode([
+                    'fieldName' => [
+                        'label' => 'submission.event.field.authorResponse',
+                    ],
+                    'data' => [
+                        [
+                            'type' => 'text',
+                            'old' => $oldText,
+                        ],
+                        [
+                            'label' => 'submission.event.field.associatedAuthors',
+                            'type' => 'list',
+                            'old' => $oldNames,
+                        ],
+                    ],
+                ]),
+            ]));
+        }
 
         return response()->json([], Response::HTTP_OK);
     }

@@ -48,9 +48,10 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
-use PKP\plugins\ThemePlugin;
-use APP\template\TemplateManager;
 use Exception;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -61,12 +62,10 @@ use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\install\Installer;
 use PKP\observers\events\PluginSettingChanged;
+use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
 use PKP\template\PKPTemplateResource;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
@@ -513,6 +512,7 @@ abstract class Plugin
      * Only explicit Laravel namespace syntax (app::, pkp::) skips override.
      *
      * @param string $viewName View name (dot notation or namespaced)
+     *
      * @return string|null Relative path from plugin root, or null to skip
      */
     protected function _viewNameToOverridePath(string $viewName): ?string
@@ -550,6 +550,7 @@ abstract class Plugin
      * Recursive check for overriding templates
      *
      * @param string $path Relative path from plugin root (e.g., "templates/frontend/pages/article")
+     *
      * @return string|null View name if override found, null otherwise
      */
     protected function _findOverriddenTemplate(string $path): ?string
@@ -578,6 +579,7 @@ abstract class Plugin
      * Convert a template path back to a namespaced view name
      *
      * @param string $path Path like "templates/frontend/pages/article"
+     *
      * @return string View name like "themename::frontend.pages.article"
      */
     protected function _pathToViewName(string $path): string
@@ -763,9 +765,11 @@ abstract class Plugin
         $installer = &$args[0]; /** @var Installer $installer */
         $result = &$args[1];
 
-        // Load email template data as required from the locale files.
+        // Like the core templates: data for the site's installed locales, others are added by installLocale()
+        /** @var SiteDAO $siteDao */
+        $siteDao = DAORegistry::getDAO('SiteDAO');
         $locales = [];
-        foreach ($installer->installedLocales as $locale) {
+        foreach ($siteDao->getSite()->getInstalledLocales() as $locale) {
             if (file_exists($this->getPluginPath() . "/locale/{$locale}/emails.po")) {
                 $locales[] = $locale;
             }

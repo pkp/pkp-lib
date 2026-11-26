@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/author/form/PKPAuthorForm.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2003-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorForm
@@ -127,12 +127,13 @@ class PKPAuthorForm extends Form
         $author = $this->getAuthor();
 
         if ($author) {
+            $affiliation = current($author->getAffiliations());
             $this->_data = [
                 'authorId' => $author->getId(),
                 'givenName' => $author->getGivenName(null),
                 'familyName' => $author->getFamilyName(null),
                 'preferredPublicName' => $author->getPreferredPublicName(null),
-                'affiliation' => $this->getFormFieldFromAffiliation(current($author->getAffiliations())), // in this form only used by the QuickSubmitPlugin author has only one affiliation
+                'affiliation' => $affiliation ? $this->getFormFieldFromAffiliation($affiliation) : [], // in this form only used by the QuickSubmitPlugin author has only one affiliation
                 'country' => $author->getCountry(),
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),

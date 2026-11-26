@@ -249,6 +249,9 @@ class PKPComponentRouter extends PKPRouter
     {
         // Determine the requested service endpoint.
         $rpcServiceEndpoint = $this->getRpcServiceEndpoint($request);
+        if ($rpcServiceEndpoint === null) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
 
         // Retrieve RPC arguments from the request.
         $args = $request->getUserVars();

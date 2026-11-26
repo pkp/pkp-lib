@@ -197,6 +197,19 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertInstanceOf(\PKP\context\Context::class, $firstContextDao->getByPath('context1'));
     }
 
+    public function testRouteWithPathinfoAndComponentFileDoesNotExist()
+    {
+        $this->_setUpMockEnvironment();
+
+        $_SERVER = [
+            'SCRIPT_NAME' => '/index.php',
+            'PATH_INFO' => '/context1/$$$call$$$/inexistent/component/fetch-grid'
+        ];
+
+        $this->expectException(\Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class);
+        $this->router->route($this->request);
+    }
+
     public function testUrlWithPathinfo()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // restful URLs

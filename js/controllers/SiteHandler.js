@@ -241,6 +241,113 @@
 		var $inputElement = $('#' +
 				$.pkp.classes.Helper.escapeJQuerySelector(tinyMCEObject.id));
 		$inputElement.trigger('tinyMCEInitialized', [tinyMCEObject]);
+		$.pkp.controllers.SiteHandler.prototype.
+				applyToolbarKeyboardPattern(tinyMCEObject);
+	};
+
+
+	/**
+	 * Make the toolbar a single tab stop, following the WAI-ARIA toolbar
+	 * pattern.
+	 *
+	 * TinyMCE keeps the toolbar out of the tab order and expects users to
+	 * press Alt+F10, then use the arrow keys within a group and Tab between
+	 * groups. Instead, the toolbar becomes one tab stop with a roving
+	 * tabindex: Tab moves into the toolbar, the arrow keys (and Home/End)
+	 * move between all buttons, and Tab or Shift+Tab move out again.
+	 * Shift+Tab from the content returns to the last used button. Enter and
+	 * Space activate a button while focus stays in the toolbar. TinyMCE's
+	 * Alt+F10 and Escape still work.
+	 *
+	 * The keydown listener uses the capture phase because TinyMCE handles
+	 * the keys on the same container element.
+	 *
+	 * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+	 * @param {Object} tinyMCEObject The tinyMCE object instance.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.applyToolbarKeyboardPattern =
+			function(tinyMCEObject) {
+		var container = tinyMCEObject.getContainer(),
+				toolbar = container.querySelector('.tox-toolbar__primary'),
+				itemSelector = '.tox-toolbar__group > .tox-tbtn:not([disabled]), ' +
+				'.tox-toolbar__group > .tox-split-button:not([disabled])',
+				getItems, setTabStop, keepFocusOnButton;
+
+		if (!toolbar) {
+			return;
+		}
+		getItems = function() {
+			return Array.prototype.slice.call(toolbar.querySelectorAll(itemSelector));
+		};
+		setTabStop = function(item) {
+			getItems().forEach(function(i) {
+				i.setAttribute('tabindex', i === item ? '0' : '-1');
+			});
+		};
+
+		toolbar.setAttribute('role', 'toolbar');
+		setTabStop(getItems()[0]);
+
+		// Remember the last used button as the tab stop
+		toolbar.addEventListener('focusin', function(event) {
+			var item = event.target.closest(itemSelector);
+			if (item) {
+				setTabStop(item);
+			}
+		});
+
+		// TinyMCE moves focus to the content after a button runs its command.
+		// Keep focus on the button when it was activated with the keyboard,
+		// unless something else, such as a dialog or menu, took the focus.
+		// Buttons execute on keydown for Enter and on keyup for Space.
+		keepFocusOnButton = function(event) {
+			var item = event.target.closest(itemSelector);
+			if (!item || !toolbar.contains(item) ||
+					(event.key !== 'Enter' && event.key !== ' ')) {
+				return;
+			}
+			setTimeout(function() {
+				if (tinyMCEObject.hasFocus()) {
+					item.focus();
+				}
+			}, 0);
+		};
+		container.addEventListener('keydown', keepFocusOnButton, true);
+		container.addEventListener('keyup', keepFocusOnButton, true);
+
+		container.addEventListener('keydown', function(event) {
+			var item = event.target.closest(itemSelector), items, index, target;
+
+			if (!item || !toolbar.contains(item)) {
+				return;
+			}
+			if (event.key === 'Tab') {
+				// Let the browser move focus out of the toolbar
+				event.stopImmediatePropagation();
+				return;
+			}
+			items = getItems();
+			index = items.indexOf(item);
+			switch (event.key) {
+				case 'ArrowRight':
+					target = items[(index + 1) % items.length];
+					break;
+				case 'ArrowLeft':
+					target = items[(index - 1 + items.length) % items.length];
+					break;
+				case 'Home':
+					target = items[0];
+					break;
+				case 'End':
+					target = items[items.length - 1];
+					break;
+				default:
+					return;
+			}
+			target.focus();
+			event.preventDefault();
+			event.stopImmediatePropagation();
+		}, true);
 	};
 
 

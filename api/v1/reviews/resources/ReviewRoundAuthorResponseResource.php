@@ -38,10 +38,9 @@ class ReviewRoundAuthorResponseResource extends JsonResource
         $associatedAuthors = $response->associatedAuthors;
         $reviewRound = $response->reviewRound;
         $loggedInUser = Application::get()->getRequest()->getUser();
-
-        $canAccessEditorialData = $loggedInUser
-            ? $reviewRound->canUserAccessAuthorResponses($loggedInUser, [Role::ROLE_ID_SUB_EDITOR], Application::get()->getRequest()->getContext())
-            : false;
+        $context = Application::get()->getRequest()->getContext();
+        $canAccessEditorialData = $loggedInUser && $reviewRound->canUserAccessAuthorResponses($loggedInUser, [Role::ROLE_ID_SUB_EDITOR], $context);
+        $isAssignedAuthor = $loggedInUser && $reviewRound->canUserAccessAuthorResponses($loggedInUser, [Role::ROLE_ID_AUTHOR], $context);
 
         return [
             'id' => $response->id,
@@ -63,19 +62,22 @@ class ReviewRoundAuthorResponseResource extends JsonResource
             'isPublic' => $response->isPublic,
             'createdAt' => $response->created_at?->format('Y-m-d H:i:s'),
             $this->mergeWhen($canAccessEditorialData, [
-                'dateConfirmed' => $response->dateConfirmed?->format('Y-m-d H:i:s'),
                 'dateReverted' => $response->dateReverted?->format('Y-m-d H:i:s'),
-                'confirmationChangedByUser' => $response->confirmationChangedByUserId ? $this->getEditorInfo($response->confirmationChangedByUserId) : null,
+                'confirmationChangedByUser' => $response->confirmationChangedByUserId ? $this->getUserInfo($response->confirmationChangedByUserId) : null,
+                'lastModifiedByUser' => $response->lastModifiedById ? $this->getUserInfo($response->lastModifiedById) : null,
             ]),
+            $this->mergeWhen($isAssignedAuthor || $canAccessEditorialData, [
+                'dateConfirmed' => $response->dateConfirmed?->format('Y-m-d H:i:s'),
+            ])
         ];
     }
 
     /**
-     * Get editor info for a given editor ID.
+     * Get user info for a given user ID.
      */
-    private function getEditorInfo(int $editorId): ?array
+    private function getUserInfo(int $userId): ?array
     {
-        $user = Repo::user()->get($editorId, true);
+        $user = Repo::user()->get($userId, true);
 
         if (!$user) {
             return null;

@@ -56,6 +56,7 @@ class AuthorResponse extends Model
         'dateConfirmed' => 'datetime',
         'dateReverted' => 'datetime',
         'confirmationChangedByUserId' => 'int',
+        'lastModifiedById' => 'int',
     ];
 
     /**
@@ -74,6 +75,7 @@ class AuthorResponse extends Model
         return [
             'authorResponse',
             'confirmationChangedByUserId',
+            'lastModifiedById',
         ];
     }
     /**

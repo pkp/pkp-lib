@@ -514,6 +514,6 @@ class ReviewRoundDAO extends \PKP\db\DAO
 
     public function getAdditionalFieldNames(): array
     {
-        return ['isAuthorResponseRequested'];
+        return ['isAuthorResponseRequested', 'dateAuthorResponseRequested'];
     }
 }

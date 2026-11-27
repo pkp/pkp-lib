@@ -18,11 +18,15 @@ namespace PKP\API\v1\reviews\formRequests;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Closure;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Response;
 use PKP\context\LibraryFileDAO;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
@@ -32,7 +36,7 @@ class RequestAuthorResponse extends FormRequest
     protected ?Submission $submission = null;
     protected ?ReviewRound $reviewRound = null;
 
-    /** @inheritdoc  */
+    /** @inheritdoc */
     public function rules(): array
     {
         $this->submission = Repo::submission()->get(
@@ -48,7 +52,7 @@ class RequestAuthorResponse extends FormRequest
             'submissionId' => [
                 'required',
                 'integer',
-                function (string $attribute, mixed $value, \Closure $fail) {
+                function (string $attribute, mixed $value, Closure $fail) {
                     if (!$this->submission || (int)$this->submission->getId() !== (int)$value) {
                         $fail(__('api.404.resourceNotFound'));
                     }
@@ -57,8 +61,8 @@ class RequestAuthorResponse extends FormRequest
             'reviewRoundId' => [
                 'required',
                 'integer',
-                function (string $attribute, mixed $value, \Closure $fail) {
-                    if (!$this->reviewRound || $this->reviewRound->getSubmissionId() !== (int) $this->route('submissionId')) {
+                function (string $attribute, mixed $value, Closure $fail) {
+                    if (!$this->reviewRound || $this->reviewRound->getSubmissionId() !== (int)$this->route('submissionId')) {
                         $fail(__('api.404.resourceNotFound'));
                     }
                 }
@@ -179,6 +183,46 @@ class RequestAuthorResponse extends FormRequest
         return !$file->getSubmissionId() || $file->getSubmissionId() === $submission->getId();
     }
 
+
+    protected function passedValidation(): void
+    {
+        if ($this->reviewRound->getAuthorResponse() || $this->reviewRound->getData('isAuthorResponseRequested')) {
+            throw new HttpResponseException(
+                response()->json(['error' => __('api.409.resourceActionConflict')], Response::HTTP_CONFLICT)
+            );
+        }
+
+        $context = Application::get()->getRequest()->getContext();
+
+        $assignments = Repo::reviewAssignment()->getCollector()
+            ->filterByIsAccepted(true)
+            ->filterByReviewRoundIds([$this->reviewRound->getId()])
+            ->getMany();
+
+        /**
+         * Only allow request to be sent if either:
+         * 1) The number of completed reviews meets the minimum required number of reviews per submission as defined on the Context, or;
+         * 2) All reviews for the round are completed.
+         */
+        $shouldConsiderMinimumRequiredReviews = (bool)$context->getNumReviewsPerSubmission();
+
+        $hasMinimumRequiredReviews = $assignments
+            ->filter(fn (ReviewAssignment $assignment) => $assignment->getDateCompleted() !== null)
+            ->count() >= $context->getNumReviewsPerSubmission();
+
+        $areAllReviewsCompleted = $assignments->isNotEmpty() &&
+            $assignments
+                ->every(fn ($assignment) => $assignment->getDateCompleted() !== null);
+
+        $passesMinimumReviewsCheck = $shouldConsiderMinimumRequiredReviews && $hasMinimumRequiredReviews;
+
+        if (!$passesMinimumReviewsCheck && !$areAllReviewsCompleted) {
+            throw new HttpResponseException(
+                response()->json(['error' => __('api.reviewRound.422.reviewAssignments')], Response::HTTP_UNPROCESSABLE_ENTITY)
+            );
+        }
+    }
+
     /**
      * Prepare the data for validation.
      */
@@ -190,7 +234,7 @@ class RequestAuthorResponse extends FormRequest
         ]);
     }
 
-    /** @inheritdoc  */
+    /** @inheritdoc */
     public function validated($key = null, $default = null)
     {
         $request = $this->validator->validated();

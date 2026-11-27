@@ -143,7 +143,7 @@ class InvitationModel extends Model
     public function id(): Attribute
     {
         return Attribute::make(
-            get: fn ($user, $attributes) => $attributes['invitation_id'],
+            get: fn ($user, $attributes) => $attributes['invitation_id'] ?? null,
             set: fn ($value) => ['invitation_id' => $value]
         );
     }

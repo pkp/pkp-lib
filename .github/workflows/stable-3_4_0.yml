@@ -1,0 +1,29 @@
+on: [push, pull_request]
+name: pkp-lib
+jobs:
+  pkp-lib:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - application: ojs
+            php-version: 8.2
+            database: pgsql
+          - application: omp
+            php-version: 8.1
+            database: mysql
+          - application: ops
+            php-version: 8.0
+            database: mysql
+
+
+    name: pkp-lib
+    steps:
+      - uses: xmlFlow/pkp-github-actions@v1
+        with:
+          application:  ${{matrix.application}}
+          repository: pkp
+          branch: stable-3_4_0
+          node_version: 16
+          upgrade_test: 'stable-3_2_0,stable-3_2_1,stable-3_3_0,stable-3_4_0'

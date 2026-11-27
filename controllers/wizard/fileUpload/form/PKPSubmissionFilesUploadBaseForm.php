@@ -221,16 +221,22 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     $this->_submissionFiles = [];
                 }
             } else {
-                // For representations (galleys), don't show revision selector
                 if ($this->getAssocType() === Application::ASSOC_TYPE_REPRESENTATION) {
                     if ($this->getRevisedFileId()) {
-                        // Include only the file being revised so fetch() validation passes
                         $revisedFile = Repo::submissionFile()->get($this->getRevisedFileId());
                         $this->_submissionFiles = $revisedFile ? [$revisedFile->getId() => $revisedFile] : [];
-                    } else {
-                        $this->_submissionFiles = [];
+                        return $this->_submissionFiles;
                     }
-                    return $this->_submissionFiles;
+
+                    // A representation holding one file at a time has nothing to choose
+                    // between, so don't offer a revision selector. Where a representation
+                    // may hold several files (OMP publication formats), fall through and
+                    // list them so the user can pick which one to revise.
+                    // see pkp/pkp-lib#12349 and pkp/pkp-lib#13416
+                    if (Application::hasSingleFileRepresentations()) {
+                        $this->_submissionFiles = [];
+                        return $this->_submissionFiles;
+                    }
                 }
 
                 $collector = Repo::submissionFile()

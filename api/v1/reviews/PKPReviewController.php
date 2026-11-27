@@ -33,6 +33,7 @@ use PKP\API\v1\reviews\formRequests\EditAuthorReviewResponseConfirmation;
 use PKP\API\v1\reviews\formRequests\EditResponse;
 use PKP\API\v1\reviews\formRequests\RequestAuthorResponse;
 use PKP\API\v1\reviews\resources\ReviewRoundAuthorResponseResource;
+use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -49,7 +50,6 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\authorResponse\AuthorResponseManager;
@@ -947,7 +947,8 @@ class PKPReviewController extends PKPBaseController
         $existingResponse = $validated['existingResponse'];
 
         $existingResponse->update([
-            'authorResponse' => $validated['authorResponse']
+            'authorResponse' => $validated['authorResponse'],
+            'lastModifiedById' => $this->getRequest()->getUser()->getId(),
         ]);
 
         $associatedAuthorIds = $validated['associatedAuthorIds'];
@@ -976,7 +977,7 @@ class PKPReviewController extends PKPBaseController
             }
 
             $data = array_merge($data, [
-                'dateConfirmed' => now(),
+                'dateConfirmed' => Core::getCurrentDate(),
                 'dateReverted' => null,
             ]);
         } else {
@@ -986,7 +987,7 @@ class PKPReviewController extends PKPBaseController
             }
             $data = array_merge($data, [
                 'dateConfirmed' => null,
-                'dateReverted' => now(),
+                'dateReverted' => Core::getCurrentDate(),
             ]);
         }
 
@@ -1007,39 +1008,6 @@ class PKPReviewController extends PKPBaseController
         /** @var ReviewRound $reviewRound */
         $reviewRound = $validated['reviewRound'];
 
-        $assignments = Repo::reviewAssignment()->getCollector()
-            ->filterByIsAccepted(true)
-            ->filterByReviewRoundIds([$reviewRound->getId()])
-            ->getMany();
-
-        /**
-         * Only allow request to be sent if either:
-         * 1) The number of completed reviews meets the minimum required number of reviews per submission as defined on the Context, or;
-         * 2) All reviews for the round are completed.
-         */
-        $shouldConsiderMinimumRequiredReviews = (bool)$context->getNumReviewsPerSubmission();
-
-        $hasMinimumRequiredReviews = $assignments
-            ->filter(fn (ReviewAssignment $assignment) => $assignment->getDateCompleted() !== null)
-            ->count() >= $context->getNumReviewsPerSubmission();
-
-        $areAllReviewsCompleted = $assignments->isNotEmpty() &&
-            $assignments
-                ->every(fn ($assignment) => $assignment->getDateCompleted() !== null);
-
-        $passesMinimumReviewsCheck = $shouldConsiderMinimumRequiredReviews && $hasMinimumRequiredReviews;
-
-        if (!$passesMinimumReviewsCheck && !$areAllReviewsCompleted) {
-            return response()->json([
-                'error' => __('api.reviewRound.422.reviewAssignments')
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
-
-        if ($reviewRound->getAuthorResponse()) {
-            return response()->json([
-                'error' => __('api.409.resourceActionConflict')
-            ], Response::HTTP_CONFLICT);
-        }
 
         $reviewAuthorResponseManager = new AuthorResponseManager(
             reviewRound: $reviewRound,
@@ -1053,6 +1021,7 @@ class PKPReviewController extends PKPBaseController
         /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
         $reviewRound->setData('isAuthorResponseRequested', true);
+        $reviewRound->setData('dateAuthorResponseRequested', Core::getCurrentDate());
         $reviewRoundDao->updateObject($reviewRound);
 
         return response()->json([], Response::HTTP_OK);
@@ -1084,6 +1053,10 @@ class PKPReviewController extends PKPBaseController
         AuthorResponse::withReviewRoundIds([$reviewRoundId])
             ->where('response_id', '=', $responseId)
             ->delete();
+
+        $reviewRound->setData('isAuthorResponseRequested', null);
+        $reviewRound->setData('dateAuthorResponseRequested', null);
+        $reviewRoundDao->updateObject($reviewRound);
 
         return response()->json([], Response::HTTP_OK);
     }

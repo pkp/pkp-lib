@@ -772,6 +772,7 @@ class Schema extends \PKP\core\maps\Schema
                 'status' => __($reviewRound->getStatusKey()),
                 'publicationId' => $reviewRound->getData('publicationId'),
                 'isAuthorResponseRequested' => $reviewRound->getData('isAuthorResponseRequested'),
+                'dateAuthorResponseRequested' => $reviewRound->getData('dateAuthorResponseRequested'),
                 'authorResponse' => $currentRoundResponse ? new ReviewRoundAuthorResponseResource($currentRoundResponse) : null,
             ];
         }

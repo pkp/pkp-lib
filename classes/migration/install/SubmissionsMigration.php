@@ -132,6 +132,14 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->unique(['author_id', 'locale', 'setting_name'], 'author_settings_unique');
         });
+        // Add partial index (DBMS-specific). Author names are looked up by value
+        // (Author\Collector::filterByName), which without this scans the table.
+        match (DB::getDriverName()) {
+            'mysql', 'mariadb' =>
+                DB::unprepared('CREATE INDEX author_settings_name_value ON author_settings (setting_name(50), setting_value(150))'),
+            'pgsql' =>
+                DB::unprepared("CREATE INDEX author_settings_name_value ON author_settings (setting_name, setting_value) WHERE setting_name IN ('givenName', 'familyName', 'orcid')")
+        };
 
         // Credit roles listing table
         Schema::create('credit_roles', function (Blueprint $table) {

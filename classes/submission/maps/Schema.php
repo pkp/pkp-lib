@@ -631,6 +631,16 @@ class Schema extends \PKP\core\maps\Schema
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
+        // Batch-load reviewers once instead of fetching each inside the loop.
+        $reviewerIds = $reviewAssignments->map(fn (ReviewAssignment $ra) => $ra->getReviewerId())->filter()->unique()->all();
+        $reviewers = $reviewerIds
+            ? Repo::user()->getCollector()
+                ->filterByUserIds($reviewerIds)
+                ->filterByStatus(\PKP\user\Collector::STATUS_ALL)
+                ->getMany()
+                ->keyBy(fn (User $u) => $u->getId())
+                ->remember()
+            : collect();
 
         $reviews = [];
 
@@ -702,8 +712,8 @@ class Schema extends \PKP\core\maps\Schema
                 'reviewMethod' => $reviewAssignment->getData('reviewMethod'),
                 'canLoginAs' => $canLoginAs,
                 'canGossip' => $canGossip,
-                'reviewerDisplayInitials' => $shouldAnonymizeReviewAssignment ? '' : Repo::user()->get($reviewAssignment->getReviewerId(), true)->getDisplayInitials(),
-                'reviewerHasOrcid' => !$shouldAnonymizeReviewAssignment && !!Repo::user()->get($reviewAssignment->getReviewerId(), true)->getData('orcidIsVerified')
+                'reviewerDisplayInitials' => $shouldAnonymizeReviewAssignment ? '' : $reviewers->get($reviewAssignment->getReviewerId())?->getDisplayInitials(),
+                'reviewerHasOrcid' => !$shouldAnonymizeReviewAssignment && !!$reviewers->get($reviewAssignment->getReviewerId())?->getData('orcidIsVerified'),
             ];
         }
 

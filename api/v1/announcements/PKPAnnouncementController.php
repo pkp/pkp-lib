@@ -32,7 +32,6 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\jobs\notifications\NewAnnouncementNotifyUsers;
 use PKP\mail\Mailer;
 use PKP\notification\Notification;
@@ -365,8 +364,7 @@ class PKPAnnouncementController extends PKPBaseController
             $jobs[] = new NewAnnouncementNotifyUsers(
                 $notifyUserIds,
                 $context->getId(),
-                $announcementId,
-                Locale::getPrimaryLocale()
+                $announcementId
             );
         }
 
@@ -376,7 +374,6 @@ class PKPAnnouncementController extends PKPBaseController
                     $notifyAndMailUserIds,
                     $context->getId(),
                     $announcementId,
-                    Locale::getPrimaryLocale(),
                     $sender
                 );
             }

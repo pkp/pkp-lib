@@ -26,6 +26,7 @@ import * as usePkpDate from '@/frontend/composables/usePkpDate';
 import * as usePkpStyles from '@/frontend/composables/usePkpStyles.js';
 import * as usePkpPageData from '@/frontend/composables/usePkpPageData.js';
 import * as usePkpVueComponentStyles from '@/frontend/composables/usePkpVueComponentStyles.js';
+import * as usePkpEscapeHtml from '@/frontend/composables/usePkpEscapeHtml.js';
 
 // Directives
 import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
@@ -40,11 +41,14 @@ import PkpIcon from '@/frontend/components/PkpIcon/PkpIcon.vue';
 import PkpScrollToComments from '@/frontend/components/PkpComments/PkpScrollToComments.vue';
 import PkpComments from '@/frontend/components/PkpComments/PkpComments.vue';
 import PkpCommentReportDialog from '@/frontend/components/PkpComments/PkpCommentReportDialog.vue';
+import PkpCommentsSection from '@/frontend/components/PkpCommentsSection/PkpCommentsSection.vue';
 import PkpOpenReview from '@/frontend/components/PkpOpenReview/PkpOpenReview.vue';
 import PkpOpenReviewSummary from '@/frontend/components/PkpOpenReview/PkpOpenReviewSummary.vue';
 import PkpCombobox from '@/frontend/components/PkpCombobox/PkpCombobox.vue';
+import PkpCopyToClipboard from '@/frontend/components/PkpCopyToClipboard/PkpCopyToClipboard.vue';
 import PkpCiteBody from '@/frontend/components/PkpCite/PkpCiteBody.vue';
 import PkpUsageChart from '@/frontend/components/PkpUsageChart/PkpUsageChart.vue';
+import PkpSpinner from '@/frontend/components/PkpSpinner/PkpSpinner.vue';
 
 // Pinia stores
 import {usePkpModalStore} from '@/frontend/stores/pkpModalStore';
@@ -79,6 +83,36 @@ import PkpScrollToCommentsLogInto from '@/frontend/components/PkpComments/PkpScr
 import PkpCommentReportDialogAuthor from '@/frontend/components/PkpComments/PkpCommentReportDialogAuthor.vue';
 import PkpCommentReportDialogReasonInput from '@/frontend/components/PkpComments/PkpCommentReportDialogReasonInput.vue';
 
+// Reka components
+import {
+	AccordionContent,
+	AccordionHeader,
+	AccordionItem,
+	AccordionRoot,
+	AccordionTrigger,
+	PopoverAnchor,
+	PopoverArrow,
+	PopoverClose,
+	PopoverContent,
+	PopoverPortal,
+	PopoverRoot,
+	PopoverTrigger,
+	NavigationMenuContent,
+	NavigationMenuIndicator,
+	NavigationMenuItem,
+	NavigationMenuLink,
+	NavigationMenuList,
+	NavigationMenuRoot,
+	NavigationMenuSub,
+	NavigationMenuTrigger,
+	NavigationMenuViewport,
+	TabsContent,
+	TabsIndicator,
+	TabsList,
+	TabsRoot,
+	TabsTrigger,
+} from 'reka-ui'
+
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
@@ -100,11 +134,14 @@ VueRegistry.registerComponent('PkpIcon', PkpIcon);
 VueRegistry.registerComponent('PkpScrollToComments', PkpScrollToComments);
 VueRegistry.registerComponent('PkpComments', PkpComments);
 VueRegistry.registerComponent('PkpCommentReportDialog', PkpCommentReportDialog);
+VueRegistry.registerComponent('PkpCommentsSection', PkpCommentsSection);
 VueRegistry.registerComponent('PkpOpenReview', PkpOpenReview);
 VueRegistry.registerComponent('PkpOpenReviewSummary', PkpOpenReviewSummary);
 VueRegistry.registerComponent('PkpCombobox', PkpCombobox);
+VueRegistry.registerComponent('PkpCopyToClipboard', PkpCopyToClipboard);
 VueRegistry.registerComponent('PkpCiteBody', PkpCiteBody);
 VueRegistry.registerComponent('PkpUsageChart', PkpUsageChart);
+VueRegistry.registerComponent('PkpSpinner', PkpSpinner);
 
 // Register PkpTab Components
 VueRegistry.registerComponent('PkpTabRoot', PkpTabRoot);
@@ -152,6 +189,34 @@ VueRegistry.registerComponent(
 	PkpCommentReportDialogReasonInput,
 );
 VueRegistry.registerComponent('PkpCommentsShowMore', PkpCommentsShowMore);
+
+// Register Reka UI components
+VueRegistry.registerComponent('AccordionContent', AccordionContent);
+VueRegistry.registerComponent('AccordionHeader', AccordionHeader);
+VueRegistry.registerComponent('AccordionItem', AccordionItem);
+VueRegistry.registerComponent('AccordionRoot', AccordionRoot);
+VueRegistry.registerComponent('AccordionTrigger', AccordionTrigger);
+VueRegistry.registerComponent('PopoverAnchor', PopoverAnchor);
+VueRegistry.registerComponent('PopoverArrow', PopoverArrow);
+VueRegistry.registerComponent('PopoverClose', PopoverClose);
+VueRegistry.registerComponent('PopoverContent', PopoverContent);
+VueRegistry.registerComponent('PopoverPortal', PopoverPortal);
+VueRegistry.registerComponent('PopoverRoot', PopoverRoot);
+VueRegistry.registerComponent('PopoverTrigger', PopoverTrigger);
+VueRegistry.registerComponent('NavigationMenuContent', NavigationMenuContent);
+VueRegistry.registerComponent('NavigationMenuIndicator', NavigationMenuIndicator);
+VueRegistry.registerComponent('NavigationMenuItem', NavigationMenuItem);
+VueRegistry.registerComponent('NavigationMenuLink', NavigationMenuLink);
+VueRegistry.registerComponent('NavigationMenuList', NavigationMenuList);
+VueRegistry.registerComponent('NavigationMenuRoot', NavigationMenuRoot);
+VueRegistry.registerComponent('NavigationMenuSub', NavigationMenuSub);
+VueRegistry.registerComponent('NavigationMenuTrigger', NavigationMenuTrigger);
+VueRegistry.registerComponent('NavigationMenuViewport', NavigationMenuViewport);
+VueRegistry.registerComponent('TabsContent', TabsContent);
+VueRegistry.registerComponent('TabsIndicator', TabsIndicator);
+VueRegistry.registerComponent('TabsList', TabsList);
+VueRegistry.registerComponent('TabsRoot', TabsRoot);
+VueRegistry.registerComponent('TabsTrigger', TabsTrigger);
 
 const piniaInstance = createPinia();
 
@@ -202,6 +267,7 @@ export default {
 		usePkpStyles,
 		usePkpPageData,
 		usePkpVueComponentStyles,
+		usePkpEscapeHtml,
 	},
 	pkpCreateVueApp,
 	createApp,

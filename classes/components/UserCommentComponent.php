@@ -21,7 +21,6 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\Facades\DB;
 use PKP\userComment\UserComment;
 
 class UserCommentComponent
@@ -48,10 +47,21 @@ class UserCommentComponent
         foreach (array_reverse($submission->getPublishedPublications()) as $publishedPublication) {
             $this->publishedPublication->add([
                 'id' => $publishedPublication->getId(),
-                'version' => $publishedPublication->getData('versionString')
+                'version' => $publishedPublication->getData('versionString'),
+                'url' => $this->request->url(
+                    null,
+                    'article',
+                    'view',
+                    $this->submission->getCurrentPublication()?->getId() === $publishedPublication->getId()
+                        ? [$this->submission->getBestId()]
+                        : [
+                            $this->submission->getBestId(),
+                            'version',
+                            $publishedPublication->getId(),
+                        ]
+                ),
             ]);
         }
-
 
         // Fetch data needed to calculate the count of comments for each publication and the total count of all comments across publications.
         $commentsForAllPublications = UserComment::withPublicationIds($this->publishedPublication->pluck('id')->all())
@@ -101,25 +111,43 @@ class UserCommentComponent
     public function getLocaleKeys(): array
     {
         return [
-            'userComment.discussionClosed',
-            'userComment.awaitingApprovalNotice',
-            'userComment.report.reason',
             'common.cancel',
-            'userComment.reportCommentBy',
-            'userComment.reportCommentByUserWithAffiliation',
-            'userComment.report',
-            'userComment.showMore',
+            'common.copied',
+            'common.delete',
+            'common.details',
+            'common.loading',
+            'common.sending',
             'form.submit',
-            'userComment.login',
+            'manager.userComment.comments',
+            'userComment.discussionClosed',
+            'userComment.report',
             'userComment.commentOnThisPublication',
             'userComment.versionWithCount',
-            'common.delete',
-            'userComment.deleteCommentConfirmation',
-            'userComment.deleteComment',
             'userComment.addYourComment',
             'userComment.allComments',
             'userComment.comments',
+            'userComment.awaitingApprovalNotice',
+            'userComment.report.reason',
+            'userComment.reportCommentBy',
+            'userComment.reportCommentByUserWithAffiliation',
             'userComment.reportComment',
+            'userComment.sendReport',
+            'userComment.reportSubmitted',
+            'userComment.showMore',
+            'userComment.commentedOn',
+            'userComment.noComments',
+            'userComment.noCommentsLatestVersion',
+            'userComment.previousVersion',
+            'userComment.previousVersion.desc',
+            'userComment.login',
+            'userComment.addCommentPrompt',
+            'userComment.addComment',
+            'userComment.addComment.desc',
+            'userComment.addComment.prompt',
+            'userComment.addComment.submit',
+            'userComment.deleteCommentConfirmation',
+            'userComment.deleteComment',
+            'userComment.copyLink',
         ];
     }
 
@@ -150,6 +178,7 @@ class UserCommentComponent
     public function getConfig()
     {
         return [
+            'submissionId' => $this->submission->getId(),
             'publications' => $this->publishedPublication->values(),
             'latestPublicationId' => $this->submission->getCurrentPublication()->getId(),
             'itemsPerPage' => Repo::userComment()->getPerPage(),

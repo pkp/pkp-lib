@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 use PKP\core\traits\ModelWithSettings;
 use PKP\userComment\relationships\UserCommentReport;
 
@@ -129,7 +130,7 @@ class UserComment extends Model
     /**
      * Scope a query to only include comments with specific publication IDs.
      */
-    protected function scopeWithPublicationIds(EloquentBuilder $builder, array $publicationIds): EloquentBuilder
+    protected function scopeWithPublicationIds(EloquentBuilder $builder, Collection|array $publicationIds): EloquentBuilder
     {
         return $builder->whereIn('publication_id', $publicationIds);
     }

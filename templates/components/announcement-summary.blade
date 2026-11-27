@@ -1,0 +1,32 @@
+@props([
+    'announcement',
+    'heading' => 'h2',
+    'dateFormat' => $dateFormatLong,
+])
+
+<article class="announcement-summary">
+    <a
+        href="{{ ViewHelper::url(['page' => 'announcement', 'op' => 'view', 'path' => $announcement->id]) }}"
+        class="announcement-summary-link"
+    >
+        <{{ $heading }} class="announcement-summary-title">
+            {{ $announcement->getLocalizedData('title') }}
+        </{{ $heading }}>
+        <div class="announcement-summary-date">
+            {{ $announcement->datePosted->format($dateFormat) }}
+        </div>
+    </a>
+    <div class="announcement-summary-desc">
+        {!! ViewHelper::sanitizeHtml($announcement->getLocalizedData('descriptionShort')) !!}
+    </div>
+    <div class="announcement-summary-actions">
+        <x-arrow-link
+            href="{{ ViewHelper::url(['page' => 'announcement', 'op' => 'view', 'path' => $announcement->id]) }}"
+            aria-label="{{
+                __('common.readMoreWithTitle', ['title' => $announcement->getLocalizedData('title')])
+            }}"
+        >
+            {{ __('common.readMore') }}
+        </x-arrow-link>
+    </div>
+</article>

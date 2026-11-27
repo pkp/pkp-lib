@@ -146,47 +146,50 @@ class UserCommentController extends PKPBaseController
 
     /**
      * Gets the publicly accessible comments for a publication.
+     * One of either `publicationIds` or `submissionIds` is required.
+     * If both are passed, `publicationIds` takes precedence.
      * Accepts the following query parameters:
      * publicationIds(required, array) publication IDs to fetch comments for.
+     * submissionIds(required, array) submission IDs to fetch comments for.
      * page(integer) - The pagination page to retrieve records from.
      */
     public function getManyPublic(Request $illuminateRequest): JsonResponse
     {
         $publicationIdsRaw = paramToArray($illuminateRequest->query('publicationIds') ?? []);
+        $submissionIdsRaw = paramToArray($illuminateRequest->query('submissionIds') ?? []);
 
-        if (empty($publicationIdsRaw)) {
-            return response()->json(['error' => __('api.userComments.400.missingPublicationParam')], Response::HTTP_BAD_REQUEST);
-        }
-
-        $publicationIds = [];
-        $publicationCache = collect();
-
-        foreach ($publicationIdsRaw as $id) {
-            if (!filter_var($id, FILTER_VALIDATE_INT)) {
-                return response()->json([
-                    'error' => __('api.userComments.400.invalidPublicationId', ['publicationId' => $id])
-                ], Response::HTTP_BAD_REQUEST);
-            }
-
-            $id = (int)$id;
-            $publication = $publicationCache->get($id);
-
-            if (!$publication) {
-                $publication = Repo::publication()->get($id);
-
-                if ($publication) {
-                    $publicationCache->put($id, $publication);
+        if (!empty($publicationIdsRaw)) {
+            $publicationIds = [];
+            foreach ($publicationIdsRaw as $id) {
+                if (!filter_var($id, FILTER_VALIDATE_INT)) {
+                    return response()->json([
+                        'error' => __('api.userComments.400.invalidPublicationId', ['publicationId' => $id])
+                    ], Response::HTTP_BAD_REQUEST);
                 }
+                $publicationIds[] = (int) $id;
             }
+        } elseif (!empty($submissionIdsRaw)) {
+            $submissionIds = [];
+            foreach ($submissionIdsRaw as $id) {
+                if (!filter_var($id, FILTER_VALIDATE_INT)) {
+                    return response()->json([
+                        'error' => __('api.userComments.400.invalidSubmissionId', ['submissionId' => $id])
+                    ], Response::HTTP_BAD_REQUEST);
+                }
 
-            if (!$publication || $publication->getData('status') !== PKPPublication::STATUS_PUBLISHED) {
-                return response()->json([
-                    'error' => __('api.404.resourceNotFound'),
-                ], Response::HTTP_NOT_FOUND);
+                $submissionIds[] = (int) $id;
             }
-
-            $publicationIds[] = $id;
+            $publicationIds = Repo::publication()
+                ->getCollector()
+                ->filterBySubmissionIds($submissionIds)
+                ->getIds();
+        } else {
+            return response()->json(['error' => __('api.userComments.400.missingParam')], Response::HTTP_BAD_REQUEST);
         }
+
+        $query = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
+            ->withIsApproved(true);
+
 
         $user = $this->getRequest()->getUser();
 
@@ -316,14 +319,29 @@ class UserCommentController extends PKPBaseController
         $currentUser = $request->getUser();
         $requestBody = $illuminateRequest->validated();
 
-        $publicationId = (int)$requestBody['publicationId'];
+        if (!$context) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $submissionId = (int)$requestBody['submissionId'];
         $commentText = $requestBody['commentText'];
+
+        $submission = Repo::submission()->get($submissionId, $context->getId());
+        $publication = $submission?->getCurrentPublication();
+
+        if (!$submission || !$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         $createdComment = UserComment::query()->create(
             [
                 'userId' => $currentUser->getId(),
                 'contextId' => $context->getId(),
-                'publicationId' => $publicationId,
+                'publicationId' => $publication->getId(),
                 'commentText' => $commentText,
                 'isApproved' => false,
             ]

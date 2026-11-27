@@ -1,0 +1,29 @@
+@php
+    $plugin = null;
+    $pubId = null;
+    $url = null;
+    foreach ($pubIdPlugins as $pubIdPlugin) {
+        if ($pubIdPlugin->getPubIdType() === $id) {
+            $plugin = $pubIdPlugin;
+            $pubId = $publication->getStoredPubId($plugin->getPubIdType());
+            $url = $pubIdPlugin->getResolvingURL($currentContext->getId(), $pubId);
+            break;
+        }
+    }
+@endphp
+
+@if ($plugin && $pubId)
+    <x-metadata-blocks.default
+        slug="{{ str_replace(':', '-', $id) }}"
+        title="{{ $plugin->getPubIdDisplayType() }}"
+        :$headingTag
+    >
+        @if ($url)
+            <a class="link" href="{{ $url }}">
+                {{ $url }}
+            </a>
+        @else
+            {{ $pubId }}
+        @endif
+    </x-metadata-blocks.default>
+@endif

@@ -16,14 +16,12 @@
 
 namespace PKP\API\v1\peerReviews\resources;
 
-use APP\core\Application;
-use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use PKP\context\Context;
+use PKP\peerReview\SubmissionReviewData;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\PublicReviewStatusData;
 use PKP\submission\reviewRound\ReviewRound;
@@ -34,46 +32,30 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
 
     public function toArray(Request $request)
     {
-        /** @var Submission $submission */
-        $submission = $this->resource;
-
-        // Summarize only what the full peer review record exposes: reviews from
-        // rounds whose reviewed publication version is published
-        $publicReviewRounds = $this->getPublicReviewRounds($submission);
-        $roundIds = $publicReviewRounds->keys()->all();
-
-        $reviewAssignments = empty($roundIds) ? collect() : Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds($roundIds)
-            ->filterByIsPubliclyVisible(true)
-            ->filterByIsAccepted(true)
-            ->getMany()
-            ->collect();
-
-        $contextDao = Application::getContextDAO();
-        /** @var Context $context */
-        $context = $contextDao->getById($submission->getData('contextId'));
+        /** @var SubmissionReviewData $resource */
+        $resource = $this->resource;
 
         return [
-            'submissionId' => $submission->getId(),
-            'reviewerRecommendations' => $this->getReviewerRecommendationsSummary($reviewAssignments, $context),
-            'submissionPublishedVersionsCount' => count($submission->getPublishedPublications()),
-            'reviewerCount' => $this->getReviewerCount($reviewAssignments),
-            'submissionCurrentVersion' => $this->getSubmissionLatestPublishedPublication($submission),
-            'reviewStatus' => $this->getReviewStatus($reviewAssignments, $publicReviewRounds),
+            'submissionId' => $resource->submission->getId(),
+            'reviewerRecommendations' => $this->getReviewerRecommendationsSummary($resource->reviewAssignments, $resource->recommendationTypes),
+            'submissionPublishedVersionsCount' => count($resource->submission->getPublishedPublications()),
+            'reviewerCount' => $this->getReviewerCount($resource->reviewAssignments),
+            'submissionCurrentVersion' => $this->getSubmissionLatestPublishedPublication($resource->submission),
+            'reviewStatus' => $this->getReviewStatus($resource->reviewAssignments),
         ];
     }
 
     /**
      * Gets aggregated review round status for submission as a whole.
+     * Rounds are derived from assignments not ReviewRound objects.
+     * Rounds with no public, accepted assignments do not affect the status.
      *
      * @param Collection<ReviewAssignment> $reviewAssignments
-     * @param Collection<int, ReviewRound> $reviewRounds Review rounds keyed by review round ID
      *
      * @return array{dateStarted: ?string, dateInProgress: ?string, dateCompleted: ?string}
      */
-    private function getReviewStatus(Enumerable $reviewAssignments, Collection $reviewRounds): array
+    private function getReviewStatus(Enumerable $reviewAssignments): array
     {
-        $roundsStatusData = $this->getReviewRoundsStatusData($reviewAssignments, $reviewRounds->all());
-        return PublicReviewStatusData::fromRoundsData(collect($roundsStatusData))->toArray();
+        return PublicReviewStatusData::fromSubmissionReviewAssignments($reviewAssignments)->toArray();
     }
 }

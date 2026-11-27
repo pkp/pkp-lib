@@ -53,7 +53,9 @@ class SubmissionSearchResult
             ->whereIn('sectionIds', $request->getUserVar('sectionIds'))
             ->whereIn('keywords', $request->getUserVar('keywords'))
             ->whereIn('subjects', $request->getUserVar('subjects'))
-            ->whereIn('funders', $request->getUserVar('funders'));
+            ->whereIn('funders', $request->getUserVar('funders'))
+            ->whereIn('peerReviewStatuses', $request->getUserVar('peerReviewStatuses'))
+            ->whereIn('versionStages', $request->getUserVar('versionStages'));
 
         if ($orderBy = $request->getUserVar('orderBy')) {
             $builder->orderBy($orderBy, $request->getUserVar('orderDir') == 'asc' ? 'asc' : 'desc');

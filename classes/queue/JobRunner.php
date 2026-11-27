@@ -469,7 +469,7 @@ class JobRunner
     protected function deduceSafeMaxExecutionTime(): int
     {
         $maxExecutionTimeSetToINI = (int)ini_get('max_execution_time');
-        $maxExecutionTimeSetToConfig = (int)Config::getVar('queues', 'job_runner_max_execution_time', 20);
+        $maxExecutionTimeSetToConfig = (int)Config::getVar('queues', 'job_runner_max_execution_time', 30);
 
         return $maxExecutionTimeSetToINI <= 0
             ? $maxExecutionTimeSetToConfig

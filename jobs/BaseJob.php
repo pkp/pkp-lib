@@ -31,6 +31,18 @@ abstract class BaseJob implements ShouldQueue
     use SerializesModels;
 
     /**
+     * The number of SECONDS deducted from the connection's `retry_after` when deriving
+     * the timeout of a long running job.
+     *
+     * Laravel requires a job's timeout to be shorter than the connection's `retry_after`,
+     * otherwise the job may be handed to a second worker while the first one is still
+     * processing it.
+     *
+     * @see https://laravel.com/docs/12.x/queues#job-expirations-and-timeouts
+     */
+    protected const TIMEOUT_REDUCTION = 10;
+
+    /**
      * The number of times the job may be attempted.
      *
      * @var int
@@ -58,12 +70,53 @@ abstract class BaseJob implements ShouldQueue
     public bool $failOnTimeout = false;
 
     /**
+     * Whether this job may legitimately run for a long time on large installations.
+     *
+     * When true, the job takes its timeout from the connection's configured `retry_after`
+     * instead of the `$timeout` above, so that raising `[queues] retry_after` in
+     * config.inc.php is enough to give the job more time to complete, with no code change.
+     *
+     * The derived value replaces any `$timeout` the job declares for itself, which keeps
+     * the timeout of an opted in job below the window its reservation is held for however
+     * `retry_after` is configured. A `$timeout` declared alongside this flag therefore only
+     * applies on a connection that defines no `retry_after`, such as `sync`.
+     *
+     * Set this only on jobs that genuinely need it. Such jobs should be processed by a
+     * worker daemon: neither the built-in job runner nor the task scheduler is able to
+     * enforce a timeout on a job that is already running.
+     */
+    protected bool $isLongRunning = false;
+
+    /**
      * Initialize the job
      */
     public function __construct()
     {
         $this->connection = Config::getVar('queues', 'default_connection', 'database');
         $this->queue = Config::getVar('queues', 'default_queue', 'queue');
+
+        $this->applyLongRunningTimeout();
+    }
+
+    /**
+     * Derive the timeout of a long running job from the connection's `retry_after`.
+     *
+     * The derived value takes precedence over a timeout the job declares for itself, so
+     * that `retry_after` is always the ceiling. Connections defining no `retry_after`,
+     * such as `sync`, leave the declared timeout untouched.
+     */
+    protected function applyLongRunningTimeout(): void
+    {
+        // Not long running job, keep it's defined or inherited timeout and do not alter
+        if (!$this->isLongRunning) {
+            return;
+        }
+
+        $retryAfter = (int) config("queue.connections.{$this->connection}.retry_after");
+
+        if ($retryAfter > 0) {
+            $this->timeout = $retryAfter - static::TIMEOUT_REDUCTION;
+        }
     }
 
     /**

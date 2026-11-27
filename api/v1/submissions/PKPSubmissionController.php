@@ -3,8 +3,8 @@
 /**
  * @file api/v1/submissions/PKPSubmissionController.php
  *
- * Copyright (c) 2023-2025 Simon Fraser University
- * Copyright (c) 2023-2025 John Willinsky
+ * Copyright (c) 2023-2026 Simon Fraser University
+ * Copyright (c) 2023-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionController
@@ -2025,9 +2025,18 @@ class PKPSubmissionController extends PKPBaseController
         $request = $this->getRequest();
         $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $context->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__', 'submissionId' => $submission->getId()]);
 
-        $metadataForm = new PKPMetadataForm($publicationApiUrl, $locales, $publication, $context, $vocabSuggestionUrlBase);
+        $metadataForm = $this->getMetadataForm($publicationApiUrl, $locales, $publication, $context, $vocabSuggestionUrlBase);
 
         return response()->json($this->getLocalizedForm($metadataForm, $submissionLocale, $locales), Response::HTTP_OK);
+    }
+
+    /**
+     * Get the form for entering the publication metadata. Applications may
+     * override this to supply their own form.
+     */
+    protected function getMetadataForm(string $publicationApiUrl, array $locales, Publication $publication, Context $context, string $vocabSuggestionUrlBase): PKPMetadataForm
+    {
+        return new PKPMetadataForm($publicationApiUrl, $locales, $publication, $context, $vocabSuggestionUrlBase);
     }
 
     /**

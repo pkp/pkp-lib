@@ -16,7 +16,9 @@
 
 namespace PKP\userComment;
 
+use APP\core\Application;
 use APP\core\Request;
+use APP\notification\Notification;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use PKP\API\v1\comments\resources\UserCommentReportResource;
@@ -109,5 +111,24 @@ class Repository
     public function getPerPage(): int
     {
         return $this->perPage;
+    }
+
+    /**
+     * Delete notifications associated with comments and reports.
+     * Pass in the comment IDs or report IDs to delete notifications for those items.
+     */
+    public static function deleteNotifications(?array $commentIds = [], ?array $reportIds = []): void
+    {
+        if (!empty($commentIds)) {
+            Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT)
+                ->whereIn('assoc_id', $commentIds)
+                ->delete();
+        }
+
+        if (!empty($reportIds)) {
+            Notification::where('assoc_type', Application::ASSOC_TYPE_COMMENT_REPORT)
+                ->whereIn('assoc_id', array_unique($reportIds))
+                ->delete();
+        }
     }
 }

@@ -160,7 +160,7 @@ class GenreDAO extends DAO
         ?array $contextIds = null,
         ?bool $dependent = null,
         ?bool $supplementary = null,
-        ?bool $enabled = null,
+        ?bool $enabled = true,
         ?bool $required = null,
     ) {
         $query = DB::table('genres');

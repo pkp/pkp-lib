@@ -366,19 +366,9 @@ class ReviewRound extends \PKP\core\DataObject
      *
      * @param Enumerable<int, ReviewAssignment> $assignments Review assignments to include, typically only publicly visible ones
      */
-    public function getPublicReviewStatusByAssignments(Enumerable $assignments): PublicReviewStatusData
+    public function getPeerReviewStatusByAssignments(Enumerable $assignments, int $minimumRequiredReviewCount): PeerReviewStatusData
     {
-        $assignmentsData = $assignments->map(function (ReviewAssignment $reviewAssignment) {
-            return [
-                'declined' => $reviewAssignment->getDeclined(),
-                'cancelled' => $reviewAssignment->getCancelled(),
-                'dateAssigned' => $reviewAssignment->getDateAssigned(),
-                'dateConfirmed' => $reviewAssignment->getDateConfirmed(),
-                'dateCompleted' => $reviewAssignment->getDateCompleted(),
-            ];
-        });
-
-        return PublicReviewStatusData::fromAssignmentsData($assignmentsData);
+        return PeerReviewStatusData::fromReviewAssignments($assignments, $minimumRequiredReviewCount);
     }
 
     /*

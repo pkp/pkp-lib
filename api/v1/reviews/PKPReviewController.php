@@ -53,6 +53,7 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\authorResponse\AuthorResponse;
 use PKP\submission\reviewRound\authorResponse\AuthorResponseManager;
+use PKP\submission\reviewRound\PeerReviewStatusData;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
@@ -1007,7 +1008,8 @@ class PKPReviewController extends PKPBaseController
         /** @var ReviewRound $reviewRound */
         $reviewRound = $validated['reviewRound'];
 
-        $assignments = Repo::reviewAssignment()->getCollector()
+        $assignments = Repo::reviewAssignment()
+            ->getCollector()
             ->filterByIsAccepted(true)
             ->filterByReviewRoundIds([$reviewRound->getId()])
             ->getMany();
@@ -1017,17 +1019,19 @@ class PKPReviewController extends PKPBaseController
          * 1) The number of completed reviews meets the minimum required number of reviews per submission as defined on the Context, or;
          * 2) All reviews for the round are completed.
          */
-        $shouldConsiderMinimumRequiredReviews = (bool)$context->getNumReviewsPerSubmission();
+        $minimumRequiredReviews = $context->getNumReviewsPerSubmission();
+        $passesMinimumReviewsCheck = PeerReviewStatusData::meetsConfiguredMinimumReviewCount(
+            $assignments,
+            $minimumRequiredReviews,
+            requireEditorConfirmation: true
+        );
 
-        $hasMinimumRequiredReviews = $assignments
-            ->filter(fn (ReviewAssignment $assignment) => $assignment->getDateCompleted() !== null)
-            ->count() >= $context->getNumReviewsPerSubmission();
-
-        $areAllReviewsCompleted = $assignments->isNotEmpty() &&
-            $assignments
-                ->every(fn ($assignment) => $assignment->getDateCompleted() !== null);
-
-        $passesMinimumReviewsCheck = $shouldConsiderMinimumRequiredReviews && $hasMinimumRequiredReviews;
+        $areAllReviewsCompleted = $assignments->isNotEmpty()
+            && $assignments->every(
+                fn (ReviewAssignment $assignment) =>
+                    $assignment->getDateCompleted() !== null
+                    && $assignment->isConfirmedByEditor()
+            );
 
         if (!$passesMinimumReviewsCheck && !$areAllReviewsCompleted) {
             return response()->json([

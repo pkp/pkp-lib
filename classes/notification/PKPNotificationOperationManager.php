@@ -32,6 +32,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use stdClass;
+use Throwable;
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider
 {
@@ -331,7 +332,11 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         }
 
         $headers = new stdClass();
-        $jwt = ((array)JWT::decode($token, new Key($secret, 'HS256'), $headers))[0]; /** @var string $jwt */
+        try {
+            $jwt = ((array)JWT::decode($token, new Key($secret, 'HS256'), $headers))[0]; /** @var string $jwt */
+        } catch (Throwable $exception) {
+            return false;
+        }
         return $jwt === $this->createUnsubscribeUniqueKey($notification);
     }
 

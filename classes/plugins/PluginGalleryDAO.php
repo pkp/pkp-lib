@@ -251,6 +251,15 @@ class PluginGalleryDAO extends \PKP\db\DAO
                 case 'certification':
                     $release[$n->tagName][] = $n->getAttribute('type');
                     break;
+                case 'locales':
+                    $locales = [];
+                    for ($l = $n->firstChild; $l; $l = $l->nextSibling) {
+                        if ($l instanceof DOMElement && $l->tagName === 'locale') {
+                            $locales[] = $l->nodeValue;
+                        }
+                    }
+                    $release['locales'] = $locales;
+                    break;
                 default:
                     // Not erroring out here so that future
                     // additions won't break old releases.
@@ -265,6 +274,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
             $plugin->setReleaseMD5($release['md5']);
             $plugin->setReleaseDescription($release['description']);
             $plugin->setReleaseCertifications($release['certification'] ?? []);
+            $plugin->setReleaseLocales($release['locales'] ?? null);
             $plugin->setReleasePackage($release['package']);
             return true;
         }

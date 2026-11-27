@@ -24,6 +24,7 @@ use OpenSearch\Client;
 use PKP\config\Config;
 use PKP\facades\Locale;
 use PKP\funder\Funder;
+use PKP\peerReview\PeerReviewResourceBuilder;
 use PKP\plugins\Hook;
 use PKP\publication\PKPPublication;
 use PKP\search\parsers\SearchFileParser;
@@ -175,6 +176,10 @@ class OpenSearchEngine extends ScoutEngine
                 ];
             }
 
+            $publicReviewStatus = PeerReviewResourceBuilder::fromSubmission($submission)
+                ->getReviewStatuses()
+                ->get($submission->getId());
+
             $json = [
                 'index' => $this->getIndexName(),
                 'id' => $submission->getId(),
@@ -187,6 +192,8 @@ class OpenSearchEngine extends ScoutEngine
                     'reviewers' => $reviewers,
                     'contextId' => $submission->getData('contextId'),
                     'datePublished' => $publication->getData('datePublished'),
+                    'versionStage' => $publication->getData('versionStage'),
+                    'peerReviewStatus' => $publicReviewStatus->status->value,
                     'sectionId' => $publication->getData('sectionId'),
                     'categoryId' => $publication->getData('categoryIds'),
                     'keyword' => collect($publication->getData('keywords'))
@@ -325,6 +332,12 @@ class OpenSearchEngine extends ScoutEngine
                         // Exact match on filterKeys (ROR or lowercased free-text name); OR if several.
                         $filter[] = ['terms' => ['funders.filterKeys' => $list]];
                         break;
+                    case 'peerReviewStatuses':
+                        $filter[] = ['terms' => ['peerReviewStatus' => $list]];
+                        break;
+                    case 'versionStages':
+                        $filter[] = ['terms' => ['versionStage' => $list]];
+                        break;
                     case 'reviewers': break; // Handled above
                     default: continue 2;
                 }
@@ -459,6 +472,8 @@ class OpenSearchEngine extends ScoutEngine
                         'keyword' => $typicalKeywordClause(),
                         'subject' => $typicalKeywordClause(),
                         'sectionId' => ['type' => 'long'],
+                        'versionStage' => ['type' => 'keyword'],
+                        'peerReviewStatus' => ['type' => 'keyword'],
                         'status' => ['type' => 'long'],
                         'funders' => [
                             'properties' => [

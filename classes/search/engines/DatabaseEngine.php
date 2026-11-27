@@ -27,6 +27,7 @@ use PKP\identity\Identity;
 use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\enums\PublicReviewStatus;
 
 class DatabaseEngine extends ScoutEngine
 {
@@ -67,10 +68,10 @@ class DatabaseEngine extends ScoutEngine
         };
 
         // Handle "whereIn" conditions
-        $sectionIds = $categoryIds = $keywords = $subjects = $funders = null;
+        $sectionIds = $categoryIds = $keywords = $subjects = $funders = $peerReviewStatuses = $versionStages = null;
         foreach ($builder->whereIns as $field => $list) {
             $$field = match($field) {
-                'sectionIds', 'categoryIds', 'keywords', 'subjects', 'funders', 'reviewers' => is_null($list) ? null : (array) $list,
+                'sectionIds', 'categoryIds', 'keywords', 'subjects', 'funders', 'reviewers', 'peerReviewStatuses', 'versionStages' => is_null($list) ? null : (array) $list,
             };
         };
 
@@ -152,6 +153,14 @@ class DatabaseEngine extends ScoutEngine
                     ->whereIn('us.setting_name', [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'affiliation'])
                     ->where('us.setting_value', 'like', '%' . addcslashes($reviewer, '%_') . '%')
             ))
+            // Version stage of the current (latest published) version
+            ->when(is_array($versionStages), fn ($q) => $q->whereIn(
+                's.current_publication_id',
+                DB::table('publications')->whereIn('version_stage', $versionStages)->select('publication_id')
+            ))
+            ->when(is_array($peerReviewStatuses), fn ($q) => $q->where(
+                fn ($q) => $this->filterByPeerReviewStatuses($q, $peerReviewStatuses)
+            ))
             ->when($publishedFrom || $publishedTo || is_array($sectionIds) || is_array($categoryIds) || is_array($keywords) || is_array($subjects), fn ($q) => $q->whereExists(
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')
@@ -219,6 +228,47 @@ class DatabaseEngine extends ScoutEngine
             ->when(!empty($author), fn ($q) => $q->whereFullText(['authors'], $author))
             ->when(!empty($body), fn ($q) => $q->whereFullText(['body'], $body))
             ->groupBy('s.submission_id');
+    }
+
+    /**
+     * Restrict the query to submissions with one of the given public review statuses.
+     *
+     * Same rules as PeerReviewResourceBuilder::getReviewStatuses(), based on the publicly
+     * visible reviews that a reviewer accepted, in review rounds of published versions:
+     * - not started: there is no such review yet
+     * - in progress: at least one of them is not completed yet
+     * - complete: all of them are completed
+     *
+     * @param string[] $statuses PublicReviewStatus values; unknown values match nothing
+     */
+    protected function filterByPeerReviewStatuses(DatabaseBuilder $q, array $statuses): void
+    {
+        // Publicly visible, accepted reviews of the submission's published versions
+        $publicAssignments = fn (DatabaseBuilder $q) => $q->from('review_assignments AS pra')
+            ->join('review_rounds AS prr', 'prr.review_round_id', 'pra.review_round_id')
+            ->join('publications AS prp', 'prp.publication_id', 'prr.publication_id')
+            ->whereColumn('pra.submission_id', 's.submission_id')
+            ->where('prp.status', PKPPublication::STATUS_PUBLISHED)
+            ->where('pra.is_review_publicly_visible', 1)
+            ->whereNotNull('pra.date_confirmed')
+            ->where('pra.declined', '<>', 1)
+            ->where('pra.cancelled', '<>', 1);
+        // ... of which the reviewer has not completed the review yet
+        $openAssignments = fn (DatabaseBuilder $q) => $publicAssignments($q)->whereNull('pra.date_completed');
+
+        $statuses = array_filter(array_map(fn ($status) => PublicReviewStatus::tryFrom((string) $status), $statuses));
+        if (empty($statuses)) {
+            $q->whereRaw('1 = 0'); // Only unknown statuses were requested
+            return;
+        }
+
+        foreach ($statuses as $status) {
+            match ($status) {
+                PublicReviewStatus::NotStarted => $q->orWhereNotExists($publicAssignments),
+                PublicReviewStatus::InProgress => $q->orWhereExists($openAssignments),
+                PublicReviewStatus::Complete => $q->orWhere(fn ($q) => $q->whereExists($publicAssignments)->whereNotExists($openAssignments)),
+            };
+        }
     }
 
     public function search(SearchBuilder $builder): array

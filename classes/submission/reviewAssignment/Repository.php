@@ -26,6 +26,7 @@ use PKP\doi\exceptions\DoiException;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\invitation\models\InvitationModel;
+use PKP\jobs\submissions\ReindexSubmissionJob;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\reviewForm\ReviewFormElement;
@@ -201,6 +202,7 @@ class Repository
         $reviewAssignment->stampModified();
         Hook::call('ReviewAssignment::add', [$reviewAssignment]);
         $this->updateReviewRoundStatus($reviewAssignment);
+        $this->updateSearchIndex($reviewAssignment);
 
         return $id;
     }
@@ -220,6 +222,7 @@ class Repository
 
         $this->dao->update($newReviewAssignment);
         $this->updateReviewRoundStatus($newReviewAssignment);
+        $this->updateSearchIndex($newReviewAssignment);
 
         if (!$this->canHaveDoi($reviewAssignment) && $this->canHaveDoi($newReviewAssignment)) {
             $this->assignDoiOnCreation($newReviewAssignment);
@@ -298,6 +301,7 @@ class Repository
         $this->dao->delete($reviewAssignment);
 
         $this->updateReviewRoundStatus($reviewAssignment);
+        $this->updateSearchIndex($reviewAssignment);
 
         $accessInvitation = $this->getAccessInvitation($reviewAssignment);
         if ($accessInvitation) {
@@ -343,6 +347,21 @@ class Repository
             ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS => 'editor.submissionReview.anonymous',
             ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN => 'editor.submissionReview.open',
         ];
+    }
+
+    /**
+     * Keep the search index up to date with a submission's reviewers and public review status.
+     *
+     * Only published submissions are in the search index. Journals that review after
+     * publication (e.g. publish-review-curate) add and complete reviews on them, which
+     * would otherwise only reach the index with the next published version.
+     */
+    protected function updateSearchIndex(ReviewAssignment $reviewAssignment): void
+    {
+        $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
+        if ($submission && !empty($submission->getPublishedPublications())) {
+            dispatch(new ReindexSubmissionJob($submission->getId()));
+        }
     }
 
     /**

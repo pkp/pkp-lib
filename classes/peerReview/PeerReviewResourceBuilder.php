@@ -27,6 +27,7 @@ use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewResource;
 use PKP\API\v1\peerReviews\resources\SubmissionPeerReviewSummaryResource;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use PKP\submission\reviewRound\PublicReviewStatusData;
 
 readonly class PeerReviewResourceBuilder
 {
@@ -121,6 +122,23 @@ readonly class PeerReviewResourceBuilder
         return SubmissionPeerReviewSummaryResource::collection($this->buildSummaryData());
     }
 
+
+    /**
+     * Get the public review status of each submission (not started, in progress or complete),
+     * as shown to readers in the summary resource. Used e.g. to index the status for search.
+     *
+     * @return Collection<int, PublicReviewStatusData>
+     */
+    public function getReviewStatuses(): Collection
+    {
+        $acceptedReviewAssignments = $this->getAcceptedReviewAssignments();
+
+        return $this->submissions->mapWithKeys(fn (Submission $submission) => [
+            $submission->getId() => PublicReviewStatusData::fromSubmissionReviewAssignments(
+                $acceptedReviewAssignments->get($submission->getId(), collect())
+            ),
+        ]);
+    }
 
     /**
      * Constructs the data transfer objects used to construct sSubmissionPeerReviewSummaryResource`s.

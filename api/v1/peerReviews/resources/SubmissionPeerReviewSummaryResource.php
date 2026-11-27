@@ -56,13 +56,6 @@ class SubmissionPeerReviewSummaryResource extends JsonResource
      */
     private function getReviewStatus(Enumerable $reviewAssignments): array
     {
-        $roundsData = $reviewAssignments
-            ->groupBy(function (ReviewAssignment $reviewAssignment) {
-                return $reviewAssignment->getReviewRoundId();
-            })
-            ->map(function (Enumerable $roundAssignments) {
-                return PublicReviewStatusData::fromReviewAssignments($roundAssignments)->toArray();
-            });
-        return PublicReviewStatusData::fromRoundsData($roundsData)->toArray();
+        return PublicReviewStatusData::fromSubmissionReviewAssignments($reviewAssignments)->toArray();
     }
 }

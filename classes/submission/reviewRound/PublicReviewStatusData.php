@@ -44,6 +44,22 @@ readonly class PublicReviewStatusData
     }
 
     /**
+     * Static constructor for the status of a submission as a whole, from its public, accepted
+     * review assignments. Rounds are derived from the assignments, so rounds without such
+     * assignments do not affect the status.
+     *
+     * @param Enumerable<int, ReviewAssignment> $reviewAssignments
+     */
+    public static function fromSubmissionReviewAssignments(Enumerable $reviewAssignments): self
+    {
+        $roundsData = $reviewAssignments
+            ->groupBy(fn (ReviewAssignment $reviewAssignment) => $reviewAssignment->getReviewRoundId())
+            ->map(fn (Enumerable $roundAssignments) => self::fromReviewAssignments($roundAssignments)->toArray());
+
+        return self::fromRoundsData($roundsData);
+    }
+
+    /**
      * Static constructor for building self from ReviewAssignment objects for a single review round
      *
      * @param Enumerable<int, ReviewAssignment> $reviewAssignments

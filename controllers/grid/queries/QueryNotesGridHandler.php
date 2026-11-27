@@ -221,7 +221,9 @@ class QueryNotesGridHandler extends GridHandler
         $queryNoteForm->readInputData();
         if ($queryNoteForm->validate()) {
             $note = $queryNoteForm->execute();
-            $this->insertedNoteNotify($note);
+            if ($note) {
+                $this->insertedNoteNotify($note);
+            }
             return DAO::getDataChangedEvent($this->getQuery()->id);
         } else {
             return new JSONMessage(true, $queryNoteForm->fetch($request));

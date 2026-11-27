@@ -1016,6 +1016,19 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
+     * Whether the editorial dashboard should be offered in the main navigation
+     *
+     * The site admin role alone is not enough, the user needs an editorial role in the current context,
+     * e.g. a site admin whose Journal Manager role was removed should not see the editorial dashboard.
+     *
+     * @param int[] $userRoles Role IDs of the user in the current context
+     */
+    public static function hasEditorialDashboardAccess(array $userRoles): bool
+    {
+        return count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles)) > 0;
+    }
+
+    /**
      * Set up the template requirements for editorial backend pages
      *
      * @hook TemplateManager::setupBackendPage []
@@ -1219,7 +1232,7 @@ class PKPTemplateManager extends Smarty
 
                 if ($request->getContext()) {
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
-                        if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles))) {
+                        if (static::hasEditorialDashboardAccess($userRoles)) {
                             $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
                             $requestedPage = $router->getRequestedPage($request);
                             $requestedOp = $router->getRequestedOp($request);

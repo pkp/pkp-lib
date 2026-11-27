@@ -3,8 +3,8 @@
 /**
  * @file classes/submission/DashboardView.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2003-2023 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DashboardView
@@ -42,6 +42,7 @@ class DashboardView
     public const TYPE_SCHEDULED = 'scheduled';
     public const TYPE_PUBLISHED = 'published';
     public const TYPE_DECLINED = 'declined';
+    public const TYPE_WITHDRAWN = 'withdrawn';
 
     public const TYPE_REVIEWER_ACTION_REQUIRED = 'reviewer-action-required';
     public const TYPE_REVIEWER_ASSIGNMENTS_ALL = 'reviewer-assignments-all';

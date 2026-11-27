@@ -29,24 +29,17 @@ use PKP\validation\ValidatorFactory;
 
 class Repository
 {
-    /** @var DAO $dao */
-    public $dao;
-
     /** @var string $schemaMap The name of the class to map this entity to its schema */
     public $schemaMap = maps\Schema::class;
 
-    /** @var Request $request */
-    protected $request;
-
-    /** @var PKPSchemaService<Announcement> $schemaService */
-    protected $schemaService;
-
-
-    public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
+    /**
+     * Constructor
+     *
+     * @param DAO<Announcement> $dao
+     * @param PKPSchemaService<Announcement> $schemaService
+     */
+    public function __construct(public DAO $dao, protected Request $request, protected PKPSchemaService $schemaService)
     {
-        $this->dao = $dao;
-        $this->request = $request;
-        $this->schemaService = $schemaService;
     }
 
     /** @copydoc DAO::newDataObject() */
@@ -153,7 +146,7 @@ class Repository
      * Deletes the old image if it has been removed, or a new image has
      * been uploaded.
      */
-    public function edit(Announcement $announcement, array $params)
+    public function edit(Announcement $announcement, array $params): void
     {
         $newAnnouncement = clone $announcement;
         $newAnnouncement->setAllData(array_merge($newAnnouncement->_data, $params));
@@ -175,7 +168,7 @@ class Repository
     }
 
     /** @copydoc DAO::delete() */
-    public function delete(Announcement $announcement)
+    public function delete(Announcement $announcement): void
     {
         Hook::call('Announcement::delete::before', [$announcement]);
 
@@ -191,7 +184,7 @@ class Repository
     /**
      * Delete a collection of announcements
      */
-    public function deleteMany(Collector $collector)
+    public function deleteMany(Collector $collector): void
     {
         foreach ($collector->getMany() as $announcement) {
             $this->delete($announcement);
@@ -231,7 +224,7 @@ class Repository
             $temporaryFileManager = new TemporaryFileManager();
             $temporaryFile = $temporaryFileManager->getFile((int) $image['temporaryFileId'], $user?->getId());
             $filePath = $this->getImageSubdirectory() . '/' . $this->getImageFilename($announcement, $temporaryFile);
-            if (!$this->isValidImage($temporaryFile, $filePath, $user, $announcement)) {
+            if (!$this->isValidImage($temporaryFile)) {
                 throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $announcement);
             }
             if ($this->storeTemporaryFile($temporaryFile, $filePath, $user->getId(), $announcement)) {
@@ -249,7 +242,7 @@ class Repository
     /**
      * Store a temporary file upload in the public files directory
      *
-     * @param string $newPath The new filename with the path relative to the public files directoruy
+     * @param string $newPath The new filename with the path relative to the public files directory
      * @return bool Whether or not the operation was successful
      */
     protected function storeTemporaryFile(TemporaryFile $temporaryFile, string $newPath, int $userId, Announcement $announcement): bool

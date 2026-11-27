@@ -38,27 +38,38 @@ class FilterHelper
 
         foreach ($filterGroupsNode->getChildren() as $filterGroupNode) { /** @var XMLNode $filterGroupNode */
             $filterGroupSymbolic = $filterGroupNode->getAttribute('symbolic');
+            $displayName = $filterGroupNode->getAttribute('displayName');
+            $description = $filterGroupNode->getAttribute('description');
+            $inputType = $filterGroupNode->getAttribute('inputType');
+            $outputType = $filterGroupNode->getAttribute('outputType');
 
-            // Make sure that the filter group has not been
-            // installed before to guarantee idempotence.
+            // Update an already installed group, so that changes in filterConfig.xml,
+            // e.g. a new schema version in outputType, need no upgrade migration.
             $existingFilterGroup = $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
             if (!is_null($existingFilterGroup)) {
+                if ($existingFilterGroup->getDisplayName() !== $displayName
+                    || $existingFilterGroup->getDescription() !== $description
+                    || $existingFilterGroup->getInputType() !== $inputType
+                    || $existingFilterGroup->getOutputType() !== $outputType
+                ) {
+                    $existingFilterGroup->setDisplayName($displayName);
+                    $existingFilterGroup->setDescription($description);
+                    $existingFilterGroup->setInputType($inputType);
+                    $existingFilterGroup->setOutputType($outputType);
+                    $filterGroupDao->updateObject($existingFilterGroup);
+                }
                 continue;
             }
 
-            // Instantiate and configure the filter group.
             $filterGroup = new FilterGroup();
             $filterGroup->setSymbolic($filterGroupSymbolic);
-            $filterGroup->setDisplayName($filterGroupNode->getAttribute('displayName'));
-            $filterGroup->setDescription($filterGroupNode->getAttribute('description'));
-            $filterGroup->setInputType($filterGroupNode->getAttribute('inputType'));
-            $filterGroup->setOutputType($filterGroupNode->getAttribute('outputType'));
+            $filterGroup->setDisplayName($displayName);
+            $filterGroup->setDescription($description);
+            $filterGroup->setInputType($inputType);
+            $filterGroup->setOutputType($outputType);
 
-            // Install the filter group.
             $installedGroupId = $filterGroupDao->insertObject($filterGroup);
             assert(is_integer($installedGroupId));
-
-            unset($filterGroup);
         }
     }
 

@@ -16,6 +16,7 @@ namespace PKP\scheduledTask;
 
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
+use PKP\config\Config;
 use PKP\core\PKPContainer;
 use PKP\plugins\interfaces\HasTaskScheduler;
 use PKP\plugins\PluginRegistry;
@@ -56,8 +57,14 @@ abstract class PKPScheduler
 
         // Here we don't want to re-register the schedule task if it's already registered
         // otherwise the same task might run multiple times at the same time
+        //
+        // The event is named after the task's class so that it always has a stable identity,
+        // matching how registerSchedules() names its own events. Callers remain free to set a
+        // different name afterwards -- this is only the default when they don't.
         return $scheduleTasks[$scheduleTaskClass]
-            ?? $this->schedule->call(fn () => $scheduleTask->execute());
+            ?? $this->schedule
+                ->call(fn () => $scheduleTask->execute())
+                ->name($scheduleTaskClass);
     }
 
     /**
@@ -91,6 +98,7 @@ abstract class PKPScheduler
             ->call(fn () => (new ProcessQueueJobs())->execute())
             ->everyMinute()
             ->name(ProcessQueueJobs::class)
+            ->when(fn () => Config::getVar('queues', 'process_jobs_at_task_scheduler', false))
             ->withoutOverlapping();
 
         $this
@@ -114,8 +122,9 @@ abstract class PKPScheduler
             ->name(UpdateRorRegistryDataset::class)
             ->withoutOverlapping();
 
-        // We only load all plugins and register their scheduled tasks when running under the CLI
-        // On the web based task runner the scheduled tasks must be registered before it starts running
+        // Scheduled tasks are only run from the CLI, so that is the only place all plugins are
+        // loaded to register their scheduled tasks. A schedule resolved in any other context
+        // must not load every plugin as a side effect.
         if (PKPContainer::getInstance()->runningInConsole()) {
             $this->registerPluginSchedules();
         }
@@ -135,20 +144,5 @@ abstract class PKPScheduler
 
             $plugin->registerSchedules($this);
         }
-    }
-
-    /**
-     * Run the web based schedule task runner
-     */
-    public function runWebBasedScheduleTaskRunner(): void
-    {
-        $container = PKPContainer::getInstance();
-
-        (new ScheduleTaskRunner(
-            $this->schedule,
-            $container->get(\Illuminate\Contracts\Events\Dispatcher::class),
-            $container->get(\Illuminate\Contracts\Cache\Repository::class),
-            $container->get(\Illuminate\Contracts\Debug\ExceptionHandler::class)
-        ))->run();
     }
 }

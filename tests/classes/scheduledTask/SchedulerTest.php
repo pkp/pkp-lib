@@ -10,35 +10,28 @@
  * @class SchedulerTest
  *
  * @see \PKP\scheduledTask\PKPScheduler
- * @see \PKP\scheduledTask\ScheduleTaskRunner
+ * @see \PKP\core\ScheduleServiceProvider
  * @see \APP\scheduler\Scheduler
  *
  * @brief Tests for the custom PKP wiring around Laravel's scheduler:
- *  - addSchedule() dedup contract
- *  - ScheduleTaskRunner failure isolation
+ *  - addSchedule() dedup and default naming contract
  *  - plugin schedule registration via the HasTaskScheduler interface
- *  - a due task actually running in both web and CLI mode
+ *  - a due task actually running via the CLI
+ *  - application timezone resolution
+ *  - task filters being honoured before a task runs
  */
 
 namespace PKP\tests\classes\scheduledTask;
 
 use APP\core\Application;
 use APP\scheduler\Scheduler;
-use Carbon\Carbon;
-use Exception;
-use Illuminate\Console\Events\ScheduledTaskFailed;
-use Illuminate\Console\Events\ScheduledTaskFinished;
-use Illuminate\Console\Events\ScheduledTaskStarting;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Console\Scheduling\ScheduleRunCommand;
-use Illuminate\Contracts\Cache\Repository as Cache;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Contracts\Events\Dispatcher;
-use Mockery;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\config\Config;
 use PKP\core\PKPContainer;
 use PKP\core\Registry;
 use PKP\core\ScheduleServiceProvider;
@@ -47,16 +40,13 @@ use PKP\plugins\interfaces\HasTaskScheduler;
 use PKP\plugins\PluginRegistry;
 use PKP\scheduledTask\PKPScheduler;
 use PKP\scheduledTask\ScheduledTask;
-use PKP\scheduledTask\ScheduleTaskRunner;
 use PKP\tests\PKPTestCase;
-use ReflectionMethod;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(PKPScheduler::class)]
 #[CoversClass(Scheduler::class)]
-#[CoversClass(ScheduleTaskRunner::class)]
 #[CoversClass(ScheduleServiceProvider::class)]
 class SchedulerTest extends PKPTestCase
 {
@@ -84,8 +74,18 @@ class SchedulerTest extends PKPTestCase
         parent::tearDown();
     }
 
+    /**
+     * Snapshot and restore the parsed config so the timezone tests can rewrite [general]
+     *
+     * @see \PKP\tests\PKPTestCase::getMockedRegistryKeys()
+     */
+    protected function getMockedRegistryKeys(): array
+    {
+        return [...parent::getMockedRegistryKeys(), 'configData'];
+    }
+
     //
-    // Group A: PKPScheduler::addSchedule() dedup contract
+    // Group A: PKPScheduler::addSchedule() dedup and default naming contract
     //
 
     /**
@@ -125,65 +125,77 @@ class SchedulerTest extends PKPTestCase
         $this->assertCount($countBefore + 1, $schedule->events());
     }
 
-    //
-    // Group B: ScheduleTaskRunner::runEvent() failure isolation + lifecycle
-    //
-
     /**
-     * A task that throws must be reported and isolated: the throwable is handed to
-     * the ExceptionHandler, a ScheduledTaskFailed event is dispatched, and the
-     * exception never propagates out of the runner.
+     * A newly created event must carry the task's class name as its event name. Without it
+     * getSummaryForDisplay() falls back to the literal 'Callback', which every unnamed task
+     * would share as an identity.
      */
-    public function testRunEventReportsAndIsolatesFailure(): void
+    public function testAddScheduleNamesNewEventWithTaskClass(): void
     {
         $schedule = new Schedule();
-        $event = $schedule->call(fn () => throw new Exception('boom'));
+        $scheduler = new Scheduler($schedule);
 
-        $dispatcher = Mockery::mock(Dispatcher::class);
-        $dispatcher->shouldReceive('dispatch')->with(Mockery::type(ScheduledTaskStarting::class))->once();
-        $dispatcher->shouldReceive('dispatch')->with(Mockery::type(ScheduledTaskFailed::class))->once();
-        $dispatcher->shouldReceive('dispatch')->with(Mockery::type(ScheduledTaskFinished::class))->never();
+        $event = $scheduler->addSchedule(new SchedulerTestTask());
 
-        $handler = Mockery::mock(ExceptionHandler::class);
-        $handler->shouldReceive('report')
-            ->with(Mockery::on(fn ($e) => $e instanceof Exception && $e->getMessage() === 'boom'))
-            ->once();
-
-        $runner = new ScheduleTaskRunner($schedule, $dispatcher, Mockery::mock(Cache::class), $handler);
-
-        // runEvent() is protected; exercise it directly. It must not re-throw.
-        $this->invokeRunEvent($runner, $event);
-
-        // If we got here without an exception, isolation held.
-        $this->assertTrue(true);
+        $this->assertSame(SchedulerTestTask::class, $event->getSummaryForDisplay());
     }
 
     /**
-     * A task that succeeds must dispatch the starting + finished lifecycle events
-     * and must not be reported as a failure.
+     * Registering the same task twice must reuse the first event. This only works because
+     * addSchedule() names the event it creates: the dedup map is keyed by
+     * getSummaryForDisplay() but looked up by class name, so an unnamed event can never match.
      */
-    public function testRunEventDispatchesLifecycleOnSuccess(): void
+    public function testAddScheduleDedupsRepeatedRegistrationOfSameTask(): void
     {
         $schedule = new Schedule();
-        $event = $schedule->call(fn () => null);
+        $scheduler = new Scheduler($schedule);
 
-        $dispatcher = Mockery::mock(Dispatcher::class);
-        $dispatcher->shouldReceive('dispatch')->with(Mockery::type(ScheduledTaskStarting::class))->once();
-        $dispatcher->shouldReceive('dispatch')->with(Mockery::type(ScheduledTaskFinished::class))->once();
-        $dispatcher->shouldReceive('dispatch')->with(Mockery::type(ScheduledTaskFailed::class))->never();
+        $first = $scheduler->addSchedule(new SchedulerTestTask());
+        $countAfterFirst = count($schedule->events());
 
-        $handler = Mockery::mock(ExceptionHandler::class);
-        $handler->shouldReceive('report')->never();
+        $second = $scheduler->addSchedule(new SchedulerTestTask());
 
-        $runner = new ScheduleTaskRunner($schedule, $dispatcher, Mockery::mock(Cache::class), $handler);
+        $this->assertSame($first, $second);
+        $this->assertCount($countAfterFirst, $schedule->events());
+    }
 
-        $this->invokeRunEvent($runner, $event);
+    /**
+     * The class name is only a default. A caller that chains its own ->name() must still win,
+     * exactly as plugins do today in their registerSchedules() implementations.
+     */
+    public function testAddScheduleDefaultNameDoesNotOverrideCallerName(): void
+    {
+        $schedule = new Schedule();
+        $scheduler = new Scheduler($schedule);
 
-        $this->assertTrue(true);
+        $event = $scheduler
+            ->addSchedule(new SchedulerTestTask())
+            ->daily()
+            ->name('my.custom.task.name');
+
+        $this->assertSame('my.custom.task.name', $event->getSummaryForDisplay());
+    }
+
+    /**
+     * Naming the event up front also removes the ordering trap: Laravel's CallbackEvent throws
+     * a LogicException when withoutOverlapping() is called before a name is set, so a caller
+     * that chains them in that order used to crash at registration.
+     */
+    public function testAddScheduleAllowsWithoutOverlappingBeforeName(): void
+    {
+        $schedule = new Schedule();
+        $scheduler = new Scheduler($schedule);
+
+        $event = $scheduler
+            ->addSchedule(new SchedulerTestTask())
+            ->daily()
+            ->withoutOverlapping();
+
+        $this->assertSame(SchedulerTestTask::class, $event->getSummaryForDisplay());
     }
 
     //
-    // Group C: plugin schedule registration via HasTaskScheduler
+    // Group B: plugin schedule registration via HasTaskScheduler
     //
 
     /**
@@ -295,30 +307,8 @@ class SchedulerTest extends PKPTestCase
     }
 
     //
-    // Group D: a due task actually runs (web + CLI)
+    // Group C: a due task actually runs via the CLI
     //
-
-    /**
-     * The web based runner must execute a due task.
-     */
-    public function testDueTaskRunsInWebMode(): void
-    {
-        $ran = false;
-        $schedule = new Schedule();
-        $schedule->call(function () use (&$ran) {
-            $ran = true;
-        })->everyMinute()->name('test.web.task');
-
-        $runner = new ScheduleTaskRunner(
-            $schedule,
-            app(Dispatcher::class),
-            app(Cache::class),
-            app(ExceptionHandler::class)
-        );
-        $runner->run();
-
-        $this->assertTrue($ran, 'A due task should run via the web based task runner.');
-    }
 
     /**
      * The CLI path (Laravel's ScheduleRunCommand, as tools/scheduler.php run uses)
@@ -332,10 +322,200 @@ class SchedulerTest extends PKPTestCase
             $ran = true;
         })->everyMinute()->name('test.cli.task');
 
-        // ScheduleRunCommand::handle() resolves the Schedule from the container via
-        // method injection; rebind it to our test schedule so only our task runs
-        // (not the container's full core/plugin schedule). Process isolation makes
-        // the rebinding safe without restoring.
+        $this->runScheduleViaCli($schedule);
+
+        $this->assertTrue($ran, 'A due task should run via the CLI ScheduleRunCommand.');
+    }
+
+    //
+    // Group D: application timezone resolution
+    //
+
+    /**
+     * Scheduled events must be evaluated in the application's timezone.
+     */
+    public function testScheduleUsesResolvedApplicationTimezone(): void
+    {
+        $originalTimezone = date_default_timezone_get();
+
+        try {
+            // Stand in for PKPApplication::initializeTimeZone() having resolved [general] time_zone
+            date_default_timezone_set('America/Vancouver');
+
+            $app = PKPContainer::getInstance();
+            (new ScheduleServiceProvider($app))->register();
+
+            // Invoke the registered binding directly rather than resolving through the container:
+            // resolving fires the boot() afterResolving hook, which registers every core and plugin
+            // schedule and needs a full request context that this test has no reason to build.
+            $concrete = $app->getBindings()[Schedule::class]['concrete'];
+            $schedule = $concrete($app); /** @var Schedule $schedule */
+
+            $event = $schedule->call(fn () => null)->daily();
+
+            $this->assertSame(
+                'America/Vancouver',
+                (string) $event->timezone,
+                'Scheduled events must inherit the application timezone, not a hardcoded UTC fallback.'
+            );
+        } finally {
+            date_default_timezone_set($originalTimezone);
+        }
+    }
+
+    /**
+     * A legacy [general] time_zone value must resolve to a canonical identifier.
+     */
+    public function testResolveTimeZoneMapsLegacyNameToCanonicalIdentifier(): void
+    {
+        $this->setConfigTimeZone('Amsterdam');
+
+        $resolved = Application::resolveTimeZone();
+
+        $this->assertSame('Europe/Amsterdam', $resolved);
+
+        // The point of resolving at all: the result must be usable as a real zone.
+        $this->assertSame('Europe/Amsterdam', (new \DateTimeZone($resolved))->getName());
+    }
+
+    /**
+     * A value that is already canonical must survive untouched.
+     */
+    public function testResolveTimeZoneKeepsCanonicalIdentifier(): void
+    {
+        $this->setConfigTimeZone('America/Vancouver');
+
+        $this->assertSame('America/Vancouver', Application::resolveTimeZone());
+    }
+
+    /**
+     * An unrecognisable value must fall back rather than propagate or throw, so a typo in the
+     * config cannot take the whole application down at boot.
+     */
+    public function testResolveTimeZoneFallsBackOnUnrecognisableValue(): void
+    {
+        $this->setConfigTimeZone('Not/A_Real Zone');
+
+        $resolved = Application::resolveTimeZone();
+
+        $this->assertNotSame('Not/A_Real Zone', $resolved);
+        $this->assertSame($resolved, (new \DateTimeZone($resolved))->getName());
+    }
+
+    //
+    // Group E: task filters (->when()/->skip()) are honoured before the task is constructed
+    //
+
+    /**
+     * Registration must be indifferent to a filter: a task with one is registered exactly like a task
+     * without, keeping its identity and its schedule. A filter decides whether a task runs, never
+     * whether it is known to the scheduler -- which is what keeps it visible in the scheduler listing.
+     */
+    public function testRegistrationIsUnaffectedByAFilter(): void
+    {
+        $schedule = new Schedule();
+
+        $plain = $schedule->call(fn () => null)->daily()->name('test.filter.absent');
+        $filtered = $schedule->call(fn () => null)->daily()->name('test.filter.present')->when(fn () => false);
+
+        $this->assertCount(2, $schedule->events(), 'A filtered task must still be registered.');
+        $this->assertSame(
+            ['test.filter.absent', 'test.filter.present'],
+            $this->registeredTaskNames($schedule),
+            'A filtered task must keep its own identity in the schedule.'
+        );
+        $this->assertSame(
+            $plain->getExpression(),
+            $filtered->getExpression(),
+            'A filter must not alter the task\'s schedule.'
+        );
+    }
+
+    /**
+     * The filter is consulted, not assumed: a task admitted by its filter must still run. Without
+     * this the rejection test below would also pass on a scheduler that refused everything.
+     */
+    public function testTaskWithAPassingFilterStillRuns(): void
+    {
+        $ran = 0;
+        $schedule = new Schedule();
+        $schedule
+            ->call(function () use (&$ran) {
+                $ran++;
+            })
+            ->everyMinute()
+            ->name('test.filter.passes')
+            ->when(fn () => true);
+
+        $this->runScheduleViaCli($schedule);
+
+        $this->assertSame(1, $ran, 'A task whose filter passes must run normally.');
+    }
+
+    /**
+     * The filter is evaluated when the scheduler runs, not when the task was registered, so a
+     * condition that changes at runtime -- an admin editing config.inc.php, say -- takes effect
+     * without the schedule being rebuilt.
+     */
+    public function testFilterIsEvaluatedPerRunNotAtRegistration(): void
+    {
+        $allowed = false;
+        $schedule = new Schedule();
+        $event = $schedule
+            ->call(fn () => null)
+            ->everyMinute()
+            ->name('test.filter.latebound')
+            // By reference on purpose: an arrow function would capture $allowed by value at
+            // registration, which is exactly the late binding this test is here to disprove.
+            ->when(function () use (&$allowed) {
+                return $allowed;
+            });
+
+        $container = PKPContainer::getInstance();
+
+        $this->assertFalse($event->filtersPass($container), 'The filter must reject while the condition is false.');
+
+        $allowed = true;
+
+        $this->assertTrue(
+            $event->filtersPass($container),
+            'The same event must be admitted once the condition flips, without re-registration.'
+        );
+    }
+
+    /**
+     * A due task whose filter rejects it must not run.
+     */
+    public function testFilteredTaskDoesNotRun(): void
+    {
+        $ran = 0;
+        $schedule = new Schedule();
+        $schedule
+            ->call(function () use (&$ran) {
+                $ran++;
+            })
+            ->everyMinute()
+            ->name('test.filtered.cli')
+            ->when(fn () => false);
+
+        $this->runScheduleViaCli($schedule);
+
+        $this->assertSame(0, $ran, 'A filtered task must not run even though it is due.');
+    }
+
+    //
+    // Helpers
+    //
+
+    /**
+     * Run the given schedule through Laravel's ScheduleRunCommand, as tools/scheduler.php run does.
+     *
+     * ScheduleRunCommand::handle() resolves the Schedule from the container via method injection;
+     * rebind it to the given schedule so only its tasks run (not the container's full core/plugin
+     * schedule). Process isolation makes the rebinding safe without restoring.
+     */
+    private function runScheduleViaCli(Schedule $schedule): void
+    {
         app()->instance(Schedule::class, $schedule);
 
         $input = new ArrayInput([]);
@@ -346,203 +526,20 @@ class SchedulerTest extends PKPTestCase
         $command->setInput($input);
         $command->setOutput(new OutputStyle($input, $output));
         $command->run($input, $output);
-
-        $this->assertTrue($ran, 'A due task should run via the CLI ScheduleRunCommand.');
-    }
-
-    //
-    // Group E: ScheduleServiceProvider shutdown guard + atomic interval claim
-    //
-
-    /**
-     * When the request context cannot be resolved (a non-context path such as
-     * /aws, a bot probe or a broken link), the web based task runner must bail without
-     * throwing and without claiming the interval, so a later valid request still runs it.
-     */
-    public function testShutdownRunnerBailsAndDoesNotClaimIntervalOnUnresolvableContext(): void
-    {
-        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
-
-        // A first path segment that is not a real journal makes PKPRouter::getContext()
-        // throw NotFoundHttpException, reproducing the #12833 trigger.
-        $this->mockRequest('nonexistentContext12833/index/index');
-
-        // Precondition: the chosen path really does make getContext() throw.
-        $threw = false;
-        try {
-            Application::get()->getRequest()->getContext();
-        } catch (\Throwable $e) {
-            $threw = true;
-        }
-        $this->assertTrue($threw, 'Test setup: the chosen path must make getContext() throw.');
-
-        $provider = new ScheduleServiceProvider(PKPContainer::getInstance());
-
-        // The shutdown runner must swallow the throw (no fatal at request shutdown)...
-        $this->invokeShutdownRunner($provider, time(), 60);
-
-        // ...and must NOT have claimed the interval, so the next valid request can still run.
-        $this->assertNull(
-            \Illuminate\Support\Facades\Cache::get('schedule::taskRunner::lastRunAt'),
-            'An unresolvable request context must not consume the task runner interval.'
-        );
     }
 
     /**
-     * The interval claim must be atomic and once-per-interval: the first caller wins and
-     * any concurrent caller within the interval is rejected. This is the guard that keeps
-     * a burst of requests after an interval boundary from each spinning up a task runner.
+     * Rewrite [general] time_zone in the in-memory config for the duration of a test.
+     *
+     * Goes through Config::getData() rather than the registry directly: it parses config.inc.php
+     * on first access, so the override lands on top of the real config instead of replacing it
+     * with a bare array (which would leave [general] installed unset, and so put the whole
+     * application into maintenance mode for the rest of the process).
      */
-    public function testIntervalClaimIsAtomicOncePerInterval(): void
+    private function setConfigTimeZone(string $timeZone): void
     {
-        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
-
-        $this->assertTrue(
-            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', time(), 60),
-            'The first request in an interval must win the claim.'
-        );
-        $this->assertFalse(
-            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', time(), 60),
-            'A concurrent request within the same interval must lose the claim.'
-        );
-    }
-
-    /**
-     * task_runner_interval = 0 ("run on every request") must still work: Cache::add() treats
-     * a <= 0 TTL as "do not store" and returns false, so the runner floors the TTL at 1 second.
-     */
-    public function testIntervalClaimTtlIsFlooredForZeroInterval(): void
-    {
-        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
-        $this->assertFalse(
-            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', time(), 0),
-            'A zero TTL must not store (documents why the runner floors the interval).'
-        );
-
-        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
-        $this->assertTrue(
-            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', time(), max(1, 0)),
-            'Flooring the TTL at 1 second keeps the runner working when the interval is 0.'
-        );
-    }
-
-    /**
-     * With a resolvable request context (site context here), the runner must pass the context
-     * guard, atomically claim the interval, and invoke the scheduler. The CLI console guard is
-     * bypassed via a proxied partial-mock container whose runningInConsole() returns false, so
-     * the production code is exercised unchanged.
-     */
-    public function testShutdownRunnerClaimsIntervalAndRunsOnResolvableContext(): void
-    {
-        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
-
-        // Site context: getContext() returns null (no throw), so the context guard passes.
-        $this->mockRequest();
-
-        $scheduler = Mockery::mock(Scheduler::class);
-        $scheduler->shouldReceive('registerPluginSchedules')->once();
-        $scheduler->shouldReceive('runWebBasedScheduleTaskRunner')->once();
-        app()->instance(Scheduler::class, $scheduler);
-
-        // Proxied partial mock: forwards everything to the real container except the CLI guard.
-        $app = Mockery::mock(PKPContainer::getInstance());
-        $app->shouldReceive('runningInConsole')->andReturn(false);
-
-        $provider = new ScheduleServiceProvider($app);
-        $this->invokeShutdownRunner($provider, time(), 60);
-
-        $this->assertNotNull(
-            \Illuminate\Support\Facades\Cache::get('schedule::taskRunner::lastRunAt'),
-            'A resolvable context must claim the interval and run.'
-        );
-    }
-
-    /**
-     * Anything that throws while registering/running schedules at request shutdown must be
-     * swallowed (logged, not fatal), since the response has already been flushed.
-     */
-    public function testShutdownRunnerSwallowsRunnerFailure(): void
-    {
-        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
-
-        $this->mockRequest();
-
-        $scheduler = Mockery::mock(Scheduler::class);
-        $scheduler->shouldReceive('registerPluginSchedules')->andThrow(new Exception('boom'));
-        $scheduler->shouldReceive('runWebBasedScheduleTaskRunner')->never();
-        app()->instance(Scheduler::class, $scheduler);
-
-        $app = Mockery::mock(PKPContainer::getInstance());
-        $app->shouldReceive('runningInConsole')->andReturn(false);
-
-        $provider = new ScheduleServiceProvider($app);
-
-        // Must not propagate the throwable out of the shutdown handler.
-        $this->invokeShutdownRunner($provider, time(), 60);
-
-        $this->assertTrue(true);
-    }
-
-    /**
-     * The interval claim must self-expire after the interval so the next cycle can re-claim it,
-     * giving the once-per-interval cadence. FileStore reads time via Carbon::now(), so the expiry
-     * is driven deterministically with Carbon::setTestNow().
-     */
-    public function testIntervalClaimExpiresAndIsReclaimableNextInterval(): void
-    {
-        \Illuminate\Support\Facades\Cache::forget('schedule::taskRunner::lastRunAt');
-
-        $start = Carbon::create(2026, 1, 1, 0, 0, 0);
-        Carbon::setTestNow($start);
-
-        $this->assertTrue(
-            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', $start->timestamp, 60),
-            'The first claim within a fresh interval must win.'
-        );
-        $this->assertFalse(
-            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', $start->timestamp, 60),
-            'A second claim within the same interval must lose.'
-        );
-        $this->assertSame(
-            $start->timestamp,
-            \Illuminate\Support\Facades\Cache::get('schedule::taskRunner::lastRunAt'),
-            'The stored timestamp must be readable while the claim is live.'
-        );
-
-        // Advance past the interval: the claim expires, the key reads as null, and it is re-claimable.
-        Carbon::setTestNow($start->copy()->addSeconds(61));
-        $this->assertNull(
-            \Illuminate\Support\Facades\Cache::get('schedule::taskRunner::lastRunAt'),
-            'An expired claim must read as null.'
-        );
-        $this->assertTrue(
-            \Illuminate\Support\Facades\Cache::add('schedule::taskRunner::lastRunAt', Carbon::now()->timestamp, 60),
-            'After expiry the next interval must be re-claimable.'
-        );
-
-        Carbon::setTestNow();
-    }
-
-    //
-    // Helpers
-    //
-
-    /**
-     * Invoke the protected ScheduleTaskRunner::runEvent() on the given event.
-     */
-    private function invokeRunEvent(ScheduleTaskRunner $runner, Event $event): void
-    {
-        $method = new ReflectionMethod($runner, 'runEvent');
-        $method->invoke($runner, $event);
-    }
-
-    /**
-     * Invoke the protected ScheduleServiceProvider shutdown runner directly.
-     */
-    private function invokeShutdownRunner(ScheduleServiceProvider $provider, int $currentTimestamp, int $taskRunnerInterval): void
-    {
-        $method = new ReflectionMethod($provider, 'runWebBasedScheduleTaskRunnerOnShutdown');
-        $method->invoke($provider, $currentTimestamp, $taskRunnerInterval);
+        $configData = & Config::getData();
+        $configData['general']['time_zone'] = $timeZone;
     }
 
     /**

@@ -15,7 +15,6 @@
 namespace PKP\task;
 
 use PKP\config\Config;
-use PKP\core\PKPContainer;
 use PKP\scheduledTask\ScheduledTask;
 
 class ProcessQueueJobs extends ScheduledTask
@@ -48,37 +47,14 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
-        // When processing queue jobs vai schedule task in CLI mode
-        // will process a limited number of jobs at a single time
-        if (PKPContainer::getInstance()->runningInConsole()) {
-            $maxJobCountToProcess = abs(Config::getVar('queues', 'job_runner_max_jobs', 30));
+        // Scheduled tasks are only run from the CLI, where a limited
+        // number of jobs are processed on each scheduler run
+        $maxJobCountToProcess = abs(Config::getVar('queues', 'job_runner_max_jobs', 30));
 
-            while ($jobBuilder->count() && $maxJobCountToProcess) {
-                $jobQueue->runJobInQueue();
-                --$maxJobCountToProcess;
-            }
-
-            return true;
+        while ($jobBuilder->count() && $maxJobCountToProcess) {
+            $jobQueue->runJobInQueue();
+            --$maxJobCountToProcess;
         }
-
-        // We don't need to process jobs when the job runner is enabled
-        if (Config::getVar('queues', 'job_runner', false)) {
-            return true;
-        }
-
-        // Will never run the job runner in CLI mode
-        if (PKPContainer::getInstance()->runningInConsole()) {
-            return true;
-        }
-
-        // Executes a limited number of jobs when processing a request
-        $jobRunner = app('jobRunner'); /** @var \PKP\queue\JobRunner $jobRunner */
-        $jobRunner
-            ->withMaxExecutionTimeConstrain()
-            ->withMaxJobsConstrain()
-            ->withMaxMemoryConstrain()
-            ->withEstimatedTimeToProcessNextJobConstrain()
-            ->processJobs($jobBuilder);
 
         return true;
     }

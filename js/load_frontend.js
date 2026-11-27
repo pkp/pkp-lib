@@ -90,14 +90,6 @@ import {
 	AccordionItem,
 	AccordionRoot,
 	AccordionTrigger,
-	DialogClose,
-	DialogContent,
-	DialogDescription,
-	DialogOverlay,
-	DialogPortal,
-	DialogRoot,
-	DialogTitle,
-	DialogTrigger,
 	PopoverAnchor,
 	PopoverArrow,
 	PopoverClose,
@@ -211,14 +203,6 @@ VueRegistry.registerComponent('PopoverContent', PopoverContent);
 VueRegistry.registerComponent('PopoverPortal', PopoverPortal);
 VueRegistry.registerComponent('PopoverRoot', PopoverRoot);
 VueRegistry.registerComponent('PopoverTrigger', PopoverTrigger);
-VueRegistry.registerComponent('DialogClose', DialogClose);
-VueRegistry.registerComponent('DialogContent', DialogContent);
-VueRegistry.registerComponent('DialogDescription', DialogDescription);
-VueRegistry.registerComponent('DialogOverlay', DialogOverlay);
-VueRegistry.registerComponent('DialogPortal', DialogPortal);
-VueRegistry.registerComponent('DialogRoot', DialogRoot);
-VueRegistry.registerComponent('DialogTitle', DialogTitle);
-VueRegistry.registerComponent('DialogTrigger', DialogTrigger);
 VueRegistry.registerComponent('NavigationMenuContent', NavigationMenuContent);
 VueRegistry.registerComponent('NavigationMenuIndicator', NavigationMenuIndicator);
 VueRegistry.registerComponent('NavigationMenuItem', NavigationMenuItem);
